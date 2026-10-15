@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin — Tournament Preparation Plan</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 680px) {
+      .page { padding: 24px 20px 40px; }
+    }
+
+    /* ── Header ── */
+    .doc-header {
+      border-bottom: 3px solid #2d7d46;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 {
+      margin: 0 0 8px;
+      font-size: 1.85rem;
+      color: #1f2328;
+    }
+    .doc-header .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.9rem;
+      color: #57606a;
+    }
+    .doc-header .meta span strong { color: #1f2328; }
+
+    /* ── Headings ── */
+    h2 {
+      font-size: 1.3rem;
+      color: #1f2328;
+      margin: 40px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #d0d7de;
+    }
+    h3 {
+      font-size: 1.05rem;
+      color: #2d7d46;
+      margin: 28px 0 10px;
+    }
+
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+
+    p { margin: 0 0 12px; }
+
+    ul, ol {
+      margin: 8px 0 14px;
+      padding-left: 1.5em;
+    }
+    li { margin-bottom: 4px; }
+    li > ul, li > ol { margin-top: 4px; margin-bottom: 4px; }
+
+    /* ── Priority table ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.93rem;
+      margin: 16px 0 24px;
+    }
+    thead th {
+      background: #2d7d46;
+      color: #ffffff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+    }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #ffffff; }
+    tbody td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #d0d7de;
+      vertical-align: top;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+
+    /* ── Week cards ── */
+    .week-card {
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      margin: 24px 0;
+      overflow: hidden;
+    }
+    .week-card .week-title {
+      background: #2d7d46;
+      color: #fff;
+      padding: 12px 20px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    .week-card .week-body {
+      padding: 20px 24px;
+    }
+    .week-card h3 {
+      margin-top: 18px;
+      margin-bottom: 6px;
+    }
+    .week-card h3:first-child { margin-top: 0; }
+
+    /* ── Checkpoint banner ── */
+    .checkpoint {
+      background: #dafbe1;
+      border-left: 4px solid #2d7d46;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 16px 0;
+      font-size: 0.93rem;
+      color: #1a4731;
+    }
+
+    /* ── Code / move notation ── */
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: #f0f4f8;
+      border: 1px solid #d0d7de;
+      border-radius: 4px;
+      padding: 1px 5px;
+      white-space: nowrap;
+    }
+    pre {
+      background: #1b1f24;
+      color: #adbac7;
+      border-radius: 8px;
+      padding: 16px 20px;
+      overflow-x: auto;
+      margin: 12px 0 20px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+    pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      white-space: pre;
+      color: inherit;
+      font-size: inherit;
+    }
+
+    /* ── Platform cards ── */
+    .platform {
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 14px 0;
+    }
+    .platform h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      color: #1f2328;
+    }
+    .platform h3 .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: #2d7d46;
+      color: #fff;
+      border-radius: 10px;
+      padding: 1px 8px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    /* ── Opening lines box ── */
+    .opening-box {
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin: 14px 0;
+    }
+    .opening-box h3 {
+      margin: 0 0 10px;
+      font-size: 0.95rem;
+      color: #1f2328;
+    }
+
+    /* ── Progress notes ── */
+    .notes-section {
+      background: #fffbf0;
+      border: 1px dashed #d4a017;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 14px 0;
+      color: #6a4c00;
+      font-size: 0.93rem;
+      font-style: italic;
+    }
+
+    em { font-style: italic; color: #57606a; }
+    strong { font-weight: 600; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin — Tournament Preparation Plan</h1>
+    <div class="meta">
+      <span><strong>Next tournament:</strong> ~1 month out</span>
+      <span><strong>Current rating:</strong> 1865</span>
+      <span><strong>Goal:</strong> Improve White piece play, sharpen tactical awareness, prepare vs Justin Huang</span>
+    </div>
+  </div>
+
+  <h2>Priority Areas</h2>
+  <p>Based on game analysis, these are the highest-impact areas to work on, ranked by urgency:</p>
+  <table>
+    <thead>
+      <tr><th>#</th><th>Area</th><th>Why</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>French Defense as White (Tarrasch)</td><td>Justin plays French every game — must be prepared</td></tr>
+      <tr><td>2</td><td>King safety / h-file puzzle patterns</td><td>Lost multiple games to Bxh2+ and h-file attacks</td></tr>
+      <tr><td>3</td><td>Rook endgame technique</td><td>Lost winnable/drawable endgames in NAYCC R7, R9, PAM R5</td></tr>
+      <tr><td>4</td><td>Passed pawn recognition</td><td>Allowed opponent passed pawns to decide multiple games</td></tr>
+      <tr><td>5</td><td>Nimzo-Indian Bxc3+ refinement</td><td>Sharpen his best Black weapon</td></tr>
+    </tbody>
+  </table>
+
+  <hr />
+  <h2>4-Week Schedule</h2>
+
+  <!-- Week 1 -->
+  <div class="week-card">
+    <p class="week-title">Week 1 — Opening Foundations</p>
+    <div class="week-body">
+      <p><strong>Goal:</strong> Get comfortable with the Tarrasch French as White and review Nimzo-Indian lines as Black.</p>
+
+      <h3>Daily (20–30 min): Opening study</h3>
+      <ul>
+        <li>Learn and drill the Tarrasch French: <code>1.e4 e6 2.d4 d5 3.Nd2</code>
+          <ul>
+            <li>Main line after <code>3...Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3</code></li>
+            <li>Plan: After <code>...f6 exf6</code>, play <code>Nf4</code> targeting d5, then <code>O-O</code>, <code>Qe2</code>, slow pressure</li>
+            <li><strong>Key rule:</strong> Do NOT push f4 or b4 without a clear forcing sequence behind it</li>
+          </ul>
+        </li>
+        <li>Review Nimzo-Indian <code>Bxc3+</code> with <code>...b6/...Ba6</code>:
+          <ul>
+            <li><code>1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.e3 O-O 5.Bd3 d5 6.a3 Bxc3+ 7.bxc3 b6 8.Nf3 Ba6</code></li>
+            <li>Refresh the <code>...Ne4</code> centralization plan and <code>...N4g3+</code> sacrifice pattern</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Online practice games (Lichess or Chess.com — Rapid 15+10)</h3>
+      <ul>
+        <li>Play 2–3 games per day specifically steering toward these openings</li>
+        <li>As White: try to reach the Tarrasch French position — even if opponent doesn't play French, practice the setup</li>
+        <li>As Black vs 1.d4: Nimzo-Indian every time, specifically the <code>Bxc3+</code> variation</li>
+        <li>After each game, review the opening phase in the game explorer</li>
+      </ul>
+
+      <h3>Puzzle work (15 min/day)</h3>
+      <ul>
+        <li>Puzzle theme: <strong>Pin and knight fork combos</strong> — warm-up, Austin is already good here</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Week 2 -->
+  <div class="week-card">
+    <p class="week-title">Week 2 — Tactical Drilling</p>
+    <div class="week-body">
+      <p><strong>Goal:</strong> Fix the recurring h-file king safety blind spot and sharpen calculation.</p>
+
+      <h3>Daily (20–30 min): Themed puzzles</h3>
+      <p>Focus puzzle themes in this order:</p>
+      <ol>
+        <li><strong>Bishop sacrifice on h2/h7 — both sides</strong>
+          <ul>
+            <li>Drill: Find <code>Bxh2+</code> and <code>Bxh7+</code> sacrifices (the pattern that burned Austin in NAYCC R2)</li>
+            <li>Also drill: How to <em>prevent</em> this sacrifice as the defender — learn when to play <code>h3</code> early</li>
+            <li>On Lichess: Puzzle themes → "Bishop sacrifice" / "Deflection"</li>
+            <li>On Chess.com: Puzzle Rush / Custom puzzles → bishop sacrifice</li>
+          </ul>
+        </li>
+        <li><strong>Pawn promotion threats</strong>
+          <ul>
+            <li>The <code>d3→d2</code> pawn march won against Austin in NAYCC R4 (vs Justin) and NAYCC R7</li>
+            <li>Drill: Puzzles where a passed pawn is one move from promotion and requires immediate defense</li>
+            <li>On Lichess: Puzzle theme → "Promotion" and "Advancing pawns"</li>
+          </ul>
+        </li>
+        <li><strong>King safety under open h/g files</strong>
+          <ul>
+            <li>Practice recognizing when the h-file is a danger <em>before</em> it gets opened</li>
+            <li>Drill: Puzzles involving <code>Rxh7</code>, <code>Qxh7+</code>, <code>Ng5-h7</code> attack patterns</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h3>Online games (Rapid 15+10)</h3>
+      <ul>
+        <li>2 games per day</li>
+        <li>Specific focus: Before each move, ask "is my king safe? is my opponent's king safe?"</li>
+        <li>If you lose to a kingside attack, review it immediately and identify the moment it went wrong</li>
+      </ul>
+
+      <div class="checkpoint">
+        ✓ <strong>Checkpoint:</strong> By end of Week 2, Austin should recognize <code>Bxh2+</code> setups and automatically consider <code>h3</code> prophylaxis when playing White.
+      </div>
+    </div>
+  </div>
+
+  <!-- Week 3 -->
+  <div class="week-card">
+    <p class="week-title">Week 3 — Endgame Technique</p>
+    <div class="week-body">
+      <p><strong>Goal:</strong> Convert won endgames and hold drawn ones — Austin dropped multiple half-points here.</p>
+
+      <h3>Rook endgames (highest priority)</h3>
+      <ul>
+        <li>Philidor position — defending a rook endgame, Rook on 6th rank technique</li>
+        <li>Lucena position — winning with an extra pawn, building a bridge</li>
+        <li>Drill: Lichess → Learn → Practice endgames → Rook endgames</li>
+        <li>Drill: Chess.com → Learn → Endgames</li>
+      </ul>
+
+      <h3>Passed pawn endgames</h3>
+      <ul>
+        <li>King and pawn vs King — Austin needs to know all cases cold</li>
+        <li>Rook vs passed pawn — key rule: Rook cuts off the king on the long side</li>
+        <li>Practice on Lichess endgame practice tool</li>
+      </ul>
+
+      <h3>Specific patterns from Austin's lost games</h3>
+      <ul>
+        <li>Recreate the endgame from NAYCC R7 (Beegala game) — White's d-pawn on d6, Austin needed to blockade. Practice similar positions.</li>
+        <li>Recreate PAM R5 (Vinales game) — rook endgame with Austin being passive. Find the active rook move Austin missed.</li>
+      </ul>
+
+      <h3>Online games (Rapid 10+5 this week — shorter to reach more endgames)</h3>
+      <ul>
+        <li>Intentionally trade queens early to force endgames</li>
+        <li>Goal: practice converting technical endgames under time pressure</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Week 4 -->
+  <div class="week-card">
+    <p class="week-title">Week 4 — Full Game Integration</p>
+    <div class="week-body">
+      <p><strong>Goal:</strong> Put it all together. Simulate tournament conditions.</p>
+
+      <h3>Format: Rapid 30+0 or 25+10 (closer to tournament time control)</h3>
+      <ul>
+        <li>2–3 games per day</li>
+        <li>Play the full repertoire: Tarrasch French as White, Nimzo-Indian as Black</li>
+        <li>No takebacks — treat each game as if it's the real tournament</li>
+      </ul>
+
+      <h3>Self-review routine after each game</h3>
+      <ol>
+        <li>Was the opening handled correctly? Where did I leave theory?</li>
+        <li>Did I check king safety on every move in the middlegame?</li>
+        <li>Was there a passed pawn I missed (mine or opponent's)?</li>
+        <li>In the endgame — was I active or passive?</li>
+      </ol>
+
+      <h3>Puzzle work this week</h3>
+      <ul>
+        <li>Mixed puzzles (no specific theme) — simulates real game conditions</li>
+        <li>Target: Puzzle rating above 1900 on Lichess or Chess.com before the tournament</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr />
+  <h2>Recommended Platforms and Tools</h2>
+
+  <div class="platform">
+    <h3>Lichess <span class="badge">Free · Recommended</span></h3>
+    <ul>
+      <li><strong>Opening practice:</strong> lichess.org/learn and the opening explorer
+        <ul><li>Search <code>1.e4 e6 2.d4 d5 3.Nd2</code> to study Tarrasch French positions</li></ul>
+      </li>
+      <li><strong>Puzzle trainer:</strong> lichess.org/training — supports themed puzzles
+        <ul><li>Bookmark themes: "Bishop sacrifice", "Promotion", "King safety", "Rook endgame"</li></ul>
+      </li>
+      <li><strong>Endgame practice:</strong> lichess.org/practice — structured endgame modules</li>
+      <li><strong>Game analysis:</strong> after each practice game, use Lichess engine analysis to find missed moves</li>
+    </ul>
+  </div>
+
+  <div class="platform">
+    <h3>Chess.com</h3>
+    <ul>
+      <li><strong>Puzzle Rush:</strong> daily timed puzzle sets — good for speed and pattern recognition</li>
+      <li><strong>Opening explorer:</strong> chess.com/explorer — look up Tarrasch French lines</li>
+      <li><strong>Lessons:</strong> has structured endgame and opening courses</li>
+    </ul>
+  </div>
+
+  <div class="platform">
+    <h3>ChessTemps (chesstempo.com)</h3>
+    <ul>
+      <li>Best-in-class themed puzzle database</li>
+      <li>Use "Endgame training" section specifically for rook endgames</li>
+    </ul>
+  </div>
+
+  <hr />
+  <h2>Opening Lines to Have Ready</h2>
+
+  <div class="opening-box">
+    <h3>As White — vs French Defense (for Justin)</h3>
+    <pre><code>1.e4 e6 2.d4 d5 3.Nd2 Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6
+7.Ne2 cxd4 8.cxd4 f6 9.exf6 Nxf6 → Nf4 targeting d5</code></pre>
+    <p>Know: The Nf4–d5 maneuver, O-O, Qe2, Rd1 setup. <strong>Do NOT play f4 early.</strong></p>
+  </div>
+
+  <div class="opening-box">
+    <h3>As Black — vs 1.d4 (for Justin)</h3>
+    <pre><code>1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.e3 O-O 5.Bd3 d5
+6.a3 Bxc3+ 7.bxc3 b6 8.Nf3 Ba6 9.cxd5 exd5</code></pre>
+    <p>Know: <code>...Ne4</code> centralization, <code>...Nc5</code> hitting c4, <code>...N4g3+</code> sacrifice pattern.</p>
+  </div>
+
+  <hr />
+  <h2>Tracking Progress</h2>
+  <p>Add notes below after completing each week.</p>
+
+  <h3>Week 1 Notes</h3>
+  <div class="notes-section">(add notes here after completing)</div>
+
+  <h3>Week 2 Notes</h3>
+  <div class="notes-section">(add notes here after completing)</div>
+
+  <h3>Week 3 Notes</h3>
+  <div class="notes-section">(add notes here after completing)</div>
+
+  <h3>Week 4 Notes</h3>
+  <div class="notes-section">(add notes here after completing)</div>
+
+  <hr />
+  <h2>Additional Notes</h2>
+  <div class="notes-section">(add anything else relevant as preparation continues)</div>
+
+</div>
+</body>
+</html>
