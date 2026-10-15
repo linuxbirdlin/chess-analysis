@@ -30,7 +30,9 @@ chess-analysis/
 │
 ├── austin/
 │   ├── naycc2025/             # NAYCC 2025 games (9 games, PGN format)
+│   │   └── review.html        # Tournament review report (shareable)
 │   └── pam2026/               # PAM 2026 games (7 games, non-standard format)
+│       └── review.html        # Tournament review report (shareable)
 │
 └── justin/
     ├── canadaclosed2026/      # Canada Closed 2026 games (9 games, PGN format)

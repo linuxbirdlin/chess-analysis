@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin — PAM 2026 Tournament Review</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header {
+      border-bottom: 3px solid #2d7d46;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.75rem; }
+    .doc-header .subtitle { color: #57606a; font-size: 0.95rem; margin: 0 0 6px; }
+    .doc-header .note { color: #cf2222; font-size: 0.85rem; margin: 0 0 14px; }
+    .doc-header .back-link {
+      display: inline-block;
+      font-size: 0.875rem;
+      color: #2d7d46;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    .scoreboard {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .score-card {
+      flex: 1;
+      min-width: 130px;
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .score-card .label { font-size: 0.78rem; color: #57606a; text-transform: uppercase; letter-spacing: 0.04em; }
+    .score-card .value { font-size: 1.5rem; font-weight: 700; color: #1f2328; line-height: 1.2; margin-top: 2px; }
+    .score-card.highlight .value { color: #2d7d46; }
+    .score-card.warn .value { color: #cf2222; }
+
+    h2 {
+      font-size: 1.25rem;
+      color: #1f2328;
+      margin: 40px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #d0d7de;
+    }
+    h3 { font-size: 1.05rem; color: #2d7d46; margin: 22px 0 8px; }
+    h4 { font-size: 0.95rem; color: #1f2328; font-weight: 600; margin: 16px 0 6px; }
+
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
+    li { margin-bottom: 4px; }
+    li > ul { margin-top: 4px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 14px 0 24px;
+    }
+    thead th {
+      background: #2d7d46;
+      color: #fff;
+      padding: 9px 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 8px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .win  { color: #2d7d46; font-weight: 600; }
+    .loss { color: #cf2222; font-weight: 600; }
+    .draw { color: #7a5500; font-weight: 600; }
+
+    .section-card {
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      margin: 18px 0;
+      overflow: hidden;
+    }
+    .section-card .card-title {
+      padding: 11px 18px;
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0;
+      color: #fff;
+    }
+    .card-green  { background: #2d7d46; }
+    .card-red    { background: #b91c1c; }
+    .card-blue   { background: #1a5276; }
+    .card-orange { background: #9a5a00; }
+    .section-card .card-body { padding: 18px 22px; }
+
+    .good-box {
+      background: #dafbe1;
+      border-left: 4px solid #2d7d46;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #1a4731;
+    }
+    .warn-box {
+      background: #fff5f5;
+      border-left: 4px solid #cf2222;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #7a0000;
+    }
+    .tip-box {
+      background: #fff8e6;
+      border-left: 4px solid #d4a017;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #7a4f00;
+    }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: #f0f4f8;
+      border: 1px solid #d0d7de;
+      border-radius: 4px;
+      padding: 1px 5px;
+      white-space: nowrap;
+    }
+
+    em { font-style: italic; color: #57606a; }
+    strong { font-weight: 600; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>PAM 2026 — Tournament Review</h1>
+    <p class="subtitle">Pan-American Youth Chess Festival · O14 · July 27 – Aug 1, 2026 · 9 rounds Swiss</p>
+    <p class="note">Note: Rounds 1 and 2 PGN files are missing from this folder. Review covers rounds 3–9 (7 games).</p>
+    <a class="back-link" href="../../austin-prep.html">← Back to Training Plan</a>
+  </div>
+
+  <!-- Scoreboard -->
+  <div class="scoreboard">
+    <div class="score-card"><div class="label">Rating</div><div class="value">1865</div></div>
+    <div class="score-card"><div class="label">Result (R3–9)</div><div class="value">3W–2L–2D</div></div>
+    <div class="score-card highlight"><div class="label">As White</div><div class="value">2W–0L–1D</div></div>
+    <div class="score-card warn"><div class="label">As Black</div><div class="value">1W–2L–1D</div></div>
+    <div class="score-card"><div class="label">Score % (R3–9)</div><div class="value">57%</div></div>
+  </div>
+
+  <div class="tip-box">
+    <strong>Context:</strong> Austin entered PAM 2026 rated 1865 — down 103 points from NAYCC 2025 (1968). This tournament included higher-rated opposition (up to 2137), largely South American players. His 57% score in available games is a modest improvement from NAYCC's 44%.
+  </div>
+
+  <!-- Game log -->
+  <h2>Game Log (Rounds 3–9)</h2>
+  <table>
+    <thead>
+      <tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Result</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>3</td><td>White</td><td>Villalba, Pacha</td><td>1731</td><td>Exchange Caro-Kann</td><td class="win">Win</td></tr>
+      <tr><td>4</td><td>Black</td><td>Alvarez Alburquerque, Leandro</td><td>2069</td><td>Sicilian (Kan-style)</td><td class="draw">Draw</td></tr>
+      <tr><td>5</td><td>Black</td><td>Vinales Gonzalez, Enzo</td><td>2091</td><td>Reti/English (1.a3)</td><td class="loss">Loss</td></tr>
+      <tr><td>6</td><td>White</td><td>Marin Marin, Cristobal</td><td>1694</td><td>French Advanced (Tarrasch)</td><td class="win">Win</td></tr>
+      <tr><td>7</td><td>Black</td><td>Fernandez Herrera, Andres</td><td>2137</td><td>Sicilian Najdorf-ish</td><td class="loss">Loss</td></tr>
+      <tr><td>8</td><td>White</td><td>Dergan Lobos, Ian</td><td>1678</td><td>Exchange Caro-Kann</td><td class="draw">Draw</td></tr>
+      <tr><td>9</td><td>Black</td><td>Gomez Ramirez, Geronimo</td><td>1652</td><td>Sicilian</td><td class="win">Win</td></tr>
+    </tbody>
+  </table>
+
+  <hr />
+
+  <!-- Section 1: What Austin did well -->
+  <h2>1. What Austin Did Well</h2>
+
+  <div class="section-card">
+    <p class="card-title card-green">Exchange Caro-Kann as White — Solid and reliable</p>
+    <div class="card-body">
+      <p>Austin played the Exchange Caro-Kann (<code>1.e4 c6 2.d4 d5 3.exd5 cxd5 4.Bd3</code>) in two games and scored 1W-0L-1D. This was his most consistent white opening of the tournament.</p>
+
+      <h4>Round 3 vs Villalba (1731) — 17-move win</h4>
+      <p>Austin played a crisp attacking game: <code>5.c3 Qc7 6.h3 e6 7.Nf3 Bd6 8.O-O Nge7 9.Re1 Bd7 10.a4</code> and after <code>13.Nxe5 Qxc3 16.Bd2 Qc7 17.Qh5+</code> he delivered a devastating fork/attack winning immediately. This was clinical play — one of his best short games.</p>
+
+      <h4>Round 8 vs Dergan Lobos (1678) — Drew from better position</h4>
+      <p>Austin reached a good position but settled for a draw on move 31. His Exchange Caro-Kann setup was solid and he had a space advantage with <code>Ng3</code>, <code>Nh5</code>, and <code>f3-f4</code>. The draw was slightly disappointing given the rating difference.</p>
+
+      <div class="good-box">
+        <strong>Takeaway:</strong> The Exchange Caro-Kann is a well-chosen weapon. Austin understands the resulting structures and can create quick threats. He should keep this as a primary White option and work on converting the endgames rather than settling for draws.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <p class="card-title card-green">French Advanced as White (Round 6) — Improved execution</p>
+    <div class="card-body">
+      <p>Against Marin Marin (1694), Austin played <code>1.e4 e6 2.d4 d5 3.Nd2</code> — notably switching to the Tarrasch setup — and converted a win with the plan <code>h4-h5</code> space gain + <code>Ng5</code> attack. He reached a winning rook endgame on move 41.</p>
+      <div class="good-box">
+        <strong>Takeaway:</strong> When Austin controls the pace of the French (Tarrasch + h4 space), he wins. Compare this to NAYCC R4 where he overextended with b4/f5. The difference in this game was patience — he built up before pushing.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <p class="card-title card-green">Sicilian as Black — Strong draw vs 2069-rated player (Round 4)</p>
+    <div class="card-body">
+      <p>Austin played <code>1.e4 c5 2.Nf3 e6 3.Be2 d5</code> — a French-Sicilian hybrid. Despite facing a player 200+ points higher, Austin navigated a complex middlegame and liquidated into a drawn rook endgame by move 34. This was an excellent competitive result — holding a 2069-rated opponent is a strong performance at his rating.</p>
+      <div class="good-box">
+        <strong>Takeaway:</strong> Austin's Sicilian handling as Black is solid. He is comfortable in semi-open, slightly unbalanced positions. His draw vs Alvarez (2069) is the best single result of the tournament.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <p class="card-title card-green">Sicilian as Black — Tactical win (Round 9)</p>
+    <div class="card-body">
+      <p>Against Gomez Ramirez (1652), Austin played <code>1.e4 c5 2.Nc3 Nc6 3.Bc4 e6</code> and went on to win with a combination involving <code>...Bxb2, ...Nd4, ...Qa3</code> and finally <code>...Rh2+</code> — a forcing sequence that left White helpless. Clean tactical execution to close the tournament.</p>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Section 2: Struggles -->
+  <h2>2. Openings Austin Didn't Handle Well</h2>
+
+  <div class="section-card">
+    <p class="card-title card-red">Reti/English as Black (Round 5 vs Vinales, 2091) — Lost</p>
+    <div class="card-body">
+      <p>Vinales played the unusual <code>1.a3</code> Reti setup leading to <code>1.a3 Nf6 2.Nf3 d5 3.g3 c5 4.Bg2 Nc6 5.O-O e6 6.d4</code>. Austin's pieces became passive in the middlegame and White's rook invasion via <code>Rg8+</code>, <code>Rc7</code> eventually won. Austin's <code>...Bf8</code> retreat on move 37 was a sign of how passive his position had become.</p>
+      <div class="warn-box">
+        <strong>Problem:</strong> This is the same weakness from NAYCC R9 — Austin has no confident plan against English/Reti setups. When he doesn't know the structure, his pieces become passive and he can't create counterplay. This has now cost a point in two consecutive tournaments.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <p class="card-title card-red">Sicilian as Black vs 2137 (Round 7 vs Fernandez) — Lost</p>
+    <div class="card-body">
+      <p>Against Fernandez Herrera (2137), Austin played <code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 Nc6 6.Ndb5 Bc5</code> — a sharp Sicilian line. White played <code>7.Bf4 O-O 8.Bc7</code> winning the exchange favorably. Austin tried to complicate but White's extra material was decisive by move 26.</p>
+      <div class="warn-box">
+        <strong>Problem:</strong> Against opponents rated 2100+, Austin's opening preparation runs out quickly and he cannot create sufficient counterplay. The <code>6.Ndb5</code> line is theoretically demanding — Austin may not have been prepared for <code>8.Bc7</code> winning the exchange.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <p class="card-title card-orange">Round 8 Draw — Missed win vs lower-rated opponent</p>
+    <div class="card-body">
+      <p>Against Dergan Lobos (1678), Austin had a clear space advantage but agreed to (or allowed) a draw on move 31 in a position where he had a kingside initiative with <code>f4-f5</code> and active rooks. Against a player 187 points lower, this should have been a win.</p>
+      <div class="tip-box">
+        <strong>Opportunity missed:</strong> Austin's decision-making in clearly better positions against lower-rated players needs work. He should be more ambitious when he has a concrete advantage.
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Section 3: Endgames -->
+  <h2>3. Endgame Analysis</h2>
+
+  <div class="section-card">
+    <p class="card-title card-green">Endgames Austin handled well</p>
+    <div class="card-body">
+      <h4>Round 4 — Drawn rook endgame vs 2069 (excellent)</h4>
+      <p>After heavy piece exchanges, Austin defended a rook endgame where Alvarez had slightly more active pieces. Austin traded into a theoretically drawn position and held without difficulty. His endgame composure against a much higher-rated player was impressive.</p>
+
+      <h4>Round 6 — Rook endgame conversion (Round 6 win)</h4>
+      <p>After winning material in the middlegame, Austin converted a rook + pawn endgame against Marin Marin, pushing his e-pawn to e6 and activating his rook correctly.</p>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <p class="card-title card-red">Endgames Austin struggled with</p>
+    <div class="card-body">
+      <h4>Round 5 — Passive rook endgame (loss)</h4>
+      <p>Against Vinales (2091), Austin's rook had no active files and his bishop was restricted. He couldn't generate counterplay and slowly lost material. The key error was not activating the rook immediately after the queen exchange — instead Austin played passively and allowed White to dominate all open files.</p>
+      <div class="warn-box">
+        <strong>Pattern recurring from NAYCC:</strong> When Austin's pieces are passive in the endgame, he doesn't know how to activate them. Active rook play — putting the rook behind passed pawns, creating threats on the 7th rank — is the missing skill.
+      </div>
+
+      <h4>Round 8 — Failure to convert winning endgame</h4>
+      <p>Austin had a clearly better position heading into the endgame but agreed to a draw. This suggests he either misjudged the position as equal or lacked confidence in converting. Against a 1678-rated opponent this is a missed full point.</p>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Section 4: Next Steps -->
+  <h2>4. Immediate Next Steps from This Tournament</h2>
+  <ol>
+    <li><strong>Add rounds 1 and 2 PGN files</strong> when available — the tournament picture is incomplete without them.</li>
+    <li><strong>Solve the English/Reti problem.</strong> This has now cost Austin points in back-to-back tournaments (NAYCC R9 and PAM R5). Prepare a concrete plan: <code>1.c4 → 1...e5</code> or <code>1.Nf3 → 1...d5 2.g3 → 2...c5</code> are reliable setups.</li>
+    <li><strong>Study Sicilian theory for the 6.Ndb5 line.</strong> This tripped Austin up vs Fernandez. If he's going to play the Sicilian with <code>...Nc6</code>, he must know <code>8.Bc7</code> and its responses.</li>
+    <li><strong>Convert winning endgames vs lower-rated players.</strong> A draw in R8 (vs 1678) suggests Austin either misjudged or lacked technique. Practice "winning from winning positions" — identify the winning plan and execute without hesitation.</li>
+    <li><strong>Active rook practice.</strong> Two endgame losses (PAM R5 and NAYCC R7, R9) share the same root cause: passive rooks. The "Rook on the 7th rank" and "Rook behind the passed pawn" are the two principles to drill.</li>
+  </ol>
+
+  <hr />
+
+  <!-- Section 5: Recommendations -->
+  <h2>5. Detailed Recommendations</h2>
+
+  <div class="section-card">
+    <p class="card-title card-blue">Opening Recommendations</p>
+    <div class="card-body">
+      <h4>As White — consolidate what's working</h4>
+      <ul>
+        <li><strong>Keep:</strong> Exchange Caro-Kann — solid results, suits Austin's style, quick development</li>
+        <li><strong>Keep:</strong> French Tarrasch (3.Nd2) — R6 win validated this over the French Advanced</li>
+        <li><strong>Develop:</strong> Need a consistent Sicilian weapon as White — Alapin (2.c3) removes the sharp theory burden</li>
+      </ul>
+      <h4>As Black — add English/Reti preparation</h4>
+      <ul>
+        <li><strong>Keep:</strong> Sicilian — draws vs 2069 and wins vs lower-rated confirm it works</li>
+        <li><strong>Add:</strong> Prepare <code>1.c4 e5</code> and <code>1.Nf3 d5 2.g3 Nf6 3.Bg2 c5</code> — both are well-tested, active setups that avoid the passive piece problems seen in R5</li>
+        <li><strong>Note:</strong> The Nimzo-Indian (primary Black vs 1.d4 weapon) was not needed in this tournament — keep it sharp for the next one</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <p class="card-title card-blue">Endgame Training Focus</p>
+    <div class="card-body">
+      <ul>
+        <li><strong>Rook on the 7th rank</strong> — the most powerful rook activity principle; drill positions where placing the rook on the 7th creates immediate threats</li>
+        <li><strong>Converting a pawn-up rook endgame</strong> — Austin had this in R8 and drew; practice the technique for converting R+P vs R when up one pawn</li>
+        <li><strong>Rook endgame defense</strong> — Philidor position specifically; Austin must know when to draw and when to fight</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <p class="card-title card-blue">Mindset Recommendation</p>
+    <div class="card-body">
+      <p>Austin's 57% score in this tournament is an improvement over NAYCC's 44%. More importantly, his draw vs a 2069-rated player shows he can compete at a higher level when prepared.</p>
+      <p>The rating gap (1865 vs field including 2000+ players) reflects the real challenge. Austin should focus on:</p>
+      <ul>
+        <li>Winning all games against sub-1750 players — these are the "must-win" games</li>
+        <li>Drawing or better against 1750–1950 — these build rating and confidence</li>
+        <li>Using 2000+ games as learning opportunities, not pressure situations</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Section 6: Cross-tournament patterns -->
+  <h2>6. Cross-Tournament Patterns (NAYCC → PAM)</h2>
+
+  <div class="tip-box">
+    <strong>Persistent weakness — English/Reti as Black:</strong> Lost in NAYCC R9 and PAM R5. This is now a confirmed gap that needs to be addressed before the next tournament.
+  </div>
+  <div class="tip-box">
+    <strong>Persistent weakness — Passive endgame pieces:</strong> Multiple losses in both tournaments share this root cause. This is the single highest-priority endgame skill to develop.
+  </div>
+  <div class="good-box">
+    <strong>Improvement — White piece play:</strong> PAM White record (2W-0L-1D) is significantly better than NAYCC (1W-3L). The Exchange Caro-Kann and French Tarrasch are providing better structures than the Two Knights and Sicilian h4-h5-h6 systems used at NAYCC.
+  </div>
+  <div class="good-box">
+    <strong>Improvement — Performance vs higher-rated:</strong> The draw vs Alvarez (2069) is Austin's best result against a 2000+ player across both tournaments. This suggests growth in competitive composure.
+  </div>
+
+</div>
+</body>
+</html>
