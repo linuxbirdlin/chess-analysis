@@ -9,4 +9,4 @@ The project in this folder is trying to help Austin to prepare the next big ches
 
 ## Austin's Preparation Plan (shareable)
 
-https://htmlpreview.github.io/?https://github.com/linuxbirdlin/chess-analysis/blob/main/austin-prep.html
+https://linuxbirdlin.github.io/chess-analysis/austin-prep.html

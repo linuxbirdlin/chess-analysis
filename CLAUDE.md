@@ -66,7 +66,7 @@ Lin, Austin (1865) - Villalba, Pacha (1731)
 ### HTML preparation plan
 `austin-prep.html` is a hand-styled HTML version of `austin-prep.md`, shareable via:
 ```
-https://htmlpreview.github.io/?https://github.com/linuxbirdlin/chess-analysis/blob/main/austin-prep.html
+https://linuxbirdlin.github.io/chess-analysis/austin-prep.html
 ```
 When `austin-prep.md` is updated, regenerate the HTML with pandoc and re-apply the custom styles:
 ```bash
