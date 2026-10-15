@@ -23,7 +23,7 @@ chess-analysis/
 ├── CLAUDE.md                  # This file — agent instructions
 ├── austin-analysis.md         # Austin's detailed player analysis
 ├── justin-analysis.md         # Justin's detailed player analysis
-├── matchup-plan.md            # Austin vs Justin preparation plan
+├── matchup-justin.md          # Austin vs Justin preparation plan
 │
 ├── austin/
 │   ├── naycc2025/             # NAYCC 2025 games (9 games, PGN format)
@@ -76,7 +76,7 @@ When new games are added for Austin or an opponent:
    - Any new opening patterns observed
    - Notable tactical or strategic moments
 
-3. Update `matchup-plan.md` if new games reveal meaningful pattern changes.
+3. Update `matchup-{opponent-name}.md` if new games reveal meaningful pattern changes.
 
 4. Note the tournament name convention: use lowercase with no spaces (e.g., `naycc2025`, `pam2026`, `canadaclosed2026`).
 
@@ -95,7 +95,7 @@ When a new opponent folder is added:
    - Strategic patterns
    - Key game summaries
    - Summary profile table
-4. Create or update `matchup-plan.md` (or create a new `{opponent-name}-matchup.md`) with:
+4. Create `matchup-{opponent-name}.md` (e.g., `matchup-justin.md`, `matchup-alex.md`) with:
    - Analysis by color (Austin White and Austin Black)
    - Specific opening recommendations
    - Key tactical themes to prepare
