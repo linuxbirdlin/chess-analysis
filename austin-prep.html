@@ -210,18 +210,51 @@
       font-style: italic;
     }
 
-    .doc-header .matchup-link {
-      display: inline-block;
-      margin-top: 14px;
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: #ffffff;
-      background: #2d7d46;
-      padding: 6px 14px;
-      border-radius: 6px;
-      text-decoration: none;
+    /* ── Index nav cards ── */
+    .index-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 0 0 32px;
     }
-    .doc-header .matchup-link:hover { background: #236138; }
+    .index-nav a {
+      flex: 1;
+      min-width: 180px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 16px 18px;
+      text-decoration: none;
+      color: inherit;
+      background: #f6f8fa;
+      transition: box-shadow .15s, border-color .15s;
+    }
+    .index-nav a:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-color: #2d7d46; }
+    .index-nav a .nav-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #57606a;
+      margin-bottom: 4px;
+    }
+    .index-nav a .nav-title {
+      font-weight: 700;
+      font-size: 0.98rem;
+      color: #1f2328;
+      margin-bottom: 6px;
+    }
+    .index-nav a .nav-sub {
+      font-size: 0.82rem;
+      color: #57606a;
+      margin-top: auto;
+    }
+    .index-nav a .nav-cta {
+      font-size: 0.82rem;
+      color: #2d7d46;
+      font-weight: 600;
+      margin-top: 8px;
+    }
 
     em { font-style: italic; color: #57606a; }
     strong { font-weight: 600; }
@@ -237,8 +270,29 @@
       <span><strong>Current rating:</strong> 1865</span>
       <span><strong>Goal:</strong> Improve White piece play, sharpen tactical awareness, prepare vs Justin Huang</span>
     </div>
-    <a class="matchup-link" href="matchup-justin.html">View Austin vs Justin Matchup Plan →</a>
   </div>
+
+  <!-- Index nav -->
+  <nav class="index-nav" aria-label="All resources">
+    <a href="matchup-justin.html">
+      <div class="nav-label">Matchup Plan</div>
+      <div class="nav-title">Austin vs Justin Huang</div>
+      <div class="nav-sub">Opening prep · White &amp; Black · Psychological notes</div>
+      <div class="nav-cta">View matchup plan →</div>
+    </a>
+    <a href="austin/naycc2025/review.html">
+      <div class="nav-label">Tournament Review</div>
+      <div class="nav-title">NAYCC 2025</div>
+      <div class="nav-sub">Kingston CAN · 9 rounds · Rating: 1968 · 4W–5L</div>
+      <div class="nav-cta">View review →</div>
+    </a>
+    <a href="austin/pam2026/review.html">
+      <div class="nav-label">Tournament Review</div>
+      <div class="nav-title">PAM 2026</div>
+      <div class="nav-sub">Pan-American Youth · 9 rounds · Rating: 1865 · 3W–2L–2D</div>
+      <div class="nav-cta">View review →</div>
+    </a>
+  </nav>
 
   <h2>Priority Areas</h2>
   <p>Based on game analysis, these are the highest-impact areas to work on, ranked by urgency:</p>
