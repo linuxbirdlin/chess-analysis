@@ -22,7 +22,8 @@ chess-analysis/
 ├── readme.md                  # Project goals and task descriptions
 ├── CLAUDE.md                  # This file — agent instructions
 ├── austin-analysis.md         # Austin's detailed player analysis
-├── austin-prep.md             # Austin's 1-month training and exercise plan
+├── austin-prep.md             # Austin's 1-month training and exercise plan (source)
+├── austin-prep.html           # Shareable HTML version of austin-prep.md
 ├── justin-analysis.md         # Justin's detailed player analysis
 ├── matchup-justin.md          # Austin vs Justin preparation plan
 │
@@ -61,6 +62,18 @@ Lin, Austin (1865) - Villalba, Pacha (1731)
 ### File naming
 - NAYCC/Canada Closed files: `game_XXXXXXX.pgn` (game IDs from the tournament system)
 - PAM 2026 files: `round{N}.pgn` (round number)
+
+### HTML preparation plan
+`austin-prep.html` is a hand-styled HTML version of `austin-prep.md`, shareable via:
+```
+https://htmlpreview.github.io/?https://github.com/linuxbirdlin/chess-analysis/blob/main/austin-prep.html
+```
+When `austin-prep.md` is updated, regenerate the HTML with pandoc and re-apply the custom styles:
+```bash
+pandoc austin-prep.md --standalone --metadata title="Austin Lin — Tournament Preparation Plan" -o austin-prep.html
+# then replace the <style> block with the custom CSS from the existing austin-prep.html
+```
+Or edit `austin-prep.html` directly if the change is small (e.g., filling in weekly notes).
 
 ---
 
