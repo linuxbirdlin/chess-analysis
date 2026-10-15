@@ -182,26 +182,45 @@
     <div class="score-card warn"><div class="label">As White</div><div class="value">1W – 3L</div></div>
     <div class="score-card highlight"><div class="label">As Black</div><div class="value">3W – 2L</div></div>
     <div class="score-card"><div class="label">Score %</div><div class="value">44%</div></div>
+    <div class="score-card"><div class="label">Avg. Accuracy</div><div class="value" id="naycc-avg-acc">—</div></div>
   </div>
 
   <!-- Game log -->
   <h2>Game Log</h2>
   <table>
     <thead>
-      <tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Result</th></tr>
+      <tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Result</th><th>Accuracy</th></tr>
     </thead>
     <tbody>
-      <tr><td>1</td><td>Black</td><td>Su, Jayden</td><td>1627</td><td>Nimzo-Indian E32</td><td class="win">Win</td></tr>
-      <tr><td>2</td><td>White</td><td>Verma, Darsh</td><td>1765</td><td>Two Knights C58</td><td class="loss">Loss</td></tr>
-      <tr><td>3</td><td>Black</td><td>Chitta, Adithya</td><td>1685</td><td>Nimzo-Indian E49</td><td class="win">Win</td></tr>
-      <tr><td>4</td><td>White</td><td>Huang, Justin</td><td>1811</td><td>French Advanced C02</td><td class="loss">Loss</td></tr>
-      <tr><td>5</td><td>Black</td><td>Chen, Ray</td><td>1713</td><td>Nimzo-Indian E51</td><td class="win">Win</td></tr>
-      <tr><td>6</td><td>White</td><td>Fu, Odyssey</td><td>1722</td><td>Sicilian B41</td><td class="loss">Loss</td></tr>
-      <tr><td>7</td><td>Black</td><td>Beegala, Keshav</td><td>1758</td><td>Nimzo-Indian E49</td><td class="loss">Loss</td></tr>
-      <tr><td>8</td><td>White</td><td>Jagath, Roshan</td><td>—</td><td>Rossolimo Sicilian B51</td><td class="win">Win</td></tr>
-      <tr><td>9</td><td>Black</td><td>Li, Aiden</td><td>1676</td><td>English A13</td><td class="loss">Loss</td></tr>
+      <tr><td>1</td><td>Black</td><td>Su, Jayden</td><td>1627</td><td>Nimzo-Indian E32</td><td class="win">Win</td><td class="accuracy" data-val="">—</td></tr>
+      <tr><td>2</td><td>White</td><td>Verma, Darsh</td><td>1765</td><td>Two Knights C58</td><td class="loss">Loss</td><td class="accuracy" data-val="">—</td></tr>
+      <tr><td>3</td><td>Black</td><td>Chitta, Adithya</td><td>1685</td><td>Nimzo-Indian E49</td><td class="win">Win</td><td class="accuracy" data-val="">—</td></tr>
+      <tr><td>4</td><td>White</td><td>Huang, Justin</td><td>1811</td><td>French Advanced C02</td><td class="loss">Loss</td><td class="accuracy" data-val="">—</td></tr>
+      <tr><td>5</td><td>Black</td><td>Chen, Ray</td><td>1713</td><td>Nimzo-Indian E51</td><td class="win">Win</td><td class="accuracy" data-val="">—</td></tr>
+      <tr><td>6</td><td>White</td><td>Fu, Odyssey</td><td>1722</td><td>Sicilian B41</td><td class="loss">Loss</td><td class="accuracy" data-val="">—</td></tr>
+      <tr><td>7</td><td>Black</td><td>Beegala, Keshav</td><td>1758</td><td>Nimzo-Indian E49</td><td class="loss">Loss</td><td class="accuracy" data-val="">—</td></tr>
+      <tr><td>8</td><td>White</td><td>Jagath, Roshan</td><td>—</td><td>Rossolimo Sicilian B51</td><td class="win">Win</td><td class="accuracy" data-val="">—</td></tr>
+      <tr><td>9</td><td>Black</td><td>Li, Aiden</td><td>1676</td><td>English A13</td><td class="loss">Loss</td><td class="accuracy" data-val="">—</td></tr>
     </tbody>
   </table>
+  <div class="tip-box" style="font-size:0.85rem;">
+    <strong>How to add accuracy:</strong> Upload each PGN to <a href="https://lichess.org/paste" target="_blank" style="color:#7a4f00;">lichess.org/paste</a>, request computer analysis, then record Austin's accuracy % shown at the end. Fill in the <code>data-val</code> attribute on each row (e.g. <code>data-val="82"</code>) and the average will update automatically.
+  </div>
+  <script>
+    (function() {
+      var cells = document.querySelectorAll('td.accuracy[data-val]');
+      var vals = [];
+      cells.forEach(function(td) {
+        var v = parseFloat(td.getAttribute('data-val'));
+        if (!isNaN(v)) { td.textContent = v + '%'; vals.push(v); }
+      });
+      if (vals.length) {
+        var avg = (vals.reduce(function(a,b){return a+b;},0) / vals.length).toFixed(1);
+        var el = document.getElementById('naycc-avg-acc');
+        if (el) el.textContent = avg + '%';
+      }
+    })();
+  </script>
 
   <hr />
 
