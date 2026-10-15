@@ -10,3 +10,17 @@ The project in this folder is trying to help Austin to prepare the next big ches
 ## Austin's Preparation Plan (shareable)
 
 https://linuxbirdlin.github.io/chess-analysis/austin-prep.html
+
+## Austin vs Justin — Matchup Plan (shareable)
+
+https://linuxbirdlin.github.io/chess-analysis/matchup-justin.html
+
+## Task #2
+
+Looking through the different tournament under [austin], in each folder of tournament, please create a review report including
+ - what is Austin was doing good in this tournament, which opening and which variance.
+ - what kinda opening he didn't understand and didn't do well.
+ - what kinda ending game he is good and what kinda ending game is bad.
+ - next step what he need to improve from this tournament
+ - what's your detail recommendation of he need improvement.
+ - any other suggestions you could have in the tournament analysis report make it as html and create a section called tournament review at prep html and put the link there 
