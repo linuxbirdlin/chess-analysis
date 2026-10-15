@@ -22,6 +22,7 @@ chess-analysis/
 ├── readme.md                  # Project goals and task descriptions
 ├── CLAUDE.md                  # This file — agent instructions
 ├── austin-analysis.md         # Austin's detailed player analysis
+├── austin-prep.md             # Austin's 1-month training and exercise plan
 ├── justin-analysis.md         # Justin's detailed player analysis
 ├── matchup-justin.md          # Austin vs Justin preparation plan
 │
