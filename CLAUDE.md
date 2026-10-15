@@ -25,7 +25,8 @@ chess-analysis/
 ├── austin-prep.md             # Austin's 1-month training and exercise plan (source)
 ├── austin-prep.html           # Shareable HTML version of austin-prep.md
 ├── justin-analysis.md         # Justin's detailed player analysis
-├── matchup-justin.md          # Austin vs Justin preparation plan
+├── matchup-justin.md          # Austin vs Justin preparation plan (source)
+├── matchup-justin.html        # Shareable HTML version of matchup-justin.md
 │
 ├── austin/
 │   ├── naycc2025/             # NAYCC 2025 games (9 games, PGN format)

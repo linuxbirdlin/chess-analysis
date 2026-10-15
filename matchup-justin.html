@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin vs Justin — Matchup Preparation</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 680px) {
+      .page { padding: 24px 20px 40px; }
+    }
+
+    /* ── Header ── */
+    .doc-header {
+      border-bottom: 3px solid #2d7d46;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 {
+      margin: 0 0 8px;
+      font-size: 1.85rem;
+      color: #1f2328;
+    }
+    .doc-header .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.9rem;
+      color: #57606a;
+    }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 0.875rem;
+      color: #2d7d46;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    /* ── Headings ── */
+    h2 {
+      font-size: 1.3rem;
+      color: #1f2328;
+      margin: 40px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #d0d7de;
+    }
+    h3 {
+      font-size: 1.05rem;
+      color: #2d7d46;
+      margin: 24px 0 8px;
+    }
+    h4 {
+      font-size: 0.95rem;
+      color: #1f2328;
+      margin: 18px 0 6px;
+      font-weight: 600;
+    }
+
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+
+    ul, ol {
+      margin: 8px 0 14px;
+      padding-left: 1.5em;
+    }
+    li { margin-bottom: 4px; }
+    li > ul, li > ol { margin-top: 4px; margin-bottom: 4px; }
+
+    /* ── Encounter badge ── */
+    .encounter {
+      background: #fff8e6;
+      border: 1px solid #d4a017;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 0.93rem;
+      margin-bottom: 28px;
+    }
+    .encounter strong { color: #7a4f00; }
+
+    /* ── Part cards ── */
+    .part-card {
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      margin: 24px 0;
+      overflow: hidden;
+    }
+    .part-card .part-title {
+      background: #2d7d46;
+      color: #fff;
+      padding: 12px 20px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    .part-card .part-title.alt {
+      background: #1a5276;
+    }
+    .part-card .part-body {
+      padding: 20px 24px;
+    }
+    .part-card h3 { margin-top: 20px; }
+    .part-card h3:first-child { margin-top: 0; }
+
+    /* ── Warning / avoid box ── */
+    .warn-box {
+      background: #fff5f5;
+      border-left: 4px solid #cf2222;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 12px 0;
+      font-size: 0.93rem;
+      color: #7a0000;
+    }
+
+    /* ── Tip / key idea box ── */
+    .tip-box {
+      background: #dafbe1;
+      border-left: 4px solid #2d7d46;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 12px 0;
+      font-size: 0.93rem;
+      color: #1a4731;
+    }
+
+    /* ── Code / move notation ── */
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: #f0f4f8;
+      border: 1px solid #d0d7de;
+      border-radius: 4px;
+      padding: 1px 5px;
+      white-space: nowrap;
+    }
+    pre {
+      background: #1b1f24;
+      color: #adbac7;
+      border-radius: 8px;
+      padding: 16px 20px;
+      overflow-x: auto;
+      margin: 12px 0 20px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+    pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      white-space: pre;
+      color: inherit;
+      font-size: inherit;
+    }
+
+    /* ── Summary table ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin: 16px 0 24px;
+    }
+    thead th {
+      background: #2d7d46;
+      color: #ffffff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+    }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #ffffff; }
+    tbody td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #d0d7de;
+      vertical-align: top;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+
+    /* ── Study list ── */
+    .study-block {
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 14px 0;
+    }
+    .study-block h4 { margin-top: 0; color: #2d7d46; }
+
+    em { font-style: italic; color: #57606a; }
+    strong { font-weight: 600; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin vs Justin — Matchup Preparation</h1>
+    <div class="meta">
+      <span><strong>Direct encounter:</strong> NAYCC 2025, Round 4</span>
+      <span><strong>Result:</strong> Austin (White, 1968) lost to Justin (Black, 1811)</span>
+      <span><strong>ECO:</strong> C02 — French Advanced</span>
+    </div>
+    <a class="back-link" href="austin-prep.html">← Back to Training Plan</a>
+  </div>
+
+  <div class="encounter">
+    This document gives concrete preparation recommendations for Austin playing Justin, split by color. Their one recorded game ended in a Justin win using the French Defense — the opening he plays in <strong>every</strong> single game against 1.e4.
+  </div>
+
+  <!-- Part 1: Austin as White -->
+  <div class="part-card">
+    <p class="part-title">Part 1 — Austin as White</p>
+    <div class="part-body">
+
+      <h3>What Justin will play</h3>
+      <p>Justin plays the French Defense in every single game against 1.e4. Across 7 documented 1.e4 games, he responded with <code>1...e6</code> 100% of the time. Austin will face the French.</p>
+      <p>Justin's French knowledge is deep — he has played it versus the Exchange, Classical, Advanced, and Burn variations, scoring wins in the Advanced and Burn lines, and holding firm draws in the Exchange.</p>
+
+      <h3>What Austin tried before — and why it failed</h3>
+      <p>In their NAYCC encounter, Austin played the <strong>French Advanced (C02):</strong> <code>1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 Nge7 6.dxc5...</code></p>
+
+      <h4>Critical error sequence:</h4>
+      <ul>
+        <li><strong>Move 14:</strong> Austin played <code>14.b4</code> with queenside expansion — premature before the center was stabilized.</li>
+        <li><strong>Move 15:</strong> Austin played <code>15.f5</code> — aggressive but it gave Justin the e5 square.</li>
+        <li><strong>Move 19:</strong> After <code>19.Bxc5 Ne4</code> — Austin let Justin post a dominant knight on e4 and couldn't dislodge it.</li>
+        <li><strong>Moves 43–50:</strong> Justin's connected d-pawn and e-pawn rolled: <code>...d3, ...e4, ...e3, ...Qd2, ...Qf2#</code> — a passed pawn avalanche Austin didn't stop.</li>
+      </ul>
+      <div class="warn-box">
+        <strong>Root cause:</strong> Austin pushed b4 and f5 without a clear forcing plan, giving Justin tempos to centralize. Do NOT repeat this.
+      </div>
+
+      <h3>Option A — French Tarrasch (3.Nd2) <em>Primary recommendation</em></h3>
+      <p>Justin has never faced the Tarrasch in any reviewed game. It avoids sharp theory and gives Austin a flexible structure without committing to the e5 advance early.</p>
+
+      <pre><code>1.e4 e6 2.d4 d5 3.Nd2 Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6
+7.Ne2 cxd4 8.cxd4 f6 9.exf6 Nxf6 → Nf4 targeting d5</code></pre>
+
+      <h4>Key ideas:</h4>
+      <ul>
+        <li>After <code>...f6 exf6</code>, play <code>Nf4</code> targeting d5, then <code>O-O</code>, <code>Qe2</code>, <code>Rd1</code> — slow pressure</li>
+        <li>Justin's knights (Nc6, Nf6) will want e4 or d5. Prevent this with <code>Ne5</code> or <code>Nf4</code></li>
+      </ul>
+      <div class="warn-box">
+        <strong>Avoid:</strong> b4 without securing the center · f5 without a forced sequence · allowing <code>...Ne4</code> as an outpost
+      </div>
+
+      <h3>Option B — King's Indian Attack (2.d3) <em>Alternative</em></h3>
+      <p>Completely sidesteps French theory. Justin has no recorded experience against the KIA.</p>
+
+      <pre><code>1.e4 e6 2.d3 d5 3.Nd2 Nf6 4.Ngf3 c5 5.g3 Nc6 6.Bg2 Be7 7.O-O O-O</code></pre>
+
+      <h4>Key ideas:</h4>
+      <ul>
+        <li>Typical plan: <code>Nh4-f5</code> or <code>e4-e5</code> when Black releases tension with <code>...dxe4</code></li>
+        <li>If Justin plays <code>...d4</code>, use <code>Nf1-g3-f5</code> and kingside pressure</li>
+        <li>Watch for <code>...c4</code> — Justin's queenside space grab</li>
+      </ul>
+
+      <h3>What to exploit in Justin's French</h3>
+      <ul>
+        <li><strong>Light squares:</strong> After <code>...Bxg3</code> or <code>...Nc6</code> structures, Justin's light-squared bishop is often passive. Target a passed pawn on d5 or open the e-file.</li>
+        <li><strong>Kingside attacks:</strong> Justin lost to Velasquez (Canada Closed R8) via <code>1.e4 e6 2.d4 d5 3.Nc3 Nf6 4.e5 Nfd7 5.Nce2 c5 6.c3 Nc6 7.f4</code> — study this game.</li>
+        <li><strong>Psychology:</strong> Justin's French draws against lower-rated players should not intimidate Austin. Preparation beats habit.</li>
+      </ul>
+
+    </div>
+  </div>
+
+  <!-- Part 2: Austin as Black -->
+  <div class="part-card">
+    <p class="part-title alt">Part 2 — Austin as Black</p>
+    <div class="part-body">
+
+      <h3>What Justin will play</h3>
+      <p>Justin plays <strong>1.d4 exclusively</strong> as White, with QGD-based structures and <code>d4-c4-Nf3-Nc3</code> setups. Occasionally the Benoni pawn structure when Black plays <code>...c5</code> early.</p>
+
+      <h3>Recommended weapon: Nimzo-Indian (E32–E51)</h3>
+      <p><code>1.d4 Nf6 2.c4 e6 3.Nc3 Bb4</code></p>
+
+      <p>This is the ideal choice because:</p>
+      <ul>
+        <li>Austin has played it in 4+ games and is deeply familiar with the patterns</li>
+        <li>It forces Justin to commit <code>3.Nc3</code> early</li>
+        <li>The resulting IQP / <code>...Ne4</code> outpost / <code>...Ba6</code> positions are exactly where Austin is tactically dangerous</li>
+      </ul>
+
+      <h4>Specific variation: Bxc3+ with ...b6/...Ba6</h4>
+      <pre><code>1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.e3 O-O 5.Bd3 d5
+6.a3 Bxc3+ 7.bxc3 b6 8.Nf3 Ba6 9.cxd5 exd5</code></pre>
+
+      <div class="tip-box">
+        White gets isolated doubled pawns on c3/c4. Black gets the bishop pair. Austin's knight heads to <code>...Ne4</code> — his favorite square.
+      </div>
+
+      <h4>Key tactical ideas to have ready:</h4>
+      <ul>
+        <li><code>...Nc5</code> hitting c4 and e4</li>
+        <li><code>...Ne4</code> centralization followed by <code>...Qc8-g4</code> or <code>...Qd5</code> diagonal pressure</li>
+        <li><code>...N4g3+</code> piece sacrifice when h2 is unguarded (Austin executed this in NAYCC R3)</li>
+        <li>If White plays <code>a3</code> early, Austin has the <code>...c5</code> break to open the center</li>
+      </ul>
+
+      <h3>What to avoid</h3>
+      <div class="warn-box">
+        <strong>Do NOT</strong> play the Capablanca line (<code>4.Qc2</code>) without preparation — Justin's solid Bd3/Be2 + Nf3 setup can leave Austin passive if he trades on c3 too early.
+      </div>
+      <div class="warn-box">
+        <strong>Do NOT</strong> try a Benoni (<code>1.d4 Nf6 2.c4 c5</code>) — Justin plays <code>3.d5</code> and gains a space advantage. Stick to the Nimzo-Indian.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Part 3: Summary Table -->
+  <h2>Key Preparation Themes — Summary</h2>
+  <table>
+    <thead>
+      <tr><th>Scenario</th><th>Opening</th><th>Key Plan</th><th>Key Warning</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Austin White vs Justin French</td>
+        <td>Tarrasch 3.Nd2</td>
+        <td>Nf4 pressure on d5, O-O, Qe2, Rd1</td>
+        <td>Do NOT push b4 or f5 without a forced plan</td>
+      </tr>
+      <tr>
+        <td>Austin White vs Justin French (alt)</td>
+        <td>KIA 2.d3</td>
+        <td>Fianchetto Bg2, Nh4-f5 kingside attack</td>
+        <td>Watch ...d4 pawn advance</td>
+      </tr>
+      <tr>
+        <td>Austin Black vs Justin 1.d4</td>
+        <td>Nimzo-Indian Bxc3+</td>
+        <td>...b6/...Ba6, ...Ne4 outpost, ...N4g3+ sacrifice</td>
+        <td>Avoid trading bishop too early on c3</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr />
+
+  <!-- Part 4: Psychology -->
+  <h2>Psychological and Practical Notes</h2>
+  <ul>
+    <li><strong>Austin's edge:</strong> Higher tactical firepower and rating at NAYCC (1968 vs 1811). Justin's edge is pet lines (French, QGD) and endgame patience.</li>
+    <li><strong>Justin's French confidence:</strong> He has beaten Austin with it once and will play it again without hesitation. Austin must be prepared — not improvising.</li>
+    <li><strong>Avoid endgames:</strong> Justin is the better endgame player. Austin should aim for tactical middlegame complexity and sharp decisions rather than slow grinding.</li>
+    <li><strong>Game length pattern:</strong> Austin's wins come quickly (21, 33, 41 moves). His losses drag long (100, 66, 121 moves). Play for quick, decisive positions.</li>
+  </ul>
+
+  <hr />
+
+  <!-- Part 5: Study Recommendations -->
+  <h2>Specific Study Recommendations</h2>
+
+  <div class="study-block">
+    <h4>Austin as White — vs French Defense</h4>
+    <ol>
+      <li>Study the Tarrasch: <code>3.Nd2 Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3</code>. Learn the plan after <code>...f6 exf6</code>.</li>
+      <li>Replay Velasquez vs Justin (Canada Closed R8): <code>1.e4 e6 2.d4 d5 3.Nc3</code> — see how White built kingside pressure.</li>
+      <li>Practice endgames from French Advanced positions — know when the d-pawn + e-pawn advance becomes unstoppable (as Justin showed in NAYCC R4).</li>
+    </ol>
+  </div>
+
+  <div class="study-block">
+    <h4>Austin as Black — vs Justin's 1.d4</h4>
+    <ol>
+      <li>Review NAYCC R3 (Austin vs Chitta) — the Nimzo-Indian <code>...b6/...Ba6</code> win is the model game.</li>
+      <li>Know the <code>...Ne4 → ...N4g3+</code> sacrifice sequence when White plays <code>h2-h3</code>.</li>
+      <li>Prepare for Justin's QGD sideline where White plays <code>b3/Bb2</code> (Canada Closed R9 style).</li>
+    </ol>
+  </div>
+
+</div>
+</body>
+</html>
