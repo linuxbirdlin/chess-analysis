@@ -15,6 +15,12 @@ https://linuxbirdlin.github.io/chess-analysis/austin-prep.html
 
 https://linuxbirdlin.github.io/chess-analysis/matchup-justin.html
 
+## Tournament Reviews (shareable)
+
+NAYCC 2025: https://linuxbirdlin.github.io/chess-analysis/austin/naycc2025/review.html
+
+PAM 2026: https://linuxbirdlin.github.io/chess-analysis/austin/pam2026/review.html
+
 ## Task #2
 
 Looking through the different tournament under [austin], in each folder of tournament, please create a review report including
