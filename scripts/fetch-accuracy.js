@@ -12,8 +12,9 @@
  *   LICHESS_TOKEN=lip_xxxx
  *
  * Get a token at: https://lichess.org/account/oauth/token
- *   → Required scope: "Read preferences" is enough; no special scope needed for import.
- *   → For requesting analysis you need a logged-in account (any free account works).
+ *   → No scopes need to be checked — a blank-scope personal token is enough.
+ *   → Import and accuracy fetching are anonymous; the token is only used to
+ *      POST the analysis request (which requires a logged-in Lichess account).
  *
  * Requirements: Node.js 18+ (uses built-in fetch)
  *
@@ -133,10 +134,11 @@ async function requestAnalysis(gameId, token) {
   });
 }
 
-// GET /api/game/:id?accuracy=true → accuracy fields (null if not yet analyzed)
+// GET /game/export/:id?accuracy=1 → accuracy fields (null if not yet analyzed)
+// No auth required. accuracy=1 is the documented parameter name.
 async function getAccuracy(gameId) {
   const resp = await lichessFetch(
-    `${LICHESS}/api/game/${gameId}?accuracy=true`,
+    `${LICHESS}/game/export/${gameId}?accuracy=1`,
     { headers: { Accept: 'application/json' } },
   );
   const data = await resp.json();
@@ -233,7 +235,7 @@ async function main() {
       '',
       '  1. Create a free Lichess account at https://lichess.org',
       '  2. Go to https://lichess.org/account/oauth/token',
-      '  3. Create a personal token (no special scope required)',
+      '  3. Create a personal token — leave all scopes unchecked',
       '  4. Either:',
       '       export LICHESS_TOKEN=lip_xxxx',
       '     or add  LICHESS_TOKEN=lip_xxxx  to a .env file in the project root',
