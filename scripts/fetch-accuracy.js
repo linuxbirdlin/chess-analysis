@@ -221,19 +221,25 @@ async function waitForAccuracy(gameId) {
 // ─── HTML patching ────────────────────────────────────────────────────────────
 
 // Update data-val attributes in a review HTML file.
-// Each game row is a single line containing: <tr><td>{round}</td>...<td class="accuracy" data-val="">—</td></tr>
-// roundMap: { roundNumber: accuracyValue }
+// Each game row is a single line containing:
+//   <tr><td>{round}</td>...<td class="accuracy" data-val="">—</td><td class="opp-accuracy" data-val="">—</td></tr>
+// roundMap: { roundNumber: { austin: number|null, opp: number|null } }
 function patchReviewHtml(htmlPath, roundMap) {
   const lines = fs.readFileSync(htmlPath, 'utf8').split('\n');
   const updated = lines.map(line => {
-    // Match rows that have a leading round number and an accuracy cell
-    const m = line.match(
-      /^(\s*<tr><td>(\d+)<\/td>.*class="accuracy"\s+data-val=")[^"]*(".*)/
-    );
-    if (!m) return line;
-    const round = parseInt(m[2], 10);
-    const acc   = roundMap[round];
-    return acc != null ? m[1] + acc + m[3] : line;
+    const roundMatch = line.match(/^\s*<tr><td>(\d+)<\/td>/);
+    if (!roundMatch) return line;
+    const round = parseInt(roundMatch[1], 10);
+    const data  = roundMap[round];
+    if (!data) return line;
+    let newLine = line;
+    if (data.austin != null) {
+      newLine = newLine.replace(/(class="accuracy"\s+data-val=")[^"]*/, `$1${data.austin}`);
+    }
+    if (data.opp != null) {
+      newLine = newLine.replace(/(class="opp-accuracy"\s+data-val=")[^"]*/, `$1${data.opp}`);
+    }
+    return newLine;
   });
   fs.writeFileSync(htmlPath, updated.join('\n'));
 }
@@ -269,7 +275,7 @@ function patchPrepHtml(prepPath, tournamentKey, roundMap) {
     );
     if (m) {
       const round = parseInt(m[2], 10);
-      const acc   = roundMap[round];
+      const acc   = roundMap[round]?.austin ?? roundMap[round];
       if (acc != null) return m[1] + acc + m[3];
     }
     return line;
@@ -377,7 +383,7 @@ async function main() {
       // ── Step 3: Retrieve accuracy ───────────────────────────────────────
       if (entry.accuracy != null) {
         console.log(`  Cached accuracy: ${entry.accuracy}%`);
-        roundMap[round] = entry.accuracy;
+        roundMap[round] = { austin: entry.accuracy, opp: entry.opponentAcc ?? null };
         continue;
       }
 
@@ -386,13 +392,14 @@ async function main() {
       const austinAcc = color === 'white' ? acc.white : acc.black;
 
       if (austinAcc !== null) {
-        console.log(`  ✓ Austin's accuracy: ${austinAcc}%`);
+        const oppAcc = color === 'white' ? acc.black : acc.white;
+        console.log(`  ✓ Austin's accuracy: ${austinAcc}%  |  Opponent: ${oppAcc ?? '—'}%`);
         entry.accuracy      = austinAcc;
         entry.opponentColor = color === 'white' ? 'black' : 'white';
-        entry.opponentAcc   = color === 'white' ? acc.black : acc.white;
+        entry.opponentAcc   = oppAcc;
         cache[cacheKey] = entry;
         saveCache(cache);
-        roundMap[round] = austinAcc;
+        roundMap[round] = { austin: austinAcc, opp: oppAcc };
       } else {
         console.log('  Analysis not ready — re-run this script in a few minutes.');
       }

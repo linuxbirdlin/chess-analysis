@@ -221,18 +221,18 @@
   <h2>Game Log</h2>
   <table>
     <thead>
-      <tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Result</th><th>Accuracy</th></tr>
+      <tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Result</th><th>Accuracy</th><th>Opp. Acc</th></tr>
     </thead>
     <tbody>
-      <tr><td>1</td><td>Black</td><td>Su, Jayden</td><td>1627</td><td>Nimzo-Indian E32</td><td class="win">Win</td><td class="accuracy" data-val="95.9">—</td></tr>
-      <tr><td>2</td><td>White</td><td>Verma, Darsh</td><td>1765</td><td>Two Knights C58</td><td class="loss">Loss</td><td class="accuracy" data-val="83.1">—</td></tr>
-      <tr><td>3</td><td>Black</td><td>Chitta, Adithya</td><td>1685</td><td>Nimzo-Indian E49</td><td class="win">Win</td><td class="accuracy" data-val="98.1">—</td></tr>
-      <tr><td>4</td><td>White</td><td>Huang, Justin</td><td>1811</td><td>French Advanced C02</td><td class="loss">Loss</td><td class="accuracy" data-val="89.7">—</td></tr>
-      <tr><td>5</td><td>Black</td><td>Chen, Ray</td><td>1713</td><td>Nimzo-Indian E51</td><td class="win">Win</td><td class="accuracy" data-val="90.6">—</td></tr>
-      <tr><td>6</td><td>White</td><td>Fu, Odyssey</td><td>1722</td><td>Sicilian B41</td><td class="loss">Loss</td><td class="accuracy" data-val="83.4">—</td></tr>
-      <tr><td>7</td><td>Black</td><td>Beegala, Keshav</td><td>1758</td><td>Nimzo-Indian E49</td><td class="loss">Loss</td><td class="accuracy" data-val="94.1">—</td></tr>
-      <tr><td>8</td><td>White</td><td>Jagath, Roshan</td><td>—</td><td>Rossolimo Sicilian B51</td><td class="win">Win</td><td class="accuracy" data-val="98.6">—</td></tr>
-      <tr><td>9</td><td>Black</td><td>Li, Aiden</td><td>1676</td><td>English A13</td><td class="loss">Loss</td><td class="accuracy" data-val="86.2">—</td></tr>
+      <tr><td>1</td><td>Black</td><td>Su, Jayden</td><td>1627</td><td>Nimzo-Indian E32</td><td class="win">Win</td><td class="accuracy" data-val="95.9">—</td><td class="opp-accuracy" data-val="">—</td></tr>
+      <tr><td>2</td><td>White</td><td>Verma, Darsh</td><td>1765</td><td>Two Knights C58</td><td class="loss">Loss</td><td class="accuracy" data-val="83.1">—</td><td class="opp-accuracy" data-val="">—</td></tr>
+      <tr><td>3</td><td>Black</td><td>Chitta, Adithya</td><td>1685</td><td>Nimzo-Indian E49</td><td class="win">Win</td><td class="accuracy" data-val="98.1">—</td><td class="opp-accuracy" data-val="">—</td></tr>
+      <tr><td>4</td><td>White</td><td>Huang, Justin</td><td>1811</td><td>French Advanced C02</td><td class="loss">Loss</td><td class="accuracy" data-val="89.7">—</td><td class="opp-accuracy" data-val="">—</td></tr>
+      <tr><td>5</td><td>Black</td><td>Chen, Ray</td><td>1713</td><td>Nimzo-Indian E51</td><td class="win">Win</td><td class="accuracy" data-val="90.6">—</td><td class="opp-accuracy" data-val="">—</td></tr>
+      <tr><td>6</td><td>White</td><td>Fu, Odyssey</td><td>1722</td><td>Sicilian B41</td><td class="loss">Loss</td><td class="accuracy" data-val="83.4">—</td><td class="opp-accuracy" data-val="">—</td></tr>
+      <tr><td>7</td><td>Black</td><td>Beegala, Keshav</td><td>1758</td><td>Nimzo-Indian E49</td><td class="loss">Loss</td><td class="accuracy" data-val="94.1">—</td><td class="opp-accuracy" data-val="">—</td></tr>
+      <tr><td>8</td><td>White</td><td>Jagath, Roshan</td><td>—</td><td>Rossolimo Sicilian B51</td><td class="win">Win</td><td class="accuracy" data-val="98.6">—</td><td class="opp-accuracy" data-val="">—</td></tr>
+      <tr><td>9</td><td>Black</td><td>Li, Aiden</td><td>1676</td><td>English A13</td><td class="loss">Loss</td><td class="accuracy" data-val="86.2">—</td><td class="opp-accuracy" data-val="">—</td></tr>
     </tbody>
   </table>
   <script>
@@ -248,6 +248,10 @@
         var el = document.getElementById('naycc-avg-acc');
         if (el) el.textContent = avg + '%';
       }
+      document.querySelectorAll('td.opp-accuracy[data-val]').forEach(function(td) {
+        var v = parseFloat(td.getAttribute('data-val'));
+        if (!isNaN(v)) td.textContent = v + '%';
+      });
     })();
   </script>
 

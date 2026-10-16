@@ -220,16 +220,16 @@
   <h2>Game Log (Rounds 3–9)</h2>
   <table>
     <thead>
-      <tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Result</th><th>Accuracy</th></tr>
+      <tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Result</th><th>Accuracy</th><th>Opp. Acc</th></tr>
     </thead>
     <tbody>
-      <tr><td>3</td><td>White</td><td>Villalba, Pacha</td><td>1731</td><td>Exchange Caro-Kann</td><td class="win">Win</td><td class="accuracy" data-val="98">—</td></tr>
-      <tr><td>4</td><td>Black</td><td>Alvarez Alburquerque, Leandro</td><td>2069</td><td>Sicilian (Kan-style)</td><td class="draw">Draw</td><td class="accuracy" data-val="95.2">—</td></tr>
-      <tr><td>5</td><td>Black</td><td>Vinales Gonzalez, Enzo</td><td>2091</td><td>Reti/English (1.a3)</td><td class="loss">Loss</td><td class="accuracy" data-val="90.4">—</td></tr>
-      <tr><td>6</td><td>White</td><td>Marin Marin, Cristobal</td><td>1694</td><td>French Advanced (Tarrasch)</td><td class="win">Win</td><td class="accuracy" data-val="90.7">—</td></tr>
-      <tr><td>7</td><td>Black</td><td>Fernandez Herrera, Andres</td><td>2137</td><td>Sicilian Najdorf-ish</td><td class="loss">Loss</td><td class="accuracy" data-val="86.7">—</td></tr>
-      <tr><td>8</td><td>White</td><td>Dergan Lobos, Ian</td><td>1678</td><td>Exchange Caro-Kann</td><td class="draw">Draw</td><td class="accuracy" data-val="90.8">—</td></tr>
-      <tr><td>9</td><td>Black</td><td>Gomez Ramirez, Geronimo</td><td>1652</td><td>Sicilian</td><td class="win">Win</td><td class="accuracy" data-val="87.9">—</td></tr>
+      <tr><td>3</td><td>White</td><td>Villalba, Pacha</td><td>1731</td><td>Exchange Caro-Kann</td><td class="win">Win</td><td class="accuracy" data-val="98">—</td><td class="opp-accuracy" data-val="">—</td></tr>
+      <tr><td>4</td><td>Black</td><td>Alvarez Alburquerque, Leandro</td><td>2069</td><td>Sicilian (Kan-style)</td><td class="draw">Draw</td><td class="accuracy" data-val="95.2">—</td><td class="opp-accuracy" data-val="">—</td></tr>
+      <tr><td>5</td><td>Black</td><td>Vinales Gonzalez, Enzo</td><td>2091</td><td>Reti/English (1.a3)</td><td class="loss">Loss</td><td class="accuracy" data-val="90.4">—</td><td class="opp-accuracy" data-val="">—</td></tr>
+      <tr><td>6</td><td>White</td><td>Marin Marin, Cristobal</td><td>1694</td><td>French Advanced (Tarrasch)</td><td class="win">Win</td><td class="accuracy" data-val="90.7">—</td><td class="opp-accuracy" data-val="">—</td></tr>
+      <tr><td>7</td><td>Black</td><td>Fernandez Herrera, Andres</td><td>2137</td><td>Sicilian Najdorf-ish</td><td class="loss">Loss</td><td class="accuracy" data-val="86.7">—</td><td class="opp-accuracy" data-val="">—</td></tr>
+      <tr><td>8</td><td>White</td><td>Dergan Lobos, Ian</td><td>1678</td><td>Exchange Caro-Kann</td><td class="draw">Draw</td><td class="accuracy" data-val="90.8">—</td><td class="opp-accuracy" data-val="">—</td></tr>
+      <tr><td>9</td><td>Black</td><td>Gomez Ramirez, Geronimo</td><td>1652</td><td>Sicilian</td><td class="win">Win</td><td class="accuracy" data-val="87.9">—</td><td class="opp-accuracy" data-val="">—</td></tr>
     </tbody>
   </table>
   <script>
@@ -245,6 +245,10 @@
         var el = document.getElementById('pam-avg-acc');
         if (el) el.textContent = avg + '%';
       }
+      document.querySelectorAll('td.opp-accuracy[data-val]').forEach(function(td) {
+        var v = parseFloat(td.getAttribute('data-val'));
+        if (!isNaN(v)) td.textContent = v + '%';
+      });
     })();
   </script>
 
