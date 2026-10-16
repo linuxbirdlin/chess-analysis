@@ -46,3 +46,22 @@ New Justin Huang game folders have been added:
 4. **Chronological rating progression**: pamschool2026 (1894, May 2026) → canadaclosed2026 (1963) → pam2026 (2023) → torontoopen2026 (2093, Jul–Sep 2026).
 
 Also note: **`austin/copilot-review/`** contains an AI-generated template review document (not Austin's games). It can serve as a formatting reference. 
+-- it is Austin's game for chess4win-thanksgiving tournament.
+
+## Task #4 — Add Aarush Ajith as a new opponent
+
+New opponent folder `aarush/` has been added with 3 tournaments:
+- **`aarush/canadaclosed2026/`** — 9 games from Canada Closed 2026 (April 2026, Lichess broadcast PGN). Aarush's rating: 1908. Score: 2W-6L-1D.
+- **`aarush/pamschool2026/`** — PAM School 2026 (May 2026). 2 games captured (R7 empty, R8 incomplete).
+- **`aarush/pam2026/`** — PAM 2026 (July 2026, non-standard format). 5 games captured. Rating: 1941. Score: 2W-3L.
+
+Created:
+- `aarush-analysis.md` — full player analysis
+- `matchup-aarush.md` — Austin vs Aarush preparation plan
+- `aarush/canadaclosed2026/review.html` — Stockfish-powered game review
+- `aarush/pamschool2026/review.html` — game review
+- `aarush/pam2026/review.html` — game review
+- `scripts/analyze-aarush.js` — Stockfish analysis script
+- `scripts/aarush-analysis-results.json` — depth-18 results (16 games)
+
+**Key findings:** Aarush's primary weaknesses are (1) king-and-pawn endgame blunders (confirmed R7 Canada Closed, R8 PAM), (2) h4 kingside attack vulnerability as Black in Sicilian/KID, (3) Catalan collapse vs 2000+ opponents. Austin should use h4 English Attack in the Sicilian and Catalan Open as Black.

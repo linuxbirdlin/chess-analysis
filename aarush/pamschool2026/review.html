@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aarush Ajith — 2026 PAM School Game Review</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+    .doc-header {
+      border-bottom: 3px solid #1a5276;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.75rem; }
+    .doc-header .subtitle { color: #57606a; font-size: 0.95rem; margin: 0 0 6px; }
+    .doc-header .opp-note {
+      background: #eaf0f8;
+      border-left: 3px solid #1a5276;
+      border-radius: 0 4px 4px 0;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      color: #1a3a55;
+      margin: 0 0 14px;
+    }
+    .doc-header .back-link {
+      display: inline-block;
+      font-size: 0.875rem;
+      color: #1a5276;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    .scoreboard {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .score-card {
+      flex: 1;
+      min-width: 120px;
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .score-card .label { font-size: 0.78rem; color: #57606a; text-transform: uppercase; letter-spacing: 0.04em; }
+    .score-card .value { font-size: 1.4rem; font-weight: 700; color: #1f2328; line-height: 1.2; margin-top: 2px; }
+    .score-card.highlight .value { color: #1a5276; }
+    .score-card.warn .value { color: #cf2222; }
+
+    h2 {
+      font-size: 1.25rem;
+      color: #1f2328;
+      margin: 40px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #d0d7de;
+    }
+    h3 { font-size: 1.05rem; color: #1a5276; margin: 22px 0 8px; }
+    h4 { font-size: 0.95rem; color: #1f2328; font-weight: 600; margin: 16px 0 6px; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
+    li { margin-bottom: 4px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 14px 0 24px;
+    }
+    thead th {
+      background: #1a5276;
+      color: #fff;
+      padding: 9px 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 8px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .win  { color: #2d7d46; font-weight: 600; }
+    .loss { color: #cf2222; font-weight: 600; }
+    .draw { color: #7a5500; font-weight: 600; }
+    .unk  { color: #57606a; font-weight: 500; font-style: italic; }
+
+    .good-box {
+      background: #dafbe1;
+      border-left: 4px solid #2d7d46;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #1a4731;
+    }
+    .warn-box {
+      background: #fff5f5;
+      border-left: 4px solid #cf2222;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #7a0000;
+    }
+    .alert-box {
+      background: #fff8e6;
+      border-left: 4px solid #d4a017;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #7a4f00;
+    }
+    .info-box {
+      background: #eaf0f8;
+      border-left: 4px solid #1a5276;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #1a3a55;
+    }
+
+    .game-review { border: 1px solid #d0d7de; border-radius: 8px; margin: 22px 0; overflow: hidden; }
+    .game-header { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 10px 16px; background: #f6f8fa; border-bottom: 1px solid #d0d7de; }
+    .round-badge { background: #1a5276; color: #fff; border-radius: 4px; padding: 2px 9px; font-size: 0.8rem; font-weight: 700; white-space: nowrap; }
+    .game-opp { font-weight: 600; font-size: 0.92rem; flex: 1; min-width: 140px; }
+    .opening-tag { font-size: 0.77rem; color: #57606a; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 3px; padding: 1px 6px; white-space: nowrap; }
+    .color-wh { font-size: 0.74rem; font-weight: 600; border-radius: 3px; padding: 1px 6px; background: #fff; color: #1f2328; border: 1px solid #aaa; }
+    .color-bl { font-size: 0.74rem; font-weight: 600; border-radius: 3px; padding: 1px 6px; background: #2d2d2d; color: #fff; }
+    .rbadge-win  { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #dafbe1; color: #1a4731; }
+    .rbadge-loss { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #fff5f5; color: #7a0000; }
+    .rbadge-draw { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #fff8e6; color: #7a4f00; }
+    .rbadge-unk  { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #f0f4f8; color: #57606a; }
+    .game-body { padding: 14px 18px; }
+
+    .engine-bar { display: flex; gap: 18px; flex-wrap: wrap; padding: 10px 14px; background: #f0f4f8; border-radius: 6px; margin: 10px 0 14px; font-size: 0.82rem; }
+    .engine-bar .eb-item { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+    .eb-label { color: #57606a; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .eb-val { font-weight: 700; font-size: 0.95rem; color: #1f2328; }
+    .eb-val.acc-hi { color: #2d7d46; }
+    .eb-val.acc-mid { color: #7a5500; }
+    .eb-val.acc-lo { color: #cf2222; }
+    .eb-val.cpl-lo { color: #2d7d46; }
+    .eb-val.cpl-mid { color: #7a5500; }
+    .eb-val.cpl-hi { color: #cf2222; }
+    .eb-blunder { color: #cf2222; font-weight: 700; }
+    .eb-mistake { color: #d97706; font-weight: 700; }
+    .eb-inaccuracy { color: #7a5500; font-weight: 600; }
+
+    .moments-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; margin: 10px 0; }
+    .moments-table th { background: #eaf0f8; color: #1a3a55; padding: 6px 10px; text-align: left; font-weight: 600; }
+    .moments-table td { padding: 6px 10px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    .moments-table tr:last-child td { border-bottom: none; }
+    .badge-blunder { display: inline-block; background: #fff5f5; color: #7a0000; border-radius: 3px; padding: 0px 5px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+    .badge-mistake { display: inline-block; background: #fff8e6; color: #7a4f00; border-radius: 3px; padding: 0px 5px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+    .badge-inaccuracy { display: inline-block; background: #f0f4f8; color: #1a3a55; border-radius: 3px; padding: 0px 5px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: #f0f4f8;
+      border: 1px solid #d0d7de;
+      border-radius: 4px;
+      padding: 1px 5px;
+      white-space: nowrap;
+    }
+    em { font-style: italic; color: #57606a; }
+    strong { font-weight: 600; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Aarush Ajith — 2026 PAM School</h1>
+    <p class="subtitle">Pan American Youth Championship (School Section) · May 2026 · Lichess broadcast · 2 games captured</p>
+    <p class="opp-note">Opponent analysis page — this review supports Austin Lin's preparation against Aarush Ajith. Blue accent = opponent data.</p>
+    <a class="back-link" href="../../matchup-aarush.html">← Back to Austin vs Aarush — Matchup Plan</a>
+  </div>
+
+  <div class="alert-box">
+    <strong>Data note:</strong> Only R2 and R8 are available. R7 contains no moves (captured mid-stream as <code>*</code>). R8 is incomplete (57 moves, result <code>*</code> — game was ongoing when the broadcast ended). Rounds 1, 3–6 not in the dataset.
+  </div>
+
+  <!-- Scoreboard -->
+  <div class="scoreboard">
+    <div class="score-card"><div class="label">Rating (at event)</div><div class="value">1860</div></div>
+    <div class="score-card warn"><div class="label">R2 Result</div><div class="value">Loss</div></div>
+    <div class="score-card"><div class="label">R8 Result</div><div class="value">Incomplete</div></div>
+    <div class="score-card highlight"><div class="label">Avg Accuracy</div><div class="value">92.3%</div></div>
+  </div>
+
+  <div class="info-box">
+    Stockfish depth-18 analysis on 2 available games. R7 skipped (no moves). R8 analyzed on 57 available moves (result unknown).
+    Aarush avg: <strong>92.3%</strong> · Opponents avg: <strong>97.4%</strong> — Aarush was consistently outplayed by his 2050+ opponents despite solid personal accuracy.
+  </div>
+
+  <h2>Game Log</h2>
+  <table>
+    <thead>
+      <tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Acc%</th><th>CPL</th><th>Result</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>R2</td><td>White</td><td>Liu, Zachary Hankun</td><td>2051</td><td>E08 Catalan Closed</td><td>92.1%</td><td>35</td><td class="loss">Loss</td></tr>
+      <tr><td>R7</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="unk">No data</td></tr>
+      <tr><td>R8</td><td>Black</td><td>Espinosa Castaneda, Ronald Manuel</td><td>2087</td><td>B90 Sicilian Najdorf</td><td>92.5%</td><td>42</td><td class="unk">Incomplete</td></tr>
+    </tbody>
+  </table>
+
+  <hr />
+  <h2>Game Notes</h2>
+
+  <!-- R2 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R2</span>
+      <span class="game-opp">Liu, Zachary Hankun (2051)</span>
+      <span class="color-wh">White</span>
+      <span class="opening-tag">E08 Catalan Closed</span>
+      <span class="rbadge-loss">Loss</span>
+    </div>
+    <div class="game-body">
+      <div class="engine-bar">
+        <div class="eb-item"><span class="eb-label">Aarush Acc%</span><span class="eb-val acc-hi">92.1%</span></div>
+        <div class="eb-item"><span class="eb-label">Opp Acc%</span><span class="eb-val acc-hi">96.8%</span></div>
+        <div class="eb-item"><span class="eb-label">Avg CPL</span><span class="eb-val cpl-lo">35</span></div>
+        <div class="eb-item"><span class="eb-label">Blunders</span><span class="eb-val eb-blunder">1</span></div>
+        <div class="eb-item"><span class="eb-label">Mistakes</span><span class="eb-val eb-mistake">1</span></div>
+        <div class="eb-item"><span class="eb-label">Inaccuracies</span><span class="eb-val eb-inaccuracy">6</span></div>
+        <div class="eb-item"><span class="eb-label">Moves</span><span class="eb-val">78</span></div>
+      </div>
+      <p><strong>Opening:</strong> Catalan Closed (E08) as White — Aarush's primary White system. He played reasonably (92.1%) but his opponent (2051) played near-perfectly (96.8%) and Aarush's one critical blunder decided the game.</p>
+      <h4>Critical moments (Stockfish)</h4>
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Move</th><th>Best</th><th>Before → After</th><th>CPL</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge-blunder">Blunder</span></td><td><code>Nc4</code></td><td><code>Bxd5</code></td><td>−3.32 → −7.00</td><td>368</td></tr>
+          <tr><td><span class="badge-mistake">Mistake</span></td><td><code>Rfe1</code></td><td><code>exd5</code></td><td>+0.14 → −1.53</td><td>167</td></tr>
+          <tr><td><span class="badge-inaccuracy">Inaccuracy</span></td><td><code>Rd1</code></td><td><code>Kg1</code></td><td>−4.83 → −6.16</td><td>133</td></tr>
+        </tbody>
+      </table>
+      <div class="warn-box">
+        <strong>Catalan closed middlegame — repeated failure pattern:</strong> When the Catalan game closes and opponent pieces activate, Aarush mishandles the tension. The <code>Nc4</code> blunder (instead of capturing with <code>Bxd5</code>) is a concrete tactical miss — he avoided the recapture and played a loose piece move instead. This pattern of avoiding direct captures appears across multiple games.
+      </div>
+    </div>
+  </div>
+
+  <!-- R8 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R8</span>
+      <span class="game-opp">Espinosa Castaneda, Ronald Manuel (2087)</span>
+      <span class="color-bl">Black</span>
+      <span class="opening-tag">B90 Sicilian Najdorf</span>
+      <span class="rbadge-unk">Incomplete</span>
+    </div>
+    <div class="game-body">
+      <div class="engine-bar">
+        <div class="eb-item"><span class="eb-label">Aarush Acc%</span><span class="eb-val acc-hi">92.5%</span></div>
+        <div class="eb-item"><span class="eb-label">Opp Acc%</span><span class="eb-val acc-hi">98.0%</span></div>
+        <div class="eb-item"><span class="eb-label">Avg CPL</span><span class="eb-val cpl-lo">42</span></div>
+        <div class="eb-item"><span class="eb-label">Blunders</span><span class="eb-val">0</span></div>
+        <div class="eb-item"><span class="eb-label">Mistakes</span><span class="eb-val eb-mistake">1</span></div>
+        <div class="eb-item"><span class="eb-label">Inaccuracies</span><span class="eb-val eb-inaccuracy">6</span></div>
+        <div class="eb-item"><span class="eb-label">Moves</span><span class="eb-val">57 (incomplete)</span></div>
+      </div>
+      <p><strong>Opening:</strong> Sicilian Najdorf (B90) as Black vs a 2087 Guatemalan FM. The broadcast captured 57 moves — result is unknown (game was still ongoing or completed off-broadcast). Aarush again played well (92.5%) but was outplayed by an opponent running at 98% accuracy.</p>
+      <p>Analysis of 57 moves shows Aarush being gradually squeezed in a worse position. His one mistake was <code>Nd7</code> (best: <code>b6</code>) when already down significantly (−8.09 → −10.01).</p>
+      <div class="info-box">
+        <strong>Note:</strong> Both PAM School captured games feature Aarush facing 2050+ opponents. In both cases his opponent played at 96–98% accuracy. His 92% personal accuracy was insufficient — he was simply outplayed technically. This represents his ceiling against near-FM level opposition at his current rating.
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <h2>Key Takeaway</h2>
+  <p>PAM School confirmed that Aarush's Catalan White system (R2) and Sicilian Najdorf Black (R8) are both his primary weapons. In both games he played solidly (~92%) but faced opponents performing at near-FM accuracy (~97–98%). The games reveal that his losing tendency comes from: (1) one critical blunder or mistake that unravels otherwise solid play, and (2) inability to match the technical precision of 2000+ opponents over 60–80 moves.</p>
+
+</div>
+</body>
+</html>

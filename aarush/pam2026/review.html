@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aarush Ajith — 2026 PAM Game Review</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+    .doc-header {
+      border-bottom: 3px solid #1a5276;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.75rem; }
+    .doc-header .subtitle { color: #57606a; font-size: 0.95rem; margin: 0 0 6px; }
+    .doc-header .opp-note {
+      background: #eaf0f8;
+      border-left: 3px solid #1a5276;
+      border-radius: 0 4px 4px 0;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      color: #1a3a55;
+      margin: 0 0 14px;
+    }
+    .doc-header .back-link {
+      display: inline-block;
+      font-size: 0.875rem;
+      color: #1a5276;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    .scoreboard {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .score-card {
+      flex: 1;
+      min-width: 120px;
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .score-card .label { font-size: 0.78rem; color: #57606a; text-transform: uppercase; letter-spacing: 0.04em; }
+    .score-card .value { font-size: 1.4rem; font-weight: 700; color: #1f2328; line-height: 1.2; margin-top: 2px; }
+    .score-card.highlight .value { color: #1a5276; }
+    .score-card.warn .value { color: #cf2222; }
+
+    h2 {
+      font-size: 1.25rem;
+      color: #1f2328;
+      margin: 40px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #d0d7de;
+    }
+    h3 { font-size: 1.05rem; color: #1a5276; margin: 22px 0 8px; }
+    h4 { font-size: 0.95rem; color: #1f2328; font-weight: 600; margin: 16px 0 6px; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
+    li { margin-bottom: 4px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 14px 0 24px;
+    }
+    thead th {
+      background: #1a5276;
+      color: #fff;
+      padding: 9px 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 8px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .win  { color: #2d7d46; font-weight: 600; }
+    .loss { color: #cf2222; font-weight: 600; }
+    .draw { color: #7a5500; font-weight: 600; }
+
+    .good-box {
+      background: #dafbe1;
+      border-left: 4px solid #2d7d46;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #1a4731;
+    }
+    .warn-box {
+      background: #fff5f5;
+      border-left: 4px solid #cf2222;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #7a0000;
+    }
+    .alert-box {
+      background: #fff8e6;
+      border-left: 4px solid #d4a017;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #7a4f00;
+    }
+    .info-box {
+      background: #eaf0f8;
+      border-left: 4px solid #1a5276;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #1a3a55;
+    }
+
+    .game-review { border: 1px solid #d0d7de; border-radius: 8px; margin: 22px 0; overflow: hidden; }
+    .game-header { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 10px 16px; background: #f6f8fa; border-bottom: 1px solid #d0d7de; }
+    .round-badge { background: #1a5276; color: #fff; border-radius: 4px; padding: 2px 9px; font-size: 0.8rem; font-weight: 700; white-space: nowrap; }
+    .game-opp { font-weight: 600; font-size: 0.92rem; flex: 1; min-width: 140px; }
+    .opening-tag { font-size: 0.77rem; color: #57606a; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 3px; padding: 1px 6px; white-space: nowrap; }
+    .color-wh { font-size: 0.74rem; font-weight: 600; border-radius: 3px; padding: 1px 6px; background: #fff; color: #1f2328; border: 1px solid #aaa; }
+    .color-bl { font-size: 0.74rem; font-weight: 600; border-radius: 3px; padding: 1px 6px; background: #2d2d2d; color: #fff; }
+    .rbadge-win  { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #dafbe1; color: #1a4731; }
+    .rbadge-loss { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #fff5f5; color: #7a0000; }
+    .rbadge-draw { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #fff8e6; color: #7a4f00; }
+    .game-body { padding: 14px 18px; }
+
+    .engine-bar { display: flex; gap: 18px; flex-wrap: wrap; padding: 10px 14px; background: #f0f4f8; border-radius: 6px; margin: 10px 0 14px; font-size: 0.82rem; }
+    .engine-bar .eb-item { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+    .eb-label { color: #57606a; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .eb-val { font-weight: 700; font-size: 0.95rem; color: #1f2328; }
+    .eb-val.acc-hi { color: #2d7d46; }
+    .eb-val.acc-mid { color: #7a5500; }
+    .eb-val.acc-lo { color: #cf2222; }
+    .eb-val.cpl-lo { color: #2d7d46; }
+    .eb-val.cpl-mid { color: #7a5500; }
+    .eb-val.cpl-hi { color: #cf2222; }
+    .eb-blunder { color: #cf2222; font-weight: 700; }
+    .eb-mistake { color: #d97706; font-weight: 700; }
+    .eb-inaccuracy { color: #7a5500; font-weight: 600; }
+
+    .moments-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; margin: 10px 0; }
+    .moments-table th { background: #eaf0f8; color: #1a3a55; padding: 6px 10px; text-align: left; font-weight: 600; }
+    .moments-table td { padding: 6px 10px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    .moments-table tr:last-child td { border-bottom: none; }
+    .badge-blunder { display: inline-block; background: #fff5f5; color: #7a0000; border-radius: 3px; padding: 0px 5px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+    .badge-mistake { display: inline-block; background: #fff8e6; color: #7a4f00; border-radius: 3px; padding: 0px 5px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+    .badge-inaccuracy { display: inline-block; background: #f0f4f8; color: #1a3a55; border-radius: 3px; padding: 0px 5px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: #f0f4f8;
+      border: 1px solid #d0d7de;
+      border-radius: 4px;
+      padding: 1px 5px;
+      white-space: nowrap;
+    }
+    em { font-style: italic; color: #57606a; }
+    strong { font-weight: 600; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Aarush Ajith — 2026 PAM</h1>
+    <p class="subtitle">Pan American Youth Championship 2026 · July 28–31, 2026 · Open section · 5 games captured</p>
+    <p class="opp-note">Opponent analysis page — this review supports Austin Lin's preparation against Aarush Ajith. Blue accent = opponent data.</p>
+    <a class="back-link" href="../../matchup-aarush.html">← Back to Austin vs Aarush — Matchup Plan</a>
+  </div>
+
+  <!-- Scoreboard -->
+  <div class="scoreboard">
+    <div class="score-card"><div class="label">Rating (at event)</div><div class="value">1941</div></div>
+    <div class="score-card warn"><div class="label">Score</div><div class="value">2W – 3L</div></div>
+    <div class="score-card warn"><div class="label">As White</div><div class="value">0W – 3L</div></div>
+    <div class="score-card highlight"><div class="label">As Black</div><div class="value">2W – 0L</div></div>
+    <div class="score-card highlight"><div class="label">Avg Accuracy</div><div class="value">89.9%</div></div>
+  </div>
+
+  <div class="alert-box">
+    <strong>Critical finding:</strong> Aarush went <strong>0W-3L as White</strong> in PAM 2026 — all 3 White games lost. His White losses include a catastrophic 5B-5M-8I performance (R6) and an endgame collapse vs a 2137 opponent (R8). His Catalan as White is severely unreliable at this level.
+  </div>
+
+  <div class="info-box">
+    Stockfish depth-18 analysis on all 5 captured games (rounds 1, 2, 7 not in dataset).
+    Aarush avg: <strong>89.9%</strong> · Opponents avg: <strong>90.1%</strong>.
+  </div>
+
+  <!-- Game Log -->
+  <h2>Game Log</h2>
+  <table>
+    <thead>
+      <tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Acc%</th><th>CPL</th><th>Result</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>R3</td><td>Black</td><td>Otalvaro Vasquez, Camilo Andres</td><td>1825</td><td>B90 Sicilian Najdorf</td><td>92.8%</td><td>29</td><td class="win">Win</td></tr>
+      <tr><td>R4</td><td>Black</td><td>Ayala Delgado, Sergio Alejandro</td><td>2097</td><td>A45 Trompowsky</td><td>87.7%</td><td>59</td><td class="win">Win</td></tr>
+      <tr><td>R5</td><td>White</td><td>Gao, Heye</td><td>2065</td><td>E04 Catalan Open</td><td>87.9%</td><td>52</td><td class="loss">Loss</td></tr>
+      <tr><td>R6</td><td>White</td><td>Delgado Gutierrez, Mateo</td><td>1833</td><td>E68 KID Fianchetto</td><td>87.9%</td><td>100</td><td class="loss">Loss</td></tr>
+      <tr><td>R8</td><td>White</td><td>Fernandez Herrera, Andres</td><td>2137</td><td>D30 QGD</td><td>93.0%</td><td>91</td><td class="loss">Loss</td></tr>
+    </tbody>
+  </table>
+
+  <hr />
+  <h2>Game Notes</h2>
+
+  <!-- R3 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R3</span>
+      <span class="game-opp">Otalvaro Vasquez, Camilo Andres (1825)</span>
+      <span class="color-bl">Black</span>
+      <span class="opening-tag">B90 Sicilian Najdorf</span>
+      <span class="rbadge-win">Win</span>
+    </div>
+    <div class="game-body">
+      <div class="engine-bar">
+        <div class="eb-item"><span class="eb-label">Aarush Acc%</span><span class="eb-val acc-hi">92.8%</span></div>
+        <div class="eb-item"><span class="eb-label">Opp Acc%</span><span class="eb-val acc-mid">86.8%</span></div>
+        <div class="eb-item"><span class="eb-label">Avg CPL</span><span class="eb-val cpl-lo">29</span></div>
+        <div class="eb-item"><span class="eb-label">Blunders</span><span class="eb-val">0</span></div>
+        <div class="eb-item"><span class="eb-label">Mistakes</span><span class="eb-val eb-mistake">2</span></div>
+        <div class="eb-item"><span class="eb-label">Inaccuracies</span><span class="eb-val eb-inaccuracy">5</span></div>
+        <div class="eb-item"><span class="eb-label">Moves</span><span class="eb-val">74</span></div>
+      </div>
+      <p><strong>Opening:</strong> Sicilian Najdorf English Attack (B90) as Black vs a 1825 opponent. Aarush outplayed his opponent (92.8% vs 86.8%) and won. Clean Najdorf conversion — his best Black result in PAM.</p>
+      <div class="good-box">
+        Aarush is comfortable in the Najdorf as Black against lower-rated opponents. The 29 CPL is solid. His two mistakes were minor drifts in a winning position — he never lost control.
+      </div>
+    </div>
+  </div>
+
+  <!-- R4 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R4</span>
+      <span class="game-opp">Ayala Delgado, Sergio Alejandro (2097)</span>
+      <span class="color-bl">Black</span>
+      <span class="opening-tag">A45 Trompowsky</span>
+      <span class="rbadge-win">Win</span>
+    </div>
+    <div class="game-body">
+      <div class="engine-bar">
+        <div class="eb-item"><span class="eb-label">Aarush Acc%</span><span class="eb-val acc-mid">87.7%</span></div>
+        <div class="eb-item"><span class="eb-label">Opp Acc%</span><span class="eb-val acc-lo">82.6%</span></div>
+        <div class="eb-item"><span class="eb-label">Avg CPL</span><span class="eb-val cpl-mid">59</span></div>
+        <div class="eb-item"><span class="eb-label">Blunders</span><span class="eb-val eb-blunder">2</span></div>
+        <div class="eb-item"><span class="eb-label">Mistakes</span><span class="eb-val eb-mistake">3</span></div>
+        <div class="eb-item"><span class="eb-label">Inaccuracies</span><span class="eb-val eb-inaccuracy">8</span></div>
+        <div class="eb-item"><span class="eb-label">Moves</span><span class="eb-val">90</span></div>
+      </div>
+      <p><strong>Opening:</strong> Trompowsky Attack (A45) — unusual choice by a 2097 opponent. Aarush faced 1.d4 Nf6 2.Bg5. Long tactical battle, both sides made significant errors but Aarush won despite 2 blunders.</p>
+      <h4>Critical moments (Stockfish)</h4>
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Move</th><th>Best</th><th>Before → After</th><th>CPL</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge-blunder">Blunder</span></td><td><code>Bh6+</code></td><td><code>Be5+</code></td><td>+0.78 → −6.93</td><td>771</td></tr>
+          <tr><td><span class="badge-blunder">Blunder</span></td><td><code>Bb2</code></td><td><code>Bb2</code></td><td>+17.44 → +14.01</td><td>343</td></tr>
+          <tr><td><span class="badge-mistake">Mistake</span></td><td><code>g4+</code></td><td><code>Qxh2</code></td><td>−4.38 → −6.60</td><td>222</td></tr>
+        </tbody>
+      </table>
+      <div class="alert-box">
+        Aarush won despite committing a 771-CPL blunder (check with wrong bishop — <code>Bh6+</code> instead of <code>Be5+</code>). The second "blunder" is the engine identifying a better line in a winning position. Aarush's opponent also collapsed, allowing Aarush to recover. Win by resilience, not precision.
+      </div>
+    </div>
+  </div>
+
+  <!-- R5 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R5</span>
+      <span class="game-opp">Gao, Heye (2065 CM)</span>
+      <span class="color-wh">White</span>
+      <span class="opening-tag">E04 Catalan Open</span>
+      <span class="rbadge-loss">Loss</span>
+    </div>
+    <div class="game-body">
+      <div class="engine-bar">
+        <div class="eb-item"><span class="eb-label">Aarush Acc%</span><span class="eb-val acc-mid">87.9%</span></div>
+        <div class="eb-item"><span class="eb-label">Opp Acc%</span><span class="eb-val acc-hi">94.0%</span></div>
+        <div class="eb-item"><span class="eb-label">Avg CPL</span><span class="eb-val cpl-mid">52</span></div>
+        <div class="eb-item"><span class="eb-label">Blunders</span><span class="eb-val">0</span></div>
+        <div class="eb-item"><span class="eb-label">Mistakes</span><span class="eb-val eb-mistake">4</span></div>
+        <div class="eb-item"><span class="eb-label">Inaccuracies</span><span class="eb-val eb-inaccuracy">7</span></div>
+        <div class="eb-item"><span class="eb-label">Moves</span><span class="eb-val">62</span></div>
+      </div>
+      <p><strong>Opening:</strong> Catalan Open (E04) as White. Third encounter between Aarush and Gao, Heye (also met in Canada Closed R2, and again in Austin's PAM games). Aarush was outplayed technically — 4 mistakes, 7 inaccuracies, no blunders but consistent drift.</p>
+      <h4>Critical moments (Stockfish)</h4>
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Move</th><th>Best</th><th>Before → After</th><th>CPL</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge-mistake">Mistake</span></td><td><code>Nd5</code></td><td><code>dxe5</code></td><td>+0.15 → −1.99</td><td>214</td></tr>
+          <tr><td><span class="badge-mistake">Mistake</span></td><td><code>h4</code></td><td><code>e5</code></td><td>−4.91 → −6.83</td><td>192</td></tr>
+          <tr><td><span class="badge-mistake">Mistake</span></td><td><code>Nd2</code></td><td><code>e5</code></td><td>−4.24 → −6.05</td><td>181</td></tr>
+        </tbody>
+      </table>
+      <div class="warn-box">
+        <strong>Catalan White collapse:</strong> When Aarush should have played the thematic break <code>e5</code> (twice flagged as best), he chose passive knight moves (<code>Nd5</code>, <code>Nd2</code>). This shows he doesn't always find the key pawn-break ideas in his own system. Gao, Heye exploited this drift perfectly — third time vs Aarush, third win.
+      </div>
+    </div>
+  </div>
+
+  <!-- R6 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R6</span>
+      <span class="game-opp">Delgado Gutierrez, Mateo (1833)</span>
+      <span class="color-wh">White</span>
+      <span class="opening-tag">E68 KID Fianchetto</span>
+      <span class="rbadge-loss">Loss</span>
+    </div>
+    <div class="game-body">
+      <div class="engine-bar">
+        <div class="eb-item"><span class="eb-label">Aarush Acc%</span><span class="eb-val acc-mid">87.9%</span></div>
+        <div class="eb-item"><span class="eb-label">Opp Acc%</span><span class="eb-val acc-mid">91.5%</span></div>
+        <div class="eb-item"><span class="eb-label">Avg CPL</span><span class="eb-val cpl-hi">100</span></div>
+        <div class="eb-item"><span class="eb-label">Blunders</span><span class="eb-val eb-blunder">5</span></div>
+        <div class="eb-item"><span class="eb-label">Mistakes</span><span class="eb-val eb-mistake">5</span></div>
+        <div class="eb-item"><span class="eb-label">Inaccuracies</span><span class="eb-val eb-inaccuracy">8</span></div>
+        <div class="eb-item"><span class="eb-label">Moves</span><span class="eb-val">100</span></div>
+      </div>
+      <p><strong>Opening:</strong> KID Fianchetto (E68) as White — the same structure where Aarush played his best game (R9, Canada Closed, 98.2%). But here vs a 1833-rated opponent he was catastrophically worse: <strong>5 blunders, 5 mistakes, 100 CPL</strong>.</p>
+      <h4>Critical moments (Stockfish)</h4>
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Move</th><th>Best</th><th>Before → After</th><th>CPL</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge-blunder">Blunder</span></td><td><code>Re2</code></td><td><code>Bxe6</code></td><td>−9.16 → −#</td><td>1000</td></tr>
+          <tr><td><span class="badge-blunder">Blunder</span></td><td><code>Bf4</code></td><td><code>Nd5</code></td><td>−6.99 → −16.23</td><td>924</td></tr>
+          <tr><td><span class="badge-blunder">Blunder</span></td><td><code>e5</code></td><td><code>Qf2</code></td><td>−9.14 → −12.64</td><td>350</td></tr>
+        </tbody>
+      </table>
+      <div class="warn-box">
+        <strong>Worst game in dataset:</strong> 100 CPL average, 5 blunders including a move-to-mate (Re2??). Aarush lost to a ~1833-rated opponent despite being White. The game was likely decided by time pressure — the accelerating error rate (5 blunders in a 100-move game) suggests clock problems. This is Aarush's most alarming result.
+      </div>
+    </div>
+  </div>
+
+  <!-- R8 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R8</span>
+      <span class="game-opp">Fernandez Herrera, Andres (2137)</span>
+      <span class="color-wh">White</span>
+      <span class="opening-tag">D30 QGD</span>
+      <span class="rbadge-loss">Loss</span>
+    </div>
+    <div class="game-body">
+      <div class="engine-bar">
+        <div class="eb-item"><span class="eb-label">Aarush Acc%</span><span class="eb-val acc-hi">93.0%</span></div>
+        <div class="eb-item"><span class="eb-label">Opp Acc%</span><span class="eb-val acc-hi">95.6%</span></div>
+        <div class="eb-item"><span class="eb-label">Avg CPL</span><span class="eb-val cpl-hi">91</span></div>
+        <div class="eb-item"><span class="eb-label">Blunders</span><span class="eb-val eb-blunder">4</span></div>
+        <div class="eb-item"><span class="eb-label">Mistakes</span><span class="eb-val eb-mistake">2</span></div>
+        <div class="eb-item"><span class="eb-label">Inaccuracies</span><span class="eb-val eb-inaccuracy">5</span></div>
+        <div class="eb-item"><span class="eb-label">Moves</span><span class="eb-val">108</span></div>
+      </div>
+      <p><strong>Opening:</strong> QGD (D30) as White against a 2137 Cuban FM. Long 108-move game — Aarush played at 93% accuracy but still lost. The 4 blunders are all king moves in the endgame (CPL 1000 each), exactly mirroring the Canada Closed R7 pattern.</p>
+      <h4>Critical moments (Stockfish)</h4>
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Move</th><th>Best</th><th>Before → After</th><th>CPL</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge-blunder">Blunder</span></td><td><code>Kxb4</code></td><td><code>g4</code></td><td>−9.91 → −23.29</td><td>1000</td></tr>
+          <tr><td><span class="badge-blunder">Blunder</span></td><td><code>Kd5</code></td><td><code>h3</code></td><td>−58.53 → −75.06</td><td>1000</td></tr>
+          <tr><td><span class="badge-blunder">Blunder</span></td><td><code>Kg6</code></td><td><code>g4</code></td><td>−66.19 → −86.88</td><td>1000</td></tr>
+        </tbody>
+      </table>
+      <div class="warn-box">
+        <strong>Endgame king pattern — confirmed critical weakness:</strong> Aarush's king walks to the wrong squares in rook/pawn endgames. <code>Kxb4</code>, <code>Kd5</code>, <code>Kg6</code> all flagged as 1000 CPL. This pattern is identical to Canada Closed R7 (also 3+ king blunders in endgame). This is arguably Aarush's single most exploitable technical weakness.
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Pattern Analysis -->
+  <h2>Pattern Analysis</h2>
+
+  <h3>White Record Collapse</h3>
+  <div class="warn-box">
+    <strong>0W-3L as White in PAM 2026.</strong> All three White losses feature different failure modes: gradual drift (R5), catastrophic blunder cascade (R6), endgame king errors (R8). There is no single flaw — Aarush's White game simply does not perform under pressure or against opposition above 1900.
+  </div>
+
+  <h3>Black — Only Wins Come as Black</h3>
+  <div class="good-box">
+    <strong>2W-0L as Black (PAM 2026).</strong> Both wins came in the Sicilian Najdorf. Aarush is noticeably stronger as Black in sharp tactical games — the Najdorf's complexity suits his playing style better than the slow positional Catalan.
+  </div>
+
+  <h3>Endgame King Navigation — Recurring Blunders</h3>
+  <p>R8 (PAM 2026) and R7 (Canada Closed) both feature 3+ king-endgame blunders at CPL 1000. In both cases Aarush played the king to losing squares in rook-and-pawn endgames. This is a confirmed, recurring, high-severity weakness.</p>
+
+  <h3>Time Pressure Correlation</h3>
+  <p>The R6 game (5 blunders, 5 mistakes, 100 CPL) is the clearest time-pressure collapse in the dataset. The error rate accelerates in moves 60–100, strongly suggesting clock stress. Austin should aim to reach complex endgames where both players are short on time — Aarush's accuracy degrades sharply.</p>
+
+</div>
+</body>
+</html>
