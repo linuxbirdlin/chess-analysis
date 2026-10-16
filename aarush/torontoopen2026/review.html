@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aarush Ajith — 2026 Toronto Open Game Review</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+    .doc-header {
+      border-bottom: 3px solid #1a5276;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.75rem; }
+    .doc-header .subtitle { color: #57606a; font-size: 0.95rem; margin: 0 0 6px; }
+    .doc-header .opp-note {
+      background: #eaf0f8;
+      border-left: 3px solid #1a5276;
+      border-radius: 0 4px 4px 0;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      color: #1a3a55;
+      margin: 0 0 14px;
+    }
+    .doc-header .back-link {
+      display: inline-block;
+      font-size: 0.875rem;
+      color: #1a5276;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    .scoreboard {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .score-card {
+      flex: 1;
+      min-width: 120px;
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .score-card .label { font-size: 0.78rem; color: #57606a; text-transform: uppercase; letter-spacing: 0.04em; }
+    .score-card .value { font-size: 1.4rem; font-weight: 700; color: #1f2328; line-height: 1.2; margin-top: 2px; }
+    .score-card.highlight .value { color: #1a5276; }
+    .score-card.warn .value { color: #cf2222; }
+
+    h2 {
+      font-size: 1.25rem;
+      color: #1f2328;
+      margin: 40px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #d0d7de;
+    }
+    h3 { font-size: 1.05rem; color: #1a5276; margin: 22px 0 8px; }
+    h4 { font-size: 0.95rem; color: #1f2328; font-weight: 600; margin: 16px 0 6px; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
+    li { margin-bottom: 4px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 14px 0 24px;
+    }
+    thead th {
+      background: #1a5276;
+      color: #fff;
+      padding: 9px 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 8px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .win  { color: #2d7d46; font-weight: 600; }
+    .loss { color: #cf2222; font-weight: 600; }
+    .draw { color: #7a5500; font-weight: 600; }
+
+    .good-box {
+      background: #dafbe1;
+      border-left: 4px solid #2d7d46;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #1a4731;
+    }
+    .warn-box {
+      background: #fff5f5;
+      border-left: 4px solid #cf2222;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #7a0000;
+    }
+    .alert-box {
+      background: #fff8e6;
+      border-left: 4px solid #d4a017;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #7a4f00;
+    }
+    .info-box {
+      background: #eaf0f8;
+      border-left: 4px solid #1a5276;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #1a3a55;
+    }
+
+    .game-review { border: 1px solid #d0d7de; border-radius: 8px; margin: 22px 0; overflow: hidden; }
+    .game-header { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 10px 16px; background: #f6f8fa; border-bottom: 1px solid #d0d7de; }
+    .round-badge { background: #1a5276; color: #fff; border-radius: 4px; padding: 2px 9px; font-size: 0.8rem; font-weight: 700; white-space: nowrap; }
+    .game-opp { font-weight: 600; font-size: 0.92rem; flex: 1; min-width: 140px; }
+    .opening-tag { font-size: 0.77rem; color: #57606a; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 3px; padding: 1px 6px; white-space: nowrap; }
+    .color-wh { font-size: 0.74rem; font-weight: 600; border-radius: 3px; padding: 1px 6px; background: #fff; color: #1f2328; border: 1px solid #aaa; }
+    .color-bl { font-size: 0.74rem; font-weight: 600; border-radius: 3px; padding: 1px 6px; background: #2d2d2d; color: #fff; }
+    .rbadge-win  { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #dafbe1; color: #1a4731; }
+    .rbadge-loss { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #fff5f5; color: #7a0000; }
+    .rbadge-draw { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #fff8e6; color: #7a4f00; }
+    .game-body { padding: 14px 18px; }
+
+    .engine-bar { display: flex; gap: 18px; flex-wrap: wrap; padding: 10px 14px; background: #f0f4f8; border-radius: 6px; margin: 10px 0 14px; font-size: 0.82rem; }
+    .engine-bar .eb-item { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+    .eb-label { color: #57606a; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .eb-val { font-weight: 700; font-size: 0.95rem; color: #1f2328; }
+    .eb-val.acc-hi { color: #2d7d46; }
+    .eb-val.acc-mid { color: #7a5500; }
+    .eb-val.acc-lo { color: #cf2222; }
+    .eb-val.cpl-lo { color: #2d7d46; }
+    .eb-val.cpl-mid { color: #7a5500; }
+    .eb-val.cpl-hi { color: #cf2222; }
+    .eb-blunder { color: #cf2222; font-weight: 700; }
+    .eb-mistake { color: #d97706; font-weight: 700; }
+    .eb-inaccuracy { color: #7a5500; font-weight: 600; }
+
+    .moments-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; margin: 10px 0; }
+    .moments-table th { background: #eaf0f8; color: #1a3a55; padding: 6px 10px; text-align: left; font-weight: 600; }
+    .moments-table td { padding: 6px 10px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    .moments-table tr:last-child td { border-bottom: none; }
+    .badge-blunder { display: inline-block; background: #fff5f5; color: #7a0000; border-radius: 3px; padding: 0px 5px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+    .badge-mistake { display: inline-block; background: #fff8e6; color: #7a4f00; border-radius: 3px; padding: 0px 5px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+    .badge-inaccuracy { display: inline-block; background: #f0f4f8; color: #1a3a55; border-radius: 3px; padding: 0px 5px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: #f0f4f8;
+      border: 1px solid #d0d7de;
+      border-radius: 4px;
+      padding: 1px 5px;
+      white-space: nowrap;
+    }
+    em { font-style: italic; color: #57606a; }
+    strong { font-weight: 600; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Aarush Ajith — 2026 Toronto Open</h1>
+    <p class="subtitle">Toronto Open 2026 · Toronto, ON · September 7, 2026 · FIDE rated · 1 game captured (R6)</p>
+    <p class="opp-note">Opponent analysis page — this review supports Austin Lin's preparation against Aarush Ajith. Blue accent = opponent data.</p>
+    <a class="back-link" href="../../matchup-aarush.html">← Back to Austin vs Aarush — Matchup Plan</a>
+  </div>
+
+  <!-- Scoreboard -->
+  <div class="scoreboard">
+    <div class="score-card"><div class="label">FIDE Rating</div><div class="value">1895</div></div>
+    <div class="score-card warn"><div class="label">Score</div><div class="value">0W – 1L – 0D</div></div>
+    <div class="score-card warn"><div class="label">As Black</div><div class="value">0W – 1L</div></div>
+    <div class="score-card warn"><div class="label">Avg Accuracy</div><div class="value">84%</div></div>
+  </div>
+
+  <div class="info-box">
+    Stockfish depth-18 analysis on 1 game (R6 only captured from Lichess broadcast). Accuracy computed using the Lichess win-probability formula.
+    Aarush's accuracy: <strong>84%</strong> · Opponent's accuracy: <strong>84%</strong> · Avg CPL: <strong>112</strong>.
+    <br><em>Note: Aarush's rating dropped to 1895 at this event (down from 1941 at PAM 2026, July 2026).</em>
+  </div>
+
+  <!-- Game Log -->
+  <h2>Game Log</h2>
+  <table>
+    <thead>
+      <tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Acc%</th><th>CPL</th><th>Result</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>R6</td><td>Black</td><td>Gao, Raymond (CM)</td><td>2086</td><td>A00 Saragossa / h4 attack</td><td>84%</td><td>112</td><td class="loss">Loss</td></tr>
+    </tbody>
+  </table>
+
+  <hr />
+
+  <!-- Game Notes -->
+  <h2>Game Notes</h2>
+
+  <!-- R6 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R6</span>
+      <span class="game-opp">Gao, Raymond (CM, 2086)</span>
+      <span class="color-bl">Black</span>
+      <span class="opening-tag">A00 Saragossa / h4 attack</span>
+      <span class="rbadge-loss">Loss</span>
+    </div>
+    <div class="game-body">
+      <div class="engine-bar">
+        <div class="eb-item"><span class="eb-label">Aarush Acc%</span><span class="eb-val acc-lo">84%</span></div>
+        <div class="eb-item"><span class="eb-label">Opp Acc%</span><span class="eb-val acc-lo">84%</span></div>
+        <div class="eb-item"><span class="eb-label">Avg CPL</span><span class="eb-val cpl-hi">112</span></div>
+        <div class="eb-item"><span class="eb-label">Blunders</span><span class="eb-val eb-blunder">4</span></div>
+        <div class="eb-item"><span class="eb-label">Mistakes</span><span class="eb-val eb-mistake">1</span></div>
+        <div class="eb-item"><span class="eb-label">Inaccuracies</span><span class="eb-val eb-inaccuracy">5</span></div>
+        <div class="eb-item"><span class="eb-label">Moves</span><span class="eb-val">75</span></div>
+      </div>
+
+      <p><strong>Opening:</strong> White opened with the Saragossa (1.c3) and rapidly transitioned into an aggressive h4 attack: <code>1.c3 Nf6 2.d4 g6 3.h4!</code>. Aarush responded with <code>3...Bg7 4.h5 Nxh5 5.e4 Nf6</code> — accepting the h5 pawn push then retreating the knight. White's early <code>6.Bd3?!</code> (inaccuracy) gave Aarush a small advantage.</p>
+
+      <h4>Game phases</h4>
+      <ul>
+        <li><strong>Moves 1–9:</strong> Aarush handled the h4-h5 attack well and reached a slight Black advantage (−0.93). His piece development with <code>Bg4</code> and early castling was solid.</li>
+        <li><strong>Move 10:</strong> Missed winning tactic — <code>10...d5??</code> instead of <code>10...Bxh6!</code> (which wins the exchange on h6). Eval swings from −1.73 to 0.00, giving back the advantage. The bishop sacrifice would have netted a decisive material gain.</li>
+        <li><strong>Moves 11–21:</strong> Aarush recovered and ground out a large winning advantage. After White's blunder <code>17.f4??</code> (−5.03 swing), Aarush was winning by 5–6 pawns. Position eval reached −6.11 at move 20.</li>
+        <li><strong>Move 22:</strong> <code>22...Qb4??</code> — catastrophic time-pressure blunder. Aarush had under 8 minutes left. The correct move was <code>Qxg5</code>, maintaining the large Black advantage. <code>Qb4</code> allows White's <code>Rxf7+</code> mating attack. Eval flips from −6.11 to +7.76.</li>
+        <li><strong>Moves 23–38:</strong> White executed a forced mating sequence. Aarush's king was chased across the board and mated on move 38.</li>
+      </ul>
+
+      <h4>Critical moments (Stockfish depth 18)</h4>
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Move</th><th>Best</th><th>Before → After</th><th>CPL</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge-blunder">Blunder</span></td><td><code>22...Qb4</code></td><td><code>Qxg5</code></td><td>+7.31 → −6.05</td><td>1000</td></tr>
+          <tr><td><span class="badge-blunder">Blunder</span></td><td><code>23...Kg7</code></td><td><code>Kg8</code></td><td>−12.52 → −#</td><td>1000</td></tr>
+          <tr><td><span class="badge-blunder">Blunder</span></td><td><code>29...Ke7</code></td><td><code>Qf8</code></td><td>−17.51 → −#</td><td>1000</td></tr>
+        </tbody>
+      </table>
+
+      <div class="warn-box">
+        <strong>Key pattern — time pressure collapse from winning position:</strong> Aarush had a decisive advantage (+6–7 pawns) but blundered <code>Qb4??</code> with under 8 minutes remaining. This is his third loss involving h4 kingside attacks (Canada Closed R1, Canada Closed R2, Toronto Open R6). More critically, he was <em>winning</em> this game before the blunder — the h4 attack didn't beat him, time pressure did. This is an even more alarming pattern than the earlier games: Aarush can survive the opening attack but collapses under time pressure when converting.
+      </div>
+
+      <div class="alert-box">
+        <strong>Austin prep note:</strong> Austin should aim to create complex, unbalanced positions that consume Aarush's clock time in the middlegame. Even when Aarush navigates the opening correctly, he is prone to panic-blunders in time scrambles from winning positions. The h4 system forces practical complexity that compounds this weakness.
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Pattern Analysis -->
+  <h2>Pattern Analysis</h2>
+
+  <h3>h4 Attack — Three Confirmed Games</h3>
+  <p>Across the full dataset, Aarush has faced direct h4 kingside attack systems in three separate games:</p>
+  <ul>
+    <li><strong>Canada Closed R1</strong> vs Iordanescu (2108): KID h4 → Aarush 80.6% acc, 3 blunders, loss</li>
+    <li><strong>Canada Closed R2</strong> vs Gao, Heye (2028): Sicilian Najdorf h4 → Aarush 91.5% acc, 1 blunder, loss</li>
+    <li><strong>Toronto Open R6</strong> vs Gao, Raymond CM (2086): Saragossa 3.h4! → Aarush 84% acc, 4 blunders, loss</li>
+  </ul>
+  <p>Record vs h4 systems: <strong>0W–3L</strong>. In the Toronto game, the h4 attack was used as a direct weapon from move 3 — not even allowing Aarush to reach his usual Sicilian structure.</p>
+
+  <h3>Time Pressure as Primary Vulnerability</h3>
+  <div class="warn-box">
+    The Toronto Open R6 game is the clearest illustration of Aarush's deepest weakness: he can play well in the opening and middlegame, but collapses catastrophically under time pressure. He was winning by +6 pawns before Qb4?? with under 8 minutes left. This pattern mirrors PAM R6 (5 blunders vs 1833-rated player) and suggests a systemic time management issue beyond just the h4 setup.
+  </div>
+
+  <h3>Rating Context</h3>
+  <p>Aarush's rating dropped from 1941 (PAM 2026, July 2026) to 1895 (Toronto Open, September 2026) — a 46-point decline. This suggests the strong PAM 2026 performance (where he won some games as Black) may have reflected an upward fluctuation rather than a settled level. His FIDE performance across the full dataset (2W–10L–1D in games where result is known) places his practical strength below his rating.</p>
+
+</div>
+</body>
+</html>

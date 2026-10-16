@@ -660,5 +660,49 @@
       "aarushResult": "loss",
       "eco": "D30 — Queen's Gambit Declined"
     }
+  },
+  "Toronto Open 2026": {
+    "R6": {
+      "aarushAccuracy": 84,
+      "oppAccuracy": 84,
+      "avgCPL": 112,
+      "blunders": 4,
+      "mistakes": 1,
+      "inaccuracies": 5,
+      "movesAnalyzed": 37,
+      "criticalMoments": [
+        {
+          "san": "Qb4",
+          "bestMove": "Qxg5",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "+7.31",
+          "evalAfter": "-6.05"
+        },
+        {
+          "san": "Kg7",
+          "bestMove": "Kg8",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-12.52",
+          "evalAfter": "-#"
+        },
+        {
+          "san": "Ke7",
+          "bestMove": "Qf8",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-17.51",
+          "evalAfter": "-#"
+        }
+      ],
+      "aarushColor": "black",
+      "opponent": "Gao, Raymond",
+      "opponentElo": 2086,
+      "round": 6,
+      "result": "1-0",
+      "aarushResult": "loss",
+      "eco": "A00"
+    }
   }
 }

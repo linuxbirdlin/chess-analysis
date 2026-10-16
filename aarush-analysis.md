@@ -1,7 +1,7 @@
 # Aarush Ajith — Player Analysis
 
 **FIDE ID:** 30943329  
-**Rating progression:** ~1860 (PAM School, May 2026) → 1908 (Canada Closed, April 2026) → 1941 (PAM 2026, July 2026)  
+**Rating progression:** ~1860 (PAM School, May 2026) → 1908 (Canada Closed, April 2026) → 1941 (PAM 2026, July 2026) → 1895 (Toronto Open, Sep 2026)  
 **Age group:** U14–U16  
 **Nationality:** Canada  
 
@@ -36,6 +36,15 @@ Avg accuracy: 90.6% (Opponents: 92.4%)
 
 Avg accuracy: 92.3% (Opponents: 97.4%)
 
+### Toronto Open 2026 (September 7, 2026 · Toronto, ON · Rating: 1895 · 1 game captured)
+
+| Rd | Color | Opponent | Opp. Rtg | Opening | Acc% | CPL | Result |
+|----|-------|----------|----------|---------|------|-----|--------|
+| R6 | Black | Gao, Raymond (CM) | 2086 | A00 Saragossa / h4 | 84% | 112 | **Loss** |
+
+**Score: 0W-1L.** As Black: 0W-1L.  
+Avg accuracy: 84% (Opponent: 84%)
+
 ### PAM 2026 (July 28–31, 2026 · Rating: 1941 · 5 games captured)
 
 | Rd | Color | Opponent | Opp. Rtg | Opening | Acc% | CPL | Result |
@@ -58,7 +67,7 @@ Avg accuracy: 89.9% (Opponents: 90.1%)
 | White | 2 | 5 | 0 | 90.5% | Wins only vs ~1925 or lower |
 | Black | 4 | 5 | 1 | 90.7% | Wins in Najdorf; losses to 2000+ |
 
-*16 games analyzed. Overall avg accuracy: 90.6%. Total blunders: 28. Total mistakes: 33.*
+*17 games analyzed. Overall avg accuracy: ~90.4%. Total blunders: 32. Total mistakes: 34.*
 
 ---
 
@@ -102,7 +111,7 @@ Aarush plays `1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6` — full Najdorf. 
 
 ### Weaknesses
 
-1. **h4-h5 kingside attack vulnerability (as Black):** R1 and R2 (Canada Closed) both lost to h4 attacking setups — 80.6% and 91.5% accuracy, 3 blunders in R1 alone. Aarush has no reliable antidote to direct kingside attacks in KID/Sicilian structures.
+1. **h4-h5 kingside attack vulnerability (as Black):** Three games lost to direct h4 attacks — Canada Closed R1 (KID h4, 80.6% acc, 3 blunders), Canada Closed R2 (Sicilian Najdorf h4, 91.5% acc), and Toronto Open R6 (Saragossa 3.h4!, 84% acc, 4 blunders). The Toronto game is most alarming: White played 1.c3 d4 h4 as a direct weapon from move 3, and Aarush was actually winning (+6 pawns) before blundering Qb4?? in time pressure. Record vs h4 systems: **0W–3L**. Aarush has no reliable antidote to direct h4 attacks in any Black structure.
 
 2. **King-and-pawn endgame technique:** R7 (Canada Closed, 128 moves) and R8 (PAM 2026, 108 moves) both feature 3–4 king-move blunders at 1000 CPL in rook/pawn endings. Aarush consistently walks his king to the wrong squares in theoretical king endgames.
 
@@ -146,13 +155,16 @@ Most alarming result. Lost to a 1833-rated opponent as White with 5 blunders and
 ### PAM R8 — Fernandez Herrera 2137 def. Aarush (93.0%, 4 endgame blunders)
 Long QGD game where Aarush played solidly for ~70 moves then collapsed in the pawn endgame. Three consecutive king blunders (1000 CPL each) mirror the Canada Closed R7 pattern exactly. Endgame king navigation is confirmed as a systematic weakness.
 
+### Toronto Open R6 — Gao, Raymond (CM 2086) def. Aarush (84% acc, 4 blunders)
+Aarush played Black against a 2086 CM who opened with Saragossa (1.c3) and launched a direct h4 attack on move 3. Aarush survived the opening phase and actually reached a winning position (+6 pawns, eval −6.11) by move 21 after White blundered with 17.f4??. However, with under 8 minutes remaining, Aarush played 22...Qb4?? instead of the winning Qxg5, allowing White's Rxf7+ mating attack. Lost in a mating net by move 38. This game confirms the time pressure cascade pattern — Aarush can navigate the middlegame correctly but collapses under clock pressure even from winning positions.
+
 ---
 
 ## Summary Profile
 
 | Attribute | Assessment |
 |-----------|-----------|
-| Rating | ~1908–1941 (rising) |
+| Rating | ~1895–1941 (fluctuating; dropped at Toronto Open Sep 2026) |
 | White opening | 1.d4 Catalan/fianchetto exclusively |
 | Black opening | Sicilian Najdorf primary; KID-like g6/Bg7 secondary |
 | Style | Positional as White; tactical as Black |

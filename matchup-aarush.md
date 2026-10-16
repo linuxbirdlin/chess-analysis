@@ -1,7 +1,7 @@
 # Austin Lin vs Aarush Ajith — Matchup Preparation
 
 **Austin's rating:** ~1865–1968  
-**Aarush's rating:** ~1908–1941 (rising)  
+**Aarush's rating:** ~1895–1941 (fluctuating; dropped at Toronto Open Sep 2026)  
 **Rating gap:** Roughly even; Aarush slightly higher in most encounters  
 
 ---
@@ -23,7 +23,7 @@ If Aarush plays `2...d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6` — full Najdorf, Austin 
 
 `6.h4` — this is the exact attacking setup that cost Aarush 80.6% accuracy in Canada Closed R1 and produced 3 blunders in R2. Aarush has shown a **direct exploitable weakness** against h4 in the Najdorf.
 
-**Specific recommendation:** Play the h4 English Attack against Aarush's Najdorf. Austin used h4 ideas in his own repertoire (NAYCC games) and the engine data confirms this is Aarush's worst-scoring opening as Black.
+**Specific recommendation:** Play the h4 English Attack against Aarush's Najdorf. Austin used h4 ideas in his own repertoire (NAYCC games) and the engine data confirms this is Aarush's worst-scoring opening as Black. Aarush is now **0W–3L** against direct h4 kingside attacks across all tournaments (Canada Closed R1, R2; Toronto Open R6). In the Toronto game, White played 3.h4 directly from a Saragossa structure — Aarush was forced out of his Sicilian setup entirely. Even more critically, Aarush reached a +6 advantage in Toronto R6 but blundered Qb4?? in time pressure — the h4 system creates practical complexity that compounds Aarush's clock management failures.
 
 ### Opening Move Order
 
@@ -40,7 +40,7 @@ Key themes to prepare:
 
 ### Key Tactical Themes (Austin White)
 
-1. **h4-h5 pawn storm:** Aarush committed 3 blunders in R1 (Canada Closed) when facing this setup. He moves his rooks prematurely (`Rxa7??`, `Rd7??`) trying to counterattack on the queenside while the kingside is on fire.
+1. **h4-h5 pawn storm:** Aarush is 0W–3L against h4 attacks across the dataset. In Canada Closed R1 he committed 3 blunders, and in Toronto Open R6 he was actually winning (+6 pawns) before panic-blundering Qb4?? in time pressure — allowing a Rxf7+ mating attack. The h4 system does not need to "win" the opening; it creates pressure that consumes Aarush's clock and induces blunders even from winning positions.
 
 2. **Forcing exchanges to reach endgames:** Aarush's king endgame technique is catastrophically bad (confirmed in R7 Canada Closed, R8 PAM — both 3+ king blunders). If Austin can trade pieces and enter a rook-pawn endgame, Aarush is likely to blunder his king to the wrong squares.
 
@@ -102,7 +102,7 @@ Option B — `4...Be7 5.Bg2 O-O 6.O-O b6` (Catalan Closed, b6 setup): Black fian
 
 1. **Aarush's rating is slightly higher (~1941 vs Austin ~1865–1968) but so was Justin's at various points.** Aarush's recent PAM 2026 score (2W-3L) shows he is beatable within his rating band — he lost to opponents rated 1833 and similar.
 
-2. **Aarush plays confidently in the Najdorf as Black but freezes in time pressure.** If Austin can make the game complex and dynamic, Aarush's clock management deteriorates badly. The R6 PAM collapse (5 blunders vs 1833) shows Aarush panics in time scrambles.
+2. **Aarush plays confidently in the Najdorf as Black but freezes in time pressure.** If Austin can make the game complex and dynamic, Aarush's clock management deteriorates badly. The PAM R6 collapse (5 blunders vs 1833) shows Aarush panics in time scrambles. Toronto Open R6 is an even stronger example: Aarush was winning by +6 pawns and still blundered Qb4?? with under 8 minutes left, allowing a forced mating sequence. This is not an isolated incident — it is a systemic pattern across the full dataset.
 
 3. **Aarush is likely well-prepared in Catalan theory but not beyond it.** His entire White game is one structure. Deep Catalan prep by Austin (especially the Open variation with `...a6/...b5 pawn hold`) will exhaust Aarush's knowledge earlier in the game.
 
