@@ -38,6 +38,14 @@ const TOURNAMENTS = [
     key:    'PAM 2026',
     pgnDir: path.join(ROOT, 'justin/pam2026'),
   },
+  {
+    key:    'PAM School 2026',
+    pgnDir: path.join(ROOT, 'justin/pamschool2026'),
+  },
+  {
+    key:    'Toronto Open 2026',
+    pgnDir: path.join(ROOT, 'justin/torontoopen2026'),
+  },
 ];
 
 // ─── Config ───────────────────────────────────────────────────────────────────
@@ -49,6 +57,49 @@ const MISTAKE_CPL    = 150;
 const BLUNDER_CPL    = 300;
 
 // ─── PGN helpers ──────────────────────────────────────────────────────────────
+// Converts the non-standard PAM format into a proper PGN with headers.
+// If the file already starts with '[', it is returned unchanged.
+function normalizePgn(pgn, round, tournamentKey) {
+  if (pgn.trimStart().startsWith('[')) return pgn;
+
+  const lines        = pgn.split('\n');
+  const firstLine    = lines[0].trim();
+  const dateLine     = lines[1]?.trim() || '';
+  const movesSection = lines.slice(2).join('\n').trim();
+
+  const pm        = firstLine.match(/^(.+?)\s*\((\d+)\)\s*-\s*(.+?)\s*\((\d+)\)\s*$/);
+  const whiteName = pm ? pm[1].trim() : '?';
+  const whiteElo  = pm ? pm[2]       : '?';
+  const blackName = pm ? pm[3].trim() : '?';
+  const blackElo  = pm ? pm[4]       : '?';
+
+  const dm      = dateLine.match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
+  const pgnDate = dm ? `${dm[3]}.${dm[2]}.${dm[1]}` : '????.??.??';
+
+  const rm     = movesSection.match(/(1-0|0-1|1\/2-1\/2|\*)\s*$/);
+  const result = rm ? rm[1] : '*';
+
+  return [
+    `[Event "${tournamentKey}"]`,
+    `[Site "?"]`,
+    `[Date "${pgnDate}"]`,
+    `[Round "${round}"]`,
+    `[White "${whiteName}"]`,
+    `[Black "${blackName}"]`,
+    `[Result "${result}"]`,
+    `[WhiteElo "${whiteElo}"]`,
+    `[BlackElo "${blackElo}"]`,
+    '',
+    movesSection,
+  ].join('\n');
+}
+
+// chess.js can't handle adjacent {comment}{comment} blocks (e.g. Lichess broadcast PGN).
+// Strip all {…} annotations before passing to chess.js; they're not needed for analysis.
+function stripComments(pgn) {
+  return pgn.replace(/\{[^}]*\}/g, '');
+}
+
 function parseRound(filename, pgn) {
   const fnMatch = path.basename(filename).match(/^round(\d+)/i);
   if (fnMatch) return parseInt(fnMatch[1], 10);
@@ -313,10 +364,12 @@ async function main() {
       const round = parseRound(filename, rawPgn);
       if (!round) { console.log(`  [SKIP] ${filename} — no round number\n`); continue; }
 
-      const justinColor = parseJustinColor(rawPgn);
+      const pgn = stripComments(normalizePgn(rawPgn, round, tournament.key));
+
+      const justinColor = parseJustinColor(pgn);
       if (!justinColor) { console.log(`  [SKIP] ${filename} — Justin not found in headers\n`); continue; }
 
-      const opponent = parseOpponentName(rawPgn, justinColor);
+      const opponent = parseOpponentName(pgn, justinColor);
       const key      = `R${round}`;
 
       // Skip if already analyzed
@@ -331,7 +384,7 @@ async function main() {
       const chess = new Chess();
       let moveCount;
       try {
-        chess.loadPgn(rawPgn);
+        chess.loadPgn(pgn);
         moveCount = chess.history().length;
       } catch (e) {
         console.log(`  [SKIP] R${round} — PGN parse error: ${e.message}\n`);
@@ -344,7 +397,7 @@ async function main() {
       const t0 = Date.now();
       let stats;
       try {
-        stats = await analyzeGame(rawPgn, justinColor, engine);
+        stats = await analyzeGame(pgn, justinColor, engine);
       } catch (e) {
         console.error(`  Error: ${e.message}\n`);
         continue;
