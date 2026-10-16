@@ -264,13 +264,13 @@ async function analyzeGame(pgn, austinColor, engine) {
     // After move:  from opponent's perspective → Austin's winP = 100 - cpToWinP(afterEval.cp)
     const winPBefore = cpToWinP(prevEval.cp);
     const winPAfter  = 100 - cpToWinP(afterEval.cp);
-    const winPDrop   = isAustin ? Math.max(0, winPBefore - winPAfter) : 0;
+    const winPDrop   = Math.max(0, winPBefore - winPAfter);
 
     // Centipawn loss (for move classification — blunder/mistake/inaccuracy).
     // Cap at 1000 so a single catastrophic move (e.g. walking into mate) doesn't
     // dominate the average CPL summary.
     const rawCpl   = Math.max(0, prevEval.cp + afterEval.cp);
-    const cpl      = isAustin ? Math.min(rawCpl, 1000) : 0;
+    const cpl      = Math.min(rawCpl, 1000);
     const classification = isAustin ? classifyMove(rawCpl) : null;   // use raw for classification
 
     moves.push({
@@ -282,15 +282,15 @@ async function analyzeGame(pgn, austinColor, engine) {
       evalAfter:     -afterEval.cp,   // from mover's perspective
       bestMove:      prevEval.bestMoveSan,
       cpl:           isAustin ? cpl : null,
-      winPDrop:      isAustin ? winPDrop : null,
+      winPDrop,
       classification,
     });
 
     prevEval = afterEval;
   }
 
-  // Accuracy from Austin's moves only
-  const austinMoves  = moves.filter(m => m.isAustin && m.cpl !== null);
+  // Accuracy from Austin's moves
+  const austinMoves  = moves.filter(m => m.isAustin);
   const avgWinPDrop  = austinMoves.length
     ? austinMoves.reduce((s, m) => s + m.winPDrop, 0) / austinMoves.length
     : 0;
@@ -299,9 +299,16 @@ async function analyzeGame(pgn, austinColor, engine) {
     : 0;
   const accuracy     = winPDropToAccuracy(avgWinPDrop);
 
-  const blunders    = austinMoves.filter(m => m.classification === 'blunder').length;
-  const mistakes    = austinMoves.filter(m => m.classification === 'mistake').length;
+  const blunders     = austinMoves.filter(m => m.classification === 'blunder').length;
+  const mistakes     = austinMoves.filter(m => m.classification === 'mistake').length;
   const inaccuracies = austinMoves.filter(m => m.classification === 'inaccuracy').length;
+
+  // Accuracy from opponent's moves
+  const oppMoves       = moves.filter(m => !m.isAustin);
+  const oppAvgWinPDrop = oppMoves.length
+    ? oppMoves.reduce((s, m) => s + m.winPDrop, 0) / oppMoves.length
+    : 0;
+  const oppAccuracy    = winPDropToAccuracy(oppAvgWinPDrop);
 
   // Top 3 worst moves (highest CPL) for the summary
   const criticalMoments = [...austinMoves]
@@ -319,6 +326,7 @@ async function analyzeGame(pgn, austinColor, engine) {
 
   return {
     accuracy,
+    oppAccuracy,
     avgCPL:         Math.round(avgCPL),
     blunders,
     mistakes,
@@ -336,15 +344,23 @@ function formatEval(cp) {
 }
 
 // ─── HTML patching ────────────────────────────────────────────────────────────
+// roundMap: { roundNumber: { austin: number, opp: number } }
 function patchReviewHtml(htmlPath, roundMap) {
   const lines   = fs.readFileSync(htmlPath, 'utf8').split('\n');
   const updated = lines.map(line => {
-    const m = line.match(
-      /^(\s*<tr><td>(\d+)<\/td>.*class="accuracy"\s+data-val=")[^"]*(".*)/
-    );
-    if (!m) return line;
-    const acc = roundMap[parseInt(m[2], 10)];
-    return acc != null ? m[1] + acc + m[3] : line;
+    const roundMatch = line.match(/^\s*<tr><td>(\d+)<\/td>/);
+    if (!roundMatch) return line;
+    const round = parseInt(roundMatch[1], 10);
+    const data  = roundMap[round];
+    if (!data) return line;
+    let newLine = line;
+    if (data.austin != null) {
+      newLine = newLine.replace(/(class="accuracy"\s+data-val=")[^"]*/, `$1${data.austin}`);
+    }
+    if (data.opp != null) {
+      newLine = newLine.replace(/(class="opp-accuracy"\s+data-val=")[^"]*/, `$1${data.opp}`);
+    }
+    return newLine;
   });
   fs.writeFileSync(htmlPath, updated.join('\n'));
 }
@@ -369,7 +385,7 @@ function patchPrepHtml(prepPath, tournamentKey, roundMap) {
       /^(\s*\{ label: 'R(\d+)[^']*',\s+result: '[WLD]',\s+acc: )(?:null|\d+\.?\d*)(,?\s*\}.*)$/
     );
     if (m) {
-      const acc = roundMap[parseInt(m[2], 10)];
+      const acc = roundMap[parseInt(m[2], 10)]?.austin;
       if (acc != null) return m[1] + acc + m[3];
     }
     return line;
@@ -416,13 +432,13 @@ async function main() {
       const pgn   = normalizePgn(rawPgn, round, tournament.key);
       const key   = `R${round}`;
 
-      // Skip if already analyzed
-      if (results[tournament.key][key]?.accuracy != null) {
+      // Skip if already analyzed (with opponent accuracy)
+      if (results[tournament.key][key]?.oppAccuracy != null) {
         const cached = results[tournament.key][key];
         console.log(`  R${round}  ${filename}  (cached)`);
-        console.log(`  Accuracy: ${cached.accuracy}%  CPL: ${cached.avgCPL}  ` +
+        console.log(`  Accuracy: ${cached.accuracy}%  Opp: ${cached.oppAccuracy}%  CPL: ${cached.avgCPL}  ` +
           `Blunders: ${cached.blunders}  Mistakes: ${cached.mistakes}  Inaccuracies: ${cached.inaccuracies}\n`);
-        roundMap[round] = cached.accuracy;
+        roundMap[round] = { austin: cached.accuracy, opp: cached.oppAccuracy };
         continue;
       }
 
@@ -449,7 +465,7 @@ async function main() {
       }
       const secs = ((Date.now() - t0) / 1000).toFixed(1);
 
-      console.log(`  ✓ Accuracy: ${stats.accuracy}%  avgCPL: ${stats.avgCPL}  ` +
+      console.log(`  ✓ Accuracy: ${stats.accuracy}%  Opp: ${stats.oppAccuracy}%  avgCPL: ${stats.avgCPL}  ` +
         `Blunders: ${stats.blunders}  Mistakes: ${stats.mistakes}  Inaccuracies: ${stats.inaccuracies}  (${secs}s)`);
 
       if (stats.criticalMoments.length > 0) {
@@ -463,7 +479,7 @@ async function main() {
 
       results[tournament.key][key] = stats;
       fs.writeFileSync(RESULTS_FILE, JSON.stringify(results, null, 2));
-      roundMap[round] = stats.accuracy;
+      roundMap[round] = { austin: stats.accuracy, opp: stats.oppAccuracy };
     }
 
     // Patch HTML files
