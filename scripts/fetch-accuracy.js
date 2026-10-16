@@ -56,10 +56,11 @@ const TOURNAMENTS = [
 ];
 
 // ─── Delays (ms) ─────────────────────────────────────────────────────────────
-const DELAY_AFTER_IMPORT   = 2000;
-const DELAY_AFTER_ANALYSIS = 4000;
+const DELAY_AFTER_IMPORT   = 6000;    // 6 s between imports (avoid rate limit)
+const DELAY_AFTER_ANALYSIS = 5000;
 const POLL_INTERVAL        = 25000;   // 25 s between polls
 const MAX_POLL_ATTEMPTS    = 12;      // up to 5 minutes total
+const RETRY_429_WAIT       = 60000;   // 60 s back-off on 429
 
 // ─── Utilities ───────────────────────────────────────────────────────────────
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -105,10 +106,61 @@ function parseAustinColor(pgn) {
   return 'black';   // default — log a warning
 }
 
+// ─── PGN normalisation ────────────────────────────────────────────────────────
+// PAM 2026 files use a non-standard minimal format that Lichess rejects.
+// Converts them to standard PGN with proper headers.
+function normalizePgn(pgn, round, tournamentKey) {
+  if (pgn.trimStart().startsWith('[')) return pgn;   // already standard
+
+  const lines        = pgn.split('\n');
+  const firstLine    = lines[0].trim();
+  const dateLine     = lines[1]?.trim() || '';
+  const movesSection = lines.slice(2).join('\n').trim();
+
+  // "Lin, Austin (1865) - Villalba, Pacha (1731)"
+  const pm = firstLine.match(/^(.+?)\s*\((\d+)\)\s*-\s*(.+?)\s*\((\d+)\)\s*$/);
+  const whiteName = pm ? pm[1].trim() : '?';
+  const whiteElo  = pm ? pm[2]       : '?';
+  const blackName = pm ? pm[3].trim() : '?';
+  const blackElo  = pm ? pm[4]       : '?';
+
+  // "28.07.2026" → "2026.07.28"
+  const dm      = dateLine.match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
+  const pgnDate = dm ? `${dm[3]}.${dm[2]}.${dm[1]}` : '????.??.??';
+
+  const rm     = movesSection.match(/(1-0|0-1|1\/2-1\/2|\*)\s*$/);
+  const result = rm ? rm[1] : '*';
+
+  return [
+    `[Event "${tournamentKey}"]`,
+    `[Site "?"]`,
+    `[Date "${pgnDate}"]`,
+    `[Round "${round}"]`,
+    `[White "${whiteName}"]`,
+    `[Black "${blackName}"]`,
+    `[Result "${result}"]`,
+    `[WhiteElo "${whiteElo}"]`,
+    `[BlackElo "${blackElo}"]`,
+    '',
+    movesSection,
+  ].join('\n');
+}
+
 // ─── Lichess API ─────────────────────────────────────────────────────────────
 
+// Fetch with automatic 60 s back-off on 429 (one retry)
 async function lichessFetch(url, options = {}) {
   const resp = await fetch(url, options);
+  if (resp.status === 429) {
+    console.log(`\n  Rate limited — waiting ${RETRY_429_WAIT / 1000}s before retry...`);
+    await sleep(RETRY_429_WAIT);
+    const retry = await fetch(url, options);
+    if (!retry.ok) {
+      const body = await retry.text().catch(() => '');
+      throw new Error(`HTTP ${retry.status} ${retry.statusText}: ${body.slice(0, 200)}`);
+    }
+    return retry;
+  }
   if (!resp.ok) {
     const body = await resp.text().catch(() => '');
     throw new Error(`HTTP ${resp.status} ${resp.statusText}: ${body.slice(0, 200)}`);
@@ -120,8 +172,11 @@ async function lichessFetch(url, options = {}) {
 async function importGame(pgn) {
   const resp = await lichessFetch(`${LICHESS}/api/import`, {
     method:  'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body:    'pgn=' + encodeURIComponent(pgn),
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept':        'application/json',   // required — otherwise Lichess redirects to HTML
+    },
+    body: 'pgn=' + encodeURIComponent(pgn),
   });
   return resp.json();
 }
@@ -261,9 +316,10 @@ async function main() {
 
     for (const filename of pgnFiles) {
       const filePath = path.join(tournament.pgnDir, filename);
-      const pgn      = fs.readFileSync(filePath, 'utf8').trim();
-      const round    = parseRound(filename, pgn);
-      const color    = parseAustinColor(pgn);
+      const rawPgn   = fs.readFileSync(filePath, 'utf8').trim();
+      const round    = parseRound(filename, rawPgn);
+      const color    = parseAustinColor(rawPgn);
+      const pgn      = normalizePgn(rawPgn, round, tournament.key);
 
       if (round === null) {
         console.log(`\n  [SKIP] ${filename} — could not determine round number`);
