@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Justin Huang — Opponent Tournament Review</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    /* ── Header ── */
+    .doc-header {
+      border-bottom: 3px solid #1a5276;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.75rem; }
+    .doc-header .subtitle { color: #57606a; font-size: 0.95rem; margin: 0 0 14px; }
+    .doc-header .back-link {
+      display: inline-block;
+      font-size: 0.875rem;
+      color: #1a5276;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    /* ── Scoreboard ── */
+    .scoreboard {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .score-card {
+      flex: 1;
+      min-width: 130px;
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .score-card .label { font-size: 0.78rem; color: #57606a; text-transform: uppercase; letter-spacing: 0.04em; }
+    .score-card .value { font-size: 1.5rem; font-weight: 700; color: #1f2328; line-height: 1.2; margin-top: 2px; }
+    .score-card.highlight .value { color: #1a5276; }
+    .score-card.warn .value { color: #cf2222; }
+
+    /* ── Headings ── */
+    h2 {
+      font-size: 1.25rem;
+      color: #1f2328;
+      margin: 40px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #d0d7de;
+    }
+    h3 { font-size: 1.05rem; color: #1a5276; margin: 22px 0 8px; }
+    h4 { font-size: 0.95rem; color: #1f2328; font-weight: 600; margin: 16px 0 6px; }
+
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
+    li { margin-bottom: 4px; }
+    li > ul { margin-top: 4px; }
+
+    /* ── Game result table ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 14px 0 24px;
+    }
+    thead th {
+      background: #1a5276;
+      color: #fff;
+      padding: 9px 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 8px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .win  { color: #1a5276; font-weight: 600; }
+    .loss { color: #cf2222; font-weight: 600; }
+    .draw { color: #7a5500; font-weight: 600; }
+    .unknown { color: #57606a; font-style: italic; }
+
+    /* ── Section cards ── */
+    .section-card {
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      margin: 18px 0;
+      overflow: hidden;
+    }
+    .section-card .card-title {
+      padding: 11px 18px;
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0;
+      color: #fff;
+    }
+    .card-green  { background: #1a5276; }
+    .card-red    { background: #b91c1c; }
+    .card-blue   { background: #1a5276; }
+    .card-orange { background: #9a5a00; }
+    .section-card .card-body { padding: 18px 22px; }
+
+    /* ── Inline boxes ── */
+    .good-box {
+      background: #d6eaf8;
+      border-left: 4px solid #1a5276;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #102942;
+    }
+    .warn-box {
+      background: #fff5f5;
+      border-left: 4px solid #cf2222;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #7a0000;
+    }
+    .tip-box {
+      background: #fff8e6;
+      border-left: 4px solid #d4a017;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #7a4f00;
+    }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: #f0f4f8;
+      border: 1px solid #d0d7de;
+      border-radius: 4px;
+      padding: 1px 5px;
+      white-space: nowrap;
+    }
+
+    em { font-style: italic; color: #57606a; }
+    strong { font-weight: 600; }
+
+    /* ── Game review cards ── */
+    .game-review{border:1px solid #d0d7de;border-radius:8px;margin:22px 0;overflow:hidden;}
+    .game-header{display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:10px 16px;background:#f6f8fa;border-bottom:1px solid #d0d7de;}
+    .round-badge{background:#1a5276;color:#fff;border-radius:4px;padding:2px 9px;font-size:0.8rem;font-weight:700;white-space:nowrap;}
+    .game-opp{font-weight:600;font-size:0.92rem;flex:1;min-width:140px;}
+    .opening-tag{font-size:0.77rem;color:#57606a;background:#f0f4f8;border:1px solid #d0d7de;border-radius:3px;padding:1px 6px;white-space:nowrap;}
+    .color-wh{font-size:0.74rem;font-weight:600;border-radius:3px;padding:1px 6px;background:#fff;color:#1f2328;border:1px solid #aaa;}
+    .color-bl{font-size:0.74rem;font-weight:600;border-radius:3px;padding:1px 6px;background:#2d2d2d;color:#fff;}
+    .rbadge-win{font-size:0.8rem;font-weight:700;border-radius:4px;padding:2px 8px;background:#d6eaf8;color:#102942;}
+    .rbadge-loss{font-size:0.8rem;font-weight:700;border-radius:4px;padding:2px 8px;background:#fff5f5;color:#7a0000;}
+    .rbadge-draw{font-size:0.8rem;font-weight:700;border-radius:4px;padding:2px 8px;background:#fff8e6;color:#7a4f00;}
+    .rbadge-unknown{font-size:0.8rem;font-weight:700;border-radius:4px;padding:2px 8px;background:#f0f4f8;color:#57606a;}
+    .acc-badge{font-size:0.9rem;font-weight:700;color:#1a5276;margin-left:auto;}
+    .engine-bar{display:flex;font-size:0.8rem;border-bottom:1px solid #d0d7de;background:#fafafa;}
+    .eb{flex:1;padding:5px 8px;text-align:center;border-right:1px solid #d0d7de;}
+    .eb:last-child{border-right:none;}
+    .eb strong{display:block;font-size:0.94rem;margin-top:1px;}
+    .eb-b strong{color:#cf2222;}
+    .eb-m strong{color:#d4750a;}
+    .eb-i strong{color:#b59800;}
+    .game-body{padding:14px 18px;}
+    .game-note{font-size:0.88rem;color:#57606a;margin:8px 0 0;font-style:italic;border-left:3px solid #d0d7de;padding-left:10px;}
+    .moments-table{font-size:0.81rem;margin:6px 0 10px;}
+    .moments-table thead th{background:#444;font-size:0.77rem;padding:5px 10px;color:#fff;}
+    .moments-table tbody td{padding:5px 10px;}
+    .brow{background:#fff5f5 !important;}
+    .brow td:first-child{color:#cf2222;font-weight:700;font-size:0.78rem;}
+    .mrow{background:#fff8f0 !important;}
+    .mrow td:first-child{color:#d4750a;font-weight:700;font-size:0.78rem;}
+    .irow td:first-child{color:#b59800;font-weight:700;font-size:0.78rem;}
+    .no-errors-msg{color:#1a5276;font-size:0.88rem;padding:8px 0;}
+    .pattern-tag{display:inline-block;background:#f0f4f8;border:1px solid #d0d7de;border-radius:12px;padding:2px 10px;font-size:0.78rem;margin:2px 3px;}
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Justin Huang &#8212; Opponent Tournament Review</h1>
+    <p class="subtitle">Opponent Analysis &middot; Stockfish Depth-18 &middot; 4 Tournaments &middot; 26 Games</p>
+    <a class="back-link" href="../matchup-justin.html">&#8592; Back to Austin vs Justin &#8212; Matchup Prep</a>
+  </div>
+
+  <!-- ================================================================ -->
+  <!-- CANADA CLOSED 2026                                                -->
+  <!-- ================================================================ -->
+  <h2 id="canada-closed">Canada Closed 2026</h2>
+  <div class="scoreboard">
+    <div class="score-card"><div class="label">Rating</div><div class="value">1963</div></div>
+    <div class="score-card warn"><div class="label">Result</div><div class="value">1W&#8209;3D&#8209;5L</div></div>
+    <div class="score-card"><div class="label">Score</div><div class="value">2.5 / 9</div></div>
+    <div class="score-card"><div class="label">As White</div><div class="value">1W&#8209;2D&#8209;1L</div></div>
+    <div class="score-card warn"><div class="label">As Black</div><div class="value">0W&#8209;1D&#8209;4L</div></div>
+    <div class="score-card highlight"><div class="label">Avg. Accuracy</div><div class="value" id="cc2026-avg-acc">&#8212;</div></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Result</th><th>Accuracy</th><th>Opp. Acc</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Black</td><td>Plotkin, Victor</td><td>2260</td><td>French Exchange C01</td><td class="loss">Loss</td><td class="accuracy" data-val="93.5" data-tournament="cc2026">&#8212;</td><td class="opp-accuracy" data-val="96.5">&#8212;</td></tr>
+      <tr><td>2</td><td>Black</td><td>Plotkin, Mark</td><td>2382</td><td>Catalan Open E04</td><td class="loss">Loss</td><td class="accuracy" data-val="89.3" data-tournament="cc2026">&#8212;</td><td class="opp-accuracy" data-val="95.0">&#8212;</td></tr>
+      <tr><td>3</td><td>White</td><td>Taylor, Ashton</td><td>1931</td><td>QGD Semi-Tarrasch D41</td><td class="win">Win</td><td class="accuracy" data-val="97.7" data-tournament="cc2026">&#8212;</td><td class="opp-accuracy" data-val="92.4">&#8212;</td></tr>
+      <tr><td>4</td><td>White</td><td>Dunahee, Titan</td><td>1805</td><td>QGD D30</td><td class="loss">Loss</td><td class="accuracy" data-val="89.0" data-tournament="cc2026">&#8212;</td><td class="opp-accuracy" data-val="94.1">&#8212;</td></tr>
+      <tr><td>5</td><td>Black</td><td>Wu, Ting En Ryan</td><td>1906</td><td>French Exchange C01</td><td class="draw">Draw</td><td class="accuracy" data-val="97.4" data-tournament="cc2026">&#8212;</td><td class="opp-accuracy" data-val="97.6">&#8212;</td></tr>
+      <tr><td>6</td><td>White</td><td>Chabot, Roland</td><td>1996</td><td>QP Modern Defense A41</td><td class="draw">Draw</td><td class="accuracy" data-val="88.6" data-tournament="cc2026">&#8212;</td><td class="opp-accuracy" data-val="90.9">&#8212;</td></tr>
+      <tr><td>7</td><td>Black</td><td>Zaka, Mohid</td><td>1826</td><td>QGD Exchange D35</td><td class="loss">Loss</td><td class="accuracy" data-val="93.1" data-tournament="cc2026">&#8212;</td><td class="opp-accuracy" data-val="95.9">&#8212;</td></tr>
+      <tr><td>8</td><td>Black</td><td>Velasquez, Noah</td><td>1925</td><td>French Classical C11</td><td class="loss">Loss</td><td class="accuracy" data-val="90.7" data-tournament="cc2026">&#8212;</td><td class="opp-accuracy" data-val="92.8">&#8212;</td></tr>
+      <tr><td>9</td><td>White</td><td>Jiang, Barron Jiyu</td><td>1972</td><td>Budapest Defense A52</td><td class="draw">Draw</td><td class="accuracy" data-val="94.5" data-tournament="cc2026">&#8212;</td><td class="opp-accuracy" data-val="94.8">&#8212;</td></tr>
+    </tbody>
+  </table>
+
+  <h2 style="margin-top:28px;">Canada Closed 2026 &#8212; Game-by-Game Engine Report</h2>
+  <p style="font-size:0.9rem;color:#57606a;margin-bottom:4px;">Stockfish depth 18 analysis. CPL = centipawn loss per move.</p>
+
+  <!-- CC R1 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R1</span>
+      <span class="game-opp">Plotkin, Victor (2260)</span>
+      <span class="color-bl">Black</span>
+      <span class="opening-tag">French Exchange C01</span>
+      <span class="rbadge-loss">Loss</span>
+      <span class="acc-badge">93.5%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>55</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>2</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>3</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>9</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td><code>Kb7</code></td><td><code>Ne6</code></td><td>1000</td><td>&#8722;17.38 &#8594; &#8722;56.32</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td><code>Kxa7</code></td><td><code>Kxa7</code></td><td>514</td><td>&#8722;12.33 &#8594; &#8722;17.47</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td><code>Nb4</code></td><td><code>Ne7</code></td><td>250</td><td>&#8722;5.14 &#8594; &#8722;7.64</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Justin lost a long 119-move endgame to a 2260. The Kb7 king walk deep in a lost rook endgame was the decisive error; the position was already severely compromised.</p>
+    </div>
+  </div>
+
+  <!-- CC R2 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R2</span>
+      <span class="game-opp">Plotkin, Mark (2382)</span>
+      <span class="color-bl">Black</span>
+      <span class="opening-tag">Catalan Open E04</span>
+      <span class="rbadge-loss">Loss</span>
+      <span class="acc-badge">89.3%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>39</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>1</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>2</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>1</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td><code>Ba6</code></td><td><code>Bxa3</code></td><td>335</td><td>&#8722;1.32 &#8594; &#8722;4.67</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td><code>Qd7</code></td><td><code>g5</code></td><td>282</td><td>&#8722;4.72 &#8594; &#8722;7.54</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td><code>Nd5</code></td><td><code>Rc8</code></td><td>188</td><td>+0.13 &#8594; &#8722;1.75</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Lost to a 2382. Ba6 was the game-turning blunder from a near-equal position (&#8722;1.32), gifting the initiative. Early queenside piece miscoordination is a recurring theme.</p>
+    </div>
+  </div>
+
+  <!-- CC R3 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R3</span>
+      <span class="game-opp">Taylor, Ashton (1931)</span>
+      <span class="color-wh">White</span>
+      <span class="opening-tag">QGD Semi-Tarrasch D41</span>
+      <span class="rbadge-win">Win</span>
+      <span class="acc-badge">97.7%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>8</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>0</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>0</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>0</strong></div>
+    </div>
+    <div class="game-body">
+      <p class="no-errors-msg">&#10003; No critical errors recorded.</p>
+      <p class="game-note">Justin's best game &#8212; flawless execution (0 B/M/I) against a 1931 in 63 moves. Methodical technique throughout.</p>
+    </div>
+  </div>
+
+  <!-- CC R4 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R4</span>
+      <span class="game-opp">Dunahee, Titan (1805)</span>
+      <span class="color-wh">White</span>
+      <span class="opening-tag">QGD D30</span>
+      <span class="rbadge-loss">Loss</span>
+      <span class="acc-badge">89.0%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>74</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>2</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>3</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>2</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td><code>Qxa4</code></td><td><code>Qxd2</code></td><td>1000</td><td>&#8722;5.14 &#8594; &#8722;#</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td><code>Ng4</code></td><td><code>Nd3</code></td><td>1000</td><td>&#8722;8.62 &#8594; &#8722;#</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td><code>Ne5</code></td><td><code>Kg2</code></td><td>268</td><td>&#8722;2.36 &#8594; &#8722;5.04</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Lost as White to a 300-point lower rated opponent (1805). Both blunders walked into forced mate from already losing positions &#8212; the real problem was the earlier Ne5 mistake that first gave away the advantage.</p>
+    </div>
+  </div>
+
+  <!-- CC R5 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R5</span>
+      <span class="game-opp">Wu, Ting En Ryan (1906)</span>
+      <span class="color-bl">Black</span>
+      <span class="opening-tag">French Exchange C01</span>
+      <span class="rbadge-draw">Draw</span>
+      <span class="acc-badge">97.4%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>6</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>0</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>0</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>2</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="irow"><td>INACCURACY</td><td><code>Qe4</code></td><td><code>Qe6</code></td><td>57</td><td>+0.30 &#8594; &#8722;0.27</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td><code>a5</code></td><td><code>Ke8</code></td><td>54</td><td>&#8722;0.11 &#8594; &#8722;0.65</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Very accurate 128-move draw &#8212; both players near-perfect. Two minor inaccuracies; Justin held with Black against a 1906.</p>
+    </div>
+  </div>
+
+  <!-- CC R6 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R6</span>
+      <span class="game-opp">Chabot, Roland (1996)</span>
+      <span class="color-wh">White</span>
+      <span class="opening-tag">QP Modern Defense A41</span>
+      <span class="rbadge-draw">Draw</span>
+      <span class="acc-badge">88.6%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>37</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>2</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>1</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>11</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td><code>Bg1</code></td><td><code>g4</code></td><td>355</td><td>+0.29 &#8594; &#8722;3.26</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td><code>Na4</code></td><td><code>Rhe1</code></td><td>320</td><td>&#8722;0.27 &#8594; &#8722;3.47</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td><code>Qf2</code></td><td><code>Rd6</code></td><td>192</td><td>+2.26 &#8594; +0.34</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Extremely long 131-move game drawn with 1996. Two blunders from equal positions (+0.29 and &#8722;0.27) &#8212; Na4 and Bg1 &#8212; represent a pattern of losing the thread in long endgames. 11 inaccuracies reflects the complexity of the ending.</p>
+    </div>
+  </div>
+
+  <!-- CC R7 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R7</span>
+      <span class="game-opp">Zaka, Mohid (1826)</span>
+      <span class="color-bl">Black</span>
+      <span class="opening-tag">QGD Exchange D35</span>
+      <span class="rbadge-loss">Loss</span>
+      <span class="acc-badge">93.1%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>29</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>2</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>0</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>3</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td><code>Rxe5</code></td><td><code>Rf7+</code></td><td>641</td><td>&#8722;0.03 &#8594; &#8722;6.44</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td><code>Kf6</code></td><td><code>Kf6</code></td><td>499</td><td>&#8722;7.20 &#8594; &#8722;12.19</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td><code>g6</code></td><td><code>Nb6</code></td><td>137</td><td>&#8722;0.21 &#8594; &#8722;1.58</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">The Rxe5 blunder from a dead-equal position (&#8722;0.03) was the game-losing move. Rf7+ wins immediately; Rxe5 drops material. Justin's tendency to blunder from equal positions in long games is the critical weakness.</p>
+    </div>
+  </div>
+
+  <!-- CC R8 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R8</span>
+      <span class="game-opp">Velasquez, Noah (1925)</span>
+      <span class="color-bl">Black</span>
+      <span class="opening-tag">French Classical C11</span>
+      <span class="rbadge-loss">Loss</span>
+      <span class="acc-badge">90.7%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>68</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>5</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>3</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>5</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td><code>Rxb7</code></td><td><code>Ke7</code></td><td>1000</td><td>&#8722;11.57 &#8594; &#8722;62.17</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td><code>g4</code></td><td><code>Kh5</code></td><td>726</td><td>&#8722;84.39 &#8594; &#8722;91.65</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td><code>Nxf3+</code></td><td><code>Qe3+</code></td><td>348</td><td>+2.16 &#8594; &#8722;1.32</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">5 blunders in a complex 123-move game &#8212; Nxf3+ was the decisive mistake from a +2.16 winning position. The later blunders occurred in hopeless positions trying to generate complications.</p>
+    </div>
+  </div>
+
+  <!-- CC R9 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R9</span>
+      <span class="game-opp">Jiang, Barron Jiyu (1972)</span>
+      <span class="color-wh">White</span>
+      <span class="opening-tag">Budapest Defense A52</span>
+      <span class="rbadge-draw">Draw</span>
+      <span class="acc-badge">94.5%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>14</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>0</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>0</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>1</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="irow"><td>INACCURACY</td><td><code>Nd3</code></td><td><code>Ne4</code></td><td>92</td><td>+1.63 &#8594; +0.71</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Well-played 58-move draw. Single minor inaccuracy from a slightly better position.</p>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- ================================================================ -->
+  <!-- PAM 2026                                                          -->
+  <!-- ================================================================ -->
+  <h2 id="pam-2026">PAM 2026</h2>
+  <div class="scoreboard">
+    <div class="score-card"><div class="label">Rating</div><div class="value">2023</div></div>
+    <div class="score-card highlight"><div class="label">Result</div><div class="value">6W&#8209;1D&#8209;2L</div></div>
+    <div class="score-card"><div class="label">Score</div><div class="value">6.5 / 9</div></div>
+    <div class="score-card highlight"><div class="label">As White</div><div class="value">3W&#8209;0D&#8209;1L</div></div>
+    <div class="score-card highlight"><div class="label">As Black</div><div class="value">3W&#8209;1D&#8209;1L</div></div>
+    <div class="score-card highlight"><div class="label">Avg. Accuracy</div><div class="value" id="pam2026-avg-acc">&#8212;</div></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Result</th><th>Accuracy</th><th>Opp. Acc</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Black</td><td>Lau, Jacek</td><td>1613</td><td>London System D02</td><td class="win">Win</td><td class="accuracy" data-val="89.2" data-tournament="pam2026">&#8212;</td><td class="opp-accuracy" data-val="89.5">&#8212;</td></tr>
+      <tr><td>2</td><td>White</td><td>Ladino Hernandez, Angel Joel</td><td>1816</td><td>&#8212;</td><td class="win">Win</td><td class="accuracy" data-val="93.8" data-tournament="pam2026">&#8212;</td><td class="opp-accuracy" data-val="91.7">&#8212;</td></tr>
+      <tr><td>3</td><td>Black</td><td>Salazar Rodriguez, Benito</td><td>1928</td><td>&#8212;</td><td class="win">Win</td><td class="accuracy" data-val="95.9" data-tournament="pam2026">&#8212;</td><td class="opp-accuracy" data-val="93.0">&#8212;</td></tr>
+      <tr><td>4</td><td>White</td><td>Sen, Samant Robert</td><td>1915</td><td>&#8212;</td><td class="loss">Loss</td><td class="accuracy" data-val="88.9" data-tournament="pam2026">&#8212;</td><td class="opp-accuracy" data-val="92.2">&#8212;</td></tr>
+      <tr><td>5</td><td>Black</td><td>Rodriguez Barradas, Jose Antonio</td><td>1847</td><td>&#8212;</td><td class="loss">Loss</td><td class="accuracy" data-val="96.4" data-tournament="pam2026">&#8212;</td><td class="opp-accuracy" data-val="96.2">&#8212;</td></tr>
+      <tr><td>6</td><td>White</td><td>Piza Vera, Andres</td><td>1766</td><td>&#8212;</td><td class="win">Win</td><td class="accuracy" data-val="93.5" data-tournament="pam2026">&#8212;</td><td class="opp-accuracy" data-val="89.8">&#8212;</td></tr>
+      <tr><td>7</td><td>Black</td><td>Galvis Cala, Miguel Angel</td><td>1859</td><td>&#8212;</td><td class="draw">Draw</td><td class="accuracy" data-val="87.7" data-tournament="pam2026">&#8212;</td><td class="opp-accuracy" data-val="85.1">&#8212;</td></tr>
+      <tr><td>8</td><td>White</td><td>Cabrera Alvarado, Hugo Carlos Josue</td><td>1834</td><td>&#8212;</td><td class="win">Win</td><td class="accuracy" data-val="91.2" data-tournament="pam2026">&#8212;</td><td class="opp-accuracy" data-val="89.8">&#8212;</td></tr>
+      <tr><td>9</td><td>Black</td><td>Delgado Gutierrez, Mateo</td><td>1833</td><td>&#8212;</td><td class="win">Win</td><td class="accuracy" data-val="96.1" data-tournament="pam2026">&#8212;</td><td class="opp-accuracy" data-val="89.7">&#8212;</td></tr>
+    </tbody>
+  </table>
+
+  <h2 style="margin-top:28px;">PAM 2026 &#8212; Game-by-Game Engine Report</h2>
+  <p style="font-size:0.9rem;color:#57606a;margin-bottom:4px;">Stockfish depth 18 analysis. CPL = centipawn loss per move.</p>
+
+  <!-- PAM R1 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R1</span>
+      <span class="game-opp">Lau, Jacek (1613)</span>
+      <span class="color-bl">Black</span>
+      <span class="opening-tag">London System D02</span>
+      <span class="rbadge-win">Win</span>
+      <span class="acc-badge">89.2%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>47</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>1</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>2</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>5</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td><code>Rxh3#</code></td><td><code>Rxh3#</code></td><td>1000</td><td># &#8594; +0.00</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td><code>Rb7</code></td><td><code>Rb3</code></td><td>287</td><td>+6.47 &#8594; +3.60</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td><code>Kxf4</code></td><td><code>Rxg2</code></td><td>168</td><td>+7.42 &#8594; +5.74</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">The Rxh3# &#8220;blunder&#8221; is a quirk of the engine &#8212; it was a checkmate move that still registered as a CPL error. Won comfortably against 1613.</p>
+    </div>
+  </div>
+
+  <!-- PAM R2 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R2</span>
+      <span class="game-opp">Ladino Hernandez, Angel Joel (1816)</span>
+      <span class="color-wh">White</span>
+      <span class="rbadge-win">Win</span>
+      <span class="acc-badge">93.8%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>24</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>1</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>1</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>6</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td><code>Ke6</code></td><td><code>f3</code></td><td>602</td><td>+7.12 &#8594; +1.10</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td><code>Kxh5</code></td><td><code>Kg7</code></td><td>185</td><td>+9.58 &#8594; +7.73</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td><code>Rc5</code></td><td><code>Bc5</code></td><td>141</td><td>+1.84 &#8594; +0.43</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Won 153-move technical endgame. Ke6 was a near-blunder from a +7 position (should have played f3 to promote), but Justin still converted. King activation errors in won R+P endings.</p>
+    </div>
+  </div>
+
+  <!-- PAM R3 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R3</span>
+      <span class="game-opp">Salazar Rodriguez, Benito (1928)</span>
+      <span class="color-bl">Black</span>
+      <span class="rbadge-win">Win</span>
+      <span class="acc-badge">95.9%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>15</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>0</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>1</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>5</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="mrow"><td>MISTAKE</td><td><code>f6</code></td><td><code>Qf5</code></td><td>212</td><td>+5.01 &#8594; +2.89</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td><code>Kg7</code></td><td><code>Qf5</code></td><td>141</td><td>+5.49 &#8594; +4.08</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td><code>Qe8</code></td><td><code>Ke7</code></td><td>78</td><td>+3.52 &#8594; +2.74</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Clean win over 1928. f6 was slightly inaccurate from a winning position but Justin converted without issue in 111 moves.</p>
+    </div>
+  </div>
+
+  <!-- PAM R4 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R4</span>
+      <span class="game-opp">Sen, Samant Robert (1915)</span>
+      <span class="color-wh">White</span>
+      <span class="rbadge-loss">Loss</span>
+      <span class="acc-badge">88.9%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>130</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>7</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>1</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>9</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td><code>Kb5</code></td><td><code>Kb5</code></td><td>1000</td><td>&#8722;13.24 &#8594; &#8722;32.45</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td><code>Qb1</code></td><td><code>Qb1</code></td><td>1000</td><td>&#8722;50.84 &#8594; &#8722;79.87</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td><code>Ka4</code></td><td><code>Ka4</code></td><td>1000</td><td>&#8722;11.53 &#8594; &#8722;54.03</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">7 blunders and CPL:130 &#8212; Justin's worst-accuracy game overall. The position was already heavily lost before most blunders (evals &#8722;11 to &#8722;84), suggesting the game went wrong much earlier in the middlegame.</p>
+    </div>
+  </div>
+
+  <!-- PAM R5 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R5</span>
+      <span class="game-opp">Rodriguez Barradas, Jose Antonio (1847)</span>
+      <span class="color-bl">Black</span>
+      <span class="rbadge-loss">Loss</span>
+      <span class="acc-badge">96.4%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>9</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>0</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>0</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>0</strong></div>
+    </div>
+    <div class="game-body">
+      <p class="no-errors-msg">&#10003; No critical errors recorded.</p>
+      <p class="game-note">Near-perfect 30-move game. Lost despite 96.4% accuracy &#8212; opponent played equally well (96.2%). Short game, both sides precise.</p>
+    </div>
+  </div>
+
+  <!-- PAM R6 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R6</span>
+      <span class="game-opp">Piza Vera, Andres (1766)</span>
+      <span class="color-wh">White</span>
+      <span class="rbadge-win">Win</span>
+      <span class="acc-badge">93.5%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>24</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>0</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>1</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>4</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="mrow"><td>MISTAKE</td><td><code>Rfc1</code></td><td><code>Rc8</code></td><td>277</td><td>+7.78 &#8594; +5.01</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td><code>Qd2</code></td><td><code>Qa6</code></td><td>103</td><td>+6.17 &#8594; +5.14</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td><code>b4</code></td><td><code>Bb3</code></td><td>88</td><td>+2.76 &#8594; +1.88</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Won comfortably in 77 moves vs 1766. A few precision misses from winning positions but outcome never in doubt.</p>
+    </div>
+  </div>
+
+  <!-- PAM R7 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R7</span>
+      <span class="game-opp">Galvis Cala, Miguel Angel (1859)</span>
+      <span class="color-bl">Black</span>
+      <span class="rbadge-draw">Draw</span>
+      <span class="acc-badge">87.7%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>32</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>0</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>0</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>6</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="irow"><td>INACCURACY</td><td><code>d4</code></td><td><code>Kh7</code></td><td>144</td><td>+0.62 &#8594; &#8722;0.82</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td><code>Ba6</code></td><td><code>d4</code></td><td>126</td><td>&#8722;0.24 &#8594; &#8722;1.50</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td><code>Qd6</code></td><td><code>N5g6</code></td><td>90</td><td>+0.39 &#8594; &#8722;0.51</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">50-move draw, 6 inaccuracies from complex positions. d4 turned a slight edge into a slight deficit &#8212; Justin's worst result in PAM given his rating advantage over 1859.</p>
+    </div>
+  </div>
+
+  <!-- PAM R8 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R8</span>
+      <span class="game-opp">Cabrera Alvarado, Hugo Carlos Josue (1834)</span>
+      <span class="color-wh">White</span>
+      <span class="rbadge-win">Win</span>
+      <span class="acc-badge">91.2%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>27</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>0</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>3</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>5</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="mrow"><td>MISTAKE</td><td><code>Kg2</code></td><td><code>Rb6</code></td><td>252</td><td>+5.16 &#8594; +2.64</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td><code>Nxe5</code></td><td><code>d5</code></td><td>239</td><td>+3.49 &#8594; +1.10</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td><code>Qf4</code></td><td><code>Rc5</code></td><td>159</td><td>+3.19 &#8594; +1.60</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Won in 111 moves despite 3 mistakes from winning positions. Imprecise technique &#8212; gave opponent chances that were not converted.</p>
+    </div>
+  </div>
+
+  <!-- PAM R9 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R9</span>
+      <span class="game-opp">Delgado Gutierrez, Mateo (1833)</span>
+      <span class="color-bl">Black</span>
+      <span class="rbadge-win">Win</span>
+      <span class="acc-badge">96.1%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>12</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>0</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>0</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>2</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="irow"><td>INACCURACY</td><td><code>Nd7</code></td><td><code>Ne4</code></td><td>87</td><td>&#8722;0.69 &#8594; &#8722;1.56</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td><code>Qb6</code></td><td><code>Qa4</code></td><td>51</td><td>&#8722;0.50 &#8594; &#8722;1.01</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Very clean 68-move win with Black. Near-perfect play (96.1%) against a 1833.</p>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- ================================================================ -->
+  <!-- PAM SCHOOL 2026                                                   -->
+  <!-- ================================================================ -->
+  <h2 id="pam-school">PAM School 2026</h2>
+  <div class="scoreboard">
+    <div class="score-card"><div class="label">Rating</div><div class="value">1894</div></div>
+    <div class="score-card"><div class="label">Games</div><div class="value">5 (R4&#8211;R8)</div></div>
+    <div class="score-card highlight"><div class="label">Confirmed</div><div class="value">1W&#8209;1D</div></div>
+    <div class="score-card warn"><div class="label">R6&#8211;R8 Result</div><div class="value">Unknown</div></div>
+    <div class="score-card highlight"><div class="label">Avg. Accuracy</div><div class="value" id="pamschool-avg-acc">&#8212;</div></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Result</th><th>Accuracy</th><th>Opp. Acc</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>4</td><td>White</td><td>Tobar Beltran, Miguel Angel</td><td>1790</td><td>QGD Ragozin D38</td><td class="win">Win</td><td class="accuracy" data-val="92.1" data-tournament="pamschool">&#8212;</td><td class="opp-accuracy" data-val="90.0">&#8212;</td></tr>
+      <tr><td>5</td><td>Black</td><td>Bernal Martinez, Elias Isidro</td><td>1534</td><td>French Chigorin C00</td><td class="draw">Draw</td><td class="accuracy" data-val="97.2" data-tournament="pamschool">&#8212;</td><td class="opp-accuracy" data-val="96.9">&#8212;</td></tr>
+      <tr><td>6</td><td>White</td><td>Vuyyuru, Shriyan</td><td>1983</td><td>Semi-Slav D43</td><td class="unknown">?</td><td class="accuracy" data-val="91.9" data-tournament="pamschool">&#8212;</td><td class="opp-accuracy" data-val="93.7">&#8212;</td></tr>
+      <tr><td>7</td><td>White</td><td>Yu, Vincent Zhiwen</td><td>1982</td><td>Gr&uuml;nfeld Exchange D85</td><td class="unknown">?</td><td class="accuracy" data-val="99.1" data-tournament="pamschool">&#8212;</td><td class="opp-accuracy" data-val="93.5">&#8212;</td></tr>
+      <tr><td>8</td><td>White</td><td>Nunez Castaneda, J. Alonso</td><td>1890</td><td>&#8212;</td><td class="unknown">?</td><td class="accuracy" data-val="100" data-tournament="pamschool">&#8212;</td><td class="opp-accuracy" data-val="100">&#8212;</td></tr>
+    </tbody>
+  </table>
+
+  <h2 style="margin-top:28px;">PAM School 2026 &#8212; Game-by-Game Engine Report</h2>
+  <p style="font-size:0.9rem;color:#57606a;margin-bottom:4px;">Stockfish depth 18 analysis. CPL = centipawn loss per move. R6&#8211;R8 results not recorded in broadcast PGN source.</p>
+
+  <!-- PS R4 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R4</span>
+      <span class="game-opp">Tobar Beltran, Miguel Angel (1790)</span>
+      <span class="color-wh">White</span>
+      <span class="opening-tag">QGD Ragozin D38</span>
+      <span class="rbadge-win">Win</span>
+      <span class="acc-badge">92.1%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>30</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>0</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>5</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>10</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="mrow"><td>MISTAKE</td><td><code>e4</code></td><td><code>Rf1</code></td><td>207</td><td>+4.49 &#8594; +2.42</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td><code>Qd6</code></td><td><code>Kf2</code></td><td>191</td><td>+4.66 &#8594; +2.75</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td><code>Rg4</code></td><td><code>Rb1</code></td><td>170</td><td>+4.17 &#8594; +2.47</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Won 160-move endgame. 5 mistakes but all from winning positions (+4 to +7 range) &#8212; Justin had control but could not find the clean conversion path. Typical precision issues in technical endings.</p>
+    </div>
+  </div>
+
+  <!-- PS R5 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R5</span>
+      <span class="game-opp">Bernal Martinez, Elias Isidro (1534)</span>
+      <span class="color-bl">Black</span>
+      <span class="opening-tag">French Chigorin C00</span>
+      <span class="rbadge-draw">Draw</span>
+      <span class="acc-badge">97.2%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>7</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>0</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>0</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>1</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="irow"><td>INACCURACY</td><td><code>Nxd4</code></td><td><code>exd4</code></td><td>78</td><td>&#8722;0.46 &#8594; &#8722;1.24</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">148-move draw &#8212; extremely accurate play from both sides (97.2% vs 96.9%). Justin held Black against a 1534 in a complex French endgame.</p>
+    </div>
+  </div>
+
+  <!-- PS R6 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R6</span>
+      <span class="game-opp">Vuyyuru, Shriyan (1983)</span>
+      <span class="color-wh">White</span>
+      <span class="opening-tag">Semi-Slav D43</span>
+      <span class="rbadge-unknown">Result Unknown</span>
+      <span class="acc-badge">91.9%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>107</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>11</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>2</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>6</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td><code>h3</code></td><td><code>Ke3</code></td><td>1000</td><td>&#8722;15.05 &#8594; &#8722;39.82</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td><code>Kg1</code></td><td><code>Ke3</code></td><td>1000</td><td>&#8722;47.63 &#8594; &#8722;74.78</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td><code>Rg2+</code></td><td><code>Rc2</code></td><td>1000</td><td>&#8722;15.91 &#8594; &#8722;38.07</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">196 moves, heavily lost throughout (all critical moment evals already &#8722;15 to &#8722;84). The 11 blunders occurred from completely lost positions &#8212; the game was decided much earlier. Despite result unknown, Justin was fighting in a lost ending throughout.</p>
+    </div>
+  </div>
+
+  <!-- PS R7 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R7</span>
+      <span class="game-opp">Yu, Vincent Zhiwen (1982)</span>
+      <span class="color-wh">White</span>
+      <span class="opening-tag">Gr&uuml;nfeld Exchange D85</span>
+      <span class="rbadge-unknown">Result Unknown</span>
+      <span class="acc-badge">99.1%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>2</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>0</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>0</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>0</strong></div>
+    </div>
+    <div class="game-body">
+      <p class="no-errors-msg">&#10003; No critical errors recorded.</p>
+      <p class="game-note">Perfect or near-perfect 15-move game (99.1%). Possibly a quick draw by agreement or opponent resigned early.</p>
+    </div>
+  </div>
+
+  <!-- PS R8 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R8</span>
+      <span class="game-opp">Nunez Castaneda, J. Alonso (1890)</span>
+      <span class="color-wh">White</span>
+      <span class="rbadge-unknown">Result Unknown</span>
+      <span class="acc-badge">100%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>0</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>0</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>0</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>0</strong></div>
+    </div>
+    <div class="game-body">
+      <p class="no-errors-msg">&#10003; No critical errors recorded.</p>
+      <p class="game-note">0 moves analyzed &#8212; possibly a default win, bye, or game abandoned before play. Result unknown.</p>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- ================================================================ -->
+  <!-- TORONTO OPEN 2026                                                 -->
+  <!-- ================================================================ -->
+  <h2 id="toronto-open">Toronto Open 2026</h2>
+  <div class="scoreboard">
+    <div class="score-card"><div class="label">Rating</div><div class="value">2093</div></div>
+    <div class="score-card"><div class="label">Result</div><div class="value">1W&#8209;1D&#8209;1L</div></div>
+    <div class="score-card"><div class="label">Score</div><div class="value">1.5 / 3</div></div>
+    <div class="score-card"><div class="label">As White</div><div class="value">1W&#8209;0D&#8209;1L</div></div>
+    <div class="score-card highlight"><div class="label">As Black</div><div class="value">0W&#8209;1D&#8209;0L</div></div>
+    <div class="score-card highlight"><div class="label">Avg. Accuracy</div><div class="value" id="toronto-avg-acc">&#8212;</div></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Result</th><th>Accuracy</th><th>Opp. Acc</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>2</td><td>White</td><td>Preotu, Razvan (GM)</td><td>2475</td><td>KID Normal E60</td><td class="loss">Loss</td><td class="accuracy" data-val="91.9" data-tournament="toronto">&#8212;</td><td class="opp-accuracy" data-val="96.2">&#8212;</td></tr>
+      <tr><td>4</td><td>Black</td><td>Achyuth, Akshaj</td><td>1934</td><td>Sicilian Old B30</td><td class="draw">Draw</td><td class="accuracy" data-val="92.4" data-tournament="toronto">&#8212;</td><td class="opp-accuracy" data-val="89.2">&#8212;</td></tr>
+      <tr><td>5</td><td>White</td><td>Wang, Nathan Zian</td><td>2011</td><td>KID Semi-Classical E61</td><td class="win">Win</td><td class="accuracy" data-val="96.6" data-tournament="toronto">&#8212;</td><td class="opp-accuracy" data-val="91.9">&#8212;</td></tr>
+    </tbody>
+  </table>
+
+  <h2 style="margin-top:28px;">Toronto Open 2026 &#8212; Game-by-Game Engine Report</h2>
+  <p style="font-size:0.9rem;color:#57606a;margin-bottom:4px;">Stockfish depth 18 analysis. CPL = centipawn loss per move. Only 3 games recorded from this event.</p>
+
+  <!-- TO R2 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R2</span>
+      <span class="game-opp">Preotu, Razvan GM (2475)</span>
+      <span class="color-wh">White</span>
+      <span class="opening-tag">KID Normal E60</span>
+      <span class="rbadge-loss">Loss</span>
+      <span class="acc-badge">91.9%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>25</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>1</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>0</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>6</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td><code>Rc3</code></td><td><code>Rc8</code></td><td>390</td><td>&#8722;2.24 &#8594; &#8722;6.14</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td><code>Qd5</code></td><td><code>Nd4</code></td><td>64</td><td>+0.30 &#8594; &#8722;0.34</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td><code>Rc1</code></td><td><code>Rxb4</code></td><td>57</td><td>&#8722;1.13 &#8594; &#8722;1.70</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Lost to GM Preotu (2475). Rc3 from a slightly worse position (&#8722;2.24) dropped into a &#8722;6.14 losing ending. Justin outrated by 382 points &#8212; a competitive 82-move effort.</p>
+    </div>
+  </div>
+
+  <!-- TO R4 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R4</span>
+      <span class="game-opp">Achyuth, Akshaj (1934)</span>
+      <span class="color-bl">Black</span>
+      <span class="opening-tag">Sicilian Old B30</span>
+      <span class="rbadge-draw">Draw</span>
+      <span class="acc-badge">92.4%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>20</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>0</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>1</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>6</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="mrow"><td>MISTAKE</td><td><code>Qe1</code></td><td><code>Kg8</code></td><td>229</td><td>+2.29 &#8594; +0.00</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td><code>h5</code></td><td><code>b4</code></td><td>144</td><td>+3.52 &#8594; +2.08</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td><code>Qxf6</code></td><td><code>Rg6</code></td><td>112</td><td>+2.02 &#8594; +0.90</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Drew vs 1934 after having a +2.29 winning advantage. Qe1 (best was Kg8) allowed the position to liquidate to a draw. Justin outrated opponent by 159 points &#8212; should have won.</p>
+    </div>
+  </div>
+
+  <!-- TO R5 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R5</span>
+      <span class="game-opp">Wang, Nathan Zian (2011)</span>
+      <span class="color-wh">White</span>
+      <span class="opening-tag">KID Semi-Classical E61</span>
+      <span class="rbadge-win">Win</span>
+      <span class="acc-badge">96.6%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb eb-cpl"><span>CPL</span><strong>13</strong></div>
+      <div class="eb eb-b"><span>Blunders</span><strong>0</strong></div>
+      <div class="eb eb-m"><span>Mistakes</span><strong>1</strong></div>
+      <div class="eb eb-i"><span>Inaccuracies</span><strong>1</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="mrow"><td>MISTAKE</td><td><code>hxg4</code></td><td><code>Rc7</code></td><td>186</td><td>+5.04 &#8594; +3.18</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td><code>Nxa5</code></td><td><code>Nd6</code></td><td>64</td><td>+6.21 &#8594; +5.57</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Clean 75-move win over 2011. hxg4 slightly reduced the advantage but Justin still converted. Solid result against a near-equal-rated opponent.</p>
+    </div>
+  </div>
+
+  <!-- ================================================================ -->
+  <!-- JS: fill accuracy cells and compute per-tournament averages       -->
+  <!-- ================================================================ -->
+  <script>
+    (function() {
+      // Fill all accuracy cells
+      document.querySelectorAll('td.accuracy[data-val]').forEach(function(td) {
+        var v = parseFloat(td.getAttribute('data-val'));
+        if (!isNaN(v)) td.textContent = v + '%';
+      });
+      document.querySelectorAll('td.opp-accuracy[data-val]').forEach(function(td) {
+        var v = parseFloat(td.getAttribute('data-val'));
+        if (!isNaN(v)) td.textContent = v + '%';
+      });
+
+      // Compute per-tournament averages
+      ['cc2026', 'pam2026', 'pamschool', 'toronto'].forEach(function(t) {
+        var cells = document.querySelectorAll('td.accuracy[data-tournament="' + t + '"]');
+        var vals = [];
+        cells.forEach(function(td) {
+          var v = parseFloat(td.getAttribute('data-val'));
+          if (!isNaN(v)) vals.push(v);
+        });
+        if (vals.length) {
+          var avg = (vals.reduce(function(a, b) { return a + b; }, 0) / vals.length).toFixed(1);
+          var el = document.getElementById(t + '-avg-acc');
+          if (el) el.textContent = avg + '%';
+        }
+      });
+    })();
+  </script>
+
+</div>
+</body>
+</html>
