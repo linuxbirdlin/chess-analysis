@@ -281,17 +281,17 @@
   </nav>
 
   <h2 id="training">Priority Areas</h2>
-  <p>Based on game analysis, these are the highest-impact areas to work on, ranked by urgency:</p>
+  <p>Based on NAYCC 2025, PAM 2026, and 29 personal study games (Stockfish depth-18), ranked by urgency. Key new insight: Austin's White accuracy (~88% avg) is consistently lower than Black (~91%), with 3–5 blunders in multiple White games — the widest improvable gap across all data.</p>
   <table>
     <thead>
-      <tr><th>#</th><th>Area</th><th>Why</th></tr>
+      <tr><th>#</th><th>Area</th><th>Evidence</th></tr>
     </thead>
     <tbody>
-      <tr><td>1</td><td>French Defense as White (Tarrasch)</td><td>Current opponent plays French — see matchup plan for specifics</td></tr>
-      <tr><td>2</td><td>King safety / h-file puzzle patterns</td><td>Lost multiple games to Bxh2+ and h-file attacks</td></tr>
-      <tr><td>3</td><td>Rook endgame technique</td><td>Lost winnable/drawable endgames in NAYCC R7, R9, PAM R5</td></tr>
-      <tr><td>4</td><td>Passed pawn recognition</td><td>Allowed opponent passed pawns to decide multiple games</td></tr>
-      <tr><td>5</td><td>Nimzo-Indian Bxc3+ refinement</td><td>Sharpen his best Black weapon</td></tr>
+      <tr><td>1</td><td>White piece calculation — blunder prevention</td><td>Personal study: 6+ games with 3–5 blunders as White; White avg ~88% vs Black ~91% across all data. NAYCC and PAM confirm the same pattern.</td></tr>
+      <tr><td>2</td><td>French Defense as White</td><td>Justin plays French; current record 1W–1L; Advanced French pawn chains become overextended (NAYCC R4). Still the most opponent-specific prep item.</td></tr>
+      <tr><td>3</td><td>King safety / h-file patterns</td><td>NAYCC R2 (allowed Bxh2+), R6 (h-pawn storm backfired); Aarush lost 3/3 games to early h4 systems — Austin should know both how to prevent and how to execute.</td></tr>
+      <tr><td>4</td><td>Rook endgame technique</td><td>Passive rook play lost NAYCC R7, R9 and PAM R5 — all were holdable or winnable. Lucena/Philidor positions need to be drilled cold.</td></tr>
+      <tr><td>5</td><td>Performance vs 2000+ opposition</td><td>0W–2L–1D vs 2000+ in PAM; personal study vs Gao (2065): 87.8% acc, 3B/3M/11I — accuracy drops sharply vs stronger players. Needs a game-plan, not just more puzzles.</td></tr>
     </tbody>
   </table>
 
@@ -506,8 +506,8 @@
   </div>
 
   <h2>Accuracy Trend</h2>
-  <p>Per-game accuracy by tournament. Analyze each game on <a href="https://lichess.org/paste" target="_blank">lichess.org/paste</a>, then update the <code>acc</code> values in <code>ACCURACY_DATA</code> below (in page source) and in the corresponding review page.</p>
-  <div style="position:relative; height:280px; margin:20px 0 8px;">
+  <p>Per-game Stockfish accuracy across all tournaments and personal study. Green = win, red = loss, yellow = draw, <span style="color:#4f86c6;font-weight:600;">blue = study game</span> (no result recorded). Averages shown as dashed lines per tournament.</p>
+  <div style="position:relative; height:320px; margin:20px 0 8px;">
     <canvas id="accuracyChart"></canvas>
   </div>
   <div id="accuracy-pending" class="notes-section" style="font-style:normal; font-size:0.88rem; text-align:center; padding:10px 16px;">
@@ -647,12 +647,43 @@ const ACCURACY_DATA = {
     { label: 'R7 Fernandez', result: 'L', acc: 86.5 },
     { label: 'R8 Dergan',    result: 'D', acc: 90.1 },
     { label: 'R9 Gomez',     result: 'W', acc: 86.7 },
+  ],
+  'Personal Study Pt.5': [
+    { label: 'Fu',      result: 'S', acc: 92.6 },
+    { label: 'Kovuru',  result: 'S', acc: 94.0 },
+    { label: 'Sekeran', result: 'S', acc: 86.9 },
+    { label: 'Davies',  result: 'S', acc: 90.5 },
+    { label: 'Maulucci',result: 'S', acc: 95.9 },
+    { label: 'C.Zhu',   result: 'S', acc: 84.0 },
+    { label: 'E.Wang',  result: 'S', acc: 96.2 },
+    { label: 'E.Huang', result: 'S', acc: 96.1 },
+    { label: 'H.Gao',   result: 'S', acc: 87.8 },
+    { label: 'J.He',    result: 'S', acc: 91.9 },
+    { label: 'Terry',   result: 'S', acc: 93.4 },
+    { label: 'Fernando',result: 'S', acc: 91.9 },
+    { label: 'Krish.',  result: 'S', acc: 83.9 },
+    { label: 'Deepak',  result: 'S', acc: 81.1 },
+    { label: 'L.Chen',  result: 'S', acc: 87.7 },
+    { label: 'Vetesse', result: 'S', acc: 89.7 },
+    { label: 'Sheth',   result: 'S', acc: 91.4 },
+    { label: 'Filipe',  result: 'S', acc: 84.3 },
+    { label: 'S.Liu',   result: 'S', acc: 82.2 },
+    { label: 'Malakh.', result: 'S', acc: 89.1 },
+    { label: 'Lazarev', result: 'S', acc: 85.5 },
+    { label: 'Nakar',   result: 'S', acc: 88.9 },
+    { label: 'Sarja',   result: 'S', acc: 92.6 },
+    { label: 'Malysh.', result: 'S', acc: 92.6 },
+    { label: 'Feng',    result: 'S', acc: 86.7 },
+    { label: 'Z.Liu',   result: 'S', acc: 91.8 },
+    { label: 'Hui',     result: 'S', acc: 85.5 },
+    { label: 'ZS.Wang', result: 'S', acc: 90.8 },
+    { label: 'Zi.Wang', result: 'S', acc: 94.0 },
   ]
 };
 // ─────────────────────────────────────────────────────────────────────────────
 
 (function() {
-  var resultColor = { W: '#2d7d46', L: '#cf2222', D: '#d4a017' };
+  var resultColor = { W: '#2d7d46', L: '#cf2222', D: '#d4a017', S: '#4f86c6' };
   var labels = [], data = [], bgColors = [], borderColors = [];
   var avgLines = [];   // {x0, x1, avg, label} for tournament average annotations
   var offset = 0;
