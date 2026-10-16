@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin — Personal Study Games Pt.5 Review</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header {
+      border-bottom: 3px solid #2d7d46;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.75rem; }
+    .doc-header .subtitle { color: #57606a; font-size: 0.95rem; margin: 0 0 6px; }
+    .doc-header .back-link {
+      display: inline-block;
+      font-size: 0.875rem;
+      color: #2d7d46;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    .scoreboard {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .score-card {
+      flex: 1;
+      min-width: 130px;
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .score-card .label { font-size: 0.78rem; color: #57606a; text-transform: uppercase; letter-spacing: 0.04em; }
+    .score-card .value { font-size: 1.5rem; font-weight: 700; color: #1f2328; line-height: 1.2; margin-top: 2px; }
+    .score-card.highlight .value { color: #2d7d46; }
+    .score-card.warn .value { color: #cf2222; }
+
+    h2 {
+      font-size: 1.25rem;
+      color: #1f2328;
+      margin: 40px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #d0d7de;
+    }
+    h3 { font-size: 1.05rem; color: #2d7d46; margin: 22px 0 8px; }
+    h4 { font-size: 0.95rem; color: #1f2328; font-weight: 600; margin: 16px 0 6px; }
+
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
+    li { margin-bottom: 4px; }
+    li > ul { margin-top: 4px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 14px 0 24px;
+    }
+    thead th {
+      background: #2d7d46;
+      color: #fff;
+      padding: 9px 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 8px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+
+    .section-card {
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      margin: 18px 0;
+      overflow: hidden;
+    }
+    .section-card .card-title {
+      padding: 11px 18px;
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0;
+      color: #fff;
+    }
+    .card-green  { background: #2d7d46; }
+    .card-red    { background: #b91c1c; }
+    .card-blue   { background: #1a5276; }
+    .card-orange { background: #9a5a00; }
+    .section-card .card-body { padding: 18px 22px; }
+
+    .good-box {
+      background: #dafbe1;
+      border-left: 4px solid #2d7d46;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #1a4731;
+    }
+    .warn-box {
+      background: #fff5f5;
+      border-left: 4px solid #cf2222;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #7a0000;
+    }
+    .tip-box {
+      background: #fff8e6;
+      border-left: 4px solid #d4a017;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #7a4f00;
+    }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: #f0f4f8;
+      border: 1px solid #d0d7de;
+      border-radius: 4px;
+      padding: 1px 5px;
+      white-space: nowrap;
+    }
+
+    em { font-style: italic; color: #57606a; }
+    strong { font-weight: 600; }
+
+    /* ── Game review cards ── */
+    .game-review{border:1px solid #d0d7de;border-radius:8px;margin:22px 0;overflow:hidden;}
+    .game-header{display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:10px 16px;background:#f6f8fa;border-bottom:1px solid #d0d7de;}
+    .round-badge{background:#2d7d46;color:#fff;border-radius:4px;padding:2px 9px;font-size:0.8rem;font-weight:700;white-space:nowrap;}
+    .game-opp{font-weight:600;font-size:0.92rem;flex:1;min-width:140px;}
+    .color-wh{font-size:0.74rem;font-weight:600;border-radius:3px;padding:1px 6px;background:#fff;color:#1f2328;border:1px solid #aaa;}
+    .color-bl{font-size:0.74rem;font-weight:600;border-radius:3px;padding:1px 6px;background:#2d2d2d;color:#fff;}
+    .acc-badge{font-size:0.9rem;font-weight:700;color:#2d7d46;margin-left:auto;}
+    .engine-bar{display:flex;font-size:0.8rem;border-bottom:1px solid #d0d7de;background:#fafafa;}
+    .eb{flex:1;padding:5px 8px;text-align:center;border-right:1px solid #d0d7de;}
+    .eb:last-child{border-right:none;}
+    .eb strong{display:block;font-size:0.94rem;margin-top:1px;}
+    .eb-b strong{color:#cf2222;}
+    .eb-m strong{color:#d4750a;}
+    .eb-i strong{color:#b59800;}
+    .game-body{padding:14px 18px;}
+    .game-note{font-size:0.88rem;color:#57606a;margin:8px 0 0;font-style:italic;border-left:3px solid #d0d7de;padding-left:10px;}
+    .moments-table{font-size:0.81rem;margin:6px 0 10px;}
+    .moments-table thead th{background:#444;font-size:0.77rem;padding:5px 10px;color:#fff;}
+    .moments-table tbody td{padding:5px 10px;}
+    .brow{background:#fff5f5 !important;}
+    .brow td:first-child{color:#cf2222;font-weight:700;font-size:0.78rem;}
+    .mrow{background:#fff8f0 !important;}
+    .mrow td:first-child{color:#d4750a;font-weight:700;font-size:0.78rem;}
+    .irow td:first-child{color:#b59800;font-weight:700;font-size:0.78rem;}
+    .no-errors-msg{color:#2d7d46;font-size:0.88rem;padding:8px 0;}
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Personal Study Games Pt.5 — Engine Review</h1>
+    <p class="subtitle">Lichess study collection · 29 games · Analyzed at Stockfish depth 18 (8 threads)</p>
+    <a class="back-link" href="../../austin-prep.html">← Back to Austin Lin — Prep &amp; Index</a>
+  </div>
+
+  <!-- Scoreboard -->
+  <div class="scoreboard">
+    <div class="score-card"><div class="label">Games</div><div class="value">29</div></div>
+    <div class="score-card highlight"><div class="label">Avg Accuracy</div><div class="value" id="overall-avg">—</div></div>
+    <div class="score-card"><div class="label">As White (21)</div><div class="value" id="white-avg">—</div></div>
+    <div class="score-card"><div class="label">As Black (8)</div><div class="value" id="black-avg">—</div></div>
+    <div class="score-card warn"><div class="label">Total Blunders</div><div class="value" id="total-blunders">—</div></div>
+    <div class="score-card warn"><div class="label">Total Mistakes</div><div class="value" id="total-mistakes">—</div></div>
+  </div>
+
+  <div class="tip-box">
+    <strong>Context:</strong> These are Austin's personal study games from Lichess (Games Pt.5, collected Sep–Oct 2026). Unlike tournament games, these are practice sessions — no official results are tracked. The engine report reveals accuracy patterns across the study set and identifies recurring tactical habits.
+  </div>
+
+  <!-- Game Log Table -->
+  <h2>Game Log (29 games, alphabetical)</h2>
+  <table id="game-log-table">
+    <thead>
+      <tr><th>#</th><th>Opponent</th><th>Color</th><th>Accuracy</th><th>Opp. Acc</th><th>CPL</th><th>B</th><th>M</th><th>I</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Aaryan Kovuru</td><td>Black</td><td class="accuracy" data-val="94" data-color="black">—</td><td class="opp-accuracy" data-val="87.4">—</td><td>25</td><td>0</td><td>1</td><td>2</td></tr>
+      <tr><td>2</td><td>Adithya Sekeran</td><td>Black</td><td class="accuracy" data-val="86.9" data-color="black">—</td><td class="opp-accuracy" data-val="87.5">—</td><td>54</td><td>2</td><td>3</td><td>5</td></tr>
+      <tr><td>3</td><td>Alex Davies</td><td>White</td><td class="accuracy" data-val="90.5" data-color="white">—</td><td class="opp-accuracy" data-val="90">—</td><td>25</td><td>0</td><td>1</td><td>3</td></tr>
+      <tr><td>4</td><td>Anthony Maulucci</td><td>White</td><td class="accuracy" data-val="95.9" data-color="white">—</td><td class="opp-accuracy" data-val="89.2">—</td><td>99</td><td>2</td><td>3</td><td>2</td></tr>
+      <tr><td>5</td><td>Charis Zhu</td><td>White</td><td class="accuracy" data-val="84" data-color="white">—</td><td class="opp-accuracy" data-val="89.7">—</td><td>78</td><td>3</td><td>1</td><td>3</td></tr>
+      <tr><td>6</td><td>Edison Wang</td><td>White</td><td class="accuracy" data-val="96.2" data-color="white">—</td><td class="opp-accuracy" data-val="96.3">—</td><td>9</td><td>0</td><td>0</td><td>1</td></tr>
+      <tr><td>7</td><td>Eric Huang</td><td>White</td><td class="accuracy" data-val="96.1" data-color="white">—</td><td class="opp-accuracy" data-val="89.5">—</td><td>12</td><td>0</td><td>0</td><td>4</td></tr>
+      <tr><td>8</td><td>Heye Gao</td><td>White</td><td class="accuracy" data-val="87.8" data-color="white">—</td><td class="opp-accuracy" data-val="91.2">—</td><td>83</td><td>3</td><td>3</td><td>11</td></tr>
+      <tr><td>9</td><td>Jinglai He</td><td>White</td><td class="accuracy" data-val="91.9" data-color="white">—</td><td class="opp-accuracy" data-val="92.3">—</td><td>21</td><td>0</td><td>0</td><td>4</td></tr>
+      <tr><td>10</td><td>Joshua Terry</td><td>Black</td><td class="accuracy" data-val="93.4" data-color="black">—</td><td class="opp-accuracy" data-val="90.2">—</td><td>29</td><td>0</td><td>5</td><td>4</td></tr>
+      <tr><td>11</td><td>Juan Fernando</td><td>White</td><td class="accuracy" data-val="91.9" data-color="white">—</td><td class="opp-accuracy" data-val="92">—</td><td>35</td><td>1</td><td>0</td><td>1</td></tr>
+      <tr><td>12</td><td>Krishnamuthri</td><td>White</td><td class="accuracy" data-val="83.9" data-color="white">—</td><td class="opp-accuracy" data-val="88.2">—</td><td>54</td><td>3</td><td>1</td><td>3</td></tr>
+      <tr><td>13</td><td>Laksshana Deepak</td><td>Black</td><td class="accuracy" data-val="81.1" data-color="black">—</td><td class="opp-accuracy" data-val="76.8">—</td><td>68</td><td>2</td><td>3</td><td>5</td></tr>
+      <tr><td>14</td><td>Larry Zhou Chen</td><td>White</td><td class="accuracy" data-val="87.7" data-color="white">—</td><td class="opp-accuracy" data-val="89.3">—</td><td>41</td><td>2</td><td>0</td><td>2</td></tr>
+      <tr><td>15</td><td>Nicholas Vetesse</td><td>Black</td><td class="accuracy" data-val="89.7" data-color="black">—</td><td class="opp-accuracy" data-val="96.4">—</td><td>95</td><td>2</td><td>1</td><td>8</td></tr>
+      <tr><td>16</td><td>Odyssey Fu</td><td>White</td><td class="accuracy" data-val="92.6" data-color="white">—</td><td class="opp-accuracy" data-val="89.3">—</td><td>50</td><td>3</td><td>1</td><td>5</td></tr>
+      <tr><td>17</td><td>Rudra Sheth</td><td>White</td><td class="accuracy" data-val="91.4" data-color="white">—</td><td class="opp-accuracy" data-val="91.9">—</td><td>29</td><td>2</td><td>0</td><td>3</td></tr>
+      <tr><td>18</td><td>Samuel Filipe</td><td>White</td><td class="accuracy" data-val="84.3" data-color="white">—</td><td class="opp-accuracy" data-val="83.7">—</td><td>59</td><td>1</td><td>0</td><td>5</td></tr>
+      <tr><td>19</td><td>Sean Liu</td><td>White</td><td class="accuracy" data-val="82.2" data-color="white">—</td><td class="opp-accuracy" data-val="82.5">—</td><td>64</td><td>5</td><td>1</td><td>3</td></tr>
+      <tr><td>20</td><td>Sergey Malakhovets</td><td>White</td><td class="accuracy" data-val="89.1" data-color="white">—</td><td class="opp-accuracy" data-val="94.5">—</td><td>72</td><td>2</td><td>1</td><td>5</td></tr>
+      <tr><td>21</td><td>Shon Lazarev</td><td>White</td><td class="accuracy" data-val="85.5" data-color="white">—</td><td class="opp-accuracy" data-val="87.3">—</td><td>46</td><td>0</td><td>7</td><td>13</td></tr>
+      <tr><td>22</td><td>Soham Nakar</td><td>White</td><td class="accuracy" data-val="88.9" data-color="white">—</td><td class="opp-accuracy" data-val="88.8">—</td><td>104</td><td>4</td><td>6</td><td>2</td></tr>
+      <tr><td>23</td><td>Sriram Sarja</td><td>White</td><td class="accuracy" data-val="92.6" data-color="white">—</td><td class="opp-accuracy" data-val="94">—</td><td>19</td><td>0</td><td>0</td><td>3</td></tr>
+      <tr><td>24</td><td>Valentyn Trofimov Malyshkin</td><td>Black</td><td class="accuracy" data-val="92.6" data-color="black">—</td><td class="opp-accuracy" data-val="95.1">—</td><td>74</td><td>4</td><td>2</td><td>10</td></tr>
+      <tr><td>25</td><td>Warren Feng</td><td>White</td><td class="accuracy" data-val="86.7" data-color="white">—</td><td class="opp-accuracy" data-val="92.2">—</td><td>42</td><td>1</td><td>0</td><td>3</td></tr>
+      <tr><td>26</td><td>Zachary Liu</td><td>White</td><td class="accuracy" data-val="91.8" data-color="white">—</td><td class="opp-accuracy" data-val="93.8">—</td><td>32</td><td>1</td><td>3</td><td>9</td></tr>
+      <tr><td>27</td><td>Zelus Hui</td><td>White</td><td class="accuracy" data-val="85.5" data-color="white">—</td><td class="opp-accuracy" data-val="89.9">—</td><td>82</td><td>2</td><td>5</td><td>10</td></tr>
+      <tr><td>28</td><td>Zhi Sheng Wang</td><td>Black</td><td class="accuracy" data-val="90.8" data-color="black">—</td><td class="opp-accuracy" data-val="96.6">—</td><td>48</td><td>1</td><td>0</td><td>5</td></tr>
+      <tr><td>29</td><td>Zi Sheng Wang</td><td>Black</td><td class="accuracy" data-val="94" data-color="black">—</td><td class="opp-accuracy" data-val="90.8">—</td><td>26</td><td>0</td><td>2</td><td>6</td></tr>
+    </tbody>
+  </table>
+  <script>
+    (function() {
+      var cells = document.querySelectorAll('td.accuracy[data-val]');
+      var allVals = [], whiteVals = [], blackVals = [];
+      var totalB = 0, totalM = 0;
+      cells.forEach(function(td) {
+        var v = parseFloat(td.getAttribute('data-val'));
+        var c = td.getAttribute('data-color');
+        if (!isNaN(v)) {
+          td.textContent = v + '%';
+          allVals.push(v);
+          if (c === 'white') whiteVals.push(v);
+          else blackVals.push(v);
+        }
+      });
+      document.querySelectorAll('td.opp-accuracy[data-val]').forEach(function(td) {
+        var v = parseFloat(td.getAttribute('data-val'));
+        if (!isNaN(v)) td.textContent = v + '%';
+      });
+      function avg(arr) { return arr.length ? (arr.reduce(function(a,b){return a+b;},0)/arr.length).toFixed(1) : '—'; }
+      document.getElementById('overall-avg').textContent = avg(allVals) + '%';
+      document.getElementById('white-avg').textContent = avg(whiteVals) + '%';
+      document.getElementById('black-avg').textContent = avg(blackVals) + '%';
+      // tally blunders and mistakes from table rows
+      var rows = document.querySelectorAll('#game-log-table tbody tr');
+      rows.forEach(function(row) {
+        var tds = row.querySelectorAll('td');
+        totalB += parseInt(tds[6].textContent) || 0;
+        totalM += parseInt(tds[7].textContent) || 0;
+      });
+      document.getElementById('total-blunders').textContent = totalB;
+      document.getElementById('total-mistakes').textContent = totalM;
+    })();
+  </script>
+
+  <hr />
+
+  <!-- Game-by-Game Engine Report -->
+  <h2>Game-by-Game Engine Report (Stockfish depth 18)</h2>
+
+  <!-- #1 Aaryan Kovuru -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#1</span>
+      <span class="game-opp">Aaryan Kovuru</span>
+      <span class="color-bl">Black</span>
+      <span class="acc-badge">94%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>25</strong></div>
+      <div class="eb eb-b">Blunders <strong>0</strong></div>
+      <div class="eb eb-m">Mistakes <strong>1</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>2</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="mrow"><td>MISTAKE</td><td>d3</td><td>Qc5</td><td>163</td><td>+6.44→+4.81</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>cxd3</td><td>Bd4+</td><td>99</td><td>+5.94→+4.95</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>Nbd7</td><td>Nxe4</td><td>70</td><td>+0.89→+0.19</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Clean game — no blunders in a clearly winning position. d3 (Qc5 was the more active queen outpost) and the follow-up cxd3 (Bd4+ check was better) show a slight tendency to resolve tension too quickly rather than maintaining pressure.</p>
+    </div>
+  </div>
+
+  <!-- #2 Adithya Sekeran -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#2</span>
+      <span class="game-opp">Adithya Sekeran</span>
+      <span class="color-bl">Black</span>
+      <span class="acc-badge">86.9%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>54</strong></div>
+      <div class="eb eb-b">Blunders <strong>2</strong></div>
+      <div class="eb eb-m">Mistakes <strong>3</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>5</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>Rb8</td><td>Qe1+</td><td>1000</td><td>+11.94→+1.07</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>d3</td><td>h4</td><td>599</td><td>+6.52→+0.53</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td>Qxc3</td><td>Rxc3</td><td>249</td><td>+6.25→+3.76</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Two blunders squandered large advantages. Rb8 (Qe1+ was the forcing check that wins on the spot) dropped +11.94 to +1.07 — a clear Active Defender Scan failure. d3 then missed h4, another passive pawn push where the engine wanted a direct attack. Multiple winning positions thrown away.</p>
+    </div>
+  </div>
+
+  <!-- #3 Alex Davies -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#3</span>
+      <span class="game-opp">Alex Davies</span>
+      <span class="color-wh">White</span>
+      <span class="acc-badge">90.5%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>25</strong></div>
+      <div class="eb eb-b">Blunders <strong>0</strong></div>
+      <div class="eb eb-m">Mistakes <strong>1</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>3</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="mrow"><td>MISTAKE</td><td>Nf6+</td><td>c4</td><td>232</td><td>+2.80→+0.48</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>Bb2</td><td>Qf2</td><td>103</td><td>+0.57→−0.46</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>b3</td><td>Qf2</td><td>100</td><td>+0.57→−0.43</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Nf6+ (c4 was the structural move that maintains the advantage) chose a check that doesn't improve the position over a pawn break. Bb2 and b3 are consecutive inaccuracies where Qf2 was the correct active move both times — same pattern as d3/cxd3 in game #1.</p>
+    </div>
+  </div>
+
+  <!-- #4 Anthony Maulucci -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#4</span>
+      <span class="game-opp">Anthony Maulucci</span>
+      <span class="color-wh">White</span>
+      <span class="acc-badge">95.9%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>99</strong></div>
+      <div class="eb eb-b">Blunders <strong>2</strong></div>
+      <div class="eb eb-m">Mistakes <strong>3</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>2</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>Rxb7</td><td>Bxh7+</td><td>1000</td><td>#→+8.43</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>Bh6</td><td>Bxh7+</td><td>1000</td><td>#→+11.06</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td>Kh1</td><td>Kxf2</td><td>257</td><td>+9.89→+7.32</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Austin had a mating position (<code>#</code>) but missed Bxh7+ on two consecutive moves — first playing Rxb7, then Bh6. The h7 sacrifice (Rule 1: Escape Square Check) was available both times. Despite the blunders the position remained winning, suggesting Austin dominated the game but failed to find the precise finishing blow.</p>
+    </div>
+  </div>
+
+  <!-- #5 Charis Zhu -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#5</span>
+      <span class="game-opp">Charis Zhu</span>
+      <span class="color-wh">White</span>
+      <span class="acc-badge">84%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>78</strong></div>
+      <div class="eb eb-b">Blunders <strong>3</strong></div>
+      <div class="eb eb-m">Mistakes <strong>1</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>3</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>Qf5</td><td>Qh4</td><td>733</td><td>+13.49→+6.16</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>Qxe4</td><td>f7+</td><td>705</td><td>+0.31→−6.74</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>Be5</td><td>Re1</td><td>664</td><td>+7.01→+0.37</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Three blunders involving queen and bishop misplacement in sharp positions. Qxe4 (f7+ was the game-winning check) turned a near-equal position into −6.74 — taking a pawn when a forcing check was available. Classic Rule 3 failure. Qf5 and Be5 also squandered large advantages.</p>
+    </div>
+  </div>
+
+  <!-- #6 Edison Wang -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#6</span>
+      <span class="game-opp">Edison Wang</span>
+      <span class="color-wh">White</span>
+      <span class="acc-badge">96.2%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>9</strong></div>
+      <div class="eb eb-b">Blunders <strong>0</strong></div>
+      <div class="eb eb-m">Mistakes <strong>0</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>1</strong></div>
+    </div>
+    <div class="game-body">
+      <p class="no-errors-msg">Near-perfect game — 0 blunders, 0 mistakes, 1 minor inaccuracy.</p>
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="irow"><td>INACCURACY</td><td>Qxc4</td><td>Qa3</td><td>69</td><td>+0.69→+0.00</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Excellent game — CPL of 9 is among the best in the study set. The lone inaccuracy (Qxc4 instead of keeping the active Qa3) was minor. Austin was in full control throughout.</p>
+    </div>
+  </div>
+
+  <!-- #7 Eric Huang -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#7</span>
+      <span class="game-opp">Eric Huang</span>
+      <span class="color-wh">White</span>
+      <span class="acc-badge">96.1%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>12</strong></div>
+      <div class="eb eb-b">Blunders <strong>0</strong></div>
+      <div class="eb eb-m">Mistakes <strong>0</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>4</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="irow"><td>INACCURACY</td><td>Nc4</td><td>Bd2</td><td>85</td><td>+0.82→−0.03</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>Re7+</td><td>Rd2</td><td>75</td><td>+9.41→+8.66</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>c3</td><td>Kb1</td><td>66</td><td>+0.75→+0.09</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Strong game overall. Four minor inaccuracies, none consequential. Re7+ (Rd2 kept a larger advantage) is the most instructive — choosing a check over a more positional rook placement.</p>
+    </div>
+  </div>
+
+  <!-- #8 Heye Gao -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#8</span>
+      <span class="game-opp">Heye Gao</span>
+      <span class="color-wh">White</span>
+      <span class="acc-badge">87.8%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>83</strong></div>
+      <div class="eb eb-b">Blunders <strong>3</strong></div>
+      <div class="eb eb-m">Mistakes <strong>3</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>11</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>Rd7</td><td>Rf3</td><td>1000</td><td>−11.87→−23.01</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>Kg2</td><td>Kg1</td><td>1000</td><td>−19.98→−#</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>f4</td><td>Qc3</td><td>375</td><td>−1.85→−5.60</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Very messy game — Austin was already losing when the blunders occurred (−11.87, −19.98). Kg2 when Kg1 was correct walked into a mating net. f4 (Qc3 was defensive) was a premature pawn push that deepened a difficult position. 11 inaccuracies reflect sustained defensive struggles throughout the game.</p>
+    </div>
+  </div>
+
+  <!-- #9 Jinglai He -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#9</span>
+      <span class="game-opp">Jinglai He</span>
+      <span class="color-wh">White</span>
+      <span class="acc-badge">91.9%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>21</strong></div>
+      <div class="eb eb-b">Blunders <strong>0</strong></div>
+      <div class="eb eb-m">Mistakes <strong>0</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>4</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="irow"><td>INACCURACY</td><td>Re1</td><td>Qe3</td><td>112</td><td>−1.16→−2.28</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>Bd2</td><td>O-O</td><td>88</td><td>+0.64→−0.24</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>Nb3</td><td>Nf5</td><td>88</td><td>+0.00→−0.88</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Clean game with only minor inaccuracies. Nb3 (Nf5 was the more active knight square) continues a pattern of slightly passive piece choices. Bd2 delaying castling was also suboptimal. Low CPL of 21 reflects overall solid play.</p>
+    </div>
+  </div>
+
+  <!-- #10 Joshua Terry -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#10</span>
+      <span class="game-opp">Joshua Terry</span>
+      <span class="color-bl">Black</span>
+      <span class="acc-badge">93.4%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>29</strong></div>
+      <div class="eb eb-b">Blunders <strong>0</strong></div>
+      <div class="eb eb-m">Mistakes <strong>5</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>4</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="mrow"><td>MISTAKE</td><td>Rc8</td><td>Re8</td><td>176</td><td>+4.59→+2.83</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td>Qd8</td><td>Re8</td><td>159</td><td>+2.59→+1.00</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td>Bxb2</td><td>Ne6</td><td>157</td><td>+7.88→+6.31</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">No blunders but 5 mistakes — notably Rc8 and Qd8 where Re8 was better both times. The rook on e8 activates while c8 is passive: a recurring passive-placement habit. Austin chose pawn-grabbing (Bxb2) over the centralizing Ne6. High accuracy (93.4%) despite mistakes reflects well-managed winning advantage.</p>
+    </div>
+  </div>
+
+  <!-- #11 Juan Fernando -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#11</span>
+      <span class="game-opp">Juan Fernando</span>
+      <span class="color-wh">White</span>
+      <span class="acc-badge">91.9%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>35</strong></div>
+      <div class="eb eb-b">Blunders <strong>1</strong></div>
+      <div class="eb eb-m">Mistakes <strong>0</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>1</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>Qg8+</td><td>Qf5+</td><td>1000</td><td>+10.20→+0.00</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>Nb3</td><td>Nxc6</td><td>50</td><td>+0.35→−0.15</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Qg8+ (Qf5+ was the correct check) in a completely winning position (+10.20) let the advantage evaporate to 0.00 — likely allowed perpetual check. Rule 3 (Active Defender Scan) — Austin found an attack but not the precise winning check. The difference between Qg8+ and Qf5+ needed one more move of calculation.</p>
+    </div>
+  </div>
+
+  <!-- #12 Krishnamuthri -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#12</span>
+      <span class="game-opp">Krishnamuthri</span>
+      <span class="color-wh">White</span>
+      <span class="acc-badge">83.9%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>54</strong></div>
+      <div class="eb eb-b">Blunders <strong>3</strong></div>
+      <div class="eb eb-m">Mistakes <strong>1</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>3</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>Ra6</td><td>Rh8+</td><td>536</td><td>−0.29→−5.65</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>gxf5</td><td>g5+</td><td>467</td><td>+0.00→−4.67</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>f4</td><td>h5+</td><td>422</td><td>−0.20→−4.42</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Three blunders all share the same pattern — passive moves (Ra6, gxf5, f4) when the engine wanted attacking king-side moves (Rh8+, g5+, h5+). Austin captured pawns or made rook retreats instead of launching the available attack. Each blunder converted a balanced position to −4 to −5.</p>
+    </div>
+  </div>
+
+  <!-- #13 Laksshana Deepak -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#13</span>
+      <span class="game-opp">Laksshana Deepak</span>
+      <span class="color-bl">Black</span>
+      <span class="acc-badge">81.1%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>68</strong></div>
+      <div class="eb eb-b">Blunders <strong>2</strong></div>
+      <div class="eb eb-m">Mistakes <strong>3</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>5</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>Re8</td><td>bxa3</td><td>598</td><td>+6.78→+0.80</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>Kh8</td><td>Bxe5</td><td>548</td><td>+5.48→+0.00</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td>Bc6</td><td>a5</td><td>235</td><td>+4.55→+2.20</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Worst accuracy in the study set (81.1%). Re8 (bxa3 was the winning pawn advance) and Kh8 (Bxe5 captures a piece) both missed winning material or decisive pawn play in favor of passive or king-safety moves. Austin was winning but failed to convert multiple opportunities.</p>
+    </div>
+  </div>
+
+  <!-- #14 Larry Zhou Chen -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#14</span>
+      <span class="game-opp">Larry Zhou Chen</span>
+      <span class="color-wh">White</span>
+      <span class="acc-badge">87.7%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>41</strong></div>
+      <div class="eb eb-b">Blunders <strong>2</strong></div>
+      <div class="eb eb-m">Mistakes <strong>0</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>2</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>Nf3</td><td>Nf5</td><td>604</td><td>+6.31→+0.27</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>Rxd7</td><td>Rc1</td><td>595</td><td>+6.30→+0.35</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>Nxe5</td><td>Nh4</td><td>131</td><td>+1.47→+0.16</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Nf3 (Nf5 was the attacking square) and Rxd7 (Rc1 was the active rook penetration) on successive moves both from +6.30 — two consecutive blunders that demolished a large winning advantage. Nf5 vs Nf3 is the classic active vs passive knight choice. Austin lost all advantage in two moves.</p>
+    </div>
+  </div>
+
+  <!-- #15 Nicholas Vetesse -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#15</span>
+      <span class="game-opp">Nicholas Vetesse</span>
+      <span class="color-bl">Black</span>
+      <span class="acc-badge">89.7%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>95</strong></div>
+      <div class="eb eb-b">Blunders <strong>2</strong></div>
+      <div class="eb eb-m">Mistakes <strong>1</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>8</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>Bg6</td><td>Kf8</td><td>1000</td><td>−17.10→−#</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>Qc7</td><td>Rd5</td><td>577</td><td>−6.97→−12.74</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td>Bd7</td><td>Nxe4</td><td>171</td><td>−2.35→−4.06</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Austin was already losing (−17.10) when Bg6 walked into a mating net — Kf8 was the only defensive king move. Qc7 (Rd5 was defensive) further deepened the position. High CPL (95) reflects sustained defensive difficulties against opponent's 96.4% accuracy.</p>
+    </div>
+  </div>
+
+  <!-- #16 Odyssey Fu -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#16</span>
+      <span class="game-opp">Odyssey Fu</span>
+      <span class="color-wh">White</span>
+      <span class="acc-badge">92.6%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>50</strong></div>
+      <div class="eb eb-b">Blunders <strong>3</strong></div>
+      <div class="eb eb-m">Mistakes <strong>1</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>5</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>Bb7</td><td>Bb7</td><td>1000</td><td>+72.45→+50.79</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>Ba6</td><td>bxa5</td><td>583</td><td>+6.24→+0.41</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>Bc8</td><td>gxf5</td><td>314</td><td>+85.83→+82.69</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Blunder classification is inflated — Austin was in a completely won position (+72, +85) throughout. "Blunders" like Bb7→+50 and Bc8→+82 remain easily winning despite the CPL. The real error is Ba6 (bxa5 pawn recapture was better, +6.24→+0.41) which squandered a clear advantage. Overall a controlled win despite technical classification.</p>
+    </div>
+  </div>
+
+  <!-- #17 Rudra Sheth -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#17</span>
+      <span class="game-opp">Rudra Sheth</span>
+      <span class="color-wh">White</span>
+      <span class="acc-badge">91.4%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>29</strong></div>
+      <div class="eb eb-b">Blunders <strong>2</strong></div>
+      <div class="eb eb-m">Mistakes <strong>0</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>3</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>Qd4</td><td>Bxh7+</td><td>579</td><td>+7.68→+1.89</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>Nxe5</td><td>Qc3</td><td>330</td><td>+3.33→+0.03</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>Re1</td><td>Rd5</td><td>87</td><td>+0.87→+0.00</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Qd4 (Bxh7+ was the winning bishop sacrifice — third game in this study set where Austin had Bxh7+ available and missed it) dropped +7.68 to +1.89. Nxe5 (Qc3 was better) then lost remaining advantage. The Bxh7+ pattern is a clear recurring blind spot across at least 3 games (#4, #11, #17, #26).</p>
+    </div>
+  </div>
+
+  <!-- #18 Samuel Filipe -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#18</span>
+      <span class="game-opp">Samuel Filipe</span>
+      <span class="color-wh">White</span>
+      <span class="acc-badge">84.3%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>59</strong></div>
+      <div class="eb eb-b">Blunders <strong>1</strong></div>
+      <div class="eb eb-m">Mistakes <strong>0</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>5</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>g4#</td><td>Qh4#</td><td>1000</td><td>#→+0.00</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>Bh4</td><td>Bxc4</td><td>142</td><td>+2.19→+0.77</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>Rd5</td><td>Be7</td><td>137</td><td>+1.37→+0.00</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">The "blunder" g4# was delivering checkmate — the engine preferred Qh4# as the faster/cleaner mate but g4# presumably also won. This inflates the CPL artificially. The real concerns are the inaccuracies: Bh4 (Bxc4 wins material immediately) and Rd5 (Be7 keeps the advantage).</p>
+    </div>
+  </div>
+
+  <!-- #19 Sean Liu -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#19</span>
+      <span class="game-opp">Sean Liu</span>
+      <span class="color-wh">White</span>
+      <span class="acc-badge">82.2%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>64</strong></div>
+      <div class="eb eb-b">Blunders <strong>5</strong></div>
+      <div class="eb eb-m">Mistakes <strong>1</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>3</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>Bh5</td><td>Rb6</td><td>658</td><td>+7.22→+0.64</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>Bf4</td><td>Rg4</td><td>524</td><td>+6.01→+0.77</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>Qf2</td><td>c5</td><td>405</td><td>+4.43→+0.38</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Highest blunder count (5) in the study set. Multiple large advantages (+7, +6, +4) all squandered by bishop and queen misplacement — Bh5 (Rb6 was rook activation), Bf4 (Rg4), Qf2 (c5 pawn push). Pattern: in winning positions Austin repeatedly moves the bishop to passive squares instead of activating the rook or pushing passed pawns.</p>
+    </div>
+  </div>
+
+  <!-- #20 Sergey Malakhovets -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#20</span>
+      <span class="game-opp">Sergey Malakhovets</span>
+      <span class="color-wh">White</span>
+      <span class="acc-badge">89.1%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>72</strong></div>
+      <div class="eb eb-b">Blunders <strong>2</strong></div>
+      <div class="eb eb-m">Mistakes <strong>1</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>5</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>Ree3</td><td>Rg1</td><td>1000</td><td>−8.59→−#</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>c4</td><td>b4</td><td>383</td><td>−1.60→−5.43</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td>Qh4</td><td>Qh7</td><td>288</td><td>−1.37→−4.25</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Ree3 (Rg1 was king defense) walked into a mating net from −8.59 — king safety failure in an already losing position. c4 (b4 was the correct pawn advance) is the premature pawn push pattern: Austin pushed the c-pawn when the b-pawn was the right choice, losing 4 points of evaluation.</p>
+    </div>
+  </div>
+
+  <!-- #21 Shon Lazarev -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#21</span>
+      <span class="game-opp">Shon Lazarev</span>
+      <span class="color-wh">White</span>
+      <span class="acc-badge">85.5%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>46</strong></div>
+      <div class="eb eb-b">Blunders <strong>0</strong></div>
+      <div class="eb eb-m">Mistakes <strong>7</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>13</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="mrow"><td>MISTAKE</td><td>Re2</td><td>Qd4+</td><td>255</td><td>+2.55→+0.00</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td>Ra1</td><td>Qd4+</td><td>248</td><td>+2.52→+0.04</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td>Qa2</td><td>Rxa5</td><td>243</td><td>−0.12→−2.55</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Highest mistake count (7) and inaccuracy count (13). Most strikingly, Re2 and Ra1 both missed the same move — Qd4+ — on consecutive turns. Austin had the winning move available twice in a row and played passive rook moves instead. This is Rule 3 (Active Defender Scan) failure repeated: the forcing check was right there.</p>
+    </div>
+  </div>
+
+  <!-- #22 Soham Nakar -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#22</span>
+      <span class="game-opp">Soham Nakar</span>
+      <span class="color-wh">White</span>
+      <span class="acc-badge">88.9%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>104</strong></div>
+      <div class="eb eb-b">Blunders <strong>4</strong></div>
+      <div class="eb eb-m">Mistakes <strong>6</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>2</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>Qe3</td><td>Qg2</td><td>1000</td><td>−23.41→−#</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>Rxd1</td><td>Rxd1</td><td>1000</td><td>−25.06→−#</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>fxg4</td><td>exd5</td><td>487</td><td>−8.35→−13.22</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Highest CPL (104) in the study set — 92 moves of sustained difficulties. Most blunders and mistakes occurred when Austin was already losing (−23, −25) and struggling to find defensive moves. The long game amplified every small error. Context: 92-move game suggests both sides were defending/counterattacking in complex positions throughout.</p>
+    </div>
+  </div>
+
+  <!-- #23 Sriram Sarja -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#23</span>
+      <span class="game-opp">Sriram Sarja</span>
+      <span class="color-wh">White</span>
+      <span class="acc-badge">92.6%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>19</strong></div>
+      <div class="eb eb-b">Blunders <strong>0</strong></div>
+      <div class="eb eb-m">Mistakes <strong>0</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>3</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="irow"><td>INACCURACY</td><td>Ne5</td><td>a3</td><td>136</td><td>+0.12→−1.24</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>Rxc3</td><td>f4</td><td>88</td><td>+0.00→−0.88</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>Qc2</td><td>Bxf6</td><td>73</td><td>+0.81→+0.08</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Clean game — low CPL (19), no blunders or mistakes. Three minor inaccuracies in roughly equal positions. One of Austin's stronger performances in this study set.</p>
+    </div>
+  </div>
+
+  <!-- #24 Valentyn Trofimov Malyshkin -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#24</span>
+      <span class="game-opp">Valentyn Trofimov Malyshkin</span>
+      <span class="color-bl">Black</span>
+      <span class="acc-badge">92.6%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>74</strong></div>
+      <div class="eb eb-b">Blunders <strong>4</strong></div>
+      <div class="eb eb-m">Mistakes <strong>2</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>10</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>Kg4</td><td>g4</td><td>1000</td><td>−13.33→−71.90</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>Kf4</td><td>Kf3</td><td>1000</td><td>−34.15→−82.52</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>Kh3</td><td>Kf4</td><td>476</td><td>−8.18→−12.94</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Three consecutive king blunders in a lost endgame — Kg4, Kf4, Kh3 all chose wrong squares (Kf3 would have been better). King activity in lost endgames remains a weak point: Austin walks the king to the wrong side repeatedly. This 119-move game likely involved a complex K+P endgame where precise king placement was decisive.</p>
+    </div>
+  </div>
+
+  <!-- #25 Warren Feng -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#25</span>
+      <span class="game-opp">Warren Feng</span>
+      <span class="color-wh">White</span>
+      <span class="acc-badge">86.7%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>42</strong></div>
+      <div class="eb eb-b">Blunders <strong>1</strong></div>
+      <div class="eb eb-m">Mistakes <strong>0</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>3</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>Rxe6</td><td>Nxe6</td><td>596</td><td>+0.73→−5.23</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>Nh5</td><td>Rde3</td><td>125</td><td>+1.96→+0.71</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>Qf3</td><td>Qh4</td><td>92</td><td>−5.53→−6.45</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Rxe6 (Nxe6 was the correct piece capture) turned a slight advantage (+0.73) into a −5.23 position. The wrong piece captured e6 — the rook exchange was unfavorable, the knight recapture kept the advantage. One bad capture decision cost the game.</p>
+    </div>
+  </div>
+
+  <!-- #26 Zachary Liu -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#26</span>
+      <span class="game-opp">Zachary Liu</span>
+      <span class="color-wh">White</span>
+      <span class="acc-badge">91.8%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>32</strong></div>
+      <div class="eb eb-b">Blunders <strong>1</strong></div>
+      <div class="eb eb-m">Mistakes <strong>3</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>9</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>Qh5</td><td>Bxh7+</td><td>382</td><td>+3.79→−0.03</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td>Rf2</td><td>Rxd8</td><td>212</td><td>−3.22→−5.34</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td>Rd2</td><td>Qa4</td><td>161</td><td>−1.84→−3.45</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Qh5 (Bxh7+ was available — the fourth game in this set where Austin missed Bxh7+) from +3.79 to equal. The Bxh7+ sacrifice pattern is now confirmed across four separate games. This is Austin's most consistent tactical blind spot in the study set: he builds attacking positions with Bxh7+ available but consistently plays a different move.</p>
+    </div>
+  </div>
+
+  <!-- #27 Zelus Hui -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#27</span>
+      <span class="game-opp">Zelus Hui</span>
+      <span class="color-wh">White</span>
+      <span class="acc-badge">85.5%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>82</strong></div>
+      <div class="eb eb-b">Blunders <strong>2</strong></div>
+      <div class="eb eb-m">Mistakes <strong>5</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>10</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>h4</td><td>Qb3</td><td>874</td><td>−2.95→−11.69</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>Kf1</td><td>Kf1</td><td>434</td><td>−11.53→−15.87</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td>Qc3</td><td>Qc2</td><td>252</td><td>−2.90→−5.42</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">h4 (Qb3 was the defensive queen move) is a textbook premature pawn push — from a slightly losing position (−2.95) Austin pushed a wing pawn instead of defending with the queen, collapsing to −11.69. This mirrors the PAM R8 f5 and PAM R6 hxg6 patterns. Also 10 inaccuracies in an 86-move game reflecting persistent defensive struggles.</p>
+    </div>
+  </div>
+
+  <!-- #28 Zhi Sheng Wang -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#28</span>
+      <span class="game-opp">Zhi Sheng Wang</span>
+      <span class="color-bl">Black</span>
+      <span class="acc-badge">90.8%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>48</strong></div>
+      <div class="eb eb-b">Blunders <strong>1</strong></div>
+      <div class="eb eb-m">Mistakes <strong>0</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>5</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>e5</td><td>cxd4</td><td>606</td><td>+0.22→−5.84</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>Nh4</td><td>Ngf4</td><td>131</td><td>−6.97→−8.28</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>Rf8</td><td>Kf8</td><td>130</td><td>−6.38→−7.68</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">e5 (cxd4 was the correct central recapture) advanced the center pawn prematurely — the e5 push turned a balanced game (+0.22) into −5.84. The premature central pawn push is the same structural error as the wing pawn pushes in other games. Austin against a 96.6% accurate opponent faced sustained pressure after the e5 blunder.</p>
+    </div>
+  </div>
+
+  <!-- #29 Zi Sheng Wang -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">#29</span>
+      <span class="game-opp">Zi Sheng Wang</span>
+      <span class="color-bl">Black</span>
+      <span class="acc-badge">94%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>26</strong></div>
+      <div class="eb eb-b">Blunders <strong>0</strong></div>
+      <div class="eb eb-m">Mistakes <strong>2</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>6</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+        <tbody>
+          <tr class="mrow"><td>MISTAKE</td><td>Kf6</td><td>Kd6</td><td>178</td><td>+6.76→+4.98</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td>Rh1</td><td>Rc1</td><td>158</td><td>+5.97→+4.39</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>Rxh2</td><td>Re1+</td><td>138</td><td>+5.99→+4.61</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Good game overall (94% accuracy). Kf6 (Kd6 was more central) and Rh1 (Rc1 was the active rook) are both examples of slightly less active piece placement in a winning endgame. Errors are minor — Austin maintained a winning advantage throughout this 110-move game.</p>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Patterns Analysis -->
+  <h2>Cross-Game Pattern Analysis</h2>
+
+  <h3>1. The Bxh7+ Blind Spot — Confirmed Across 4 Games</h3>
+  <div class="warn-box">
+    <strong>Critical recurring miss:</strong> Games #4 (Anthony Maulucci), #17 (Rudra Sheth), #26 (Zachary Liu), and PAM R6 all had <code>Bxh7+</code> available as the winning sacrifice — and Austin played a different move each time. This is now the single most confirmed tactical blind spot in Austin's game. He builds the attacking position correctly but doesn't see or trust the h7 sacrifice to execute it. Dedicate puzzle sessions specifically to <code>Bxh7+ Kxh7 Ng5+</code> patterns and verify the escape squares before each attempt.
+  </div>
+
+  <h3>2. Premature Pawn Pushes (Multi-Tournament Confirmed)</h3>
+  <div class="warn-box">
+    <strong>Study set occurrences:</strong> h4 (Vs Zelus Hui, −2.95→−11.69), e5 (Vs Zhi Sheng Wang, +0.22→−5.84), f4 (Vs Heye Gao and Krishnamuthri), c4 (Vs Sergey Malakhovets). Each pawn push came from a roughly balanced or slightly inferior position instead of a defensive piece move. This is now confirmed across NAYCC, PAM, and the personal study set — Austin's most consistent multi-tournament error type.
+  </div>
+
+  <h3>3. Passive Piece Placement in Winning Positions</h3>
+  <div class="warn-box">
+    <strong>Multiple forms:</strong> Rook to passive square (Rb8 when Qe1+; Rc8/Qd8 when Re8; Ra6 when Rh8+), knight to passive square (Nf3 when Nf5; Nb3 when Nf5), bishop retreat (Bh5/Bf4 when Rg4; Ba6 when bxa5). In 8+ games Austin chose a passive move when an active piece placement was available. The common factor: failing to ask "what is the most active square for each piece?" before moving.
+  </div>
+
+  <h3>4. Missed Forcing Moves (Rule 3 — Active Defender Scan)</h3>
+  <div class="warn-box">
+    <strong>Missed forcing checks/wins:</strong> Qf5+ (Juan Fernando, +10.20→0), Qd4+ missed twice consecutively (Shon Lazarev), Qe1+ (Adithya Sekeran, +11.94→+1.07), g5+/h5+/Rh8+ (Krishnamuthri). In all cases Austin had a forcing check or winning tactical blow available and played a positional or passive move instead. The "Active Defender Scan" habit — explicitly checking for checks and sacrifices before every candidate move — needs to be more automatic.
+  </div>
+
+  <h3>5. King Navigation in Endgames</h3>
+  <div class="warn-box">
+    <strong>K+P endgame errors:</strong> Valentyn Trofimov Malyshkin (Kg4, Kf4, Kh3 — three consecutive wrong king squares) and Heye Gao (Kg2 when Kg1). King placement in endgames remains unreliable. Study king opposition, king triangulation, and the principle of the king marching to the center or toward passed pawns — not away from them.
+  </div>
+
+  <h3>6. Strong Games When in Familiar Structures</h3>
+  <div class="good-box">
+    <strong>Top performances:</strong> Vs Edison Wang (96.2%, CPL 9), Vs Eric Huang (96.1%, CPL 12), Vs Anthony Maulucci (95.9%), Vs Aaryan Kovuru (94%), Vs Zi Sheng Wang (94%). The high-accuracy games share a common trait: Austin was dictating the pace in familiar opening structures. Preparation quality directly translates to game quality — the same pattern seen in tournament games.
+  </div>
+
+  <div class="good-box">
+    <strong>As Black performance (90.3% avg) slightly exceeds White (89.4% avg)</strong> — Austin's Black openings (Nimzo-Indian, Sicilian) are well-rehearsed and the resulting structures are comfortable. The White results show more variance, consistent with White opening uncertainty being a known weakness.
+  </div>
+
+  <hr />
+
+  <!-- Immediate Next Steps -->
+  <h2>Immediate Next Steps</h2>
+  <ol>
+    <li><strong>Bxh7+ sacrifice drill — highest priority.</strong> Austin missed Bxh7+ in 4 games in this study set alone. Practice the pattern: bishop on d3, knight on f3, h7 unguarded (or guarded only by king) → Bxh7+ Kxh7 Ng5+. Drill on Lichess puzzle theme "Bishop sacrifice on h7".</li>
+    <li><strong>Premature pawn push checklist.</strong> Before pushing any wing pawn (h4, f4, g4, b4, c4) from a roughly equal or slightly inferior position, verify: (a) center is stabilized, (b) pieces are optimally placed, (c) no defensive piece move is needed first. This error appears in every tournament and study set.</li>
+    <li><strong>Active piece scan before every move.</strong> For each piece move, explicitly ask: "Is there a more active square for this piece?" — especially rooks (Re8 not Rc8) and knights (Nf5 not Nf3, Nb3; Ne6 not Nbd7).</li>
+    <li><strong>Forcing move check (Rule 3).</strong> Before committing to any positional move in a winning position, spend time looking for checks, captures, and forcing sequences first. Missed Qe1+, Qd4+, Qf5+, Rh8+ across multiple games.</li>
+    <li><strong>King endgame technique.</strong> Study king opposition and the principle of centralizing vs opposing the opponent's king. Games #24 and #8 both show wrong king direction in endgames.</li>
+  </ol>
+
+</div>
+</body>
+</html>
