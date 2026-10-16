@@ -12,9 +12,11 @@ This document gives concrete preparation recommendations for Austin playing Just
 
 ### What Justin will play
 
-Justin plays **the French Defense in every single game against 1.e4.** Across 7 documented 1.e4 games, he responded with 1...e6 100% of the time. Austin will face the French.
+Justin has historically played **the French Defense in every game against 1.e4**, and across 7 documented 1.e4 games prior to 2026 he responded with 1...e6 100% of the time. Austin should still prepare for the French as the primary threat.
 
-Justin's French knowledge is deep — he has played it versus the Exchange, Classical, Advanced, and Burn variations, scoring wins in the Advanced and Burn lines, and holding firm draws in the Exchange.
+**ALERT — Sicilian sighting (Toronto Open 2026, R4):** In his most recent recorded game as Black vs 1.e4 (vs Achyuth, September 2026), Justin responded with **1...c5** — the Sicilian Defense (B30, Old Sicilian). This is a significant new data point. Justin's rating is now 2093 and he may be expanding his repertoire. Austin must have at least a minimal Sicilian White preparation ready.
+
+Justin's French knowledge remains deep — he has played it versus the Exchange, Classical, Advanced, and Burn variations, scoring wins in the Advanced and Burn lines, and holding firm draws in the Exchange.
 
 ### What Austin tried before — and why it failed
 
@@ -144,22 +146,30 @@ If Austin plays something like 1.d4 Nf6 2.c4 c5 (Benoni attempt), Justin can pla
 
 ## Part 4: Psychological and Practical Notes
 
-**Austin's current edge:** He is rated higher (1968 vs 1811 at NAYCC, similar at PAM level) and has more tactical firepower. Justin's edge is experience in his pet lines (French, QGD).
+**Rating dynamic — a significant shift:** At NAYCC 2025, Austin (1968) outrated Justin (1811) by 157 points. Justin's rating has since jumped to **2093** (Toronto Open 2026), meaning the next encounter will likely have Justin as the higher-rated player. Austin is now the underdog on paper and should prepare accordingly — playing sharper, more concrete chess rather than relying on a rating edge.
 
-**Justin's confidence in the French:** He has beaten Austin once with it. He will play it again without hesitation. Austin needs to study the French thoroughly and show up prepared — not improvise.
+**Justin's confidence in the French:** He has beaten Austin once with it. He will play it again without hesitation — but he may also surprise with the Sicilian (see Part 1 Sicilian alert). Austin needs to study the French thoroughly as the primary preparation, with Sicilian backup.
 
-**The endgame:** Justin is a better endgame player. Austin should aim for tactical middlegame complexity, especially when playing White. He should avoid simplifications into long technical endgames, which favor Justin's patient style.
+**The endgame:** Justin is a better endgame player, and this gap has likely grown as his rating climbed to 2093. Austin should aim for tactical middlegame complexity, especially when playing White. Apply **Rule 3 (Active Defender Scan)** — when Austin has a winning attack, find the forcing blow rather than drifting into a long endgame where Justin is stronger.
 
-**Game length:** Austin's wins tend to be decisive (21 moves, 33 moves, 41 moves) while his losses go longer (100 moves, 66 moves, 121 moves) — suggesting Austin is better at winning than defending. This means Austin should play for quick, sharp decisions rather than slow defensive grinding.
+**Game length:** Austin's wins tend to be decisive (21 moves, 33 moves, 41 moves) while his losses go longer (100 moves, 66 moves, 121 moves) — suggesting Austin is better at winning than defending. Play for quick, sharp decisions rather than slow defensive grinding.
+
+**The three rules in this matchup specifically:**
+- *Escape Square Check* — critical when Austin tries Bxh7+ or Nxf7 ideas in the French; Justin's king often has g6 available
+- *Passed Pawn Alarm* — Justin's d-pawn avalanche beat Austin last time; recognize it one move sooner
+- *Active Defender Scan* — Austin will get winning positions against Justin's solid style; he must convert them quickly, not allow Justin back into long endgames
 
 ---
 
 ## Part 5: Specific Study Recommendations
 
-**For Austin playing White against the French:**
+**For Austin playing White against the French (primary):**
 1. Study the Tarrasch variation: 3.Nd2 Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3. Learn the plan after ...f6 exf6.
 2. Watch or replay Velasquez vs Justin (Canada Closed R8): 1.e4 e6 2.d4 d5 3.Nc3 — see how White built kingside pressure.
 3. Practice endgames from French Advanced positions — know when the d-pawn + e-pawn is dangerous (as Justin showed in NAYCC R4).
+
+**For Austin playing White against the Sicilian (new — based on Toronto Open R4 sighting):**
+4. Have a minimal but confident Sicilian system ready. Austin already plays the Rossolimo (Bb5) against the Sicilian — this is fine against Justin's 1...c5 2.Nf3 Nc6 (Old Sicilian, B30). The Toronto Open game went 3.c3 — the Alapin is also a reasonable surprise weapon that avoids deep theory. Pick one and know at least 10–12 moves of the main line.
 
 **For Austin playing Black against Justin's 1.d4:**
 1. Review NAYCC R3 (Austin vs Chitta) — the Nimzo-Indian ...b6/...Ba6 win is a model game.

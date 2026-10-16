@@ -50,31 +50,45 @@ Based on game analysis, these are the highest-impact areas to work on, ranked by
 
 **Goal:** Fix the recurring h-file king safety blindspot and sharpen calculation.
 
-**Daily (20–30 min): Themed puzzles**
+Three named rules to internalize this week. Each targets a specific recurring mistake from Austin's game record:
 
-Focus puzzle themes in this order:
+---
 
-1. **Bishop sacrifice on h2/h7 — both sides**
-   - Drill: Find `Bxh2+` and `Bxh7+` sacrifices (the pattern that burned Austin in NAYCC R2)
-   - Also drill: How to PREVENT this sacrifice as the defender — learn when to play `h3` early
-   - On Lichess: Puzzle themes → "Bishop sacrifice" / "Deflection"
-   - On Chess.com: Puzzle Rush / Custom puzzles → bishop sacrifice
+**Rule 1 — "Escape Square Check"**
+*Before playing any sacrifice (Bxh7+, Nxf7, Rxg7, etc.), explicitly verify: does the opposing king have a non-linear escape square (g6, f7, h6) that breaks the forcing line?*
+- Drill: Find `Bxh2+` and `Bxh7+` sacrifices (the pattern that burned Austin in NAYCC R2 — he allowed `...Bxh2+!` which he should have anticipated)
+- Also drill: How to PREVENT this sacrifice as the defender — play `h3` prophylaxis early
+- On Lichess: Puzzle themes → "Bishop sacrifice" / "Deflection"
+- On Chess.com: Puzzle Rush / Custom puzzles → bishop sacrifice
 
-2. **Pawn promotion threats**
-   - The `d3-d2` pawn march won against Austin in NAYCC R4 (vs Justin) and NAYCC R7
-   - Drill: Puzzles where a passed pawn is one move from promotion and requires immediate defense
-   - On Lichess: Puzzle theme → "Promotion" and "Advancing pawns"
+---
 
-3. **King safety under open h/g files**
-   - Practice recognizing when the h-file is a danger BEFORE it gets opened
-   - Drill: Puzzles involving `Rxh7`, `Qxh7+`, `Ng5+h7` attack patterns
+**Rule 2 — "Passed Pawn Alarm"**
+*When an opponent has a passed pawn on their 4th rank or further, calculate it to promotion before making any other candidate move.*
+- The `d3-d2` pawn march won against Austin in NAYCC R4 (vs Justin) and NAYCC R7 — both times Austin had the position to blockade but missed the urgency
+- Drill: Puzzles where a passed pawn is one move from promotion and requires immediate defense
+- On Lichess: Puzzle theme → "Promotion" and "Advancing pawns"
+
+---
+
+**Rule 3 — "Active Defender Scan"**
+*In winning/attacking positions, before playing a positional build-up move, spend 60 seconds looking specifically for checks, piece sacrifices, and overloaded defenders.*
+- Austin missed 20.Ne4! in NAYCC R4 vs Deepak when he had a mating attack built — he played passive and let Black reorganize
+- Drill: Puzzles tagged "Attacking" where White has initiative — practice finding the killer blow rather than improving a piece
+- On Lichess: Puzzle theme → "Attacking", "Sacrifice"
+
+---
+
+**King safety under open h/g files (supporting drill):**
+- Practice recognizing when the h-file is a danger BEFORE it gets opened
+- Drill: Puzzles involving `Rxh7`, `Qxh7+`, `Ng5+h7` attack patterns
 
 **Online games (Rapid 15+10):**
 - 2 games per day
-- Specific focus: Before each move, ask "is my king safe? is my opponent's king safe?"
+- Before each move, run through all three rules mentally: Escape Square? Passed Pawn? Active Defender?
 - If you lose to a kingside attack, review it immediately and identify the moment it went wrong
 
-**Checkpoint:** By end of Week 2, Austin should recognize `Bxh2+` setups and automatically consider `h3` prophylaxis when playing White.
+**Checkpoint:** By end of Week 2, Austin should apply all three named rules automatically before committing to any significant move.
 
 ---
 

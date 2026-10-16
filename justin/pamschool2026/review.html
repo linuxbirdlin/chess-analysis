@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Justin Huang — PAM School 2026 Game Review</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+    .doc-header {
+      border-bottom: 3px solid #1a5276;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.75rem; }
+    .doc-header .subtitle { color: #57606a; font-size: 0.95rem; margin: 0 0 6px; }
+    .doc-header .opp-note {
+      background: #eaf0f8;
+      border-left: 3px solid #1a5276;
+      border-radius: 0 4px 4px 0;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      color: #1a3a55;
+      margin: 0 0 14px;
+    }
+    .doc-header .back-link {
+      display: inline-block;
+      font-size: 0.875rem;
+      color: #1a5276;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    .scoreboard {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .score-card {
+      flex: 1;
+      min-width: 130px;
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .score-card .label { font-size: 0.78rem; color: #57606a; text-transform: uppercase; letter-spacing: 0.04em; }
+    .score-card .value { font-size: 1.5rem; font-weight: 700; color: #1f2328; line-height: 1.2; margin-top: 2px; }
+    .score-card.highlight .value { color: #1a5276; }
+    .score-card.warn .value { color: #cf2222; }
+
+    h2 {
+      font-size: 1.25rem;
+      color: #1f2328;
+      margin: 40px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #d0d7de;
+    }
+    h3 { font-size: 1.05rem; color: #1a5276; margin: 22px 0 8px; }
+    h4 { font-size: 0.95rem; color: #1f2328; font-weight: 600; margin: 16px 0 6px; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
+    li { margin-bottom: 4px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 14px 0 24px;
+    }
+    thead th {
+      background: #1a5276;
+      color: #fff;
+      padding: 9px 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 8px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .win  { color: #2d7d46; font-weight: 600; }
+    .loss { color: #cf2222; font-weight: 600; }
+    .draw { color: #7a5500; font-weight: 600; }
+    .unk  { color: #57606a; font-weight: 500; font-style: italic; }
+
+    .good-box {
+      background: #dafbe1;
+      border-left: 4px solid #2d7d46;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #1a4731;
+    }
+    .warn-box {
+      background: #fff5f5;
+      border-left: 4px solid #cf2222;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #7a0000;
+    }
+    .alert-box {
+      background: #fff8e6;
+      border-left: 4px solid #d4a017;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #7a4f00;
+    }
+    .info-box {
+      background: #eaf0f8;
+      border-left: 4px solid #1a5276;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #1a3a55;
+    }
+
+    .game-review { border: 1px solid #d0d7de; border-radius: 8px; margin: 22px 0; overflow: hidden; }
+    .game-header { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 10px 16px; background: #f6f8fa; border-bottom: 1px solid #d0d7de; }
+    .round-badge { background: #1a5276; color: #fff; border-radius: 4px; padding: 2px 9px; font-size: 0.8rem; font-weight: 700; white-space: nowrap; }
+    .game-opp { font-weight: 600; font-size: 0.92rem; flex: 1; min-width: 140px; }
+    .opening-tag { font-size: 0.77rem; color: #57606a; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 3px; padding: 1px 6px; white-space: nowrap; }
+    .color-wh { font-size: 0.74rem; font-weight: 600; border-radius: 3px; padding: 1px 6px; background: #fff; color: #1f2328; border: 1px solid #aaa; }
+    .color-bl { font-size: 0.74rem; font-weight: 600; border-radius: 3px; padding: 1px 6px; background: #2d2d2d; color: #fff; }
+    .rbadge-win  { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #dafbe1; color: #1a4731; }
+    .rbadge-loss { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #fff5f5; color: #7a0000; }
+    .rbadge-draw { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #fff8e6; color: #7a4f00; }
+    .rbadge-unk  { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #f0f4f8; color: #57606a; }
+    .game-body { padding: 14px 18px; }
+
+    .section-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 18px 0; overflow: hidden; }
+    .section-card .card-title { padding: 11px 18px; font-size: 1rem; font-weight: 600; margin: 0; color: #fff; background: #1a5276; }
+    .section-card .card-body { padding: 18px 22px; }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: #f0f4f8;
+      border: 1px solid #d0d7de;
+      border-radius: 4px;
+      padding: 1px 5px;
+      white-space: nowrap;
+    }
+    em { font-style: italic; color: #57606a; }
+    strong { font-weight: 600; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Justin Huang — PAM School 2026</h1>
+    <p class="subtitle">XV Campeonato Panamericano U7–U17 de Ajedrez 2026 (O15) · May 14–17, 2026 · Lichess broadcast</p>
+    <p class="opp-note">Opponent analysis page — this review supports Austin Lin's preparation against Justin Huang. Blue accent = opponent data.</p>
+    <a class="back-link" href="../../matchup-justin.html">← Back to Austin vs Justin — Matchup Plan</a>
+  </div>
+
+  <!-- Scoreboard -->
+  <div class="scoreboard">
+    <div class="score-card"><div class="label">FIDE Rating</div><div class="value">1894</div></div>
+    <div class="score-card highlight"><div class="label">Complete Games</div><div class="value">1W – 1D</div></div>
+    <div class="score-card warn"><div class="label">Likely Result R6</div><div class="value">Loss</div></div>
+    <div class="score-card"><div class="label">R7 / R9</div><div class="value">No data</div></div>
+    <div class="score-card"><div class="label">Games captured</div><div class="value">5</div></div>
+  </div>
+
+  <!-- Game Log -->
+  <h2>Game Log</h2>
+  <div class="info-box">5 rounds captured (R4–R9 with gaps). R6, R8, and R9 have incomplete or missing move data — results marked as unknown or inferred.</div>
+  <table>
+    <thead>
+      <tr><th>File</th><th>Actual Rd</th><th>Justin's Color</th><th>Opponent</th><th>Opp. Rtg</th><th>Opening</th><th>Result</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>round4.pgn</td><td>R4</td><td>White</td><td>Tobar Beltran, Miguel Angel</td><td>1790</td><td>QGD Ragozin D38</td><td class="win">Win (1-0)</td></tr>
+      <tr><td>round5.pgn</td><td>R5</td><td>Black</td><td>Bernal Martinez, Elias Isidro</td><td>1534</td><td>French Chigorin C00</td><td class="draw">Draw (½–½)</td></tr>
+      <tr><td>round6.pgn</td><td>R6</td><td>White</td><td>Vuyyuru, Shriyan</td><td>1983</td><td>Semi-Slav D43</td><td class="loss">Likely Loss *</td></tr>
+      <tr><td>round7.pgn</td><td>R8</td><td>White</td><td>Yu, Vincent Zhiwen</td><td>1982</td><td>Grünfeld Exchange D85</td><td class="unk">Unknown (truncated at move 15)</td></tr>
+      <tr><td>round8.pgn</td><td>R9</td><td>White</td><td>Nunez Castaneda, Joaquin</td><td>1890</td><td>Unknown</td><td class="unk">Unknown (no moves recorded)</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.83rem;color:#57606a;">* R6: Game went 98 moves. Final recorded position shows Black promoting <code>g1=Q</code> on move 98. Justin's clock was extremely low in the final phase. Result inferred as a loss.</p>
+
+  <hr />
+
+  <!-- Game-by-Game -->
+  <h2>Game Notes</h2>
+
+  <!-- R4 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R4</span>
+      <span class="game-opp">Tobar Beltran, Miguel Angel (1790)</span>
+      <span class="color-wh">White</span>
+      <span class="opening-tag">QGD Ragozin D38</span>
+      <span class="rbadge-win">Win</span>
+    </div>
+    <div class="game-body">
+      <p><strong>Opening:</strong> <code>1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.Nc3 Bb4</code> — QGD Ragozin Defense. Justin handled the Bxc3+ exchange well and maintained structural advantage throughout.</p>
+      <h4>Key moments</h4>
+      <ul>
+        <li><strong>Move 29:</strong> Black blundered <code>29...Qc5??</code> (correct was <code>29...Qxf4</code> keeping equality). Justin immediately seized the initiative.</li>
+        <li><strong>Endgame:</strong> Justin built and advanced a passed d-pawn to d7, promoting on move 77. Converted with precise technique across a long rook endgame.</li>
+      </ul>
+      <div class="good-box">
+        <strong>Pattern confirmed:</strong> Justin's passed pawn technique is elite. He patiently advanced the d-pawn over 40+ moves, never allowing counterplay. This is a recurring strength seen across multiple tournaments.
+      </div>
+      <h4>Implications for Austin</h4>
+      <p>Justin will try to create passed pawns from any imbalanced middlegame. Apply the <strong>Passed Pawn Alarm</strong> rule: when Justin has a pawn on the 4th rank or beyond, calculate it to promotion before doing anything else.</p>
+    </div>
+  </div>
+
+  <!-- R5 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R5</span>
+      <span class="game-opp">Bernal Martinez, Elias Isidro (1534)</span>
+      <span class="color-bl">Black</span>
+      <span class="opening-tag">French Chigorin C00</span>
+      <span class="rbadge-draw">Draw</span>
+    </div>
+    <div class="game-body">
+      <p><strong>Opening:</strong> White played the unusual French Chigorin (<code>1.e4 e6 2.Qe2</code>). Justin responded solidly with <code>2...c5</code>, transposing to a closed position. 74 moves played.</p>
+      <h4>Key moments</h4>
+      <ul>
+        <li>Justin steered into a drawn bishop endgame from move 26 onward. Both sides maneuvered without making progress for 48 moves.</li>
+        <li>Justin had the bishop pair but could not find a way to convert against the lower-rated opponent's solid defense.</li>
+        <li>Final repetition agreed around move 74.</li>
+      </ul>
+      <div class="warn-box">
+        <strong>Weakness confirmed:</strong> Justin drew as Black against a player 360 rating points lower (1534 vs 1894). This is a recurring pattern — Justin struggles to press for wins as Black against weaker opposition. He tends to over-simplify rather than create winning chances.
+      </div>
+      <h4>Opening note</h4>
+      <p>Justin responded to White's Chigorin Qe2 with <code>2...c5</code> then <code>3...Nc6</code>, <code>4...d6</code> — a flexible Sicilian-French hybrid. He did <strong>not</strong> play the standard French <code>2...d5</code>. This shows pragmatic opening flexibility when needed, though his French identity remains intact.</p>
+    </div>
+  </div>
+
+  <!-- R6 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R6</span>
+      <span class="game-opp">Vuyyuru, Shriyan (1983)</span>
+      <span class="color-wh">White</span>
+      <span class="opening-tag">Semi-Slav D43</span>
+      <span class="rbadge-loss">Likely Loss *</span>
+    </div>
+    <div class="game-body">
+      <p><strong>Opening:</strong> <code>1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.Nc3 c6 5.Bg5</code> — Semi-Slav main line. Justin followed standard QGD patterns. The game was long and complex.</p>
+      <h4>Key moments</h4>
+      <ul>
+        <li>After Queens were exchanged (move 23), the game entered a technical rook endgame. Justin held a small advantage in the early endgame phase.</li>
+        <li>From approximately move 50 onward, multiple mutual inaccuracies. Justin's time was critically low in the 80s and 90s.</li>
+        <li>Final recorded position (move 98): Black's g-pawn promotes to <code>g1=Q</code>. Justin's clock had dropped below one minute many moves earlier.</li>
+      </ul>
+      <div class="warn-box">
+        <strong>Time trouble pattern:</strong> This is the second documented instance (also Toronto Open R2) of Justin making critical errors under severe time pressure. In long technical games, Justin's technique is excellent — but when the clock runs low, he blunders. This is an exploitable weakness: play for long, complex endgames to induce time pressure.
+      </div>
+      <h4>Implications for Austin</h4>
+      <p>If Austin reaches a roughly equal or slightly inferior endgame against Justin, <em>do not resign</em>. Play on — Justin's time management deteriorates in 90+ move endgames. The clock is an additional weapon.</p>
+    </div>
+  </div>
+
+  <!-- R7/R8 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R8</span>
+      <span class="game-opp">Yu, Vincent Zhiwen (1982)</span>
+      <span class="color-wh">White</span>
+      <span class="opening-tag">Grünfeld Exchange D85</span>
+      <span class="rbadge-unk">Unknown</span>
+    </div>
+    <div class="game-body">
+      <p><strong>Opening:</strong> Black played <code>1...Nf6 2...g6 3...d5</code> — a Grünfeld setup. Justin played the Exchange Variation (<code>4.cxd5 Nxd5 5.e4 Nxc3 6.bxc3 Bg7</code>) with <code>7.Nf3</code>, entering the Modern Exchange.</p>
+      <p>Game was truncated at move 15 in the broadcast. No result available.</p>
+      <div class="info-box">
+        <strong>Opening note:</strong> This is the first time Justin has been seen playing the Grünfeld Exchange. It fits his d4 White repertoire but represents expansion into sharper territory. The Modern Exchange with Nf3/Be3/Qa4+ is theoretically demanding — worth noting if Austin encounters Grünfeld-type positions.
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Opening Summary -->
+  <h2>Opening Repertoire — PAM School 2026</h2>
+
+  <div class="section-card">
+    <p class="card-title">As White — 1.d4, QGD-family structures</p>
+    <div class="card-body">
+      <table>
+        <thead>
+          <tr><th>Opponent System</th><th>Variation</th><th>ECO</th><th>Result</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>QGD / Ragozin</td><td>1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.Nc3 Bb4</td><td>D38</td><td class="win">Win</td></tr>
+          <tr><td>Semi-Slav</td><td>1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.Nc3 c6 5.Bg5</td><td>D43</td><td class="loss">Likely Loss</td></tr>
+          <tr><td>Grünfeld Exchange</td><td>1.d4 Nf6 2.c4 g6 3.Nc3 d5 4.cxd5 Nxd5 5.e4</td><td>D85</td><td class="unk">Unknown</td></tr>
+        </tbody>
+      </table>
+      <p>Justin remains exclusively 1.d4 as White. All three setups are QGD-family — consistent with his established repertoire. The Grünfeld Exchange is a new addition not seen in prior tournaments.</p>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <p class="card-title">As Black — French Defense continues</p>
+    <div class="card-body">
+      <p>In R5, Justin faced the French Chigorin (<code>1.e4 e6 2.Qe2</code>) and played <code>2...c5</code> — a practical response to avoid the Chigorin's specific structure rather than a true repertoire departure. He is still fundamentally a French Defense player against 1.e4.</p>
+      <p><strong>Note for Austin:</strong> At this tournament (May 2026, rating 1894), Justin had not yet shown the Sicilian. That debut comes four months later at the Toronto Open (September 2026, rating 2093). See the Toronto Open review for the critical Sicilian sighting.</p>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Implications for Austin -->
+  <h2>Key Takeaways for Austin's Preparation</h2>
+
+  <ul>
+    <li><strong>Passed pawn technique:</strong> Justin's R4 win again demonstrates his elite passed pawn conversion. Austin must apply the <em>Passed Pawn Alarm</em> rule from the first sign of a Justin pawn advance.</li>
+    <li><strong>Cannot press as Black:</strong> Justin drew a 1534-rated player as Black in 74 moves. Against Austin's sharpness, Justin's passive Black play is a vulnerability — Austin should force complex, unbalanced positions where Justin cannot safely simplify.</li>
+    <li><strong>Time trouble weakness:</strong> R6 was lost (likely) because Justin's clock ran out. This pattern repeats at Toronto Open R2. In a tournament game with Austin, play for a long, accurate endgame and let the clock work as a weapon.</li>
+    <li><strong>Rating at this event:</strong> 1894 — significantly below Justin's current 2093. The improvement happened rapidly across PAM 2026 and Toronto Open. The games here represent an earlier, less polished Justin.</li>
+  </ul>
+
+</div>
+</body>
+</html>

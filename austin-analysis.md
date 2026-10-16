@@ -131,3 +131,16 @@ See matchup preparation report for full analysis.
 | Performance vs higher-rated (2000+) | Weak — needs improvement |
 
 **Overall:** Austin is a tactical, combative player who is most dangerous as Black in Nimzo-Indian positions. His biggest area for growth is as White — his h-file king safety and handling of French/Sicilian counterplay need work. His rating decline from 1968 to 1865 corresponds to a string of white-piece losses in NAYCC.
+
+### Rating Dimension Breakdown
+
+**Estimated Classical Rating: ~1865 Elo**
+
+| Dimension | Estimated Range | Key Evidence |
+|---|---|---|
+| Opening knowledge | 1850–1950 | Solid Nimzo-Indian theory; consistent Exchange Caro-Kann; limited French/Sicilian White coverage |
+| Middlegame strategy | 1850–1950 | Strong IQP handling, good piece coordination in Nimzo structures, file control instincts |
+| Tactical precision | 1800–1900 | Executes combinations well (N4g3+, exchange sac) but misses forcing moves in winning positions (missed Ne4!) and allows Bxh2+ patterns |
+| Endgame technique | 1750–1850 | Won a 116-move pawn ending (NAYCC R5) but lost passive rook endgames (NAYCC R7, R9, PAM R5) — inconsistent |
+
+The gap between tactical instinct (strong) and endgame/passive-defense (weak) is Austin's defining imbalance. Closing the endgame gap by 0.5 points per game would recover most of the rating lost at NAYCC.

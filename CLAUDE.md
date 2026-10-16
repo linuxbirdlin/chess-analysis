@@ -31,12 +31,16 @@ chess-analysis/
 ├── austin/
 │   ├── naycc2025/             # NAYCC 2025 games (9 games, PGN format)
 │   │   └── review.html        # Tournament review report (shareable)
-│   └── pam2026/               # PAM 2026 games (7 games, non-standard format)
-│       └── review.html        # Tournament review report (shareable)
+│   ├── pam2026/               # PAM 2026 games (7 games, non-standard format)
+│   │   └── review.html        # Tournament review report (shareable)
+│   └── copilot-review/        # AI-generated tournament review template (reference document)
+│       └── Tournament_Review___Performance_Analysis.md
 │
 └── justin/
     ├── canadaclosed2026/      # Canada Closed 2026 games (9 games, PGN format)
-    └── pam2026/               # PAM 2026 games (9 games, non-standard format)
+    ├── pam2026/               # PAM 2026 games (9 games, non-standard format)
+    ├── pamschool2026/         # PAM School 2026 games (5 games, Lichess broadcast PGN)
+    └── torontoopen2026/       # Toronto Open 2026 games (3 games, Lichess broadcast PGN)
 ```
 
 ---
@@ -45,7 +49,7 @@ chess-analysis/
 
 ### Game file formats
 
-**PGN format** (standard): Files under `naycc2025/` and `canadaclosed2026/` use full PGN headers including `[Event]`, `[White]`, `[Black]`, `[Result]`, `[ECO]`, etc.
+**Lichess broadcast PGN format** (standard): Files under `naycc2025/`, `canadaclosed2026/`, `pamschool2026/`, and `torontoopen2026/` use full PGN headers including `[Event]`, `[White]`, `[Black]`, `[Result]`, `[ECO]`, `[BroadcastURL]`, `[GameURL]`, etc. These files also contain inline Stockfish evaluations (`[%eval ...]`) and clock annotations (`[%clk ...]`). Some broadcast games have `*` as the result when the game record was captured mid-stream or was incomplete.
 
 **Non-standard format** (PAM 2026 files): The PAM 2026 files have a minimal header — just `PlayerName (rating) - PlayerName (rating)` on line 1, date on line 2, then moves, then result on the last line. Example:
 ```
@@ -134,12 +138,12 @@ When a new opponent folder is added:
 - **Weaknesses:** King safety on h-file, passive endgames, vs 2000+ opposition
 
 ### Justin Huang
-- **Rating:** ~1963–2023
-- **White opening:** 1.d4 exclusively, QGD-based structures
-- **Black opening:** French Defense (1...e6) against 1.e4; QGD-type against 1.d4
+- **Rating:** ~1894–2093 (rising rapidly; was 1894 at PAM School May 2026, reached 2093 by Toronto Open July 2026)
+- **White opening:** 1.d4 exclusively; QGD-based structures, Semi-Slav, Ragozin; also handles KID/Grünfeld with quiet e3/Be2 Semi-Classical setups
+- **Black opening:** French Defense (1...e6) as primary weapon vs 1.e4; **Sicilian (1...c5) now observed** (Toronto Open R4 vs 1.e4); QGD-type against 1.d4
 - **Style:** Positional, solid, patient; strong in technical endgames
-- **Strengths:** French expertise, long endgame technique, pawn structures
-- **Weaknesses:** Passive when Black against strong opposition, kingside attacks in Classical French
+- **Strengths:** French expertise, long endgame technique, pawn structures, queenside expansion as White
+- **Weaknesses:** Passive when Black against strong opposition (2200+), kingside attacks in Classical French, draws against lower-rated opponents
 
 ### Direct Encounter
 - NAYCC 2025 R4: Austin (White) vs Justin (Black), French Advanced C02, **Justin won (0-1)**
@@ -174,3 +178,6 @@ When more games are added, consider:
 - PAM 2026 files do not include full PGN headers, only players, date, moves, and result. Tournament name and round info may need to be inferred from context.
 - Some PAM 2026 games appear to have incomplete move records (e.g., `justin/pam2026/round5.pgn` ends at move 15 despite showing a 1-0 result — may be a truncated PGN or an early resignation).
 - NAYCC game IDs in filenames (e.g., `game_263278.pgn`) correspond to the `[GameId]` field in the PGN headers.
+- `justin/pamschool2026/` uses Lichess broadcast PGN format (full headers, evals, clock). The file names are `round4.pgn`–`round8.pgn` but the actual `[Round]` tags in the PGNs may not match the filenames exactly (e.g., `round7.pgn` contains Round 8, `round8.pgn` contains Round 9). Several games have `*` as the Result tag — these were live-broadcast games with incomplete or unknown results.
+- `justin/torontoopen2026/` also uses Lichess broadcast PGN format. Only rounds 2, 4, and 5 are present (rounds 1, 3 not included).
+- `austin/copilot-review/Tournament_Review___Performance_Analysis.md` is an AI-generated reference document (likely GitHub Copilot). It covers a generic 6-round tournament for an unspecified ~1800–2000 Elo player and is NOT Austin's specific game analysis — treat it as a template/reference only.

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Justin Huang — 2026 Toronto Open Game Review</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+    .doc-header {
+      border-bottom: 3px solid #1a5276;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.75rem; }
+    .doc-header .subtitle { color: #57606a; font-size: 0.95rem; margin: 0 0 6px; }
+    .doc-header .opp-note {
+      background: #eaf0f8;
+      border-left: 3px solid #1a5276;
+      border-radius: 0 4px 4px 0;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      color: #1a3a55;
+      margin: 0 0 14px;
+    }
+    .doc-header .back-link {
+      display: inline-block;
+      font-size: 0.875rem;
+      color: #1a5276;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    .scoreboard {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .score-card {
+      flex: 1;
+      min-width: 130px;
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .score-card .label { font-size: 0.78rem; color: #57606a; text-transform: uppercase; letter-spacing: 0.04em; }
+    .score-card .value { font-size: 1.5rem; font-weight: 700; color: #1f2328; line-height: 1.2; margin-top: 2px; }
+    .score-card.highlight .value { color: #1a5276; }
+    .score-card.warn .value { color: #cf2222; }
+
+    h2 {
+      font-size: 1.25rem;
+      color: #1f2328;
+      margin: 40px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #d0d7de;
+    }
+    h3 { font-size: 1.05rem; color: #1a5276; margin: 22px 0 8px; }
+    h4 { font-size: 0.95rem; color: #1f2328; font-weight: 600; margin: 16px 0 6px; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
+    li { margin-bottom: 4px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 14px 0 24px;
+    }
+    thead th {
+      background: #1a5276;
+      color: #fff;
+      padding: 9px 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 8px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .win  { color: #2d7d46; font-weight: 600; }
+    .loss { color: #cf2222; font-weight: 600; }
+    .draw { color: #7a5500; font-weight: 600; }
+    .unk  { color: #57606a; font-weight: 500; font-style: italic; }
+
+    .good-box {
+      background: #dafbe1;
+      border-left: 4px solid #2d7d46;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #1a4731;
+    }
+    .warn-box {
+      background: #fff5f5;
+      border-left: 4px solid #cf2222;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #7a0000;
+    }
+    .alert-box {
+      background: #fff8e6;
+      border-left: 4px solid #d4a017;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #7a4f00;
+    }
+    .info-box {
+      background: #eaf0f8;
+      border-left: 4px solid #1a5276;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #1a3a55;
+    }
+    .critical-box {
+      background: #fef3c7;
+      border: 2px solid #d97706;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 0.95rem;
+      color: #7a4f00;
+    }
+    .critical-box .critical-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #d97706;
+      margin-bottom: 6px;
+    }
+
+    .game-review { border: 1px solid #d0d7de; border-radius: 8px; margin: 22px 0; overflow: hidden; }
+    .game-header { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 10px 16px; background: #f6f8fa; border-bottom: 1px solid #d0d7de; }
+    .round-badge { background: #1a5276; color: #fff; border-radius: 4px; padding: 2px 9px; font-size: 0.8rem; font-weight: 700; white-space: nowrap; }
+    .game-opp { font-weight: 600; font-size: 0.92rem; flex: 1; min-width: 140px; }
+    .opening-tag { font-size: 0.77rem; color: #57606a; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 3px; padding: 1px 6px; white-space: nowrap; }
+    .color-wh { font-size: 0.74rem; font-weight: 600; border-radius: 3px; padding: 1px 6px; background: #fff; color: #1f2328; border: 1px solid #aaa; }
+    .color-bl { font-size: 0.74rem; font-weight: 600; border-radius: 3px; padding: 1px 6px; background: #2d2d2d; color: #fff; }
+    .rbadge-win  { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #dafbe1; color: #1a4731; }
+    .rbadge-loss { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #fff5f5; color: #7a0000; }
+    .rbadge-draw { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #fff8e6; color: #7a4f00; }
+    .rbadge-unk  { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #f0f4f8; color: #57606a; }
+    .game-body { padding: 14px 18px; }
+
+    .section-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 18px 0; overflow: hidden; }
+    .section-card .card-title { padding: 11px 18px; font-size: 1rem; font-weight: 600; margin: 0; color: #fff; background: #1a5276; }
+    .section-card .card-body { padding: 18px 22px; }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: #f0f4f8;
+      border: 1px solid #d0d7de;
+      border-radius: 4px;
+      padding: 1px 5px;
+      white-space: nowrap;
+    }
+    em { font-style: italic; color: #57606a; }
+    strong { font-weight: 600; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Justin Huang — 2026 Toronto Open</h1>
+    <p class="subtitle">2026 Toronto Open · 156 Roncesvalles Ave, Toronto, ON · R2: Jul 27, 2026 · R4–R5: Sep 6–7, 2026</p>
+    <p class="opp-note">Opponent analysis page — this review supports Austin Lin's preparation against Justin Huang. Blue accent = opponent data.</p>
+    <a class="back-link" href="../../matchup-justin.html">← Back to Austin vs Justin — Matchup Plan</a>
+  </div>
+
+  <!-- Critical alert -->
+  <div class="critical-box">
+    <div class="critical-label">⚠ Critical Finding</div>
+    <strong>Justin played the Sicilian Defense (1...c5) as Black against 1.e4 in Round 4</strong> — the first recorded departure from his French-only pattern. Austin must now prepare for both the French and Sicilian. See R4 game notes below.
+  </div>
+
+  <!-- Scoreboard -->
+  <div class="scoreboard">
+    <div class="score-card"><div class="label">FIDE Rating</div><div class="value">2093</div></div>
+    <div class="score-card highlight"><div class="label">Score</div><div class="value">1W – 1L – 1D</div></div>
+    <div class="score-card warn"><div class="label">As White</div><div class="value">1W – 1L</div></div>
+    <div class="score-card"><div class="label">As Black</div><div class="value">0W – 0L – 1D</div></div>
+    <div class="score-card"><div class="label">Games captured</div><div class="value">3</div></div>
+  </div>
+
+  <!-- Game Log -->
+  <h2>Game Log</h2>
+  <div class="info-box">3 rounds captured (R2, R4, R5). Rounds 1, 3 not in the broadcast dataset.</div>
+  <table>
+    <thead>
+      <tr><th>Round</th><th>Justin's Color</th><th>Opponent</th><th>Opp. Rtg</th><th>Opening</th><th>Result</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>R2 (Jul 27)</td><td>White</td><td>GM Preotu, Razvan</td><td>2475</td><td>KID Normal E60</td><td class="loss">Loss (0-1)</td></tr>
+      <tr><td>R4 (Sep 6)</td><td>Black</td><td>Achyuth, Akshaj</td><td>1934</td><td>Sicilian Old B30</td><td class="draw">Draw (½–½)</td></tr>
+      <tr><td>R5 (Sep 7)</td><td>White</td><td>Wang, Nathan Zian</td><td>2011</td><td>KID Semi-Classical E61</td><td class="win">Win (1-0)</td></tr>
+    </tbody>
+  </table>
+
+  <hr />
+
+  <!-- Game-by-Game -->
+  <h2>Game Notes</h2>
+
+  <!-- R2 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R2</span>
+      <span class="game-opp">GM Preotu, Razvan (2475)</span>
+      <span class="color-wh">White</span>
+      <span class="opening-tag">KID Normal E60</span>
+      <span class="rbadge-loss">Loss</span>
+    </div>
+    <div class="game-body">
+      <p><strong>Opening:</strong> Black played King's Indian (<code>1...Nf6 2...g6</code>). Justin used his quiet Semi-Classical setup: <code>1.d4 Nf6 2.c4 g6 3.Nf3 Bg7 4.e3 O-O 5.Be2</code> — avoiding sharp KID theory. Position was roughly balanced through most of the game.</p>
+      <h4>Key moments</h4>
+      <ul>
+        <li>Positional game through the middlegame. Justin maintained equality against a 382-point higher-rated GM for 39 moves.</li>
+        <li><strong>Move 40 (critical blunder):</strong> Justin played <code>40.Rc3??</code> with only ~48 seconds on the clock. Correct was <code>40.Rc8</code>. The blunder immediately lost material.</li>
+        <li><code>40...g4+</code> was the decisive response, forcing <code>41.hxg4 hxg4+</code> and Black's attack broke through. Justin resigned after move 41.</li>
+      </ul>
+      <div class="warn-box">
+        <strong>Time trouble blunder confirmed (again):</strong> Justin had less than 1 minute when he played 40.Rc3??. This is the same pattern seen in PAM School R6. Justin plays accurately for 40 moves then collapses under clock pressure. If Austin can steer to a complex position in time trouble, the blunder risk is real — even in a game Justin was drawing.
+      </div>
+      <p><em>Context: Losing to a 2475 GM is fully expected. The concern is the specific mechanism — time pressure causing catastrophic tactical oversight, not positional defeat.</em></p>
+    </div>
+  </div>
+
+  <!-- R4 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R4</span>
+      <span class="game-opp">Achyuth, Akshaj (1934)</span>
+      <span class="color-bl">Black</span>
+      <span class="opening-tag">Sicilian Old B30 ⚠ NEW</span>
+      <span class="rbadge-draw">Draw</span>
+    </div>
+    <div class="game-body">
+
+      <div class="critical-box">
+        <div class="critical-label">First Sicilian Sighting</div>
+        Justin responded to <code>1.e4</code> with <code>1...c5</code> — Old Sicilian, B30. This is the <strong>first recorded game</strong> where Justin did not play the French against 1.e4. Austin must prepare a Sicilian White system.
+      </div>
+
+      <p><strong>Opening:</strong> <code>1.e4 c5 2.Nf3 Nc6 3.c3</code> (Alapin-style). Justin played <code>3...Nf6 4.e5 Nd5 5.d4 cxd4 6.cxd4 d6</code> — a sound positional response to the Alapin. Position was roughly balanced throughout.</p>
+      <h4>Key moments</h4>
+      <ul>
+        <li>After the initial Nf6/Nd5 maneuver, material stayed balanced. White had small structural advantages but could not capitalize.</li>
+        <li>Both sides entered time trouble in the final stages. Multiple inaccuracies by both players (the engine flagged several).</li>
+        <li><strong>Move 44:</strong> White blundered <code>44.Qa7??</code> (correct was <code>44.Rxe6</code> which would have been decisive for White). Justin escaped to a draw.</li>
+        <li>Game ended in a draw by repetition/agreement around move 52.</li>
+      </ul>
+      <div class="info-box">
+        <strong>Sicilian proficiency assessment:</strong> Justin held solidly as Black in the Sicilian against a 1934-rated opponent. He was never in serious danger. However, White's winning blunder on move 44 inflated Justin's result — he was objectively worse or equal, not better. His Sicilian is likely less deeply prepared than his French. One game is not enough to conclude his level, but the B30/Alapin position was handled competently.
+      </div>
+      <h4>What Austin should prepare</h4>
+      <ul>
+        <li><strong>Option 1 — Rossolimo (Bb5):</strong> After <code>1.e4 c5 2.Nf3 Nc6 3.Bb5</code>, Austin's existing Rossolimo system covers this. Austin already used this system effectively (NAYCC R8 win). Against Justin's 1...c5 2...Nc6, Bb5 is immediately applicable.</li>
+        <li><strong>Option 2 — Alapin (c3):</strong> White played 3.c3 in this game. It led to a balanced, positional game. If Austin plays 3.c3, he gets a structure he can play positionally. Lower theory burden than the Open Sicilian.</li>
+        <li>Either option is fine. The Rossolimo is preferred since Austin has already won with it and Justin's Sicilian is untested.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- R5 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R5</span>
+      <span class="game-opp">Wang, Nathan Zian (2011)</span>
+      <span class="color-wh">White</span>
+      <span class="opening-tag">KID Semi-Classical E61</span>
+      <span class="rbadge-win">Win</span>
+    </div>
+    <div class="game-body">
+      <p><strong>Opening:</strong> Black played KID. Justin again used the identical quiet setup: <code>1.d4 Nf6 2.c4 g6 3.Nf3 Bg7 4.e3 O-O 5.Be2</code>. This is now confirmed as Justin's standard White response to the KID/Grünfeld — a deliberate positional system, not a one-off.</p>
+      <h4>Key moments</h4>
+      <ul>
+        <li>Justin executed a classic queenside expansion: <code>b4, a4, Ba3</code> — pressuring the queenside before Black's center became active.</li>
+        <li><strong>Move 17:</strong> Justin infiltrated with <code>17.Rb6</code>, disrupting Black's queenside coordination.</li>
+        <li><strong>Move 22:</strong> <code>22.Rb7</code> — rook infiltration to the 7th rank, pinning Black's queenside pieces.</li>
+        <li><strong>Move 23:</strong> <code>23.Bxd6</code> — won a central pawn. Justin converted cleanly. Opponent resigned on move 38.</li>
+      </ul>
+      <div class="good-box">
+        <strong>Strength confirmed:</strong> Justin's positional play with the rook on the 7th rank and coordinated queenside pressure is highly effective against KID players. This is the same technical strength seen in his endgame wins — he is excellent at exploiting small, long-term structural advantages.
+      </div>
+      <h4>Implications for Austin</h4>
+      <p>Austin plays 1.e4 as White, so he will not face Justin's KID White setup as Black. However, if the game somehow transposes (e.g., Austin plays a reversed structure), be aware that Justin's <code>e3/Be2/b4/Ba3</code> plan is very well-prepared and produces wins.</p>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Opening Summary -->
+  <h2>Opening Repertoire — Toronto Open 2026</h2>
+
+  <div class="section-card">
+    <p class="card-title">As White — Semi-Classical KID system, consistent</p>
+    <div class="card-body">
+      <table>
+        <thead>
+          <tr><th>Opponent System</th><th>Justin's Setup</th><th>ECO</th><th>Result</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>KID (1...Nf6 2...g6)</td><td>1.d4 Nf6 2.c4 g6 3.Nf3 4.e3 5.Be2 — Semi-Classical</td><td>E60</td><td class="loss">Loss (vs GM)</td></tr>
+          <tr><td>KID (1...Nf6 2...g6)</td><td>Same: 1.d4 Nf6 2.c4 g6 3.Nf3 4.e3 5.Be2 — Semi-Classical</td><td>E61</td><td class="win">Win</td></tr>
+        </tbody>
+      </table>
+      <p>Both White games faced KID and Justin played the exact same move order. The Semi-Classical (<code>e3/Be2</code> instead of the sharper <code>e4/f3</code> or Sämisch) is Justin's deliberate anti-KID choice — low risk, positional play. He won the second game cleanly with it, lost only to a 382-point stronger GM in time trouble.</p>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <p class="card-title">As Black vs 1.e4 — Sicilian debut</p>
+    <div class="card-body">
+      <table>
+        <thead>
+          <tr><th>White's 1.e4 response</th><th>Justin played</th><th>Variation</th><th>Result</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1.e4 (Achyuth, 1934)</td><td>1...c5 — Sicilian</td><td>Old Sicilian / Alapin B30</td><td class="draw">Draw</td></tr>
+        </tbody>
+      </table>
+      <p>This is a single data point. Justin may have been experimenting, or this may represent a genuine repertoire expansion at his new 2093 level. <strong>Austin must treat both French and Sicilian as possible and prepare accordingly.</strong></p>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Key Takeaways -->
+  <h2>Key Takeaways for Austin's Preparation</h2>
+
+  <ul>
+    <li><strong>Sicilian is now in Justin's arsenal:</strong> The R4 game is the most important data point. Austin cannot assume 1...e6 every time. Prepare the Rossolimo (<code>3.Bb5</code>) or Alapin (<code>3.c3</code>) as a backup.</li>
+    <li><strong>Time trouble is a consistent weakness:</strong> R2 blunder (48 seconds, 40.Rc3??) and PAM School R6 (time-critical endgame collapse). In any long game, keeping the position complex and forcing Justin to think deeply can produce clock-induced errors.</li>
+    <li><strong>Justin's White Semi-Classical KID works:</strong> Won with it vs 2011-rated player. Consistent system — not a one-off. If Austin ever has to play 1.d4 (unlikely), be aware of this structure.</li>
+    <li><strong>Rating now 2093 — Austin is the underdog:</strong> At NAYCC 2025, Austin (1968) outrated Justin (1811). The dynamics have fully reversed. Austin needs sharper, more concrete preparation — cannot rely on rating advantage.</li>
+    <li><strong>Justin cannot easily convert wins as Black:</strong> R4 draw (against 1934) confirms the PAM School R5 pattern (drew against 1534). Justin as Black tends toward solid, drawish play. Austin pressing with concrete tactical complications is the right approach.</li>
+  </ul>
+
+</div>
+</body>
+</html>
