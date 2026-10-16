@@ -159,6 +159,37 @@
 
     em { font-style: italic; color: #57606a; }
     strong { font-weight: 600; }
+
+    /* ── Game review cards ── */
+    .game-review{border:1px solid #d0d7de;border-radius:8px;margin:22px 0;overflow:hidden;}
+    .game-header{display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:10px 16px;background:#f6f8fa;border-bottom:1px solid #d0d7de;}
+    .round-badge{background:#2d7d46;color:#fff;border-radius:4px;padding:2px 9px;font-size:0.8rem;font-weight:700;white-space:nowrap;}
+    .game-opp{font-weight:600;font-size:0.92rem;flex:1;min-width:140px;}
+    .opening-tag{font-size:0.77rem;color:#57606a;background:#f0f4f8;border:1px solid #d0d7de;border-radius:3px;padding:1px 6px;white-space:nowrap;}
+    .color-wh{font-size:0.74rem;font-weight:600;border-radius:3px;padding:1px 6px;background:#fff;color:#1f2328;border:1px solid #aaa;}
+    .color-bl{font-size:0.74rem;font-weight:600;border-radius:3px;padding:1px 6px;background:#2d2d2d;color:#fff;}
+    .rbadge-win{font-size:0.8rem;font-weight:700;border-radius:4px;padding:2px 8px;background:#dafbe1;color:#1a4731;}
+    .rbadge-loss{font-size:0.8rem;font-weight:700;border-radius:4px;padding:2px 8px;background:#fff5f5;color:#7a0000;}
+    .rbadge-draw{font-size:0.8rem;font-weight:700;border-radius:4px;padding:2px 8px;background:#fff8e6;color:#7a4f00;}
+    .acc-badge{font-size:0.9rem;font-weight:700;color:#2d7d46;margin-left:auto;}
+    .engine-bar{display:flex;font-size:0.8rem;border-bottom:1px solid #d0d7de;background:#fafafa;}
+    .eb{flex:1;padding:5px 8px;text-align:center;border-right:1px solid #d0d7de;}
+    .eb:last-child{border-right:none;}
+    .eb strong{display:block;font-size:0.94rem;margin-top:1px;}
+    .eb-b strong{color:#cf2222;}
+    .eb-m strong{color:#d4750a;}
+    .eb-i strong{color:#b59800;}
+    .game-body{padding:14px 18px;}
+    .game-note{font-size:0.88rem;color:#57606a;margin:8px 0 0;font-style:italic;border-left:3px solid #d0d7de;padding-left:10px;}
+    .moments-table{font-size:0.81rem;margin:6px 0 10px;}
+    .moments-table thead th{background:#444;font-size:0.77rem;padding:5px 10px;color:#fff;}
+    .moments-table tbody td{padding:5px 10px;}
+    .brow{background:#fff5f5 !important;}
+    .brow td:first-child{color:#cf2222;font-weight:700;font-size:0.78rem;}
+    .mrow{background:#fff8f0 !important;}
+    .mrow td:first-child{color:#d4750a;font-weight:700;font-size:0.78rem;}
+    .irow td:first-child{color:#b59800;font-weight:700;font-size:0.78rem;}
+    .no-errors-msg{color:#2d7d46;font-size:0.88rem;padding:8px 0;}
   </style>
 </head>
 <body>
@@ -192,18 +223,15 @@
       <tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Result</th><th>Accuracy</th></tr>
     </thead>
     <tbody>
-      <tr><td>3</td><td>White</td><td>Villalba, Pacha</td><td>1731</td><td>Exchange Caro-Kann</td><td class="win">Win</td><td class="accuracy" data-val="97.3">—</td></tr>
-      <tr><td>4</td><td>Black</td><td>Alvarez Alburquerque, Leandro</td><td>2069</td><td>Sicilian (Kan-style)</td><td class="draw">Draw</td><td class="accuracy" data-val="95.8">—</td></tr>
-      <tr><td>5</td><td>Black</td><td>Vinales Gonzalez, Enzo</td><td>2091</td><td>Reti/English (1.a3)</td><td class="loss">Loss</td><td class="accuracy" data-val="90">—</td></tr>
-      <tr><td>6</td><td>White</td><td>Marin Marin, Cristobal</td><td>1694</td><td>French Advanced (Tarrasch)</td><td class="win">Win</td><td class="accuracy" data-val="93.2">—</td></tr>
-      <tr><td>7</td><td>Black</td><td>Fernandez Herrera, Andres</td><td>2137</td><td>Sicilian Najdorf-ish</td><td class="loss">Loss</td><td class="accuracy" data-val="87.4">—</td></tr>
-      <tr><td>8</td><td>White</td><td>Dergan Lobos, Ian</td><td>1678</td><td>Exchange Caro-Kann</td><td class="draw">Draw</td><td class="accuracy" data-val="90.7">—</td></tr>
-      <tr><td>9</td><td>Black</td><td>Gomez Ramirez, Geronimo</td><td>1652</td><td>Sicilian</td><td class="win">Win</td><td class="accuracy" data-val="88.1">—</td></tr>
+      <tr><td>3</td><td>White</td><td>Villalba, Pacha</td><td>1731</td><td>Exchange Caro-Kann</td><td class="win">Win</td><td class="accuracy" data-val="98">—</td></tr>
+      <tr><td>4</td><td>Black</td><td>Alvarez Alburquerque, Leandro</td><td>2069</td><td>Sicilian (Kan-style)</td><td class="draw">Draw</td><td class="accuracy" data-val="95.2">—</td></tr>
+      <tr><td>5</td><td>Black</td><td>Vinales Gonzalez, Enzo</td><td>2091</td><td>Reti/English (1.a3)</td><td class="loss">Loss</td><td class="accuracy" data-val="90.4">—</td></tr>
+      <tr><td>6</td><td>White</td><td>Marin Marin, Cristobal</td><td>1694</td><td>French Advanced (Tarrasch)</td><td class="win">Win</td><td class="accuracy" data-val="90.7">—</td></tr>
+      <tr><td>7</td><td>Black</td><td>Fernandez Herrera, Andres</td><td>2137</td><td>Sicilian Najdorf-ish</td><td class="loss">Loss</td><td class="accuracy" data-val="86.7">—</td></tr>
+      <tr><td>8</td><td>White</td><td>Dergan Lobos, Ian</td><td>1678</td><td>Exchange Caro-Kann</td><td class="draw">Draw</td><td class="accuracy" data-val="90.8">—</td></tr>
+      <tr><td>9</td><td>Black</td><td>Gomez Ramirez, Geronimo</td><td>1652</td><td>Sicilian</td><td class="win">Win</td><td class="accuracy" data-val="87.9">—</td></tr>
     </tbody>
   </table>
-  <div class="tip-box" style="font-size:0.85rem;">
-    <strong>How to add accuracy:</strong> Upload each PGN to <a href="https://lichess.org/paste" target="_blank" style="color:#7a4f00;">lichess.org/paste</a>, request computer analysis, then record Austin's accuracy % shown at the end. Fill in the <code>data-val</code> attribute on each row (e.g. <code>data-val="82"</code>) and the average will update automatically.
-  </div>
   <script>
     (function() {
       var cells = document.querySelectorAll('td.accuracy[data-val]');
@@ -222,150 +250,310 @@
 
   <hr />
 
-  <!-- Section 1: What Austin did well -->
-  <h2>1. What Austin Did Well</h2>
+  <!-- Game-by-Game Engine Report -->
+  <h2>Game-by-Game Engine Report (Stockfish depth 18)</h2>
 
-  <div class="section-card">
-    <p class="card-title card-green">Exchange Caro-Kann as White — Solid and reliable</p>
-    <div class="card-body">
-      <p>Austin played the Exchange Caro-Kann (<code>1.e4 c6 2.d4 d5 3.exd5 cxd5 4.Bd3</code>) in two games and scored 1W-0L-1D. This was his most consistent white opening of the tournament.</p>
-
-      <h4>Round 3 vs Villalba (1731) — 17-move win</h4>
-      <p>Austin played a crisp attacking game: <code>5.c3 Qc7 6.h3 e6 7.Nf3 Bd6 8.O-O Nge7 9.Re1 Bd7 10.a4</code> and after <code>13.Nxe5 Qxc3 16.Bd2 Qc7 17.Qh5+</code> he delivered a devastating fork/attack winning immediately. This was clinical play — one of his best short games.</p>
-
-      <h4>Round 8 vs Dergan Lobos (1678) — Drew from better position</h4>
-      <p>Austin reached a good position but settled for a draw on move 31. His Exchange Caro-Kann setup was solid and he had a space advantage with <code>Ng3</code>, <code>Nh5</code>, and <code>f3-f4</code>. The draw was slightly disappointing given the rating difference.</p>
-
-      <div class="good-box">
-        <strong>Takeaway:</strong> The Exchange Caro-Kann is a well-chosen weapon. Austin understands the resulting structures and can create quick threats. He should keep this as a primary White option and work on converting the endgames rather than settling for draws.
-      </div>
+  <!-- R3 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R3</span>
+      <span class="game-opp">Villalba, Pacha (1731)</span>
+      <span class="color-wh">White</span>
+      <span class="opening-tag">Exchange Caro-Kann</span>
+      <span class="rbadge-win">Win</span>
+      <span class="acc-badge">98%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>5</strong></div>
+      <div class="eb eb-b">Blunders <strong>0</strong></div>
+      <div class="eb eb-m">Mistakes <strong>0</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>0</strong></div>
+    </div>
+    <div class="game-body">
+      <p class="no-errors-msg">No critical moments — perfect game.</p>
+      <p class="game-note">Perfect game — 0 blunders, 0 mistakes, 0 inaccuracies in 33 moves. Austin's clinical Exchange Caro-Kann execution was flawless.</p>
     </div>
   </div>
 
-  <div class="section-card">
-    <p class="card-title card-green">French Advanced as White (Round 6) — Improved execution</p>
-    <div class="card-body">
-      <p>Against Marin Marin (1694), Austin played <code>1.e4 e6 2.d4 d5 3.Nd2</code> — notably switching to the Tarrasch setup — and converted a win with the plan <code>h4-h5</code> space gain + <code>Ng5</code> attack. He reached a winning rook endgame on move 41.</p>
-      <div class="good-box">
-        <strong>Takeaway:</strong> When Austin controls the pace of the French (Tarrasch + h4 space), he wins. Compare this to NAYCC R4 where he overextended with b4/f5. The difference in this game was patience — he built up before pushing.
-      </div>
+  <!-- R4 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R4</span>
+      <span class="game-opp">Alvarez Alburquerque, Leandro (2069)</span>
+      <span class="color-bl">Black</span>
+      <span class="opening-tag">Sicilian Kan-style</span>
+      <span class="rbadge-draw">Draw</span>
+      <span class="acc-badge">95.2%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>12</strong></div>
+      <div class="eb eb-b">Blunders <strong>0</strong></div>
+      <div class="eb eb-m">Mistakes <strong>0</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>2</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead>
+          <tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr>
+        </thead>
+        <tbody>
+          <tr class="irow"><td>INACCURACY</td><td>Ne5</td><td>dxc4</td><td>80</td><td>+0.70→−0.10</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>a6</td><td>c4</td><td>58</td><td>+0.11→−0.47</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Excellent result — held a 2069-rated player to a draw with near-perfect accuracy (95.2%). Both inaccuracies occurred in roughly equal positions and were minor. Austin's best competitive result across both tournaments.</p>
     </div>
   </div>
 
-  <div class="section-card">
-    <p class="card-title card-green">Sicilian as Black — Strong draw vs 2069-rated player (Round 4)</p>
-    <div class="card-body">
-      <p>Austin played <code>1.e4 c5 2.Nf3 e6 3.Be2 d5</code> — a French-Sicilian hybrid. Despite facing a player 200+ points higher, Austin navigated a complex middlegame and liquidated into a drawn rook endgame by move 34. This was an excellent competitive result — holding a 2069-rated opponent is a strong performance at his rating.</p>
-      <div class="good-box">
-        <strong>Takeaway:</strong> Austin's Sicilian handling as Black is solid. He is comfortable in semi-open, slightly unbalanced positions. His draw vs Alvarez (2069) is the best single result of the tournament.
-      </div>
+  <!-- R5 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R5</span>
+      <span class="game-opp">Vinales Gonzalez, Enzo (2091)</span>
+      <span class="color-bl">Black</span>
+      <span class="opening-tag">Reti/English (1.a3)</span>
+      <span class="rbadge-loss">Loss</span>
+      <span class="acc-badge">90.4%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>35</strong></div>
+      <div class="eb eb-b">Blunders <strong>0</strong></div>
+      <div class="eb eb-m">Mistakes <strong>2</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>9</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead>
+          <tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr>
+        </thead>
+        <tbody>
+          <tr class="mrow"><td>MISTAKE</td><td>Bxe4</td><td>Qc6</td><td>221</td><td>−0.31→−2.52</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td>Rd5</td><td>d3</td><td>214</td><td>−0.73→−2.87</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>Bf6</td><td>Bg5</td><td>134</td><td>−6.07→−7.41</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">No blunders but 2 key mistakes in an already slightly inferior position, compounded by 9 inaccuracies — Austin had no confident plan vs the English/Reti and drifted throughout. Bxe4 (Qc6 was correct active defense) and Rd5 (d3 was better) both gave away what little compensation remained.</p>
     </div>
   </div>
 
-  <div class="section-card">
-    <p class="card-title card-green">Sicilian as Black — Tactical win (Round 9)</p>
-    <div class="card-body">
-      <p>Against Gomez Ramirez (1652), Austin played <code>1.e4 c5 2.Nc3 Nc6 3.Bc4 e6</code> and went on to win with a combination involving <code>...Bxb2, ...Nd4, ...Qa3</code> and finally <code>...Rh2+</code> — a forcing sequence that left White helpless. Clean tactical execution to close the tournament.</p>
+  <!-- R6 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R6</span>
+      <span class="game-opp">Marin Marin, Cristobal (1694)</span>
+      <span class="color-wh">White</span>
+      <span class="opening-tag">French Advanced (Tarrasch)</span>
+      <span class="rbadge-win">Win</span>
+      <span class="acc-badge">90.7%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>35</strong></div>
+      <div class="eb eb-b">Blunders <strong>2</strong></div>
+      <div class="eb eb-m">Mistakes <strong>1</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>3</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead>
+          <tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr>
+        </thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>hxg6</td><td>Qh4</td><td>350</td><td>+5.69→+2.19</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>Qh3</td><td>hxg6</td><td>326</td><td>+7.00→+3.74</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td>Ra4</td><td>Rb5</td><td>279</td><td>+3.69→+0.90</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Won despite 2 blunders — Austin played hxg6 when Qh4 was better, then on the next move Qh3 when hxg6 was now correct. This back-and-forth on the same moves shows attack calculation inconsistency. Ra4 (Rb5 was the active rook move) compounded the errors. A winning position absorbed all three mistakes.</p>
+    </div>
+  </div>
+
+  <!-- R7 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R7</span>
+      <span class="game-opp">Fernandez Herrera, Andres (2137)</span>
+      <span class="color-bl">Black</span>
+      <span class="opening-tag">Sicilian Najdorf-ish</span>
+      <span class="rbadge-loss">Loss</span>
+      <span class="acc-badge">86.7%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>48</strong></div>
+      <div class="eb eb-b">Blunders <strong>2</strong></div>
+      <div class="eb eb-m">Mistakes <strong>1</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>0</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead>
+          <tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr>
+        </thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>Nc7</td><td>f5</td><td>389</td><td>+0.61→−3.28</td></tr>
+          <tr class="brow"><td>BLUNDER</td><td>Bxd5</td><td>Ncxd5</td><td>342</td><td>−1.72→−5.14</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td>Qa5</td><td>b4</td><td>250</td><td>−4.17→−6.67</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Nc7 is the game-deciding blunder — from a completely equal position (+0.61) Austin retreated the knight to c7 instead of activating with f5, immediately losing the game. Bxd5 (Ncxd5 was correct recapture direction) deepened the loss. A single bad knight move decided the game.</p>
+    </div>
+  </div>
+
+  <!-- R8 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R8</span>
+      <span class="game-opp">Dergan Lobos, Ian (1678)</span>
+      <span class="color-wh">White</span>
+      <span class="opening-tag">Exchange Caro-Kann</span>
+      <span class="rbadge-draw">Draw</span>
+      <span class="acc-badge">90.8%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>24</strong></div>
+      <div class="eb eb-b">Blunders <strong>0</strong></div>
+      <div class="eb eb-m">Mistakes <strong>1</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>3</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead>
+          <tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr>
+        </thead>
+        <tbody>
+          <tr class="mrow"><td>MISTAKE</td><td>f5</td><td>Kh2</td><td>208</td><td>−0.11→−2.19</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>Rg3</td><td>c4</td><td>100</td><td>+0.24→−0.76</td></tr>
+          <tr class="irow"><td>INACCURACY</td><td>Qg4</td><td>Rg4</td><td>94</td><td>+0.35→−0.59</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Should have been a win — f5 (premature pawn push; Kh2 for king safety first) converted an equal position to slightly losing. Against a 1678-rated opponent this was a missed point. Pattern: Austin pushes pawns prematurely instead of consolidating.</p>
+    </div>
+  </div>
+
+  <!-- R9 -->
+  <div class="game-review">
+    <div class="game-header">
+      <span class="round-badge">R9</span>
+      <span class="game-opp">Gomez Ramirez, Geronimo (1652)</span>
+      <span class="color-bl">Black</span>
+      <span class="opening-tag">Sicilian</span>
+      <span class="rbadge-win">Win</span>
+      <span class="acc-badge">87.9%</span>
+    </div>
+    <div class="engine-bar">
+      <div class="eb">CPL <strong>47</strong></div>
+      <div class="eb eb-b">Blunders <strong>1</strong></div>
+      <div class="eb eb-m">Mistakes <strong>2</strong></div>
+      <div class="eb eb-i">Inaccuracies <strong>3</strong></div>
+    </div>
+    <div class="game-body">
+      <table class="moments-table">
+        <thead>
+          <tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr>
+        </thead>
+        <tbody>
+          <tr class="brow"><td>BLUNDER</td><td>Rd7</td><td>Nf5</td><td>488</td><td>−2.33→−7.21</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td>Qa3</td><td>Qe5</td><td>286</td><td>−5.80→−8.66</td></tr>
+          <tr class="mrow"><td>MISTAKE</td><td>h6</td><td>Bxe4</td><td>189</td><td>−0.18→−2.07</td></tr>
+        </tbody>
+      </table>
+      <p class="game-note">Austin blundered (Rd7 instead of the activating Nf5), but won anyway as Gomez made larger errors. Rd7 moved a rook passively where Nf5 would have created active counterplay.</p>
     </div>
   </div>
 
   <hr />
 
-  <!-- Section 2: Struggles -->
-  <h2>2. Openings Austin Didn't Handle Well</h2>
+  <!-- Tournament Overview -->
+  <h2>Tournament Overview</h2>
 
-  <div class="section-card">
-    <p class="card-title card-red">Reti/English as Black (Round 5 vs Vinales, 2091) — Lost</p>
-    <div class="card-body">
-      <p>Vinales played the unusual <code>1.a3</code> Reti setup leading to <code>1.a3 Nf6 2.Nf3 d5 3.g3 c5 4.Bg2 Nc6 5.O-O e6 6.d4</code>. Austin's pieces became passive in the middlegame and White's rook invasion via <code>Rg8+</code>, <code>Rc7</code> eventually won. Austin's <code>...Bf8</code> retreat on move 37 was a sign of how passive his position had become.</p>
-      <div class="warn-box">
-        <strong>Problem:</strong> This is the same weakness from NAYCC R9 — Austin has no confident plan against English/Reti setups. When he doesn't know the structure, his pieces become passive and he can't create counterplay. This has now cost a point in two consecutive tournaments.
-      </div>
-    </div>
+  <h3>1. Premature Pawn Pushes</h3>
+  <p>R6 (hxg6 before Qh4) and R8 (f5 before Kh2) — Austin pushes pawns before optimizing piece placement. The same pattern appeared in NAYCC R2 (b4). In each case the push happens from a roughly equal or winning position, immediately converting the advantage to a disadvantage or missed opportunity.</p>
+
+  <h3>2. Perfect Games When Dictating</h3>
+  <p>R3 (98%) continues the pattern from NAYCC R8 (98.6%) — Austin plays near-perfect in familiar, clear positions where he controls the pace. His CPL of 5 in R3 is exceptional. The structural implication is that preparation quality directly determines game quality.</p>
+
+  <h3>3. Knight Misplacement</h3>
+  <p>R7 Nc7 (from equal +0.61 to −3.28) — a single bad knight move lost the game against a 2137-rated opponent. Knight retreat to c7 instead of the activating f5 is the clearest single-move error in the tournament. Similar catastrophic single-move errors appeared at NAYCC as well.</p>
+
+  <h3>4. English/Reti Weakness Persists</h3>
+  <p>R5 confirmed vs a 2091-rated opponent with 9 inaccuracies. Austin had no confident plan and drifted throughout the game, leading to 2 mistakes and accumulated positional disadvantage. This is now a two-tournament confirmed weakness.</p>
+
+  <h3>5. Resilience</h3>
+  <p>R9: Won despite a blunder — Austin's tactical awareness recovers when the opponent cooperates. The ability to win despite errors shows competitive toughness, though the goal is to reduce the reliance on opponent errors.</p>
+
+  <h3>6. White Performance Dramatically Better Than NAYCC</h3>
+  <p>2W-0L-1D as White at PAM (vs 1W-3L at NAYCC). The Exchange Caro-Kann and French Tarrasch are structurally better choices than the Two Knights and Sicilian h4-h5 systems used at NAYCC. Austin's White opening selection is now in a much healthier state.</p>
+
+  <hr />
+
+  <!-- Cross-Tournament Patterns -->
+  <h2>Cross-Tournament Patterns (NAYCC → PAM)</h2>
+
+  <div class="warn-box">
+    <strong>Recurring — Premature wing pawn pushes:</strong> NAYCC R2 b4, PAM R6 hxg6, PAM R8 f5. Each time from a roughly equal or good position, converting advantage to disadvantage. This is Austin's most consistent mistake type across both tournaments.
   </div>
 
-  <div class="section-card">
-    <p class="card-title card-red">Sicilian as Black vs 2137 (Round 7 vs Fernandez) — Lost</p>
-    <div class="card-body">
-      <p>Against Fernandez Herrera (2137), Austin played <code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 Nc6 6.Ndb5 Bc5</code> — a sharp Sicilian line. White played <code>7.Bf4 O-O 8.Bc7</code> winning the exchange favorably. Austin tried to complicate but White's extra material was decisive by move 26.</p>
-      <div class="warn-box">
-        <strong>Problem:</strong> Against opponents rated 2100+, Austin's opening preparation runs out quickly and he cannot create sufficient counterplay. The <code>6.Ndb5</code> line is theoretically demanding — Austin may not have been prepared for <code>8.Bc7</code> winning the exchange.
-      </div>
-    </div>
+  <div class="warn-box">
+    <strong>Recurring — King safety errors / pawn version:</strong> NAYCC R5 Kxf4, NAYCC R7 Ke4 were direct king moves; PAM R8 f5 is the pawn version of the same pattern — moving toward danger before the position demands it.
   </div>
 
-  <div class="section-card">
-    <p class="card-title card-orange">Round 8 Draw — Missed win vs lower-rated opponent</p>
-    <div class="card-body">
-      <p>Against Dergan Lobos (1678), Austin had a clear space advantage but agreed to (or allowed) a draw on move 31 in a position where he had a kingside initiative with <code>f4-f5</code> and active rooks. Against a player 187 points lower, this should have been a win.</p>
-      <div class="tip-box">
-        <strong>Opportunity missed:</strong> Austin's decision-making in clearly better positions against lower-rated players needs work. He should be more ambitious when he has a concrete advantage.
-      </div>
-    </div>
+  <div class="warn-box">
+    <strong>Recurring — English/Reti confusion:</strong> NAYCC R9 and PAM R5 — two-tournament confirmed weakness. Austin has no reliable plan against these systems and accumulates inaccuracies throughout the game.
+  </div>
+
+  <div class="good-box">
+    <strong>Improvement — White results:</strong> White results dramatically better in PAM. Exchange Caro-Kann and French Tarrasch are clearly better structural choices than what Austin played at NAYCC.
+  </div>
+
+  <div class="good-box">
+    <strong>Consistent strength — Perfect/near-perfect games in familiar positions:</strong> NAYCC R3, R8; PAM R3 (98%), R4 (95.2%). When Austin knows the structure, he executes at a very high level.
   </div>
 
   <hr />
 
-  <!-- Section 3: Endgames -->
-  <h2>3. Endgame Analysis</h2>
-
-  <div class="section-card">
-    <p class="card-title card-green">Endgames Austin handled well</p>
-    <div class="card-body">
-      <h4>Round 4 — Drawn rook endgame vs 2069 (excellent)</h4>
-      <p>After heavy piece exchanges, Austin defended a rook endgame where Alvarez had slightly more active pieces. Austin traded into a theoretically drawn position and held without difficulty. His endgame composure against a much higher-rated player was impressive.</p>
-
-      <h4>Round 6 — Rook endgame conversion (Round 6 win)</h4>
-      <p>After winning material in the middlegame, Austin converted a rook + pawn endgame against Marin Marin, pushing his e-pawn to e6 and activating his rook correctly.</p>
-    </div>
-  </div>
-
-  <div class="section-card">
-    <p class="card-title card-red">Endgames Austin struggled with</p>
-    <div class="card-body">
-      <h4>Round 5 — Passive rook endgame (loss)</h4>
-      <p>Against Vinales (2091), Austin's rook had no active files and his bishop was restricted. He couldn't generate counterplay and slowly lost material. The key error was not activating the rook immediately after the queen exchange — instead Austin played passively and allowed White to dominate all open files.</p>
-      <div class="warn-box">
-        <strong>Pattern recurring from NAYCC:</strong> When Austin's pieces are passive in the endgame, he doesn't know how to activate them. Active rook play — putting the rook behind passed pawns, creating threats on the 7th rank — is the missing skill.
-      </div>
-
-      <h4>Round 8 — Failure to convert winning endgame</h4>
-      <p>Austin had a clearly better position heading into the endgame but agreed to a draw. This suggests he either misjudged the position as equal or lacked confidence in converting. Against a 1678-rated opponent this is a missed full point.</p>
-    </div>
-  </div>
-
-  <hr />
-
-  <!-- Section 4: Next Steps -->
-  <h2>4. Immediate Next Steps from This Tournament</h2>
+  <!-- Immediate Next Steps -->
+  <h2>Immediate Next Steps</h2>
   <ol>
-    <li><strong>Add rounds 1 and 2 PGN files</strong> when available — the tournament picture is incomplete without them.</li>
-    <li><strong>Solve the English/Reti problem.</strong> This has now cost Austin points in back-to-back tournaments (NAYCC R9 and PAM R5). Prepare a concrete plan: <code>1.c4 → 1...e5</code> or <code>1.Nf3 → 1...d5 2.g3 → 2...c5</code> are reliable setups.</li>
-    <li><strong>Study Sicilian theory for the 6.Ndb5 line.</strong> This tripped Austin up vs Fernandez. If he's going to play the Sicilian with <code>...Nc6</code>, he must know <code>8.Bc7</code> and its responses.</li>
-    <li><strong>Convert winning endgames vs lower-rated players.</strong> A draw in R8 (vs 1678) suggests Austin either misjudged or lacked technique. Practice "winning from winning positions" — identify the winning plan and execute without hesitation.</li>
-    <li><strong>Active rook practice.</strong> Two endgame losses (PAM R5 and NAYCC R7, R9) share the same root cause: passive rooks. The "Rook on the 7th rank" and "Rook behind the passed pawn" are the two principles to drill.</li>
+    <li><strong>The premature pawn push problem is #1</strong> — occurs in BOTH tournaments across multiple games. Before pushing b4/f5/hxg6, verify the position requires it now and that pieces are optimally placed. Make this a pre-move checklist habit.</li>
+    <li><strong>English/Reti preparation is a confirmed 2-tournament gap</strong> — prepare <code>1...e5</code> vs <code>1.c4</code> and <code>1...d5 2...c5</code> vs <code>1.Nf3</code> systems. Both are well-tested, active setups that avoid the passive piece drift seen in R5.</li>
+    <li><strong>Knight destination evaluation</strong> — R7's Nc7 vs f5 decision shows Austin chooses passive retreats over active piece placements. Drill "which square makes my knight most active?" as a consistent thinking question before every knight move.</li>
+    <li><strong>Rook activity</strong> — Rd7 (R9), Rd5 (R5), Ra4 (R6) — in multiple games Austin placed rooks passively. Always ask: "Can my rook be on the 7th rank or behind a passed pawn?" before committing a rook to a passive square.</li>
+    <li><strong>Converting Exchange Caro-Kann winning endgames</strong> — R8 drew a position that should have been won against a 1678-rated opponent. Study R+P vs R endgame conversion technique and practice from "clearly better" positions.</li>
   </ol>
 
   <hr />
 
-  <!-- Section 5: Recommendations -->
-  <h2>5. Detailed Recommendations</h2>
+  <!-- Detailed Recommendations -->
+  <h2>Detailed Recommendations</h2>
 
   <div class="section-card">
-    <p class="card-title card-blue">Opening Recommendations</p>
+    <p class="card-title card-blue">White Opening Recommendations</p>
     <div class="card-body">
-      <h4>As White — consolidate what's working</h4>
+      <p><strong>Keep Exchange Caro-Kann</strong> — R3: 98% accuracy, R8: solid draw. Two-game sample confirms Austin understands the resulting structures deeply. This should remain the primary <code>1.e4 c6</code> weapon.</p>
+      <p><strong>Keep French Tarrasch</strong> — R6 win validates the Tarrasch setup (<code>3.Nd2</code>) over the French Advanced. Austin's patient build-up with h4 space was effective.</p>
+      <p><strong>Add Alapin Sicilian (2.c3)</strong> — as a consistent Sicilian answer. The Alapin avoids the sharp theory burden that has caused problems in other sharp lines and fits Austin's structural, methodical style.</p>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <p class="card-title card-blue">Black Opening Recommendations</p>
+    <div class="card-body">
+      <p><strong>Keep Sicilian</strong> — draw vs 2069 in R4 confirms it works at this level. Austin is comfortable in the semi-open unbalanced positions that arise.</p>
+      <p><strong>Prepare <code>1...e5</code> vs <code>1.c4</code></strong> — an active, well-tested response that avoids the passive piece problems seen in R5. English/Reti confusion is now a 2-tournament confirmed gap.</p>
+      <p><strong>Keep Nimzo-Indian for <code>1.d4</code></strong> — not needed at PAM but proven from NAYCC. Keep it sharp for the next tournament.</p>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <p class="card-title card-blue">Tactical Training Focus</p>
+    <div class="card-body">
+      <p>Drill <strong>"active piece vs passive piece" decisions</strong> — the pattern of passive piece placement is Austin's tactical signature weakness:</p>
       <ul>
-        <li><strong>Keep:</strong> Exchange Caro-Kann — solid results, suits Austin's style, quick development</li>
-        <li><strong>Keep:</strong> French Tarrasch (3.Nd2) — R6 win validated this over the French Advanced</li>
-        <li><strong>Develop:</strong> Need a consistent Sicilian weapon as White — Alapin (2.c3) removes the sharp theory burden</li>
+        <li>Knight on c7 vs f5 (R7 — game-deciding)</li>
+        <li>Rook on d7 vs f5 (R9 — blunder)</li>
+        <li>Bishop on f6 vs g5 (R5 — inaccuracy)</li>
+        <li>Rook on a4 vs b5 (R6 — mistake)</li>
       </ul>
-      <h4>As Black — add English/Reti preparation</h4>
-      <ul>
-        <li><strong>Keep:</strong> Sicilian — draws vs 2069 and wins vs lower-rated confirm it works</li>
-        <li><strong>Add:</strong> Prepare <code>1.c4 e5</code> and <code>1.Nf3 d5 2.g3 Nf6 3.Bg2 c5</code> — both are well-tested, active setups that avoid the passive piece problems seen in R5</li>
-        <li><strong>Note:</strong> The Nimzo-Indian (primary Black vs 1.d4 weapon) was not needed in this tournament — keep it sharp for the next one</li>
-      </ul>
+      <p>In each case the active square was available and Austin chose the passive one. Build the habit of always identifying the most active square for each piece before moving.</p>
     </div>
   </div>
 
@@ -373,42 +561,11 @@
     <p class="card-title card-blue">Endgame Training Focus</p>
     <div class="card-body">
       <ul>
-        <li><strong>Rook on the 7th rank</strong> — the most powerful rook activity principle; drill positions where placing the rook on the 7th creates immediate threats</li>
-        <li><strong>Converting a pawn-up rook endgame</strong> — Austin had this in R8 and drew; practice the technique for converting R+P vs R when up one pawn</li>
-        <li><strong>Rook endgame defense</strong> — Philidor position specifically; Austin must know when to draw and when to fight</li>
+        <li><strong>R+P vs R conversion</strong> — R8 missed a win against a 1678-rated opponent. Practice the technique for converting when up one pawn, including Lucena and Philidor positions.</li>
+        <li><strong>Rook on the 7th rank</strong> — drill positions where placing the rook on the 7th creates immediate threats. This addresses the passive rook placement seen in R5, R6, and R9.</li>
+        <li><strong>King safety before pawn advances</strong> — R8 f5 before Kh2 is the clearest example. In every endgame, king safety must be evaluated before pushing wing pawns.</li>
       </ul>
     </div>
-  </div>
-
-  <div class="section-card">
-    <p class="card-title card-blue">Mindset Recommendation</p>
-    <div class="card-body">
-      <p>Austin's 57% score in this tournament is an improvement over NAYCC's 44%. More importantly, his draw vs a 2069-rated player shows he can compete at a higher level when prepared.</p>
-      <p>The rating gap (1865 vs field including 2000+ players) reflects the real challenge. Austin should focus on:</p>
-      <ul>
-        <li>Winning all games against sub-1750 players — these are the "must-win" games</li>
-        <li>Drawing or better against 1750–1950 — these build rating and confidence</li>
-        <li>Using 2000+ games as learning opportunities, not pressure situations</li>
-      </ul>
-    </div>
-  </div>
-
-  <hr />
-
-  <!-- Section 6: Cross-tournament patterns -->
-  <h2>6. Cross-Tournament Patterns (NAYCC → PAM)</h2>
-
-  <div class="tip-box">
-    <strong>Persistent weakness — English/Reti as Black:</strong> Lost in NAYCC R9 and PAM R5. This is now a confirmed gap that needs to be addressed before the next tournament.
-  </div>
-  <div class="tip-box">
-    <strong>Persistent weakness — Passive endgame pieces:</strong> Multiple losses in both tournaments share this root cause. This is the single highest-priority endgame skill to develop.
-  </div>
-  <div class="good-box">
-    <strong>Improvement — White piece play:</strong> PAM White record (2W-0L-1D) is significantly better than NAYCC (1W-3L). The Exchange Caro-Kann and French Tarrasch are providing better structures than the Two Knights and Sicilian h4-h5-h6 systems used at NAYCC.
-  </div>
-  <div class="good-box">
-    <strong>Improvement — Performance vs higher-rated:</strong> The draw vs Alvarez (2069) is Austin's best result against a 2000+ player across both tournaments. This suggests growth in competitive composure.
   </div>
 
 </div>
