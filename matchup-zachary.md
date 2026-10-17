@@ -3,7 +3,22 @@
 **Austin's rating:** ~1865–1968  
 **Zachary's rating:** CM, ~2050–2250  
 **Rating gap:** Zachary is likely 100–300 points stronger — Austin needs to fight for imbalance and avoid technical endgames  
-**Direct record:** None known (no prior games in dataset)
+**Direct record:** 1 game — Personal Study (Sep 12 2026): Austin (White) vs Zachary (Black), **Sicilian Taimanov B46, 0-1** (Austin lost, 67 moves)
+
+---
+
+## Direct Encounter
+
+**Personal Study, Sep 12 2026 — Austin (White) vs Zachary (Black), B46 Sicilian Taimanov, 0-1 (67 moves)**
+
+Austin played `1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 a6 6.Nxc6 bxc6` — the **Exchange variation**, immediately simplifying the pawn structure. This was a strategic mistake: the symmetrical pawn structure (doubled c-pawns for Black, but no real weaknesses) removed all tactical imbalance and transitioned directly into a technical endgame by move 30. Zachary converted the ending comfortably over 67 moves.
+
+**What the game proves:**
+1. Zachary plays Taimanov confirmed: `1...c5 2...e6 3...cxd4 4...Nc6 5...a6`
+2. The Exchange variation (`6.Nxc6`) is the **wrong weapon** — it simplifies, and Zachary's endgame technique (97.4% accuracy for 104 moves vs 2512-rated player) is elite
+3. Austin must avoid this line entirely — do not play 6.Nxc6 under any circumstances
+
+**The lesson:** Austin's loss did not come from the Taimanov being hard to fight — it came from choosing the wrong variation. The English Attack (`6.Be3/f3/g4`) creates the opposite kind of position: sharp, tactical, with kingside pawn storms that specifically exploit Zachary's pattern of 4-blunder collapses in Sicilian chaos.
 
 ---
 
@@ -39,6 +54,8 @@ The `g4` kingside pawn storm creates the exact type of tactical chaos that cause
 1. His two losses (CC G266854 B46 Taimanov, GV G266159 B35 Dragon) and worst White performance (PAM R4 B75 Dragon Yugoslav) all occurred in sharp Sicilian pawn-storm positions. This is a repeating pattern across both colors.
 2. His 93.6% average accuracy **drops to 79–83% in these positions** — a 10–15% degradation.
 3. The English Attack creates maximum piece-coordination demands in the middlegame — exactly what triggers Zachary's calculation failures.
+
+**Do NOT play the Exchange variation (6.Nxc6):** Austin tried this in the direct encounter (Sep 2026) and lost a 67-move endgame. The Exchange simplifies immediately into symmetrical pawn structures — exactly what Zachary needs. It neutralizes the only position type where Zachary makes errors.
 
 **Alternative: Rossolimo (3.Bb5+)**
 If Zachary plays `2...Nc6` before ...e6, Austin's Rossolimo applies: `1.e4 c5 2.Nf3 Nc6 3.Bb5`. This avoids the Taimanov entirely and keeps the game in semi-open, positional territory. However, this is safer for Zachary — the Rossolimo tends toward solid, technical positions where his endgame technique will be superior. Only play Rossolimo if Austin is specifically uncomfortable with the English Attack lines.
