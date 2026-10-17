@@ -13,12 +13,17 @@
 
 Austin played `1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 a6 6.Nxc6 bxc6` — the **Exchange variation**, immediately simplifying the pawn structure. This was a strategic mistake: the symmetrical pawn structure (doubled c-pawns for Black, but no real weaknesses) removed all tactical imbalance and transitioned directly into a technical endgame by move 30. Zachary converted the ending comfortably over 67 moves.
 
-**What the game proves:**
-1. Zachary plays Taimanov confirmed: `1...c5 2...e6 3...cxd4 4...Nc6 5...a6`
-2. The Exchange variation (`6.Nxc6`) is the **wrong weapon** — it simplifies, and Zachary's endgame technique (97.4% accuracy for 104 moves vs 2512-rated player) is elite
-3. Austin must avoid this line entirely — do not play 6.Nxc6 under any circumstances
+**Stockfish results (depth-16):** Austin accuracy **91.8%** · Zachary accuracy **93.8%** · Austin: 1 blunder, 3 mistakes, 9 inaccuracies.
 
-**The lesson:** Austin's loss did not come from the Taimanov being hard to fight — it came from choosing the wrong variation. The English Attack (`6.Be3/f3/g4`) creates the opposite kind of position: sharp, tactical, with kingside pawn storms that specifically exploit Zachary's pattern of 4-blunder collapses in Sicilian chaos.
+**The critical moment — 14.Qh5?? (382 CPL blunder):** The position was **+3.79 for Austin** before move 14 — Austin was winning. Engine best was `14.Bxh7+! Kxh7 15.Qh5+` (a bishop sacrifice Austin's own annotations flagged). Instead Austin played `14.Qh5`, eval dropped to -0.03, and the game was never better than equal again. A 67-move endgame followed, which Zachary won on technique.
+
+**What the game actually proves:**
+1. Zachary plays Taimanov confirmed: `1...c5 2...e6 3...cxd4 4...Nc6 5...a6`
+2. Austin was outplaying Zachary up to move 14 — he is capable of getting winning positions even with the wrong variation
+3. The loss was a **calculation failure on move 14**, not a preparation failure — Austin saw the right idea (`Bxh7+`) in his annotations but missed it over the board
+4. Avoiding `6.Nxc6` is still correct (the English Attack creates the same attacking opportunities with better structure), but the core problem is Austin's calculation of concrete piece sacrifices
+
+**The lesson:** Austin needs to train piece sacrifice calculation in attacking positions — not just avoid the Exchange variation. The English Attack (`6.Be3/f3/g4`) creates these same sharp middlegames where `Bxh7+`-type sacrifices arise regularly.
 
 ---
 
