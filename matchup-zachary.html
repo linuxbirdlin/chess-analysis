@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin vs Zachary — Matchup Preparation</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 680px) {
+      .page { padding: 24px 20px 40px; }
+    }
+
+    .doc-header {
+      border-bottom: 3px solid #2d7d46;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 {
+      margin: 0 0 8px;
+      font-size: 1.85rem;
+      color: #1f2328;
+    }
+    .doc-header .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.9rem;
+      color: #57606a;
+    }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 0.875rem;
+      color: #2d7d46;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 {
+      font-size: 1.3rem;
+      color: #1f2328;
+      margin: 40px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #d0d7de;
+    }
+    h3 {
+      font-size: 1.05rem;
+      color: #2d7d46;
+      margin: 24px 0 8px;
+    }
+    h4 {
+      font-size: 0.95rem;
+      color: #1f2328;
+      margin: 18px 0 6px;
+      font-weight: 600;
+    }
+
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+
+    ul, ol {
+      margin: 8px 0 14px;
+      padding-left: 1.5em;
+    }
+    li { margin-bottom: 4px; }
+    li > ul, li > ol { margin-top: 4px; margin-bottom: 4px; }
+
+    .encounter {
+      background: #fff8e6;
+      border: 1px solid #d4a017;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 0.93rem;
+      margin-bottom: 28px;
+    }
+    .encounter strong { color: #7a4f00; }
+
+    .part-card {
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      margin: 24px 0;
+      overflow: hidden;
+    }
+    .part-card .part-title {
+      background: #2d7d46;
+      color: #fff;
+      padding: 12px 20px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    .part-card .part-title.alt {
+      background: #1a5276;
+    }
+    .part-card .part-title.psych {
+      background: #6b3fa0;
+    }
+    .part-card .part-body {
+      padding: 20px 24px;
+    }
+    .part-card h3 { margin-top: 20px; }
+    .part-card h3:first-child { margin-top: 0; }
+
+    .warn-box {
+      background: #fff5f5;
+      border-left: 4px solid #cf2222;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 12px 0;
+      font-size: 0.93rem;
+      color: #7a0000;
+    }
+
+    .tip-box {
+      background: #dafbe1;
+      border-left: 4px solid #2d7d46;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 12px 0;
+      font-size: 0.93rem;
+      color: #1a4731;
+    }
+
+    .info-box {
+      background: #eaf0f8;
+      border-left: 4px solid #1a5276;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 12px 0;
+      font-size: 0.93rem;
+      color: #1a3a55;
+    }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: #f0f4f8;
+      border: 1px solid #d0d7de;
+      border-radius: 4px;
+      padding: 1px 5px;
+      white-space: nowrap;
+    }
+    pre {
+      background: #1b1f24;
+      color: #adbac7;
+      border-radius: 8px;
+      padding: 16px 20px;
+      overflow-x: auto;
+      margin: 12px 0 20px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+    pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      white-space: pre;
+      color: inherit;
+      font-size: inherit;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin: 16px 0 24px;
+    }
+    thead th {
+      background: #2d7d46;
+      color: #ffffff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+    }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #ffffff; }
+    tbody td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #d0d7de;
+      vertical-align: top;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+
+    .study-block {
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 14px 0;
+    }
+    .study-block h4 { margin-top: 0; color: #2d7d46; }
+
+    .opening-box {
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin: 14px 0;
+    }
+    .opening-box h3 { margin: 0 0 10px; font-size: 0.95rem; color: #1f2328; }
+
+    em { font-style: italic; color: #57606a; }
+    strong { font-weight: 600; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin vs Zachary — Matchup Preparation</h1>
+    <div class="meta">
+      <span><strong>Austin rating:</strong> ~1865–1968</span>
+      <span><strong>Zachary rating:</strong> CM, ~2050–2250</span>
+      <span><strong>Direct encounter:</strong> None recorded</span>
+    </div>
+    <a class="back-link" href="austin-prep.html">← Back to Austin Lin — Prep &amp; Index</a>
+  </div>
+
+  <div class="encounter">
+    This document gives concrete preparation for Austin playing Zachary Liu (CM), split by color. <strong>No direct encounter recorded.</strong> Analysis is based on Stockfish movetime-800 review of 34 Zachary games across 5 tournaments (2026). Key pattern: Zachary is <strong>draw-seeking and positionally superior</strong> — Austin must play for imbalance. Zachary's accuracy drops from ~95% to <strong>79–83% in sharp Sicilian pawn-storm positions</strong> (confirmed in CC G266854, PAM R4, PS R6). He has <strong>never lost as White</strong> in this dataset.
+  </div>
+
+  <!-- Game review link -->
+  <h2>Full Game Review</h2>
+  <div style="display:flex;flex-wrap:wrap;gap:12px;margin:16px 0 28px;">
+    <a href="zachary/review.html" style="flex:1;min-width:220px;display:block;border:2px solid #1a5276;border-radius:8px;padding:18px 20px;text-decoration:none;color:inherit;background:#eaf0f8;">
+      <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:.05em;color:#1a5276;margin-bottom:4px;">Opponent Review</div>
+      <div style="font-weight:700;font-size:1rem;color:#1f2328;margin-bottom:4px;">Zachary Liu — All 5 Tournaments</div>
+      <div style="font-size:0.85rem;color:#57606a;margin-bottom:8px;">34 games · Avg 93.6% accuracy · 16W–2L–18D</div>
+      <div style="font-size:0.85rem;color:#1a5276;font-weight:600;">View full game review →</div>
+    </a>
+  </div>
+
+  <!-- Part 1: Austin as White -->
+  <div class="part-card">
+    <p class="part-title">Part 1 — Austin as White vs Zachary</p>
+    <div class="part-body">
+
+      <h3>Zachary's Black Repertoire vs 1.e4</h3>
+      <p>Zachary plays <strong>Sicilian 1…c5</strong> exclusively against 1.e4. His primary structure is the <strong>Taimanov (B46/B47)</strong>: <code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7</code>. He also plays Dragon-like <code>…g6</code> structures occasionally (B35, B76).</p>
+
+      <div class="warn-box">
+        <strong>Zachary's worst game: CC G266854 (B46 Taimanov, 79.4% acc, 4 blunders, Loss vs Tseng 1907).</strong> In a sharp Sicilian middlegame, Zachary had +11.65 advantage but missed <code>Rxg2</code> (winning), then blundered <code>f3??</code> (−0.52 → −7.51 swing) and <code>Rc5??</code>. Three decisive blunders in 38 moves. Also: PAM R4 Dragon (B75 as White, 83.4% accuracy, 4 blunders against a 1766-rated player). Sharp Sicilian pawn-storm positions consistently cause Zachary's calculation to fail across both colors.
+      </div>
+
+      <h3>Recommended: English Attack vs Taimanov</h3>
+
+      <div class="opening-box">
+        <h3>English Attack (primary recommendation)</h3>
+        <pre>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7
+6.Be3 a6 7.f3 b5 8.g4!</pre>
+        <p style="margin:0;font-size:0.9rem;">Key themes: <code>Be3/f3/Qd2</code> setup → <code>O-O-O</code> → <code>g4-g5</code> pawn storm · <code>h4-h5</code> if Zachary castles kingside · <code>Nd5</code> outpost</p>
+      </div>
+
+      <div class="tip-box">
+        <strong>Why English Attack:</strong> The queenside castle + g4-g5 pawn storm creates the exact tactical coordination demands that cause Zachary's calculation to fail. His accuracy drops 10–15% in these positions. The two clearest examples — CC G266854 (4 blunders in Taimanov) and PAM R4 (4 blunders in Dragon Yugoslav) — both involve this structure type. His average accuracy outside Sicilian complications is 95%; inside them, 79–83%.
+      </div>
+
+      <p>If Zachary plays <code>5…d6</code> instead (Scheveningen-type):</p>
+      <div class="opening-box">
+        <h3>English Attack vs Scheveningen</h3>
+        <pre>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 d6
+6.Be3 Nf6 7.f3 Be7 8.Qd2 O-O 9.g4!</pre>
+      </div>
+
+      <h3>Key Tactical Themes (Austin White)</h3>
+      <ol>
+        <li><strong>Queenside castle + g4-g5 storm:</strong> This is Austin's primary plan after completing the <code>Be3/f3/Qd2/O-O-O</code> setup. Do not delay the pawn storm — Zachary needs time to coordinate defense, and the g4-g5-g6 push should begin before he completes his queenside counterplay.</li>
+        <li><strong>Do not trade pieces early:</strong> Zachary's endgame technique is elite (97.4% accuracy, 104 moves vs 2512-rated FM). Every simplification favors Zachary. Keep queens and as many pieces as possible on the board throughout the game.</li>
+        <li><strong>Anticipate <code>…f5</code> counter:</strong> In the English Attack, Zachary may play <code>…f5</code> to challenge the g4 advance. Prepare <code>e5!</code> as the central counter-blow — this opens lines toward his king while challenging the f5 pawn.</li>
+        <li><strong>Rook lift <code>Rg1</code>:</strong> After playing <code>O-O-O</code>, the g1-rook is immediately active via <code>Rg1</code> supporting g5-g6. This should be a standard part of the attack setup.</li>
+      </ol>
+
+      <p><em>Alternative if unfamiliar with English Attack: Rossolimo (3.Bb5+). This is safer for Austin but creates more positional, technical positions — exactly where Zachary's endgame technique will be superior. Only use Rossolimo if Austin has specific preparation problems with the English Attack lines.</em></p>
+
+    </div>
+  </div>
+
+  <!-- Part 2: Austin as Black -->
+  <div class="part-card">
+    <p class="part-title alt">Part 2 — Austin as Black vs Zachary</p>
+    <div class="part-body">
+
+      <h3>Zachary's White Repertoire</h3>
+      <p>Zachary plays <strong>1.Nf3 → c4 Reti/English</strong> in ~60% of his White games (ECO A09, A11, A13, A14, A15, A37). Against <code>…d5</code> he plays the Reti (A09/A11/A14); against <code>…Nf6/c5</code> he plays the English (A13/A15). He also plays <strong>1.e4</strong> in ~40% of games (Sicilian Yugoslav, Alapin, Four Knights, Paulsen).</p>
+
+      <div class="info-box">
+        <strong>Critical context:</strong> Zachary's Reti/English accuracy is consistently <strong>93–97%</strong>. These are his most deeply prepared positions. Austin cannot win a preparation battle in standard Reti/English structures. He must steer for positions outside Zachary's preparation from move 1.
+      </div>
+
+      <h3>Recommended: Dutch Defense <code>1…f5!</code></h3>
+
+      <div class="opening-box">
+        <h3>Leningrad Dutch (primary recommendation)</h3>
+        <pre>1.Nf3 f5! (Dutch Defense)
+If 2.c4 Nf6 3.g3: 3...g6 4.Bg2 Bg7 5.O-O O-O
+If 2.d4 Nf6 3.g3: same Leningrad structure
+If 2.g3: 2...Nf6 3.Bg2 g6 (Leningrad)</pre>
+        <p style="margin:0;font-size:0.9rem;"><code>1…f5</code> immediately takes the game out of Reti/English theory. Black fights for the initiative from move 1. Plans: <code>…g6/Bg7/O-O/d6/Nc6</code> Leningrad structure; pawn breaks <code>…e5/…f4</code>; piece activity via <code>…Ne4/Nxg3</code> ideas.</p>
+      </div>
+
+      <div class="tip-box">
+        <strong>Why Dutch:</strong> Zachary's preparation is entirely based on Reti/English structures. <code>1…f5</code> denies him preparation advantage immediately. The Leningrad Dutch is aggressive — Black fights for the initiative — which aligns with Austin's tactical, combinational playing style. It also avoids Zachary's comfort zone in solid QGD/Catalan positions.
+      </div>
+
+      <h3>Alternative: Nimzo-Indian via <code>1…Nf6 2.c4 e6 3.Nc3(?) Bb4</code></h3>
+      <p>If Zachary plays 1.Nf3 Nf6 2.c4 e6 3.Nc3 (committing the knight early), Austin can play his main weapon: <code>3…Bb4!</code> Nimzo-Indian. This puts Zachary in unfamiliar territory — he doesn't play 1.d4 Nimzo structures normally. However, Zachary is likely to avoid this with <code>3.g3</code> (Catalan). If he plays the Catalan, beware: Zachary beat Aarush in the Catalan Open (E08, 96.4% accuracy) — he knows these structures well.</p>
+
+      <h3>Key Tactical Themes (Austin Black)</h3>
+      <ol>
+        <li><strong>Leningrad Dutch kingside attack:</strong> The standard Leningrad plan involves <code>…d6/…Nc6/…e5/…f4</code> — a direct kingside pawn advance. Austin's tactical instincts are well-suited to attacking plans with connected passed pawns on the kingside.</li>
+        <li><strong>Stonewall Dutch alternative (<code>…d5/…e6/…f5/…c6</code>):</strong> The Stonewall is more positional — a d5-e6-f5 pawn wall. Plans involve <code>…Nh5/…Qh4</code> or <code>…f4</code> push. This can also work if Austin prefers a more structured setup.</li>
+        <li><strong>Do not trade into endgames:</strong> Zachary held a 104-move draw against a 2512-rated FM with 97.4% accuracy. His endgame technique is elite. Keep the game in the middlegame with maximum piece activity.</li>
+        <li><strong>Force imbalance:</strong> Zachary's draw-seeking tendency means he will often accept simplification from slightly better positions. Austin should deny simplification opportunities and keep the position complex.</li>
+      </ol>
+
+    </div>
+  </div>
+
+  <!-- Part 3: Psychological -->
+  <div class="part-card">
+    <p class="part-title psych">Part 3 — Psychological and Practical Notes</p>
+    <div class="part-body">
+
+      <h3>The Rating Gap</h3>
+      <p>Zachary is ~100–300 Elo points stronger than Austin. He has beaten 2209-rated opponents and drawn with a 2512-rated FM. <strong>A draw for Austin is a strong result.</strong> A win requires Zachary to experience one of his "Sicilian meltdown" sequences. Austin should target that specific pattern rather than expecting to outplay Zachary in technical positions.</p>
+
+      <h3>Zachary's Psychological Profile</h3>
+      <ul>
+        <li><strong>Risk-averse by default:</strong> Zachary drew vs a 1645-rated player at PAM R1 and vs 1833 at PAM R3. He chooses safety over winning chances frequently. Austin can exploit this by creating positions where "safety" requires difficult calculation.</li>
+        <li><strong>Confident in preparation:</strong> Zachary's accuracy in Reti/English positions (93–97%) reflects deep preparation — he plays quickly and surely in those structures. Austin should avoid giving him this comfort.</li>
+        <li><strong>Calculation failures under Sicilian complexity:</strong> Unlike Aarush's time-pressure collapse, Zachary's failures are positional calculation errors — specifically piece-coordination failures in Dragon/Taimanov pawn storms. This is exploitable in the opening choice, not just the time control.</li>
+        <li><strong>Never lost as White:</strong> 13W–0L–8D as White is a record that reflects both preparation and endgame technique. This also means Zachary as Black is his more vulnerable side — where his two losses both occurred.</li>
+      </ul>
+
+      <h3>Practical Strategy</h3>
+      <ol>
+        <li><strong>As White:</strong> Play the English Attack. Create a Sicilian pawn storm position where Zachary's calculation is under maximum stress. Accept the middlegame complications — this is Austin's strongest territory and Zachary's weakest.</li>
+        <li><strong>As Black:</strong> Play <code>1…f5</code> Dutch. Deny Zachary's preparation from move 1 and steer for positions where Austin's tactical instincts matter more than Zachary's positional preparation.</li>
+        <li><strong>Do not simplify:</strong> Every trade helps Zachary. He will try to reduce complexity. Austin should resist all simplification attempts until the position is clearly winning.</li>
+        <li><strong>Accept a draw if offered from a worse position:</strong> Given the rating gap, accepting a draw from a difficult position is better than pushing for a win and getting mated. Match the risk level to the position.</li>
+      </ol>
+
+      <div class="tip-box">
+        <strong>Key reminder:</strong> Zachary's two losses came when sharp Sicilian complications overwhelmed his calculation — and both opponents rated ~1900. Austin at 1865–1968 is in exactly that range. The English Attack as White is not a "try hard" strategy — it is the objectively correct approach based on the data.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Summary table -->
+  <h2>Opening Recommendations Summary</h2>
+  <table>
+    <thead>
+      <tr><th>Austin's Color</th><th>Zachary's System</th><th>Austin's Response</th><th>Key Idea</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>White</strong></td>
+        <td>Sicilian Taimanov (B46/B47) or Dragon (B35)</td>
+        <td>English Attack: <code>Be3/f3/Qd2/O-O-O/g4</code></td>
+        <td>Create sharp pawn storm — Zachary's accuracy drops to 79–83% in these positions</td>
+      </tr>
+      <tr>
+        <td><strong>White (alt)</strong></td>
+        <td>Sicilian 2…Nc6</td>
+        <td>Rossolimo: <code>3.Bb5</code></td>
+        <td>Avoid if possible — leads to technical positions favoring Zachary's endgame technique</td>
+      </tr>
+      <tr>
+        <td><strong>Black</strong></td>
+        <td>1.Nf3/c4 Reti/English</td>
+        <td>Dutch Defense: <code>1…f5!</code> → Leningrad</td>
+        <td>Immediately out of Zachary's preparation; aggressive Black setup aligned with Austin's style</td>
+      </tr>
+      <tr>
+        <td><strong>Black (alt)</strong></td>
+        <td>1.Nf3 Nf6 2.c4 e6 3.Nc3</td>
+        <td>Nimzo-Indian: <code>3…Bb4</code></td>
+        <td>Only if Zachary plays Nc3 early — he will likely avoid this with 3.g3 Catalan</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+</body>
+</html>
