@@ -1,0 +1,1868 @@
+[
+  {
+    "label": "Vs Aarush Ajith",
+    "date": "2026.02.16",
+    "eco": "E00",
+    "opening": "Catalan Opening",
+    "austinColor": "black",
+    "result": "*",
+    "stats": {
+      "austinAccuracy": 89.5,
+      "oppAccuracy": 91.4,
+      "avgCPL": 29,
+      "blunders": 1,
+      "mistakes": 0,
+      "inaccuracies": 4,
+      "movesAnalyzed": 29,
+      "criticalMoments": [
+        {
+          "san": "Qe5",
+          "bestMove": "Bxc3",
+          "cpl": 388,
+          "classification": "blunder",
+          "evalBefore": "+0.00",
+          "evalAfter": "-3.88"
+        },
+        {
+          "san": "h6",
+          "bestMove": "Bxc3",
+          "cpl": 113,
+          "classification": "inaccuracy",
+          "evalBefore": "+1.73",
+          "evalAfter": "+0.60"
+        },
+        {
+          "san": "Qc4",
+          "bestMove": "g6",
+          "cpl": 92,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.63",
+          "evalAfter": "-0.29"
+        },
+        {
+          "san": "Bh3",
+          "bestMove": "g6",
+          "cpl": 72,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.05",
+          "evalAfter": "-0.77"
+        },
+        {
+          "san": "Qe8",
+          "bestMove": "Bxc3",
+          "cpl": 55,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.00",
+          "evalAfter": "-0.55"
+        }
+      ],
+      "allMoves": [
+        {
+          "san": "d4",
+          "isAustin": false,
+          "evalBefore": "+0.17",
+          "evalAfter": "+0.30",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "e4"
+        },
+        {
+          "san": "Nf6",
+          "isAustin": true,
+          "evalBefore": "-0.30",
+          "evalAfter": "-0.29",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "d5"
+        },
+        {
+          "san": "c4",
+          "isAustin": false,
+          "evalBefore": "+0.29",
+          "evalAfter": "+0.22",
+          "cpl": 7,
+          "classification": "good",
+          "bestMove": "c4"
+        },
+        {
+          "san": "e6",
+          "isAustin": true,
+          "evalBefore": "-0.22",
+          "evalAfter": "-0.22",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "e6"
+        },
+        {
+          "san": "g3",
+          "isAustin": false,
+          "evalBefore": "+0.22",
+          "evalAfter": "+0.16",
+          "cpl": 6,
+          "classification": "good",
+          "bestMove": "Nf3"
+        },
+        {
+          "san": "d5",
+          "isAustin": true,
+          "evalBefore": "-0.16",
+          "evalAfter": "-0.21",
+          "cpl": 5,
+          "classification": "good",
+          "bestMove": "d5"
+        },
+        {
+          "san": "Nf3",
+          "isAustin": false,
+          "evalBefore": "+0.21",
+          "evalAfter": "+0.17",
+          "cpl": 4,
+          "classification": "good",
+          "bestMove": "Bg2"
+        },
+        {
+          "san": "Bd6",
+          "isAustin": true,
+          "evalBefore": "-0.17",
+          "evalAfter": "-0.37",
+          "cpl": 20,
+          "classification": "good",
+          "bestMove": "Be7"
+        },
+        {
+          "san": "Bg2",
+          "isAustin": false,
+          "evalBefore": "+0.37",
+          "evalAfter": "+0.37",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Bg2"
+        },
+        {
+          "san": "O-O",
+          "isAustin": true,
+          "evalBefore": "-0.37",
+          "evalAfter": "-0.35",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "O-O"
+        },
+        {
+          "san": "O-O",
+          "isAustin": false,
+          "evalBefore": "+0.35",
+          "evalAfter": "+0.38",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "O-O"
+        },
+        {
+          "san": "Nc6",
+          "isAustin": true,
+          "evalBefore": "-0.38",
+          "evalAfter": "-0.52",
+          "cpl": 14,
+          "classification": "good",
+          "bestMove": "c6"
+        },
+        {
+          "san": "a3",
+          "isAustin": false,
+          "evalBefore": "+0.52",
+          "evalAfter": "+0.33",
+          "cpl": 19,
+          "classification": "good",
+          "bestMove": "b3"
+        },
+        {
+          "san": "a5",
+          "isAustin": true,
+          "evalBefore": "-0.33",
+          "evalAfter": "-0.40",
+          "cpl": 7,
+          "classification": "good",
+          "bestMove": "dxc4"
+        },
+        {
+          "san": "Qc2",
+          "isAustin": false,
+          "evalBefore": "+0.40",
+          "evalAfter": "+0.33",
+          "cpl": 7,
+          "classification": "good",
+          "bestMove": "Qc2"
+        },
+        {
+          "san": "dxc4",
+          "isAustin": true,
+          "evalBefore": "-0.33",
+          "evalAfter": "-0.27",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "dxc4"
+        },
+        {
+          "san": "Qxc4",
+          "isAustin": false,
+          "evalBefore": "+0.27",
+          "evalAfter": "+0.25",
+          "cpl": 2,
+          "classification": "good",
+          "bestMove": "Nbd2"
+        },
+        {
+          "san": "e5",
+          "isAustin": true,
+          "evalBefore": "-0.25",
+          "evalAfter": "-0.19",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "e5"
+        },
+        {
+          "san": "dxe5",
+          "isAustin": false,
+          "evalBefore": "+0.19",
+          "evalAfter": "+0.07",
+          "cpl": 12,
+          "classification": "good",
+          "bestMove": "Be3"
+        },
+        {
+          "san": "Nxe5",
+          "isAustin": true,
+          "evalBefore": "-0.07",
+          "evalAfter": "-0.03",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Nxe5"
+        },
+        {
+          "san": "Nxe5",
+          "isAustin": false,
+          "evalBefore": "+0.03",
+          "evalAfter": "+0.04",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Nxe5"
+        },
+        {
+          "san": "Bxe5",
+          "isAustin": true,
+          "evalBefore": "-0.04",
+          "evalAfter": "-0.02",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Bxe5"
+        },
+        {
+          "san": "Nc3",
+          "isAustin": false,
+          "evalBefore": "+0.02",
+          "evalAfter": "-0.03",
+          "cpl": 5,
+          "classification": "good",
+          "bestMove": "Qc2"
+        },
+        {
+          "san": "c6",
+          "isAustin": true,
+          "evalBefore": "+0.03",
+          "evalAfter": "-0.07",
+          "cpl": 10,
+          "classification": "good",
+          "bestMove": "Qe7"
+        },
+        {
+          "san": "Rd1",
+          "isAustin": false,
+          "evalBefore": "+0.07",
+          "evalAfter": "-0.12",
+          "cpl": 19,
+          "classification": "good",
+          "bestMove": "Na4"
+        },
+        {
+          "san": "Qe7",
+          "isAustin": true,
+          "evalBefore": "+0.12",
+          "evalAfter": "+0.08",
+          "cpl": 4,
+          "classification": "good",
+          "bestMove": "Be6"
+        },
+        {
+          "san": "Bg5",
+          "isAustin": false,
+          "evalBefore": "-0.08",
+          "evalAfter": "-0.26",
+          "cpl": 18,
+          "classification": "good",
+          "bestMove": "Na4"
+        },
+        {
+          "san": "Be6",
+          "isAustin": true,
+          "evalBefore": "+0.26",
+          "evalAfter": "+0.19",
+          "cpl": 7,
+          "classification": "good",
+          "bestMove": "Be6"
+        },
+        {
+          "san": "Bxf6",
+          "isAustin": false,
+          "evalBefore": "-0.19",
+          "evalAfter": "-0.64",
+          "cpl": 45,
+          "classification": "good",
+          "bestMove": "Qa4"
+        },
+        {
+          "san": "Bxf6",
+          "isAustin": true,
+          "evalBefore": "+0.64",
+          "evalAfter": "+0.55",
+          "cpl": 9,
+          "classification": "good",
+          "bestMove": "Bxf6"
+        },
+        {
+          "san": "Qe4",
+          "isAustin": false,
+          "evalBefore": "-0.55",
+          "evalAfter": "-0.81",
+          "cpl": 26,
+          "classification": "good",
+          "bestMove": "Qa4"
+        },
+        {
+          "san": "Rad8",
+          "isAustin": true,
+          "evalBefore": "+0.81",
+          "evalAfter": "+0.61",
+          "cpl": 20,
+          "classification": "good",
+          "bestMove": "g6"
+        },
+        {
+          "san": "Qa4",
+          "isAustin": false,
+          "evalBefore": "-0.61",
+          "evalAfter": "-0.61",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Qc2"
+        },
+        {
+          "san": "Qc7",
+          "isAustin": true,
+          "evalBefore": "+0.61",
+          "evalAfter": "+0.67",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Qc7"
+        },
+        {
+          "san": "Rxd8",
+          "isAustin": false,
+          "evalBefore": "-0.67",
+          "evalAfter": "-1.27",
+          "cpl": 60,
+          "classification": "inaccuracy",
+          "bestMove": "Rab1"
+        },
+        {
+          "san": "Rxd8",
+          "isAustin": true,
+          "evalBefore": "+1.27",
+          "evalAfter": "+1.19",
+          "cpl": 8,
+          "classification": "good",
+          "bestMove": "Rxd8"
+        },
+        {
+          "san": "Rd1",
+          "isAustin": false,
+          "evalBefore": "-1.19",
+          "evalAfter": "-1.73",
+          "cpl": 54,
+          "classification": "inaccuracy",
+          "bestMove": "Rd1"
+        },
+        {
+          "san": "h6",
+          "isAustin": true,
+          "evalBefore": "+1.73",
+          "evalAfter": "+0.60",
+          "cpl": 113,
+          "classification": "inaccuracy",
+          "bestMove": "Bxc3"
+        },
+        {
+          "san": "Rxd8+",
+          "isAustin": false,
+          "evalBefore": "-0.60",
+          "evalAfter": "-0.57",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "h4"
+        },
+        {
+          "san": "Qxd8",
+          "isAustin": true,
+          "evalBefore": "+0.57",
+          "evalAfter": "+0.53",
+          "cpl": 4,
+          "classification": "good",
+          "bestMove": "Qxd8"
+        },
+        {
+          "san": "Qd1",
+          "isAustin": false,
+          "evalBefore": "-0.53",
+          "evalAfter": "-0.66",
+          "cpl": 13,
+          "classification": "good",
+          "bestMove": "Qd1"
+        },
+        {
+          "san": "Qb6",
+          "isAustin": true,
+          "evalBefore": "+0.66",
+          "evalAfter": "+0.66",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Qb6"
+        },
+        {
+          "san": "Qd2",
+          "isAustin": false,
+          "evalBefore": "-0.66",
+          "evalAfter": "-0.73",
+          "cpl": 7,
+          "classification": "good",
+          "bestMove": "Qd2"
+        },
+        {
+          "san": "Qb3",
+          "isAustin": true,
+          "evalBefore": "+0.73",
+          "evalAfter": "+0.65",
+          "cpl": 8,
+          "classification": "good",
+          "bestMove": "Qb3"
+        },
+        {
+          "san": "Be4",
+          "isAustin": false,
+          "evalBefore": "-0.65",
+          "evalAfter": "-0.63",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Be4"
+        },
+        {
+          "san": "Qc4",
+          "isAustin": true,
+          "evalBefore": "+0.63",
+          "evalAfter": "-0.29",
+          "cpl": 92,
+          "classification": "inaccuracy",
+          "bestMove": "g6"
+        },
+        {
+          "san": "Qf4",
+          "isAustin": false,
+          "evalBefore": "+0.29",
+          "evalAfter": "+0.08",
+          "cpl": 21,
+          "classification": "good",
+          "bestMove": "Qf4"
+        },
+        {
+          "san": "Qd4",
+          "isAustin": true,
+          "evalBefore": "-0.08",
+          "evalAfter": "-0.10",
+          "cpl": 2,
+          "classification": "good",
+          "bestMove": "Qd4"
+        },
+        {
+          "san": "Qb8+",
+          "isAustin": false,
+          "evalBefore": "+0.10",
+          "evalAfter": "+0.07",
+          "cpl": 3,
+          "classification": "good",
+          "bestMove": "Qb8+"
+        },
+        {
+          "san": "Qd8",
+          "isAustin": true,
+          "evalBefore": "-0.07",
+          "evalAfter": "-0.08",
+          "cpl": 1,
+          "classification": "good",
+          "bestMove": "Qd8"
+        },
+        {
+          "san": "Qxb7",
+          "isAustin": false,
+          "evalBefore": "+0.08",
+          "evalAfter": "+0.05",
+          "cpl": 3,
+          "classification": "good",
+          "bestMove": "Qxb7"
+        },
+        {
+          "san": "Bh3",
+          "isAustin": true,
+          "evalBefore": "-0.05",
+          "evalAfter": "-0.77",
+          "cpl": 72,
+          "classification": "inaccuracy",
+          "bestMove": "g6"
+        },
+        {
+          "san": "Bg2",
+          "isAustin": false,
+          "evalBefore": "+0.77",
+          "evalAfter": "+0.00",
+          "cpl": 77,
+          "classification": "inaccuracy",
+          "bestMove": "Bd3"
+        },
+        {
+          "san": "Bxg2",
+          "isAustin": true,
+          "evalBefore": "+0.00",
+          "evalAfter": "+0.00",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Bxg2"
+        },
+        {
+          "san": "Kxg2",
+          "isAustin": false,
+          "evalBefore": "+0.00",
+          "evalAfter": "+0.00",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Kxg2"
+        },
+        {
+          "san": "Qe8",
+          "isAustin": true,
+          "evalBefore": "+0.00",
+          "evalAfter": "-0.55",
+          "cpl": 55,
+          "classification": "inaccuracy",
+          "bestMove": "Bxc3"
+        },
+        {
+          "san": "Qb3",
+          "isAustin": false,
+          "evalBefore": "+0.55",
+          "evalAfter": "+0.00",
+          "cpl": 55,
+          "classification": "inaccuracy",
+          "bestMove": "Kf1"
+        },
+        {
+          "san": "Qe5",
+          "isAustin": true,
+          "evalBefore": "+0.00",
+          "evalAfter": "-3.88",
+          "cpl": 388,
+          "classification": "blunder",
+          "bestMove": "Bxc3"
+        },
+        {
+          "san": "Qc4",
+          "isAustin": false,
+          "evalBefore": "+3.88",
+          "evalAfter": "+1.36",
+          "cpl": 252,
+          "classification": "mistake",
+          "bestMove": "Qb6"
+        }
+      ]
+    }
+  },
+  {
+    "label": "Vs Aarush Ajith",
+    "date": "2026.02.22",
+    "eco": "B90",
+    "opening": "Sicilian Defense: Najdorf Variation, Adams Attack",
+    "austinColor": "white",
+    "result": "*",
+    "stats": {
+      "austinAccuracy": 83,
+      "oppAccuracy": 88,
+      "avgCPL": 56,
+      "blunders": 2,
+      "mistakes": 2,
+      "inaccuracies": 4,
+      "movesAnalyzed": 36,
+      "criticalMoments": [
+        {
+          "san": "Bxc2",
+          "bestMove": "Bc1",
+          "cpl": 788,
+          "classification": "blunder",
+          "evalBefore": "+0.00",
+          "evalAfter": "-7.88"
+        },
+        {
+          "san": "Qd4",
+          "bestMove": "Bxe4",
+          "cpl": 380,
+          "classification": "blunder",
+          "evalBefore": "-0.29",
+          "evalAfter": "-4.09"
+        },
+        {
+          "san": "f4",
+          "bestMove": "cxb4",
+          "cpl": 226,
+          "classification": "mistake",
+          "evalBefore": "+2.26",
+          "evalAfter": "+0.00"
+        },
+        {
+          "san": "b3",
+          "bestMove": "cxb4",
+          "cpl": 156,
+          "classification": "mistake",
+          "evalBefore": "+0.42",
+          "evalAfter": "-1.14"
+        },
+        {
+          "san": "Qh6+",
+          "bestMove": "Re2",
+          "cpl": 73,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.06",
+          "evalAfter": "-0.79"
+        }
+      ],
+      "allMoves": [
+        {
+          "san": "e4",
+          "isAustin": true,
+          "evalBefore": "+0.23",
+          "evalAfter": "+0.18",
+          "cpl": 5,
+          "classification": "good",
+          "bestMove": "d4"
+        },
+        {
+          "san": "c5",
+          "isAustin": false,
+          "evalBefore": "-0.18",
+          "evalAfter": "-0.32",
+          "cpl": 14,
+          "classification": "good",
+          "bestMove": "e5"
+        },
+        {
+          "san": "Nf3",
+          "isAustin": true,
+          "evalBefore": "+0.32",
+          "evalAfter": "+0.32",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Nf3"
+        },
+        {
+          "san": "d6",
+          "isAustin": false,
+          "evalBefore": "-0.32",
+          "evalAfter": "-0.29",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "d6"
+        },
+        {
+          "san": "d4",
+          "isAustin": true,
+          "evalBefore": "+0.29",
+          "evalAfter": "+0.33",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "d4"
+        },
+        {
+          "san": "cxd4",
+          "isAustin": false,
+          "evalBefore": "-0.33",
+          "evalAfter": "-0.32",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "cxd4"
+        },
+        {
+          "san": "Nxd4",
+          "isAustin": true,
+          "evalBefore": "+0.32",
+          "evalAfter": "+0.28",
+          "cpl": 4,
+          "classification": "good",
+          "bestMove": "Nxd4"
+        },
+        {
+          "san": "Nf6",
+          "isAustin": false,
+          "evalBefore": "-0.28",
+          "evalAfter": "-0.25",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Nf6"
+        },
+        {
+          "san": "Nc3",
+          "isAustin": true,
+          "evalBefore": "+0.25",
+          "evalAfter": "+0.30",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Nc3"
+        },
+        {
+          "san": "a6",
+          "isAustin": false,
+          "evalBefore": "-0.30",
+          "evalAfter": "-0.34",
+          "cpl": 4,
+          "classification": "good",
+          "bestMove": "a6"
+        },
+        {
+          "san": "h3",
+          "isAustin": true,
+          "evalBefore": "+0.34",
+          "evalAfter": "+0.24",
+          "cpl": 10,
+          "classification": "good",
+          "bestMove": "f3"
+        },
+        {
+          "san": "e5",
+          "isAustin": false,
+          "evalBefore": "-0.24",
+          "evalAfter": "-0.23",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "e5"
+        },
+        {
+          "san": "Nde2",
+          "isAustin": true,
+          "evalBefore": "+0.23",
+          "evalAfter": "+0.25",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Nb3"
+        },
+        {
+          "san": "h5",
+          "isAustin": false,
+          "evalBefore": "-0.25",
+          "evalAfter": "-0.16",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "h5"
+        },
+        {
+          "san": "g3",
+          "isAustin": true,
+          "evalBefore": "+0.16",
+          "evalAfter": "+0.19",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "g3"
+        },
+        {
+          "san": "b5",
+          "isAustin": false,
+          "evalBefore": "-0.19",
+          "evalAfter": "-0.17",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Be7"
+        },
+        {
+          "san": "Bg2",
+          "isAustin": true,
+          "evalBefore": "+0.17",
+          "evalAfter": "-0.07",
+          "cpl": 24,
+          "classification": "good",
+          "bestMove": "Nd5"
+        },
+        {
+          "san": "Nbd7",
+          "isAustin": false,
+          "evalBefore": "+0.07",
+          "evalAfter": "+0.01",
+          "cpl": 6,
+          "classification": "good",
+          "bestMove": "Nbd7"
+        },
+        {
+          "san": "a4",
+          "isAustin": true,
+          "evalBefore": "-0.01",
+          "evalAfter": "-0.54",
+          "cpl": 53,
+          "classification": "inaccuracy",
+          "bestMove": "Be3"
+        },
+        {
+          "san": "b4",
+          "isAustin": false,
+          "evalBefore": "+0.54",
+          "evalAfter": "+0.51",
+          "cpl": 3,
+          "classification": "good",
+          "bestMove": "b4"
+        },
+        {
+          "san": "Nd5",
+          "isAustin": true,
+          "evalBefore": "-0.51",
+          "evalAfter": "-0.43",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Nd5"
+        },
+        {
+          "san": "a5",
+          "isAustin": false,
+          "evalBefore": "+0.43",
+          "evalAfter": "+0.27",
+          "cpl": 16,
+          "classification": "good",
+          "bestMove": "Nxd5"
+        },
+        {
+          "san": "O-O",
+          "isAustin": true,
+          "evalBefore": "-0.27",
+          "evalAfter": "-0.41",
+          "cpl": 14,
+          "classification": "good",
+          "bestMove": "Bg5"
+        },
+        {
+          "san": "Nxd5",
+          "isAustin": false,
+          "evalBefore": "+0.41",
+          "evalAfter": "+0.37",
+          "cpl": 4,
+          "classification": "good",
+          "bestMove": "Nxd5"
+        },
+        {
+          "san": "exd5",
+          "isAustin": true,
+          "evalBefore": "-0.37",
+          "evalAfter": "-0.39",
+          "cpl": 2,
+          "classification": "good",
+          "bestMove": "exd5"
+        },
+        {
+          "san": "Nf6",
+          "isAustin": false,
+          "evalBefore": "+0.39",
+          "evalAfter": "-0.58",
+          "cpl": 97,
+          "classification": "inaccuracy",
+          "bestMove": "Ba6"
+        },
+        {
+          "san": "c3",
+          "isAustin": true,
+          "evalBefore": "+0.58",
+          "evalAfter": "+0.35",
+          "cpl": 23,
+          "classification": "good",
+          "bestMove": "c3"
+        },
+        {
+          "san": "g6",
+          "isAustin": false,
+          "evalBefore": "-0.35",
+          "evalAfter": "-1.27",
+          "cpl": 92,
+          "classification": "inaccuracy",
+          "bestMove": "Be7"
+        },
+        {
+          "san": "Re1",
+          "isAustin": true,
+          "evalBefore": "+1.27",
+          "evalAfter": "+1.13",
+          "cpl": 14,
+          "classification": "good",
+          "bestMove": "cxb4"
+        },
+        {
+          "san": "Be7",
+          "isAustin": false,
+          "evalBefore": "-1.13",
+          "evalAfter": "-1.18",
+          "cpl": 5,
+          "classification": "good",
+          "bestMove": "bxc3"
+        },
+        {
+          "san": "Be3",
+          "isAustin": true,
+          "evalBefore": "+1.18",
+          "evalAfter": "+0.49",
+          "cpl": 69,
+          "classification": "inaccuracy",
+          "bestMove": "cxb4"
+        },
+        {
+          "san": "Ba6",
+          "isAustin": false,
+          "evalBefore": "-0.49",
+          "evalAfter": "-2.26",
+          "cpl": 177,
+          "classification": "mistake",
+          "bestMove": "O-O"
+        },
+        {
+          "san": "f4",
+          "isAustin": true,
+          "evalBefore": "+2.26",
+          "evalAfter": "+0.00",
+          "cpl": 226,
+          "classification": "mistake",
+          "bestMove": "cxb4"
+        },
+        {
+          "san": "Rc8",
+          "isAustin": false,
+          "evalBefore": "+0.00",
+          "evalAfter": "-0.53",
+          "cpl": 53,
+          "classification": "inaccuracy",
+          "bestMove": "Rb8"
+        },
+        {
+          "san": "Rc1",
+          "isAustin": true,
+          "evalBefore": "+0.53",
+          "evalAfter": "+0.42",
+          "cpl": 11,
+          "classification": "good",
+          "bestMove": "cxb4"
+        },
+        {
+          "san": "O-O",
+          "isAustin": false,
+          "evalBefore": "-0.42",
+          "evalAfter": "-0.42",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "O-O"
+        },
+        {
+          "san": "b3",
+          "isAustin": true,
+          "evalBefore": "+0.42",
+          "evalAfter": "-1.14",
+          "cpl": 156,
+          "classification": "mistake",
+          "bestMove": "cxb4"
+        },
+        {
+          "san": "Bxe2",
+          "isAustin": false,
+          "evalBefore": "+1.14",
+          "evalAfter": "+1.04",
+          "cpl": 10,
+          "classification": "good",
+          "bestMove": "Bxe2"
+        },
+        {
+          "san": "Rxe2",
+          "isAustin": true,
+          "evalBefore": "-1.04",
+          "evalAfter": "-1.57",
+          "cpl": 53,
+          "classification": "inaccuracy",
+          "bestMove": "Qxe2"
+        },
+        {
+          "san": "Rxc3",
+          "isAustin": false,
+          "evalBefore": "+1.57",
+          "evalAfter": "+1.52",
+          "cpl": 5,
+          "classification": "good",
+          "bestMove": "Rxc3"
+        },
+        {
+          "san": "Rxc3",
+          "isAustin": true,
+          "evalBefore": "-1.52",
+          "evalAfter": "-1.36",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Rxc3"
+        },
+        {
+          "san": "bxc3",
+          "isAustin": false,
+          "evalBefore": "+1.36",
+          "evalAfter": "+1.40",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "bxc3"
+        },
+        {
+          "san": "Rc2",
+          "isAustin": true,
+          "evalBefore": "-1.40",
+          "evalAfter": "-1.72",
+          "cpl": 32,
+          "classification": "good",
+          "bestMove": "Qc2"
+        },
+        {
+          "san": "Qc7",
+          "isAustin": false,
+          "evalBefore": "+1.72",
+          "evalAfter": "+0.68",
+          "cpl": 104,
+          "classification": "inaccuracy",
+          "bestMove": "h4"
+        },
+        {
+          "san": "Qd3",
+          "isAustin": true,
+          "evalBefore": "-0.68",
+          "evalAfter": "-0.62",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Qd3"
+        },
+        {
+          "san": "Rc8",
+          "isAustin": false,
+          "evalBefore": "+0.62",
+          "evalAfter": "+0.46",
+          "cpl": 16,
+          "classification": "good",
+          "bestMove": "Rc8"
+        },
+        {
+          "san": "Kh2",
+          "isAustin": true,
+          "evalBefore": "-0.46",
+          "evalAfter": "-0.49",
+          "cpl": 3,
+          "classification": "good",
+          "bestMove": "f5"
+        },
+        {
+          "san": "e4",
+          "isAustin": false,
+          "evalBefore": "+0.49",
+          "evalAfter": "+0.29",
+          "cpl": 20,
+          "classification": "good",
+          "bestMove": "exf4"
+        },
+        {
+          "san": "Qd4",
+          "isAustin": true,
+          "evalBefore": "-0.29",
+          "evalAfter": "-4.09",
+          "cpl": 380,
+          "classification": "blunder",
+          "bestMove": "Bxe4"
+        },
+        {
+          "san": "Nd7",
+          "isAustin": false,
+          "evalBefore": "+4.09",
+          "evalAfter": "+2.01",
+          "cpl": 208,
+          "classification": "mistake",
+          "bestMove": "Qb8"
+        },
+        {
+          "san": "Qxe4",
+          "isAustin": true,
+          "evalBefore": "-2.01",
+          "evalAfter": "-2.47",
+          "cpl": 46,
+          "classification": "good",
+          "bestMove": "Bxe4"
+        },
+        {
+          "san": "Bf6",
+          "isAustin": false,
+          "evalBefore": "+2.47",
+          "evalAfter": "+2.79",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Bf6"
+        },
+        {
+          "san": "f5",
+          "isAustin": true,
+          "evalBefore": "-2.79",
+          "evalAfter": "-2.82",
+          "cpl": 3,
+          "classification": "good",
+          "bestMove": "f5"
+        },
+        {
+          "san": "Kg7",
+          "isAustin": false,
+          "evalBefore": "+2.82",
+          "evalAfter": "+0.00",
+          "cpl": 282,
+          "classification": "mistake",
+          "bestMove": "g5"
+        },
+        {
+          "san": "fxg6",
+          "isAustin": true,
+          "evalBefore": "+0.00",
+          "evalAfter": "+0.00",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "fxg6"
+        },
+        {
+          "san": "fxg6",
+          "isAustin": false,
+          "evalBefore": "+0.00",
+          "evalAfter": "+0.00",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "fxg6"
+        },
+        {
+          "san": "Qf4",
+          "isAustin": true,
+          "evalBefore": "+0.00",
+          "evalAfter": "+0.00",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Qf4"
+        },
+        {
+          "san": "Nf8",
+          "isAustin": false,
+          "evalBefore": "+0.00",
+          "evalAfter": "+0.00",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Ne5"
+        },
+        {
+          "san": "Be4",
+          "isAustin": true,
+          "evalBefore": "+0.00",
+          "evalAfter": "-0.23",
+          "cpl": 23,
+          "classification": "good",
+          "bestMove": "Bd4"
+        },
+        {
+          "san": "Qe7",
+          "isAustin": false,
+          "evalBefore": "+0.23",
+          "evalAfter": "+0.06",
+          "cpl": 17,
+          "classification": "good",
+          "bestMove": "Qe7"
+        },
+        {
+          "san": "Qh6+",
+          "isAustin": true,
+          "evalBefore": "-0.06",
+          "evalAfter": "-0.79",
+          "cpl": 73,
+          "classification": "inaccuracy",
+          "bestMove": "Re2"
+        },
+        {
+          "san": "Kg8",
+          "isAustin": false,
+          "evalBefore": "+0.79",
+          "evalAfter": "+0.72",
+          "cpl": 7,
+          "classification": "good",
+          "bestMove": "Kg8"
+        },
+        {
+          "san": "Bd3",
+          "isAustin": true,
+          "evalBefore": "-0.72",
+          "evalAfter": "-0.73",
+          "cpl": 1,
+          "classification": "good",
+          "bestMove": "Bd3"
+        },
+        {
+          "san": "Re8",
+          "isAustin": false,
+          "evalBefore": "+0.73",
+          "evalAfter": "+0.18",
+          "cpl": 55,
+          "classification": "inaccuracy",
+          "bestMove": "Rb8"
+        },
+        {
+          "san": "Re2",
+          "isAustin": true,
+          "evalBefore": "-0.18",
+          "evalAfter": "-0.13",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Re2"
+        },
+        {
+          "san": "c2",
+          "isAustin": false,
+          "evalBefore": "+0.13",
+          "evalAfter": "+0.00",
+          "cpl": 13,
+          "classification": "good",
+          "bestMove": "Bg7"
+        },
+        {
+          "san": "Bxc2",
+          "isAustin": true,
+          "evalBefore": "+0.00",
+          "evalAfter": "-7.88",
+          "cpl": 788,
+          "classification": "blunder",
+          "bestMove": "Bc1"
+        },
+        {
+          "san": "Bg5",
+          "isAustin": false,
+          "evalBefore": "+7.88",
+          "evalAfter": "+7.67",
+          "cpl": 21,
+          "classification": "good",
+          "bestMove": "Bg5"
+        },
+        {
+          "san": "Qh8+",
+          "isAustin": true,
+          "evalBefore": "-7.67",
+          "evalAfter": "-7.84",
+          "cpl": 17,
+          "classification": "good",
+          "bestMove": "Qh8+"
+        },
+        {
+          "san": "Kxh8",
+          "isAustin": false,
+          "evalBefore": "+7.84",
+          "evalAfter": "+7.88",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Kxh8"
+        },
+        {
+          "san": "Bd4+",
+          "isAustin": true,
+          "evalBefore": "-7.88",
+          "evalAfter": "-7.91",
+          "cpl": 3,
+          "classification": "good",
+          "bestMove": "Bd4+"
+        },
+        {
+          "san": "Kh7",
+          "isAustin": false,
+          "evalBefore": "+7.91",
+          "evalAfter": "+7.90",
+          "cpl": 1,
+          "classification": "good",
+          "bestMove": "Kg8"
+        }
+      ]
+    }
+  },
+  {
+    "label": "Vs Aarush Ajith",
+    "date": "2026.06.21",
+    "eco": "E00",
+    "opening": "Catalan Opening",
+    "austinColor": "black",
+    "result": "1/2-1/2",
+    "stats": {
+      "austinAccuracy": 90.3,
+      "oppAccuracy": 90,
+      "avgCPL": 25,
+      "blunders": 0,
+      "mistakes": 1,
+      "inaccuracies": 4,
+      "movesAnalyzed": 28,
+      "criticalMoments": [
+        {
+          "san": "Qc6",
+          "bestMove": "Qa8",
+          "cpl": 160,
+          "classification": "mistake",
+          "evalBefore": "+1.74",
+          "evalAfter": "+0.14"
+        },
+        {
+          "san": "Nxd5",
+          "bestMove": "Bxd5",
+          "cpl": 120,
+          "classification": "inaccuracy",
+          "evalBefore": "+1.33",
+          "evalAfter": "+0.13"
+        },
+        {
+          "san": "Qe7",
+          "bestMove": "b6",
+          "cpl": 66,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.14",
+          "evalAfter": "-0.80"
+        },
+        {
+          "san": "Rh6",
+          "bestMove": "Nd8",
+          "cpl": 59,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.67",
+          "evalAfter": "-1.26"
+        },
+        {
+          "san": "Rac8",
+          "bestMove": "a5",
+          "cpl": 55,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.53",
+          "evalAfter": "-1.08"
+        }
+      ],
+      "allMoves": [
+        {
+          "san": "d4",
+          "isAustin": false,
+          "evalBefore": "+0.21",
+          "evalAfter": "+0.18",
+          "cpl": 3,
+          "classification": "good",
+          "bestMove": "e4"
+        },
+        {
+          "san": "Nf6",
+          "isAustin": true,
+          "evalBefore": "-0.18",
+          "evalAfter": "-0.20",
+          "cpl": 2,
+          "classification": "good",
+          "bestMove": "Nf6"
+        },
+        {
+          "san": "c4",
+          "isAustin": false,
+          "evalBefore": "+0.20",
+          "evalAfter": "+0.21",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "c4"
+        },
+        {
+          "san": "e6",
+          "isAustin": true,
+          "evalBefore": "-0.21",
+          "evalAfter": "-0.15",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "e6"
+        },
+        {
+          "san": "g3",
+          "isAustin": false,
+          "evalBefore": "+0.15",
+          "evalAfter": "+0.14",
+          "cpl": 1,
+          "classification": "good",
+          "bestMove": "Nf3"
+        },
+        {
+          "san": "d5",
+          "isAustin": true,
+          "evalBefore": "-0.14",
+          "evalAfter": "-0.13",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Be7"
+        },
+        {
+          "san": "Nf3",
+          "isAustin": false,
+          "evalBefore": "+0.13",
+          "evalAfter": "+0.11",
+          "cpl": 2,
+          "classification": "good",
+          "bestMove": "Nf3"
+        },
+        {
+          "san": "Bb4+",
+          "isAustin": true,
+          "evalBefore": "-0.11",
+          "evalAfter": "-0.06",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Bb4+"
+        },
+        {
+          "san": "Nbd2",
+          "isAustin": false,
+          "evalBefore": "+0.06",
+          "evalAfter": "-0.04",
+          "cpl": 10,
+          "classification": "good",
+          "bestMove": "Bd2"
+        },
+        {
+          "san": "O-O",
+          "isAustin": true,
+          "evalBefore": "+0.04",
+          "evalAfter": "-0.16",
+          "cpl": 20,
+          "classification": "good",
+          "bestMove": "dxc4"
+        },
+        {
+          "san": "Bg2",
+          "isAustin": false,
+          "evalBefore": "+0.16",
+          "evalAfter": "+0.14",
+          "cpl": 2,
+          "classification": "good",
+          "bestMove": "Bg2"
+        },
+        {
+          "san": "Qe7",
+          "isAustin": true,
+          "evalBefore": "-0.14",
+          "evalAfter": "-0.80",
+          "cpl": 66,
+          "classification": "inaccuracy",
+          "bestMove": "b6"
+        },
+        {
+          "san": "O-O",
+          "isAustin": false,
+          "evalBefore": "+0.80",
+          "evalAfter": "+0.61",
+          "cpl": 19,
+          "classification": "good",
+          "bestMove": "a3"
+        },
+        {
+          "san": "Rd8",
+          "isAustin": true,
+          "evalBefore": "-0.61",
+          "evalAfter": "-0.83",
+          "cpl": 22,
+          "classification": "good",
+          "bestMove": "b6"
+        },
+        {
+          "san": "Qc2",
+          "isAustin": false,
+          "evalBefore": "+0.83",
+          "evalAfter": "+0.30",
+          "cpl": 53,
+          "classification": "inaccuracy",
+          "bestMove": "a3"
+        },
+        {
+          "san": "Bxd2",
+          "isAustin": true,
+          "evalBefore": "-0.30",
+          "evalAfter": "-0.78",
+          "cpl": 48,
+          "classification": "good",
+          "bestMove": "c5"
+        },
+        {
+          "san": "Bxd2",
+          "isAustin": false,
+          "evalBefore": "+0.78",
+          "evalAfter": "+0.85",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Bxd2"
+        },
+        {
+          "san": "Ne4",
+          "isAustin": true,
+          "evalBefore": "-0.85",
+          "evalAfter": "-0.85",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Nc6"
+        },
+        {
+          "san": "e3",
+          "isAustin": false,
+          "evalBefore": "+0.85",
+          "evalAfter": "+0.67",
+          "cpl": 18,
+          "classification": "good",
+          "bestMove": "Be3"
+        },
+        {
+          "san": "Nc6",
+          "isAustin": true,
+          "evalBefore": "-0.67",
+          "evalAfter": "-0.78",
+          "cpl": 11,
+          "classification": "good",
+          "bestMove": "c6"
+        },
+        {
+          "san": "Bc3",
+          "isAustin": false,
+          "evalBefore": "+0.78",
+          "evalAfter": "+0.74",
+          "cpl": 4,
+          "classification": "good",
+          "bestMove": "Rfd1"
+        },
+        {
+          "san": "b6",
+          "isAustin": true,
+          "evalBefore": "-0.74",
+          "evalAfter": "-0.76",
+          "cpl": 2,
+          "classification": "good",
+          "bestMove": "h6"
+        },
+        {
+          "san": "Nd2",
+          "isAustin": false,
+          "evalBefore": "+0.76",
+          "evalAfter": "+0.78",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Nd2"
+        },
+        {
+          "san": "Nxd2",
+          "isAustin": true,
+          "evalBefore": "-0.78",
+          "evalAfter": "-0.78",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Nxd2"
+        },
+        {
+          "san": "Bxd2",
+          "isAustin": false,
+          "evalBefore": "+0.78",
+          "evalAfter": "+0.77",
+          "cpl": 1,
+          "classification": "good",
+          "bestMove": "Bxd2"
+        },
+        {
+          "san": "Bb7",
+          "isAustin": true,
+          "evalBefore": "-0.77",
+          "evalAfter": "-0.82",
+          "cpl": 5,
+          "classification": "good",
+          "bestMove": "Bb7"
+        },
+        {
+          "san": "cxd5",
+          "isAustin": false,
+          "evalBefore": "+0.82",
+          "evalAfter": "+0.58",
+          "cpl": 24,
+          "classification": "good",
+          "bestMove": "cxd5"
+        },
+        {
+          "san": "exd5",
+          "isAustin": true,
+          "evalBefore": "-0.58",
+          "evalAfter": "-0.60",
+          "cpl": 2,
+          "classification": "good",
+          "bestMove": "exd5"
+        },
+        {
+          "san": "Rac1",
+          "isAustin": false,
+          "evalBefore": "+0.60",
+          "evalAfter": "+0.53",
+          "cpl": 7,
+          "classification": "good",
+          "bestMove": "Rfe1"
+        },
+        {
+          "san": "Rac8",
+          "isAustin": true,
+          "evalBefore": "-0.53",
+          "evalAfter": "-1.08",
+          "cpl": 55,
+          "classification": "inaccuracy",
+          "bestMove": "a5"
+        },
+        {
+          "san": "Bh3",
+          "isAustin": false,
+          "evalBefore": "+1.08",
+          "evalAfter": "+1.05",
+          "cpl": 3,
+          "classification": "good",
+          "bestMove": "Bh3"
+        },
+        {
+          "san": "Ra8",
+          "isAustin": true,
+          "evalBefore": "-1.05",
+          "evalAfter": "-1.11",
+          "cpl": 6,
+          "classification": "good",
+          "bestMove": "Rb8"
+        },
+        {
+          "san": "b4",
+          "isAustin": false,
+          "evalBefore": "+1.11",
+          "evalAfter": "+1.16",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "b4"
+        },
+        {
+          "san": "a6",
+          "isAustin": true,
+          "evalBefore": "-1.16",
+          "evalAfter": "-1.20",
+          "cpl": 4,
+          "classification": "good",
+          "bestMove": "a6"
+        },
+        {
+          "san": "Qd3",
+          "isAustin": false,
+          "evalBefore": "+1.20",
+          "evalAfter": "+0.31",
+          "cpl": 89,
+          "classification": "inaccuracy",
+          "bestMove": "a4"
+        },
+        {
+          "san": "Rd6",
+          "isAustin": true,
+          "evalBefore": "-0.31",
+          "evalAfter": "-0.70",
+          "cpl": 39,
+          "classification": "good",
+          "bestMove": "Na7"
+        },
+        {
+          "san": "Rfe1",
+          "isAustin": false,
+          "evalBefore": "+0.70",
+          "evalAfter": "+0.30",
+          "cpl": 40,
+          "classification": "good",
+          "bestMove": "Rc2"
+        },
+        {
+          "san": "Re8",
+          "isAustin": true,
+          "evalBefore": "-0.30",
+          "evalAfter": "-0.69",
+          "cpl": 39,
+          "classification": "good",
+          "bestMove": "b5"
+        },
+        {
+          "san": "a4",
+          "isAustin": false,
+          "evalBefore": "+0.69",
+          "evalAfter": "+0.67",
+          "cpl": 2,
+          "classification": "good",
+          "bestMove": "Rc2"
+        },
+        {
+          "san": "Rh6",
+          "isAustin": true,
+          "evalBefore": "-0.67",
+          "evalAfter": "-1.26",
+          "cpl": 59,
+          "classification": "inaccuracy",
+          "bestMove": "Nd8"
+        },
+        {
+          "san": "Bg2",
+          "isAustin": false,
+          "evalBefore": "+1.26",
+          "evalAfter": "+0.06",
+          "cpl": 120,
+          "classification": "inaccuracy",
+          "bestMove": "Qf1"
+        },
+        {
+          "san": "Nxb4",
+          "isAustin": true,
+          "evalBefore": "-0.06",
+          "evalAfter": "-0.08",
+          "cpl": 2,
+          "classification": "good",
+          "bestMove": "Nxb4"
+        },
+        {
+          "san": "Qb1",
+          "isAustin": false,
+          "evalBefore": "+0.08",
+          "evalAfter": "-0.35",
+          "cpl": 43,
+          "classification": "good",
+          "bestMove": "Qb3"
+        },
+        {
+          "san": "a5",
+          "isAustin": true,
+          "evalBefore": "+0.35",
+          "evalAfter": "+0.18",
+          "cpl": 17,
+          "classification": "good",
+          "bestMove": "a5"
+        },
+        {
+          "san": "e4",
+          "isAustin": false,
+          "evalBefore": "-0.18",
+          "evalAfter": "-0.56",
+          "cpl": 38,
+          "classification": "good",
+          "bestMove": "Qb3"
+        },
+        {
+          "san": "Re6",
+          "isAustin": true,
+          "evalBefore": "+0.56",
+          "evalAfter": "+0.44",
+          "cpl": 12,
+          "classification": "good",
+          "bestMove": "Re6"
+        },
+        {
+          "san": "exd5",
+          "isAustin": false,
+          "evalBefore": "-0.44",
+          "evalAfter": "-1.33",
+          "cpl": 89,
+          "classification": "inaccuracy",
+          "bestMove": "e5"
+        },
+        {
+          "san": "Nxd5",
+          "isAustin": true,
+          "evalBefore": "+1.33",
+          "evalAfter": "+0.13",
+          "cpl": 120,
+          "classification": "inaccuracy",
+          "bestMove": "Bxd5"
+        },
+        {
+          "san": "Rxe6",
+          "isAustin": false,
+          "evalBefore": "-0.13",
+          "evalAfter": "-0.45",
+          "cpl": 32,
+          "classification": "good",
+          "bestMove": "Qb3"
+        },
+        {
+          "san": "Qxe6",
+          "isAustin": true,
+          "evalBefore": "+0.45",
+          "evalAfter": "+0.41",
+          "cpl": 4,
+          "classification": "good",
+          "bestMove": "Qxe6"
+        },
+        {
+          "san": "Re1",
+          "isAustin": false,
+          "evalBefore": "-0.41",
+          "evalAfter": "-1.41",
+          "cpl": 100,
+          "classification": "inaccuracy",
+          "bestMove": "Qb3"
+        },
+        {
+          "san": "Qd7",
+          "isAustin": true,
+          "evalBefore": "+1.41",
+          "evalAfter": "+1.32",
+          "cpl": 9,
+          "classification": "good",
+          "bestMove": "Qd7"
+        },
+        {
+          "san": "Rxe8+",
+          "isAustin": false,
+          "evalBefore": "-1.32",
+          "evalAfter": "-1.59",
+          "cpl": 27,
+          "classification": "good",
+          "bestMove": "Rxe8+"
+        },
+        {
+          "san": "Qxe8",
+          "isAustin": true,
+          "evalBefore": "+1.59",
+          "evalAfter": "+1.76",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Qxe8"
+        },
+        {
+          "san": "Qb3",
+          "isAustin": false,
+          "evalBefore": "-1.76",
+          "evalAfter": "-1.74",
+          "cpl": 0,
+          "classification": "good",
+          "bestMove": "Qb3"
+        },
+        {
+          "san": "Qc6",
+          "isAustin": true,
+          "evalBefore": "+1.74",
+          "evalAfter": "+0.14",
+          "cpl": 160,
+          "classification": "mistake",
+          "bestMove": "Qa8"
+        }
+      ]
+    }
+  }
+]
