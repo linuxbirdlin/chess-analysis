@@ -31,15 +31,15 @@ const RESULTS_FILE = path.join(__dirname, 'aarush-analysis-results.json');
 const TOURNAMENTS = [
   {
     key:    'Canada Closed 2026',
-    pgnDir: path.join(ROOT, 'aarush/canadaclosed2026'),
+    pgnDir: path.join(ROOT, 'opponents/aarush/canadaclosed2026'),
   },
   {
     key:    'PAM School 2026',
-    pgnDir: path.join(ROOT, 'aarush/pamschool2026'),
+    pgnDir: path.join(ROOT, 'opponents/aarush/pamschool2026'),
   },
   {
     key:    'PAM 2026',
-    pgnDir: path.join(ROOT, 'aarush/pam2026'),
+    pgnDir: path.join(ROOT, 'opponents/aarush/pam2026'),
   },
 ];
 

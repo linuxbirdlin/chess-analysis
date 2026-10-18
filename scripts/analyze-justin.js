@@ -32,19 +32,19 @@ const RESULTS_FILE = path.join(__dirname, 'justin-analysis-results.json');
 const TOURNAMENTS = [
   {
     key:    'Canada Closed 2026',
-    pgnDir: path.join(ROOT, 'justin/canadaclosed2026'),
+    pgnDir: path.join(ROOT, 'opponents/justin/canadaclosed2026'),
   },
   {
     key:    'PAM 2026',
-    pgnDir: path.join(ROOT, 'justin/pam2026'),
+    pgnDir: path.join(ROOT, 'opponents/justin/pam2026'),
   },
   {
     key:    'PAM School 2026',
-    pgnDir: path.join(ROOT, 'justin/pamschool2026'),
+    pgnDir: path.join(ROOT, 'opponents/justin/pamschool2026'),
   },
   {
     key:    'Toronto Open 2026',
-    pgnDir: path.join(ROOT, 'justin/torontoopen2026'),
+    pgnDir: path.join(ROOT, 'opponents/justin/torontoopen2026'),
   },
 ];
 

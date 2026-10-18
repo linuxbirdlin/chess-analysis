@@ -13,7 +13,7 @@ https://linuxbirdlin.github.io/chess-analysis/austin-prep.html
 
 ## Austin vs Justin — Matchup Plan (shareable)
 
-https://linuxbirdlin.github.io/chess-analysis/matchup-justin.html
+https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-justin.html
 
 ## Tournament Reviews (shareable)
 
@@ -35,10 +35,10 @@ Looking through the different tournament under [austin], in each folder of tourn
 
 New Justin Huang game folders have been added:
 
-- **`justin/pamschool2026/`** — 5 games from XV Campeonato Panamericano U7–U17 (May 2026, Lichess broadcast PGN). Justin's FIDE rating at this event: **1894**. Results: 1 win (R4), 1 draw (R5), 3 incomplete/unknown (R6–R9).
-- **`justin/torontoopen2026/`** — 3 games from 2026 Toronto Open (July–Sep 2026, Lichess broadcast PGN). Justin's FIDE rating at this event: **2093**. Results: 1 loss (R2 vs GM Preotu 2475), 1 draw (R4), 1 win (R5).
+- **`opponents/justin/pamschool2026/`** — 5 games from XV Campeonato Panamericano U7–U17 (May 2026, Lichess broadcast PGN). Justin's FIDE rating at this event: **1894**. Results: 1 win (R4), 1 draw (R5), 3 incomplete/unknown (R6–R9).
+- **`opponents/justin/torontoopen2026/`** — 3 games from 2026 Toronto Open (July–Sep 2026, Lichess broadcast PGN). Justin's FIDE rating at this event: **2093**. Results: 1 loss (R2 vs GM Preotu 2475), 1 draw (R4), 1 win (R5).
 
-**Key new findings that require updating `justin-analysis.md` and `matchup-justin.md`:**
+**Key new findings that require updating `justin-analysis.md` and `matchup/matchup-justin.md`:**
 
 1. **Justin now plays the Sicilian (1...c5) as Black against 1.e4** — observed in Toronto Open R4 vs Achyuth (1934). This breaks from his previous French-only pattern and is critical for Austin's preparation.
 2. **Justin's rating has jumped to 2093** — significantly higher than the 1963–2023 range in the current analysis.
@@ -50,17 +50,17 @@ Also note: **`austin/copilot-review/`** contains an AI-generated template review
 
 ## Task #4 — Add Aarush Ajith as a new opponent
 
-New opponent folder `aarush/` has been added with 3 tournaments:
-- **`aarush/canadaclosed2026/`** — 9 games from Canada Closed 2026 (April 2026, Lichess broadcast PGN). Aarush's rating: 1908. Score: 2W-6L-1D.
-- **`aarush/pamschool2026/`** — PAM School 2026 (May 2026). 2 games captured (R7 empty, R8 incomplete).
-- **`aarush/pam2026/`** — PAM 2026 (July 2026, non-standard format). 5 games captured. Rating: 1941. Score: 2W-3L.
+New opponent folder `opponents/aarush/` has been added with 3 tournaments:
+- **`opponents/aarush/canadaclosed2026/`** — 9 games from Canada Closed 2026 (April 2026, Lichess broadcast PGN). Aarush's rating: 1908. Score: 2W-6L-1D.
+- **`opponents/aarush/pamschool2026/`** — PAM School 2026 (May 2026). 2 games captured (R7 empty, R8 incomplete).
+- **`opponents/aarush/pam2026/`** — PAM 2026 (July 2026, non-standard format). 5 games captured. Rating: 1941. Score: 2W-3L.
 
 Created:
 - `aarush-analysis.md` — full player analysis
-- `matchup-aarush.md` — Austin vs Aarush preparation plan
-- `aarush/canadaclosed2026/review.html` — Stockfish-powered game review
-- `aarush/pamschool2026/review.html` — game review
-- `aarush/pam2026/review.html` — game review
+- `matchup/matchup-aarush.md` — Austin vs Aarush preparation plan
+- `opponents/aarush/canadaclosed2026/review.html` — Stockfish-powered game review
+- `opponents/aarush/pamschool2026/review.html` — game review
+- `opponents/aarush/pam2026/review.html` — game review
 - `scripts/analyze-aarush.js` — Stockfish analysis script
 - `scripts/aarush-analysis-results.json` — depth-18 results (16 games)
 

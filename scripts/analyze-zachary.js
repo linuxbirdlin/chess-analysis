@@ -181,14 +181,14 @@ async function main() {
 
   let totalGames = 0;
   for (const t of TOURNAMENTS) {
-    const dir = path.join(ROOT, 'zachary', t.dir);
+    const dir = path.join(ROOT, 'opponents/zachary', t.dir);
     totalGames += fs.readdirSync(dir).filter(f => f.endsWith('.pgn')).length;
   }
   console.log(`Engine ready. Depth ${SF_DEPTH}  Threads ${SF_THREADS}  Total games: ${totalGames}\n`);
 
   let gameNum = 0;
   for (const t of TOURNAMENTS) {
-    const dir   = path.join(ROOT, 'zachary', t.dir);
+    const dir   = path.join(ROOT, 'opponents/zachary', t.dir);
     const files = fs.readdirSync(dir).filter(f => f.endsWith('.pgn')).sort();
     if (!results[t.name]) results[t.name] = {};
 

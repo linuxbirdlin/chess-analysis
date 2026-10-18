@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zachary Liu — Full Game Review (5 Tournaments)</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+    .page {
+      max-width: 920px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+    .doc-header {
+      border-bottom: 3px solid #1a5276;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.75rem; }
+    .doc-header .subtitle { color: #57606a; font-size: 0.95rem; margin: 0 0 6px; }
+    .doc-header .opp-note {
+      background: #eaf0f8;
+      border-left: 3px solid #1a5276;
+      border-radius: 0 4px 4px 0;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      color: #1a3a55;
+      margin: 0 0 14px;
+    }
+    .doc-header .back-link {
+      display: inline-block;
+      font-size: 0.875rem;
+      color: #1a5276;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    .scoreboard {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .score-card {
+      flex: 1;
+      min-width: 120px;
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .score-card .label { font-size: 0.78rem; color: #57606a; text-transform: uppercase; letter-spacing: 0.04em; }
+    .score-card .value { font-size: 1.4rem; font-weight: 700; color: #1f2328; line-height: 1.2; margin-top: 2px; }
+    .score-card.highlight .value { color: #1a5276; }
+    .score-card.warn .value { color: #cf2222; }
+    .score-card.good .value { color: #2d7d46; }
+
+    h2 {
+      font-size: 1.25rem;
+      color: #1f2328;
+      margin: 40px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #d0d7de;
+    }
+    h3 { font-size: 1.05rem; color: #1a5276; margin: 22px 0 8px; }
+    h4 { font-size: 0.95rem; color: #1f2328; font-weight: 600; margin: 16px 0 6px; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
+    li { margin-bottom: 4px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 14px 0 24px;
+    }
+    thead th {
+      background: #1a5276;
+      color: #fff;
+      padding: 9px 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 8px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .win  { color: #2d7d46; font-weight: 600; }
+    .loss { color: #cf2222; font-weight: 600; }
+    .draw { color: #7a5500; font-weight: 600; }
+
+    .good-box {
+      background: #dafbe1;
+      border-left: 4px solid #2d7d46;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #1a4731;
+    }
+    .warn-box {
+      background: #fff5f5;
+      border-left: 4px solid #cf2222;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #7a0000;
+    }
+    .alert-box {
+      background: #fff8e6;
+      border-left: 4px solid #d4a017;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #7a4f00;
+    }
+    .info-box {
+      background: #eaf0f8;
+      border-left: 4px solid #1a5276;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #1a3a55;
+    }
+
+    .game-review { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .game-header { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 10px 16px; background: #f6f8fa; border-bottom: 1px solid #d0d7de; }
+    .round-badge { background: #1a5276; color: #fff; border-radius: 4px; padding: 2px 9px; font-size: 0.8rem; font-weight: 700; white-space: nowrap; }
+    .game-opp { font-weight: 600; font-size: 0.92rem; flex: 1; min-width: 140px; }
+    .opening-tag { font-size: 0.77rem; color: #57606a; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 3px; padding: 1px 6px; white-space: nowrap; }
+    .color-wh { font-size: 0.74rem; font-weight: 600; border-radius: 3px; padding: 1px 6px; background: #fff; color: #1f2328; border: 1px solid #aaa; }
+    .color-bl { font-size: 0.74rem; font-weight: 600; border-radius: 3px; padding: 1px 6px; background: #2d2d2d; color: #fff; }
+    .rbadge-win  { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #dafbe1; color: #1a4731; }
+    .rbadge-loss { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #fff5f5; color: #7a0000; }
+    .rbadge-draw { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #fff8e6; color: #7a4f00; }
+    .rbadge-unk  { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #f0f4f8; color: #57606a; }
+    .game-body { padding: 14px 18px; }
+
+    .engine-bar { display: flex; gap: 18px; flex-wrap: wrap; padding: 10px 14px; background: #f0f4f8; border-radius: 6px; margin: 10px 0 14px; font-size: 0.82rem; }
+    .engine-bar .eb-item { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+    .eb-label { color: #57606a; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .eb-val { font-weight: 700; font-size: 0.95rem; color: #1f2328; }
+    .eb-val.acc-hi { color: #2d7d46; }
+    .eb-val.acc-mid { color: #7a5500; }
+    .eb-val.acc-lo { color: #cf2222; }
+    .eb-blunder { color: #cf2222; font-weight: 700; }
+    .eb-mistake { color: #d97706; font-weight: 700; }
+    .eb-inaccuracy { color: #7a5500; font-weight: 600; }
+
+    .moments-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; margin: 10px 0; }
+    .moments-table th { background: #eaf0f8; color: #1a3a55; padding: 6px 10px; text-align: left; font-weight: 600; }
+    .moments-table td { padding: 6px 10px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    .moments-table tr:last-child td { border-bottom: none; }
+    .badge-blunder { display: inline-block; background: #fff5f5; color: #7a0000; border-radius: 3px; padding: 0px 5px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+    .badge-mistake { display: inline-block; background: #fff8e6; color: #7a4f00; border-radius: 3px; padding: 0px 5px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+    .badge-inaccuracy { display: inline-block; background: #f0f4f8; color: #1a3a55; border-radius: 3px; padding: 0px 5px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+
+    .tourn-section { margin-bottom: 48px; }
+    .tourn-header {
+      background: #1a5276;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 6px 6px 0 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+    .tourn-body { border: 1px solid #d0d7de; border-top: none; border-radius: 0 0 6px 6px; padding: 18px 20px; }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: #f0f4f8;
+      border: 1px solid #d0d7de;
+      border-radius: 4px;
+      padding: 1px 5px;
+      white-space: nowrap;
+    }
+    strong { font-weight: 600; }
+
+    .chart-container { position: relative; height: 240px; margin: 14px 0 28px; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Zachary Liu — Full Game Review</h1>
+    <p class="subtitle">BC Chess Cup 2026 · Greater Vancouver 2026 · Canada Closed 2026 · PAM 2026 · PAM School 2026</p>
+    <p class="opp-note">Opponent analysis page — this review supports Austin Lin's preparation against Zachary Liu (CM). Blue accent = opponent data.</p>
+    <a class="back-link" href="../../matchup/matchup-zachary.html">← Back to Austin vs Zachary — Matchup Plan</a>
+  </div>
+
+  <!-- Overall Scoreboard -->
+  <div class="scoreboard">
+    <div class="score-card highlight"><div class="label">Title</div><div class="value">CM</div></div>
+    <div class="score-card good"><div class="label">Score (known)</div><div class="value">16W–2L–18D</div></div>
+    <div class="score-card good"><div class="label">As White</div><div class="value">13W–0L–8D</div></div>
+    <div class="score-card warn"><div class="label">As Black</div><div class="value">3W–2L–10D</div></div>
+    <div class="score-card highlight"><div class="label">Avg Accuracy</div><div class="value">93.6%</div></div>
+    <div class="score-card"><div class="label">Games Analyzed</div><div class="value">34</div></div>
+  </div>
+
+  <div class="info-box">
+    Stockfish movetime-800 analysis on 34 games across 5 tournaments (3 games skipped for technical reasons). Accuracy computed using the Lichess win-probability formula. Only 2 losses in 36 games with known results — both in sharp Sicilian middlegames. Zachary has <strong>never lost as White</strong> in this dataset (13W–0L–8D).
+  </div>
+
+  <!-- Accuracy chart -->
+  <h2>Accuracy by Game</h2>
+  <div class="chart-container">
+    <canvas id="accChart"></canvas>
+  </div>
+
+  <!-- Summary table by tournament -->
+  <h2>Summary by Tournament</h2>
+  <table>
+    <thead>
+      <tr><th>Tournament</th><th>Games</th><th>Record</th><th>Avg Acc%</th><th>Best</th><th>Worst</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>BC Chess Cup 2026</td><td>7 (6 analyzed)</td><td class="win">5W–0L–2D</td><td>94.2%</td><td>97.8% (G264863)</td><td>89.0% (G262643)</td></tr>
+      <tr><td>Greater Vancouver 2026</td><td>6</td><td>3W–1L–2D</td><td>95.0%</td><td>97.4% (G267714 vs 2512)</td><td>92.8% (G267731)</td></tr>
+      <tr><td>Canada Closed 2026</td><td>9 (8 analyzed)</td><td>2W–1L–6D</td><td>92.4%</td><td>97.7% (G266894)</td><td class="loss">79.4% (G266854)</td></tr>
+      <tr><td>PAM 2026</td><td>7 (6 analyzed)</td><td>3W–0L–3D</td><td>92.6%</td><td>96.7% (R7)</td><td class="loss">83.4% (R4 Dragon)</td></tr>
+      <tr><td>PAM School 2026</td><td>9 (8 analyzed)</td><td>3W–0L–5D</td><td>94.2%</td><td>97.6% (R8)</td><td>88.7% (R9)</td></tr>
+    </tbody>
+  </table>
+
+  <hr />
+
+  <!-- BC Chess Cup 2026 -->
+  <div class="tourn-section">
+    <div class="tourn-header">BC Chess Cup 2026</div>
+    <div class="tourn-body">
+      <p><strong>5W–0L–2D · Avg accuracy 94.2% · 6 games analyzed (1 skipped: G262648, 182 ply)</strong></p>
+      <table>
+        <thead><tr><th>Game</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>ECO</th><th>Acc%</th><th>B/M/I</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>G262638</td><td>White</td><td>Zhou, Frank</td><td>1754</td><td>D78</td><td>95.2%</td><td>0/0/3</td><td class="win">Win</td></tr>
+          <tr><td>G262640</td><td>Black</td><td>Lu, Aiden Hao-Ting</td><td>1918</td><td>B40</td><td>95.6%</td><td>0/0/6</td><td class="win">Win</td></tr>
+          <tr><td>G262643</td><td>White</td><td>Mu, Shaunavon</td><td>2038</td><td>A06</td><td>89.0%</td><td>2/0/12</td><td class="win">Win</td></tr>
+          <tr><td>G262645</td><td>White</td><td>Pham, Bich Ngoc</td><td>2309</td><td>C47</td><td>94.2%</td><td>0/0/1</td><td class="draw">Draw</td></tr>
+          <tr><td>G264860</td><td>White</td><td>Aljo, Johan</td><td>2209</td><td>B22</td><td>93.4%</td><td>0/0/1</td><td class="win">Win</td></tr>
+          <tr><td>G264863</td><td>Black</td><td>Qu, Leo</td><td>2236</td><td>D38</td><td>97.8%</td><td>0/0/0</td><td class="draw">Draw</td></tr>
+          <tr><td>G262648</td><td>Black</td><td>Yao, Lucas</td><td>2101</td><td>—</td><td>—</td><td>—</td><td class="win">Win*</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.83rem;color:#57606a;">* G262648 skipped (182-ply game — too long for movetime analysis); result taken from PGN header.</p>
+
+      <div class="game-review">
+        <div class="game-header">
+          <span class="round-badge">G264860</span>
+          <span class="game-opp">Aljo, Johan (2209)</span>
+          <span class="color-wh">White</span>
+          <span class="opening-tag">B22 Sicilian Alapin</span>
+          <span class="rbadge-win">Win</span>
+        </div>
+        <div class="game-body">
+          <div class="engine-bar">
+            <div class="eb-item"><span class="eb-label">Zachary Acc%</span><span class="eb-val acc-hi">93.4%</span></div>
+            <div class="eb-item"><span class="eb-label">Opp Acc%</span><span class="eb-val acc-hi">93.3%</span></div>
+            <div class="eb-item"><span class="eb-label">Avg CPL</span><span class="eb-val">17</span></div>
+            <div class="eb-item"><span class="eb-label">Blunders</span><span class="eb-val">0</span></div>
+            <div class="eb-item"><span class="eb-label">Mistakes</span><span class="eb-val">0</span></div>
+            <div class="eb-item"><span class="eb-label">Inaccuracies</span><span class="eb-val eb-inaccuracy">1</span></div>
+            <div class="eb-item"><span class="eb-label">Moves</span><span class="eb-val">12</span></div>
+          </div>
+          <p>Notable upset: Zachary (White) beat a 2209-rated opponent in only 12 moves analyzed. Playing the Sicilian Alapin (1.e4 c5 2.c3), Zachary achieved a positional advantage early and converted cleanly. Only 1 inaccuracy (<code>Qe2</code> instead of <code>Bxd5</code>).</p>
+        </div>
+      </div>
+
+      <div class="game-review">
+        <div class="game-header">
+          <span class="round-badge">G262643</span>
+          <span class="game-opp">Mu, Shaunavon (2038)</span>
+          <span class="color-wh">White</span>
+          <span class="opening-tag">A06 Reti</span>
+          <span class="rbadge-win">Win</span>
+        </div>
+        <div class="game-body">
+          <div class="engine-bar">
+            <div class="eb-item"><span class="eb-label">Zachary Acc%</span><span class="eb-val acc-mid">89.0%</span></div>
+            <div class="eb-item"><span class="eb-label">Opp Acc%</span><span class="eb-val acc-mid">86.6%</span></div>
+            <div class="eb-item"><span class="eb-label">Avg CPL</span><span class="eb-val">38</span></div>
+            <div class="eb-item"><span class="eb-label">Blunders</span><span class="eb-val eb-blunder">2</span></div>
+            <div class="eb-item"><span class="eb-label">Mistakes</span><span class="eb-val">0</span></div>
+            <div class="eb-item"><span class="eb-label">Inaccuracies</span><span class="eb-val eb-inaccuracy">12</span></div>
+            <div class="eb-item"><span class="eb-label">Moves</span><span class="eb-val">57</span></div>
+          </div>
+          <p>Zachary's lowest-accuracy win. He played 2 blunders in a 57-move game: <code>Nd2??</code> (−0.03 → −3.54, should play <code>Ne5</code>) and <code>Nf4??</code> (+7.19 → +4.01). Despite the blunders, his opponent (2038) was less accurate (86.6%) and Zachary converted. Shows vulnerability in complex Reti endgames with many inaccuracies.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Greater Vancouver 2026 -->
+  <div class="tourn-section">
+    <div class="tourn-header">Greater Vancouver 2026</div>
+    <div class="tourn-body">
+      <p><strong>3W–1L–2D · Avg accuracy 95.0% · 6 games analyzed</strong></p>
+      <table>
+        <thead><tr><th>Game</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>ECO</th><th>Acc%</th><th>B/M/I</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>G266159</td><td>Black</td><td>Yang, Jingyun (Ryan)</td><td>2368</td><td>B35</td><td>93.5%</td><td>1/0/8</td><td class="loss">Loss</td></tr>
+          <tr><td>G267713</td><td>White</td><td>Trentalance, Josiah</td><td>1812</td><td>A11</td><td>97.3%</td><td>0/0/1</td><td class="win">Win</td></tr>
+          <tr><td>G267714</td><td>Black</td><td>Keleberda, Tymur</td><td>2512</td><td>B45</td><td>97.4%</td><td>0/0/1</td><td class="draw">Draw</td></tr>
+          <tr><td>G267722</td><td>White</td><td>Hoekman, Samuel</td><td>2108</td><td>A37</td><td>93.3%</td><td>1/2/5</td><td class="draw">Draw</td></tr>
+          <tr><td>G267727</td><td>Black</td><td>Sheng, Jack</td><td>1879</td><td>A57</td><td>96.0%</td><td>0/0/1</td><td class="win">Win</td></tr>
+          <tr><td>G267731</td><td>White</td><td>Nguyen, Kaiser</td><td>1607</td><td>B76</td><td>92.8%</td><td>0/2/1</td><td class="win">Win</td></tr>
+        </tbody>
+      </table>
+
+      <div class="game-review">
+        <div class="game-header">
+          <span class="round-badge">G267714</span>
+          <span class="game-opp">Keleberda, Tymur (2512)</span>
+          <span class="color-bl">Black</span>
+          <span class="opening-tag">B45 Sicilian Taimanov</span>
+          <span class="rbadge-draw">Draw</span>
+        </div>
+        <div class="game-body">
+          <div class="engine-bar">
+            <div class="eb-item"><span class="eb-label">Zachary Acc%</span><span class="eb-val acc-hi">97.4%</span></div>
+            <div class="eb-item"><span class="eb-label">Opp Acc%</span><span class="eb-val acc-hi">97.5%</span></div>
+            <div class="eb-item"><span class="eb-label">Avg CPL</span><span class="eb-val">6</span></div>
+            <div class="eb-item"><span class="eb-label">Blunders</span><span class="eb-val">0</span></div>
+            <div class="eb-item"><span class="eb-label">Mistakes</span><span class="eb-val">0</span></div>
+            <div class="eb-item"><span class="eb-label">Inaccuracies</span><span class="eb-val eb-inaccuracy">1</span></div>
+            <div class="eb-item"><span class="eb-label">Moves</span><span class="eb-val">104</span></div>
+          </div>
+          <div class="good-box">
+            <strong>Most impressive game in the dataset.</strong> Zachary drew with a 2512-rated FM in 104 moves with 97.4% accuracy, 0 blunders, 0 mistakes, and only 1 inaccuracy. This demonstrates elite endgame defensive technique — precisely the kind of position Austin must avoid.
+          </div>
+        </div>
+      </div>
+
+      <div class="game-review">
+        <div class="game-header">
+          <span class="round-badge">G267722</span>
+          <span class="game-opp">Hoekman, Samuel (2108)</span>
+          <span class="color-wh">White</span>
+          <span class="opening-tag">A37 Symmetrical English</span>
+          <span class="rbadge-draw">Draw</span>
+        </div>
+        <div class="game-body">
+          <div class="engine-bar">
+            <div class="eb-item"><span class="eb-label">Zachary Acc%</span><span class="eb-val acc-hi">93.3%</span></div>
+            <div class="eb-item"><span class="eb-label">Avg CPL</span><span class="eb-val">24</span></div>
+            <div class="eb-item"><span class="eb-label">Blunders</span><span class="eb-val eb-blunder">1</span></div>
+            <div class="eb-item"><span class="eb-label">Mistakes</span><span class="eb-val eb-mistake">2</span></div>
+            <div class="eb-item"><span class="eb-label">Inaccuracies</span><span class="eb-val eb-inaccuracy">5</span></div>
+          </div>
+          <div class="alert-box">
+            <strong>Key vulnerability identified:</strong> Zachary had +4.75 advantage and played <code>b5??</code> (443 CPL blunder) instead of <code>Nf5</code>. This is a classic "positional plan confusion" error — he had a winning position but chose the wrong strategic direction, letting Hoekman equalize. Followed by two more mistakes. Draw from a position that should have been a win.
+          </div>
+        </div>
+      </div>
+
+      <div class="game-review">
+        <div class="game-header">
+          <span class="round-badge">G266159</span>
+          <span class="game-opp">Yang, Jingyun (Ryan) (2368)</span>
+          <span class="color-bl">Black</span>
+          <span class="opening-tag">B35 Sicilian Dragon</span>
+          <span class="rbadge-loss">Loss</span>
+        </div>
+        <div class="game-body">
+          <div class="engine-bar">
+            <div class="eb-item"><span class="eb-label">Zachary Acc%</span><span class="eb-val acc-hi">93.5%</span></div>
+            <div class="eb-item"><span class="eb-label">Opp Acc%</span><span class="eb-val acc-hi">95.1%</span></div>
+            <div class="eb-item"><span class="eb-label">Avg CPL</span><span class="eb-val">25</span></div>
+            <div class="eb-item"><span class="eb-label">Blunders</span><span class="eb-val eb-blunder">1</span></div>
+            <div class="eb-item"><span class="eb-label">Mistakes</span><span class="eb-val">0</span></div>
+            <div class="eb-item"><span class="eb-label">Inaccuracies</span><span class="eb-val eb-inaccuracy">8</span></div>
+            <div class="eb-item"><span class="eb-label">Moves</span><span class="eb-val">66</span></div>
+          </div>
+          <p>Loss to a 2368-rated opponent. Despite 93.5% overall accuracy, a single critical blunder in the endgame (<code>Kb7??</code> instead of <code>Kb7</code> — king placement error, 337 CPL) in a losing endgame. The game was already difficult at that point (−8.45) but the blunder accelerated the loss.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Canada Closed 2026 -->
+  <div class="tourn-section">
+    <div class="tourn-header">Canada Closed 2026</div>
+    <div class="tourn-body">
+      <p><strong>2W–1L–6D · Avg accuracy 92.4% · 8 games analyzed (1 skipped: G267011)</strong></p>
+      <table>
+        <thead><tr><th>Game</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>ECO</th><th>Acc%</th><th>B/M/I</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>G266854</td><td>Black</td><td>Tseng, Bradley</td><td>1907</td><td>B46</td><td class="loss">79.4%</td><td>4/0/7</td><td class="loss">Loss</td></tr>
+          <tr><td>G266894</td><td>White</td><td>Ramesan, Raunak Amit</td><td>1944</td><td>A09</td><td>97.7%</td><td>0/1/1</td><td class="draw">Draw</td></tr>
+          <tr><td>G266937</td><td>Black</td><td>Berube, Maximilien</td><td>1952</td><td>D38</td><td>94.8%</td><td>1/0/3</td><td class="draw">Draw</td></tr>
+          <tr><td>G266976</td><td>White</td><td>Leong, Ryan</td><td>1898</td><td>A14</td><td>93.2%</td><td>1/4/11</td><td class="win">Win</td></tr>
+          <tr><td>G267011</td><td>Black</td><td>Chen, Zhengyu</td><td>1862</td><td>B22</td><td>—</td><td>—</td><td class="draw">Draw*</td></tr>
+          <tr><td>G267050</td><td>White</td><td>Chen, Larry Zhou</td><td>1917</td><td>A13</td><td>95.6%</td><td>0/0/3</td><td class="draw">Draw</td></tr>
+          <tr><td>G267092</td><td>Black</td><td>Zhong, Ryan Yunhui</td><td>2007</td><td>B22</td><td>96.6%</td><td>0/0/4</td><td class="win">Win</td></tr>
+          <tr><td>G267125</td><td>White</td><td>Gao, Heye</td><td>2028</td><td>A11</td><td>93.2%</td><td>0/1/4</td><td class="draw">Draw</td></tr>
+          <tr><td>G267161</td><td>Black</td><td>Marchand, Calix</td><td>2074</td><td>D00</td><td>88.8%</td><td>0/2/6</td><td class="draw">Draw</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.83rem;color:#57606a;">* G267011 skipped (engine stuck on complex queen sacrifice position at move 20).</p>
+
+      <div class="game-review">
+        <div class="game-header">
+          <span class="round-badge">G266854</span>
+          <span class="game-opp">Tseng, Bradley (1907)</span>
+          <span class="color-bl">Black</span>
+          <span class="opening-tag">B46 Sicilian Taimanov</span>
+          <span class="rbadge-loss">Loss</span>
+        </div>
+        <div class="game-body">
+          <div class="engine-bar">
+            <div class="eb-item"><span class="eb-label">Zachary Acc%</span><span class="eb-val acc-lo">79.4%</span></div>
+            <div class="eb-item"><span class="eb-label">Opp Acc%</span><span class="eb-val acc-lo">84.6%</span></div>
+            <div class="eb-item"><span class="eb-label">Avg CPL</span><span class="eb-val">87</span></div>
+            <div class="eb-item"><span class="eb-label">Blunders</span><span class="eb-val eb-blunder">4</span></div>
+            <div class="eb-item"><span class="eb-label">Mistakes</span><span class="eb-val">0</span></div>
+            <div class="eb-item"><span class="eb-label">Inaccuracies</span><span class="eb-val eb-inaccuracy">7</span></div>
+            <div class="eb-item"><span class="eb-label">Moves</span><span class="eb-val">38</span></div>
+          </div>
+          <div class="warn-box">
+            <strong>Zachary's worst game by far — and his most exploitable pattern.</strong> Playing the Sicilian Taimanov as Black (B46), he lost to a 1907-rated player with 79.4% accuracy and 4 blunders. Critical sequence: Zachary had +11.65 advantage but played <code>Rc7??</code> (should play <code>Rxg2</code>, winning immediately). Then <code>f3??</code> (−0.52 → −7.51 swing, should play <code>Qxe5</code>), then <code>Rc5??</code> (+4.04 → −1.65). Three decisive blunders in sharp Sicilian complications. This loss to a 1907-rated player is statistically significant.
+          </div>
+          <table class="moments-table">
+            <thead><tr><th>Type</th><th>Move</th><th>Best</th><th>Before → After</th><th>CPL</th></tr></thead>
+            <tbody>
+              <tr><td><span class="badge-blunder">Blunder</span></td><td><code>Rc7</code></td><td><code>Rxg2</code></td><td>+11.65 → +3.35</td><td>830</td></tr>
+              <tr><td><span class="badge-blunder">Blunder</span></td><td><code>f3</code></td><td><code>Qxe5</code></td><td>−0.52 → −7.51</td><td>699</td></tr>
+              <tr><td><span class="badge-blunder">Blunder</span></td><td><code>Rc5</code></td><td><code>Nxe5</code></td><td>+4.04 → −1.65</td><td>569</td></tr>
+            </tbody>
+          </table>
+          <div class="alert-box"><strong>Austin prep note:</strong> This game confirms Zachary's critical weakness — sharp Sicilian piece coordination failures. His tactical vision degrades sharply in complex Sicilian middlegames. Austin should steer for these position types as White using the English Attack.</div>
+        </div>
+      </div>
+
+      <div class="game-review">
+        <div class="game-header">
+          <span class="round-badge">G267092</span>
+          <span class="game-opp">Zhong, Ryan Yunhui (2007)</span>
+          <span class="color-bl">Black</span>
+          <span class="opening-tag">B22 Sicilian Alapin</span>
+          <span class="rbadge-win">Win</span>
+        </div>
+        <div class="game-body">
+          <div class="engine-bar">
+            <div class="eb-item"><span class="eb-label">Zachary Acc%</span><span class="eb-val acc-hi">96.6%</span></div>
+            <div class="eb-item"><span class="eb-label">Avg CPL</span><span class="eb-val">13</span></div>
+            <div class="eb-item"><span class="eb-label">Blunders</span><span class="eb-val">0</span></div>
+            <div class="eb-item"><span class="eb-label">Mistakes</span><span class="eb-val">0</span></div>
+            <div class="eb-item"><span class="eb-label">Inaccuracies</span><span class="eb-val eb-inaccuracy">4</span></div>
+          </div>
+          <p>Win against a 2007-rated player with 96.6% accuracy. After an early advantage, Zachary maintained it cleanly with no blunders. Demonstrates his ability to convert positions where he has early preparation advantage.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAM 2026 -->
+  <div class="tourn-section">
+    <div class="tourn-header">PAM 2026</div>
+    <div class="tourn-body">
+      <p><strong>3W–0L–3D (from known results) · Avg accuracy 92.6% · 6 games analyzed</strong></p>
+      <table>
+        <thead><tr><th>Round</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>ECO</th><th>Acc%</th><th>B/M/I</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>R1</td><td>Black</td><td>Tapiero Lozano, Harrison</td><td>1645</td><td>D02</td><td>93.6%</td><td>3/0/3</td><td class="draw">Draw</td></tr>
+          <tr><td>R3</td><td>Black</td><td>Delgado Gutierrez, Mateo</td><td>1833</td><td>D02</td><td>94.4%</td><td>0/0/3</td><td class="draw">Draw</td></tr>
+          <tr><td>R4</td><td>White</td><td>Piza Vera, Andres</td><td>1766</td><td>B75</td><td class="loss">83.4%</td><td>4/3/5</td><td class="rbadge-unk">Unknown</td></tr>
+          <tr><td>R6</td><td>White</td><td>De Los Reyes Balandran</td><td>1759</td><td>B75</td><td>96.6%</td><td>0/0/2</td><td class="rbadge-unk">Unknown</td></tr>
+          <tr><td>R7</td><td>Black</td><td>Jackson, Leo Daniel</td><td>1878</td><td>E07</td><td>96.7%</td><td>0/0/2</td><td class="win">Win</td></tr>
+          <tr><td>R8</td><td>White</td><td>Payares Diaz, Alejandro</td><td>1996</td><td>A09</td><td>90.8%</td><td>1/1/6</td><td class="draw">Draw</td></tr>
+        </tbody>
+      </table>
+
+      <div class="game-review">
+        <div class="game-header">
+          <span class="round-badge">R4</span>
+          <span class="game-opp">Piza Vera, Andres (1766)</span>
+          <span class="color-wh">White</span>
+          <span class="opening-tag">B75 Sicilian Dragon Yugoslav</span>
+          <span class="rbadge-unk">Result Unknown</span>
+        </div>
+        <div class="game-body">
+          <div class="engine-bar">
+            <div class="eb-item"><span class="eb-label">Zachary Acc%</span><span class="eb-val acc-lo">83.4%</span></div>
+            <div class="eb-item"><span class="eb-label">Opp Acc%</span><span class="eb-val acc-mid">87.4%</span></div>
+            <div class="eb-item"><span class="eb-label">Avg CPL</span><span class="eb-val">81</span></div>
+            <div class="eb-item"><span class="eb-label">Blunders</span><span class="eb-val eb-blunder">4</span></div>
+            <div class="eb-item"><span class="eb-label">Mistakes</span><span class="eb-val eb-mistake">3</span></div>
+            <div class="eb-item"><span class="eb-label">Inaccuracies</span><span class="eb-val eb-inaccuracy">5</span></div>
+          </div>
+          <div class="warn-box">
+            <strong>Second-worst game in the dataset.</strong> Zachary played the Dragon Yugoslav Attack as White (1.e4 c5 ... with Bc4/f3/g4/O-O-O setup) and made 4 blunders in 41 moves. Key blunder: <code>Rc1??</code> (−1.94 → −10.78, a catastrophic piece-coordination failure in the pawn-storm position). This is the same pattern as G266854 — sharp Dragon-type pawn storm complications destroy Zachary's calculation. He was outplayed by a 1766-rated opponent in this position type.
+          </div>
+        </div>
+      </div>
+
+      <div class="game-review">
+        <div class="game-header">
+          <span class="round-badge">R7</span>
+          <span class="game-opp">Jackson, Leo Daniel (1878)</span>
+          <span class="color-bl">Black</span>
+          <span class="opening-tag">E07 Catalan Open</span>
+          <span class="rbadge-win">Win</span>
+        </div>
+        <div class="game-body">
+          <div class="engine-bar">
+            <div class="eb-item"><span class="eb-label">Zachary Acc%</span><span class="eb-val acc-hi">96.7%</span></div>
+            <div class="eb-item"><span class="eb-label">Avg CPL</span><span class="eb-val">9</span></div>
+            <div class="eb-item"><span class="eb-label">Blunders</span><span class="eb-val">0</span></div>
+            <div class="eb-item"><span class="eb-label">Mistakes</span><span class="eb-val">0</span></div>
+            <div class="eb-item"><span class="eb-label">Inaccuracies</span><span class="eb-val eb-inaccuracy">2</span></div>
+          </div>
+          <p>Zachary playing the Catalan Open as Black (E07). Clean win with 96.7% accuracy. His best-prepared structure as Black — these Catalan positions are deeply understood.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAM School 2026 -->
+  <div class="tourn-section">
+    <div class="tourn-header">PAM School 2026</div>
+    <div class="tourn-body">
+      <p><strong>3W–0L–5D (from known results) · Avg accuracy 94.2% · 8 games analyzed (R7 skipped: 0 moves)</strong></p>
+      <table>
+        <thead><tr><th>Round</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>ECO</th><th>Acc%</th><th>B/M/I</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>R1</td><td>White</td><td>Porras Taipe, Rodrigo</td><td>1634</td><td>C47</td><td>96.6%</td><td>0/3/6</td><td class="win">Win</td></tr>
+          <tr><td>R2</td><td>Black</td><td>Ajith, Aarush</td><td>1860</td><td>E08</td><td>96.4%</td><td>0/1/1</td><td class="win">Win</td></tr>
+          <tr><td>R3</td><td>White</td><td>Yin, Aiden</td><td>1734</td><td>B47</td><td>97.0%</td><td>0/0/4</td><td class="win">Win</td></tr>
+          <tr><td>R4</td><td>Black</td><td>Diaz Guerrero, Jesus Daniel</td><td>2178</td><td>B46</td><td>93.8%</td><td>0/0/3</td><td class="draw">Draw</td></tr>
+          <tr><td>R5</td><td>White</td><td>Yu, Vincent Zhiwen</td><td>1982</td><td>A15</td><td>93.5%</td><td>1/0/1</td><td class="draw">Draw</td></tr>
+          <tr><td>R6</td><td>Black</td><td>Jain, Vihaan</td><td>2157</td><td>B32</td><td>89.6%</td><td>0/3/10</td><td class="draw">Draw</td></tr>
+          <tr><td>R8</td><td>White</td><td>Ayala Delgado, Sergio</td><td>2044</td><td>A13</td><td>97.6%</td><td>0/0/0</td><td class="rbadge-unk">Unknown</td></tr>
+          <tr><td>R9</td><td>Black</td><td>Vuyyuru, Shriyan</td><td>1983</td><td>B47</td><td>88.7%</td><td>0/2/5</td><td class="draw">Draw</td></tr>
+        </tbody>
+      </table>
+
+      <div class="game-review">
+        <div class="game-header">
+          <span class="round-badge">R2</span>
+          <span class="game-opp">Ajith, Aarush (1860)</span>
+          <span class="color-bl">Black</span>
+          <span class="opening-tag">E08 Closed Catalan</span>
+          <span class="rbadge-win">Win</span>
+        </div>
+        <div class="game-body">
+          <div class="engine-bar">
+            <div class="eb-item"><span class="eb-label">Zachary Acc%</span><span class="eb-val acc-hi">96.4%</span></div>
+            <div class="eb-item"><span class="eb-label">Opp Acc%</span><span class="eb-val acc-mid">92.2%</span></div>
+            <div class="eb-item"><span class="eb-label">Avg CPL</span><span class="eb-val">14</span></div>
+            <div class="eb-item"><span class="eb-label">Blunders</span><span class="eb-val">0</span></div>
+            <div class="eb-item"><span class="eb-label">Mistakes</span><span class="eb-val eb-mistake">1</span></div>
+            <div class="eb-item"><span class="eb-label">Inaccuracies</span><span class="eb-val eb-inaccuracy">1</span></div>
+          </div>
+          <p><strong>Zachary vs Aarush — the only direct game between Austin's opponents in this dataset.</strong> Zachary played the Catalan Open as Black (E08) after Aarush played 1.d4 Nf3 Catalan. Zachary won convincingly with 96.4% accuracy. The only error was <code>Nb4?</code> (266 CPL mistake, should play <code>Bxf2+</code>). Aarush's 92.2% accuracy shows he played reasonably but was clearly outplayed in the endgame. This confirms Zachary's Catalan competence is at a very high level.</p>
+        </div>
+      </div>
+
+      <div class="game-review">
+        <div class="game-header">
+          <span class="round-badge">R6</span>
+          <span class="game-opp">Jain, Vihaan (2157)</span>
+          <span class="color-bl">Black</span>
+          <span class="opening-tag">B32 Sicilian</span>
+          <span class="rbadge-draw">Draw</span>
+        </div>
+        <div class="game-body">
+          <div class="engine-bar">
+            <div class="eb-item"><span class="eb-label">Zachary Acc%</span><span class="eb-val acc-mid">89.6%</span></div>
+            <div class="eb-item"><span class="eb-label">Avg CPL</span><span class="eb-val">28</span></div>
+            <div class="eb-item"><span class="eb-label">Blunders</span><span class="eb-val">0</span></div>
+            <div class="eb-item"><span class="eb-label">Mistakes</span><span class="eb-val eb-mistake">3</span></div>
+            <div class="eb-item"><span class="eb-label">Inaccuracies</span><span class="eb-val eb-inaccuracy">10</span></div>
+          </div>
+          <p>Against a 2157-rated opponent in a sharp Sicilian (B32), Zachary made 3 mistakes and 10 inaccuracies for 89.6% accuracy — below his average. The game was drawn. Shows that in complex Sicilian structures even vs strong opposition, his accuracy drops.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Pattern Analysis -->
+  <h2>Pattern Analysis</h2>
+
+  <h3>The Sicilian Weakness — Confirmed Across 3 Events</h3>
+  <p>Zachary's accuracy drops dramatically in sharp Sicilian middlegames — both as White and as Black:</p>
+  <ul>
+    <li><strong>CC G266854 (B46 Taimanov as Black, vs Tseng 1907):</strong> 79.4% accuracy, 4 blunders — loss</li>
+    <li><strong>PAM R4 (B75 Dragon Yugoslav as White, vs Piza 1766):</strong> 83.4% accuracy, 4 blunders — unknown result but nearly certainly losing</li>
+    <li><strong>PS R6 (B32 Sicilian as Black, vs Jain 2157):</strong> 89.6% accuracy, 3 mistakes — draw</li>
+    <li><strong>BC Cup G262643 (A06 Reti, vs Mu 2038):</strong> 89.0% accuracy, 2 blunders — still won, but significantly below par</li>
+  </ul>
+  <div class="warn-box">
+    In non-Sicilian positions: Zachary's average accuracy is ~95%. In sharp Sicilian pawn-storm positions: average drops to ~84%. This is a 10+ percentage point degradation that represents a systematic vulnerability, not random variation.
+  </div>
+
+  <h3>Never Lost as White — A Pattern to Break</h3>
+  <div class="info-box">
+    Zachary has never lost as White in this dataset (13W–0L–8D). His White record is near-perfect. Austin, playing against Zachary's White, must play to create maximum imbalance as Black. Playing solidly into a Reti/English endgame against Zachary as White will almost certainly end in a draw at best, loss at worst.
+  </div>
+
+  <h3>Draw-Seeking with Lower-Rated Opponents</h3>
+  <p>Zachary drew PAM R1 vs a 1645-rated player and PAM R3 vs a 1833-rated player. Both times, he had slight advantages and chose simplification. This pattern suggests he defaults to drawing mode when he perceives the position as "safe enough." Austin's opening prep as Black should specifically avoid giving Zachary this "safe" feeling.</p>
+
+  <h3>Elite Endgame Technique</h3>
+  <div class="good-box">
+    The 97.4% accuracy / 104-move draw against Keleberda (2512) is a benchmark. Zachary's endgame defensive technique is at a very high level. Austin must avoid technical endgames — any simplification that reaches a rook-pawn endgame strongly favors Zachary regardless of material balance.
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<script>
+const games = [
+  { label:'G262638',  acc:95.2, result:'W', tourn:'BC Cup' },
+  { label:'G262640',  acc:95.6, result:'W', tourn:'BC Cup' },
+  { label:'G262643',  acc:89.0, result:'W', tourn:'BC Cup' },
+  { label:'G262645',  acc:94.2, result:'D', tourn:'BC Cup' },
+  { label:'G264860',  acc:93.4, result:'W', tourn:'BC Cup' },
+  { label:'G264863',  acc:97.8, result:'D', tourn:'BC Cup' },
+  { label:'G266159',  acc:93.5, result:'L', tourn:'GV' },
+  { label:'G267713',  acc:97.3, result:'W', tourn:'GV' },
+  { label:'G267714',  acc:97.4, result:'D', tourn:'GV' },
+  { label:'G267722',  acc:93.3, result:'D', tourn:'GV' },
+  { label:'G267727',  acc:96.0, result:'W', tourn:'GV' },
+  { label:'G267731',  acc:92.8, result:'W', tourn:'GV' },
+  { label:'G266854',  acc:79.4, result:'L', tourn:'CC' },
+  { label:'G266894',  acc:97.7, result:'D', tourn:'CC' },
+  { label:'G266937',  acc:94.8, result:'D', tourn:'CC' },
+  { label:'G266976',  acc:93.2, result:'W', tourn:'CC' },
+  { label:'G267050',  acc:95.6, result:'D', tourn:'CC' },
+  { label:'G267092',  acc:96.6, result:'W', tourn:'CC' },
+  { label:'G267125',  acc:93.2, result:'D', tourn:'CC' },
+  { label:'G267161',  acc:88.8, result:'D', tourn:'CC' },
+  { label:'PAM R1',   acc:93.6, result:'D', tourn:'PAM' },
+  { label:'PAM R3',   acc:94.4, result:'D', tourn:'PAM' },
+  { label:'PAM R4',   acc:83.4, result:'?', tourn:'PAM' },
+  { label:'PAM R6',   acc:96.6, result:'?', tourn:'PAM' },
+  { label:'PAM R7',   acc:96.7, result:'W', tourn:'PAM' },
+  { label:'PAM R8',   acc:90.8, result:'D', tourn:'PAM' },
+  { label:'PS R1',    acc:96.6, result:'W', tourn:'PS' },
+  { label:'PS R2',    acc:96.4, result:'W', tourn:'PS' },
+  { label:'PS R3',    acc:97.0, result:'W', tourn:'PS' },
+  { label:'PS R4',    acc:93.8, result:'D', tourn:'PS' },
+  { label:'PS R5',    acc:93.5, result:'D', tourn:'PS' },
+  { label:'PS R6',    acc:89.6, result:'D', tourn:'PS' },
+  { label:'PS R8',    acc:97.6, result:'?', tourn:'PS' },
+  { label:'PS R9',    acc:88.7, result:'D', tourn:'PS' },
+];
+const colors = games.map(g =>
+  g.result === 'W' ? '#2d7d46' :
+  g.result === 'L' ? '#cf2222' :
+  g.result === 'D' ? '#d97706' : '#aaa'
+);
+new Chart(document.getElementById('accChart'), {
+  type: 'bar',
+  data: {
+    labels: games.map(g => g.label),
+    datasets: [{
+      label: 'Accuracy %',
+      data: games.map(g => g.acc),
+      backgroundColor: colors,
+      borderRadius: 3,
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => {
+            const g = games[ctx.dataIndex];
+            return `${g.acc}% (${g.result}) — ${g.tourn}`;
+          }
+        }
+      }
+    },
+    scales: {
+      y: {
+        min: 75,
+        max: 100,
+        ticks: { callback: v => v + '%' }
+      },
+      x: {
+        ticks: { font: { size: 10 }, maxRotation: 45, minRotation: 30 }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>

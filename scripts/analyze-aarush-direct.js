@@ -6,7 +6,7 @@ const { spawn } = require('child_process');
 const { Chess } = require('chess.js');
 
 const ROOT = path.resolve(__dirname, '..');
-const PGN_FILE = path.join(ROOT, 'aarush/direct-encouter.pgn');
+const PGN_FILE = path.join(ROOT, 'opponents/aarush/direct-encouter.pgn');
 const RESULTS_FILE = path.join(__dirname, 'aarush-direct-results.json');
 
 const SF_THREADS = parseInt(process.env.SF_THREADS || '16', 10);

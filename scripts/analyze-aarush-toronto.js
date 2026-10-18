@@ -6,7 +6,7 @@ const { spawn } = require('child_process');
 const { Chess } = require('chess.js');
 
 const ROOT = path.resolve(__dirname, '..');
-const PGN_FILE = path.join(ROOT, 'aarush/torontoopen2026/round6.pgn');
+const PGN_FILE = path.join(ROOT, 'opponents/aarush/torontoopen2026/round6.pgn');
 const RESULTS_FILE = path.join(__dirname, 'aarush-analysis-results.json');
 
 const SF_DEPTH = parseInt(process.env.SF_DEPTH || '18', 10);

@@ -25,8 +25,13 @@ chess-analysis/
 ├── austin-prep.md             # Austin's 1-month training and exercise plan (source)
 ├── austin-prep.html           # Shareable HTML version of austin-prep.md
 ├── justin-analysis.md         # Justin's detailed player analysis
-├── matchup-justin.md          # Austin vs Justin preparation plan (source)
-├── matchup-justin.html        # Shareable HTML version of matchup-justin.md
+├── matchup/
+│   ├── matchup-justin.md          # Austin vs Justin preparation plan (source)
+│   ├── matchup-justin.html        # Shareable HTML version of matchup-justin.md
+│   ├── matchup-aarush.md
+│   ├── matchup-aarush.html
+│   ├── matchup-zachary.md
+│   └── matchup-zachary.html
 │
 ├── austin/
 │   ├── naycc2025/             # NAYCC 2025 games (9 games, PGN format)
@@ -36,11 +41,19 @@ chess-analysis/
 │   └── copilot-review/        # AI-generated tournament review template (reference document)
 │       └── Tournament_Review___Performance_Analysis.md
 │
-└── justin/
-    ├── canadaclosed2026/      # Canada Closed 2026 games (9 games, PGN format)
-    ├── pam2026/               # PAM 2026 games (9 games, non-standard format)
-    ├── pamschool2026/         # PAM School 2026 games (5 games, Lichess broadcast PGN)
-    └── torontoopen2026/       # Toronto Open 2026 games (3 games, Lichess broadcast PGN)
+└── opponents/
+    ├── justin/
+    │   ├── canadaclosed2026/  # Canada Closed 2026 games (9 games, PGN format)
+    │   ├── pam2026/           # PAM 2026 games (9 games, non-standard format)
+    │   ├── pamschool2026/     # PAM School 2026 games (5 games, Lichess broadcast PGN)
+    │   └── torontoopen2026/   # Toronto Open 2026 games (3 games, Lichess broadcast PGN)
+    ├── aarush/
+    │   ├── canadaclosed2026/  # Canada Closed 2026 games
+    │   ├── pamschool2026/     # PAM School 2026 games
+    │   ├── pam2026/           # PAM 2026 games
+    │   └── torontoopen2026/   # Toronto Open 2026 games
+    ├── zachary/               # Zachary Liu games
+    └── heye/                  # Heye games
 ```
 
 ---
@@ -97,7 +110,7 @@ When new games are added for Austin or an opponent:
    - Any new opening patterns observed
    - Notable tactical or strategic moments
 
-3. Update `matchup-{opponent-name}.md` if new games reveal meaningful pattern changes.
+3. Update `matchup/matchup-{opponent-name}.md` if new games reveal meaningful pattern changes.
 
 4. Note the tournament name convention: use lowercase with no spaces (e.g., `naycc2025`, `pam2026`, `canadaclosed2026`).
 
@@ -107,7 +120,7 @@ When new games are added for Austin or an opponent:
 
 When a new opponent folder is added:
 
-1. Create `{opponentname}/` directory with tournament subdirectories.
+1. Create `opponents/{opponentname}/` directory with tournament subdirectories.
 2. Read all PGN files in that directory.
 3. Create `{opponent-name}-analysis.md` following the same structure as `justin-analysis.md`:
    - Overall results table by tournament and color
@@ -116,7 +129,7 @@ When a new opponent folder is added:
    - Strategic patterns
    - Key game summaries
    - Summary profile table
-4. Create `matchup-{opponent-name}.md` (e.g., `matchup-justin.md`, `matchup-alex.md`) with:
+4. Create `matchup/matchup-{opponent-name}.md` (e.g., `matchup/matchup-justin.md`, `matchup/matchup-alex.md`) with:
    - Analysis by color (Austin White and Austin Black)
    - Specific opening recommendations
    - Key tactical themes to prepare
@@ -176,8 +189,8 @@ When more games are added, consider:
 ## Notes on Data Quality
 
 - PAM 2026 files do not include full PGN headers, only players, date, moves, and result. Tournament name and round info may need to be inferred from context.
-- Some PAM 2026 games appear to have incomplete move records (e.g., `justin/pam2026/round5.pgn` ends at move 15 despite showing a 1-0 result — may be a truncated PGN or an early resignation).
+- Some PAM 2026 games appear to have incomplete move records (e.g., `opponents/justin/pam2026/round5.pgn` ends at move 15 despite showing a 1-0 result — may be a truncated PGN or an early resignation).
 - NAYCC game IDs in filenames (e.g., `game_263278.pgn`) correspond to the `[GameId]` field in the PGN headers.
-- `justin/pamschool2026/` uses Lichess broadcast PGN format (full headers, evals, clock). The file names are `round4.pgn`–`round8.pgn` but the actual `[Round]` tags in the PGNs may not match the filenames exactly (e.g., `round7.pgn` contains Round 8, `round8.pgn` contains Round 9). Several games have `*` as the Result tag — these were live-broadcast games with incomplete or unknown results.
-- `justin/torontoopen2026/` also uses Lichess broadcast PGN format. Only rounds 2, 4, and 5 are present (rounds 1, 3 not included).
+- `opponents/justin/pamschool2026/` uses Lichess broadcast PGN format (full headers, evals, clock). The file names are `round4.pgn`–`round8.pgn` but the actual `[Round]` tags in the PGNs may not match the filenames exactly (e.g., `round7.pgn` contains Round 8, `round8.pgn` contains Round 9). Several games have `*` as the Result tag — these were live-broadcast games with incomplete or unknown results.
+- `opponents/justin/torontoopen2026/` also uses Lichess broadcast PGN format. Only rounds 2, 4, and 5 are present (rounds 1, 3 not included).
 - `austin/copilot-review/Tournament_Review___Performance_Analysis.md` is an AI-generated reference document (likely GitHub Copilot). It covers a generic 6-round tournament for an unspecified ~1800–2000 Elo player and is NOT Austin's specific game analysis — treat it as a template/reference only.
