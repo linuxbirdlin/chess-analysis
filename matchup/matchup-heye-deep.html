@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta content="pandoc 3.10" name="generator"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport"/>
+<title>Austin Lin vs Heye Gao — Preparation Plan</title>
+<style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  
+    /* ── IM Analysis injection ── */
+    .im-analysis { margin-top: 14px; border-top: 1px dashed #d0d7de; padding-top: 12px; }
+    .im-section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #57606a;
+      margin: 10px 0 4px;
+    }
+    .im-opening-row {
+      font-size: 0.85rem;
+      margin: 4px 0 8px;
+      padding: 7px 12px;
+      background: #f6f8fa;
+      border-left: 3px solid #2d7d46;
+      border-radius: 0 4px 4px 0;
+    }
+    .im-dev { color: #b91c1c; font-weight: 600; }
+    .im-book { color: #2d7d46; }
+    .im-moment {
+      font-size: 0.84rem;
+      padding: 6px 10px;
+      margin: 4px 0;
+      border-radius: 4px;
+      border-left: 3px solid #d4750a;
+      background: #fff8f0;
+    }
+    .im-moment.austin-blunder { border-left-color: #cf2222; background: #fff5f5; }
+    .im-moment.opponent-miss  { border-left-color: #2d7d46; background: #dafbe1; }
+    .im-tags { margin: 8px 0 4px; }
+    .im-tag {
+      display: inline-block;
+      background: #f0f4f8;
+      border: 1px solid #d0d7de;
+      border-radius: 12px;
+      padding: 2px 10px;
+      font-size: 0.77rem;
+      margin: 2px 3px;
+      color: #444;
+    }
+    .im-tag.endgame       { background: #fff8e6; border-color: #d4a017; color: #7a4f00; }
+    .im-tag.conversion    { background: #fff8e6; border-color: #d4a017; color: #7a4f00; }
+    .im-tag.king-safety-h-file { background: #fff5f5; border-color: #cf2222; color: #7a0000; }
+    .im-tag.opening-prep  { background: #eaf5fb; border-color: #1a5276; color: #1a3a5c; }
+    .im-tag.tactical-miss { background: #fdf2f8; border-color: #9b59b6; color: #5b2c6f; }
+    .im-prep {
+      font-size: 0.86rem;
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: #fff8e6;
+      border-left: 3px solid #d4a017;
+      border-radius: 0 4px 4px 0;
+      color: #7a4f00;
+    }
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Austin Lin vs Heye Gao — Preparation Plan</h1>
+</header>
+<h1 id="austin-lin-vs-heye-gao-tournament-preparation-plan">Austin Lin
+vs Heye Gao — Tournament Preparation Plan</h1>
+<p><strong>Austin’s rating:</strong> ~1865–1968<br/>
+<strong>Heye’s rating:</strong> CM, ~2028–2065<br/>
+<strong>Rating gap:</strong> Heye is roughly 100–200 points stronger on
+paper — Austin needs concrete preparation and imbalance<br/>
+<strong>Direct encounter:</strong> Austin (White) vs Heye (Black), B43
+Sicilian Kan, result: <code>*</code> (study game, unfinished — not a
+full-result game)</p>
+<hr/>
+<h2 id="direct-encounters">Direct Encounters</h2>
+<p><strong>Study Game (Mar 22 2026) — Austin (White) vs Heye (Black),
+B43 Sicilian Kan, result: * (unfinished)</strong></p>
+<p>Austin played 1.e4 and Heye responded with the <strong>Sicilian
+Kan</strong>:
+<code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6 5.Nc3 Qc7 6.Be2 b5 7.O-O Bb7 8.Bf3 Nc6</code>.
+The game went to move 60 without a result being recorded. This is a
+study game that Austin annotated — it does not tell us a competitive
+result, but it confirms exactly what Heye will play vs 1.e4. Austin used
+<code>a4</code> to challenge Black’s b5 expansion.</p>
+<p><strong>What the game reveals:</strong> 1. Heye plays Sicilian Kan vs
+Austin’s 1.e4 — not the French, not 1…e5. This is the opening Austin
+must prepare. 2. Heye’s Kan setup:
+<code>...a6/...Qc7/...b5/...Bb7/...Nc6</code> — the standard queenside
+fianchetto with central control. He delays …Nf6 to control the tempo. 3.
+Austin’s <code>a4</code> challenge is the correct plan — but requires
+knowing the resulting positions after
+<code>...b4 Nd5 Qa5 Nxc6 Bxc6 Nxb4</code>.</p><div id="im-direct-encounters" style="margin-top:24px; border-top:2px solid #1a5276; padding-top:18px;"><div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;"><strong style="font-size:1rem; color:#1f2328;">Deep Analysis</strong><span style="font-size:0.72rem; font-weight:700; background:#1a5276; color:#fff; border-radius:4px; padding:1px 8px; letter-spacing:0.04em;">DEPTH 22</span></div><div style="border:1px solid #d0d7de; border-radius:8px; margin-bottom:14px; overflow:hidden;"><div style="background:#f6f8fa; border-bottom:1px solid #d0d7de; padding:9px 14px; display:flex; gap:8px; align-items:center; flex-wrap:wrap;"><span style="font-size:0.74rem; font-weight:700; border-radius:3px; padding:1px 6px; background:#2d2d2d;color:#fff;">Austin Black</span><span style="font-weight:600; font-size:0.92rem; flex:1;">vs Aarush Ajith</span><span style="font-size:0.8rem; font-weight:700; border-radius:4px; padding:2px 8px; background:#fff8e6;color:#7a4f00;">DRAW</span></div><div style="padding:12px 16px;"><div class="" style="margin-top:0;"><div class="im-section-label">Opening Deviation</div><div class="im-opening-row"><span>E00 Catalan Opening — </span><span class="im-dev">Move 5 (Black): O-O</span><span class="im-book"> · Book: O-O, dxc4, Ne4</span></div><div class="im-section-label">Critical Moments</div><div class="im-moment austin-blunder">Move 24: Austin played Nxd5 (–1.5 pawns). Best was Bxd5 — Bxd5 Rxe6.</div><div class="im-moment austin-blunder">Move 28: Austin played Qc6 (–1.5 pawns). Best was Qa8 — Qa8 Qb5 h6.</div><div class="im-moment opponent-miss">Move 21: Opponent erred with Bg2 (+1.4). Winning was Qf1: Qf1 Qd8 Rc2.</div><div class="im-section-label">Patterns</div><div class="im-tags"><span class="im-tag conversion">conversion</span><span class="im-tag tactical-miss">tactical miss</span></div><div class="im-prep">Prep note: Study endgame conversion as Black — missed winning technique in this game.</div></div></div></div><div style="border:1px solid #d0d7de; border-radius:8px; margin-bottom:14px; overflow:hidden;"><div style="background:#f6f8fa; border-bottom:1px solid #d0d7de; padding:9px 14px; display:flex; gap:8px; align-items:center; flex-wrap:wrap;"><span style="font-size:0.74rem; font-weight:700; border-radius:3px; padding:1px 6px; background:#fff;color:#1f2328;border:1px solid #aaa;">Austin White</span><span style="font-weight:600; font-size:0.92rem; flex:1;">vs Gao, Heye</span><span style="font-size:0.8rem; font-weight:700; border-radius:4px; padding:2px 8px; background:#f6f8fa;color:#57606a;">UNKNOWN</span></div><div style="padding:12px 16px;"><div class="" style="margin-top:0;"><div class="im-section-label">Opening Deviation</div><div class="im-opening-row"><span>B43 Sicilian Defense: Kan Variation, Knight Variation — </span><span class="im-dev">Move 7 (White): O-O</span><span class="im-book"> · Book: a3, O-O, Be3</span></div><div class="im-section-label">Critical Moments</div><div class="im-moment austin-blunder">Move 42: Austin played c8=Q+ (–5.2 pawns). Best was Ra7 — endgame technique: Ra7 Bc8 Ra8.</div><div class="im-moment opponent-miss">Move 40: Opponent played Rxg2+ (blunder, +2.9). Austin could have won with f2+: f2+ Kh1 Bd7.</div><div class="im-moment opponent-miss">Move 9: Opponent played d6 (–2.6 pawns). Theory prefers Bd6 (Bd6 Nxc6 dxc6).</div><div class="im-section-label">Patterns</div><div class="im-tags"><span class="im-tag endgame">endgame</span><span class="im-tag conversion">conversion</span><span class="im-tag opening-prep">opening prep</span></div><div class="im-prep">Prep note: Study endgame conversion as White — missed winning technique in this game.</div></div></div></div></div>
+<hr/>
+<h2 id="part-1-austin-as-white-vs-heye">Part 1 — Austin as White vs
+Heye</h2>
+<h3 id="what-heye-will-play">What Heye will play</h3>
+<p>Heye plays <strong>Sicilian Kan (B43)</strong> against 1.e4, as
+confirmed by the direct encounter. His setup:
+<code>1...c5 2...e6 3...a6 4...Qc7 5...b5 6...Bb7</code>. He delays
+knight development and prioritizes the b5 queenside expansion.</p>
+<p>This is different from Heye’s Black system against other opponents
+(he plays open 1…e5 games vs Italian players), so the Kan may be
+specifically prepared for Austin’s 1.e4.</p>
+<h3 id="recommended-white-preparation-rossolimo-3.bb5-vs-the-knight-first-kan">Recommended
+White Preparation: Rossolimo (3.Bb5) vs the Knight-First Kan</h3>
+<p>If Heye plays <code>2...Nc6</code> before …e6, Austin’s Rossolimo
+<code>3.Bb5</code> applies directly and avoids the Kan entirely.
+However, Heye specifically plays <code>2...e6</code> first in the direct
+encounter — so the Rossolimo does not apply.</p>
+<h3 id="recommended-white-preparation-keres-attack-or-english-attack-vs-the-kan">Recommended
+White Preparation: Keres Attack or English Attack vs the Kan</h3>
+<p><strong>Primary system: English Attack / Classical Sicilian
+setup</strong></p>
+<p>Against the Kan <code>5...Qc7</code>, Austin can use the
+<code>Be2/f3/Be3/Qd2/O-O-O</code> English Attack — the same system he
+has drilled vs other Sicilians:</p>
+<pre><code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6 5.Nc3 Qc7
+6.Be2 b5 7.Bf3!</code></pre>
+<p>After <code>7.Bf3</code>, the position is from the direct encounter.
+Key line continues: -
+<code>7...Nc6 8.Re1 d6 9.a4 b4 10.Nd5 Qa5 11.Nxc6 Bxc6 12.Nxb4</code> —
+Austin picks up the pawn and enters a structural edge - Or
+<code>7...Nf6 8.O-O Be7 9.Re1 d6 10.a4 b4 11.Nd5</code> — standard Kan
+with White central knight on d5</p>
+<p><strong>Why this works specifically vs Heye:</strong> 1. The direct
+encounter game (Austin’s own study) shows Austin can get a position
+where <code>a4</code> disrupts Heye’s queenside — Austin already knows
+this structure 2. Heye’s Kan has not been tested at the competitive
+level (the encounter was a study game) — he may not have deep
+preparation beyond the main Kan theory 3. Heye’s Black results are
+mixed: his tactical blunders (PAM R9 <code>23...Kg8??</code>, PAM R7
+<code>24...Qe7??</code>) suggest Black calculation failures under time
+pressure — creating a sharp middlegame maximizes this weakness</p>
+<p><strong>Alternative: Keres Attack (6.g4)</strong><br/>
+The Keres Attack
+<code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6 5.g4!?</code> is extremely
+aggressive and well outside standard Kan theory. The idea is to expand
+kingside immediately before Black can organize. However, this requires
+specific preparation and Austin should only play it if he has drilled
+the resulting positions.</p>
+<h3 id="key-tactical-themes-austin-white-should-target">Key tactical
+themes Austin White should target</h3>
+<ol type="1">
+<li><p><strong>d5 knight outpost:</strong> In the Kan, White’s
+<code>Nd5</code> is always the central motif. After
+<code>...Nc6 Nd5 Qa5 Nxc6 bxc6</code>, Black gets the c6 pawn but White
+controls d5 and d6. Austin should aim for this trade structure and then
+exploit the isolated d6 pawn.</p></li>
+<li><p><strong>a4 challenge to b5:</strong> Heye will push …b5. Austin
+should respond with <code>a4</code> as seen in the direct encounter. If
+Heye plays …b4, White can respond with <code>Nd5</code> or
+<code>Nb1-d2-b3</code> maneuvering.</p></li>
+<li><p><strong>Kingside attack after long castle:</strong> If Austin
+plays <code>O-O-O</code>, the <code>g4-g5</code> pawn storm is the
+standard Kan attacking plan. Heye has faced <code>h4</code> attacks from
+White before (Ontario R4 he beat Vettese’s attack, but that was after
+White made a tactical blunder <code>g4??</code>). A properly prepared
+<code>g4</code> storm from Austin is more dangerous.</p></li>
+<li><p><strong>Keep Queens on:</strong> Heye’s White endgame technique
+is very strong. Avoid queen exchanges into pawn endgames — keep the game
+complex. Heye converts cleanly in endgames with rook + pawn advantages
+(PAM R1, R8).</p></li>
+</ol>
+<h3 id="what-not-to-do-as-austin-white">What NOT to do as Austin
+White</h3>
+<ul>
+<li><strong>Do not simplify into an endgame early.</strong> Heye’s White
+record (8W/1D/3L) vs his Black record (4W/4D/4L) shows he’s a much
+better technical player than a fighting player. As Black in a simplified
+endgame, he will still be solid and hard to beat. Austin needs to keep
+the tension.</li>
+<li><strong>Do not play passive setups.</strong> Against the Kan,
+passive White play (Be2/Nf3/O-O without a plan) lets Black organize with
+…d6/…Nf6/…Be7/…O-O and reach a solid position. Austin must be concrete
+and aggressive.</li>
+</ul>
+<hr/>
+<h2 id="part-2-austin-as-black-vs-heye">Part 2 — Austin as Black vs
+Heye</h2>
+<h3 id="what-heye-will-play-as-white">What Heye will play as White</h3>
+<p>Heye plays <strong>1.e4 exclusively</strong> and primarily the
+<strong>Italian Game (C54/C55)</strong>: <code>Bc4/d3/c3</code> with
+<code>b4/a4</code> queenside expansion. His main structure:</p>
+<pre><code>1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 (or ...Nf6) 4.d3 d6 5.c3 O-O 6.b4</code></pre>
+<p>He also plays: - Queenside expansion with <code>a4/a5</code> locking
+queenside space - <code>Nbd2–Nc4</code> central knight maneuver to
+attack d6 or support b4 - <code>Bxe6 fxe6</code> exchange to give Black
+doubled e-pawns (seen in Ontario R2 and PAM R8)</p>
+<p>Heye is <strong>unlikely to face Austin’s standard
+Nimzo-Indian</strong> since he plays 1.e4. Austin’s regular Black weapon
+(Nimzo vs 1.d4) does not apply here.</p>
+<h3 id="austin-should-play-the-sicilian-vs-1.e4">Austin should play the
+Sicilian vs 1.e4</h3>
+<p>Austin’s standard weapon vs 1.e4 is the <strong>Sicilian
+Defense</strong>. This is confirmed by his games across NAYCC and PAM
+2026. Against Heye’s 1.e4, Austin should absolutely play Sicilian and
+force Heye into sharp Sicilian positions — which is NOT Heye’s primary
+White system (he prefers the Italian against 1…e5).</p>
+<p><strong>If Heye plays the Closed Sicilian or Anti-Sicilian:</strong>
+Heye has only been observed playing <code>2.Nf3 3.d4</code> Open
+Sicilian against <code>1...c5</code>. If he plays <code>2.Nc3</code> or
+<code>2.c3</code>, Austin should be aware — but the data suggests he
+will enter the Open Sicilian.</p>
+<p><strong>Austin’s Sicilian system recommendation: Najdorf or Kan as
+Black</strong></p>
+<p>Austin has Black Sicilian experience. The key question is which
+Sicilian Heye handles best as White: - Heye plays <strong>Yugoslav
+Attack (Be3/f3/Qd2)</strong> vs Dragon (B75) and Scheveningen (B80) -
+Heye’s Italian White skills don’t transfer directly to Open Sicilian -
+Heye has <strong>no documented games</strong> where he faced the
+<strong>Najdorf</strong> specifically</p>
+<p>Recommendation: <strong>Austin plays the Najdorf (5…a6)</strong> —
+Heye’s experience vs the Najdorf is unknown, while his Italian Game
+preparation is deep. The Najdorf forces Heye to either enter familiar
+Yugoslav territory (where Austin can prepare) or venture into unfamiliar
+Najdorf theory.</p>
+<p><strong>Alternatively: Nimzo/Benko-Indian idea doesn’t apply</strong>
+— since Heye plays 1.e4, Austin cannot use his d4 Black weapons. The
+Sicilian is Austin’s true weapon here.</p>
+<h3 id="key-themes-austin-black-should-target">Key themes Austin Black
+should target</h3>
+<ol type="1">
+<li><p><strong>Counterattack against Italian expansion:</strong> If Heye
+plays the Italian and Austin plays <code>1...e5</code>, the
+<code>...d5</code> counter in the right moment (typically after
+<code>Be3</code> or when White has committed his queenside pawns) gives
+Austin play. The <code>...Nf4</code> knight intrusion motif (seen in PAM
+R8: opponent played <code>Nf4?</code> but Heye missed the idea) is
+relevant.</p></li>
+<li><p><strong>Piece activity over pawn structure:</strong> Heye’s
+Italian as White converts when he gets a structural advantage (passed
+queenside pawn). Austin should prioritize <strong>keeping pieces
+active</strong> and not allow Heye’s queenside to expand unopposed. The
+<code>...d5</code> break at the right moment liquidates Heye’s
+advantage.</p></li>
+<li><p><strong>Target the h2/g3 weakness:</strong> In multiple Heye
+White games, his g3/h3/h2 complex becomes weak when he advances
+queenside pawns. Canada R7 (vs Zachary Dukic): Black won with
+<code>Bxh2</code>. Canada R9 (vs Yin): Black had
+<code>...e4 f3 Bf4 Ne5 Nf3</code> attack pattern. Austin should watch
+for similar tactical opportunities when Heye’s king is in the
+corner.</p></li>
+<li><p><strong>Avoid simplified endgames.</strong> Heye converts Italian
+endings cleanly — Austin should fight for the middlegame and avoid
+trading into rook+pawn endings where Heye’s endgame technique
+dominates.</p></li>
+</ol>
+<hr/>
+<h2 id="part-3-psychological-and-practical-notes">Part 3 — Psychological
+and Practical Notes</h2>
+<p><strong>Heye’s rating volatility:</strong> He went from 2028 to 2065
+to 2044 across three tournaments. This suggests he is still developing
+and can be inconsistent — especially as Black under pressure. Austin
+should be confident playing sharp positions.</p>
+<p><strong>Heye blunders under time pressure:</strong> Both documented
+Heye losses in PAM 2026 (R7 <code>24...Qe7??</code>, R9
+<code>23...Kg8??</code>) occurred when he was under 25 minutes. Austin
+should <strong>manage the clock aggressively</strong> — playing quickly
+in known positions to force Heye into time pressure.</p>
+<p><strong>Heye’s Italian is deep-prepared:</strong> He plays the same
+<code>d3/c3/b4</code> Italian system consistently across Canada Closed,
+Ontario, and PAM. Austin should not try to “out-prepare” Heye in the
+Italian as Black — instead, play the Sicilian to take Heye out of his
+best preparation.</p>
+<p><strong>The Vettese upset (Ontario R4):</strong> Heye beat 2410-rated
+Vettese as Black after a tactical miscue by White. This shows Heye can
+calculate precisely when given concrete targets. If Austin gets into
+tactical complications as White, Heye may find the shot. Austin should
+seek <strong>controlled aggression</strong> (clear attacking plans)
+rather than random complications.</p>
+<p><strong>Heye has never lost as White in the Italian Game</strong> in
+this dataset (PAM R7 loss was as Black). His Italian confidence is high.
+Austin must avoid the Italian mirror with 1…e5 and instead play Sicilian
+to break Heye’s rhythm.</p>
+<hr/>
+<h2 id="summary-cheat-sheet">Summary Cheat Sheet</h2>
+<table>
+<colgroup>
+<col style="width: 50%"/>
+<col style="width: 50%"/>
+</colgroup>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Austin as White vs Heye</td>
+<td>Play 1.e4; prepare Kan (B43) lines with
+<code>7.Bf3/a4/Nd5</code></td>
+</tr>
+<tr>
+<td>Heye plays <code>...b5</code> Kan</td>
+<td>Respond <code>a4</code>, aim for
+<code>Nd5 Qa5 Nxc6 bxc6 Nxb4</code></td>
+</tr>
+<tr>
+<td>Austin as Black vs Heye</td>
+<td>Play Sicilian, not 1…e5; Najdorf (5…a6) avoids Heye’s Italian</td>
+</tr>
+<tr>
+<td>Heye plays Italian as White</td>
+<td>Execute <code>...d5</code> break when ready; watch
+<code>Bxh2/...e4</code> tactics</td>
+</tr>
+<tr>
+<td>Endgame situations</td>
+<td>Keep queens + pieces; Heye converts endgames cleanly</td>
+</tr>
+<tr>
+<td>Time trouble situations</td>
+<td>Austin manages clock; Heye blunders under 25 min</td>
+</tr>
+<tr>
+<td>Key tactical theme to drill</td>
+<td><code>Nd5</code> outpost in Kan; <code>...d5!</code> break in
+Italian</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
