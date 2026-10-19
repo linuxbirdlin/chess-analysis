@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Pranav Santhosh — Chess Analysis Report</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 680px) {
+      .page { padding: 24px 20px 40px; }
+    }
+
+    .doc-header {
+      border-bottom: 3px solid #2d7d46;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 {
+      margin: 0 0 8px;
+      font-size: 1.85rem;
+      color: #1f2328;
+    }
+    .doc-header .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.9rem;
+      color: #57606a;
+    }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 0.875rem;
+      color: #2d7d46;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 {
+      font-size: 1.3rem;
+      color: #1f2328;
+      margin: 40px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #d0d7de;
+    }
+    h3 {
+      font-size: 1.05rem;
+      color: #2d7d46;
+      margin: 24px 0 8px;
+    }
+    h4 {
+      font-size: 0.95rem;
+      color: #1f2328;
+      margin: 18px 0 6px;
+      font-weight: 600;
+    }
+
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+
+    ul, ol {
+      margin: 8px 0 14px;
+      padding-left: 1.5em;
+    }
+    li { margin-bottom: 4px; }
+    li > ul, li > ol { margin-top: 4px; margin-bottom: 4px; }
+
+    .encounter {
+      background: #fff8e6;
+      border: 1px solid #d4a017;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 0.93rem;
+      margin-bottom: 28px;
+    }
+    .encounter strong { color: #7a4f00; }
+
+    .part-card {
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      margin: 24px 0;
+      overflow: hidden;
+    }
+    .part-card .part-title {
+      background: #2d7d46;
+      color: #fff;
+      padding: 12px 20px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    .part-card .part-title.alt {
+      background: #1a5276;
+    }
+    .part-card .part-title.psych {
+      background: #6b3fa0;
+    }
+    .part-card .part-body {
+      padding: 20px 24px;
+    }
+    .part-card h3 { margin-top: 20px; }
+    .part-card h3:first-child { margin-top: 0; }
+
+    .warn-box {
+      background: #fff5f5;
+      border-left: 4px solid #cf2222;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 12px 0;
+      font-size: 0.93rem;
+      color: #7a0000;
+    }
+
+    .tip-box {
+      background: #dafbe1;
+      border-left: 4px solid #2d7d46;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 12px 0;
+      font-size: 0.93rem;
+      color: #1a4731;
+    }
+
+    .info-box {
+      background: #eaf0f8;
+      border-left: 4px solid #1a5276;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 12px 0;
+      font-size: 0.93rem;
+      color: #1a3a55;
+    }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: #f0f4f8;
+      border: 1px solid #d0d7de;
+      border-radius: 4px;
+      padding: 1px 5px;
+      white-space: nowrap;
+    }
+    pre {
+      background: #1b1f24;
+      color: #adbac7;
+      border-radius: 8px;
+      padding: 16px 20px;
+      overflow-x: auto;
+      margin: 12px 0 20px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+    pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      white-space: pre;
+      color: inherit;
+      font-size: inherit;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin: 16px 0 24px;
+    }
+    thead th {
+      background: #2d7d46;
+      color: #ffffff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+    }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #ffffff; }
+    tbody td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #d0d7de;
+      vertical-align: top;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+
+    .study-block {
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 14px 0;
+    }
+    .study-block h4 { margin-top: 0; color: #2d7d46; }
+
+    .opening-box {
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin: 14px 0;
+    }
+    .opening-box h3 { margin: 0 0 10px; font-size: 0.95rem; color: #1f2328; }
+
+    em { font-style: italic; color: #57606a; }
+    strong { font-weight: 600; }
+
+  /* ── Readability overrides ── */
+  html { background: #eef1f5; }
+  body {
+    max-width: 52em;
+    background: #ffffff;
+    padding: 2.5rem 3.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    border-radius: 6px;
+    box-shadow: 0 1px 8px rgba(0,0,0,.09);
+  }
+  @media (max-width: 700px) {
+    body { padding: 1.25rem 1rem; box-shadow: none; border-radius: 0; }
+  }
+  code {
+    background: #f0f4f8; border: 1px solid #dce3eb; border-radius: 3px;
+    padding: 0.1em 0.42em; font-size: 0.87em; color: #0f2044; hyphens: none;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  }
+  pre { background: #1e2d40; border: none; border-radius: 6px; padding: 1em 1.4em; overflow-x: auto; }
+  pre code { background: none; border: none; padding: 0; color: #c8ddf0; font-size: 0.875em; line-height: 1.5; }
+  table { display: table; width: 100%; }
+  thead tr { background: #1a5276; }
+  th { color: #ffffff; border-top: none; padding: 0.65em 1.1em; text-align: left; font-weight: 600; }
+  td { padding: 0.55em 1.1em; border-top: 1px solid #e5e7eb; vertical-align: top; }
+  tbody tr:nth-child(even) { background: #f7f9fc; }
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Pranav Santhosh — Chess Analysis Report</h1>
+</header>
+<h1 id="pranav-santhosh-chess-analysis-report">Pranav Santhosh — Chess
+Analysis Report</h1>
+<p><strong>Tournaments analyzed:</strong> AGCA Summer 2026 (Austin TX) ·
+World Youth Championship 2026 (Montesilvano ITA)<br />
+<strong>Rating:</strong> 1940 FIDE (consistent across both
+tournaments)<br />
+<strong>Total games reviewed:</strong> 18 (7 AGCA Summer with concrete
+data; 11 World Youth)<br />
+<strong>Note:</strong> AGCA Fall 2026 file present but empty (no game
+data). AGCA Summer rounds 2, 3, 6, 7 ended with <code>*</code> result
+(live broadcast, incomplete capture); 4 concrete results available from
+that tournament.</p>
+<hr />
+<h2 id="overall-results">1. Overall Results</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Tournament</th>
+<th>As White</th>
+<th>As Black</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AGCA Summer 2026</td>
+<td>1W–1L (R5, R9)</td>
+<td>0W–0L–1D (R4)</td>
+<td>1W–1L–1D</td>
+</tr>
+<tr>
+<td>World Youth 2026</td>
+<td>4W–2L (R1,R3,R6,R8,R10,R11)</td>
+<td>2W–3L (R2,R4,R5,R7,R9)</td>
+<td>6W–5L</td>
+</tr>
+<tr>
+<td><strong>Combined</strong></td>
+<td><strong>5W–3L</strong></td>
+<td><strong>2W–3L–1D</strong></td>
+<td><strong>7W–6L–1D</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Critical context:</strong> Pranav’s White record (5W–3L) is
+significantly better than his Black record (2W–3L–1D). He wins
+confidently against lower-rated opposition as White but struggles to
+hold ground as Black against 2100+ players. At World Youth he scored
+6/11 — impressive given the field, but all 5 losses came against
+opponents rated 2100–2366, and 3 of those losses were as Black.</p>
+<hr />
+<h2 id="opening-repertoire">2. Opening Repertoire</h2>
+<h3 id="as-white-1.e4-exclusively">As White — 1.e4 exclusively</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Opponent System</th>
+<th>Variation Played</th>
+<th>Record</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sicilian Najdorf/Dragon (1…c5 2…d6+a6 or …Nc6)</td>
+<td>English Attack: 5.Nc3 a6 6.Be3</td>
+<td>1W–1L (WY R1 loss vs 2366, WY R8 win vs 1767)</td>
+</tr>
+<tr>
+<td>Sicilian Accelerated Dragon / Maróczy (1…c5 2…Nc6+g6)</td>
+<td>Maróczy Bind: 4.Nxd4 g6 5.c4</td>
+<td>2W (AGCA Summer R5, WY R11)</td>
+</tr>
+<tr>
+<td>Sicilian Taimanov-type (1…c5 2…e6+Nc6)</td>
+<td>5.c4 Nf6 6.Nc3 Bb4 7.Nxc6 exchange</td>
+<td>0W–1L (WY R10)</td>
+</tr>
+<tr>
+<td>Sicilian anti-Najdorf unusual (3…Nf6 4.dxc5)</td>
+<td>Early dxc5 sideline</td>
+<td>0W–1L (AGCA Summer R9)</td>
+</tr>
+<tr>
+<td>Open Game 1…e5</td>
+<td>Italian: 3.Bc4 d3/c3 quiet setup</td>
+<td>2W (WY R3, WY R6)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>White opening notes:</strong> - Pranav plays 1.e4 in every
+game; this is his only first move. - <strong>Against Sicilian with 1…c5
+2…d6+Nf6 (Najdorf/Dragon setup):</strong> He uses the English Attack
+(6.Be3), building with f3, Qd2, g4 ideas or Nd5 central outpost. Used
+consistently across AGCA Summer R3, WY R1, and WY R8. - <strong>Against
+Accelerated Dragon (1…c5 2…Nc6 3…g6):</strong> He pivots to the Maróczy
+Bind with 5.c4, denying Black’s typical kingside counterplay. Beat
+Maddipati (1936) and Fadeev (2127) with this. - <strong>Against
+1…e5:</strong> He uses the quiet Italian — 3.Bc4, then 4.d3 or 4.c3,
+avoiding the sharp Bc4+d4 Scotch. This is a “keep-the-tension”
+positional approach; he does not sacrifice early. - <strong>His best
+White results</strong> come from slow positional squeezes (WY R6 vs Tay
+— rook invasion via h7, WY R8 vs Naimov — a5 passed pawn, WY R11 vs
+Fadeev — Nd5 outpost + queenside pawns).</p>
+<h3 id="as-black-1e5-against-1.e4">As Black — 1…e5 against 1.e4</h3>
+<p>Pranav plays <strong>1…e5</strong> as Black against 1.e4 in every
+game observed. He never plays the French, Sicilian, Caro-Kann, or other
+defenses — he is an Open Game player as Black.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Game</th>
+<th>Opponent’s Opening</th>
+<th>Pranav’s Response</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AGCA Summer R4</td>
+<td>1.e4 e5 (Italian Dubov: 6.b4!)</td>
+<td>…Bc5 (Giuoco Piano)</td>
+<td>Drew</td>
+</tr>
+<tr>
+<td>WY R4 vs Gabadadze (2147)</td>
+<td>1.e4 e5 2.Nf3 Nc6 3.Bb5 (Ruy Lopez)</td>
+<td>…a6 …Nf6 …b5 …Bc5 (classical Lopez)</td>
+<td>Lost</td>
+</tr>
+<tr>
+<td>WY R5 vs Rusu (2191)</td>
+<td>1.e4 e5 2.Nf3 Nc6 3.Bb5 (Ruy Lopez)</td>
+<td>…a6 …Nf6 …b5 (classical Lopez, …Na5 plan)</td>
+<td>Lost</td>
+</tr>
+<tr>
+<td>WY R7 vs Diaz Guerrero (2102)</td>
+<td>1.e4 e5 2.Nf3 Nc6 3.Bc4 (Italian)</td>
+<td>…Bc5 (Giuoco Piano / Italian Classical)</td>
+<td>Lost</td>
+</tr>
+<tr>
+<td>WY R9 vs Ivancic (2166)</td>
+<td>1.e4 e5 2.Nf3 Nc6 3.d4 (Scotch)</td>
+<td>…exd4 …Nf6 …Nxc6 bxc6 (Scotch, Mieses)</td>
+<td><strong>Won</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Against 1.d4 or 1.Nf3, Pranav plays QGD structures (d5+e6+Bf5): -
+AGCA Summer R7: 1.d4 d5 2.c4 e6 → QGD Exchange, held as Black. - WY R2:
+1.Nf3 d5 2.g3 → …Nf6 …d5 …Bf5, beat a 1644.</p>
+<p><strong>Black opening notes:</strong> - Pranav’s Black repertoire
+against 1.e4 is <strong>Open Game (1…e5)</strong> with either Ruy Lopez
+or Italian depending on White’s choice. He does NOT play the French or
+Sicilian. - His Italian Black games feature …Bc5 (Giuoco Piano), not
+…Nf6 Two Knights with an early …d5 pawn break. - His Ruy Lopez Black
+games feature the traditional …a6 …b5 approach (not the Berlin or
+Marshall), with …Bc5 to contest the center. - <strong>Critical
+weakness:</strong> He is 0W–3L against opponents rated 2102–2191 as
+Black in the Italian/Lopez. He struggles when White gets a space
+advantage and can maneuver slowly. - <strong>One notable Black
+win:</strong> WY R9 vs Ivancic (2166) — Scotch Game, Pranav held the
+structural complexity and converted a bishop + pawn endgame in 60
+moves.</p>
+<hr />
+<h2 id="tactical-patterns">3. Tactical Patterns</h2>
+<h3 id="strengths-motifs-pranav-executes-well">Strengths — motifs Pranav
+executes well</h3>
+<p><strong>Attacking play as White with pawn storms:</strong> WY R3 (vs
+Phillips): A model attacking game. Pranav played 1.e4 e5 Italian with
+d3/c3, then launched g4-h3-Nf1-Ne3-Nd5 maneuver while Black played a
+passive …g5 kingside expansion. After Nd5/Nf6# the game ended in a
+checkmate on move 29. Pranav showed he can calculate concrete
+sacrificial attacks when Black leaves the king in the center.</p>
+<p><strong>English Attack positional dominance:</strong> WY R8 (vs
+Naimov, 1767): Pranav’s English Attack with 6.Be3 a5, 10.a5 (stopping
+…a5 expansion), then Qd2/f3/Rfc1 built a slow bind. By move 21 Pranav
+had exchanged queens and entered a completely dominant rook endgame
+(Nd5/Rc7) winning cleanly.</p>
+<p><strong>Maróczy Bind long-game technique:</strong> WY R11 (vs Fadeev,
+2127): Pranav maintained the Maróczy structure with c4+d5 outpost (Nd5
+on move 16). He converted a queenside pawn majority into a passed
+b-pawn, won d6, and executed a model positional win in 48 moves against
+a 2127 opponent — his best win of the event.</p>
+<p><strong>Endgame calculation depth:</strong> WY R9 (as Black vs
+Ivancic): In a complex rook + bishop endgame, Pranav found the precise
+…d2 passed pawn push and …Bd2-…Be1-…Bxf2 sequence to win the game
+despite time pressure.</p>
+<h3 id="weaknesses-tactical-and-structural-blind-spots">Weaknesses —
+tactical and structural blind spots</h3>
+<p><strong>Passive defense as Black against 2100+ with space
+advantage:</strong> WY R4 (vs Gabadadze, 2147): Pranav’s Ruy Lopez as
+Black devolved into a passive defensive position after Black’s …g4
+kingside expansion backfired. White’s Nd5/Re6 outpost created
+unstoppable threats and Pranav was mated in 79 moves.<br />
+WY R5 (vs Rusu, 2191): Lopez again — Pranav tried the …Na5 …c5 plan but
+White’s d5 advance locked the center. After a long maneuvering battle
+(85 moves), Pranav could not hold the knight endgame. Two Ruy Lopez
+losses in a row suggest a structural pattern problem.<br />
+WY R7 (vs Diaz Guerrero, 2102): Italian as Black — reached a complex
+middlegame with …Nf4/…Nh5 maneuver, but after the queens came off,
+Pranav’s endgame was slightly inferior and he lost a 66-move game.</p>
+<p><strong>Misjudging sharp tactical lines under time pressure:</strong>
+AGCA Summer R9 (vs Padmanabhan, 1914): Pranav tried an unusual 4.dxc5
+sideline against Sicilian (after 3…Nf6 instead of 3…cxd4), got into a
+poor position, and resigned on move 22. His clock was very low by move
+12 (0:32 vs opponent’s 1:10), suggesting serious time trouble played a
+role. This is a notable loss to a lower-rated player.</p>
+<p><strong>Exchange variation misjudgment (Taimanov):</strong> WY R10
+(vs Ragavan, 2148): Pranav used 5.c4 7.Nxc6 against Taimanov, entered a
+complex IQP-like structure after 8.Bd3, then sacrificed the exchange
+(Rxd6) on move 20 to win the d-pawn. Despite winning material, he
+couldn’t convert and lost a 73-move game — suggesting overconfidence in
+a technically winning position.</p>
+<hr />
+<h2 id="strategic-patterns">4. Strategic Patterns</h2>
+<p><strong>Space control as White:</strong> Pranav uses his pawns to
+clamp the center (Maróczy c4, English Attack f3+g4) and then maneuvers
+knights to central outposts (Nd5 is a recurring theme). He prefers long,
+positional squeeze games as White.</p>
+<p><strong>Queenside expansion:</strong> In the Maróczy Bind games (WY
+R8, R11), Pranav consistently played a4/b4 or b4 to advance the
+queenside pawn majority. He understands the strategic plan deeply.</p>
+<p><strong>Weak in defense (as Black):</strong> When put in a passive
+position as Black, especially in the Ruy Lopez or Italian, Pranav has
+difficulty finding the right defensive plan. His pieces become
+uncoordinated. He tends to over-expand (WY R4: …g4 kingside expansion)
+rather than consolidate.</p>
+<p><strong>Strong in concrete execution (as White):</strong> Once ahead
+materially or positionally, Pranav generally converts cleanly. WY R11
+(vs 2127) and WY R8 (vs 1767) both showed accurate technical play.</p>
+<hr />
+<h2 id="key-game-summaries">5. Key Game Summaries</h2>
+<p><strong>WY R3 — Pranav (W) vs Phillips: Italian attacking masterclass
+(1-0, 29 moves)</strong><br />
+Pranav played 1.e4 e5 Italian d3/c3, then launched g4-g3-Nd5 attack as
+Black played …g5 …Nh5. After Nxg5+/Nxh7 sacrifice ideas set up, Black’s
+king was caught in the center. Ended with Nf6# checkmate. Clean tactical
+execution — when Black cooperates (passive king in center, no
+counterplay), Pranav strikes accurately.</p>
+<p><strong>WY R8 — Pranav (W) vs Naimov, David (1767): English Attack
+model squeeze (1-0, 36 moves)</strong><br />
+Perfect English Attack execution: 6.Be3 + a4/a5 to fix Black’s
+queenside, then f3/Qd2/Rfc1 bind. Pranav traded queens to reach a
+totally dominating rook endgame with the a5-pawn and central activity.
+Textbook English Attack positional win.</p>
+<p><strong>WY R9 — Ivancic (W, 2166) vs Pranav (B): Scotch game upset
+(0-1, 60 moves)</strong><br />
+Pranav’s best Black result — beat a 2166 in the Scotch Game. After the
+early queen exchange structure, Pranav found …d3/…d2 passed pawn advance
+and converted a rook + bishop endgame with perfect technique. The engine
+line he found (…Qxg3/…Qh4/…Qf4/…d2) was precise.</p>
+<p><strong>WY R11 — Pranav (W) vs Fadeev, Justin (2127): Maróczy Bind
+technical win (1-0, 48 moves)</strong><br />
+1.e4 c5 Maróczy Bind with Nd5 on move 16 (after 5.c4). Pranav used the
+d5 knight outpost to anchor the queenside, then pushed b4/h4/h5 to
+create threats on both wings. After hxg6/Qh6+/Rxe6/Bxe6 the position
+simplified into a winning endgame.</p>
+<p><strong>AGCA Summer R9 — Pranav (W) vs Padmanabhan (1914): Quick loss
+(0-1, 22 moves)</strong><br />
+Warning flag: Pranav, White, played an unusual 4.dxc5 against Sicilian
+(after 3…Nf6). His clock dropped to 0:32 by move 12 — deep time trouble.
+Position became uncomfortable for White and he resigned at move 22.
+Shows Pranav is vulnerable when his clock runs low or he gets into
+unfamiliar territory.</p>
+<hr />
+<h2 id="summary-profile">6. Summary Profile</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rating</td>
+<td>1940 FIDE (stable)</td>
+</tr>
+<tr>
+<td>White opening</td>
+<td>1.e4 exclusively</td>
+</tr>
+<tr>
+<td>vs Sicilian (White)</td>
+<td>English Attack (Be3) or Maróczy Bind (c4) — choice depends on
+Black’s structure</td>
+</tr>
+<tr>
+<td>vs 1…e5 (White)</td>
+<td>Quiet Italian (Bc4 + d3/c3), no early sharp sacrifices</td>
+</tr>
+<tr>
+<td>Black vs 1.e4</td>
+<td>1…e5 always — Giuoco Piano (Italian) or classical Ruy Lopez</td>
+</tr>
+<tr>
+<td>Black vs 1.d4</td>
+<td>QGD structures (d5+e6+Bf5)</td>
+</tr>
+<tr>
+<td>Style</td>
+<td>Positional-tactical hybrid; strong in pawn structure, weaker in pure
+defense</td>
+</tr>
+<tr>
+<td>Best results</td>
+<td>Maróczy Bind (2 wins), English Attack (1 win), Italian attacker</td>
+</tr>
+<tr>
+<td>Weakest area</td>
+<td>As Black vs 2100+; Ruy Lopez/Italian defensive positions; time
+pressure</td>
+</tr>
+<tr>
+<td>Tournament peak</td>
+<td>WY 2026: 6/11 against an average field of ~2000</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

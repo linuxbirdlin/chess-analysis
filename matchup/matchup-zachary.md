@@ -7,7 +7,7 @@
 
 ---
 
-## Direct Encounter
+## Direct Encounters
 
 **Personal Study, Sep 12 2026 — Austin (White) vs Zachary (Black), B46 Sicilian Taimanov, 0-1 (67 moves)**
 
