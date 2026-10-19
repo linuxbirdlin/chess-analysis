@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Austin Lin — Tournament Preparation Plan</title>
+  <title>Austin Lin — Preparation Index</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; }
 
@@ -13,201 +13,93 @@
       font-size: 16px;
       line-height: 1.7;
       color: #1f2328;
-      background: #f6f8fa;
+      background: #f0f3f7;
     }
 
     .page {
-      max-width: 860px;
+      max-width: 960px;
       margin: 0 auto;
       background: #ffffff;
-      padding: 48px 56px 64px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      padding: 48px 56px 72px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+      min-height: 100vh;
     }
 
-    @media (max-width: 680px) {
-      .page { padding: 24px 20px 40px; }
+    @media (max-width: 700px) {
+      .page { padding: 24px 18px 48px; }
     }
 
-    /* ── Header ── */
-    .doc-header {
+    /* ── Hero header ── */
+    .hero {
       border-bottom: 3px solid #2d7d46;
-      padding-bottom: 20px;
-      margin-bottom: 32px;
+      padding-bottom: 24px;
+      margin-bottom: 36px;
     }
-    .doc-header h1 {
-      margin: 0 0 8px;
-      font-size: 1.85rem;
-      color: #1f2328;
-    }
-    .doc-header .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      font-size: 0.9rem;
-      color: #57606a;
-    }
-    .doc-header .meta span strong { color: #1f2328; }
-
-    /* ── Headings ── */
-    h2 {
-      font-size: 1.3rem;
-      color: #1f2328;
-      margin: 40px 0 12px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid #d0d7de;
-    }
-    h3 {
-      font-size: 1.05rem;
-      color: #2d7d46;
-      margin: 28px 0 10px;
-    }
-
-    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
-
-    p { margin: 0 0 12px; }
-
-    ul, ol {
-      margin: 8px 0 14px;
-      padding-left: 1.5em;
-    }
-    li { margin-bottom: 4px; }
-    li > ul, li > ol { margin-top: 4px; margin-bottom: 4px; }
-
-    /* ── Priority table ── */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.93rem;
-      margin: 16px 0 24px;
-    }
-    thead th {
-      background: #2d7d46;
-      color: #ffffff;
-      padding: 10px 14px;
-      text-align: left;
-      font-weight: 600;
-    }
-    tbody tr:nth-child(odd)  { background: #f6f8fa; }
-    tbody tr:nth-child(even) { background: #ffffff; }
-    tbody td {
-      padding: 9px 14px;
-      border-bottom: 1px solid #d0d7de;
-      vertical-align: top;
-    }
-    tbody tr:last-child td { border-bottom: none; }
-
-    /* ── Week cards ── */
-    .week-card {
-      border: 1px solid #d0d7de;
-      border-radius: 8px;
-      margin: 24px 0;
-      overflow: hidden;
-    }
-    .week-card .week-title {
-      background: #2d7d46;
-      color: #fff;
-      padding: 12px 20px;
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin: 0;
-    }
-    .week-card .week-body {
-      padding: 20px 24px;
-    }
-    .week-card h3 {
-      margin-top: 18px;
-      margin-bottom: 6px;
-    }
-    .week-card h3:first-child { margin-top: 0; }
-
-    /* ── Checkpoint banner ── */
-    .checkpoint {
-      background: #dafbe1;
-      border-left: 4px solid #2d7d46;
-      border-radius: 0 6px 6px 0;
-      padding: 10px 16px;
-      margin: 16px 0;
-      font-size: 0.93rem;
-      color: #1a4731;
-    }
-
-    /* ── Code / move notation ── */
-    code {
-      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-      font-size: 0.875em;
-      background: #f0f4f8;
-      border: 1px solid #d0d7de;
-      border-radius: 4px;
-      padding: 1px 5px;
-      white-space: nowrap;
-    }
-    pre {
-      background: #1b1f24;
-      color: #adbac7;
-      border-radius: 8px;
-      padding: 16px 20px;
-      overflow-x: auto;
-      margin: 12px 0 20px;
-      font-size: 0.88rem;
-      line-height: 1.6;
-    }
-    pre code {
-      background: none;
-      border: none;
-      padding: 0;
-      white-space: pre;
-      color: inherit;
-      font-size: inherit;
-    }
-
-    /* ── Platform cards ── */
-    .platform {
-      border: 1px solid #d0d7de;
-      border-radius: 8px;
-      padding: 16px 20px;
-      margin: 14px 0;
-    }
-    .platform h3 {
+    .hero h1 {
       margin: 0 0 10px;
-      font-size: 1rem;
+      font-size: 2rem;
       color: #1f2328;
+      line-height: 1.2;
     }
-    .platform h3 .badge {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 600;
-      background: #2d7d46;
-      color: #fff;
-      border-radius: 10px;
-      padding: 1px 8px;
-      margin-left: 8px;
-      vertical-align: middle;
+    .hero .tagline {
+      font-size: 0.95rem;
+      color: #57606a;
+      margin: 0 0 18px;
     }
-
-    /* ── Progress notes ── */
-    .notes-section {
-      background: #fffbf0;
-      border: 1px dashed #d4a017;
-      border-radius: 8px;
-      padding: 16px 20px;
-      margin: 14px 0;
-      color: #6a4c00;
-      font-size: 0.93rem;
-      font-style: italic;
-    }
-
-    /* ── Index nav cards ── */
-    .index-nav {
+    .profile-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin: 0 0 32px;
+      gap: 8px;
     }
-    .index-nav a {
-      flex: 1;
-      min-width: 180px;
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 0.82rem;
+      color: #1f2328;
+    }
+    .pill .pill-label {
+      font-weight: 600;
+      color: #57606a;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Section headings ── */
+    .section-heading {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #57606a;
+      margin: 40px 0 14px;
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-heading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #d0d7de;
+    }
+
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 40px 0; }
+
+    /* ── Review cards (Austin's own games) ── */
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .review-card {
+      display: block;
       border: 1px solid #d0d7de;
       border-radius: 8px;
       padding: 16px 18px;
@@ -216,553 +108,448 @@
       background: #f6f8fa;
       transition: box-shadow .15s, border-color .15s;
     }
-    .index-nav a:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-color: #2d7d46; }
-    .index-nav a .nav-label {
-      font-size: 0.72rem;
+    .review-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-color: #2d7d46; }
+    .review-card.deep {
+      background: #eaf4fb;
+      border-color: #1a5276;
+    }
+    .review-card.deep:hover { border-color: #0d3a5c; }
+    .review-card .rc-label {
+      font-size: 0.7rem;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: #57606a;
       margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
-    .index-nav a .nav-title {
+    .rc-deep-badge {
+      background: #1a5276;
+      color: #fff;
+      border-radius: 3px;
+      padding: 1px 6px;
+      font-size: 0.67rem;
       font-weight: 700;
-      font-size: 0.98rem;
+      letter-spacing: 0.04em;
+    }
+    .review-card .rc-title {
+      font-weight: 700;
+      font-size: 0.97rem;
+      color: #1f2328;
+      margin-bottom: 4px;
+    }
+    .review-card .rc-sub {
+      font-size: 0.82rem;
+      color: #57606a;
+      margin-bottom: 8px;
+    }
+    .review-card .rc-cta {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #2d7d46;
+    }
+    .review-card.deep .rc-cta { color: #1a5276; }
+
+    /* ── Accuracy chart ── */
+    .chart-wrap {
+      position: relative;
+      height: 300px;
+      margin: 16px 0 6px;
+    }
+    .chart-pending {
+      background: #fffbf0;
+      border: 1px dashed #d4a017;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 0.85rem;
+      color: #7a4f00;
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    /* ── Opponent cards ── */
+    .opponent-block { margin-bottom: 28px; }
+    .opponent-header {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .opponent-header .opp-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1f2328;
+    }
+    .opponent-header .opp-meta {
+      font-size: 0.85rem;
+      color: #57606a;
+    }
+    .opponent-header .direct-record {
+      font-size: 0.78rem;
+      font-weight: 600;
+      border-radius: 4px;
+      padding: 2px 9px;
+    }
+    .dr-loss  { background: #fff5f5; color: #7a0000; border: 1px solid #f0b0b0; }
+    .dr-win   { background: #dafbe1; color: #1a4731; border: 1px solid #86efac; }
+    .dr-none  { background: #f6f8fa; color: #57606a; border: 1px solid #d0d7de; }
+    .dr-draw  { background: #fff8e6; color: #7a4f00; border: 1px solid #f0d080; }
+
+    .opp-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .opp-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      padding: 6px 13px;
+      text-decoration: none;
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: #1f2328;
+      background: #f6f8fa;
+      transition: box-shadow .12s, border-color .12s;
+      white-space: nowrap;
+    }
+    .opp-link:hover { box-shadow: 0 1px 5px rgba(0,0,0,0.1); }
+    .opp-link.matchup { border-color: #2d7d46; color: #2d7d46; background: #f0faf4; font-weight: 700; }
+    .opp-link.matchup:hover { background: #dafbe1; }
+    .opp-link.deep    { border-color: #1a5276; color: #1a5276; background: #eaf4fb; }
+    .opp-link.deep:hover { background: #d3e9f7; }
+    .opp-link.review  { border-color: #b6c0cc; color: #444d56; }
+    .opp-link.review:hover { border-color: #57606a; }
+    .opp-link.warn    { border-color: #d97706; color: #92400e; background: #fffbf0; }
+    .opp-link.stub    { border-color: #d0d7de; color: #9ca3af; background: #fafafa; cursor: default; pointer-events: none; }
+    .opp-link .badge-tag {
+      font-size: 0.67rem;
+      font-weight: 700;
+      background: #1a5276;
+      color: #fff;
+      border-radius: 3px;
+      padding: 1px 5px;
+      letter-spacing: 0.03em;
+    }
+    .opp-link.matchup .badge-tag { background: #2d7d46; }
+
+    .opp-note {
+      font-size: 0.8rem;
+      color: #57606a;
+      margin-top: 6px;
+    }
+    .opp-note strong { color: #1f2328; }
+
+    /* ── Stub opponent ── */
+    .opp-stub {
+      background: #f6f8fa;
+      border: 1px dashed #d0d7de;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.85rem;
+      color: #9ca3af;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .opp-stub .stub-name { font-weight: 600; color: #6e7681; }
+
+    /* ── Training plan card ── */
+    .training-card {
+      display: block;
+      border: 2px solid #2d7d46;
+      border-radius: 10px;
+      padding: 22px 26px;
+      text-decoration: none;
+      color: inherit;
+      background: linear-gradient(135deg, #f0faf4 0%, #e8f8ee 100%);
+      transition: box-shadow .15s;
+      margin-top: 8px;
+    }
+    .training-card:hover { box-shadow: 0 3px 12px rgba(45,125,70,0.18); }
+    .training-card .tc-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #2d7d46;
+      margin-bottom: 6px;
+    }
+    .training-card .tc-title {
+      font-size: 1.15rem;
+      font-weight: 700;
       color: #1f2328;
       margin-bottom: 6px;
     }
-    .index-nav a .nav-sub {
-      font-size: 0.82rem;
-      color: #57606a;
-      margin-top: auto;
+    .training-card .tc-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
     }
-    .index-nav a .nav-cta {
-      font-size: 0.82rem;
-      color: #2d7d46;
+    .tc-item {
+      background: #fff;
+      border: 1px solid #b6d9c3;
+      border-radius: 4px;
+      padding: 3px 10px;
+      font-size: 0.79rem;
+      color: #1a4731;
+    }
+    .training-card .tc-cta {
+      font-size: 0.87rem;
       font-weight: 600;
-      margin-top: 8px;
+      color: #2d7d46;
+      margin-top: 12px;
     }
 
     em { font-style: italic; color: #57606a; }
     strong { font-weight: 600; }
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em; background: #f0f4f8;
+      border: 1px solid #d0d7de; border-radius: 4px;
+      padding: 1px 5px;
+    }
   </style>
 </head>
 <body>
 <div class="page">
 
-  <div class="doc-header">
-    <h1>Austin Lin — Tournament Preparation Plan</h1>
-    <div class="meta">
-      <span><strong>Next tournament:</strong> ~1 month out</span>
-      <span><strong>Current rating:</strong> 1865</span>
-      <span><strong>Goal:</strong> Improve White piece play, sharpen tactical awareness, build consistent tournament habits</span>
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Austin Lin — Preparation Index</h1>
+    <p class="tagline">Tournament prep hub · Game reviews · Opponent analysis · Training plan</p>
+    <div class="profile-pills">
+      <span class="pill"><span class="pill-label">Rating</span> 1865 FIDE</span>
+      <span class="pill"><span class="pill-label">White</span> 1.e4 · Exchange Caro, Advanced French, Rossolimo</span>
+      <span class="pill"><span class="pill-label">Black vs 1.d4</span> Nimzo-Indian (Bxc3+ / …b6/…Ba6)</span>
+      <span class="pill"><span class="pill-label">Black vs 1.e4</span> Sicilian</span>
+      <span class="pill"><span class="pill-label">Style</span> Tactical · Combinational · Sharp positions</span>
     </div>
   </div>
 
-  <!-- Index nav -->
-  <nav class="index-nav" aria-label="All resources">
-    <a href="#austin-reviews">
-      <div class="nav-label">Game Reviews</div>
-      <div class="nav-title">Austin's Reviews</div>
-      <div class="nav-sub">NAYCC 2025 · PAM 2026 · Personal Study</div>
-      <div class="nav-cta">Jump to reviews ↓</div>
+  <!-- Austin's Game Reviews -->
+  <div class="section-heading">Austin's Game Reviews</div>
+  <div class="review-grid">
+
+    <a class="review-card" href="austin/naycc2025/review.html">
+      <div class="rc-label">Tournament Review</div>
+      <div class="rc-title">NAYCC 2025</div>
+      <div class="rc-sub">Kingston · 9 rounds · Rating 1968<br>Result: <strong>4W – 5L</strong></div>
+      <div class="rc-cta">View review →</div>
     </a>
-    <a href="#opponents">
-      <div class="nav-label">Opponent Prep</div>
-      <div class="nav-title">Matchup Plans</div>
-      <div class="nav-sub">Justin Huang · Aarush Ajith · Zachary Liu</div>
-      <div class="nav-cta">Jump to opponents ↓</div>
+
+    <a class="review-card deep" href="austin/naycc2025/review-deep.html">
+      <div class="rc-label"><span class="rc-deep-badge">DEEP</span> Depth 22</div>
+      <div class="rc-title">NAYCC 2025</div>
+      <div class="rc-sub">Opening deviation · Critical moments · IM annotations</div>
+      <div class="rc-cta">View deep analysis →</div>
     </a>
-    <a href="#training">
-      <div class="nav-label">Training Plan</div>
-      <div class="nav-title">4-Week Schedule</div>
-      <div class="nav-sub">Priority areas · Weekly drills · Platforms</div>
-      <div class="nav-cta">Jump to plan ↓</div>
+
+    <a class="review-card" href="austin/pam2026/review.html">
+      <div class="rc-label">Tournament Review</div>
+      <div class="rc-title">PAM 2026</div>
+      <div class="rc-sub">Pan-American Youth · 9 rounds · Rating 1865<br>Result: <strong>3W – 2L – 2D</strong></div>
+      <div class="rc-cta">View review →</div>
     </a>
-  </nav>
 
-  <h2 id="training">Priority Areas</h2>
-  <p>Based on NAYCC 2025, PAM 2026, and 29 personal study games (Stockfish depth-18), ranked by urgency. Key new insight: Austin's White accuracy (~88% avg) is consistently lower than Black (~91%), with 3–5 blunders in multiple White games — the widest improvable gap across all data.</p>
-  <table>
-    <thead>
-      <tr><th>#</th><th>Area</th><th>Evidence</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>1</td><td>White piece calculation — blunder prevention</td><td>Personal study: 6+ games with 3–5 blunders as White; White avg ~88% vs Black ~91% across all data. NAYCC and PAM confirm the same pattern.</td></tr>
-      <tr><td>2</td><td>French Defense as White</td><td>Justin plays French; current record 1W–1L; Advanced French pawn chains become overextended (NAYCC R4). Still the most opponent-specific prep item.</td></tr>
-      <tr><td>3</td><td>King safety / h-file patterns</td><td>NAYCC R2 (allowed Bxh2+), R6 (h-pawn storm backfired); Aarush lost 3/3 games to early h4 systems — Austin should know both how to prevent and how to execute.</td></tr>
-      <tr><td>4</td><td>Rook endgame technique</td><td>Passive rook play lost NAYCC R7, R9 and PAM R5 — all were holdable or winnable. Lucena/Philidor positions need to be drilled cold.</td></tr>
-      <tr><td>5</td><td>Performance vs 2000+ opposition</td><td>0W–2L–1D vs 2000+ in PAM; personal study vs Gao (2065): 87.8% acc, 3B/3M/11I — accuracy drops sharply vs stronger players. Needs a game-plan, not just more puzzles.</td></tr>
-    </tbody>
-  </table>
+    <a class="review-card deep" href="austin/pam2026/review-deep.html">
+      <div class="rc-label"><span class="rc-deep-badge">DEEP</span> Depth 22</div>
+      <div class="rc-title">PAM 2026</div>
+      <div class="rc-sub">Opening deviation · Critical moments · IM annotations</div>
+      <div class="rc-cta">View deep analysis →</div>
+    </a>
 
-  <hr />
-  <h2>4-Week Schedule</h2>
+    <a class="review-card" href="austin/personal-study/review.html">
+      <div class="rc-label">Study Review</div>
+      <div class="rc-title">Personal Study Pt.5</div>
+      <div class="rc-sub">Lichess study · 29 games · Depth 18<br>Avg accuracy: <strong>89.6%</strong></div>
+      <div class="rc-cta">View review →</div>
+    </a>
 
-  <!-- Week 1 -->
-  <div class="week-card">
-    <p class="week-title">Week 1 — Opening Foundations</p>
-    <div class="week-body">
-      <p><strong>Goal:</strong> Drill the specific openings from the current opponent matchup plan and reinforce Austin's core Black weapon.</p>
+    <a class="review-card deep" href="austin/personal-study/review-deep.html">
+      <div class="rc-label"><span class="rc-deep-badge">DEEP</span> Depth 22</div>
+      <div class="rc-title">Personal Study Pt.5</div>
+      <div class="rc-sub">Opening deviation · Critical moments · IM annotations</div>
+      <div class="rc-cta">View deep analysis →</div>
+    </a>
 
-      <h3>Daily (20–30 min): Opening study</h3>
-      <ul>
-        <li><strong>Opponent-specific lines:</strong> See the <a href="#opponents">matchup plan for the current opponent</a> for exact opening lines and plans to drill this week.</li>
-        <li>Review Nimzo-Indian <code>Bxc3+</code> with <code>...b6/...Ba6</code> — Austin's core Black weapon vs 1.d4:
-          <ul>
-            <li><code>1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.e3 O-O 5.Bd3 d5 6.a3 Bxc3+ 7.bxc3 b6 8.Nf3 Ba6</code></li>
-            <li>Refresh the <code>...Ne4</code> centralization plan and <code>...N4g3+</code> sacrifice pattern</li>
-          </ul>
-        </li>
-      </ul>
-
-      <h3>Online practice games (Lichess or Chess.com — Rapid 15+10)</h3>
-      <ul>
-        <li>Play 2–3 games per day steering toward the openings in the matchup plan</li>
-        <li>As Black vs 1.d4: Nimzo-Indian every time, specifically the <code>Bxc3+</code> variation</li>
-        <li>After each game, review the opening phase in the game explorer</li>
-      </ul>
-
-      <h3>Puzzle work (15 min/day)</h3>
-      <ul>
-        <li>Puzzle theme: <strong>Pin and knight fork combos</strong> — warm-up, Austin is already good here</li>
-      </ul>
-    </div>
   </div>
 
-  <!-- Week 2 -->
-  <div class="week-card">
-    <p class="week-title">Week 2 — Tactical Drilling</p>
-    <div class="week-body">
-      <p><strong>Goal:</strong> Fix the recurring h-file king safety blind spot and sharpen calculation.</p>
-
-      <h3>Daily (20–30 min): Themed puzzles</h3>
-      <p>Focus puzzle themes in this order:</p>
-      <ol>
-        <li><strong>Bishop sacrifice on h2/h7 — both sides</strong>
-          <ul>
-            <li>Drill: Find <code>Bxh2+</code> and <code>Bxh7+</code> sacrifices (the pattern that burned Austin in NAYCC R2)</li>
-            <li>Also drill: How to <em>prevent</em> this sacrifice as the defender — learn when to play <code>h3</code> early</li>
-            <li>On Lichess: Puzzle themes → "Bishop sacrifice" / "Deflection"</li>
-            <li>On Chess.com: Puzzle Rush / Custom puzzles → bishop sacrifice</li>
-          </ul>
-        </li>
-        <li><strong>Pawn promotion threats</strong>
-          <ul>
-            <li>The <code>d3→d2</code> pawn march won against Austin in NAYCC R4 (vs Justin) and NAYCC R7</li>
-            <li>Drill: Puzzles where a passed pawn is one move from promotion and requires immediate defense</li>
-            <li>On Lichess: Puzzle theme → "Promotion" and "Advancing pawns"</li>
-          </ul>
-        </li>
-        <li><strong>King safety under open h/g files</strong>
-          <ul>
-            <li>Practice recognizing when the h-file is a danger <em>before</em> it gets opened</li>
-            <li>Drill: Puzzles involving <code>Rxh7</code>, <code>Qxh7+</code>, <code>Ng5-h7</code> attack patterns</li>
-          </ul>
-        </li>
-      </ol>
-
-      <h3>Online games (Rapid 15+10)</h3>
-      <ul>
-        <li>2 games per day</li>
-        <li>Specific focus: Before each move, ask "is my king safe? is my opponent's king safe?"</li>
-        <li>If you lose to a kingside attack, review it immediately and identify the moment it went wrong</li>
-      </ul>
-
-      <div class="checkpoint">
-        ✓ <strong>Checkpoint:</strong> By end of Week 2, Austin should recognize <code>Bxh2+</code> setups and automatically consider <code>h3</code> prophylaxis when playing White.
-      </div>
-    </div>
-  </div>
-
-  <!-- Week 3 -->
-  <div class="week-card">
-    <p class="week-title">Week 3 — Endgame Technique</p>
-    <div class="week-body">
-      <p><strong>Goal:</strong> Convert won endgames and hold drawn ones — Austin dropped multiple half-points here.</p>
-
-      <h3>Rook endgames (highest priority)</h3>
-      <ul>
-        <li>Philidor position — defending a rook endgame, Rook on 6th rank technique</li>
-        <li>Lucena position — winning with an extra pawn, building a bridge</li>
-        <li>Drill: Lichess → Learn → Practice endgames → Rook endgames</li>
-        <li>Drill: Chess.com → Learn → Endgames</li>
-      </ul>
-
-      <h3>Passed pawn endgames</h3>
-      <ul>
-        <li>King and pawn vs King — Austin needs to know all cases cold</li>
-        <li>Rook vs passed pawn — key rule: Rook cuts off the king on the long side</li>
-        <li>Practice on Lichess endgame practice tool</li>
-      </ul>
-
-      <h3>Specific patterns from Austin's lost games</h3>
-      <ul>
-        <li>Recreate the endgame from NAYCC R7 (Beegala game) — White's d-pawn on d6, Austin needed to blockade. Practice similar positions.</li>
-        <li>Recreate PAM R5 (Vinales game) — rook endgame with Austin being passive. Find the active rook move Austin missed.</li>
-      </ul>
-
-      <h3>Online games (Rapid 10+5 this week — shorter to reach more endgames)</h3>
-      <ul>
-        <li>Intentionally trade queens early to force endgames</li>
-        <li>Goal: practice converting technical endgames under time pressure</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Week 4 -->
-  <div class="week-card">
-    <p class="week-title">Week 4 — Full Game Integration</p>
-    <div class="week-body">
-      <p><strong>Goal:</strong> Put it all together. Simulate tournament conditions.</p>
-
-      <h3>Format: Rapid 30+0 or 25+10 (closer to tournament time control)</h3>
-      <ul>
-        <li>2–3 games per day</li>
-        <li>Play the full repertoire: Tarrasch French as White, Nimzo-Indian as Black</li>
-        <li>No takebacks — treat each game as if it's the real tournament</li>
-      </ul>
-
-      <h3>Self-review routine after each game</h3>
-      <ol>
-        <li>Was the opening handled correctly? Where did I leave theory?</li>
-        <li>Did I check king safety on every move in the middlegame?</li>
-        <li>Was there a passed pawn I missed (mine or opponent's)?</li>
-        <li>In the endgame — was I active or passive?</li>
-      </ol>
-
-      <h3>Puzzle work this week</h3>
-      <ul>
-        <li>Mixed puzzles (no specific theme) — simulates real game conditions</li>
-        <li>Target: Puzzle rating above 1900 on Lichess or Chess.com before the tournament</li>
-      </ul>
-    </div>
-  </div>
-
-  <hr />
-  <h2>Recommended Platforms and Tools</h2>
-
-  <div class="platform">
-    <h3>Lichess <span class="badge">Free · Recommended</span></h3>
-    <ul>
-      <li><strong>Opening practice:</strong> lichess.org/learn and the opening explorer
-        <ul><li>Search <code>1.e4 e6 2.d4 d5 3.Nd2</code> to study Tarrasch French positions</li></ul>
-      </li>
-      <li><strong>Puzzle trainer:</strong> lichess.org/training — supports themed puzzles
-        <ul><li>Bookmark themes: "Bishop sacrifice", "Promotion", "King safety", "Rook endgame"</li></ul>
-      </li>
-      <li><strong>Endgame practice:</strong> lichess.org/practice — structured endgame modules</li>
-      <li><strong>Game analysis:</strong> after each practice game, use Lichess engine analysis to find missed moves</li>
-    </ul>
-  </div>
-
-  <div class="platform">
-    <h3>Chess.com</h3>
-    <ul>
-      <li><strong>Puzzle Rush:</strong> daily timed puzzle sets — good for speed and pattern recognition</li>
-      <li><strong>Opening explorer:</strong> chess.com/explorer — look up Tarrasch French lines</li>
-      <li><strong>Lessons:</strong> has structured endgame and opening courses</li>
-    </ul>
-  </div>
-
-  <div class="platform">
-    <h3>ChessTemps (chesstempo.com)</h3>
-    <ul>
-      <li>Best-in-class themed puzzle database</li>
-      <li>Use "Endgame training" section specifically for rook endgames</li>
-    </ul>
-  </div>
-
-  <hr />
-  <h2 id="austin-reviews">Austin's Game Reviews</h2>
-  <p>Stockfish depth-18 analysis of Austin's own tournament and study games. Deep Review adds opening deviation, critical moment annotations, and weakness tags.</p>
-  <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:16px;">
-    <a href="austin/naycc2025/review.html" style="
-      flex:1; min-width:220px; display:block;
-      border:1px solid #d0d7de; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#f6f8fa; transition: box-shadow .15s;">
-      <div style="font-weight:700; font-size:1rem; color:#1f2328; margin-bottom:4px;">NAYCC 2025</div>
-      <div style="font-size:0.85rem; color:#57606a; margin-bottom:10px;">Kingston CAN · 9 rounds · Rating: 1968</div>
-      <div style="font-size:0.88rem; color:#2d7d46; font-weight:600;">Result: 4W – 5L →</div>
-    </a>
-    <a href="austin/naycc2025/review-deep.html" style="
-      flex:1; min-width:220px; display:block;
-      border:1px solid #1a5276; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#eaf4fb; transition: box-shadow .15s;">
-      <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-        <span style="font-weight:700; font-size:1rem; color:#1f2328;">NAYCC 2025</span>
-        <span style="font-size:0.72rem; font-weight:700; background:#1a5276; color:#fff; border-radius:4px; padding:1px 7px; letter-spacing:0.04em;">DEEP</span>
-      </div>
-      <div style="font-size:0.85rem; color:#57606a; margin-bottom:10px;">Depth 22 · opening deviation · critical moments</div>
-      <div style="font-size:0.88rem; color:#1a5276; font-weight:600;">IM-level annotations →</div>
-    </a>
-    <a href="austin/pam2026/review.html" style="
-      flex:1; min-width:220px; display:block;
-      border:1px solid #d0d7de; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#f6f8fa;">
-      <div style="font-weight:700; font-size:1rem; color:#1f2328; margin-bottom:4px;">PAM 2026</div>
-      <div style="font-size:0.85rem; color:#57606a; margin-bottom:10px;">Pan-American Youth · 9 rounds · Rating: 1865</div>
-      <div style="font-size:0.88rem; color:#2d7d46; font-weight:600;">Result: 3W – 2L – 2D →</div>
-    </a>
-    <a href="austin/pam2026/review-deep.html" style="
-      flex:1; min-width:220px; display:block;
-      border:1px solid #1a5276; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#eaf4fb;">
-      <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-        <span style="font-weight:700; font-size:1rem; color:#1f2328;">PAM 2026</span>
-        <span style="font-size:0.72rem; font-weight:700; background:#1a5276; color:#fff; border-radius:4px; padding:1px 7px; letter-spacing:0.04em;">DEEP</span>
-      </div>
-      <div style="font-size:0.85rem; color:#57606a; margin-bottom:10px;">Depth 22 · opening deviation · critical moments</div>
-      <div style="font-size:0.88rem; color:#1a5276; font-weight:600;">IM-level annotations →</div>
-    </a>
-    <a href="austin/personal-study/review.html" style="
-      flex:1; min-width:220px; display:block;
-      border:1px solid #d0d7de; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#f6f8fa;">
-      <div style="font-weight:700; font-size:1rem; color:#1f2328; margin-bottom:4px;">Personal Study Games Pt.5</div>
-      <div style="font-size:0.85rem; color:#57606a; margin-bottom:10px;">Lichess study · 29 games · Stockfish depth 18</div>
-      <div style="font-size:0.88rem; color:#2d7d46; font-weight:600;">Avg accuracy: 89.6% →</div>
-    </a>
-    <a href="austin/personal-study/review-deep.html" style="
-      flex:1; min-width:220px; display:block;
-      border:1px solid #1a5276; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#eaf4fb;">
-      <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-        <span style="font-weight:700; font-size:1rem; color:#1f2328;">Personal Study Pt.5</span>
-        <span style="font-size:0.72rem; font-weight:700; background:#1a5276; color:#fff; border-radius:4px; padding:1px 7px; letter-spacing:0.04em;">DEEP</span>
-      </div>
-      <div style="font-size:0.85rem; color:#57606a; margin-bottom:10px;">Depth 22 · opening deviation · critical moments</div>
-      <div style="font-size:0.88rem; color:#1a5276; font-weight:600;">IM-level annotations →</div>
-    </a>
-  </div>
-
-  <h2>Accuracy Trend</h2>
-  <p>Per-game Stockfish accuracy across all tournaments and personal study. Green = win, red = loss, yellow = draw, <span style="color:#4f86c6;font-weight:600;">blue = study game</span> (no result recorded). Averages shown as dashed lines per tournament.</p>
-  <div style="position:relative; height:320px; margin:20px 0 8px;">
+  <!-- Accuracy trend chart -->
+  <div class="section-heading" style="margin-top:32px;">Accuracy Trend</div>
+  <p style="font-size:0.88rem; color:#57606a; margin: 0 0 8px;">Per-game Stockfish accuracy across tournaments and personal study.
+    <span style="color:#2d7d46;font-weight:600;">■ Win</span>
+    <span style="color:#cf2222;font-weight:600;margin-left:8px;">■ Loss</span>
+    <span style="color:#d4a017;font-weight:600;margin-left:8px;">■ Draw</span>
+    <span style="color:#4f86c6;font-weight:600;margin-left:8px;">■ Study</span>
+    — dashed line = tournament average.
+  </p>
+  <div class="chart-wrap">
     <canvas id="accuracyChart"></canvas>
   </div>
-  <div id="accuracy-pending" class="notes-section" style="font-style:normal; font-size:0.88rem; text-align:center; padding:10px 16px;">
-    Accuracy data pending — add values to <code>ACCURACY_DATA</code> in page source to populate this chart.
+  <div id="accuracy-pending" class="chart-pending" style="display:none;">
+    Accuracy data pending.
   </div>
 
   <hr id="opponents" />
-  <h2>Opponent Preparation</h2>
-  <p>Matchup plans and game reviews per opponent — opening lines, key patterns, and Stockfish analysis.</p>
 
-  <h3>Justin Huang <span style="font-weight:400; font-size:0.88rem; color:#57606a;">· Rating: 2093 · 1.d4 White · French/Sicilian Black · Direct record: 0W–1L</span></h3>
-  <div style="display:flex; flex-wrap:wrap; gap:14px; margin-bottom:24px;">
-    <a href="matchup/matchup-justin.html" style="
-      flex:1; min-width:220px; display:block;
-      border:2px solid #2d7d46; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#f0faf4;">
-      <div style="font-size:0.72rem; text-transform:uppercase; letter-spacing:.05em; color:#2d7d46; margin-bottom:4px;">Matchup Plan</div>
-      <div style="font-weight:700; font-size:1rem; color:#1f2328; margin-bottom:6px;">Austin vs Justin</div>
-      <div style="font-size:0.82rem; color:#57606a; margin-bottom:8px;">Opening prep by color · Key tactical themes · Psychological notes</div>
-      <div style="font-size:0.82rem; color:#2d7d46; font-weight:600;">View matchup plan →</div>
-    </a>
-    <a href="opponents/justin/review.html" style="
-      flex:1; min-width:220px; display:block;
-      border:1px solid #1a5276; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#eaf0f8;">
-      <div style="font-size:0.72rem; text-transform:uppercase; letter-spacing:.05em; color:#1a5276; margin-bottom:4px;">Full Review · All Tournaments</div>
-      <div style="font-weight:700; font-size:1rem; color:#1a5276; margin-bottom:4px;">Justin — All 26 Games</div>
-      <div style="font-size:0.85rem; color:#57606a; margin-bottom:10px;">Canada Closed · PAM · PAM School · Toronto Open · Stockfish depth 18</div>
-      <div style="font-size:0.88rem; color:#1a5276; font-weight:600;">View full opponent review →</div>
-    </a>
-    <a href="opponents/justin/pamschool2026/review.html" style="
-      flex:1; min-width:220px; display:block;
-      border:1px solid #1a5276; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#eaf0f8;">
-      <div style="font-weight:700; font-size:1rem; color:#1a5276; margin-bottom:4px;">PAM School 2026</div>
-      <div style="font-size:0.85rem; color:#57606a; margin-bottom:10px;">May 2026 · Rating: 1894 · 5 games</div>
-      <div style="font-size:0.88rem; color:#1a5276; font-weight:600;">Tournament review →</div>
-    </a>
-    <a href="opponents/justin/torontoopen2026/review.html" style="
-      flex:1; min-width:220px; display:block;
-      border:2px solid #d97706; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#fffbf0;">
-      <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#d97706;margin-bottom:4px;">⚠ Sicilian sighting</div>
-      <div style="font-weight:700; font-size:1rem; color:#1f2328; margin-bottom:4px;">Toronto Open 2026</div>
-      <div style="font-size:0.85rem; color:#57606a; margin-bottom:10px;">Jul–Sep 2026 · Rating: 2093 · 3 games</div>
-      <div style="font-size:0.88rem; color:#1a5276; font-weight:600;">Tournament review →</div>
-    </a>
+  <!-- Opponent Prep -->
+  <div class="section-heading">Opponent Preparation</div>
+
+  <!-- Justin -->
+  <div class="opponent-block">
+    <div class="opponent-header">
+      <span class="opp-name">Justin Huang</span>
+      <span class="opp-meta">Rating 2093 · 1.d4 White · French/Sicilian Black · 26 games</span>
+      <span class="direct-record dr-loss">Direct: 0W–1L</span>
+    </div>
+    <div class="opp-links">
+      <a class="opp-link matchup" href="matchup/matchup-justin.html">
+        <span class="badge-tag">PLAN</span> Matchup Plan
+      </a>
+      <a class="opp-link review" href="opponents/justin/review.html">All 26 Games →</a>
+      <a class="opp-link review" href="opponents/justin/pamschool2026/review.html">PAM School 2026 (5 games)</a>
+      <a class="opp-link warn" href="opponents/justin/torontoopen2026/review.html">⚠ Toronto Open 2026 — Sicilian sighting</a>
+    </div>
+    <p class="opp-note">Key insight: Justin now plays <strong>Sicilian as Black</strong> vs 1.e4 (Toronto Open R4). Was French-only until July 2026.</p>
   </div>
 
-  <h3>Aarush Ajith <span style="font-weight:400; font-size:0.88rem; color:#57606a;">· Rating: 1895 · Sicilian Black · 4 tournaments · 17 games analyzed</span></h3>
-  <div style="display:flex; flex-wrap:wrap; gap:14px; margin-bottom:24px;">
-    <a href="matchup/matchup-aarush.html" style="
-      flex:1; min-width:200px; display:block;
-      border:2px solid #2d7d46; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#f0faf4;">
-      <div style="font-size:0.72rem; text-transform:uppercase; letter-spacing:.05em; color:#2d7d46; margin-bottom:4px;">Matchup Plan</div>
-      <div style="font-weight:700; font-size:1rem; color:#1f2328; margin-bottom:6px;">Austin vs Aarush</div>
-      <div style="font-size:0.82rem; color:#57606a; margin-bottom:8px;">h4 English Attack vs Najdorf · Catalan Open as Black · Time-pressure strategy</div>
-      <div style="font-size:0.82rem; color:#2d7d46; font-weight:600;">View matchup plan →</div>
-    </a>
-    <a href="opponents/aarush/canadaclosed2026/review.html" style="
-      flex:1; min-width:200px; display:block;
-      border:1px solid #1a5276; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#eaf0f8;">
-      <div style="font-weight:700; font-size:1rem; color:#1a5276; margin-bottom:4px;">Canada Closed 2026</div>
-      <div style="font-size:0.85rem; color:#57606a; margin-bottom:10px;">April 2026 · Rating: 1908 · 9 games</div>
-      <div style="font-size:0.88rem; color:#1a5276; font-weight:600;">Avg acc: 90.6% · 2W-6L-1D →</div>
-    </a>
-    <a href="opponents/aarush/pamschool2026/review.html" style="
-      flex:1; min-width:200px; display:block;
-      border:1px solid #1a5276; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#eaf0f8;">
-      <div style="font-weight:700; font-size:1rem; color:#1a5276; margin-bottom:4px;">PAM School 2026</div>
-      <div style="font-size:0.85rem; color:#57606a; margin-bottom:10px;">May 2026 · Rating: 1860 · 2 games</div>
-      <div style="font-size:0.88rem; color:#1a5276; font-weight:600;">Avg acc: 92.3% →</div>
-    </a>
-    <a href="opponents/aarush/pam2026/review.html" style="
-      flex:1; min-width:200px; display:block;
-      border:2px solid #d97706; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#fffbf0;">
-      <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#d97706;margin-bottom:4px;">⚠ 0W-3L as White</div>
-      <div style="font-weight:700; font-size:1rem; color:#1f2328; margin-bottom:4px;">PAM 2026</div>
-      <div style="font-size:0.85rem; color:#57606a; margin-bottom:10px;">Jul 2026 · Rating: 1941 · 5 games</div>
-      <div style="font-size:0.88rem; color:#1a5276; font-weight:600;">Avg acc: 89.9% · 2W-3L →</div>
-    </a>
-    <a href="opponents/aarush/torontoopen2026/review.html" style="
-      flex:1; min-width:200px; display:block;
-      border:2px solid #cf2222; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#fff5f5;">
-      <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#cf2222;margin-bottom:4px;">⚠ Qb4?? from +6 winning</div>
-      <div style="font-weight:700; font-size:1rem; color:#1f2328; margin-bottom:4px;">Toronto Open 2026</div>
-      <div style="font-size:0.85rem; color:#57606a; margin-bottom:10px;">Sep 2026 · Rating: 1895 · 1 game</div>
-      <div style="font-size:0.88rem; color:#1a5276; font-weight:600;">Avg acc: 84% · 0W-1L →</div>
-    </a>
+  <!-- Aarush -->
+  <div class="opponent-block">
+    <div class="opponent-header">
+      <span class="opp-name">Aarush Ajith</span>
+      <span class="opp-meta">Rating 1895 · Sicilian Black · 4 tournaments · 17 games</span>
+      <span class="direct-record dr-none">No direct encounter</span>
+    </div>
+    <div class="opp-links">
+      <a class="opp-link matchup" href="matchup/matchup-aarush.html">
+        <span class="badge-tag">PLAN</span> Matchup Plan
+      </a>
+      <a class="opp-link review" href="opponents/aarush/canadaclosed2026/review.html">Canada Closed (9 games, 90.6% acc)</a>
+      <a class="opp-link review" href="opponents/aarush/pamschool2026/review.html">PAM School (2 games)</a>
+      <a class="opp-link warn" href="opponents/aarush/pam2026/review.html">⚠ PAM 2026 — 0W-3L as White</a>
+      <a class="opp-link warn" href="opponents/aarush/torontoopen2026/review.html">⚠ Toronto Open — Qb4?? from winning</a>
+    </div>
   </div>
 
-  <h3>Zachary Liu <span style="font-weight:400; font-size:0.88rem; color:#57606a;">· CM · Rating: ~2050–2250 · Reti/English White · Sicilian Black · 5 tournaments · 34 games analyzed</span></h3>
-  <div style="display:flex; flex-wrap:wrap; gap:14px; margin-bottom:24px;">
-    <a href="matchup/matchup-zachary.html" style="
-      flex:1; min-width:200px; display:block;
-      border:2px solid #2d7d46; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#f0faf4;">
-      <div style="font-size:0.72rem; text-transform:uppercase; letter-spacing:.05em; color:#2d7d46; margin-bottom:4px;">Matchup Plan</div>
-      <div style="font-weight:700; font-size:1rem; color:#1f2328; margin-bottom:6px;">Austin vs Zachary</div>
-      <div style="font-size:0.82rem; color:#57606a; margin-bottom:8px;">English Attack vs Taimanov · Dutch Defense as Black · Never lost as White</div>
-      <div style="font-size:0.82rem; color:#2d7d46; font-weight:600;">View matchup plan →</div>
-    </a>
-    <a href="opponents/zachary/review.html" style="
-      flex:1; min-width:200px; display:block;
-      border:2px solid #cf2222; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#fff5f5;">
-      <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#cf2222;margin-bottom:4px;">⚠ 79% acc in Sicilian blowups</div>
-      <div style="font-weight:700; font-size:1rem; color:#1f2328; margin-bottom:4px;">Zachary — All 5 Tournaments</div>
-      <div style="font-size:0.85rem; color:#57606a; margin-bottom:10px;">2026 season · 34 games · Avg 93.6% acc</div>
-      <div style="font-size:0.88rem; color:#1a5276; font-weight:600;">16W–2L–18D · View full review →</div>
-    </a>
+  <!-- Zachary -->
+  <div class="opponent-block">
+    <div class="opponent-header">
+      <span class="opp-name">Zachary Liu</span>
+      <span class="opp-meta">CM · Rating ~2050–2250 · Reti/English White · Sicilian Black · 5 tournaments · 34 games</span>
+      <span class="direct-record dr-none">No direct encounter</span>
+    </div>
+    <div class="opp-links">
+      <a class="opp-link matchup" href="matchup/matchup-zachary.html">
+        <span class="badge-tag">PLAN</span> Matchup Plan
+      </a>
+      <a class="opp-link deep" href="matchup/matchup-zachary-deep.html">
+        <span class="badge-tag" style="background:#1a5276;">DEEP</span> Deep Analysis
+      </a>
+      <a class="opp-link warn" href="opponents/zachary/review.html">⚠ All 34 games — 79% acc in Sicilian blowups</a>
+    </div>
+    <p class="opp-note">Record: <strong>16W–2L–18D</strong> overall · Never lost as White · 93.6% avg accuracy.</p>
   </div>
 
-  <h3>Heye Gao <span style="font-weight:400; font-size:0.88rem; color:#57606a;">· CM · Rating: ~2028–2065 · Italian White · Slav Black · 4 tournaments · 24 games analyzed</span></h3>
-  <div style="display:flex; flex-wrap:wrap; gap:14px; margin-bottom:24px;">
-    <a href="matchup/matchup-heye.html" style="
-      flex:1; min-width:200px; display:block;
-      border:2px solid #2d7d46; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#f0faf4;">
-      <div style="font-size:0.72rem; text-transform:uppercase; letter-spacing:.05em; color:#2d7d46; margin-bottom:4px;">Matchup Plan</div>
-      <div style="font-weight:700; font-size:1rem; color:#1f2328; margin-bottom:6px;">Austin vs Heye</div>
-      <div style="font-size:0.82rem; color:#57606a; margin-bottom:8px;">Sicilian Kan (B43) as White · Play Sicilian as Black vs Italian · Beat 2410 with Black</div>
-      <div style="font-size:0.82rem; color:#2d7d46; font-weight:600;">View matchup plan →</div>
-    </a>
-    <a href="matchup/matchup-heye-deep.html" style="
-      flex:1; min-width:200px; display:block;
-      border:2px solid #1a5276; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#eaf4fb;">
-      <div style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:#1a5276; margin-bottom:4px;">
-        DEEP
-        <span style="font-size:0.72rem; font-weight:700; background:#1a5276; color:#fff; border-radius:4px; padding:1px 7px; letter-spacing:0.04em;">DEPTH 22</span>
-      </div>
-      <div style="font-weight:700; font-size:1rem; color:#1f2328; margin-bottom:4px;">Direct Encounter — B43 Kan</div>
-      <div style="font-size:0.85rem; color:#57606a; margin-bottom:10px;">Mar 2026 · Austin White · Missed f2+ win on move 40</div>
-      <div style="font-size:0.88rem; color:#1a5276; font-weight:600;">View deep analysis →</div>
-    </a>
+  <!-- Heye -->
+  <div class="opponent-block">
+    <div class="opponent-header">
+      <span class="opp-name">Heye Gao</span>
+      <span class="opp-meta">CM · Rating ~2028–2065 · Italian White · Slav Black · 4 tournaments · 24 games</span>
+      <span class="direct-record dr-draw">Direct: 0W–0L–1D</span>
+    </div>
+    <div class="opp-links">
+      <a class="opp-link matchup" href="matchup/matchup-heye.html">
+        <span class="badge-tag">PLAN</span> Matchup Plan
+      </a>
+      <a class="opp-link deep" href="matchup/matchup-heye-deep.html">
+        <span class="badge-tag" style="background:#1a5276;">DEEP</span> Direct Encounter — B43 Kan
+      </a>
+    </div>
+    <p class="opp-note">Direct game: Mar 2026 · Austin White · Missed <code>f2+</code> win on move 40. Depth 22 analysis available.</p>
   </div>
 
-  <h3>Fernando Cortes Medina <span style="font-weight:400; font-size:0.88rem; color:#57606a;">· CM · Rating: ~2026–2133 · 1.e4/1.c4 White · French Defense Black · 5 tournaments · 28 games analyzed</span></h3>
-  <div style="display:flex; flex-wrap:wrap; gap:14px; margin-bottom:24px;">
-    <a href="matchup/matchup-fernando.html" style="
-      flex:1; min-width:200px; display:block;
-      border:2px solid #2d7d46; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#f0faf4;">
-      <div style="font-size:0.72rem; text-transform:uppercase; letter-spacing:.05em; color:#2d7d46; margin-bottom:4px;">Matchup Plan</div>
-      <div style="font-weight:700; font-size:1rem; color:#1f2328; margin-bottom:6px;">Austin vs Fernando</div>
-      <div style="font-size:0.82rem; color:#57606a; margin-bottom:8px;">French Advance 6.a3 as White · Sicilian Najdorf as Black · No direct encounter</div>
-      <div style="font-size:0.82rem; color:#2d7d46; font-weight:600;">View matchup plan →</div>
-    </a>
-    <a href="matchup/matchup-fernando-deep.html" style="
-      flex:1; min-width:200px; display:block;
-      border:2px solid #1a5276; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#eaf4fb;">
-      <div style="font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:#1a5276; margin-bottom:4px;">
-        DEEP
-        <span style="font-size:0.72rem; font-weight:700; background:#1a5276; color:#fff; border-radius:4px; padding:1px 7px; letter-spacing:0.04em;">DEPTH 22</span>
-      </div>
-      <div style="font-weight:700; font-size:1rem; color:#1f2328; margin-bottom:4px;">Representative Game — C01 French Exchange</div>
-      <div style="font-size:0.85rem; color:#57606a; margin-bottom:10px;">PAM School R4 2026 · Austin Black perspective · Fernando (2026) vs Li (2021)</div>
-      <div style="font-size:0.88rem; color:#1a5276; font-weight:600;">View deep analysis →</div>
-    </a>
-    <a href="fernando-analysis.html" style="
-      flex:1; min-width:200px; display:block;
-      border:2px solid #6f42c1; border-radius:8px;
-      padding:18px 20px; text-decoration:none; color:inherit;
-      background:#f9f0ff;">
-      <div style="font-size:0.72rem; text-transform:uppercase; letter-spacing:.05em; color:#6f42c1; margin-bottom:4px;">Player Analysis</div>
-      <div style="font-weight:700; font-size:1rem; color:#1f2328; margin-bottom:6px;">Fernando Full Analysis</div>
-      <div style="font-size:0.82rem; color:#57606a; margin-bottom:8px;">28 games · 5 tournaments · Openings, tactics, patterns</div>
-      <div style="font-size:0.82rem; color:#6f42c1; font-weight:600;">View full analysis →</div>
-    </a>
+  <!-- Fernando -->
+  <div class="opponent-block">
+    <div class="opponent-header">
+      <span class="opp-name">Fernando Cortes Medina</span>
+      <span class="opp-meta">CM · Rating ~2026–2133 · 1.e4/1.c4 White · French Defense Black · 5 tournaments · 28 games</span>
+      <span class="direct-record dr-none">No direct encounter</span>
+    </div>
+    <div class="opp-links">
+      <a class="opp-link matchup" href="matchup/matchup-fernando.html">
+        <span class="badge-tag">PLAN</span> Matchup Plan
+      </a>
+      <a class="opp-link deep" href="matchup/matchup-fernando-deep.html">
+        <span class="badge-tag" style="background:#1a5276;">DEEP</span> C01 French Exchange
+      </a>
+      <a class="opp-link review" href="fernando-analysis.html">Full Player Analysis (28 games)</a>
+    </div>
+  </div>
+
+  <!-- Pranav -->
+  <div class="opponent-block">
+    <div class="opponent-header">
+      <span class="opp-name">Pranav Santhosh</span>
+      <span class="opp-meta">Rating 1940 FIDE · 1.e4 English Attack/Maróczy White · Italian/Lopez Black · 3 tournaments · 20 games</span>
+      <span class="direct-record dr-none">No direct encounter</span>
+    </div>
+    <div class="opp-links">
+      <a class="opp-link matchup" href="matchup/matchup-pranav.html">
+        <span class="badge-tag">PLAN</span> Matchup Plan
+      </a>
+      <a class="opp-link deep" href="matchup/matchup-pranav-deep.html">
+        <span class="badge-tag" style="background:#1a5276;">DEEP</span> Engine Analysis — 20 Games
+      </a>
+    </div>
+    <p class="opp-note">WY 2026 avg accuracy <strong>93.4%</strong> · AGCA avg <strong>67.6%</strong> · Key insight: survives to move 25 then his English Attack may stall.</p>
+  </div>
+
+  <!-- Stubs -->
+  <div class="section-heading" style="margin-top:8px;">Upcoming / In Progress</div>
+
+  <div class="opp-stub">
+    <span class="stub-name">Emerson Aurelius Johnson</span>
+    <span>— PGN on file · Analysis pending</span>
+  </div>
+  <div class="opp-stub">
+    <span class="stub-name">Leo Jackson</span>
+    <span>— PGN on file · Analysis pending</span>
+  </div>
+  <div class="opp-stub">
+    <span class="stub-name">Tarun</span>
+    <span>— PGN on file · Analysis pending</span>
   </div>
 
   <hr />
-  <h2>Tracking Progress</h2>
-  <p>Add notes below after completing each week.</p>
 
-  <h3>Week 1 Notes</h3>
-  <div class="notes-section">(add notes here after completing)</div>
+  <!-- Training Plan -->
+  <div class="section-heading">Training Plan</div>
 
-  <h3>Week 2 Notes</h3>
-  <div class="notes-section">(add notes here after completing)</div>
-
-  <h3>Week 3 Notes</h3>
-  <div class="notes-section">(add notes here after completing)</div>
-
-  <h3>Week 4 Notes</h3>
-  <div class="notes-section">(add notes here after completing)</div>
-
-  <hr />
-  <h2>Additional Notes</h2>
-  <div class="notes-section">(add anything else relevant as preparation continues)</div>
+  <a class="training-card" href="austin-training.html">
+    <div class="tc-label">4-Week Study Plan</div>
+    <div class="tc-title">Tournament Preparation Schedule</div>
+    <div style="font-size:0.88rem; color:#3a5a47;">Priority areas ranked by urgency · Weekly drills · Platform recommendations · Progress notes</div>
+    <div class="tc-items">
+      <span class="tc-item">Week 1 — Opening Foundations</span>
+      <span class="tc-item">Week 2 — Tactical Drilling</span>
+      <span class="tc-item">Week 3 — Endgame Technique</span>
+      <span class="tc-item">Week 4 — Full Game Integration</span>
+    </div>
+    <div class="tc-cta">Open training plan →</div>
+  </a>
 
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
 <script>
-// ── Update acc values when engine analysis is available ────────────────────
-// Get accuracy % by uploading each PGN to lichess.org/paste → request analysis
 const ACCURACY_DATA = {
   'NAYCC 2025': [
     { label: 'R1 Su',      result: 'W', acc: 95.2 },
@@ -816,14 +603,10 @@ const ACCURACY_DATA = {
     { label: 'Zi.Wang', result: 'S', acc: 94.0 },
   ]
 };
-// ─────────────────────────────────────────────────────────────────────────────
 
 (function() {
   var resultColor = { W: '#2d7d46', L: '#cf2222', D: '#d4a017', S: '#4f86c6' };
-  var labels = [], data = [], bgColors = [], borderColors = [];
-  var avgLines = [];   // {x0, x1, avg, label} for tournament average annotations
-  var offset = 0;
-  var hasAny = false;
+  var labels = [], data = [], bgColors = [], borderColors = [], avgLines = [], offset = 0, hasAny = false;
 
   Object.keys(ACCURACY_DATA).forEach(function(tournament) {
     var games = ACCURACY_DATA[tournament];
@@ -839,58 +622,45 @@ const ACCURACY_DATA = {
     });
 
     if (filled.length) {
-      var avg = (filled.reduce(function(a,b){return a+b;},0) / filled.length);
+      var avg = filled.reduce(function(a,b){return a+b;},0) / filled.length;
       avgLines.push({ start: offset, end: offset + games.length - 1, avg: avg, label: tournament + ' avg' });
     }
     offset += games.length;
   });
 
-  if (hasAny) {
-    document.getElementById('accuracy-pending').style.display = 'none';
+  if (!hasAny) {
+    document.getElementById('accuracy-pending').style.display = 'block';
   }
 
-  var ctx = document.getElementById('accuracyChart').getContext('2d');
-
-  // Build average-line datasets
   var avgDatasets = avgLines.map(function(al) {
     var d = new Array(labels.length).fill(null);
     for (var i = al.start; i <= al.end; i++) d[i] = parseFloat(al.avg.toFixed(1));
     return {
-      type: 'line',
-      label: al.label,
-      data: d,
-      borderColor: '#1a5276',
-      borderWidth: 2,
-      borderDash: [6, 3],
-      pointRadius: 0,
-      fill: false,
-      tension: 0
+      type: 'line', label: al.label, data: d,
+      borderColor: '#1a5276', borderWidth: 2, borderDash: [6, 3],
+      pointRadius: 0, fill: false, tension: 0
     };
   });
 
-  new Chart(ctx, {
+  new Chart(document.getElementById('accuracyChart').getContext('2d'), {
     type: 'bar',
     data: {
       labels: labels,
       datasets: [{
-        label: 'Accuracy (%)',
-        data: data,
-        backgroundColor: bgColors,
-        borderColor: borderColors,
-        borderWidth: 1,
-        borderRadius: 4,
+        label: 'Accuracy (%)', data: data,
+        backgroundColor: bgColors, borderColor: borderColors,
+        borderWidth: 1, borderRadius: 4,
       }].concat(avgDatasets)
     },
     options: {
-      responsive: true,
-      maintainAspectRatio: false,
+      responsive: true, maintainAspectRatio: false,
       scales: {
         y: {
           min: 0, max: 100,
           title: { display: true, text: 'Accuracy (%)' },
           ticks: { callback: function(v){ return v + '%'; } }
         },
-        x: { ticks: { font: { size: 11 } } }
+        x: { ticks: { font: { size: 10 } } }
       },
       plugins: {
         legend: { display: true, position: 'bottom' },
