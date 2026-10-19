@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Zachary Liu — Austin as Black</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #1a5276; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #1a5276; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #1a5276; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #1a5276; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #1a5276; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #e8f0f8 !important; color: #1a3a55; }
+    .acc-hi { color: #1a3a55; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .prow { display: contents; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #e8f0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #e8f0f8; border: 1px solid #1a5276; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #1a3a55; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    /* Rule cards */
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #fafbff; }
+    .rule-number { background: #1a5276; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    /* Variance cards */
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #eaf0f8; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #1a5276; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    /* Cheat sheet */
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    /* Day-of section */
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #1a5276; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #dce8f5; color: #1a5276; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #dce8f5; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a3a55; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Zachary Liu</h1>
+    <div class="subtitle">Austin as Black — Dutch Defense vs Reti/English</div>
+    <div class="meta">CM Zachary Liu · ~2050–2250 FIDE · 34 games analyzed · Stockfish accuracy data</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-zachary.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-zachary-white.html">← Austin as White</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-zachary-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="encounter-box">
+    <strong>Color note — no direct encounter with Austin Black:</strong> Austin and Zachary have met once (Sep 2026, Austin White). When Zachary plays White, he uses <strong>1.Nf3 and 1.c4</strong> — the Reti and English exclusively. His White record across 18 games is <strong>13W–0L–5D</strong> — he has never lost with White in this dataset. A draw with Black is a legitimate result; a win requires creating positions Zachary has not studied.
+  </div>
+
+  <!-- ═══ SECTION 1 ═══ -->
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Zachary Liu (CM — Candidate Master)</span>
+    <span class="plabel">FIDE Rating</span><span class="pval">~2050–2250 (CM title holder)</span>
+    <span class="plabel">Style</span><span class="pval">Systematic, positional, structural — avoid sharp complications</span>
+    <span class="plabel">Sample</span><span class="pval">34 games, 5 tournaments (BC Cup, GV, Canada Closed, PAM 2026, PAM School)</span>
+    <span class="plabel">Overall accuracy</span><span class="pval">93.6% avg (White 93.9% / Black 93.3%)</span>
+    <span class="plabel">White record</span><span class="pval">13W–0L–5D — never lost with White in dataset</span>
+    <span class="plabel">Direct record</span><span class="pval">Austin 0–1 (Sep 2026, Austin was White)</span>
+  </div>
+  <div class="info-box">
+    Zachary as White opens <strong>1.Nf3 in every single game</strong> — he never plays 1.e4 or 1.d4 directly. His English/Reti systems steer toward slow, structural positions where his superior technique wins. His only significant White inaccuracy: GV G267722 (A37 Symmetrical English), move b5?? (CPL 443) from +4.75 advantage. Austin's goal with Black is to reach positions Zachary <em>cannot</em> navigate with his standard plan.
+  </div>
+
+  <!-- ═══ SECTION 2 ═══ -->
+  <h2>§2 — Zachary's White Repertoire (Frequency & Win-Rate)</h2>
+  <p>Zachary plays <strong>1.Nf3 in 100% of games</strong>. Primary system: English Catalan (g3/Bg2). Secondary: Mikenas Attack (1.c4 Nc3 e4). He avoids Open Games entirely.</p>
+  <table>
+    <thead>
+      <tr><th>ECO</th><th>System</th><th>Games</th><th>W%</th><th>D%</th><th>L%</th><th>Avg Acc</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-safe">
+        <td>A14</td><td>English Catalan (g3 Bg2)</td><td>5</td><td>60%</td><td>40%</td><td>0%</td><td class="acc-hi">95.2%</td><td>PRIMARY WEAPON — 3W, 2D; deeply prepared</td>
+      </tr>
+      <tr class="row-safe">
+        <td>A37</td><td>Symmetrical English (Nc3)</td><td>4</td><td>75%</td><td>25%</td><td>0%</td><td>93.1%</td><td>3W, 1D — one CPL-443 blunder from +4.75</td>
+      </tr>
+      <tr>
+        <td>A19</td><td>Mikenas Attack (Nc3 e4)</td><td>3</td><td>100%</td><td>0%</td><td>0%</td><td>94.8%</td><td>3W — sharp tactical Mikenas; all wins</td>
+      </tr>
+      <tr>
+        <td>A13</td><td>Reti (1.Nf3 d5 2.c4)</td><td>3</td><td>67%</td><td>33%</td><td>0%</td><td>93.6%</td><td>2W, 1D — solid transpositions</td>
+      </tr>
+      <tr>
+        <td>D38</td><td>QGD Ragozin (vs 1...d5)</td><td>2</td><td>50%</td><td>50%</td><td>0%</td><td>93.4%</td><td>1W, 1D — used when Black plays ...d5 early</td>
+      </tr>
+      <tr class="row-danger">
+        <td>A37</td><td>Symm. English (b5?? moment)</td><td>1</td><td>—</td><td>—</td><td>—</td><td class="acc-lo">Loss from +4.75</td><td>GV G267722: missed winning conversion (b5?? CPL443)</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="warn-box">
+    <strong>Never play 1...d5 early.</strong> If Austin plays 1...d5, Zachary transposes to QGD/Ragozin structures (D38) where he scores 100% and averages 93.4%. Austin needs to avoid main-line 1.d4/QGD territory entirely.
+  </div>
+
+  <!-- ═══ SECTION 3 ═══ -->
+  <h2>§3 — Zachary's Vulnerabilities as White</h2>
+
+  <h3>A. Where His Conversion Fails</h3>
+  <table>
+    <thead><tr><th>Game</th><th>ECO</th><th>Critical Moment</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>GV G267722</td>
+        <td>A37 Symm. English</td>
+        <td>b5?? — missed decisive winning continuation</td>
+        <td>443</td>
+        <td>+4.75 → drastically lower</td>
+      </tr>
+      <tr>
+        <td>PAM R4 (as White)</td>
+        <td>B75 Dragon (Austin White game)</td>
+        <td>Rc1?? — 884cpl, eval −1.94 → −10.78</td>
+        <td>884</td>
+        <td>Losing position catastrophe (White)</td>
+      </tr>
+      <tr>
+        <td>CC G266854 (as Black)</td>
+        <td>B46 Taimanov</td>
+        <td>Rc7?? from +11.65 winning position</td>
+        <td>830</td>
+        <td>+11.65 → +3.35</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>B. What the A37 Blunder Reveals</h3>
+  <div class="warn-box">
+    <strong>GV G267722 is the critical data point for Black prep:</strong> Zachary had <strong>+4.75</strong> in the Symmetrical English and played b5?? (CPL 443). The position had become unbalanced — Black had created queenside counterplay that broke the symmetric structure. Zachary's calculation failed when the position required concrete moves rather than positional maneuvering. This is the exact type of asymmetric imbalance Austin should create.
+  </div>
+
+  <h3>C. Pattern — Never Plays Sharp as White</h3>
+  <div class="info-box">
+    Zachary as White has <strong>zero games with kingside attacks or sacrificial play</strong>. His A14/A37 systems aim for structural advantage, slow maneuvering, and endgame precision. However: if Austin plays the Dutch Defense (1...f5), Zachary has <strong>zero games vs the Dutch</strong> in the dataset. Zero preparation data. This is his biggest positional uncertainty as White.
+  </div>
+
+  <h3>D. The Dutch Defense Gap</h3>
+  <p>Scanning all 18 Zachary White games:</p>
+  <ul>
+    <li>vs 1...e5: 0 games (never gets to Open Game — he plays 1.Nf3)</li>
+    <li>vs 1...c5 (Sicilian): 0 games</li>
+    <li>vs 1...f5 (Dutch): <strong>0 games</strong></li>
+    <li>vs 1...e6: 2 games (but Catalan structures)</li>
+    <li>vs 1...d5: 5 games (QGD/Reti)</li>
+    <li>vs 1...Nf6 + c5 (Symmetrical): 4 games</li>
+  </ul>
+  <div class="tip-box">
+    <strong>Dutch Defense has zero opponent preparation data.</strong> Zachary has not faced it once in this dataset. He would need to decide on the spot between Anti-Dutch systems (2.Bg5, 2.Nc3, 2.d3) or enter main-line theory he may not know. Austin plays the Dutch — this is the primary recommended weapon.
+  </div>
+
+  <!-- ═══ SECTION 4 ═══ -->
+  <h2>§4 — Austin's Recommended Weapon as Black</h2>
+
+  <h3>Primary: Dutch Defense 1...f5!</h3>
+  <div class="var-moves">Zachary: 1.Nf3
+Austin:  1...f5!</div>
+
+  <p><strong>Why this targets Zachary specifically:</strong></p>
+  <ul>
+    <li>Zero Zachary games vs the Dutch — no preparation data whatsoever</li>
+    <li>Forces Zachary to make decisions on the spot in move-1/2 (Anti-Dutch setup choice)</li>
+    <li>Creates asymmetric pawn structure immediately — the type that produced his CPL-443 blunder in A37</li>
+    <li>Austin's sharp, tactical style (Stonewall Dutch or Classical Dutch with ...e5 breaks) suits his aggressive preparation</li>
+  </ul>
+
+  <h3>Dutch vs Specific Zachary Moves</h3>
+  <div class="var-moves">IF Zachary: 1.Nf3 f5  2.d4  Nf6  3.g3  → Leningrad Dutch [B86/A86]
+Austin:     1...f5 2... Nf6 3... g6  4.Bg2 Bg7 5.O-O O-O 6.c4 d6 [Leningrad main]
+
+IF Zachary: 1.Nf3 f5  2.c4  Nf6  3.g3  → Catalan-Dutch hybrid
+Austin:     → same Leningrad structure; fianchetto bishop fights c4 pawn
+
+IF Zachary: 1.Nf3 f5  2.d4  Nf6  3.Bg5 → Anti-Dutch London-type
+Austin:     → 3...d5! 4.e3 e6 → Stonewall Dutch [D80-type]
+            (solid, good practical results for Black at Austin's level)
+
+IF Zachary: 1.Nf3 f5  2.Nc3 → Old Benoni / Anti-Dutch
+Austin:     → 2...Nf6 3.d4 d5 → symmetrical fighting</div>
+
+  <h3>Stonewall Dutch — Backup Weapon</h3>
+  <div class="var-moves">Zachary: 1.Nf3
+Austin:  1...e6 2.d4 f5! [Stonewall move order]
+
+Position: d5/e6/f5/c6 pawn formation for Black
+Plan: ...Bd6 Ne4 → knight on e4 is Austin's outpost
+Attack: queenside expansion (...b6, ...c5, ...Bd7-c8-b7)</div>
+  <div class="info-box">
+    Stonewall move order <code>1...e6 2.d4 f5!</code> is a useful safety net if Austin wants to avoid the Leningrad's more theoretical demands. The Stonewall creates a structural fortress with ...Ne4 as the key piece. Austin's tactical style fits the Ne4 kingside attacking plans.
+  </div>
+
+  <div class="warn-box">
+    <strong>NEVER play 1...d5 (QGD-type).</strong> Zachary has faced this 5 times and won or drawn every game. It is his primary White preparation path. Avoid 1...e6 2.c4 3.g3 4.Bg2 Catalan structures (his 95%+ ECO group with 60% win rate). Austin must reach territory Zachary has not navigated.
+  </div>
+
+  <!-- ═══ SECTION 5 ═══ -->
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The <strong>Leningrad Dutch</strong> (A86) has been a weapon of GMs with aggressive styles who want unbalanced positions against systematic 1.Nf3/1.c4 players.</p>
+  <p><strong>Structural plan (Leningrad):</strong></p>
+  <ol>
+    <li><strong>Development (moves 1–8):</strong> ...f5, ...Nf6, ...g6, ...Bg7, ...O-O, ...d6. The fianchettoed bishop on g7 fights against White's queenside expansion.</li>
+    <li><strong>Central plan (moves 9–14):</strong> ...Ne4 (the key piece — occupies the outpost), ...Nc6 (supports Ne4 and pressures d4), ...e5 (the central break when ready).</li>
+    <li><strong>Attack (moves 15+):</strong> If White plays passively, ...f4-f3 pawn storm. If White plays c5, break with ...e5! central counter. The dragon bishop on g7 activates on the long diagonal after ...e5 exd4.</li>
+    <li><strong>Endgame alert:</strong> Avoid trading the g7 bishop unless getting back the d4-pawn or significant compensation. The bishop is Austin's most valuable piece.</li>
+  </ol>
+  <div class="tip-box">
+    <strong>Key lesson from GV G267722:</strong> Zachary cracked when asymmetric queenside counterplay arrived in the Symmetrical English. The Leningrad Dutch creates asymmetry from move 1. Austin should make his moves count toward the ...Ne4 + ...e5 break plan — this is the structure that will put Zachary's calculation under the same pressure.
+  </div>
+
+  <!-- ═══ SECTION 6 ═══ -->
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~65%</span>
+      Leningrad Dutch vs 1.Nf3 — Primary Weapon
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Zachary: 1.Nf3 / 2.d4  / 3.g3  / 4.Bg2 / 5.O-O / 6.c4
+Austin:  1...f5 / 2...Nf6 / 3...g6  / 4...Bg7 / 5...O-O / 6...d6</div>
+      <p><strong>Position after 6...d6:</strong> Leningrad Dutch main line. White has space but no immediate threats. Black has the ...Ne4 outpost and the ...e5 break as long-term weapons.</p>
+      <ol>
+        <li><strong>Moves 7–9:</strong> 7...Nc6 (or 7...Qe8 preparing ...Qh5). The knight on c6 attacks d4 and supports ...Ne4. If White plays 7.Nc3 immediately, play 7...Ne4.</li>
+        <li><strong>Moves 10–14:</strong> ...Ne4 on the outpost, then decide: if White plays Qd3 challenging Ne4, play ...Nxc3 bxc3 and attack the c3-pawn with ...Na5-c4. If White plays Bd2, play ...e5! central break.</li>
+        <li><strong>Moves 15–20:</strong> After ...e5, the Bg7 becomes a monster bishop. Push ...f4 if Ng5 comes, or play ...exd4 exd4 and use the c5-square. The position becomes sharp — this is Austin's terrain.</li>
+        <li><strong>Endgame alert:</strong> Leningrad endgames with ...Ne4 vs Nf3 favor Black structurally. Keep the dark-squared bishop. Trade knights if White's Nf3 is the only piece defending d4.</li>
+      </ol>
+      <div class="warn-box">Watch for Zachary playing <code>7.Nc3 e5 8.dxe5</code> — the early central exchange. After <code>8...dxe5</code>, Black has a healthy pawn center. Do not play 8...Nxe5 automatically — 8...dxe5 is stronger as it opens the d-file.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~20%</span>
+      Stonewall vs 2.d4 — Anti-Catalan Setup
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Zachary: 1.Nf3 / 2.d4  / 3.c4  (skips g3) / 4.e3
+Austin:  1...e6 / 2...f5 / 3...Nf6        / 4...d5  [Stonewall]</div>
+      <p><strong>Position after 4...d5:</strong> Stonewall Dutch structure. Black has d5/e6/f5/c6 pawns. The key piece is ...Ne4 on the outpost.</p>
+      <ol>
+        <li><strong>Moves 5–8:</strong> 5...Bd6, 6...O-O, 7...Nbd7 (or 7...c6 first). The bishop on d6 is Stonewall's trademark — it aims at h2 and supports the ...Ne4 outpost.</li>
+        <li><strong>Moves 9–12:</strong> ...Ne4, ...Qf6 (the Stonewall queen maneuver). The queen on f6 supports the Ne4 and threatens Qh4 attacks with ...g5 kingside storm.</li>
+        <li><strong>Moves 13–18:</strong> If White plays Bd3 to exchange the dark-squared bishop (the classic Anti-Stonewall plan), allow it only if getting good compensation. Otherwise, keep the bishop with ...Bh2+ Kh1 Bd6 retreat.</li>
+        <li><strong>Endgame alert:</strong> Stonewall endgames are drawish — the backward c6-pawn is a weakness. Austin plays for a win — avoid simplified endgames unless ahead.</li>
+      </ol>
+      <div class="warn-box">Watch for Zachary playing <code>Bd3</code> targeting the Ne4 outpost. This is the main Anti-Stonewall plan. If ...Nxd2 Qxd2, White's queen is active. Better: maintain Ne4 with ...Nd7-f6-e4 re-routing if possible.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~15%</span>
+      Dutch vs Anti-Dutch (2.Bg5 or 2.Nc3)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">IF Zachary: 1.Nf3 f5  2.Bg5  → Anti-Dutch London setup
+Austin:     1...f5 2...g6! (fianchetto to fight Bg5)
+            2...h6 3.Bh4 g5 4.Bg3 Nf6 is also playable — aggressive
+
+IF Zachary: 1.Nf3 f5  2.Nc3 → Old Benoni / Anti-Dutch
+Austin:     1...f5 2...Nf6 3.d4 d5! (Stonewall move order from unusual angle)
+            or 2...d6 3.e4 fxe4 4.Nxe4 Nf6 (reversed opening, complex)
+
+IF Zachary: 1.Nf3 f5  2.e4!? → stam gambit / From's Gambit territory
+Austin:     2...fxe4 3.Ng5 Nf6! [best] (not 3...e5? 4.Nxh7)</div>
+      <p><strong>Position type:</strong> Anti-Dutch sideline. Zachary has zero games in any Anti-Dutch system — he will be improvising.</p>
+      <ol>
+        <li><strong>vs 2.Bg5:</strong> Play 2...g6! Fianchetto eliminates the bishop pressure and Black reaches a Leningrad-style structure with one tempo down — acceptable.</li>
+        <li><strong>vs 2.Nc3:</strong> Flexible. Play 2...Nf6 and decide after 3.d4 or 3.e4. Either way, Black has playable positions.</li>
+        <li><strong>vs 2.e4:</strong> This is the From's Gambit territory — rare at this level. Accept the gambit (2...fxe4) and play 3...Nf6 as recommended.</li>
+        <li><strong>Endgame alert:</strong> Anti-Dutch games are typically short and tactical — no endgame concerns in Variance C.</li>
+      </ol>
+      <div class="warn-box">Watch for <code>2.Bg5 d6 3.d4 Nf6 4.Nc3 g6 5.e4!</code> — White grabs the center. Respond with 5...fxe4 6.Nxe4 Bg7, keeping the Dutch spirit alive (the Bg7 is a monster).</div>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 7 ═══ -->
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules</h3>
+
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Clock — Spend Time on Move 6–10 Position Assessment</div>
+          <p class="rule-body">Zachary as White plays standard Catalan plans automatically through move 10 — he has likely spent minimal time. The critical moment is moves 10–15, when Austin's Dutch creates the first branching decisions Zachary cannot navigate on autopilot. Use the clock strategically here — Austin's preparation runs deeper than Zachary's (Zachary has zero Dutch games). This is the window where concrete move calculation matters most.</p>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Psychology — Force Calculation, Not Maneuvering</div>
+          <p class="rule-body">Zachary's CPL-443 blunder (GV G267722) happened because the position demanded concrete calculation from a +4.75 advantage, not smooth maneuvering. His calculation failed. Austin's winning strategy is to force concrete decision points — tactical complications, piece sacrifices, pawn breaks — not slow maneuvering where Zachary's positional technique dominates. Every time the position simplifies, ask: "Can I complicate this?"</p>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Risk Profile — A Draw is Acceptable, But Push for More</div>
+          <p class="rule-body">Zachary as White has never lost in the dataset (13W-0L-5D). A draw with Black against this opponent is a strong result and valid tournament strategy — especially if Austin has White in other games. However: if the Dutch reaches the critical ...Ne4 / ...e5 position type, and Austin calculates a piece sacrifice or tactical shot, take it. Do not play for a draw when a concrete winning sequence is available. Zachary has demonstrated he cannot calculate perfectly from winning positions (CPL-443 from +4.75).</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS BLACK vs Zachary's 1.Nf3:
+
+  MAIN: 1...f5! [Dutch — zero Zachary preparation]
+    If 2.d4 Nf6 3.g3: → 3...g6 4.Bg2 Bg7 5.O-O O-O 6.c4 d6 [Leningrad]
+                       → plan: Ne4 + e5 break + Bg7 monster bishop
+    If 2.d4 Nf6 3.c4:  → 3...g6 same Leningrad
+    If 2.Bg5:           → 2...g6! fianchetto + Leningrad-type
+    If 2.Nc3:           → 2...Nf6 3.d4 d5 [Stonewall move order]
+
+  STONEWALL: 1...e6 2.d4 f5! [safer backup]
+    Structure: d5/e6/f5/c6 + Bd6 + Ne4 outpost
+    Plan: Qf6 → Qh4 + g5 kingside attack
+
+  AVOID: 1...d5 (QGD territory — Zachary's 100% score)
+  AVOID: e6/c5 Sicilian-type structures (Catalan traps him into 95%+ ECOs)</div>
+
+    <h3>Tactical Motifs to Watch For</h3>
+    <table>
+      <thead><tr><th>Motif</th><th>When it arises</th><th>Best example (CPL)</th></tr></thead>
+      <tbody>
+        <tr><td>Missed winning conversion from large advantage</td><td>Position requires concrete calculation, not positional moves</td><td>GV G267722: b5?? from +4.75 (CPL 443)</td></tr>
+        <tr><td>Panic decision in unstructured position</td><td>First time facing position type — improvising</td><td>Zero Dutch games = zero preparation. First Dutch positions will be improvised.</td></tr>
+        <tr><td>Knight outpost domination</td><td>Ne4 with no good challenge (Bd3 not played)</td><td>Pattern from Leningrad theory — Austin can create this vs any Catalan</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══ SECTION 8 ═══ -->
+  <h2>§8 — Day-of Preparation (30 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Tactics drill — 15 min:</strong> 10 puzzles on <em>piece sacrifice for kingside attack</em> and <em>outpost knight domination</em> (Ne4 patterns). These are the exact tactical themes the Dutch Defense creates. Search Lichess puzzles with tags: "outpost", "piece sacrifice". Specifically practice: "If my knight is on e4 and White plays Bd3, what is the best continuation?" Answer: either maintain Ne4 with tempo or trade and activate other pieces.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Opening line review — 10 min:</strong> Replay mentally: <code>1.Nf3 f5 2.d4 Nf6 3.g3 g6 4.Bg2 Bg7 5.O-O O-O 6.c4 d6 7.Nc3 Nc6</code>. Stop at move 8. Ask: "What does Black want here?" Answer: <em>Ne4 outpost, then e5 break, then the Bg7 becomes unstoppable on the long diagonal.</em> Know the answer before sitting down.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Reference position — 5 min:</strong> Find the GV G267722 game in the engine analysis. Look at the position where Zachary had +4.75 and played b5?? (CPL 443). Ask: "What should he have played instead?" The correct move creates a decisive winning continuation in an asymmetric position. This is the type of calculation Zachary will need to do when Austin creates counterplay in the Dutch — and he may fail again.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Zachary has never lost as White. But he's also never faced the Dutch. I'm walking into this game with a weapon he hasn't prepared for, playing the tactical complications that triggered his worst game (CPL 443 from a winning position). A draw here is a win for the tournament. But if I get the Dutch with ...Ne4 and ...e5 live — I push for the full point."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin B Leningrad Dutch (primary)</td><td>A86</td><td><code>1.Nf3 f5 2.d4 Nf6 3.g3 g6 4.Bg2 Bg7 5.O-O O-O 6.c4 d6</code></td></tr>
+      <tr><td>Austin B Stonewall Dutch (backup)</td><td>D80</td><td><code>1.Nf3 e6 2.d4 f5 3.c4 Nf6 4.e3 d5 (Stonewall)</code></td></tr>
+      <tr><td>Austin B vs Anti-Dutch 2.Bg5</td><td>A80</td><td><code>1.Nf3 f5 2.Bg5 g6! (fianchetto counter)</code></td></tr>
+      <tr><td>Austin B vs Anti-Dutch 2.Nc3</td><td>A80</td><td><code>1.Nf3 f5 2.Nc3 Nf6 3.d4 d5 (Stonewall angle)</code></td></tr>
+      <tr><td>Zachary W English Catalan (avoid)</td><td>A14</td><td><code>1.Nf3 Nf6 2.c4 e6 3.g3 d5 4.Bg2</code> — DO NOT ENTER</td></tr>
+      <tr><td>Zachary W Symmetrical English (neutral)</td><td>A37</td><td><code>1.Nf3 Nf6 2.c4 c5 3.Nc3 g6</code> — Austin should prefer Dutch</td></tr>
+    </tbody>
+  </table>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Zachary Liu — Austin as White</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #2d7d46; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #2d7d46; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #2d7d46; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #2d7d46; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #f0fff4 !important; color: #1a4731; }
+    .acc-hi { color: #1a6030; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .prow { display: contents; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    /* Rule cards */
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #fafbff; }
+    .rule-number { background: #2d7d46; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    /* Variance cards */
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #f0fff5; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #2d7d46; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    /* Cheat sheet */
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    /* Day-of section */
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #2d7d46; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #e8f5ee; color: #2d7d46; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #e8f5ee; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a4731; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Zachary Liu</h1>
+    <div class="subtitle">Austin as White — English Attack vs Taimanov Sicilian</div>
+    <div class="meta">CM Zachary Liu · ~2050–2250 FIDE · 34 games analyzed · Stockfish accuracy data</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-zachary.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-zachary-black.html">Austin as Black →</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-zachary-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="encounter-box">
+    <strong>Direct encounter — Sep 12 2026 (Austin White, B46 Taimanov, 0-1, 67 moves):</strong>
+    Austin played the Exchange variation 6.Nxc6 and reached a symmetrical structure. He had <strong>+3.79 at move 14</strong> but played 14.Qh5?? (CPL 382) instead of 14.Bxh7+! — missing the winning bishop sacrifice. A 67-move technical endgame followed; Zachary won on technique. The lesson: <strong>Austin can get winning positions in this exact structure — the problem was calculation, not opening choice.</strong>
+  </div>
+
+  <!-- ═══ SECTION 1 ═══ -->
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Zachary Liu (CM — Candidate Master)</span>
+    <span class="plabel">FIDE Rating</span><span class="pval">~2050–2250 (CM title holder)</span>
+    <span class="plabel">Style</span><span class="pval">Precise, draw-seeking, endgame specialist</span>
+    <span class="plabel">Sample</span><span class="pval">34 games, 5 tournaments (BC Cup, GV, Canada Closed, PAM 2026, PAM School)</span>
+    <span class="plabel">Overall accuracy</span><span class="pval">93.6% avg (White 93.9% / Black 93.3%)</span>
+    <span class="plabel">Overall record</span><span class="pval">16W–2L–18D — only 2 losses in 36 games</span>
+    <span class="plabel">Direct record</span><span class="pval">Austin 0–1 (Sep 2026, Austin blundered +3.79 winning position)</span>
+  </div>
+  <div class="info-box">
+    Zachary's <strong>only 2 losses</strong> across 36 games both occurred in <strong>sharp Sicilian middlegames</strong> — one as Black (B46 Taimanov, 79.4% accuracy, 4 blunders) and one as Black (B35 Dragon vs Yang 2368). As White, he has <strong>never lost</strong> in this dataset (13W-0L-8D). His endgame technique is exceptional (97.4% in 104-move draw vs 2512 FM). Austin's only realistic path to winning is through sharp Sicilian complications.
+  </div>
+
+  <!-- ═══ SECTION 2 ═══ -->
+  <h2>§2 — Zachary's Black Repertoire vs 1.e4 (Frequency & Win-Rate)</h2>
+  <p>Zachary plays <strong>Sicilian 1...c5 in 100% of games vs 1.e4</strong>. Primary structure: Taimanov (B46/B47). Occasional Dragon-type (B35/B32).</p>
+  <table>
+    <thead>
+      <tr><th>ECO</th><th>Variation</th><th>Games</th><th>W%</th><th>D%</th><th>L%</th><th>Avg Acc</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>B46</td><td>Taimanov (Nc6 + e6)</td><td>2</td><td>0%</td><td>50%</td><td>50%</td><td class="acc-lo">86.6%</td><td>WORST ECO — 4 blunders, 79.4% loss; 93.8% draw</td>
+      </tr>
+      <tr>
+        <td>B47</td><td>Taimanov (Qc7 var.)</td><td>1 (Black)</td><td>0%</td><td>100%</td><td>0%</td><td>88.7%</td><td>Draw vs Vuyyuru 1983; 2 mistakes</td>
+      </tr>
+      <tr>
+        <td>B45</td><td>Taimanov (2.Nc3 e6)</td><td>1</td><td>0%</td><td>100%</td><td>0%</td><td class="acc-hi">97.4%</td><td>Elite draw vs Keleberda 2512 — 104 moves</td>
+      </tr>
+      <tr>
+        <td>B35</td><td>Dragon-type (g6, Nc6)</td><td>1</td><td>0%</td><td>0%</td><td>100%</td><td>93.5%</td><td>Loss vs Yang 2368; Kb7 (337cpl)</td>
+      </tr>
+      <tr>
+        <td>B32</td><td>Sicilian (Nc6, no g6)</td><td>1</td><td>0%</td><td>100%</td><td>0%</td><td>89.6%</td><td>Draw vs Jain 2157; 3 mistakes</td>
+      </tr>
+      <tr>
+        <td>B40</td><td>Sicilian Kan (e6 early)</td><td>1</td><td>100%</td><td>0%</td><td>0%</td><td>95.6%</td><td>Win vs Lu 1918 — comfortable structure</td>
+      </tr>
+      <tr class="row-safe">
+        <td>E07/E08</td><td>Catalan Open (as Black)</td><td>2</td><td>100%</td><td>0%</td><td>0%</td><td class="acc-hi">96.6%</td><td>BEST Black results — 2 wins; deeply prepared</td>
+      </tr>
+      <tr class="row-safe">
+        <td>D38</td><td>Ragozin / QGD (Bb4)</td><td>2</td><td>0%</td><td>100%</td><td>0%</td><td class="acc-hi">96.3%</td><td>Solid draws vs 1952 + 2236</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="warn-box">
+    <strong>Do NOT transpose into E07/E08 Catalan or D38 Ragozin.</strong> These are Zachary's two best Black ECO families (96.6% and 96.3% avg). If Austin plays d4/c4 and enters Catalan-type positions, Zachary is in his comfort zone.
+  </div>
+
+  <!-- ═══ SECTION 3 ═══ -->
+  <h2>§3 — Vulnerabilities in the Sicilian</h2>
+
+  <h3>A. Opening Lines Where He Scores Poorly</h3>
+  <table>
+    <thead><tr><th>ECO</th><th>Line</th><th>Record</th><th>Why He Struggles</th></tr></thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>B46</td>
+        <td>Taimanov (Nc6, e6, sharp mid)</td>
+        <td>0W–1L–1D (86.6%)</td>
+        <td>Tactical demands exceed calculation under pressure — 4 blunders in 38 moves (CC G266854)</td>
+      </tr>
+      <tr>
+        <td>B47/B32</td>
+        <td>Taimanov/Paulsen variants</td>
+        <td>0W–0L–2D (89.2%)</td>
+        <td>Multiple mistakes in both draws; below-average for Zachary</td>
+      </tr>
+      <tr>
+        <td>B35</td>
+        <td>Dragon-type (g6, Nc6)</td>
+        <td>0W–1L–0D (93.5%)</td>
+        <td>Sharp counterplay complications; Kb7 (337cpl) blunder</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>B. The Critical Engine Evidence</h3>
+  <div class="warn-box">
+    <strong>CC G266854 (B46 Taimanov, Loss vs Tseng 1907):</strong> Zachary had a <strong>+11.65 winning advantage</strong> and played Rc7?? (830cpl) — missing the immediate piece-winning Rxg2. Three more blunders followed: f3?? and Rc5?? — 4 blunders in 38 moves. Final accuracy: <strong>79.4%</strong>. This is the same opening Austin will be playing.
+  </div>
+  <div class="info-box">
+    <strong>Pattern confirmed across both colors:</strong> PAM R4 (B75 Dragon, White) — Zachary played Rc1?? (884cpl, eval −1.94 → −10.78) — 4 blunders as White in a Dragon pawn-storm. The same position type (sharp Sicilian with mutual attacks) breaks Zachary's calculation regardless of color.
+  </div>
+
+  <h3>C. Direct Encounter — What It Actually Proves</h3>
+  <ul>
+    <li>Zachary plays Taimanov confirmed: <code>1...c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5...a6</code></li>
+    <li>Austin reached <strong>+3.79 at move 14</strong> — a clearly winning position</li>
+    <li>The loss was Austin's calculation failure (14.Qh5?? instead of 14.Bxh7+!), not a preparation failure</li>
+    <li>Austin should play the same Taimanov — he gets winning positions from it</li>
+  </ul>
+
+  <!-- ═══ SECTION 4 ═══ -->
+  <h2>§4 — Austin's Recommended Weapon</h2>
+
+  <h3>Primary: English Attack vs Taimanov (B47)</h3>
+  <div class="var-moves">1.e4  c5  2.Nf3  e6  3.d4  cxd4  4.Nxd4  Nc6
+5.Nc3  Qc7  6.Be3  a6  7.f3  b5  8.g4!</div>
+
+  <p><strong>Why this targets Zachary specifically:</strong></p>
+  <ul>
+    <li>B46 is his worst ECO (86.6% avg, 0W-1L-1D)</li>
+    <li>The g4 kingside storm creates <em>exactly</em> the piece-coordination pressure that produced his 4-blunder meltdown (CC G266854)</li>
+    <li>His accuracy drops to 79% in this position type vs baseline 93.6%</li>
+  </ul>
+
+  <p><strong>If Zachary plays 5...d6 (Scheveningen-type):</strong></p>
+  <div class="var-moves">5...d6  6.Be3  Nf6  7.f3  Be7  8.Qd2  O-O  9.g4!</div>
+  <p>Same English Attack structure — the g4 storm applies regardless of whether Zachary plays ...Qc7 or ...d6.</p>
+
+  <div class="warn-box">
+    <strong>NEVER play 6.Nxc6 (Exchange variation).</strong> Austin played this (Sep 2026) and lost a 67-move technical endgame. The symmetrical doubled-pawn structure removes all tactical tension — exactly what Zachary needs to activate his elite endgame technique (97.4% in 104-move draw).
+  </div>
+
+  <h3>Sideline: Rossolimo (if Zachary delays ...e6)</h3>
+  <p>If Zachary plays <code>2...Nc6</code> before ...e6: <code>1.e4 c5 2.Nf3 Nc6 3.Bb5</code> (Rossolimo). Keeps game unbalanced but steers toward more technical play — use only if English Attack lines are unavailable.</p>
+
+  <div class="tip-box">
+    <strong>Critical decision point — Move 7–8:</strong> When Austin plays f3 and g4, the pawn storm is committed. Know the following positions cold before the game: (1) after 8...Bb7, (2) after 8...Nf6, (3) if Black plays ...b4 attacking Nc3. Preparation to move 14 is essential.
+  </div>
+
+  <!-- ═══ SECTION 5 ═══ -->
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The <strong>English Attack</strong> (<code>Be3 / f3 / Qd2 / O-O-O / g4</code>) against the Taimanov was Kasparov and Anand's main weapon in the 1990s B47 battles. The structural plan:</p>
+  <ol>
+    <li><strong>Development (moves 6–8):</strong> Be3, f3, set up Qd2. Do not castle kingside — always O-O-O.</li>
+    <li><strong>Storm launch (moves 9–12):</strong> Qd2, O-O-O, g5. Rg1 supports the g-pawn advance.</li>
+    <li><strong>Kingside attack (moves 13–18):</strong> g5-g6 pawn wedge, h4-h5 supporting the attack, Ne4-Nd6 knight activation.</li>
+    <li><strong>Black counterplay handling:</strong> If Black plays <code>...b4</code> (queenside attack on Nc3), respond with <code>Nd5!</code> — the knight leap is stronger than retreating. If Black plays <code>...f5</code>, respond with <code>e5!</code> central counter-blow.</li>
+  </ol>
+  <div class="tip-box">
+    <strong>Key lesson from the direct encounter:</strong> At move 14, Austin had +3.79 and missed 14.Bxh7+! Kxh7 15.Qh5+ Kg8 16.g5 — a standard bishop-sacrifice attacking theme. The English Attack creates these same sacrifice opportunities at moves 12–18. Practice this calculation pattern before the game: "If my bishop is on d3 and Black has castled kingside, does Bxh7+ work here?"
+  </div>
+
+  <!-- ═══ SECTION 6 ═══ -->
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header green-var">
+      <span class="var-label">VARIANCE A ~70%</span>
+      Taimanov 5...Qc7 — Primary Weapon
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Zachary: 1.e4  c5  / 3.d4  cxd4  / 5.Nc3  Qc7  / 7.f3  b5
+Austin:  2.Nf3 e6  / 4.Nxd4 Nc6  / 6.Be3  a6   / 8.g4!</div>
+      <p><strong>Position after 8.g4:</strong> White has space advantage and kingside storm initiative. Black has <em>...b5-b4</em> queenside counterplay coming. The race begins.</p>
+      <ol>
+        <li><strong>Moves 9–11:</strong> 9.Qd2, 10.O-O-O. Castle queenside before Black's b5-b4 reaches Nc3. Priority: get castled.</li>
+        <li><strong>Moves 12–15:</strong> g5, h4. Rook to g1 supports g5→g6 advance. Black will play ...Nf6 or ...Bb7 — neither stops the storm.</li>
+        <li><strong>Moves 16–20:</strong> g6 pawn wedge (if allowed), or Ne4-Nd6 (strong knight outpost). Rook lift Rg1→g5 for attack.</li>
+        <li><strong>Endgame alert:</strong> If queens come off, White loses attacking edge. Do NOT simplify. Keep queens and rooks on the board.</li>
+      </ol>
+      <div class="warn-box">Watch for <code>...b4</code> attacking Nc3. Respond with <code>Nd5!</code> — the knight leap to d5 is typically winning, not Nc3-e2 retreat.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header green-var">
+      <span class="var-label">VARIANCE B ~15%</span>
+      Kan Merger — 4...a6 before ...Nc6
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Zachary: 1.e4  c5  / 3.d4  cxd4  / 4.Nxd4 a6
+Austin:  2.Nf3 e6  / 5.Nc3  Qc7  / 6.Be3  Nc6</div>
+      <p><strong>Position type:</strong> Kan/Taimanov merger. Black delays ...Nc6, keeping more flexibility.</p>
+      <ol>
+        <li><strong>Moves 7–9:</strong> Same English Attack — f3, g4, Qd2. The absence of early ...Nc6 means Nd5 threats arrive sooner.</li>
+        <li><strong>Moves 10–14:</strong> O-O-O, g5, h4. Same pawn storm plan.</li>
+        <li><strong>Alternative — Maróczy Bind:</strong> 5.c4 creates a bind without immediate tactical chaos. Austin can use this if he wants a slower squeeze, but for defeating Zachary the f3/g4 storm is better.</li>
+        <li><strong>Endgame alert:</strong> Maróczy → technical. English Attack → tactical. Choose based on tournament standing.</li>
+      </ol>
+      <div class="warn-box">Watch for <code>...Nge7-Nf5</code> attacking Be3. If Black plays ...Nf5, the bishop on e3 is under pressure — move it to g5 or d2 proactively.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header green-var">
+      <span class="var-label">VARIANCE C ~10%</span>
+      Dragon-type — 2...Nc6 then ...g6
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Zachary: 1.e4  c5  / 3.d4  cxd4  / 4.Nxd4 g6
+Austin:  2.Nf3 Nc6 / 5.Nc3  Bg7  / 6.Be3  Nf6  / 7.Bc4  O-O  / 8.Bb3 → h4/h5</div>
+      <p><strong>Position type:</strong> Dragon Yugoslav Attack. Zachary's B35 loss (vs Yang 2368) shows he struggles in sharp Dragon complications.</p>
+      <ol>
+        <li><strong>Moves 9–11:</strong> f3, Qd2, O-O-O. Yugoslav Attack setup — same castling queenside plan.</li>
+        <li><strong>Moves 12–15:</strong> h4-h5, g4-g5. Kingside storm vs Black's dragon attack.</li>
+        <li><strong>Alternative — Maróczy Bind (5.c4):</strong> Solid structural advantage, no immediate tactical risk. Good if Austin wants to win quietly.</li>
+        <li><strong>Endgame alert:</strong> Dragon endgames favor White (backward d6-pawn). Push to simplified rook ending carefully — actually favorable here unlike Taimanov.</li>
+      </ol>
+      <div class="warn-box">Watch for <code>...d5</code> break. If allowed, Black equalizes completely. Play e5! or exd5 to prevent ...d5 at the right moment.</div>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 7 ═══ -->
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules</h3>
+
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Clock — Spend Time on Moves 8–15</div>
+          <p class="rule-body">Zachary plays quickly in prepared Sicilian structures — he will move fast through move 7. Austin's preparation advantage matters most on moves 8–15, when the English Attack pawn storm decisions are made. Do not rush the g4 commitment or the O-O-O timing. Use the clock to get these moves right.</p>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Psychology — Do NOT Simplify</div>
+          <p class="rule-body">Zachary self-destructed from +11.65 (Rc7?? 830cpl) in the <em>exact position type</em> Austin is targeting. This is documented fact. The English Attack g4 storm creates the tactical chaos that triggers his meltdowns. Every piece trade reduces the complexity that makes his accuracy fall to 79%. If Austin starts winning material — press the attack, do not convert quietly into an ending.</p>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Risk Profile — Play for the Win</div>
+          <p class="rule-body">Zachary is 100–300 points stronger. A draw is acceptable, but with White and the English Attack available, Austin is playing for a win. Take the sharp English Attack over the Rossolimo. The evidence shows this is Austin's best practical winning chance — the aggressive line is also the correct line.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">MAIN: 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7
+      6.Be3 a6 7.f3 → [English Attack setup]
+  → 7...b5 8.g4! [storm begins] → 9.Qd2 10.O-O-O 11.g5 12.h4
+  → 7...Nf6 8.g4 Bb7 9.Qd2 [same storm]
+
+IF 5...d6: 6.Be3 Nf6 7.f3 Be7 8.Qd2 O-O 9.g4!
+
+AVOID: 6.Nxc6 [Exchange = symmetry = Zachary endgame wins]
+AVOID: transposing to d4 Catalan (his 96-97% structures)
+
+CRITICAL MOVE 14: if bishop on d3 + Black castled kingside → look for Bxh7+!</div>
+
+    <h3>Tactical Motifs to Watch For</h3>
+    <table>
+      <thead><tr><th>Motif</th><th>When it arises</th><th>Best example (CPL)</th></tr></thead>
+      <tbody>
+        <tr><td>Panic-retreat instead of material win</td><td>Sharp Sicilian with multiple threats to king/pieces</td><td>CC G266854: Rc7 instead of Rxg2 — 830cpl, +11.65→+3.35</td></tr>
+        <tr><td>Missed winning continuation from large advantage</td><td>+4 to +11 evals, opponent creates threats</td><td>CC G266854: +11.65; PAM R8: Bf4 (508cpl); D38: Bd7 (630cpl)</td></tr>
+        <tr><td>Piece sacrifice calculation failure</td><td>When opponent can sacrifice for kingside attack</td><td>Direct encounter: missed 14.Bxh7+! at +3.79</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══ SECTION 8 ═══ -->
+  <h2>§8 — Day-of Preparation (30 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Tactics drill — 15 min:</strong> 10 puzzles specifically on <em>bishop sacrifice on h7</em> (Bxh7+) and <em>piece-winning rook captures</em> (Rxg2 type). These are the exact tactical patterns where Zachary makes 830–884cpl blunders. Search Lichess puzzles with tags: "sacrifice", "discovered attack". Do not do generic puzzles — focus on these two themes.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Opening line review — 10 min:</strong> Replay mentally: <code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7 6.Be3 a6 7.f3 b5 8.g4 Bb7 9.Qd2 Nf6 10.O-O-O</code>. Stop at move 10. Ask: "What does White want here?" Answer: <em>g5, then Rg1, then g5-g6 pawn wedge, then Nd5 knight leap.</em>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Reference game — 5 min:</strong> Replay the direct encounter (Sep 2026) through move 14. Stop at move 13. Ask: "What is White's best move?" The answer is <strong>14.Bxh7+!</strong> This is the calculation Austin missed last time. Reinforce it now. The same type of piece sacrifice will appear again.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "I had +3.79 against Zachary last time and gave it away with one lazy move. Today I play 14.Bxh7+ and I convert. The English Attack creates the same sharp complications — the same position type where Zachary made 4 blunders from +11.65. Trust the preparation. When you see the piece sacrifice opportunity, calculate it and play it. Don't blink."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin W English Attack vs Taimanov (Qc7)</td><td>B47</td><td><code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7 6.Be3 f3 g4</code></td></tr>
+      <tr><td>Austin W English Attack vs Scheveningen</td><td>B81</td><td><code>5...d6 6.Be3 Nf6 7.f3 Be7 8.Qd2 O-O 9.g4</code></td></tr>
+      <tr><td>Austin W Yugoslav Attack vs Dragon</td><td>B76</td><td><code>2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 g6 5.Nc3 Bg7 6.Be3 Nf6 7.Bc4 O-O 8.Bb3 h4</code></td></tr>
+      <tr><td>Austin W Rossolimo (sideline)</td><td>B30</td><td><code>1.e4 c5 2.Nf3 Nc6 3.Bb5</code></td></tr>
+      <tr><td>Zachary B Taimanov (primary)</td><td>B46</td><td><code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6</code></td></tr>
+      <tr><td>Zachary B Dragon (rare)</td><td>B35</td><td><code>1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 g6</code></td></tr>
+    </tbody>
+  </table>
+
+</div>
+</body>
+</html>
