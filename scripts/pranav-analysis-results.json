@@ -1,0 +1,908 @@
+{
+  "AGCA Fall 2026": {
+    "R2": {
+      "prColor": "black",
+      "opponent": "Eric Dumitru",
+      "oppElo": 0,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 63.9,
+      "oppAccuracy": 69.6,
+      "avgCPL": 191,
+      "blunders": 5,
+      "mistakes": 6,
+      "inaccuracies": 1,
+      "movesAnalyzed": 26,
+      "criticalMoments": [
+        {
+          "moveNum": 18,
+          "san": "Ng4",
+          "bestMove": "Rxc8",
+          "cpl": 743,
+          "classification": "blunder",
+          "evalBefore": "-0.17",
+          "evalAfter": "-7.60"
+        },
+        {
+          "moveNum": 16,
+          "san": "Ne7",
+          "bestMove": "axb5",
+          "cpl": 718,
+          "classification": "blunder",
+          "evalBefore": "+6.46",
+          "evalAfter": "-0.72"
+        },
+        {
+          "moveNum": 13,
+          "san": "Bxb3",
+          "bestMove": "exd4",
+          "cpl": 663,
+          "classification": "blunder",
+          "evalBefore": "+6.77",
+          "evalAfter": "+0.14"
+        }
+      ]
+    },
+    "R3": {
+      "prColor": "white",
+      "opponent": "Stephen Adams",
+      "oppElo": 0,
+      "result": "0-1",
+      "prResult": "loss",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 71.3,
+      "oppAccuracy": 65.9,
+      "avgCPL": 117,
+      "blunders": 4,
+      "mistakes": 1,
+      "inaccuracies": 0,
+      "movesAnalyzed": 26,
+      "criticalMoments": [
+        {
+          "moveNum": 21,
+          "san": "Bd4",
+          "bestMove": "Nxc6",
+          "cpl": 821,
+          "classification": "blunder",
+          "evalBefore": "+1.77",
+          "evalAfter": "-6.44"
+        },
+        {
+          "moveNum": 22,
+          "san": "Qf2",
+          "bestMove": "Nxc6",
+          "cpl": 562,
+          "classification": "blunder",
+          "evalBefore": "+2.10",
+          "evalAfter": "-3.52"
+        },
+        {
+          "moveNum": 20,
+          "san": "Nxa5",
+          "bestMove": "Rc2",
+          "cpl": 529,
+          "classification": "blunder",
+          "evalBefore": "-0.33",
+          "evalAfter": "-5.62"
+        }
+      ]
+    }
+  },
+  "AGCA Summer 2026": {
+    "R2": {
+      "prColor": "white",
+      "opponent": "Thomas, Michael D",
+      "oppElo": 1781,
+      "result": "*",
+      "prResult": "?",
+      "eco": "A38",
+      "opening": "English Opening: Symmetrical Variation, Full Symmetry Line",
+      "prAccuracy": 53.1,
+      "oppAccuracy": 53.7,
+      "avgCPL": 208,
+      "blunders": 5,
+      "mistakes": 0,
+      "inaccuracies": 2,
+      "movesAnalyzed": 16,
+      "criticalMoments": [
+        {
+          "moveNum": 7,
+          "san": "Nd4",
+          "bestMove": "d4",
+          "cpl": 800,
+          "classification": "blunder",
+          "evalBefore": "+0.40",
+          "evalAfter": "-7.60"
+        },
+        {
+          "moveNum": 13,
+          "san": "Bf3",
+          "bestMove": "d3",
+          "cpl": 656,
+          "classification": "blunder",
+          "evalBefore": "+0.19",
+          "evalAfter": "-6.37"
+        },
+        {
+          "moveNum": 16,
+          "san": "g4",
+          "bestMove": "Bg2",
+          "cpl": 592,
+          "classification": "blunder",
+          "evalBefore": "-0.13",
+          "evalAfter": "-6.05"
+        }
+      ]
+    },
+    "R3": {
+      "prColor": "white",
+      "opponent": "Thomas, Michael D",
+      "oppElo": 1781,
+      "result": "*",
+      "prResult": "?",
+      "eco": "B92",
+      "opening": "Sicilian Defense: Najdorf Variation, Opocensky Variation",
+      "prAccuracy": 80,
+      "oppAccuracy": 75.5,
+      "avgCPL": 74,
+      "blunders": 2,
+      "mistakes": 1,
+      "inaccuracies": 6,
+      "movesAnalyzed": 33,
+      "criticalMoments": [
+        {
+          "moveNum": 5,
+          "san": "Be3",
+          "bestMove": "Nxd4",
+          "cpl": 808,
+          "classification": "blunder",
+          "evalBefore": "+0.35",
+          "evalAfter": "-7.73"
+        },
+        {
+          "moveNum": 4,
+          "san": "Nc3",
+          "bestMove": "Nxd4",
+          "cpl": 781,
+          "classification": "blunder",
+          "evalBefore": "+0.33",
+          "evalAfter": "-7.48"
+        },
+        {
+          "moveNum": 23,
+          "san": "Nd2",
+          "bestMove": "a4",
+          "cpl": 150,
+          "classification": "mistake",
+          "evalBefore": "+2.93",
+          "evalAfter": "+1.43"
+        }
+      ]
+    },
+    "R4": {
+      "prColor": "black",
+      "opponent": "Lonie, Chase Rugby",
+      "oppElo": 1846,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "C54",
+      "opening": "Italian Game: Classical Variation, Greco Gambit, Dubov Italian",
+      "prAccuracy": 90.8,
+      "oppAccuracy": 86.2,
+      "avgCPL": 30,
+      "blunders": 1,
+      "mistakes": 1,
+      "inaccuracies": 2,
+      "movesAnalyzed": 33,
+      "criticalMoments": [
+        {
+          "moveNum": 33,
+          "san": "Kd7",
+          "bestMove": "Kb5",
+          "cpl": 404,
+          "classification": "blunder",
+          "evalBefore": "+4.63",
+          "evalAfter": "+0.59"
+        },
+        {
+          "moveNum": 34,
+          "san": "Kc6",
+          "bestMove": "b5",
+          "cpl": 208,
+          "classification": "mistake",
+          "evalBefore": "+6.73",
+          "evalAfter": "+4.65"
+        },
+        {
+          "moveNum": 21,
+          "san": "Re6+",
+          "bestMove": "a6",
+          "cpl": 70,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.91",
+          "evalAfter": "+0.21"
+        }
+      ]
+    },
+    "R5": {
+      "prColor": "white",
+      "opponent": "Maddipati, Srihas",
+      "oppElo": 1936,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "B36",
+      "opening": "Sicilian Defense: Accelerated Dragon, Maróczy Bind",
+      "prAccuracy": 78.3,
+      "oppAccuracy": 68.4,
+      "avgCPL": 88,
+      "blunders": 1,
+      "mistakes": 1,
+      "inaccuracies": 2,
+      "movesAnalyzed": 14,
+      "criticalMoments": [
+        {
+          "moveNum": 14,
+          "san": "Bd4",
+          "bestMove": "Bxb6",
+          "cpl": 792,
+          "classification": "blunder",
+          "evalBefore": "+8.53",
+          "evalAfter": "+0.61"
+        },
+        {
+          "moveNum": 13,
+          "san": "Nd5",
+          "bestMove": "Bd4",
+          "cpl": 187,
+          "classification": "mistake",
+          "evalBefore": "+2.35",
+          "evalAfter": "+0.48"
+        },
+        {
+          "moveNum": 10,
+          "san": "Qd2",
+          "bestMove": "c5",
+          "cpl": 129,
+          "classification": "inaccuracy",
+          "evalBefore": "+2.62",
+          "evalAfter": "+1.33"
+        }
+      ]
+    },
+    "R6": {
+      "prColor": "white",
+      "opponent": "Li, Rachael",
+      "oppElo": 2286,
+      "result": "*",
+      "prResult": "?",
+      "eco": "E49",
+      "opening": "Nimzo-Indian Defense: Normal Variation, Botvinnik System",
+      "prAccuracy": 88.5,
+      "oppAccuracy": 94.6,
+      "avgCPL": 36,
+      "blunders": 1,
+      "mistakes": 2,
+      "inaccuracies": 1,
+      "movesAnalyzed": 26,
+      "criticalMoments": [
+        {
+          "moveNum": 21,
+          "san": "Bg2",
+          "bestMove": "Be2",
+          "cpl": 312,
+          "classification": "blunder",
+          "evalBefore": "-0.02",
+          "evalAfter": "-3.14"
+        },
+        {
+          "moveNum": 26,
+          "san": "Nf3",
+          "bestMove": "fxe5",
+          "cpl": 182,
+          "classification": "mistake",
+          "evalBefore": "-3.71",
+          "evalAfter": "-5.53"
+        },
+        {
+          "moveNum": 25,
+          "san": "f4",
+          "bestMove": "Ba3",
+          "cpl": 172,
+          "classification": "mistake",
+          "evalBefore": "-1.73",
+          "evalAfter": "-3.45"
+        }
+      ]
+    },
+    "R7": {
+      "prColor": "black",
+      "opponent": "Kaliyur, Rohith",
+      "oppElo": 1878,
+      "result": "*",
+      "prResult": "?",
+      "eco": "D35",
+      "opening": "Queen's Gambit Declined: Exchange Variation, Positional Variation",
+      "prAccuracy": 93.3,
+      "oppAccuracy": 85.1,
+      "avgCPL": 17,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 4,
+      "movesAnalyzed": 23,
+      "criticalMoments": [
+        {
+          "moveNum": 20,
+          "san": "Nd3",
+          "bestMove": "Qg6",
+          "cpl": 113,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.81",
+          "evalAfter": "-0.32"
+        },
+        {
+          "moveNum": 18,
+          "san": "Bd7",
+          "bestMove": "c5",
+          "cpl": 108,
+          "classification": "inaccuracy",
+          "evalBefore": "+1.10",
+          "evalAfter": "+0.02"
+        },
+        {
+          "moveNum": 22,
+          "san": "Kg7",
+          "bestMove": "Reb8",
+          "cpl": 70,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.42",
+          "evalAfter": "-1.12"
+        }
+      ]
+    },
+    "R9": {
+      "prColor": "white",
+      "opponent": "Padmanabhan, Akshay",
+      "oppElo": 1914,
+      "result": "0-1",
+      "prResult": "loss",
+      "eco": "B50",
+      "opening": "Sicilian Defense: Modern Variations, Anti-Qxd4 Move Order",
+      "prAccuracy": 51,
+      "oppAccuracy": 46.6,
+      "avgCPL": 339,
+      "blunders": 13,
+      "mistakes": 2,
+      "inaccuracies": 2,
+      "movesAnalyzed": 22,
+      "criticalMoments": [
+        {
+          "moveNum": 8,
+          "san": "Qd4",
+          "bestMove": "Nxd8",
+          "cpl": 967,
+          "classification": "blunder",
+          "evalBefore": "+9.69",
+          "evalAfter": "+0.02"
+        },
+        {
+          "moveNum": 9,
+          "san": "a4",
+          "bestMove": "Nxd8",
+          "cpl": 960,
+          "classification": "blunder",
+          "evalBefore": "+9.45",
+          "evalAfter": "-0.15"
+        },
+        {
+          "moveNum": 11,
+          "san": "Nd5",
+          "bestMove": "exf5",
+          "cpl": 663,
+          "classification": "blunder",
+          "evalBefore": "+6.77",
+          "evalAfter": "+0.14"
+        }
+      ]
+    }
+  },
+  "World Youth 2026": {
+    "R1": {
+      "prColor": "white",
+      "opponent": "NEGREAN, Andrei",
+      "oppElo": 2366,
+      "result": "0-1",
+      "prResult": "loss",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 94.2,
+      "oppAccuracy": 97.6,
+      "avgCPL": 62,
+      "blunders": 3,
+      "mistakes": 2,
+      "inaccuracies": 3,
+      "movesAnalyzed": 60,
+      "criticalMoments": [
+        {
+          "moveNum": 45,
+          "san": "hxg3",
+          "bestMove": "hxg3",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-17.40",
+          "evalAfter": "-62.80"
+        },
+        {
+          "moveNum": 46,
+          "san": "g4",
+          "bestMove": "Ke3",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-77.20",
+          "evalAfter": "-#"
+        },
+        {
+          "moveNum": 44,
+          "san": "g3",
+          "bestMove": "Kd3",
+          "cpl": 432,
+          "classification": "blunder",
+          "evalBefore": "-10.40",
+          "evalAfter": "-14.72"
+        }
+      ]
+    },
+    "R10": {
+      "prColor": "white",
+      "opponent": "RAGAVAN, Samarth Rajesh",
+      "oppElo": 2148,
+      "result": "0-1",
+      "prResult": "loss",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 93.8,
+      "oppAccuracy": 96.4,
+      "avgCPL": 89,
+      "blunders": 7,
+      "mistakes": 1,
+      "inaccuracies": 3,
+      "movesAnalyzed": 73,
+      "criticalMoments": [
+        {
+          "moveNum": 61,
+          "san": "Ne5",
+          "bestMove": "Ne5",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-13.82",
+          "evalAfter": "-36.44"
+        },
+        {
+          "moveNum": 62,
+          "san": "Nc6+",
+          "bestMove": "Nc6+",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-67.52",
+          "evalAfter": "-77.70"
+        },
+        {
+          "moveNum": 63,
+          "san": "Ne5",
+          "bestMove": "Ne5",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-68.28",
+          "evalAfter": "-79.26"
+        }
+      ]
+    },
+    "R11": {
+      "prColor": "white",
+      "opponent": "FADEEV, Justin Michael",
+      "oppElo": 2127,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 94.8,
+      "oppAccuracy": 91,
+      "avgCPL": 30,
+      "blunders": 1,
+      "mistakes": 3,
+      "inaccuracies": 2,
+      "movesAnalyzed": 48,
+      "criticalMoments": [
+        {
+          "moveNum": 41,
+          "san": "Qxf6+",
+          "bestMove": "Qg7+",
+          "cpl": 420,
+          "classification": "blunder",
+          "evalBefore": "+14.16",
+          "evalAfter": "+9.96"
+        },
+        {
+          "moveNum": 35,
+          "san": "Qh3",
+          "bestMove": "Qf4",
+          "cpl": 198,
+          "classification": "mistake",
+          "evalBefore": "+7.71",
+          "evalAfter": "+5.73"
+        },
+        {
+          "moveNum": 25,
+          "san": "Re4",
+          "bestMove": "h4",
+          "cpl": 172,
+          "classification": "mistake",
+          "evalBefore": "+2.65",
+          "evalAfter": "+0.93"
+        }
+      ]
+    },
+    "R4": {
+      "prColor": "black",
+      "opponent": "GABADADZE, Gabriel",
+      "oppElo": 2147,
+      "result": "1-0",
+      "prResult": "loss",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 93.3,
+      "oppAccuracy": 95.6,
+      "avgCPL": 42,
+      "blunders": 2,
+      "mistakes": 3,
+      "inaccuracies": 6,
+      "movesAnalyzed": 78,
+      "criticalMoments": [
+        {
+          "moveNum": 59,
+          "san": "Bxb2",
+          "bestMove": "Ke6",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-10.22",
+          "evalAfter": "-91.65"
+        },
+        {
+          "moveNum": 42,
+          "san": "h4",
+          "bestMove": "Bd7",
+          "cpl": 516,
+          "classification": "blunder",
+          "evalBefore": "-0.77",
+          "evalAfter": "-5.93"
+        },
+        {
+          "moveNum": 62,
+          "san": "Bd4",
+          "bestMove": "Be5",
+          "cpl": 271,
+          "classification": "mistake",
+          "evalBefore": "-88.90",
+          "evalAfter": "-91.61"
+        }
+      ]
+    },
+    "R5": {
+      "prColor": "black",
+      "opponent": "RUSU, Lucas",
+      "oppElo": 2191,
+      "result": "1-0",
+      "prResult": "loss",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 93.7,
+      "oppAccuracy": 96.1,
+      "avgCPL": 126,
+      "blunders": 11,
+      "mistakes": 1,
+      "inaccuracies": 1,
+      "movesAnalyzed": 84,
+      "criticalMoments": [
+        {
+          "moveNum": 65,
+          "san": "Kf6",
+          "bestMove": "Kf6",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-61.45",
+          "evalAfter": "-88.77"
+        },
+        {
+          "moveNum": 66,
+          "san": "d3",
+          "bestMove": "Kg5",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-91.30",
+          "evalAfter": "-#"
+        },
+        {
+          "moveNum": 68,
+          "san": "Kg5",
+          "bestMove": "Kg5",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-71.68",
+          "evalAfter": "-#"
+        }
+      ]
+    },
+    "R6": {
+      "prColor": "white",
+      "opponent": "TAY, Mason",
+      "oppElo": 1749,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 91.8,
+      "oppAccuracy": 89.1,
+      "avgCPL": 30,
+      "blunders": 0,
+      "mistakes": 4,
+      "inaccuracies": 8,
+      "movesAnalyzed": 57,
+      "criticalMoments": [
+        {
+          "moveNum": 37,
+          "san": "Nf5",
+          "bestMove": "Rf3+",
+          "cpl": 244,
+          "classification": "mistake",
+          "evalBefore": "+5.81",
+          "evalAfter": "+3.37"
+        },
+        {
+          "moveNum": 34,
+          "san": "Bd3",
+          "bestMove": "Nxg6",
+          "cpl": 171,
+          "classification": "mistake",
+          "evalBefore": "+6.44",
+          "evalAfter": "+4.73"
+        },
+        {
+          "moveNum": 32,
+          "san": "Be2",
+          "bestMove": "N5h4",
+          "cpl": 165,
+          "classification": "mistake",
+          "evalBefore": "+4.90",
+          "evalAfter": "+3.25"
+        }
+      ]
+    },
+    "R7": {
+      "prColor": "black",
+      "opponent": "DIAZ GUERRERO, Jesus Daniel",
+      "oppElo": 2102,
+      "result": "1-0",
+      "prResult": "loss",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 95.7,
+      "oppAccuracy": 97.6,
+      "avgCPL": 62,
+      "blunders": 3,
+      "mistakes": 1,
+      "inaccuracies": 7,
+      "movesAnalyzed": 65,
+      "criticalMoments": [
+        {
+          "moveNum": 55,
+          "san": "Kf5",
+          "bestMove": "g5",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-73.83",
+          "evalAfter": "-86.18"
+        },
+        {
+          "moveNum": 56,
+          "san": "Kf6",
+          "bestMove": "g5",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-54.20",
+          "evalAfter": "-85.77"
+        },
+        {
+          "moveNum": 52,
+          "san": "Ke4",
+          "bestMove": "Ke4",
+          "cpl": 678,
+          "classification": "blunder",
+          "evalBefore": "-10.00",
+          "evalAfter": "-16.78"
+        }
+      ]
+    },
+    "R8": {
+      "prColor": "white",
+      "opponent": "NAIMOV, David",
+      "oppElo": 1767,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 89.8,
+      "oppAccuracy": 85.6,
+      "avgCPL": 28,
+      "blunders": 1,
+      "mistakes": 2,
+      "inaccuracies": 1,
+      "movesAnalyzed": 36,
+      "criticalMoments": [
+        {
+          "moveNum": 25,
+          "san": "g3",
+          "bestMove": "Bc5",
+          "cpl": 335,
+          "classification": "blunder",
+          "evalBefore": "+3.59",
+          "evalAfter": "+0.24"
+        },
+        {
+          "moveNum": 33,
+          "san": "Rd7",
+          "bestMove": "h4",
+          "cpl": 202,
+          "classification": "mistake",
+          "evalBefore": "+2.35",
+          "evalAfter": "+0.33"
+        },
+        {
+          "moveNum": 27,
+          "san": "Ke2",
+          "bestMove": "Bc5",
+          "cpl": 164,
+          "classification": "mistake",
+          "evalBefore": "+2.27",
+          "evalAfter": "+0.63"
+        }
+      ]
+    },
+    "R9": {
+      "prColor": "black",
+      "opponent": "IVANCIC, Ivan",
+      "oppElo": 2166,
+      "result": "0-1",
+      "prResult": "win",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 95.1,
+      "oppAccuracy": 92.2,
+      "avgCPL": 72,
+      "blunders": 3,
+      "mistakes": 1,
+      "inaccuracies": 11,
+      "movesAnalyzed": 60,
+      "criticalMoments": [
+        {
+          "moveNum": 38,
+          "san": "Qh4+",
+          "bestMove": "Rxf1+",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "#",
+          "evalAfter": "+7.32"
+        },
+        {
+          "moveNum": 54,
+          "san": "Kh6",
+          "bestMove": "Bh6",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "+62.49",
+          "evalAfter": "+8.63"
+        },
+        {
+          "moveNum": 46,
+          "san": "Qxf5",
+          "bestMove": "Rxf5",
+          "cpl": 937,
+          "classification": "blunder",
+          "evalBefore": "+16.59",
+          "evalAfter": "+7.22"
+        }
+      ]
+    },
+    "R2": {
+      "prColor": "black",
+      "opponent": "KITAEV, Nicholas",
+      "oppElo": 1644,
+      "result": "0-1",
+      "prResult": "win",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 92,
+      "oppAccuracy": 86.6,
+      "avgCPL": 62,
+      "blunders": 1,
+      "mistakes": 2,
+      "inaccuracies": 3,
+      "movesAnalyzed": 31,
+      "criticalMoments": [
+        {
+          "moveNum": 32,
+          "san": "dxe3+",
+          "bestMove": "dxc3+",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "#",
+          "evalAfter": "+9.82"
+        },
+        {
+          "moveNum": 18,
+          "san": "Qe8",
+          "bestMove": "Re8",
+          "cpl": 249,
+          "classification": "mistake",
+          "evalBefore": "+4.49",
+          "evalAfter": "+2.00"
+        },
+        {
+          "moveNum": 15,
+          "san": "Nf6",
+          "bestMove": "Nb6",
+          "cpl": 191,
+          "classification": "mistake",
+          "evalBefore": "+3.03",
+          "evalAfter": "+1.12"
+        }
+      ]
+    },
+    "R3": {
+      "prColor": "white",
+      "opponent": "PHILLIPS, Maximus A",
+      "oppElo": 0,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 93.2,
+      "oppAccuracy": 86.7,
+      "avgCPL": 22,
+      "blunders": 0,
+      "mistakes": 2,
+      "inaccuracies": 1,
+      "movesAnalyzed": 29,
+      "criticalMoments": [
+        {
+          "moveNum": 11,
+          "san": "Nd5",
+          "bestMove": "h4",
+          "cpl": 249,
+          "classification": "mistake",
+          "evalBefore": "+3.08",
+          "evalAfter": "+0.59"
+        },
+        {
+          "moveNum": 14,
+          "san": "Re1",
+          "bestMove": "Nxg5",
+          "cpl": 162,
+          "classification": "mistake",
+          "evalBefore": "+4.89",
+          "evalAfter": "+3.27"
+        },
+        {
+          "moveNum": 16,
+          "san": "Ne3",
+          "bestMove": "Re3",
+          "cpl": 86,
+          "classification": "inaccuracy",
+          "evalBefore": "+4.03",
+          "evalAfter": "+3.17"
+        }
+      ]
+    }
+  }
+}
