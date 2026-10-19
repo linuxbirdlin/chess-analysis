@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emerson Johnson — Deep Engine Analysis</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 700px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #1a5276; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 8px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.9rem; color: #57606a; }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link { display: inline-block; margin-top: 14px; font-size: 0.875rem; color: #1a5276; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.3rem; color: #1f2328; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.05rem; color: #1a5276; margin: 24px 0 8px; }
+
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
+    li { margin-bottom: 4px; }
+
+    /* engine note */
+    .engine-note {
+      background: #f0f4f8; border: 1px solid #c8d8e8; border-radius: 8px;
+      padding: 12px 18px; font-size: 0.87rem; color: #1a3a55; margin-bottom: 28px;
+    }
+
+    /* summary accuracy table */
+    table { width: 100%; border-collapse: collapse; font-size: 0.93rem; margin: 16px 0 24px; }
+    thead th { background: #1a5276; color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #ffffff; }
+    tbody td { padding: 9px 14px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody td.acc { font-weight: 700; }
+    tbody td.acc-high { color: #1a6624; }
+    tbody td.acc-mid  { color: #7a6200; }
+    tbody td.acc-low  { color: #9e2222; }
+
+    /* game row */
+    .game-row {
+      border: 1px solid #d0d7de; border-radius: 8px; margin: 20px 0; overflow: hidden;
+    }
+    .game-row .game-header {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+      background: #f6f8fa; padding: 10px 18px; border-bottom: 1px solid #d0d7de;
+      font-size: 0.93rem;
+    }
+    .game-row .game-header strong { font-size: 1rem; color: #1f2328; }
+    .game-row .game-body { padding: 14px 20px; }
+
+    .badge-result-win  { background: #1a6624; color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 0.78rem; font-weight: 700; white-space: nowrap; }
+    .badge-result-loss { background: #9e2222; color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 0.78rem; font-weight: 700; white-space: nowrap; }
+    .badge-result-draw { background: #5a6e8c; color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 0.78rem; font-weight: 700; white-space: nowrap; }
+    .badge-eco  { background: #e8f4fd; color: #1a5276; padding: 2px 8px; border-radius: 10px; font-size: 0.78rem; font-weight: 600; border: 1px solid #b8d8f0; white-space: nowrap; }
+    .badge-acc  { background: #f5f5f5; color: #444; padding: 2px 8px; border-radius: 10px; font-size: 0.78rem; font-weight: 600; border: 1px solid #d0d7de; white-space: nowrap; }
+
+    /* IM analysis section */
+    .im-analysis { background: #f6f8fa; border-left: 4px solid #1a5276; padding: 14px 18px; margin: 14px 0; border-radius: 0 6px 6px 0; }
+    .im-analysis h4 { margin: 0 0 8px; font-size: 0.95rem; color: #1a5276; }
+
+    /* critical moment */
+    .im-moment {
+      background: #fff; border: 1px solid #d0d7de; border-radius: 6px;
+      padding: 10px 14px; margin: 10px 0; font-size: 0.88rem;
+    }
+    .im-moment .move-label { font-weight: 700; color: #1f2328; margin-right: 6px; }
+    .im-moment .eval-change { color: #9e2222; font-weight: 600; margin-left: 6px; font-size: 0.83rem; }
+    .im-moment .best-move { color: #1a6624; font-size: 0.83rem; }
+    .im-moment .blunder-badge  { background: #9e2222; color: #fff; padding: 1px 7px; border-radius: 8px; font-size: 0.75rem; font-weight: 700; margin-left: 6px; }
+    .im-moment .mistake-badge  { background: #c0541c; color: #fff; padding: 1px 7px; border-radius: 8px; font-size: 0.75rem; font-weight: 700; margin-left: 6px; }
+    .im-moment .inaccuracy-badge { background: #5a6e8c; color: #fff; padding: 1px 7px; border-radius: 8px; font-size: 0.75rem; font-weight: 700; margin-left: 6px; }
+
+    .warn-box {
+      background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0;
+      padding: 10px 16px; margin: 12px 0; font-size: 0.93rem; color: #7a0000;
+    }
+    .tip-box {
+      background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0;
+      padding: 10px 16px; margin: 12px 0; font-size: 0.93rem; color: #1a4731;
+    }
+    .info-box {
+      background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0;
+      padding: 10px 16px; margin: 12px 0; font-size: 0.93rem; color: #1a3a55;
+    }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de;
+      border-radius: 4px; padding: 1px 5px;
+    }
+
+    em { font-style: italic; color: #57606a; }
+    strong { font-weight: 600; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Emerson Johnson — Deep Engine Analysis</h1>
+    <div class="meta">
+      <span><strong>Rating:</strong> ~1925 FIDE / ~2078 US Chess (Sep 2026)</span>
+      <span><strong>Games analyzed:</strong> 38 across 7 tournaments</span>
+      <span><strong>Engine:</strong> Stockfish, movetime 800ms, 16 threads</span>
+    </div>
+    <a class="back-link" href="matchup-emerson.html">← Back to Matchup Plan</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+  </div>
+
+  <div class="engine-note">
+    <strong>Methodology:</strong> Each position evaluated with Stockfish at movetime 800ms, 16 threads. Accuracy calculated via Lichess win-probability drop formula: <code>103.1668 × exp(−0.04354 × avgDrop) − 3.1669</code>. Thresholds: inaccuracy ≥50 CPL, mistake ≥150 CPL, blunder ≥300 CPL.
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ ACCURACY SUMMARY -->
+  <h2>Engine Accuracy Summary</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tournament</th>
+        <th>Games</th>
+        <th>Score</th>
+        <th>Avg Acc%</th>
+        <th>Avg CPL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>TX Scholastic 2026 (Mar 2026)</td>
+        <td>7</td>
+        <td>5W–1L–1D</td>
+        <td class="acc acc-high">93.1%</td>
+        <td>~32</td>
+      </tr>
+      <tr>
+        <td>SW Open 2026 (Sep 2026)</td>
+        <td>7</td>
+        <td>2W–1L–4D</td>
+        <td class="acc acc-high">92.5%</td>
+        <td>~25</td>
+      </tr>
+      <tr>
+        <td>TX State Amateur 2026 (May 2026)</td>
+        <td>6</td>
+        <td>3W–3L–0D</td>
+        <td class="acc acc-high">92.5%</td>
+        <td>~37</td>
+      </tr>
+      <tr>
+        <td>Unknown Tournament 2025 (Jun 2025)</td>
+        <td>8</td>
+        <td>1W–3L–4D</td>
+        <td class="acc acc-high">92.4%</td>
+        <td>~57</td>
+      </tr>
+      <tr>
+        <td>Natl Elem 2024 (Apr 2024)</td>
+        <td>1</td>
+        <td>0W–1L–0D</td>
+        <td class="acc acc-high">92.7%</td>
+        <td>71</td>
+      </tr>
+      <tr>
+        <td>SW Open 2025 (Aug–Sep 2025)</td>
+        <td>8</td>
+        <td>1W–5L–2D</td>
+        <td class="acc acc-mid">91.2%</td>
+        <td>~32</td>
+      </tr>
+      <tr>
+        <td>Natl K-12 2025 (Dec 2025)</td>
+        <td>1</td>
+        <td>0W–1L–0D</td>
+        <td class="acc acc-mid">88.0%</td>
+        <td>53</td>
+      </tr>
+      <tr style="background: #eaf0f8; font-weight: 700;">
+        <td>OVERALL</td>
+        <td>38</td>
+        <td>12W–15L–11D (46.1%)</td>
+        <td class="acc acc-high">92.2%</td>
+        <td>~38</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="info-box">
+    <strong>Context:</strong> 92.2% average accuracy places Emerson at a level broadly consistent with his ~1900 FIDE / ~2050 US Chess rating range. Notable: his worst tournament (Natl K-12 at 88%) was against Gu (2295); his best (TX Scholastic at 93.1%) came at home in regional scholastic events. This pattern — weaker vs stronger opposition, stronger vs regional competition — is typical.
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ PER-GAME BREAKDOWN -->
+  <h2>Key Games — Per-Game Breakdown</h2>
+
+  <!-- ─── WINS ─── -->
+  <h3>Signature Wins</h3>
+
+  <!-- Chumpitaz -->
+  <div class="game-row">
+    <div class="game-header">
+      <strong>SW Open 2025 R2 · vs WIM Ann Chumpitaz (2358)</strong>
+      <span class="badge-result-win">WIN</span>
+      <span class="badge-eco">B52 Rossolimo</span>
+      <span class="badge-acc">95.9% · CPL 15</span>
+      <span style="font-size:0.85rem;color:#57606a;">White · 127 moves</span>
+    </div>
+    <div class="game-body">
+      <div class="im-analysis">
+        <h4>Emerson's best scalp — won vs a WIM at 2358 in 127 moves</h4>
+        <p>Emerson played the Rossolimo exchange (3.Bb5+ Bd7 4.Bxd7+) and gradually built a positional advantage. Despite entering a technically drawn-looking R+B vs R endgame, he maintained relentless technical pressure until move 127. Only 1 blunder and 1 mistake in 64 Emerson moves — both came when he was already in a winning position.</p>
+      </div>
+      <div class="im-moment">
+        <span class="move-label">Move 47 Rb2</span>
+        <span class="blunder-badge">Blunder</span>
+        <span class="eval-change">+5.68 → +2.48 (CPL 320)</span><br>
+        <span class="best-move">Best: h4 (maintained stronger winning structure)</span><br>
+        <em>Even after this slip, Emerson's endgame advantage was sufficient. Shows he can win despite mid-game imprecision.</em>
+      </div>
+      <div class="im-moment">
+        <span class="move-label">Move 53 Kf2</span>
+        <span class="mistake-badge">Mistake</span>
+        <span class="eval-change">+5.94 → +4.18 (CPL 176)</span><br>
+        <span class="best-move">Best: Rd2</span><br>
+        <em>Rook placement imprecision in the winning endgame — still converted cleanly.</em>
+      </div>
+      <div class="warn-box">
+        <strong>Austin prep note:</strong> Emerson is extremely comfortable in B52 Rossolimo endgames. He converted against a WIM in this exact structure. Austin must avoid B52 Qxd7 lines that lead to these long technical positions.
+      </div>
+    </div>
+  </div>
+
+  <!-- Zheng -->
+  <div class="game-row">
+    <div class="game-header">
+      <strong>TX State Amateur 2026 R6 · vs Zhaoxiong Zheng (2092)</strong>
+      <span class="badge-result-win">WIN</span>
+      <span class="badge-eco">B07 Pirc</span>
+      <span class="badge-acc">97.4% · CPL 10</span>
+      <span style="font-size:0.85rem;color:#57606a;">White · 85 moves</span>
+    </div>
+    <div class="game-body">
+      <div class="im-analysis">
+        <h4>Near-perfect tactical win over 2092 — Emerson at his best</h4>
+        <p>97.4% accuracy with 0 blunders and 0 inaccuracies in 43 Emerson moves. Only 1 mistake move 38. Emerson played a knight sacrifice (Nxh7 pattern) to create a decisive kingside attack. The opponent's evaluation was outclassed: 92.8% for Zheng vs Emerson's 97.4%. This game shows Emerson's ceiling — when fully dialed in, he plays near-IM level chess.</p>
+      </div>
+      <div class="im-moment">
+        <span class="move-label">Move 38 Qxb7</span>
+        <span class="mistake-badge">Mistake</span>
+        <span class="eval-change">+6.95 → +5.37 (CPL 158)</span><br>
+        <span class="best-move">Best: Bh6 (sharper win)</span><br>
+        <em>Only imprecision in an otherwise near-perfect game.</em>
+      </div>
+      <div class="tip-box">
+        <strong>Note for Austin:</strong> Emerson can play very precise, tactical chess in his best games. Treat him as a 2050–2100 level player when he's in form, not just his FIDE rating of 1925.
+      </div>
+    </div>
+  </div>
+
+  <!-- Albert draw -->
+  <div class="game-row">
+    <div class="game-header">
+      <strong>Unknown Tournament 2025 R2 · vs Colin Albert (2044)</strong>
+      <span class="badge-result-draw">DRAW</span>
+      <span class="badge-eco">D11 Slav</span>
+      <span class="badge-acc">98.3% · CPL 4</span>
+      <span style="font-size:0.85rem;color:#57606a;">Black · 193 moves</span>
+    </div>
+    <div class="game-body">
+      <div class="im-analysis">
+        <h4>Emerson's highest-accuracy game — an endgame fortress of 193 moves</h4>
+        <p>98.3% accuracy with <strong>0 blunders, 0 mistakes</strong> and only 1 inaccuracy across 96 Emerson moves. This is the clearest data point for his endgame strength. Held a technically drawn position against a 2044 opponent for 193 moves with near-perfect play. Both players showed remarkable precision (opponent: 98.2%).</p>
+      </div>
+      <div class="im-moment">
+        <span class="move-label">Move 13 Nef6</span>
+        <span class="inaccuracy-badge">Inaccuracy</span>
+        <span class="eval-change">+0.21 → -0.31 (CPL 52)</span><br>
+        <span class="best-move">Best: g5</span><br>
+        <em>The only imprecision across 96 moves — a minor inaccuracy in the middlegame before the position equalized.</em>
+      </div>
+      <div class="warn-box">
+        <strong>Austin prep note:</strong> This game is the clearest evidence that Emerson's endgame technique is genuinely elite for his rating. R+minor piece endgames are dangerous territory against him. Austin should avoid drifting into equal-looking endgames.
+      </div>
+    </div>
+  </div>
+
+  <!-- IM Fus draw -->
+  <div class="game-row">
+    <div class="game-header">
+      <strong>SW Open 2025 R1 · vs IM Jakub Fus (2514)</strong>
+      <span class="badge-result-draw">DRAW</span>
+      <span class="badge-eco">A07 Reti</span>
+      <span class="badge-acc">95.5% · CPL 12</span>
+      <span style="font-size:0.85rem;color:#57606a;">Black · 61 moves</span>
+    </div>
+    <div class="game-body">
+      <div class="im-analysis">
+        <h4>Held a draw vs IM (2514) — zero blunders/mistakes</h4>
+        <p>Playing Black vs an IM rated 2514, Emerson showed remarkable composure: 0 blunders, 0 mistakes, only 2 inaccuracies across 30 moves. The position was level throughout; he never gave the IM a real opportunity. This result was at 1881 FIDE — showing his practical playing strength significantly exceeds his FIDE rating.</p>
+      </div>
+      <div class="im-moment">
+        <span class="move-label">Move 16 Qc7</span>
+        <span class="inaccuracy-badge">Inaccuracy</span>
+        <span class="eval-change">-0.21 → -0.86 (CPL 65)</span><br>
+        <span class="best-move">Best: e4</span>
+      </div>
+      <div class="im-moment">
+        <span class="move-label">Move 18 f6</span>
+        <span class="inaccuracy-badge">Inaccuracy</span>
+        <span class="eval-change">-0.67 → -1.23 (CPL 56)</span><br>
+        <span class="best-move">Best: Bd6</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── LOSSES ─── -->
+  <h3>Significant Losses</h3>
+
+  <!-- Paramzina WGM -->
+  <div class="game-row">
+    <div class="game-header">
+      <strong>SW Open 2025 R6 · vs WGM Anastasya Paramzina (2269)</strong>
+      <span class="badge-result-loss">LOSS</span>
+      <span class="badge-eco">B12 Caro-Kann</span>
+      <span class="badge-acc">83.8% · CPL 92</span>
+      <span style="font-size:0.85rem;color:#57606a;">Black · 132 moves</span>
+    </div>
+    <div class="game-body">
+      <div class="im-analysis">
+        <h4>Emerson's worst game — sharp tactical position caused complete collapse</h4>
+        <p>83.8% accuracy with <strong>6 blunders and 6 mistakes</strong>. Playing Caro-Kann (B12) as Black, Emerson held his own through the middlegame but collapsed in a sharp, double-edged endgame. The pattern is consistent: against WGMs/IMs in sharp positions, he blunders repeatedly. This is the most revealing game for Austin's preparation strategy.</p>
+      </div>
+      <div class="im-moment">
+        <span class="move-label">Move 49 Qf4+</span>
+        <span class="blunder-badge">Blunder</span>
+        <span class="eval-change">+0.00 → -4.55 (CPL 455)</span><br>
+        <span class="best-move">Best: Qxh3 (drawing immediately)</span><br>
+        <em>The game-losing blunder — turned a dead draw into a losing position with one queen move. Shows his decision-making under tactical pressure.</em>
+      </div>
+      <div class="im-moment">
+        <span class="move-label">Move 59 a4</span>
+        <span class="blunder-badge">Blunder</span>
+        <span class="eval-change">-19.37 → -# (CPL 1000)</span><br>
+        <span class="best-move">Best: Qc3 (delaying)</span>
+      </div>
+      <div class="im-moment">
+        <span class="move-label">Move 60 Qe4</span>
+        <span class="blunder-badge">Blunder</span>
+        <span class="eval-change">-19.44 → -# (CPL 1000)</span><br>
+        <span class="best-move">Best: Qe4 (same move, couldn't save)</span>
+      </div>
+      <div class="tip-box">
+        <strong>Austin prep note:</strong> The critical insight here is Emerson's accuracy in sharp positions versus his accuracy in technical positions. His ~98% accuracy in the Albert endgame vs ~84% here illustrates that sharp middlegame complications are the path to victory.
+      </div>
+    </div>
+  </div>
+
+  <!-- Vinayagaram upset -->
+  <div class="game-row">
+    <div class="game-header">
+      <strong>SW Open 2026 R3 · vs Nethra Vinayagaram (1597)</strong>
+      <span class="badge-result-loss">LOSS</span>
+      <span class="badge-eco">C77 Ruy Lopez</span>
+      <span class="badge-acc">90.6% · CPL 44</span>
+      <span style="font-size:0.85rem;color:#57606a;">White · 98 moves</span>
+    </div>
+    <div class="game-body">
+      <div class="im-analysis">
+        <h4>Upset loss to 1597-rated player — blundered from dead-equal position</h4>
+        <p>Despite 90.6% accuracy (reasonable), Emerson lost to a 1597 player through a catastrophic blunder in an equal Ruy Lopez endgame. His opponent played 94.2% accuracy — outperforming Emerson significantly in this game. The decisive moment came on move 35 in what appeared to be a level position.</p>
+      </div>
+      <div class="im-moment">
+        <span class="move-label">Move 13 Nc4</span>
+        <span class="mistake-badge">Mistake</span>
+        <span class="eval-change">+0.63 → -1.52 (CPL 215)</span><br>
+        <span class="best-move">Best: Re1 (maintaining central control)</span><br>
+        <em>Early positional error — gave away his advantage in the Ruy Lopez.</em>
+      </div>
+      <div class="im-moment">
+        <span class="move-label">Move 35 Rg5</span>
+        <span class="blunder-badge">Blunder</span>
+        <span class="eval-change">-0.23 → -6.04 (CPL 581)</span><br>
+        <span class="best-move">Best: Ne7 (defending)</span><br>
+        <em>The decisive blunder from a dead-equal position. One rook move shifted from ±0.23 to -6.04. Game effectively over at this point.</em>
+      </div>
+      <div class="tip-box">
+        <strong>Austin prep note:</strong> Emerson's Ruy Lopez handling is his most inconsistent White opening. He beat a 1997 (Chuck Johnson) and 1869 (Wang Yixi) with it, but dropped games to a 1597 and 2158. This inconsistency signals poor theoretical foundation — Austin can exploit it if Emerson plays 1.e4 e5 positions.
+      </div>
+    </div>
+  </div>
+
+  <!-- Joseph loss 2025 -->
+  <div class="game-row">
+    <div class="game-header">
+      <strong>Unknown Tournament 2025 R4 · vs Julian Joseph (1790)</strong>
+      <span class="badge-result-loss">LOSS</span>
+      <span class="badge-eco">B10 Caro-Kann</span>
+      <span class="badge-acc">89.9% · CPL 39</span>
+      <span style="font-size:0.85rem;color:#57606a;">Black · 159 moves</span>
+    </div>
+    <div class="game-body">
+      <div class="im-analysis">
+        <h4>Loss to 1790 — game-turning blunder from a dead equal position</h4>
+        <p>89.9% accuracy and 7 mistakes in this 159-move game as Black. Emerson lost to Julian Joseph (1790) — a player he would face again (to a draw in TX Scholastic 2026 R5). The pattern recurs: in Caro-Kann as Black, Emerson struggles in long, complex positions.</p>
+      </div>
+      <div class="im-moment">
+        <span class="move-label">Move 31 Nd5</span>
+        <span class="blunder-badge">Blunder</span>
+        <span class="eval-change">+0.00 → -3.42 (CPL 342)</span><br>
+        <span class="best-move">Best: Qa3 (maintaining equality)</span><br>
+        <em>From a dead-equal position, one knight leap lost the game. The same pattern as the Vinayagaram game — blundering from equality.</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- Meng TX State -->
+  <div class="game-row">
+    <div class="game-header">
+      <strong>TX State Amateur 2026 R7 · vs Joshua Meng (2119)</strong>
+      <span class="badge-result-loss">LOSS</span>
+      <span class="badge-eco">A01</span>
+      <span class="badge-acc">89.4% · CPL 60</span>
+      <span style="font-size:0.85rem;color:#57606a;">Black · 106 moves</span>
+    </div>
+    <div class="game-body">
+      <div class="im-analysis">
+        <h4>Final round collapse — 2 blunders and 4 mistakes as Black</h4>
+        <p>Playing Black vs a 2119 opponent in the final round of TX State, Emerson dropped the game with 89.4% accuracy. The position was alive (he was slightly better at +2.46 on move 37) before blundering.</p>
+      </div>
+      <div class="im-moment">
+        <span class="move-label">Move 37 e3</span>
+        <span class="blunder-badge">Blunder</span>
+        <span class="eval-change">+2.46 → -2.01 (CPL 447)</span><br>
+        <span class="best-move">Best: Kh7 (maintaining the advantage)</span><br>
+        <em>Emerson had an advantage and then blundered into a losing position with a pawn push.</em>
+      </div>
+      <div class="im-moment">
+        <span class="move-label">Move 54 Bb3</span>
+        <span class="blunder-badge">Blunder</span>
+        <span class="eval-change">-6.57 → -17.35 (CPL 1000)</span><br>
+        <span class="best-move">Best: g3+ (counter-checking)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── OUTLIER ─── -->
+  <h3>Endgame Collapse Outlier</h3>
+
+  <!-- Lonie 15 blunders -->
+  <div class="game-row">
+    <div class="game-header">
+      <strong>Unknown Tournament 2025 R6 · vs Chase Lonie (1818)</strong>
+      <span class="badge-result-loss">LOSS</span>
+      <span class="badge-eco">A11 English</span>
+      <span class="badge-acc">90.6% · CPL 156</span>
+      <span style="font-size:0.85rem;color:#57606a;">Black · 187 moves</span>
+    </div>
+    <div class="game-body">
+      <div class="im-analysis">
+        <h4>15 blunders in a 187-move endgame — extreme time pressure collapse</h4>
+        <p>90.6% accuracy appears deceptively reasonable, but 93 Emerson moves with <strong>15 blunders, 6 mistakes, 10 inaccuracies</strong> and CPL of 156 — the highest in the dataset. This was almost certainly a severe time scramble in a long endgame. Despite the chaos, Emerson's opponent played at 92.6% — better than Emerson. This is the clearest illustration of his late-endgame time pressure vulnerability.</p>
+      </div>
+      <div class="im-moment">
+        <span class="move-label">Move 72 Qh3+</span>
+        <span class="blunder-badge">Blunder</span>
+        <span class="eval-change">-6.64 → -94.96 (CPL 1000)</span><br>
+        <span class="best-move">Best: Qf8+ (checking from better square)</span>
+      </div>
+      <div class="im-moment">
+        <span class="move-label">Move 73 Qa3</span>
+        <span class="blunder-badge">Blunder</span>
+        <span class="eval-change">-7.33 → -88.21 (CPL 1000)</span><br>
+        <span class="best-move">Best: Kg7 (king activity)</span>
+      </div>
+      <div class="info-box">
+        <strong>Note on accuracy paradox:</strong> How can 90.6% accuracy coexist with 15 blunders? In a 93-move sample, each blunder contributes less to the average win-probability drop than in a shorter game, especially when positions are already losing. This is a statistical artifact of long games — the raw CPL of 156 is the more honest signal here.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ OPENING PATTERNS -->
+  <h2>Opening Accuracy Patterns</h2>
+
+  <table>
+    <thead>
+      <tr><th>Opening (Emerson's Color)</th><th>ECO</th><th>W–L–D</th><th>Avg Acc%</th><th>Trend</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Rossolimo Sicilian (White)</td>
+        <td>B51/B52/B31</td>
+        <td>1W–1L–2D</td>
+        <td class="acc acc-high">93.5%</td>
+        <td>Best White opening by score quality</td>
+      </tr>
+      <tr>
+        <td>Exchange Caro-Kann (White)</td>
+        <td>B13</td>
+        <td>2W–0L–1D</td>
+        <td class="acc acc-high">94.1%</td>
+        <td>Unbeaten — clean execution</td>
+      </tr>
+      <tr>
+        <td>Ruy Lopez d3 (White)</td>
+        <td>C77</td>
+        <td>2W–2L</td>
+        <td class="acc acc-mid">92.8%</td>
+        <td>High variance — beat 1997 &amp; 1869, lost to 2158 &amp; 1597</td>
+      </tr>
+      <tr>
+        <td>French Tarrasch (White)</td>
+        <td>C04/C07</td>
+        <td>0W–1L–1D</td>
+        <td class="acc acc-mid">90.6%</td>
+        <td>Below average — struggled in both games</td>
+      </tr>
+      <tr>
+        <td>QGA ...Bg4 (Black)</td>
+        <td>D20/D25</td>
+        <td>3W–0L–1D</td>
+        <td class="acc acc-high">92.6%</td>
+        <td>Best Black opening — unbeaten</td>
+      </tr>
+      <tr>
+        <td>Caro-Kann Classical/Advance (Black)</td>
+        <td>B12</td>
+        <td>0W–3L–1D</td>
+        <td class="acc acc-low">88.5%</td>
+        <td>Worst Black opening — 3 losses including WGM game (83.8%)</td>
+      </tr>
+      <tr>
+        <td>Caro-Kann Two Knights (Black)</td>
+        <td>B10/B11</td>
+        <td>1W–2L–1D</td>
+        <td class="acc acc-mid">91.0%</td>
+        <td>Below average — struggles vs 2000+ in this line</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ═══════════════════════════════════════════════════════ PATTERNS -->
+  <h2>Engine-Confirmed Patterns</h2>
+
+  <h3>1. Technical Endgames: Elite Level</h3>
+  <p>Three data points confirm Emerson's endgame strength is above his rating:</p>
+  <ul>
+    <li>vs Albert (2044): 193 moves, 98.3% accuracy, 0 mistakes, 0 blunders</li>
+    <li>vs Chumpitaz WIM (2358): 127 moves, 95.9% accuracy, 1 blunder in winning position</li>
+    <li>vs Lares Flores FM (2303): 139 moves, 93.4% accuracy, 0 blunders</li>
+  </ul>
+  <p>In positions with limited tactical complexity, Emerson plays at near-IM accuracy. <strong>This is Austin's biggest danger zone.</strong></p>
+
+  <h3>2. Sharp Tactical Middlegames: Weakness</h3>
+  <p>Three data points confirm he collapses in sharp positions:</p>
+  <ul>
+    <li>vs Paramzina WGM (2269): 83.8% accuracy, 6 blunders, 6 mistakes — worst game</li>
+    <li>vs Cardoso GM (2568): 86.9% accuracy, 2 blunders in 41 moves</li>
+    <li>vs Gu (2295): 88.0% accuracy, 3 blunders, 10 inaccuracies</li>
+  </ul>
+  <p>Against strong opponents in sharp positions, his accuracy drops 8–10 percentage points below his normal level. This is where Austin should aim the game.</p>
+
+  <h3>3. Blundering from Equal Positions: Recurring Pattern</h3>
+  <p>Four separate games show Emerson blundering from ±0.00 or better into losing positions in one move:</p>
+  <ul>
+    <li>vs Vinayagaram (1597): Move 35 Rg5 · +0.00 → -6.04 (blunder, CPL 581)</li>
+    <li>vs Julian Joseph (1790): Move 31 Nd5 · +0.00 → -3.42 (blunder, CPL 342)</li>
+    <li>vs Paramzina (2269): Move 49 Qf4+ · +0.00 → -4.55 (blunder, CPL 455)</li>
+    <li>vs Meng (2119): Move 37 e3 · +2.46 → -2.01 (blunder, CPL 447)</li>
+  </ul>
+  <p>Austin's aggressive, pressure-based style is designed to create exactly these moments. Keep pressure on and positions complicated — Emerson will self-destruct if pushed.</p>
+
+  <h3>4. As Black — Structural Weakness</h3>
+  <p>Emerson's Black record is 4W–9L–6D (36.8%). His Caro-Kann specifically: 1W–6L–2D. Every game in Austin's White repertoire (1.e4) will face this Caro-Kann. Austin's Exchange Caro-Kann (B13) is the right system — Emerson has zero recorded games in that specific line as Black.</p>
+
+  <!-- ═══════════════════════════════════════════════════════ PREP CONCLUSIONS -->
+  <h2>Actionable Prep Conclusions for Austin</h2>
+
+  <div class="tip-box">
+    <strong>Core strategy (Austin White):</strong> Exchange Caro-Kann (4.Bd3) into dynamic, piece-active positions. Resist early simplification. Look for knight sacrifice or kingside attack opportunities. Don't let the game drift into a technical endgame.
+  </div>
+  <div class="tip-box">
+    <strong>Core strategy (Austin Black):</strong> Against Rossolimo (3.Bb5+), play 4...Nxd7 (not Qxd7) and create middlegame complications fast. The more tactical the position, the worse Emerson plays (83–87% accuracy in his worst games).
+  </div>
+  <div class="warn-box">
+    <strong>Critical danger zone:</strong> Any position that enters a level R+minor piece or R+P endgame. Emerson has beaten a WIM and drawn a 2044 in these exact structures. Austin needs to either win in the middlegame or maintain clear material advantage before reaching the endgame.
+  </div>
+  <div class="info-box">
+    <strong>Opening edge:</strong> Austin's Exchange Caro-Kann (the system he plays and is prepared for) has zero recorded games vs Emerson as Black. Emerson plays it himself as White and knows the structure — but from the wrong side. Austin has the preparation advantage here.
+  </div>
+
+  <div style="margin-top:32px; font-size:0.85rem; color:#57606a; border-top: 1px solid #d0d7de; padding-top: 16px;">
+    Engine analysis generated Oct 2026 · Stockfish movetime 800ms · 16 threads · 38 games
+  </div>
+
+</div>
+</body>
+</html>
