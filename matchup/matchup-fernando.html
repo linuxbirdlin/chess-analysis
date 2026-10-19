@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Austin Lin vs Fernando Cortes Medina — Preparation Plan</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+
+  /* ── Readability overrides ── */
+  html { background: #eef1f5; }
+  body {
+    max-width: 52em;
+    background: #ffffff;
+    padding: 2.5rem 3.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    border-radius: 6px;
+    box-shadow: 0 1px 8px rgba(0,0,0,.09);
+  }
+  @media (max-width: 700px) {
+    body { padding: 1.25rem 1rem; box-shadow: none; border-radius: 0; }
+    h1 { font-size: 1.5em; }
+  }
+  header#title-block-header { display: none; }
+  h1 {
+    font-size: 1.75em;
+    font-weight: 700;
+    color: #0f2044;
+    border-bottom: 3px solid #1a5276;
+    padding-bottom: 0.4em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    line-height: 1.25;
+  }
+  h2 {
+    font-size: 1.15em;
+    font-weight: 700;
+    color: #1a3a5c;
+    border-bottom: 1px solid #d0d7de;
+    padding-bottom: 0.25em;
+    margin-top: 2.2em;
+    margin-bottom: 0.7em;
+    letter-spacing: 0.01em;
+  }
+  h3 {
+    font-size: 1em;
+    font-weight: 700;
+    color: #2d5a8e;
+    margin-top: 1.6em;
+    margin-bottom: 0.4em;
+  }
+  p { margin: 0.85em 0; }
+  code {
+    background: #f0f4f8;
+    border: 1px solid #dce3eb;
+    border-radius: 3px;
+    padding: 0.1em 0.42em;
+    font-size: 0.87em;
+    color: #0f2044;
+    hyphens: none;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  }
+  pre {
+    background: #1e2d40;
+    border: none;
+    border-radius: 6px;
+    padding: 1em 1.4em;
+    margin: 1em 0;
+    overflow-x: auto;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #c8ddf0;
+    font-size: 0.875em;
+    line-height: 1.5;
+  }
+  hr { border-top: 1px solid #dce3eb; margin: 2em 0; }
+  ol li, ul li { margin-bottom: 0.3em; }
+  ul li { list-style-type: disc; }
+  table {
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    overflow: hidden;
+    display: table;
+    width: 100%;
+  }
+  thead tr { background: #1a5276; }
+  th {
+    color: #ffffff;
+    border-top: none;
+    padding: 0.65em 1.1em;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.92em;
+  }
+  td {
+    padding: 0.55em 1.1em;
+    border-top: 1px solid #e5e7eb;
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: #f7f9fc; }
+  a { color: #1a5276; text-decoration: none; }
+  a:visited { color: #1a3a5c; }
+  a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Austin Lin vs Fernando Cortes Medina — Preparation
+Plan</h1>
+</header>
+<h1
+id="austin-lin-vs-fernando-cortes-medina-tournament-preparation-plan">Austin
+Lin vs Fernando Cortes Medina — Tournament Preparation Plan</h1>
+<p><strong>Austin’s rating:</strong> ~1865–1968<br />
+<strong>Fernando’s rating:</strong> CM, ~2060–2133 (classical); 1836
+(rapid)<br />
+<strong>Rating gap:</strong> Fernando is roughly 100–200 points stronger
+on paper — Austin needs concrete preparation and imbalance<br />
+<strong>Direct encounter:</strong> No OTB game between Austin and
+Fernando on record</p>
+<hr />
+<h2 id="direct-encounters">Direct Encounters</h2>
+<p><strong>No direct OTB game exists between Austin Lin and Fernando
+Cortes Medina in the analyzed dataset.</strong></p>
+<p>This means preparation must be entirely hypothesis-driven, based on
+what Fernando consistently plays. The good news is that Fernando’s
+repertoire is well-documented across 28 games and shows clear patterns
+on both sides of the board.</p>
+<p><strong>What the dataset tells us about what Fernando will
+play:</strong></p>
+<ol type="1">
+<li><p><strong>As Black vs Austin’s 1.e4:</strong> Fernando will almost
+certainly play the <strong>French Defense (1…e6)</strong>. Across PAM
+School (3 French games), Olimpia Nacional (1 French Advance game), and
+MEX-op (1 French game), his French repertoire is the most consistent
+pattern in the entire dataset. He plays Winawer (3…Bb4) when White plays
+3.Nc3, and he plays the standard counterblow
+<code>...c5/...Qb6/...Nc6</code> when White plays the Advance
+(3.e5).</p></li>
+<li><p><strong>As White vs Austin:</strong> Fernando plays 1.e4 more
+often than 1.c4, and against the Sicilian he consistently uses the
+<strong>English/Yugoslav Attack</strong> (f3/Be3/Qd2/O-O-O). Austin’s
+Sicilian will face exactly the same system Austin uses against
+others.</p></li>
+</ol>
+<hr />
+<h2 id="part-1-austin-as-white-vs-fernando">Part 1 — Austin as White vs
+Fernando</h2>
+<h3 id="what-fernando-will-play-as-black">What Fernando will play as
+Black</h3>
+<p>Fernando plays <strong>French Defense (1…e6)</strong> against 1.e4.
+This is documented in PAM School R3 (C01, Exchange), R7 (C15, Winawer),
+R8 (C17, Winawer), Olimpia R4 (C02, Advance), and MEX-op R7. The single
+confirmed non-French game vs 1.e4 is Olimpia R6 (Sicilian O’Kelly, which
+he lost). The French is his primary weapon.</p>
+<p><strong>Critical match-up:</strong> Austin’s anti-French system is
+the <strong>Advanced Variation (3.e5)</strong>. Fernando has direct
+experience with the French Advance — he played it in Olimpia R4 (as
+Black) and <strong>beat FM Martinez Flores (1904)</strong>. Fernando
+knows this system. Austin must be well-prepared in his own Advanced
+French lines.</p>
+<h3 id="fernandos-french-advance-setup">Fernando’s French Advance
+Setup</h3>
+<p>The game Olimpia R4 is the key reference:</p>
+<pre><code>1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 Qb6 6.Bd3 cxd4 7.O-O Bd7
+8.Re1 Rc8 9.Nbd2 dxc3 10.bxc3 Nge7 11.h4</code></pre>
+<p>Fernando’s Black setup:
+<code>...c5/...Qb6/...Nc6/...Bd7/...Nge7</code> — the standard Advance
+counterplay. He aims for queenside activity (<code>...cxd4</code>,
+<code>...Qxb2?</code>, pressure on c3). In Olimpia R4, White played
+<code>13.c4?</code> prematurely (mistake) and <code>16.h5??</code>
+(blunder), which Fernando exploited. Fernando did not face Austin’s
+exact Advance repertoire, but his knowledge of the …Qb6 system is
+confirmed at the FM level.</p>
+<p><strong>Austin’s Anti-French: Advanced Variation with a4-a5 locking
+plan</strong></p>
+<p>Austin’s preferred Advance (3.e5) system is not fully documented in
+the dataset as his games are the reference point. The key question is
+which Advance plan Austin uses:</p>
+<p><strong>Option A: Milner-Barry Gambit-adjacent (6.Bd3, O-O, Re1,
+h4)</strong> This is what Fernando faced in Olimpia R4 and handled
+competently. White’s <code>h4</code> aggression is promising but
+requires exact follow-up. After
+<code>6.Bd3 cxd4 7.O-O Bd7 8.Re1 Rc8 9.Nbd2</code>, the key move is:</p>
+<pre><code>10.Nf1! (preparing Ng3-f5 or Ne3)</code></pre>
+<p>rather than the passive <code>10.Nb3</code> or the erratic
+<code>11.h4?!</code> that White played in the reference game. Fernando’s
+win came because White played the h-pawn too early and incorrectly.
+Austin should not rush <code>h4</code> until the center is
+stabilized.</p>
+<p><strong>Option B: Spielmann Advance with 6.a3 preparing
+b4</strong></p>
+<pre><code>1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 Qb6 6.a3 c4 7.Nbd2 Na5 8.g3</code></pre>
+<p>This locks the queenside and prepares kingside attack. Fernando has
+not faced this exact system in the dataset — he may have less
+preparation here.</p>
+<p><strong>Option C: Nimzowitsch Advance 6.Be2 with Be3/Nd2 system
+(recommended)</strong></p>
+<pre><code>1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 Qb6 6.Be2 cxd4 7.cxd4 Nh6 8.Nc3 Nf5 9.Na4 Qa5+ 10.Nc3</code></pre>
+<p>The Be2/Nc3 approach avoids early tactical tricks around the Bd3
+diagonal. Fernando’s game vs FM Martinez suggests he can handle the
+<code>Bd3/h4</code> approach — the quieter <code>Be2</code> setup may be
+less familiar territory for him.</p>
+<h3 id="recommended-white-preparation">Recommended White
+Preparation</h3>
+<p><strong>Primary system: Advanced French with 6.a3</strong></p>
+<pre><code>1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 Qb6 6.a3</code></pre>
+<p>After <code>6...c4</code> (most common):
+<code>7.Nbd2 Na5 8.g3 f6 9.exf6 Nxf6 10.Bg2 Be7 11.O-O O-O 12.Re1</code>
+— White has a solid kingside setup with space advantage. Fernando has
+not been tested in this specific line.</p>
+<p>After <code>6...Bd7</code> (flexible):
+<code>7.b4 cxb4 8.axb4 Nxb4 9.Bb5!</code> — White regains the pawn with
+initiative.</p>
+<p><strong>Why 6.a3 specifically vs Fernando:</strong> 1. Fernando’s
+only documented French Advance game had White play 6.Bd3, so 6.a3 takes
+him into less familiar territory 2. The 6.a3/b4 plan gives White
+queenside counterplay without kingside pawn commitments — this reduces
+the chance of Fernando’s <code>...c4</code> pawn chain locking the
+position and making it passive 3. Fernando has not faced the
+<code>g3/Bg2</code> system — his preparation likely focuses on the
+<code>Bd3/h4</code> main line</p>
+<h3 id="key-tactical-themes-austin-white-should-target">Key tactical
+themes Austin White should target</h3>
+<ol type="1">
+<li><p><strong>The f6 break:</strong> In the French Advance,
+<code>...f6</code> is Fernando’s main way to challenge the e5 pawn.
+Austin should be ready for <code>exf6 Nxf6</code> and know the resulting
+positions. If Fernando plays <code>...f6 exf6 gxf6</code>, White gets a
+weakened Black kingside — Austin’s tactical style suits this.</p></li>
+<li><p><strong>Nd2-f1-g3-h5 maneuver:</strong> In lines where White
+plays Nd2, the knight should go Nd2-Nf1-Ng3 to press h5/f5. This creates
+kingside threats that match Austin’s attacking style.</p></li>
+<li><p><strong>a4 preventing …b5:</strong> Fernando’s Black pieces need
+the b5 square for knight activity (seen in Olimpia R4:
+<code>...Na5-Nc4</code>). <code>a4</code> prevents <code>...b5</code>
+and limits queenside knight activity. Austin should play <code>a4</code>
+early when Black hasn’t committed to <code>...c4</code>.</p></li>
+<li><p><strong>Exploit time pressure:</strong> Fernando blunders in
+severe time trouble (Olimpia R6: lost to 1765, Ed-National R9: collapsed
+vs 2137). Austin should play his main line confidently and quickly — get
+Fernando into time pressure in the middlegame.</p></li>
+</ol>
+<h3 id="what-not-to-do-as-austin-white">What NOT to do as Austin
+White</h3>
+<ul>
+<li><strong>Do not play h4 prematurely.</strong> Fernando beat FM
+Martinez partly because White rushed <code>h4/h5</code> before the
+center was stabilized. Austin’s <code>h4</code> should only come after
+<code>Be3</code>, <code>Qd2</code>, and the center is locked.</li>
+<li><strong>Do not play the French Exchange (3.exd5).</strong> Fernando
+is comfortable in Exchange French positions (PAM R3, 72 moves, won) — he
+knows the isolated pawn structure as Black well. The Exchange would play
+into his hands.</li>
+<li><strong>Do not play the Winawer variation.</strong> Austin does not
+normally play <code>3.Nc3 Bb4</code> territory, but if he drifts there,
+Fernando drew two games in the Winawer system. Stick to the
+Advance.</li>
+<li><strong>Do not enter a queenside rook endgame early.</strong>
+Fernando’s French endgame technique is his best quality (PAM R3 knight
+maneuvering). Keep the position complex with pieces.</li>
+</ul>
+<hr />
+<h2 id="part-2-austin-as-black-vs-fernando">Part 2 — Austin as Black vs
+Fernando</h2>
+<h3 id="what-fernando-will-play-as-white">What Fernando will play as
+White</h3>
+<p>Fernando has no fixed first move as White. He plays both 1.e4 and
+1.c4. Against the Sicilian, he consistently uses the
+<strong>English/Yugoslav Attack</strong> (f3/Be3/Qd2/O-O-O).</p>
+<p><strong>If Fernando plays 1.e4:</strong> Austin plays the Sicilian
+Defense. Fernando’s documented Sicilian White system:
+<code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 6.f3 Be3 Qd2 O-O-O</code>
+— Yugoslav/English Attack. He played this in Olimpia R1 (B56, Classical
+Sicilian, beat 1726), Olimpia R7 (B78, Dragon Yugoslav, drew 1633), and
+MEX-ch R6 (English Attack, beat 1615). This is a well-prepared system
+for him.</p>
+<p><strong>Important:</strong> Fernando and Austin use the <strong>same
+anti-Sicilian system as White</strong> — both play f3/Be3/Qd2/O-O-O.
+Austin therefore knows this system’s strengths from both sides.</p>
+<p><strong>If Fernando plays 1.c4:</strong> Austin’s Nimzo-Indian (1…Nf6
+2…e6 3…d5 if Nc3, or 3…Bb4 if Nc3) is a natural response. Fernando’s
+English games have been inconsistent (lost PAM R6, MEX-op R2 both as
+White). If Fernando plays 1.c4, Austin has a significant preparation
+edge.</p>
+<h3 id="austin-should-play-the-sicilian-vs-1.e4">Austin should play the
+Sicilian vs 1.e4</h3>
+<p>Austin’s weapon vs 1.e4 is the Sicilian. Against Fernando’s
+Yugoslav/English Attack, Austin must prepare specifically for the
+f3/Be3/Qd2/O-O-O structure.</p>
+<p><strong>Fernando’s Yugoslav Attack specifics from Olimpia R1 (vs
+Silva Valdes 1726, B56 Classical):</strong></p>
+<pre><code>1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 d6 6.f3 e5 7.Nb3 Be7 8.Be3 Be6 9.Qd2 O-O 10.O-O-O</code></pre>
+<p>Fernando played <code>g4/Na4/g5</code> attacking plan. Black played
+<code>...Nd7/...a5?!/...Qc7/...Rfd8</code> passively and lost.</p>
+<p><strong>Fernando’s Yugoslav Attack in Olimpia R7 (vs Herrera 1633,
+B78 Dragon):</strong></p>
+<pre><code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 g6 6.Be3 Bg7 7.f3 Bd7 8.Qd2 Nc6 9.Bc4 O-O 10.O-O-O a6 11.g4 b5</code></pre>
+<p>Fernando played <code>Bb3/Nd5/Nxc6/Nxf6/g5</code> but made multiple
+inaccuracies and drew from a winning position. The Dragon Yugoslav is
+Fernando’s weakest prepared Sicilian system.</p>
+<h3 id="austins-recommended-sicilian-approach">Austin’s recommended
+Sicilian approach</h3>
+<p><strong>Primary: Najdorf (5…a6) — recommended</strong></p>
+<p>Austin’s standard Sicilian experience includes Najdorf structures.
+Fernando has <strong>no documented games vs the Najdorf</strong> in the
+dataset — all his Sicilian White games were against Classical (d6/Nc6)
+or Dragon (d6/g6). The Najdorf forces Fernando into territory that is
+not his best-prepared Sicilian response.</p>
+<pre><code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6</code></pre>
+<p>Fernando’s most likely response:
+<code>6.f3 e5 7.Nb3 Be6 8.Be3 Nbd7 9.Qd2 Be7 10.O-O-O</code> (English
+Attack vs Najdorf). This positions the game into English Attack
+territory, which Austin knows well from his own White preparation.</p>
+<p><strong>Alternative: Scheveningen (5…e6)</strong></p>
+<pre><code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 e6 6.f3 a6</code></pre>
+<p>The Scheveningen can also arise from the Najdorf move order and gives
+Black a solid pawn structure without the …a6 tempo commitment.</p>
+<p><strong>Do NOT play the Dragon (5…g6) vs Fernando.</strong> Fernando
+has the Dragon Yugoslav prepared (Olimpia R7) and understands the
+attacking ideas. Even though he drew from a winning position in Olimpia
+R7, he knows the theory. Austin should avoid giving Fernando the Dragon
+position he wants.</p>
+<h3 id="key-themes-austin-black-should-target">Key themes Austin Black
+should target</h3>
+<ol type="1">
+<li><p><strong>Queenside counterplay with …b5-b4:</strong> In the
+English Attack, Black’s standard plan is <code>...b5/...b4</code>
+kicking the Nc3. Fernando has not handled
+<code>...b5/...b4/Nd5/...Nxd5 exd5</code> structures well — in Olimpia
+R7 he played <code>g4/h4/h5</code> attacking plan but lost the queenside
+initiative.</p></li>
+<li><p><strong>…d5 central break:</strong> When Fernando commits to
+kingside attack with <code>g4/g5</code>, Black should counter with
+<code>...d5 exd5 Nxd5 Nxd4 Qxd4</code> — opening the center before the
+kingside attack lands. Fernando’s attacking games show he is vulnerable
+to central counterplay that disrupts his coordination.</p></li>
+<li><p><strong>Exploit Fernando’s White tactical weaknesses:</strong>
+Fernando blundered <code>Nc3??</code> (Olimpia R1, move 17 — allowed
+<code>...d5 exd5 Bc5</code> equalization) and <code>24.Bd4?? Nd3</code>
+(PAM R6, lost pieces). When Fernando is pressing an attack as White,
+Austin should look for tactical shots that exploit loose
+pieces.</p></li>
+<li><p><strong>vs 1.c4:</strong> Austin plays 1.c4 Nc3 d5/e6 Bb4
+structures naturally. If Fernando plays 1.c4, Austin should consider
+<code>1...Nf6 2...e6 3...d5</code> (Queen’s Indian-adjacent) or
+<code>1...e5</code> (reversed Sicilian giving Fernando reversed
+territory). Fernando’s 1.c4 results are inconsistent — this is a path to
+equalizing easily.</p></li>
+<li><p><strong>Avoid passive setups.</strong> Fernando’s best win with
+the Yugoslav Attack (Olimpia R1 vs 1726) came because Black played
+passively: <code>...Nd7/...a5?!/...Qc7/...Rfd8</code> without
+counterplay. Austin’s tactical style should lead to active piece play,
+not passive defense.</p></li>
+</ol>
+<h3 id="what-not-to-do-as-austin-black">What NOT to do as Austin
+Black</h3>
+<ul>
+<li><strong>Do not play passive defense against f3/Be3/Qd2.</strong>
+Fernando won his best Yugoslav Attack game against a passive opponent.
+Active counterplay is essential.</li>
+<li><strong>Do not play the Dragon (5…g6).</strong> Fernando has this
+prepared and managed a draw even with white inaccuracies in Olimpia
+R7.</li>
+<li><strong>Do not allow Fernando’s rooks to the 7th rank.</strong> In
+PAM R9 Fernando won by placing rooks on b7/a7. As Austin plays
+defensively in rook endgames, avoiding Fernando’s rook penetration is
+critical.</li>
+</ul>
+<hr />
+<h2 id="part-3-psychological-and-practical-notes">Part 3 — Psychological
+and Practical Notes</h2>
+<p><strong>Fernando’s rating volatility:</strong> Fernando’s classical
+rating rose from ~2060 (April 2026) to 2133 (July 2026). He is still
+improving rapidly. His rating at the time of any match vs Austin may be
+2100+, making him a significant underdog for Austin to beat but
+beatable.</p>
+<p><strong>Fernando blunders catastrophically under time
+pressure:</strong> Both Ed-National losses, the Olimpia R6 upset loss
+(to 1765), and PAM R8 blunder all occurred when Fernando was in
+significant time trouble or had already made multiple inaccuracies in a
+row. Austin should <strong>manage his clock aggressively</strong> — play
+quickly in familiar positions to build time advantage. Fernando’s
+collapse pattern is consistent: once he starts making one inaccuracy,
+the next blunder comes quickly.</p>
+<p><strong>Fernando’s French Defense knowledge is his greatest
+strength:</strong> This is where he performs most consistently. His
+72-move French endgame win (PAM R3), his FM upset (Olimpia R4), and his
+two Winawer draws all come from French positions. Austin will face
+Fernando at his best when trying to play the Advanced French. Austin
+must have deep concrete preparation, not just general plans.</p>
+<p><strong>Fernando’s White play is less reliable:</strong> His White
+record in classical time controls (4W/2D/5L overall, 0W/1D/2L vs 2300+)
+shows he is a stronger Black player. If Austin plays solid, active play
+as Black, Fernando may struggle to build an attack.</p>
+<p><strong>Fernando has no documented games vs the
+Nimzo-Indian:</strong> Austin’s standard 1.d4 response (Nimzo-Indian)
+would be useful if Fernando plays 1.d4 — but Fernando does not play 1.d4
+in any of the 28 games reviewed. This weapon is unavailable in this
+matchup.</p>
+<p><strong>Fernando drew a 1633-rated player (Olimpia R7) as White with
+the Dragon Yugoslav.</strong> Despite having the initiative for most of
+the game, he let it slip. This shows Fernando’s Dragon Yugoslav is not
+deeply precise — if Austin somehow ends up in a Dragon (inadvisable),
+the position could be messy.</p>
+<p><strong>Fernando can compete at the GM level:</strong> He was
+approximately equal vs GM Cori (2586) until move 30. His tactical
+blunder ended the game, but his positional understanding was strong.
+Austin should not assume Fernando will gift games — Fernando plays
+competent, professional chess when not under time pressure.</p>
+<hr />
+<h2 id="summary-cheat-sheet">Summary Cheat Sheet</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Austin as White vs Fernando</td>
+<td>Play 1.e4; expect French Defense</td>
+</tr>
+<tr>
+<td>Fernando plays French (1…e6)</td>
+<td>Play French Advance (3.e5); use 6.a3 system, NOT 6.Bd3/h4</td>
+</tr>
+<tr>
+<td>French Advance middlegame</td>
+<td>Play a4 early; maneuver Nd2-Nf1-Ng3; avoid premature h4</td>
+</tr>
+<tr>
+<td>Fernando plays …Qb6/…c5 structure</td>
+<td>Know Milner-Barry responses; do NOT play 13.c4? or 16.h5? errors
+from Olimpia R4</td>
+</tr>
+<tr>
+<td>Do NOT play French Exchange</td>
+<td>Fernando wins in Exchange French endgames (72-move win PAM R3)</td>
+</tr>
+<tr>
+<td>Austin as Black vs Fernando</td>
+<td>Play Sicilian Najdorf (5…a6); avoid Dragon (5…g6)</td>
+</tr>
+<tr>
+<td>Fernando plays English/Yugoslav Attack</td>
+<td>Use …b5/…b4 queenside; execute …d5 break vs g4/g5 attack</td>
+</tr>
+<tr>
+<td>Fernando plays 1.c4</td>
+<td>Play 1…Nf6/…e6/…d5 Indian systems; Fernando’s English results are
+inconsistent</td>
+</tr>
+<tr>
+<td>Endgame situations</td>
+<td>Keep pieces; Fernando wins rook+pawn endgames via 7th rank rooks
+(PAM R9)</td>
+</tr>
+<tr>
+<td>Time trouble situations</td>
+<td>Austin manages clock; Fernando blunders catastrophically under time
+pressure (Olimpia R6, Ed-National R9)</td>
+</tr>
+<tr>
+<td>Key opening drill</td>
+<td>French Advance 6.a3 (Austin White); Najdorf vs English Attack 6.f3
+(Austin Black)</td>
+</tr>
+<tr>
+<td>Key tactical theme to avoid</td>
+<td>Do not allow Fernando’s rooks to a7/b7 in endgames</td>
+</tr>
+<tr>
+<td>Rating differential note</td>
+<td>Fernando 2060–2133 vs Austin 1865–1968; ~100–200 point gap; Fernando
+is favorite but loses to 1765</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

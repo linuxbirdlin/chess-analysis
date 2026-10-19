@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Fernando Cortes Medina — Player Analysis</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+
+  /* ── Readability overrides ── */
+  html { background: #eef1f5; }
+  body {
+    max-width: 52em;
+    background: #ffffff;
+    padding: 2.5rem 3.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    border-radius: 6px;
+    box-shadow: 0 1px 8px rgba(0,0,0,.09);
+  }
+  @media (max-width: 700px) {
+    body { padding: 1.25rem 1rem; box-shadow: none; border-radius: 0; }
+    h1 { font-size: 1.5em; }
+  }
+  header#title-block-header { display: none; }
+  h1 {
+    font-size: 1.75em;
+    font-weight: 700;
+    color: #0f2044;
+    border-bottom: 3px solid #1a5276;
+    padding-bottom: 0.4em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    line-height: 1.25;
+  }
+  h2 {
+    font-size: 1.15em;
+    font-weight: 700;
+    color: #1a3a5c;
+    border-bottom: 1px solid #d0d7de;
+    padding-bottom: 0.25em;
+    margin-top: 2.2em;
+    margin-bottom: 0.7em;
+    letter-spacing: 0.01em;
+  }
+  h3 {
+    font-size: 1em;
+    font-weight: 700;
+    color: #2d5a8e;
+    margin-top: 1.6em;
+    margin-bottom: 0.4em;
+  }
+  p { margin: 0.85em 0; }
+  code {
+    background: #f0f4f8;
+    border: 1px solid #dce3eb;
+    border-radius: 3px;
+    padding: 0.1em 0.42em;
+    font-size: 0.87em;
+    color: #0f2044;
+    hyphens: none;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  }
+  pre {
+    background: #1e2d40;
+    border: none;
+    border-radius: 6px;
+    padding: 1em 1.4em;
+    margin: 1em 0;
+    overflow-x: auto;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #c8ddf0;
+    font-size: 0.875em;
+    line-height: 1.5;
+  }
+  hr { border-top: 1px solid #dce3eb; margin: 2em 0; }
+  ol li, ul li { margin-bottom: 0.3em; }
+  ul li { list-style-type: disc; }
+  table {
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    overflow: hidden;
+    display: table;
+    width: 100%;
+  }
+  thead tr { background: #1a5276; }
+  th {
+    color: #ffffff;
+    border-top: none;
+    padding: 0.65em 1.1em;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.92em;
+  }
+  td {
+    padding: 0.55em 1.1em;
+    border-top: 1px solid #e5e7eb;
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: #f7f9fc; }
+  a { color: #1a5276; text-decoration: none; }
+  a:visited { color: #1a3a5c; }
+  a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Fernando Cortes Medina — Player Analysis</h1>
+</header>
+<h1 id="fernando-cortes-medina-chess-analysis-report">Fernando Cortes
+Medina — Chess Analysis Report</h1>
+<p><strong>Full name:</strong> Cortes Medina, Fernando<br />
+<strong>Title:</strong> CM (Candidate Master)<br />
+<strong>Nationality:</strong> Mexican<br />
+<strong>Tournaments analyzed:</strong> PAM School 2026 (May) · Olimpia
+Nacional CONADE 2026 (May, rapid) · Ed-National Aguascalientes 2026
+(Aug) · MEX-ch U17 16th (Jul) · Mexican Open 71st (Apr)<br />
+<strong>Ratings across tournaments:</strong> 2060 (MEX-op Apr 2026) →
+2026 (PAM School May 2026) → 1836 (Olimpia Nacional rapid May 2026) →
+2133 (MEX-ch U17 Jul 2026) → 2130 (Ed-National Aug 2026)<br />
+<strong>Total games reviewed:</strong> 28 (9 PAM School, 7 Olimpia
+Nacional, 2 Ed-National, 5 MEX-ch U17, 5 MEX-op 71st)</p>
+<hr />
+<h2 id="overall-results">1. Overall Results</h2>
+<h3 id="by-tournament">By Tournament</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>Tournament</th>
+<th>Format</th>
+<th>Fernando’s Rating</th>
+<th>As White</th>
+<th>As Black</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PAM School 2026 (O13)</td>
+<td>Classical 90+30</td>
+<td>2026</td>
+<td>2W–1D–1L (4 games)</td>
+<td>3W–2D–0L (5 games)</td>
+<td><strong>5W–3D–1L</strong></td>
+</tr>
+<tr>
+<td>Olimpia Nacional 2026</td>
+<td>Rapid 25+5</td>
+<td>1836</td>
+<td>2W–1D–1L (4 games)</td>
+<td>1W–1D–1L (3 games)</td>
+<td><strong>3W–2D–2L</strong></td>
+</tr>
+<tr>
+<td>Ed-National Aguascalientes 2026</td>
+<td>Classical 90+30</td>
+<td>2130</td>
+<td>— (no White games in dataset)</td>
+<td>0W–0D–2L (2 games)</td>
+<td><strong>0W–0D–2L</strong></td>
+</tr>
+<tr>
+<td>MEX-ch U17 16th 2026</td>
+<td>Classical</td>
+<td>2133</td>
+<td>2W–0D–0L (2 games)</td>
+<td>2W–0D–1L (3 games)</td>
+<td><strong>4W–0D–1L</strong></td>
+</tr>
+<tr>
+<td>Mexican Open 71st 2026</td>
+<td>Classical</td>
+<td>2060</td>
+<td>0W–1D–2L (3 games)</td>
+<td>1W–0D–1L (2 games)</td>
+<td><strong>1W–1D–3L</strong></td>
+</tr>
+<tr>
+<td><strong>Combined</strong></td>
+<td></td>
+<td></td>
+<td><strong>6W–3D–4L</strong></td>
+<td><strong>7W–3D–5L</strong></td>
+<td><strong>13W–6D–9L</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="notable-high-stakes-results">Notable High-Stakes Results</h3>
+<ul>
+<li><strong>Beat FM Martinez Flores (1904)</strong> as Black in French
+Advance (Olimpia R4) — positive upset</li>
+<li><strong>Drew GM-level prep vs GM Cori Jorge (2586)</strong> before
+tactical collapse (Ed-National R1) — his position was nearly equal at
+move 30</li>
+<li><strong>Drew Valdes Romero (2325)</strong> as White in MEX-op R4 —
+best White performance vs strong opposition</li>
+<li><strong>Lost to Leal Escamilla (1765)</strong> as Black in Olimpia
+R6 — worst upset, a 71-point rating deficit loss</li>
+<li><strong>Lost to Loayza Rivera (1936)</strong> as White in PAM School
+R6 — another upset, lost as 90-point favorite</li>
+</ul>
+<p><strong>Critical context:</strong> Fernando is a significantly
+stronger Black player than White player in classical time controls. His
+Black record at classical time controls (PAM School + Ed-National +
+MEX-ch + MEX-op) is 8W/2D/4L; his White record is 4W/2D/6L — a clear
+edge for Black. He loses more often as White, especially against strong
+competition (2300+ opponents: 0W/1D/2L in MEX-op). His strongest
+tournament was PAM School (5W/3D/1L), where he was one of the top-rated
+players and played deliberately with full time control.</p>
+<hr />
+<h2 id="opening-repertoire">2. Opening Repertoire</h2>
+<h3 id="as-white-flexible-1.e4-and-1.c4">As White — Flexible: 1.e4 and
+1.c4</h3>
+<p>Fernando has no fixed first move as White. He alternates between 1.e4
+and 1.c4 (and occasionally 1.Nf3 transposing to English).</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Opponent System</th>
+<th>Variation Played</th>
+<th>ECO</th>
+<th>Record</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sicilian (1…c5)</td>
+<td>English/Yugoslav Attack: f3/Be3/Qd2/O-O-O</td>
+<td>B56, B78</td>
+<td>2W–1D (Olimpia R1, R7; MEX-ch R6)</td>
+</tr>
+<tr>
+<td>1…e5 (Open)</td>
+<td>Italian Game: Bc4/c3/d3/b4 (Giuoco Pianissimo)</td>
+<td>C54</td>
+<td>0W–1L (Olimpia R5)</td>
+</tr>
+<tr>
+<td>Caro-Kann (1…c6)</td>
+<td>Panov Attack: exd5 cxd5 c4</td>
+<td>B14</td>
+<td>1W (Olimpia R3)</td>
+</tr>
+<tr>
+<td>French (1…e6)</td>
+<td>French Exchange: exd5 exd5</td>
+<td>C01</td>
+<td>1D (PAM School R4 vs Li 2021)</td>
+</tr>
+<tr>
+<td>English (1.c4)</td>
+<td>Four Knights Fianchetto, Anglo-Indian</td>
+<td>A16, A29</td>
+<td>2W–1L (PAM R2, R6; MEX-op R2)</td>
+</tr>
+<tr>
+<td>1.Nf3 → 1.c4</td>
+<td>KIA/English hybrid</td>
+<td>A04</td>
+<td>1W (PAM School R9)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>White opening notes:</strong></p>
+<p>Fernando’s most reliable White system is the <strong>English/Yugoslav
+Attack vs the Sicilian</strong>
+(<code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 ... 6.f3 Be3 Qd2 O-O-O</code>).
+He used this against the Classical Sicilian (B56, Olimpia R1), the
+Dragon Yugoslav (B78, Olimpia R7), and against the Sicilian in MEX-ch R6
+(playing <code>Kb1</code>, <code>g4-g5</code>, <code>h4-h5</code>
+attacking plan). He is comfortable building the kingside attack after
+long castling.</p>
+<p>When playing 1.c4 (English), Fernando has had inconsistent results.
+He beat Wang Darren (1842) in PAM School R2 with a smooth strategic game
+(Nd5 outpost domination), but lost in PAM School R6 to Loayza Rivera
+(1936) in a long endgame after ceding queenside space. In MEX-op R2 he
+lost to Perez Rodriguez (2395).</p>
+<p>His Italian game (Olimpia R5 vs Alba Ruiz 1924, C54) led to a
+positional loss in a complex endgame — neither player converted cleanly,
+but Fernando ultimately lost. The Italian is not his primary White
+weapon.</p>
+<p><strong>Key weakness as White:</strong> Fernando blundered in Olimpia
+R3 (missed <code>38.Nxd4</code> recapture correctly, played
+<code>38.Bxd4??</code> allowing draw instead of win), PAM R6 (complex
+endgame collapse), and MEX-op (positional squeeze vs 2300+ opposition).
+His White play degrades in long maneuvering positions with many
+inaccuracies.</p>
+<h3 id="as-black-french-defense-as-primary-weapon">As Black — French
+Defense as Primary Weapon</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Opponent White System</th>
+<th>Fernando’s Response</th>
+<th>ECO</th>
+<th>Record</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.e4 (French)</td>
+<td>French Exchange (3.exd5 exd5)</td>
+<td>C01</td>
+<td>1W (PAM R3)</td>
+</tr>
+<tr>
+<td>1.e4 (French)</td>
+<td>French Winawer (3.Nc3 Bb4 4.Ne2 or 4.e5)</td>
+<td>C15, C17</td>
+<td>2D (PAM R7, R8)</td>
+</tr>
+<tr>
+<td>1.e4 (French)</td>
+<td>French Advance (3.e5 c5 4.c3 Nc6 Qb6)</td>
+<td>C02</td>
+<td>1W (Olimpia R4)</td>
+</tr>
+<tr>
+<td>1.e4 (French)</td>
+<td>French Rubinstein (3.Nc3 dxe4 Nd7)</td>
+<td>—</td>
+<td>1L (MEX-op R7)</td>
+</tr>
+<tr>
+<td>1.e4 (Sicilian)</td>
+<td>Sicilian O’Kelly (2…a6 then Nc6/e5)</td>
+<td>B32</td>
+<td>1L (Olimpia R6)</td>
+</tr>
+<tr>
+<td>1.e4 (Sicilian)</td>
+<td>Sicilian O’Kelly-like (2.Nf3 a6 then e5)</td>
+<td>—</td>
+<td>1W (MEX-ch R3 vs 1585)</td>
+</tr>
+<tr>
+<td>1.d4 (KID)</td>
+<td>King’s Indian: Nf6/g6/Bg7/d6</td>
+<td>E60, KID</td>
+<td>1W–1L</td>
+</tr>
+<tr>
+<td>1.d4 (Grünfeld)</td>
+<td>Grünfeld Exchange: Nf6/g6/d5/Bg7</td>
+<td>D85</td>
+<td>1D (Olimpia R2)</td>
+</tr>
+<tr>
+<td>1.d4 (QI-like)</td>
+<td>Queen’s Indian-like: Nf6/e6/b6/Bb7</td>
+<td>A46</td>
+<td>1L (Ed-National R1)</td>
+</tr>
+<tr>
+<td>1.c4 (English)</td>
+<td>1…e5 with Nf6/c6, central counterplay</td>
+<td>A20</td>
+<td>1W (PAM R1)</td>
+</tr>
+<tr>
+<td>1.c4/1.Nf3</td>
+<td>1…c5 then Nc6/e5</td>
+<td>—</td>
+<td>1L (MEX-op R2)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Black opening notes:</strong></p>
+<p>Fernando’s defining Black weapon is the <strong>French Defense
+against 1.e4</strong> — appearing in 4 separate datasets with at least
+4-5 confirmed games. He plays multiple French systems based on what
+White offers:</p>
+<p><strong>French Winawer (C15/C17):</strong> In PAM School R7 (vs Xu
+1978) and R8 (vs Suresh 1893), Fernando reached Winawer positions
+through 3.Nc3 Bb4. In R7 he played the Alekhine-Maróczy Gambit line
+(4.Ne2 dxe4 5.a3 Be7) and held a clean draw in a technical 76-move
+endgame. In R8 (Bogoljubow: 4.e5 c5 5.Bd2 Bxc3) he reached an equal
+endgame but blundered <code>28...Nxf3+??</code> letting the position
+equalize — still drew. Both games show solid Winawer knowledge.</p>
+<p><strong>French Advance (C02):</strong> In Olimpia R4 vs FM Martinez
+Flores (1904), Fernando played
+<code>1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 Qb6</code> — the standard
+Advance main line with early queen development. After White’s
+<code>13.c4?</code> mistake and later <code>16.h5??</code> blunder,
+Fernando exploited the position with precise knight maneuvers and won
+convincingly. This is the most important game for Austin’s preparation:
+Fernando actively plays and wins in the French Advance.</p>
+<p><strong>French Exchange (C01):</strong> PAM School R3 (vs Alba Ruiz
+1919) — after 1.e4 e6 2.d4 d5 3.exd5 exd5, Fernando maneuvered his
+knight from b6 to c4/ne4 repeatedly, putting pressure on White’s
+position. Won a 72-move technical endgame.</p>
+<p><strong>King’s Indian / Grünfeld:</strong> Fernando uses 1…Nf6 2…g6
+against 1.d4, sometimes entering KID (d6, Bg7) and sometimes Grünfeld
+(d5, Bg7). His KID results are mixed — won MEX-ch R5 (vs 1774) but lost
+MEX-ch R1 (vs Vargas, unknown rating). His Grünfeld draw (Olimpia R2)
+came after Black grabbed a pawn (Bxa2) and held.</p>
+<p><strong>Sicilian as Black:</strong> Fernando has used the Sicilian
+O’Kelly (2…a6 then …e5) as an occasional secondary weapon vs 1.e4.
+However, he lost with it in Olimpia R6 (vs 1765 in time trouble). The
+French is clearly his primary defense.</p>
+<hr />
+<h2 id="tactical-patterns">3. Tactical Patterns</h2>
+<h3 id="strengths">Strengths</h3>
+<p><strong>French Defense maneuvering:</strong> Fernando’s best
+performances as Black all come from French positions. PAM R3 (French
+Exchange, 72 moves) showed patient knight maneuvering —
+<code>...Na4</code>, <code>...Nb2</code>, <code>...Nc4</code>,
+<code>...Nd6</code>, <code>...Ne4</code> over 15 moves before
+converting. Olimpia R4 (French Advance vs FM) showed confident …Qb6/…Nc6
+counterplay and material recovery after White’s tactical error
+<code>23.Qxa7??</code>.</p>
+<p><strong>Attacking conversions as White:</strong> PAM R9 (vs Wang
+Rocky 2079): Fernando played <code>Nxa7</code>, <code>Nb5</code>, then
+<code>Qa5/Bxb7/Qxa5 Rxa5 Nc3 Nb5 d4 d5 d6 Rbb7</code> — a clean
+queenside attack leading to a decisive advantage. He converted with
+<code>Bxe6 Rxe6 d5 Rbb7 Bxe6 Rxe6 d5 Rbb7 Bxd7</code> — rook
+coordination through the 7th rank. MEX-ch R6 (English Attack vs
+Sicilian) showed Fernando executing a standard Yugoslav-type attack with
+<code>g5/h5</code> break and mating threats.</p>
+<p><strong>Beating higher-rated opponents:</strong> Olimpia R4 vs FM1904
+(won), PAM R3 vs 1919 (won), MEX-op R4 drew vs 2325 — Fernando can beat
+or hold stronger players when he is well-prepared in the opening and
+positions are within his French Defense or English Attack knowledge. PAM
+R2 vs Wang 1842 showed accurate <code>Nc6</code> exploitation of
+tactical oversight.</p>
+<h3 id="weaknesses">Weaknesses</h3>
+<p><strong>Tactical blunders in time pressure (as Black):</strong>
+Ed-National R1 (vs GM Cori 2586): Fernando had a reasonable position
+(+1.82 for White around move 27) when he played <code>30...Qf7??</code>
+(allowing <code>31.Bh7+ Kf8 32.Qxg4</code>) — a blunder that gave away
+two pawns. He later recovered partially but ultimately lost.</p>
+<p>Ed-National R9 (vs Paredes Guzman CM 2137): Fernando played
+<code>23...exd5?</code> (should be <code>23...Bxe5</code>) and then
+<code>28...Bxe5?</code> losing critical material, collapsing from a
+defensible position.</p>
+<p>Olimpia R3 (vs Roque Aranda 1640): Multiple blunder exchanges in the
+endgame — both players made errors <code>36...Ne2+??</code>,
+<code>38.Bxd4??</code>, <code>38...Bxd4??</code> in sequence. Fernando
+ultimately won but the game was messy with evaluation swinging
+wildly.</p>
+<p>Olimpia R6 (vs Leal Escamilla 1765): Fernando had winning ideas
+throughout but blundered in severe time pressure (under 1 minute),
+allowing <code>39...Nf3</code> too late and eventually losing. He lost
+to a player rated 71 points below him.</p>
+<p><strong>Draws against lower-rated players:</strong> Olimpia R7 drew
+1633 (Herrera) in Sicilian Dragon as White, despite starting with over a
++1 advantage at move 17. Multiple inaccuracies led to a drawn endgame
+from a winning position. PAM R8 drew Suresh 1893 after reaching a
+position where Fernando had a material advantage but blundered with
+<code>28...Nxf3+??</code> equalizing.</p>
+<p><strong>Against 2300+ opposition as White:</strong> MEX-op White
+record: 0W/1D/2L vs rated 2302, 2325, 2395. Fernando consistently gets
+outplayed positionally against strong opposition when he cannot use his
+French Defense expertise. His White play at the 2300+ level is clearly
+below his Black play.</p>
+<hr />
+<h2 id="strategic-patterns">4. Strategic Patterns</h2>
+<h3 id="positional-strengths">Positional strengths</h3>
+<p><strong>French Defense pawn structures:</strong> Fernando understands
+the d5/e6 isolated pawn structure well as Black. He knows to maneuver
+knights to e4, keep the bishop pair active, and target White’s c3/d4
+pawn tension. His patience in French Exchange endgames is notable — PAM
+R3 lasted 72 moves with consistent knight activity.</p>
+<p><strong>Piece coordination and open files:</strong> PAM R9 showed
+Fernando coordinating rooks on the 7th rank (<code>Rb7/Ra7</code>) to
+win material after a successful queenside invasion. He knows how to use
+open files after pawn exchanges.</p>
+<p><strong>Queenside counterplay in French positions:</strong> Olimpia
+R4 demonstrated Fernando’s understanding of the <code>...Qb6</code>,
+<code>...cxd4</code>, <code>...Nc6</code> counterplay pattern in the
+French Advance. After <code>13.c4?</code> he correctly played
+<code>...Nxc4!</code> and exploited the structural concession.</p>
+<h3 id="positional-weaknesses">Positional weaknesses</h3>
+<p><strong>King safety as White (long castle):</strong> In his Yugoslav
+Attack games (Olimpia R7, MEX-ch R6), Fernando commits to long castle
+but his attacking play can become erratic. Olimpia R7 saw him play
+<code>g5</code>, <code>h4</code>, <code>h5</code>, then
+<code>Bd5??</code>, <code>Qxd5??</code> — a series of inaccuracies
+giving away the advantage from a clearly superior position.</p>
+<p><strong>Endgame technique in equal positions:</strong> PAM R8 (French
+Winawer, 76 moves) and Olimpia R3 (Caro-Kann Panov, 50 moves) both
+showed Fernando struggling to find the winning plan in technical
+king-and-pawn + minor piece endgames. His <code>28...Nxf3+??</code> in
+PAM R8 equalized a position where he was ahead by 2+ pawns. He is better
+at winning clearly superior positions than converting marginally better
+ones.</p>
+<p><strong>Passive positions as Black vs other systems:</strong>
+Ed-National R1 (vs GM Cori 2586, A46 Queen’s Indian-like setup) showed
+Fernando adopting a passive piece arrangement (<code>...Bb7</code>,
+<code>...Rc6</code>, <code>...Rdd6</code>) that allowed White to
+dominate the e5 square and eventually win. When Fernando cannot use
+French patterns, his Black play is less precise.</p>
+<hr />
+<h2 id="key-game-summaries">5. Key Game Summaries</h2>
+<p><strong>PAM School R9 (May 2026): Cortes Medina, Fernando (2026) vs
+Wang, Rocky (2079) — 1-0 [A04]</strong> Fernando’s best win of the
+dataset. He played 1.Nf3/c4 English, maneuvered with
+<code>Qa4/Qc2/b4/Nb5/Nxa7</code>, then used <code>Qa5/Bxb7/Rxa5</code>
+to pick up the a-pawn and create a deadly passed pawn. After
+<code>Bxe6 d5 Rbb7</code> his rooks dominated the 7th rank and Black
+resigned. Notable because Wang was 53 rating points above Fernando — a
+clean strategic positional win.</p>
+<p><strong>PAM School R3 (May 2026): Alba Ruiz, Kenneth Damian (1919) vs
+Cortes Medina, Fernando (2026) — 0-1 [C01 French Exchange]</strong>
+Fernando demonstrated French endgame technique over 72 moves. Key phase:
+knight maneuver <code>...Nb6–Na4–Nb2–Nc4–Nd6–Ne4</code> applying
+constant pressure. After <code>33.axb4 Ra2</code> Fernando’s rook
+infiltrated White’s position. White’s time pressure (less than 1 minute)
+led to <code>61.Be1?</code> and <code>62.Bf2?!</code> errors, after
+which <code>Rd1+/Rh1/Ne3+/Rxf2/Nxg4</code> gave Fernando a winning
+endgame. Strong display of patient maneuvering.</p>
+<p><strong>Olimpia Nacional R4 (May 2026): Martinez Flores, Matias FM
+(1904) vs Cortes Medina, Fernando (1836) — 0-1 [C02 French
+Advance]</strong> Most instructive game for Austin’s preparation. After
+<code>1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 Qb6</code>, White played
+the Milner-Barry structure. White’s <code>13.c4?</code> (mistake,
+opening the center prematurely) allowed
+<code>...dxc4? (inaccuracy — correct was ...Nxc4)</code> but White’s
+follow-up <code>16.h5??</code> was a serious blunder that gave Fernando
+a solid advantage. Fernando won material with
+<code>...Nc6/...Nxd4/...Ke7/...Kf6/...Kf5</code> king march and
+eventually won the endgame. Shows Fernando knows the French Advance well
+enough to beat an FM.</p>
+<p><strong>Ed-National R1 (Aug 2026): GM Cori, Jorge (2586) vs Cortes
+Medina, Fernando (2130) — 1-0 [A46]</strong> Fernando’s most revealing
+loss. He played a solid <code>...Nf6/...e6/...b6/...Bb7</code> setup vs
+1.d4 and held his own through move 29 (position was around +1 for GM).
+After <code>30...Qf7??</code> (allowing <code>Bh7+ Kf8 Qxg4</code>) he
+entered a lost endgame but played resourcefully. GM Cori made several
+inaccuracies (<code>36.h4?? 37.hxg5?</code>) giving Fernando
+counterplay, but Fernando then played <code>37...hxg5??</code> (instead
+of <code>Qxg5</code> drawing) and lost. Shows Fernando can compete with
+top-level preparation but collapses tactically in time pressure.</p>
+<p><strong>MEX-op R4 (Apr 2026): Cortes Medina, Fernando (2060) vs
+Valdes Romero, Leonardo (2325) — 1/2-1/2 [Sicilian]</strong> Fernando’s
+best White result vs strong opposition. After an unusual Sicilian with
+<code>4.dxc5 Nxe4 5.cxd6 Nxd6 6.Bf4</code>, Fernando reached an endgame
+that eventually drew in a R+B vs R+B ending at move 36. Shows Fernando
+can maintain defense against players rated 265 points above him.</p>
+<p><strong>Olimpia Nacional R6 (May 2026): Leal Escamilla, Daniel
+Zinedine (1765) vs Cortes Medina, Fernando (1836) — 1-0 (Fernando
+loses)</strong> Fernando’s worst result in the dataset. Playing Black in
+a Sicilian O’Kelly, he reached a completely equal position but was in
+severe time trouble (under 1 minute). After <code>39.Re1??</code>
+(blunder by White), Fernando played <code>Nf3!</code> winning material,
+but then squandered the advantage with inaccurate queen maneuvers. He
+eventually blundered into a mating attack at move 51. Lost to a player
+rated 71 points below him — demonstrates Fernando’s unreliability in
+severe time scrambles.</p>
+<hr />
+<h2 id="summary-profile">6. Summary Profile</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Rating (1–5)</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Opening prep as White</strong></td>
+<td>3/5</td>
+<td>Yugoslav/English Attack vs Sicilian solid; inconsistent 1.e4 vs
+1.c4; no clear primary system</td>
+</tr>
+<tr>
+<td><strong>Opening prep as Black</strong></td>
+<td>4/5</td>
+<td>French Defense deep preparation; handles Winawer, Advance, Exchange;
+KID/Grünfeld secondary</td>
+</tr>
+<tr>
+<td><strong>Tactical vision</strong></td>
+<td>3/5</td>
+<td>Strong when well-prepared; major blunders under time pressure in
+multiple datasets</td>
+</tr>
+<tr>
+<td><strong>Endgame technique</strong></td>
+<td>3/5</td>
+<td>Patient in French endgames; struggles with equal technical
+positions; B+K endgame inaccurate</td>
+</tr>
+<tr>
+<td><strong>Rating resilience</strong></td>
+<td>3/5</td>
+<td>Beats FMs and draws 2325; loses to 1765 and 1936</td>
+</tr>
+<tr>
+<td><strong>White record (classical)</strong></td>
+<td>4W/2D/5L</td>
+<td>Struggles above 2100; 0W/1D/2L vs 2302-2395 in MEX-op</td>
+</tr>
+<tr>
+<td><strong>Black record (classical)</strong></td>
+<td>8W/2D/3L</td>
+<td>Clear strength; French Defense drives results</td>
+</tr>
+<tr>
+<td><strong>French Defense (Black)</strong></td>
+<td>Primary weapon</td>
+<td>Advance, Exchange, Winawer — all tested; Advance win vs FM most
+important</td>
+</tr>
+<tr>
+<td><strong>Sicilian (Black)</strong></td>
+<td>Occasional</td>
+<td>O’Kelly 2…a6; less reliable than French</td>
+</tr>
+<tr>
+<td><strong>KID/Grünfeld (Black)</strong></td>
+<td>Secondary vs 1.d4</td>
+<td>Mixed results</td>
+</tr>
+<tr>
+<td><strong>Classical rating range</strong></td>
+<td>~2060–2133</td>
+<td>Rising; 2130 at Ed-National Aug 2026</td>
+</tr>
+<tr>
+<td><strong>Rapid rating</strong></td>
+<td>1836</td>
+<td>Different pool; rapid results less reliable</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
