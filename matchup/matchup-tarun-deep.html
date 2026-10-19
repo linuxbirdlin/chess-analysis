@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarun Sankar — Engine Deep Analysis</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 48px 56px 72px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #1a5276; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 8px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 14px; font-size: 0.875rem;
+      color: #1a5276; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.25rem; color: #1f2328; margin: 40px 0 12px;
+      padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.05rem; color: #1a5276; margin: 24px 0 8px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 18px 0 6px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
+    li { margin-bottom: 4px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 14px 0 24px; }
+    thead th { background: #1a5276; color: #fff; padding: 9px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 8px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    tfoot td { background: #e8f0f8; font-weight: 700; padding: 8px 12px; border-top: 2px solid #1a5276; }
+
+    .acc-hi  { color: #1a6030; font-weight: 700; }
+    .acc-mid { color: #5a4500; font-weight: 600; }
+    .acc-lo  { color: #8b0000; font-weight: 700; }
+
+    .game-block {
+      border: 1px solid #d0d7de; border-radius: 8px; margin: 24px 0; overflow: hidden;
+    }
+    .game-header {
+      display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px;
+      padding: 12px 20px; background: #1a5276; color: #fff;
+    }
+    .game-header .gh-title { font-size: 1.05rem; font-weight: 600; flex: 1 1 200px; }
+    .game-header .gh-meta { font-size: 0.85rem; opacity: 0.85; }
+
+    .badge-result-win  { background: #2d7d46; color: #fff; padding: 2px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 700; }
+    .badge-result-loss { background: #8b0000; color: #fff; padding: 2px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 700; }
+    .badge-result-draw { background: #5a4500; color: #fff; padding: 2px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 700; }
+
+    .game-body { padding: 18px 22px; }
+    .game-stats { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 0.9rem; margin-bottom: 14px; }
+    .game-stats .stat { color: #57606a; }
+    .game-stats .stat strong { color: #1f2328; }
+
+    .im-analysis { background: #f0f6ff; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0;
+      padding: 12px 18px; margin: 10px 0; font-size: 0.93rem; }
+    .im-analysis strong { color: #1a3a55; }
+
+    .im-moment {
+      background: #fff8e6; border: 1px solid #d4a017; border-radius: 6px;
+      padding: 10px 16px; margin: 8px 0; font-size: 0.88rem; color: #4a3000;
+    }
+    .im-moment .move-label { font-weight: 700; font-size: 0.9rem; color: #8b6000; }
+
+    .warn-box {
+      background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0;
+      padding: 10px 16px; margin: 10px 0; font-size: 0.9rem; color: #7a0000;
+    }
+    .tip-box {
+      background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0;
+      padding: 10px 16px; margin: 10px 0; font-size: 0.9rem; color: #1a4731;
+    }
+    .info-box {
+      background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0;
+      padding: 10px 16px; margin: 10px 0; font-size: 0.9rem; color: #1a3a55;
+    }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de;
+      border-radius: 4px; padding: 1px 5px;
+    }
+
+    em { font-style: italic; color: #57606a; }
+    strong { font-weight: 600; }
+
+    .pattern-section { border: 1px solid #d0d7de; border-radius: 8px; margin: 20px 0; padding: 18px 22px; }
+    .pattern-section h3 { margin-top: 0; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Tarun Sankar — Engine Deep Analysis</h1>
+    <div class="meta">
+      Stockfish analysis · movetime 800ms · 16 threads · 16 games · Lichess accuracy formula<br>
+      Rating: ~1965 FIDE (Oct 2026); peak 2002 (Mar 2026) · Fast improver (+600 Elo in 2.5 years)
+    </div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-tarun.html">← Matchup Prep</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ ACCURACY SUMMARY -->
+  <h2>Accuracy Summary by Tournament</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tournament</th>
+        <th>Games</th>
+        <th>Record</th>
+        <th>Avg Accuracy</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>5th Skyline Open 2026</td>
+        <td>2</td>
+        <td>0W–1L–1D</td>
+        <td><span class="acc-mid">89.6%</span></td>
+        <td>Both Sicilian as Black; king-walk blunder in R4</td>
+      </tr>
+      <tr>
+        <td>Texas Grand Circuit 2026</td>
+        <td>2</td>
+        <td>0W–2L–0D</td>
+        <td><span class="acc-mid">89.7%</span></td>
+        <td>vs 2395 + IM 2419; Mikenas as White in R5</td>
+      </tr>
+      <tr>
+        <td>NA Open 2025</td>
+        <td>1</td>
+        <td>0W–1L–0D</td>
+        <td><span class="acc-mid">89.1%</span></td>
+        <td>Kh4 walk into mate (1000cpl) in endgame</td>
+      </tr>
+      <tr>
+        <td>NA Championship 2024</td>
+        <td>1</td>
+        <td>0W–1L–0D</td>
+        <td><span class="acc-mid">91.3%</span></td>
+        <td>vs Zachary Liu (2153); solid until endgame</td>
+      </tr>
+      <tr>
+        <td>Dulles Skyline 2024</td>
+        <td>7</td>
+        <td>2W–4L–1D</td>
+        <td><span class="acc-mid">91.8%</span></td>
+        <td>Largest sample; best: R3 Draw 95.1%, worst: R4 Loss 86.5%</td>
+      </tr>
+      <tr>
+        <td>Madurai Athens 2023</td>
+        <td>3</td>
+        <td>2W–1L–0D</td>
+        <td><span class="acc-lo">86.6%</span></td>
+        <td>Rating 1406; chaotic early games, multiple large blunders</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td><strong>OVERALL</strong></td>
+        <td><strong>16</strong></td>
+        <td><strong>4W–10L–2D</strong></td>
+        <td><strong>90.1%</strong></td>
+        <td>Sample biased toward strong opponents</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="info-box">
+    <strong>Context:</strong> The 4W–10L–2D record reflects a PGN collection dominated by games vs 1800–2400 opponents while Tarun was rated 1406–2002. His rating rise to 2002 proves he won many more games not captured here. The accuracy score of 90.1% is consistent across tournaments (86.6–91.8%) suggesting his play has been fairly uniform, with the Madurai 2023 games (rating 1406) pulling the average down.
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ KEY GAMES -->
+  <h2>Key Game Analysis (8 Games)</h2>
+
+  <!-- GAME 1 -->
+  <div class="game-block">
+    <div class="game-header">
+      <div class="gh-title">5th Skyline Open R4 — Lin, Benjamin (2099) vs Tarun Sankar (1965)</div>
+      <div class="gh-meta">Oct 11, 2026 · ECO B20 Sicilian Kronberger · Black</div>
+      <span class="badge-result-loss">LOSS</span>
+    </div>
+    <div class="game-body">
+      <div class="game-stats">
+        <div class="stat">Tarun accuracy: <strong>89.4%</strong></div>
+        <div class="stat">Opponent accuracy: <strong class="acc-mid">~opp</strong></div>
+        <div class="stat">Moves analyzed: <strong>54</strong></div>
+        <div class="stat">Blunders: <strong>3</strong> · Mistakes: <strong>4</strong> · Inaccuracies: <strong>11</strong></div>
+      </div>
+
+      <div class="im-analysis">
+        <strong>Opening:</strong> 1.e4 c5 2.Na3?! Nc6 3.Bb5 Nf6 4.Bxc6 dxc6 5.d3 g6 6.c3 Bg7 7.Be3 b6 8.Nf3 Ng4 — White played 2.Na3 (unusual Knight), then Rossolimo-type with 3.Bb5. Tarun correctly replied 3...Nf6, accepted doubled c-pawns with 4.Bxc6 dxc6, and began the standard fianchetto setup (...g6 ...Bg7). Through move 14, Tarun had a comfortable position with Black holding an advantage around <strong>−2.0</strong> (Black is winning). This is the direct readout: <strong>Austin will see Tarun play 3...Nf6 then 4...dxc6 + ...g6 ...Bg7</strong> in the Rossolimo.
+      </div>
+
+      <div class="im-moment">
+        <div class="move-label">Move 15 · e4 · CPL: 309 · BLUNDER · Eval: +2.06 → −1.03</div>
+        With Black winning at −2.0 (approximately +2.0 in Black's favor), Tarun panicked and played the aggressive pawn push 15...e4?! — sacrificing the bishop pair advantage and allowing White to completely reverse the position. Engine preferred 15...Bh6+ forking or creating threats while still ahead. <strong>This is Tarun's most exploitable pattern: self-destructing from a winning position with an impatient lunge.</strong>
+      </div>
+
+      <div class="im-moment">
+        <div class="move-label">Move 54 · Ke7 · CPL: 1000 · BLUNDER · Eval: −10.44 → −#</div>
+        In the endgame, already badly losing, Tarun moved his king to e7 — walking directly into a mating net. Engine preferred Kd7. The king-walk pattern (also seen in NA Open R8: Kh4 → mate, and Dulles R7: Kf7 → massive loss) is a recurring theme in Tarun's play. <strong>Austin should watch for opportunities to activate tactics that force Tarun's king into the open.</strong>
+      </div>
+
+      <div class="tip-box">
+        <strong>Prep implication:</strong> Austin will play 1.e4 c5 2.Nf3 Nc6 3.Bb5 → Tarun plays 3...Nf6 4.Bxc6 dxc6 5.d3 g6. Austin should play the Rossolimo with maximum tension — Tarun's 15...e4?? happened when he couldn't find a precise winning plan. Keep the position complex; force Tarun to calculate.
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME 2 -->
+  <div class="game-block">
+    <div class="game-header">
+      <div class="gh-title">5th Skyline Open R6 — Le-Tran, Leo (1908) vs Tarun Sankar (1965)</div>
+      <div class="gh-meta">Oct 12, 2026 · ECO B30 Sicilian Old · Black</div>
+      <span class="badge-result-draw">DRAW</span>
+    </div>
+    <div class="game-body">
+      <div class="game-stats">
+        <div class="stat">Tarun accuracy: <strong>89.8%</strong></div>
+        <div class="stat">Moves analyzed: <strong>46</strong></div>
+        <div class="stat">Blunders: <strong>1</strong> · Mistakes: <strong>2</strong> · Inaccuracies: <strong>5</strong></div>
+      </div>
+
+      <div class="im-analysis">
+        <strong>Opening:</strong> 1.e4 c5 2.Nf3 Nc6 3.Bc4 e6 4.O-O d5 5.Bb5 a6 6.Bxc6+ bxc6 7.d4 — White played 3.Bc4 (not Rossolimo), and Tarun responded with 2...Nc6 (same first move as always), then ...e6 ...d5 after White placed the bishop on c4. Tarun got active central counterplay with ...d5. By move 22, Tarun was <strong>winning by approximately +2.45</strong> for Black — a clear advantage.
+      </div>
+
+      <div class="im-moment">
+        <div class="move-label">Move 28 · Qd8 · CPL: 348 · BLUNDER · Eval: −0.83 → −4.31</div>
+        From a near-winning position, Tarun played Qd8 instead of the correct Qb8 (engine recommendation). This blunder dissipated the advantage completely and gave White the initiative. The game eventually drew after both sides committed further errors. <strong>Pattern: Tarun had winning chances but missed the precise queen placement, retreating to the wrong square.</strong>
+      </div>
+
+      <div class="im-moment">
+        <div class="move-label">Move 23 · Rb8 · CPL: 160 · MISTAKE · Eval: −1.09 → −2.69</div>
+        A rook move that allowed White to reduce the pressure. Engine preferred Rf8, keeping the rook more actively placed. This is a subtle square-choice error — not a tactical blunder, but imprecise middlegame play that let the advantage slip.
+      </div>
+
+      <div class="tip-box">
+        <strong>Prep implication:</strong> Tarun can generate winning positions from the Sicilian as Black (both games show +2.0 to +2.5 advantages at some point) but fails to convert precisely. Austin should aim for Rossolimo positions where Tarun generates his own advantage — then watch for the imprecise conversion.
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME 3 -->
+  <div class="game-block">
+    <div class="game-header">
+      <div class="gh-title">Texas Grand Circuit R5 — Tarun Sankar (2002) vs IM Fus, Jakub (2419)</div>
+      <div class="gh-meta">Mar 14, 2026 · ECO A19 English Mikenas · White</div>
+      <span class="badge-result-loss">LOSS</span>
+    </div>
+    <div class="game-body">
+      <div class="game-stats">
+        <div class="stat">Tarun accuracy: <strong>86.2%</strong></div>
+        <div class="stat">Opponent accuracy: <strong>88.5%</strong></div>
+        <div class="stat">Moves analyzed: <strong>57</strong></div>
+        <div class="stat">Blunders: <strong>0</strong> · Mistakes: <strong>5</strong> · Inaccuracies: <strong>15</strong></div>
+      </div>
+
+      <div class="im-analysis">
+        <strong>Opening:</strong> 1.c4 e6 2.Nc3 Nf6 3.e4 c5 4.e5 Ng8 — Tarun played the Mikenas Attack as White against an IM 400+ points stronger. The ECO A19 (Anglo-Indian Mikenas-Nei Gambit) features White's pawn wedge on e5 forcing Black's knight to retreat. The game went deeply into technical play, with Tarun accumulating 5 mistakes and 15 inaccuracies over 57 moves — classic slow technical grind where Tarun fell short against elite endgame precision.
+      </div>
+
+      <div class="im-moment">
+        <div class="move-label">Move 29 · Bd2 · CPL: 269 · MISTAKE · Eval: −0.07 → −2.76</div>
+        In a near-equal position (eval −0.07, essentially balanced), Tarun played Bd2 instead of the correct Bxd4 (engine). This gave the IM a structural advantage of nearly −2.76 — a decisive error in what should have been a drawable endgame. The bishop placement on d2 was passive when activity was required.
+      </div>
+
+      <div class="im-moment">
+        <div class="move-label">Move 32 · Nc3 · CPL: 246 · MISTAKE · Eval: −0.09 → −2.55</div>
+        Three moves later, still near equality (−0.09), Tarun played Nc3 instead of Nxc5. Another passive piece placement that gave the IM endgame control. This cluster of mistakes (moves 29, 32, 44) at near-equal positions is the technical endgame signature.
+      </div>
+
+      <div class="warn-box">
+        <strong>Austin as Black prep:</strong> This is the Mikenas Tarun will attempt — <code>1.c4 Nf6 2.Nc3 e6 3.e4 c5 4.e5 Ng8</code>. Tarun plays it well in the opening but his technique degrades in long endgames. Austin should know: this position is complex but manageable if Austin avoids passive piece placement (exactly what Tarun himself does wrong in this game). Key defense: 5...Nc6 6.d4 cxd4 7.Nxd4 Nge7 with active piece activity.
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME 4 -->
+  <div class="game-block">
+    <div class="game-header">
+      <div class="gh-title">Texas Grand Circuit R4 — Pyrig, Roman (2395) vs Tarun Sankar (2002)</div>
+      <div class="gh-meta">Mar 14, 2026 · Sicilian · Black</div>
+      <span class="badge-result-loss">LOSS</span>
+    </div>
+    <div class="game-body">
+      <div class="game-stats">
+        <div class="stat">Tarun accuracy: <strong class="acc-hi">93.1%</strong></div>
+        <div class="stat">Opponent accuracy: <strong>96.6%</strong></div>
+        <div class="stat">Moves analyzed: <strong>38</strong></div>
+        <div class="stat">Blunders: <strong>0</strong> · Mistakes: <strong>1</strong> · Inaccuracies: <strong>5</strong></div>
+      </div>
+
+      <div class="im-analysis">
+        <strong>Opening:</strong> 1.e4 c5 2.Nf3 e6 3.b3 a6 — Tarun played Sicilian (1...c5 2...e6) against a 2395-rated player 393 points higher. White played the unusual 3.b3 sideline (Nimzo-Sicilian type). Tarun responded with ...a6 (Kan-type). Despite the huge rating gap, Tarun played his <strong>best accuracy game in the entire dataset at 93.1%</strong> — only 1 mistake and 5 inaccuracies. The loss was due to his opponent's superior play (96.6% accuracy), not Tarun's errors.
+      </div>
+
+      <div class="im-moment">
+        <div class="move-label">Move 23 · Bc7 · CPL: 251 · MISTAKE · Eval: −1.36 → −3.87</div>
+        The one significant mistake — Tarun played Bc7 instead of Ra8 (engine). The bishop was misplaced on c7 when the rook activation on a8 was critical. This turned a −1.36 position (still winning for Black) into a more difficult −3.87. Even here, Tarun was already winning — the mistake cost most of his advantage.
+      </div>
+
+      <div class="tip-box">
+        <strong>Rating context insight:</strong> Tarun can play clean chess (93.1%) against 2395-rated opponents when he's comfortable in the opening structure. This means his accuracy of 89–91% in other games reflects <em>opening unfamiliarity or middlegame pressure</em>, not a systematic calculation limit. Austin should aim to put Tarun in positions he hasn't studied deeply.
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME 5 -->
+  <div class="game-block">
+    <div class="game-header">
+      <div class="gh-title">NA Open 2025 R8 — Tarun Sankar (1871) vs Bynum, Jacorey (2131)</div>
+      <div class="gh-meta">Dec 30, 2025 · English 1.c4 · White</div>
+      <span class="badge-result-loss">LOSS</span>
+    </div>
+    <div class="game-body">
+      <div class="game-stats">
+        <div class="stat">Tarun accuracy: <strong>89.1%</strong></div>
+        <div class="stat">Moves analyzed: <strong>52</strong></div>
+        <div class="stat">Blunders: <strong>1</strong> · Mistakes: <strong>2</strong> · Inaccuracies: <strong>11</strong></div>
+      </div>
+
+      <div class="im-analysis">
+        <strong>Opening:</strong> 1.c4 g3 — Tarun's standard English Catalan setup as White vs Bynum (2131, 260 points higher at the time). The game went into a complex middlegame then endgame, where Tarun accumulated errors progressively. 11 inaccuracies over 52 moves — consistent small inaccuracies rather than sudden collapse, until move 52.
+      </div>
+
+      <div class="im-moment">
+        <div class="move-label">Move 52 · Kh4 · CPL: 1000 · BLUNDER · Eval: −6.43 → −# (MATE)</div>
+        In a lost endgame (−6.43), Tarun played Kh4 — walking his king directly into a forced checkmate. Engine preferred Kg2 to avoid the mating net. This is the <strong>second documented king-walk blunder</strong> in Tarun's database (also: Kf7 at Dulles R7, Ke7 at Skyline R4). Tarun has a clear pattern of moving his king into dangerous squares, particularly in lost or nearly lost positions when the opponent has a mating attack.
+      </div>
+
+      <div class="warn-box">
+        <strong>King-safety pattern (three instances):</strong> Kf7 (Dulles R7, 1000cpl), Kh4 (NA Open R8, 1000cpl into mate), Ke7 (Skyline R4, 1000cpl into mate). All three are 1000cpl king moves in endgames. This recurring pattern suggests Tarun's king-safety calculation breaks down under pressure — Austin should look for checks and active king/queen play in any endgame.
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME 6 -->
+  <div class="game-block">
+    <div class="game-header">
+      <div class="gh-title">Dulles Skyline 2024 R3 — Tarun Sankar (1706) vs He, Justin (1845)</div>
+      <div class="gh-meta">Oct 11, 2024 · English 1.c4 Catalan · White</div>
+      <span class="badge-result-draw">DRAW</span>
+    </div>
+    <div class="game-body">
+      <div class="game-stats">
+        <div class="stat">Tarun accuracy: <strong class="acc-hi">95.1%</strong></div>
+        <div class="stat">Moves analyzed: <strong>22</strong></div>
+        <div class="stat">Blunders: <strong>0</strong> · Mistakes: <strong>0</strong> · Inaccuracies: <strong>1</strong></div>
+      </div>
+
+      <div class="im-analysis">
+        <strong>Opening:</strong> 1.c4 e6 2.g3 d5 3.Bg2 Nf6 — Tarun's English Catalan setup as White. Only 22 moves analyzed (likely a short draw by agreement or piece simplification) but the result is remarkable: <strong>95.1% accuracy with zero blunders and zero mistakes</strong> — Tarun's best game in the entire database. Only inaccuracy: Move 10 Bf4 (CPL: 111, eval +1.48 → +0.37) — a minor bishop placement that gave away some advantage.
+      </div>
+
+      <div class="im-moment">
+        <div class="move-label">Move 10 · Bf4 · CPL: 111 · INACCURACY · Eval: +1.48 → +0.37</div>
+        The only error — placing the bishop on f4 instead of the optimal Nxc6 (engine). Despite holding a +1.48 advantage, the bishop placement reduced it to near equality (+0.37). In a Catalan structure, the bishop typically belongs on g5 or e3, not f4. Even this minor error reduced a healthy advantage to equality.
+      </div>
+
+      <div class="tip-box">
+        <strong>Tarun's best form:</strong> In the English Catalan as White (g3/Bg2), Tarun plays at his highest accuracy (95.1%). This is his most practiced and comfortable system. Austin, as Black against 1.c4, should avoid passive QGD-type setups that let Tarun play his best structure. Create early imbalances to take Tarun out of his comfort zone.
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME 7 -->
+  <div class="game-block">
+    <div class="game-header">
+      <div class="gh-title">Dulles Skyline 2024 R1 — Tarun Sankar (1706) vs Jackson, Cayden (1876)</div>
+      <div class="gh-meta">Oct 10, 2024 · English 1.c4 c5 · White</div>
+      <span class="badge-result-win">WIN</span>
+    </div>
+    <div class="game-body">
+      <div class="game-stats">
+        <div class="stat">Tarun accuracy: <strong class="acc-hi">94.0%</strong></div>
+        <div class="stat">Moves analyzed: <strong>44</strong></div>
+        <div class="stat">Blunders: <strong>1</strong> · Mistakes: <strong>1</strong> · Inaccuracies: <strong>3</strong></div>
+      </div>
+
+      <div class="im-analysis">
+        <strong>Opening:</strong> 1.c4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 — Tarun played the English→Sicilian Maróczy structure as White, choosing 4.Nxd4 which leads to Sicilian-type positions with reversed colors. He was rated 1706, opponent 1876 — a 170-point upset. Tarun won despite a blunder on move 15.
+      </div>
+
+      <div class="im-moment">
+        <div class="move-label">Move 15 · Bxg7 · CPL: 320 · BLUNDER · Eval: +4.96 → +1.76</div>
+        White had a large advantage (+4.96) and Tarun played Bxg7 — a tactically active bishop capture, but not the best move (engine preferred f5). Despite the 320cpl blunder, White's position was still winning (+1.76). The game went on for 44 moves with Tarun maintaining the advantage and converting. <strong>Interesting: Tarun can recover from blunders in positions where he's significantly ahead.</strong>
+      </div>
+
+      <div class="tip-box">
+        <strong>Prep note:</strong> When Tarun is comfortable and ahead in his English setups, he plays accurately (94%). The 320cpl blunder from +4.96 still left him winning — suggests tactical misjudgments happen even in favorable positions. Austin should not give Tarun large advantages; keep the position balanced where Tarun's tendency to lunge can backfire.
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME 8 -->
+  <div class="game-block">
+    <div class="game-header">
+      <div class="gh-title">NA Championship 2024 R1 — Liu, Zachary (2153) vs Tarun Sankar (1750)</div>
+      <div class="gh-meta">Dec 18, 2024 · English 1.c4 e5 → Black</div>
+      <span class="badge-result-loss">LOSS</span>
+    </div>
+    <div class="game-body">
+      <div class="game-stats">
+        <div class="stat">Tarun accuracy: <strong class="acc-mid">91.3%</strong></div>
+        <div class="stat">Moves analyzed: <strong>41</strong></div>
+        <div class="stat">Blunders: <strong>0</strong> · Mistakes: <strong>1</strong> · Inaccuracies: <strong>7</strong></div>
+      </div>
+
+      <div class="im-analysis">
+        <strong>Opening:</strong> 1.c4 e5 2.g3 c6 — Tarun played 1...e5 against Liu's English (reversed Sicilian-type), then 2...c6. Liu (2153) handled it with the English Catalan (g3), maintaining positional pressure through 83 moves. Tarun scored 91.3% — actually respectable play — but 7 inaccuracies over 41 Black moves vs a 2153 opponent while rated 1750 is understandable.
+      </div>
+
+      <div class="im-moment">
+        <div class="move-label">Move 30 · Qh3 · CPL: 202 · MISTAKE · Eval: −0.24 → −2.26</div>
+        In a near-equal position (−0.24), Tarun played Qh3 — an aggressive queen sortie that was incorrect here. Engine preferred Qd7. The queen on h3 was misplaced, allowing Liu to gain space advantage. This turned a drawish position into a −2.26 disadvantage.
+      </div>
+
+      <div class="info-box">
+        <strong>Direct connection:</strong> Zachary Liu is also a potential Austin opponent. This game shows Liu (2153) outplaying Tarun (1750) in an English/reversed Sicilian via patient accumulation of small advantages over 83 moves. Liu's style of building quiet structural advantages was effective against Tarun's tactical tendencies.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ OPENING PATTERNS -->
+  <hr />
+  <h2>Opening Accuracy Patterns</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Opening</th>
+        <th>Color</th>
+        <th>Games</th>
+        <th>Avg Accuracy</th>
+        <th>Record</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>English Catalan (1.c4 g3/Bg2)</td>
+        <td>White</td>
+        <td>4</td>
+        <td><span class="acc-hi">93.6%</span></td>
+        <td>2W–1L–1D</td>
+      </tr>
+      <tr>
+        <td>English Mikenas (1.c4 Nc3 e4)</td>
+        <td>White</td>
+        <td>1</td>
+        <td><span class="acc-lo">86.2%</span></td>
+        <td>0W–1L–0D</td>
+      </tr>
+      <tr>
+        <td>English Maróczy (1.c4 c5 Nxd4)</td>
+        <td>White</td>
+        <td>2</td>
+        <td><span class="acc-mid">91.5%</span></td>
+        <td>1W–1L–0D</td>
+      </tr>
+      <tr>
+        <td>Sicilian 1...c5 (all lines)</td>
+        <td>Black</td>
+        <td>5</td>
+        <td><span class="acc-mid">91.1%</span></td>
+        <td>0W–4L–1D</td>
+      </tr>
+      <tr>
+        <td>Reversed Sicilian (1...e5 vs 1.c4)</td>
+        <td>Black</td>
+        <td>1</td>
+        <td><span class="acc-mid">91.3%</span></td>
+        <td>0W–1L–0D</td>
+      </tr>
+      <tr>
+        <td>QGA/flexible (1...d5 dxc4)</td>
+        <td>Black</td>
+        <td>1</td>
+        <td><span class="acc-mid">89.1%</span></td>
+        <td>0W–1L–0D</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><em>Note: ECO codes available only for grandcircuit.pgn and skyline2026.pgn games (Lichess broadcast format). Other openings identified from raw PGN move sequences. Madurai 2023 games (rating 1406) excluded from this table as they reflect early play at a much lower rating.</em></p>
+
+  <!-- ═══════════════════════════════════════════════════════ ENGINE-CONFIRMED PATTERNS -->
+  <hr />
+  <h2>Engine-Confirmed Patterns</h2>
+
+  <div class="pattern-section">
+    <h3>1. King-Safety Failures (Three 1000cpl King-Move Blunders)</h3>
+    <p>The most striking engine finding: Tarun has <strong>three separate instances</strong> of walking his king into a forced mating net — all classified as 1000cpl blunders:</p>
+    <ul>
+      <li><strong>Dulles R7 (Debmisra):</strong> Move 30 Kf7 — eval −7.57 → −17.99 (king moves into tactical sequence)</li>
+      <li><strong>NA Open R8 (Bynum):</strong> Move 52 Kh4 — eval −6.43 → −# (king walks into forced mate)</li>
+      <li><strong>5th Skyline R4 (Lin):</strong> Move 54 Ke7 — eval −10.44 → −# (king walks into forced mate)</li>
+    </ul>
+    <p>All three occur in endgames where Tarun was already losing. Under pressure in a lost position, Tarun's king-safety calculation fails completely. <strong>Austin should execute forcing attacks that activate king-hunt sequences — Tarun may help by walking into them.</strong></p>
+  </div>
+
+  <div class="pattern-section">
+    <h3>2. Critical Blunders from Winning Positions</h3>
+    <p>Three documented cases of throwing away a significant advantage with a single move:</p>
+    <ul>
+      <li><strong>Skyline R4:</strong> Move 15 e4?? — from +2.06 (Tarun winning) to −1.03 (lost game)</li>
+      <li><strong>Madurai R4:</strong> Move 36 Qb7 — from +6.49 (massive advantage) to +0.21 (near equal)</li>
+      <li><strong>5th Skyline R6:</strong> Move 28 Qd8 — from −0.83 (Black winning) to −4.31 (White winning)</li>
+    </ul>
+    <p>These blunders share a common thread: Tarun plays an impatient active move when a precise positional move was required. The e4?? and Qb7 are particularly instructive — in both cases Tarun had large advantages and made an aggressive but wrong move. <strong>This is Austin's primary target: keep maximum tension, wait for Tarun to self-destruct.</strong></p>
+  </div>
+
+  <div class="pattern-section">
+    <h3>3. Technical Endgame Decline vs Elite Opponents</h3>
+    <p>In the Texas Grand Circuit R5 game vs IM Fus (2419), Tarun accumulated <strong>5 mistakes and 15 inaccuracies over 57 moves</strong> — an error rate of approximately 1 inaccuracy every 3.8 moves. The critical moment (Bd2, CPL 269 at −0.07 eval) turned a balanced game into a −2.76 deficit in a single move. Two moves later (Nc3, CPL 246 at −0.09) he repeated the pattern at another near-equal position. Technical endgame decline (consistent small inaccuracies in passive piece placement when precision is required) is Tarun's main limitation against stronger players.</p>
+  </div>
+
+  <div class="pattern-section">
+    <h3>4. English Catalan as White — Peak Performance</h3>
+    <p>Tarun's best accuracy game is the Dulles R3 English Catalan draw (95.1% — zero blunders, zero mistakes). His English Catalan games average 93.6% accuracy. This is significantly above his overall 90.1% average. The pattern: <strong>when Tarun can play the English Catalan (1.c4 g3/Bg2) without facing early complications, he plays at near-optimal level.</strong> Austin, when Black against 1.c4, should create complications before the Catalan structure consolidates — otherwise Tarun performs at his ceiling.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ ACTIONABLE CONCLUSIONS -->
+  <hr />
+  <h2>Actionable Prep Conclusions</h2>
+
+  <h3>Austin as White (1.e4 → Rossolimo)</h3>
+  <ul>
+    <li><strong>Expect 3...Nf6 4.Bxc6 dxc6 + ...g6 ...Bg7</strong> — directly confirmed in Skyline R4. Prepare the resulting structures to move 15+.</li>
+    <li><strong>Maximum complexity is the goal.</strong> Tarun's 15...e4?? happened at move 15 with a winning position (+2.0 for Black) — the imprecision came from complexity, not simple positions. Keep all pieces on the board.</li>
+    <li><strong>Austin's h4 system fits perfectly.</strong> After 4.Bxc6 dxc6 5.d3 g6, Austin can play h4 — expanding aggressively before Tarun's fianchetto is complete. The position will be complex and uncharted, exactly where Tarun's blunder pattern activates.</li>
+    <li><strong>Look for king-hunt opportunities in endgames.</strong> Three documented king-walk blunders (Kf7, Kh4, Ke7) mean Tarun may literally walk into checkmate. Any attack threatening the king is worth pursuing.</li>
+  </ul>
+
+  <h3>Austin as Black (Tarun plays 1.c4)</h3>
+  <ul>
+    <li><strong>Mikenas Alert (1.c4 Nf6 2.Nc3 e6 3.e4):</strong> Prepare specifically — <code>3...c5 4.e5 Ng8 5.Nf3 Nc6 6.d4 cxd4 7.Nxd4</code>. Tarun's own Mikenas game (vs IM Fus) shows the resulting structure — Austin should know the Black side well.</li>
+    <li><strong>English Catalan is Tarun's best system (93.6% accuracy).</strong> Don't allow the clean Catalan setup. Play 1...Nf6 2.g3 e6 3.Bg2 and choose the Open Catalan (3...d5 dxc4) or the aggressive 3...d5 4.Nf3 c5 break to disrupt the structure.</li>
+    <li><strong>Play for complications early.</strong> Tarun drops to 86.2% in technical endgames (vs Fus) but plays 95.1% in clean Catalan positions (vs He). The implication: complex early positions favor Austin; clean technical ones favor Tarun.</li>
+  </ul>
+
+</div>
+</body>
+</html>
