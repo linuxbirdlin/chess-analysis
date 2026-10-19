@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Austin vs Aarush — Matchup Preparation</title>
+<style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 680px) {
+      .page { padding: 24px 20px 40px; }
+    }
+
+    /* ── Header ── */
+    .doc-header {
+      border-bottom: 3px solid #2d7d46;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 {
+      margin: 0 0 8px;
+      font-size: 1.85rem;
+      color: #1f2328;
+    }
+    .doc-header .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.9rem;
+      color: #57606a;
+    }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 0.875rem;
+      color: #2d7d46;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    /* ── Headings ── */
+    h2 {
+      font-size: 1.3rem;
+      color: #1f2328;
+      margin: 40px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #d0d7de;
+    }
+    h3 {
+      font-size: 1.05rem;
+      color: #2d7d46;
+      margin: 24px 0 8px;
+    }
+    h4 {
+      font-size: 0.95rem;
+      color: #1f2328;
+      margin: 18px 0 6px;
+      font-weight: 600;
+    }
+
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+
+    ul, ol {
+      margin: 8px 0 14px;
+      padding-left: 1.5em;
+    }
+    li { margin-bottom: 4px; }
+    li > ul, li > ol { margin-top: 4px; margin-bottom: 4px; }
+
+    /* ── Encounter badge ── */
+    .encounter {
+      background: #fff8e6;
+      border: 1px solid #d4a017;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 0.93rem;
+      margin-bottom: 28px;
+    }
+    .encounter strong { color: #7a4f00; }
+
+    /* ── Part cards ── */
+    .part-card {
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      margin: 24px 0;
+      overflow: hidden;
+    }
+    .part-card .part-title {
+      background: #2d7d46;
+      color: #fff;
+      padding: 12px 20px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    .part-card .part-title.alt {
+      background: #1a5276;
+    }
+    .part-card .part-body {
+      padding: 20px 24px;
+    }
+    .part-card h3 { margin-top: 20px; }
+    .part-card h3:first-child { margin-top: 0; }
+
+    /* ── Warning / avoid box ── */
+    .warn-box {
+      background: #fff5f5;
+      border-left: 4px solid #cf2222;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 12px 0;
+      font-size: 0.93rem;
+      color: #7a0000;
+    }
+
+    /* ── Tip / key idea box ── */
+    .tip-box {
+      background: #dafbe1;
+      border-left: 4px solid #2d7d46;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 12px 0;
+      font-size: 0.93rem;
+      color: #1a4731;
+    }
+
+    /* ── Code / move notation ── */
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: #f0f4f8;
+      border: 1px solid #d0d7de;
+      border-radius: 4px;
+      padding: 1px 5px;
+      white-space: nowrap;
+    }
+    pre {
+      background: #1b1f24;
+      color: #adbac7;
+      border-radius: 8px;
+      padding: 16px 20px;
+      overflow-x: auto;
+      margin: 12px 0 20px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+    pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      white-space: pre;
+      color: inherit;
+      font-size: inherit;
+    }
+
+    /* ── Summary table ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin: 16px 0 24px;
+    }
+    thead th {
+      background: #2d7d46;
+      color: #ffffff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+    }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #ffffff; }
+    tbody td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #d0d7de;
+      vertical-align: top;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+
+    /* ── Study list ── */
+    .study-block {
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 14px 0;
+    }
+    .study-block h4 { margin-top: 0; color: #2d7d46; }
+
+    /* ── Opening lines box ── */
+    .opening-box {
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin: 14px 0;
+    }
+    .opening-box h3 { margin: 0 0 10px; font-size: 0.95rem; color: #1f2328; }
+
+    em { font-style: italic; color: #57606a; }
+    strong { font-weight: 600; }
+  
+    /* ── IM Analysis injection ── */
+    .im-analysis { margin-top: 14px; border-top: 1px dashed #d0d7de; padding-top: 12px; }
+    .im-section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #57606a;
+      margin: 10px 0 4px;
+    }
+    .im-opening-row {
+      font-size: 0.85rem;
+      margin: 4px 0 8px;
+      padding: 7px 12px;
+      background: #f6f8fa;
+      border-left: 3px solid #2d7d46;
+      border-radius: 0 4px 4px 0;
+    }
+    .im-dev { color: #b91c1c; font-weight: 600; }
+    .im-book { color: #2d7d46; }
+    .im-moment {
+      font-size: 0.84rem;
+      padding: 6px 10px;
+      margin: 4px 0;
+      border-radius: 4px;
+      border-left: 3px solid #d4750a;
+      background: #fff8f0;
+    }
+    .im-moment.austin-blunder { border-left-color: #cf2222; background: #fff5f5; }
+    .im-moment.opponent-miss  { border-left-color: #2d7d46; background: #dafbe1; }
+    .im-tags { margin: 8px 0 4px; }
+    .im-tag {
+      display: inline-block;
+      background: #f0f4f8;
+      border: 1px solid #d0d7de;
+      border-radius: 12px;
+      padding: 2px 10px;
+      font-size: 0.77rem;
+      margin: 2px 3px;
+      color: #444;
+    }
+    .im-tag.endgame       { background: #fff8e6; border-color: #d4a017; color: #7a4f00; }
+    .im-tag.conversion    { background: #fff8e6; border-color: #d4a017; color: #7a4f00; }
+    .im-tag.king-safety-h-file { background: #fff5f5; border-color: #cf2222; color: #7a0000; }
+    .im-tag.opening-prep  { background: #eaf5fb; border-color: #1a5276; color: #1a3a5c; }
+    .im-tag.tactical-miss { background: #fdf2f8; border-color: #9b59b6; color: #5b2c6f; }
+    .im-prep {
+      font-size: 0.86rem;
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: #fff8e6;
+      border-left: 3px solid #d4a017;
+      border-radius: 0 4px 4px 0;
+      color: #7a4f00;
+    }
+</style>
+</head>
+<body>
+<div class="page">
+<div class="doc-header">
+<h1>Austin vs Aarush — Matchup Preparation</h1>
+<div class="meta">
+<span><strong>Austin rating:</strong> ~1865–1968</span>
+<span><strong>Aarush rating:</strong> ~1895–1941 (dropped to 1895 at Toronto Open Sep 2026)</span>
+<span><strong>Direct record:</strong> 3 study games — 0W·0L·3D</span>
+</div>
+<a class="back-link" href="austin-prep.html">← Back to Austin Lin — Prep &amp; Index</a>
+</div>
+<div class="encounter">
+    This document gives concrete preparation for Austin playing Aarush, split by color. <strong>3 direct encounters (all draws)</strong> from <em>Study of Chess Games Pt. 4</em> — Stockfish movetime-1500ms analysis below. Main dataset: Stockfish depth-18 review of 17 Aarush games across 4 tournaments (Canada Closed, PAM School, PAM, Toronto Open 2026). Key pattern: Aarush is <strong>0W–3L against h4 kingside attacks</strong> and blunders systematically under time pressure — including from winning positions (+6 pawns in Toronto Open R6, still lost after Qb4??).
+  </div>
+<!-- Direct Encounters -->
+<h2>Direct Encounters</h2>
+<p>Three games from Austin's <em>Study of Chess Games Pt. 4</em> (Feb–Jun 2026). Stockfish movetime-1500ms analysis:</p>
+<!-- Game 3: OTB confirmed encounter -->
+<div style="background:#fff5f5;border:2px solid #cf2222;border-radius:8px;padding:18px 22px;margin:0 0 16px;">
+<div style="font-size:0.8rem;text-transform:uppercase;letter-spacing:.05em;color:#cf2222;font-weight:700;margin-bottom:6px;">OTB Rated Game · Jun 21 2026</div>
+<strong>Aarush (White) vs Austin (Black) — E00 Catalan — ½–½ (28 moves)</strong>
+<table style="margin:14px 0 10px;font-size:0.88rem;border:1px solid #f5c2c2;border-radius:6px;overflow:hidden;">
+<thead><tr style="background:#cf2222;color:#fff;"><th style="padding:7px 12px;text-align:left;">Player</th><th style="padding:7px 12px;text-align:center;">Accuracy</th><th style="padding:7px 12px;text-align:center;">Avg CPL</th><th style="padding:7px 12px;text-align:center;">B · M · I</th></tr></thead>
+<tbody>
+<tr style="background:#fff5f5;"><td style="padding:7px 12px;">Austin (Black)</td><td style="padding:7px 12px;text-align:center;"><strong>90.3%</strong></td><td style="padding:7px 12px;text-align:center;">25</td><td style="padding:7px 12px;text-align:center;">0 · 1 · 4</td></tr>
+<tr style="background:#ffecec;"><td style="padding:7px 12px;">Aarush (White)</td><td style="padding:7px 12px;text-align:center;">90.0%</td><td style="padding:7px 12px;text-align:center;">—</td><td style="padding:7px 12px;text-align:center;">—</td></tr>
+</tbody>
+</table>
+<p style="margin:0 0 8px;font-size:0.9rem;"><strong>Critical moment:</strong> Move 28 <code>Qc6</code> (160 CPL mistake; best <code>Qa8</code>) — Austin had <strong>+1.74 winning advantage</strong> but let it slip to +0.14 with one move. After <code>28.Qb3 Qa8!</code>, Black threatens the queenside and keeps winning chances; instead <code>Qc6</code> offered a draw immediately.</p>
+<p style="margin:0;font-size:0.9rem;">Four other inaccuracies: <code>Nxd5</code> (120 CPL, best <code>Bxd5</code>), <code>Qe7</code> (66 CPL), <code>Rh6</code> (59 CPL), <code>Rac8</code> (55 CPL) — Austin kept missing queenside resource moves.</p>
+</div>
+<!-- Game 1: Study game Feb 16 -->
+<div style="background:#fff8e6;border:1px solid #d4a017;border-radius:8px;padding:18px 22px;margin:0 0 16px;">
+<div style="font-size:0.8rem;text-transform:uppercase;letter-spacing:.05em;color:#7a4f00;font-weight:700;margin-bottom:6px;">Study Game · Feb 16 2026</div>
+<strong>Aarush (White) vs Austin (Black) — E00 Catalan — Draw (agreed move 30)</strong>
+<table style="margin:14px 0 10px;font-size:0.88rem;border:1px solid #e8d5a0;border-radius:6px;overflow:hidden;">
+<thead><tr style="background:#d4a017;color:#fff;"><th style="padding:7px 12px;text-align:left;">Player</th><th style="padding:7px 12px;text-align:center;">Accuracy</th><th style="padding:7px 12px;text-align:center;">Avg CPL</th><th style="padding:7px 12px;text-align:center;">B · M · I</th></tr></thead>
+<tbody>
+<tr style="background:#fff8e6;"><td style="padding:7px 12px;">Austin (Black)</td><td style="padding:7px 12px;text-align:center;"><strong>89.5%</strong></td><td style="padding:7px 12px;text-align:center;">29</td><td style="padding:7px 12px;text-align:center;">1 · 0 · 4</td></tr>
+<tr style="background:#fff3d0;"><td style="padding:7px 12px;">Aarush (White)</td><td style="padding:7px 12px;text-align:center;">91.4%</td><td style="padding:7px 12px;text-align:center;">—</td><td style="padding:7px 12px;text-align:center;">—</td></tr>
+</tbody>
+</table>
+<p style="margin:0 0 8px;font-size:0.9rem;"><strong>Critical moment:</strong> <code>Qe5</code> (388 CPL blunder; best <code>Bxc3</code>) — eval swung from 0.00 to −3.88. Austin had a won endgame at +0.00 but walked into a losing queen placement. Aarush didn't convert; the game was drawn by agreement at move 30.</p>
+<p style="margin:0;font-size:0.9rem;">Recurring theme: <code>Bxc3</code> was the best move on 3 separate occasions (h6 113 CPL, Qe8 55 CPL, and the Qe5 blunder) — Austin consistently failed to recognise when to capture the c3-knight.</p>
+</div>
+<!-- Game 2: Study game Feb 22 -->
+<div style="background:#f0f4f8;border:1px solid #d0d7de;border-radius:8px;padding:18px 22px;margin:0 0 24px;">
+<div style="font-size:0.8rem;text-transform:uppercase;letter-spacing:.05em;color:#57606a;font-weight:700;margin-bottom:6px;">Study Game · Feb 22 2026</div>
+<strong>Austin (White) vs Aarush (Black) — B90 Sicilian Najdorf Adams Attack — Result unrecorded</strong>
+<table style="margin:14px 0 10px;font-size:0.88rem;border:1px solid #d0d7de;border-radius:6px;overflow:hidden;">
+<thead><tr style="background:#57606a;color:#fff;"><th style="padding:7px 12px;text-align:left;">Player</th><th style="padding:7px 12px;text-align:center;">Accuracy</th><th style="padding:7px 12px;text-align:center;">Avg CPL</th><th style="padding:7px 12px;text-align:center;">B · M · I</th></tr></thead>
+<tbody>
+<tr style="background:#f0f4f8;"><td style="padding:7px 12px;">Austin (White)</td><td style="padding:7px 12px;text-align:center;"><strong>83.0%</strong></td><td style="padding:7px 12px;text-align:center;">56</td><td style="padding:7px 12px;text-align:center;">2 · 2 · 4</td></tr>
+<tr style="background:#e8ecf0;"><td style="padding:7px 12px;">Aarush (Black)</td><td style="padding:7px 12px;text-align:center;">88.0%</td><td style="padding:7px 12px;text-align:center;">—</td><td style="padding:7px 12px;text-align:center;">—</td></tr>
+</tbody>
+</table>
+<p style="margin:0 0 8px;font-size:0.9rem;"><strong>Austin played worse than Aarush</strong> in the only game where Austin had White. Key blunders: <code>Bxc2</code> (788 CPL, best <code>Bc1</code>) and <code>Qd4</code> (380 CPL, best <code>Bxe4</code>). Austin missed <code>cxb4</code> twice (226 CPL and 156 CPL mistakes) — consistently failing to open the position when it was winning.</p>
+<p style="margin:0;font-size:0.9rem;">Austin played Adams Attack <code>6.h3</code> vs Aarush's Najdorf. This study game shows Austin's h-system execution needs work — he built the attack but failed to convert the tactical moments it created. <strong>Note:</strong> result not recorded (game was annotated without a final result tag).</p>
+</div>
+<div class="tip-box" style="margin-bottom:28px;">
+<strong>What the direct encounters prove:</strong>
+<ul style="margin:8px 0 0;padding-left:1.5em;">
+<li>Austin and Aarush are <strong>closely matched</strong> — 3 encounters, 3 draws, accuracy within 2% in each game</li>
+<li>Austin consistently reaches <strong>winning positions as Black</strong> (+1.74 in Game 3, ±0.00 swings in Game 1) but misses the resource moves (<code>Qa8</code>, <code>Bxc3</code>) to convert them</li>
+<li>As White in the Najdorf, Austin <strong>plays less accurately</strong> (83%) than Aarush does as Black (88%) — the h3/h4 attack creates sharp positions Austin himself miscalculates</li>
+<li>The pattern: Austin sees the right idea (attack, piece sac, retreat) but executes incorrectly over the board — calculation training, not opening prep, is the priority</li>
+</ul>
+</div><div id="im-direct-encounters" style="margin-top:24px; border-top:2px solid #1a5276; padding-top:18px;"><div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;"><strong style="font-size:1rem; color:#1f2328;">Deep Analysis</strong><span style="font-size:0.72rem; font-weight:700; background:#1a5276; color:#fff; border-radius:4px; padding:1px 8px; letter-spacing:0.04em;">DEPTH 22</span></div><div style="border:1px solid #d0d7de; border-radius:8px; margin-bottom:14px; overflow:hidden;"><div style="background:#f6f8fa; border-bottom:1px solid #d0d7de; padding:9px 14px; display:flex; gap:8px; align-items:center; flex-wrap:wrap;"><span style="font-size:0.74rem; font-weight:700; border-radius:3px; padding:1px 6px; background:#2d2d2d;color:#fff;">Austin Black</span><span style="font-weight:600; font-size:0.92rem; flex:1;">vs Aarush Ajith</span><span style="font-size:0.8rem; font-weight:700; border-radius:4px; padding:2px 8px; background:#fff8e6;color:#7a4f00;">DRAW</span></div><div style="padding:12px 16px;"><div class="" style="margin-top:0;"><div class="im-section-label">Opening Deviation</div><div class="im-opening-row"><span>E00 Catalan Opening — </span><span class="im-dev">Move 5 (Black): O-O</span><span class="im-book"> · Book: O-O, dxc4, Ne4</span></div><div class="im-section-label">Critical Moments</div><div class="im-moment austin-blunder">Move 28: Austin played Qc6 (–1.6 pawns). Best was Qa8 — Qa8 h4 h6.</div><div class="im-moment austin-blunder">Move 24: Austin played Nxd5 (–1.6 pawns). Best was Bxd5 — Bxd5 Rxe6 Bxe6.</div><div class="im-moment opponent-miss">Move 21: Opponent erred with Bg2 (+1.4). Winning was Qf1: Qf1 Qd8 Rc2.</div><div class="im-section-label">Patterns</div><div class="im-tags"><span class="im-tag conversion">conversion</span><span class="im-tag tactical-miss">tactical miss</span></div><div class="im-prep">Prep note: Study endgame conversion as Black — missed winning technique in this game.</div></div></div></div></div>
+<!-- Recent game reviews -->
+<h2>Recent Game Reviews</h2>
+<p>Stockfish depth-18 analysis across all four Aarush tournaments:</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px;margin:16px 0 28px;">
+<a href="opponents/aarush/canadaclosed2026/review.html" style="flex:1;min-width:180px;display:block;border:1px solid #d0d7de;border-radius:8px;padding:16px 18px;text-decoration:none;color:inherit;background:#f6f8fa;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:.05em;color:#57606a;margin-bottom:4px;">Opponent Review</div>
+<div style="font-weight:700;font-size:0.98rem;color:#1f2328;margin-bottom:4px;">Canada Closed 2026</div>
+<div style="font-size:0.82rem;color:#57606a;margin-bottom:8px;">April 2026 · Rating: 1908 · 9 games</div>
+<div style="font-size:0.82rem;color:#1a5276;font-weight:600;">View game notes →</div>
+</a>
+<a href="opponents/aarush/pamschool2026/review.html" style="flex:1;min-width:180px;display:block;border:1px solid #d0d7de;border-radius:8px;padding:16px 18px;text-decoration:none;color:inherit;background:#f6f8fa;">
+<div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:.05em;color:#57606a;margin-bottom:4px;">Opponent Review</div>
+<div style="font-weight:700;font-size:0.98rem;color:#1f2328;margin-bottom:4px;">PAM School 2026</div>
+<div style="font-size:0.82rem;color:#57606a;margin-bottom:8px;">May 2026 · Rating: 1860 · 2 games</div>
+<div style="font-size:0.82rem;color:#1a5276;font-weight:600;">View game notes →</div>
+</a>
+<a href="opponents/aarush/pam2026/review.html" style="flex:1;min-width:180px;display:block;border:2px solid #d97706;border-radius:8px;padding:16px 18px;text-decoration:none;color:inherit;background:#fffbf0;">
+<div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#d97706;margin-bottom:4px;">⚠ 0W-3L as White</div>
+<div style="font-weight:700;font-size:0.98rem;color:#1f2328;margin-bottom:4px;">PAM 2026</div>
+<div style="font-size:0.82rem;color:#57606a;margin-bottom:8px;">Jul 2026 · Rating: 1941 · 5 games</div>
+<div style="font-size:0.82rem;color:#1a5276;font-weight:600;">View game notes →</div>
+</a>
+<a href="opponents/aarush/torontoopen2026/review.html" style="flex:1;min-width:180px;display:block;border:2px solid #cf2222;border-radius:8px;padding:16px 18px;text-decoration:none;color:inherit;background:#fff5f5;">
+<div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#cf2222;margin-bottom:4px;">⚠ Qb4?? from +6 winning</div>
+<div style="font-weight:700;font-size:0.98rem;color:#1f2328;margin-bottom:4px;">Toronto Open 2026</div>
+<div style="font-size:0.82rem;color:#57606a;margin-bottom:8px;">Sep 2026 · Rating: 1895 · 1 game</div>
+<div style="font-size:0.82rem;color:#1a5276;font-weight:600;">View game notes →</div>
+</a>
+</div>
+<!-- Part 1: Austin as White -->
+<div class="part-card">
+<p class="part-title">Part 1 — Austin as White vs Aarush</p>
+<div class="part-body">
+<h3>Aarush's Black Repertoire</h3>
+<p>Aarush plays <strong>Sicilian Najdorf</strong> as Black vs 1.e4 — confirmed across Canada Closed R2/R8, PAM School R8, PAM R3. He plays <code>1...c5 2...d6 3...a6</code> into full Najdorf. He also has a secondary <strong>KID-like g6/Bg7</strong> setup (Canada Closed R1, R6).</p>
+<h3>Recommended: h4 English Attack</h3>
+<p>Austin already plays the Rossolimo (Bb5) against Sicilians, but the engine data points to a stronger weapon here:</p>
+<div class="opening-box">
+<h3>h4 English Attack vs Najdorf</h3>
+<pre>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6
+6.h4!</pre>
+<p style="margin:0;font-size:0.9rem;">Key themes: <code>h4-h5-h6</code> push · <code>Bg5</code> pressure · <code>Rh3</code> battery · <code>Nd5/Nf5</code> outposts</p>
+</div>
+<div class="tip-box">
+<strong>Why h4:</strong> Aarush is <strong>0W–3L against direct h4 kingside attacks</strong> across the full dataset. Canada Closed R1 (3 blunders), R2 (defensive collapse), Toronto Open R6 (had +6 winning advantage, blundered Qb4?? under time pressure). The h4 system doesn't need to "win" the opening — it creates clock pressure that induces blunders even from winning positions.
+      </div>
+<p>If Aarush answers <code>2...Nc6 3.Bb5</code> — Austin's Rossolimo applies directly. If Aarush plays <code>2...d6</code> into full Najdorf — go directly to 6.h4.</p>
+<h3>Key Tactical Themes (Austin White)</h3>
+<ol>
+<li><strong>h4-h5 pawn storm:</strong> The system works regardless of whether Austin "wins" the opening — it consumes Aarush's clock and induces blunders. Toronto R6 is the clearest example: Aarush had a decisive advantage (+6 pawns) but panicked with Qb4?? in under 8 minutes, allowing Rxf7+ mating attack.</li>
+<li><strong>Force exchanges into endgames:</strong> Aarush's king endgame technique is catastrophically bad (Canada Closed R7, PAM R8 — both featured 3+ king blunders from losing positions). Trading into rook-pawn endings exploits this directly.</li>
+<li><strong>Create time pressure:</strong> Aarush's accuracy degrades severely under clock pressure (PAM R6: 100 CPL avg, 5 blunders in 50 moves). Build complex middlegame positions early to force Aarush to spend time.</li>
+</ol>
+</div>
+</div>
+<!-- Part 2: Austin as Black -->
+<div class="part-card">
+<p class="part-title alt">Part 2 — Austin as Black vs Aarush</p>
+<div class="part-body">
+<h3>Aarush's White Repertoire</h3>
+<p>Aarush plays <strong>1.d4 exclusively</strong> as White. His entire system is the <strong>Catalan/fianchetto</strong>:</p>
+<ul>
+<li>vs <code>...d5/...c6</code> (Slav): <code>g3/Bg2/Nf3/O-O</code> (D10/D11)</li>
+<li>vs <code>...d5/...e6</code> (QGD): Catalan <code>g3</code> (E04/E08)</li>
+<li>vs KID/KID-like: <code>g3/Bg2</code> fianchetto (E68)</li>
+</ul>
+<p>He does <strong>not</strong> play sharp main lines — no Nimzo Bxc3, no Grunfeld with <code>Nf3/c4/Bg5/e3</code>. His entire White game is one structure.</p>
+<h3>Recommended: Catalan Open (<code>4...dxc4</code>)</h3>
+<p>Austin plays Nimzo-Indian as his primary Black weapon, but Aarush delays <code>Nc3</code> — the Nimzo bishop pin doesn't apply immediately. Against <code>1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.g3</code>:</p>
+<div class="opening-box">
+<h3>Catalan Open with pawn hold</h3>
+<pre>1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.g3 dxc4
+5.Bg2 a6 6.O-O b5 7.Ne5 Nd5</pre>
+<p style="margin:0;font-size:0.9rem;">Black holds the c-pawn. Aarush's Catalan depends on early pawn return — denying it leaves him without an active plan.</p>
+</div>
+<div class="tip-box">
+<strong>Why Catalan Open:</strong> Aarush lost to Gao, Heye (PAM R5) in this exact structure — missed two <code>e5</code> break opportunities and drifted. He lost to Yin, Zeming (Canada Closed R4, rated 2098) with 2 blunders in the Open Catalan. His Catalan as White is his entire repertoire but also his most exploitable endgame structure.
+      </div>
+<h3>Key Tactical Themes (Austin Black)</h3>
+<ol>
+<li><strong>Hold the extra pawn:</strong> <code>4...dxc4 5.Bg2 a6 6.O-O b5</code> — Black keeps the c-pawn. Aarush's Catalan is built around recovering it. Deny the pawn return and he has no active plan.</li>
+<li><strong>Force the endgame:</strong> Aarush's king navigation in endgames is his worst pattern. Trading into rook-and-pawn endings increases his blunder rate dramatically (moves 70+).</li>
+<li><strong>Watch for central breaks:</strong> In PAM R5, the computer found <code>e5</code> twice as winning — Aarush played passive knight moves instead. Austin should look for the <code>e5</code> break as Black in these structures.</li>
+<li><strong>Queenside pressure via <code>...b5/...Bb7</code>:</strong> This creates long-term imbalance Aarush is not comfortable handling in the ending (confirmed by PAM R5 gradual drift).</li>
+</ol>
+</div>
+</div>
+<!-- Part 3: Summary table -->
+<h2>Opening Recommendations Summary</h2>
+<table>
+<thead>
+<tr><th>Austin's Color</th><th>Aarush's System</th><th>Austin's Response</th><th>Key Idea</th></tr>
+</thead>
+<tbody>
+<tr><td>White</td><td>Sicilian Najdorf B90</td><td>h4 English Attack</td><td>h4-h5-h6 storm; exploits 0W-3L h4 record</td></tr>
+<tr><td>White</td><td>KID-like g6/Bg7</td><td>Standard + h4 idea</td><td>Kingside attack via h4 push</td></tr>
+<tr><td>Black</td><td>Catalan D10/D11</td><td>Catalan Open dxc4</td><td>Hold pawn, force endgame</td></tr>
+<tr><td>Black</td><td>Catalan E04/E08</td><td>Catalan Open dxc4 + a6</td><td>Counter queenside pressure</td></tr>
+<tr><td>Black</td><td>KID Fianchetto E68</td><td>KID classical ...e5</td><td>Central break, piece activity</td></tr>
+</tbody>
+</table>
+<!-- Part 4: Psychological notes -->
+<h2>Psychological and Practical Notes</h2>
+<ol>
+<li><strong>Ratings are roughly equal</strong> (~1895 Aarush vs ~1865–1968 Austin). Aarush's recent PAM 2026 score (2W-3L) shows he is beatable within this rating band — he lost to opponents rated 1833 and 1824.</li>
+<li><strong>Aarush freezes in time pressure.</strong> PAM R6 collapse (5 blunders vs 1833-rated opponent), Toronto R6 (lost from +6 winning with under 8 minutes left) — this is not isolated. It is a systemic pattern across the full dataset. Create complex positions early to consume his clock.</li>
+<li><strong>Aarush's White game is one structure.</strong> Deep Catalan Open prep (especially the <code>...a6/...b5</code> pawn hold) will exhaust his knowledge earlier in the game. He has no backup White system.</li>
+<li><strong>Never let Aarush reach Najdorf comfort with time on the clock.</strong> If Austin plays 1.e4 and Aarush reaches his Najdorf position with time and a solid structure, he is a more dangerous opponent. h4 disrupts this before he settles.</li>
+<li><strong>Endgame is Austin's opportunity.</strong> Despite Austin's own endgame weakness, Aarush's king blunders in the endgame are severe (3+ blunders per endgame in Canada Closed R7 and PAM R8). Any rook-and-pawn ending is favorable for Austin — do not avoid endgames vs Aarush.</li>
+</ol>
+<!-- Part 5: Study recommendations -->
+<h2>Study Recommendations for Austin</h2>
+<div class="study-block">
+<h4>1. h4 English Attack in the Sicilian Najdorf</h4>
+<p>Understand the <code>h4-h5-h6</code> pawn storm and piece placement: <code>Bg5</code>, <code>Rh3</code>, <code>Nd5/Nf5</code> outposts. Target: play this system confidently to move 15+.</p>
+</div>
+<div class="study-block">
+<h4>2. Catalan Open Black (<code>dxc4 + a6/b5</code>)</h4>
+<p>Understand the pawn-hold plan. Key: recognize when Black can keep the c-pawn vs when to return it for development. Review Aarush's PAM R5 (vs Gao, Heye) to see exactly where Aarush goes wrong — the missed <code>e5</code> theme is directly instructive.</p>
+</div>
+<div class="study-block">
+<h4>3. King-and-pawn endgame basics</h4>
+<p>Austin needs to be accurate while Aarush blunders. Study king opposition and pawn race technique (critical squares, triangulation). Even basic endgame accuracy will be sufficient given Aarush's king blunder rate.</p>
+</div>
+<div class="study-block">
+<h4>4. Catalan endgame themes</h4>
+<p>Specifically the <code>d-pawn vs queenside majority</code> structures after <code>...dxc4/...b5</code>. Understanding who is better in these ending-types will clarify when to simplify vs keep pieces on.</p>
+</div>
+<div class="study-block">
+<h4>5. Review Toronto Open R6 (Gao vs Aarush)</h4>
+<p>The clearest demonstration of Aarush's h4 weakness and time-pressure collapse. White played <code>1.c3 d4 h4</code> — a non-standard early h4 system — and Aarush blundered from a winning position. Instructive for understanding what Austin needs to create.</p>
+</div>
+</div>
+</body>
+</html>

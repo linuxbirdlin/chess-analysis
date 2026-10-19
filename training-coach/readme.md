@@ -1,0 +1,2 @@
+# Issue
+Let's create a solution plan for you to be at lease IM level when review chess games and prepare for a game for Austin. You will try to list what kind of resource you need and what steps you need in order to become IM level. Let us create a possible solution first and then let's discuss what is possible? you can ask me some question if you need. and at the end, you create a report of your thought. we have stockfish in this workplace. let me know what else you need.

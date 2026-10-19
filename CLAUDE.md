@@ -41,6 +41,11 @@ chess-analysis/
 │   └── copilot-review/        # AI-generated tournament review template (reference document)
 │       └── Tournament_Review___Performance_Analysis.md
 │
+├── training-coach/
+│   ├── readme.md              # Training coach goals and setup
+│   ├── qa.md                  # Q&A answers defining scope and requirements
+│   └── proposal.md            # Upgrade proposal: IM-level review pipeline
+│
 └── opponents/
     ├── justin/
     │   ├── canadaclosed2026/  # Canada Closed 2026 games (9 games, PGN format)

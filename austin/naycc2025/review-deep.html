@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Austin Lin — NAYCC 2025 Tournament Review</title>
+<style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    /* ── Header ── */
+    .doc-header {
+      border-bottom: 3px solid #2d7d46;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.75rem; }
+    .doc-header .subtitle { color: #57606a; font-size: 0.95rem; margin: 0 0 14px; }
+    .doc-header .back-link {
+      display: inline-block;
+      font-size: 0.875rem;
+      color: #2d7d46;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    /* ── Scoreboard ── */
+    .scoreboard {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .score-card {
+      flex: 1;
+      min-width: 130px;
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .score-card .label { font-size: 0.78rem; color: #57606a; text-transform: uppercase; letter-spacing: 0.04em; }
+    .score-card .value { font-size: 1.5rem; font-weight: 700; color: #1f2328; line-height: 1.2; margin-top: 2px; }
+    .score-card.highlight .value { color: #2d7d46; }
+    .score-card.warn .value { color: #cf2222; }
+
+    /* ── Headings ── */
+    h2 {
+      font-size: 1.25rem;
+      color: #1f2328;
+      margin: 40px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #d0d7de;
+    }
+    h3 { font-size: 1.05rem; color: #2d7d46; margin: 22px 0 8px; }
+    h4 { font-size: 0.95rem; color: #1f2328; font-weight: 600; margin: 16px 0 6px; }
+
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
+    li { margin-bottom: 4px; }
+    li > ul { margin-top: 4px; }
+
+    /* ── Game result table ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 14px 0 24px;
+    }
+    thead th {
+      background: #2d7d46;
+      color: #fff;
+      padding: 9px 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 8px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .win  { color: #2d7d46; font-weight: 600; }
+    .loss { color: #cf2222; font-weight: 600; }
+    .draw { color: #7a5500; font-weight: 600; }
+
+    /* ── Section cards ── */
+    .section-card {
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      margin: 18px 0;
+      overflow: hidden;
+    }
+    .section-card .card-title {
+      padding: 11px 18px;
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0;
+      color: #fff;
+    }
+    .card-green  { background: #2d7d46; }
+    .card-red    { background: #b91c1c; }
+    .card-blue   { background: #1a5276; }
+    .card-orange { background: #9a5a00; }
+    .section-card .card-body { padding: 18px 22px; }
+
+    /* ── Inline boxes ── */
+    .good-box {
+      background: #dafbe1;
+      border-left: 4px solid #2d7d46;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #1a4731;
+    }
+    .warn-box {
+      background: #fff5f5;
+      border-left: 4px solid #cf2222;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #7a0000;
+    }
+    .tip-box {
+      background: #fff8e6;
+      border-left: 4px solid #d4a017;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 0.93rem;
+      color: #7a4f00;
+    }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: #f0f4f8;
+      border: 1px solid #d0d7de;
+      border-radius: 4px;
+      padding: 1px 5px;
+      white-space: nowrap;
+    }
+
+    em { font-style: italic; color: #57606a; }
+    strong { font-weight: 600; }
+
+    /* ── Game review cards ── */
+    .game-review{border:1px solid #d0d7de;border-radius:8px;margin:22px 0;overflow:hidden;}
+    .game-header{display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:10px 16px;background:#f6f8fa;border-bottom:1px solid #d0d7de;}
+    .round-badge{background:#2d7d46;color:#fff;border-radius:4px;padding:2px 9px;font-size:0.8rem;font-weight:700;white-space:nowrap;}
+    .game-opp{font-weight:600;font-size:0.92rem;flex:1;min-width:140px;}
+    .opening-tag{font-size:0.77rem;color:#57606a;background:#f0f4f8;border:1px solid #d0d7de;border-radius:3px;padding:1px 6px;white-space:nowrap;}
+    .color-wh{font-size:0.74rem;font-weight:600;border-radius:3px;padding:1px 6px;background:#fff;color:#1f2328;border:1px solid #aaa;}
+    .color-bl{font-size:0.74rem;font-weight:600;border-radius:3px;padding:1px 6px;background:#2d2d2d;color:#fff;}
+    .rbadge-win{font-size:0.8rem;font-weight:700;border-radius:4px;padding:2px 8px;background:#dafbe1;color:#1a4731;}
+    .rbadge-loss{font-size:0.8rem;font-weight:700;border-radius:4px;padding:2px 8px;background:#fff5f5;color:#7a0000;}
+    .rbadge-draw{font-size:0.8rem;font-weight:700;border-radius:4px;padding:2px 8px;background:#fff8e6;color:#7a4f00;}
+    .acc-badge{font-size:0.9rem;font-weight:700;color:#2d7d46;margin-left:auto;}
+    .engine-bar{display:flex;font-size:0.8rem;border-bottom:1px solid #d0d7de;background:#fafafa;}
+    .eb{flex:1;padding:5px 8px;text-align:center;border-right:1px solid #d0d7de;}
+    .eb:last-child{border-right:none;}
+    .eb strong{display:block;font-size:0.94rem;margin-top:1px;}
+    .eb-b strong{color:#cf2222;}
+    .eb-m strong{color:#d4750a;}
+    .eb-i strong{color:#b59800;}
+    .game-body{padding:14px 18px;}
+    .game-note{font-size:0.88rem;color:#57606a;margin:8px 0 0;font-style:italic;border-left:3px solid #d0d7de;padding-left:10px;}
+    .moments-table{font-size:0.81rem;margin:6px 0 10px;}
+    .moments-table thead th{background:#444;font-size:0.77rem;padding:5px 10px;color:#fff;}
+    .moments-table tbody td{padding:5px 10px;}
+    .brow{background:#fff5f5 !important;}
+    .brow td:first-child{color:#cf2222;font-weight:700;font-size:0.78rem;}
+    .mrow{background:#fff8f0 !important;}
+    .mrow td:first-child{color:#d4750a;font-weight:700;font-size:0.78rem;}
+    .irow td:first-child{color:#b59800;font-weight:700;font-size:0.78rem;}
+    .no-errors-msg{color:#2d7d46;font-size:0.88rem;padding:8px 0;}
+    .pattern-tag{display:inline-block;background:#f0f4f8;border:1px solid #d0d7de;border-radius:12px;padding:2px 10px;font-size:0.78rem;margin:2px 3px;}
+  
+    /* ── IM Analysis injection ── */
+    .im-analysis { margin-top: 14px; border-top: 1px dashed #d0d7de; padding-top: 12px; }
+    .im-section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #57606a;
+      margin: 10px 0 4px;
+    }
+    .im-opening-row {
+      font-size: 0.85rem;
+      margin: 4px 0 8px;
+      padding: 7px 12px;
+      background: #f6f8fa;
+      border-left: 3px solid #2d7d46;
+      border-radius: 0 4px 4px 0;
+    }
+    .im-dev { color: #b91c1c; font-weight: 600; }
+    .im-book { color: #2d7d46; }
+    .im-moment {
+      font-size: 0.84rem;
+      padding: 6px 10px;
+      margin: 4px 0;
+      border-radius: 4px;
+      border-left: 3px solid #d4750a;
+      background: #fff8f0;
+    }
+    .im-moment.austin-blunder { border-left-color: #cf2222; background: #fff5f5; }
+    .im-moment.opponent-miss  { border-left-color: #2d7d46; background: #dafbe1; }
+    .im-tags { margin: 8px 0 4px; }
+    .im-tag {
+      display: inline-block;
+      background: #f0f4f8;
+      border: 1px solid #d0d7de;
+      border-radius: 12px;
+      padding: 2px 10px;
+      font-size: 0.77rem;
+      margin: 2px 3px;
+      color: #444;
+    }
+    .im-tag.endgame       { background: #fff8e6; border-color: #d4a017; color: #7a4f00; }
+    .im-tag.conversion    { background: #fff8e6; border-color: #d4a017; color: #7a4f00; }
+    .im-tag.king-safety-h-file { background: #fff5f5; border-color: #cf2222; color: #7a0000; }
+    .im-tag.opening-prep  { background: #eaf5fb; border-color: #1a5276; color: #1a3a5c; }
+    .im-tag.tactical-miss { background: #fdf2f8; border-color: #9b59b6; color: #5b2c6f; }
+    .im-prep {
+      font-size: 0.86rem;
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: #fff8e6;
+      border-left: 3px solid #d4a017;
+      border-radius: 0 4px 4px 0;
+      color: #7a4f00;
+    }
+</style>
+</head>
+<body>
+<div class="page">
+<div class="doc-header">
+<h1>NAYCC 2025 — Tournament Review</h1>
+<p class="subtitle">North American Youth Chess Championship · U14 · Kingston, CAN · Aug 18–23, 2025 · 9 rounds Swiss</p>
+<a class="back-link" href="../../austin-prep.html">← Back to Austin Lin — Prep &amp; Index</a>
+</div>
+<!-- Scoreboard -->
+<div class="scoreboard">
+<div class="score-card"><div class="label">Rating</div><div class="value">1968</div></div>
+<div class="score-card"><div class="label">Result</div><div class="value">4W – 5L</div></div>
+<div class="score-card warn"><div class="label">As White</div><div class="value">1W – 3L</div></div>
+<div class="score-card highlight"><div class="label">As Black</div><div class="value">3W – 2L</div></div>
+<div class="score-card"><div class="label">Score %</div><div class="value">44%</div></div>
+<div class="score-card"><div class="label">Avg. Accuracy</div><div class="value" id="naycc-avg-acc">—</div></div>
+</div>
+<!-- Game log -->
+<h2>Game Log</h2>
+<table>
+<thead>
+<tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Result</th><th>Accuracy</th><th>Opp. Acc</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Black</td><td>Su, Jayden</td><td>1627</td><td>Nimzo-Indian E32</td><td class="win">Win</td><td class="accuracy" data-val="95.2">—</td><td class="opp-accuracy" data-val="88.6">—</td></tr>
+<tr><td>2</td><td>White</td><td>Verma, Darsh</td><td>1765</td><td>Two Knights C58</td><td class="loss">Loss</td><td class="accuracy" data-val="82.3">—</td><td class="opp-accuracy" data-val="89">—</td></tr>
+<tr><td>3</td><td>Black</td><td>Chitta, Adithya</td><td>1685</td><td>Nimzo-Indian E49</td><td class="win">Win</td><td class="accuracy" data-val="97.8">—</td><td class="opp-accuracy" data-val="92.1">—</td></tr>
+<tr><td>4</td><td>White</td><td>Huang, Justin</td><td>1811</td><td>French Advanced C02</td><td class="loss">Loss</td><td class="accuracy" data-val="89.9">—</td><td class="opp-accuracy" data-val="88.8">—</td></tr>
+<tr><td>5</td><td>Black</td><td>Chen, Ray</td><td>1713</td><td>Nimzo-Indian E51</td><td class="win">Win</td><td class="accuracy" data-val="92.5">—</td><td class="opp-accuracy" data-val="89.8">—</td></tr>
+<tr><td>6</td><td>White</td><td>Fu, Odyssey</td><td>1722</td><td>Sicilian B41</td><td class="loss">Loss</td><td class="accuracy" data-val="85.5">—</td><td class="opp-accuracy" data-val="92">—</td></tr>
+<tr><td>7</td><td>Black</td><td>Beegala, Keshav</td><td>1758</td><td>Nimzo-Indian E49</td><td class="loss">Loss</td><td class="accuracy" data-val="94.5">—</td><td class="opp-accuracy" data-val="97.5">—</td></tr>
+<tr><td>8</td><td>White</td><td>Jagath, Roshan</td><td>—</td><td>Rossolimo Sicilian B51</td><td class="win">Win</td><td class="accuracy" data-val="99.1">—</td><td class="opp-accuracy" data-val="91.4">—</td></tr>
+<tr><td>9</td><td>Black</td><td>Li, Aiden</td><td>1676</td><td>English A13</td><td class="loss">Loss</td><td class="accuracy" data-val="85.8">—</td><td class="opp-accuracy" data-val="88.2">—</td></tr>
+</tbody>
+</table>
+<script>
+    (function() {
+      var cells = document.querySelectorAll('td.accuracy[data-val]');
+      var vals = [];
+      cells.forEach(function(td) {
+        var v = parseFloat(td.getAttribute('data-val'));
+        if (!isNaN(v)) { td.textContent = v + '%'; vals.push(v); }
+      });
+      if (vals.length) {
+        var avg = (vals.reduce(function(a,b){return a+b;},0) / vals.length).toFixed(1);
+        var el = document.getElementById('naycc-avg-acc');
+        if (el) el.textContent = avg + '%';
+      }
+      document.querySelectorAll('td.opp-accuracy[data-val]').forEach(function(td) {
+        var v = parseFloat(td.getAttribute('data-val'));
+        if (!isNaN(v)) td.textContent = v + '%';
+      });
+    })();
+  </script>
+<hr/>
+<!-- Game-by-Game Engine Report -->
+<h2>Game-by-Game Engine Report</h2>
+<p style="font-size:0.9rem;color:#57606a;margin-bottom:4px;">Stockfish depth 18 analysis. CPL = centipawn loss per move.</p>
+<!-- R1 -->
+<div class="game-review">
+<div class="game-header">
+<span class="round-badge">R1</span>
+<span class="game-opp">Su, Jayden (1627)</span>
+<span class="color-bl">Black</span>
+<span class="opening-tag">Nimzo-Indian E32</span>
+<span class="rbadge-win">Win</span>
+<span class="acc-badge">95.9%</span>
+</div>
+<div class="engine-bar">
+<div class="eb eb-cpl"><span>CPL</span><strong>51</strong></div>
+<div class="eb eb-b"><span>Blunders</span><strong>1</strong></div>
+<div class="eb eb-m"><span>Mistakes</span><strong>2</strong></div>
+<div class="eb eb-i"><span>Inaccuracies</span><strong>1</strong></div>
+</div>
+<div class="game-body">
+<table class="moments-table">
+<thead>
+<tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr>
+</thead>
+<tbody>
+<tr class="brow"><td>BLUNDER</td><td><code>Qxf1+</code></td><td><code>Re6</code></td><td>864</td><td>+19.00 → +10.36</td></tr>
+<tr class="mrow"><td>MISTAKE</td><td><code>Re8</code></td><td><code>d3</code></td><td>187</td><td>+4.15 → +2.28</td></tr>
+<tr class="mrow"><td>MISTAKE</td><td><code>Qb6</code></td><td><code>Nb4</code></td><td>172</td><td>+6.97 → +5.25</td></tr>
+</tbody>
+</table>
+<p class="game-note">Austin won from a dominant Nimzo-Indian position; the Qxf1+ blunder came from a +19 advantage and didn't cost the game. Re6 would have won even more cleanly.</p>
+<div class="im-analysis"><div class="im-section-label">Opening Deviation</div><div class="im-opening-row"><span>E32 Nimzo-Indian Defense: Classical Variation — </span><span class="im-dev">Move 4 (Black): O-O</span><span class="im-book"> · Book: O-O, c5, d5</span></div><div class="im-section-label">Critical Moments</div><div class="im-moment austin-blunder">Move 27: Austin played Nd2 (–11.7 pawns). Best was Rd1 — Rd1 g3 Nd2.</div><div class="im-moment austin-blunder">Move 28: Austin played Qxf1+ (–9.6 pawns). Best was Re6 — Re6 h4 Rf6.</div><div class="im-moment opponent-miss">Move 27: Opponent erred with Bf1 (+8.1). Winning was Bf1: Bf1 Rd1 g3.</div><div class="im-section-label">Patterns</div><div class="im-tags"><span class="im-tag tactical-miss">tactical miss</span><span class="im-tag king-safety-h-file">king safety h file</span></div><div class="im-prep">Prep note: As Black, watch king safety on the h-file after major piece exchanges.</div></div></div>
+</div>
+<!-- R2 -->
+<div class="game-review">
+<div class="game-header">
+<span class="round-badge">R2</span>
+<span class="game-opp">Verma, Darsh (1765)</span>
+<span class="color-wh">White</span>
+<span class="opening-tag">Two Knights C58</span>
+<span class="rbadge-loss">Loss</span>
+<span class="acc-badge">83.1%</span>
+</div>
+<div class="engine-bar">
+<div class="eb eb-cpl"><span>CPL</span><strong>65</strong></div>
+<div class="eb eb-b"><span>Blunders</span><strong>2</strong></div>
+<div class="eb eb-m"><span>Mistakes</span><strong>1</strong></div>
+<div class="eb eb-i"><span>Inaccuracies</span><strong>4</strong></div>
+</div>
+<div class="game-body">
+<table class="moments-table">
+<thead>
+<tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr>
+</thead>
+<tbody>
+<tr class="brow"><td>BLUNDER</td><td><code>b4</code></td><td><code>g3</code></td><td>559</td><td>+0.92 → -4.67</td></tr>
+<tr class="brow"><td>BLUNDER</td><td><code>g3</code></td><td><code>d3</code></td><td>403</td><td>+0.70 → -3.33</td></tr>
+<tr class="mrow"><td>MISTAKE</td><td><code>d3</code></td><td><code>Qe1</code></td><td>256</td><td>-5.25 → -7.81</td></tr>
+</tbody>
+</table>
+<p class="game-note">Two consecutive blunders from equal positions (+0.92 and +0.70) lost the game immediately; b4 was the decisive mistake, pushing a wing pawn instead of central consolidation with g3/d3.</p>
+<div class="im-analysis"><div class="im-section-label">Opening Deviation</div><div class="im-opening-row"><span>C58 Italian Game: Two Knights Defense, Polerio Defense, Bishop Check Line — </span><span class="im-dev">Move 10 (White): O-O</span><span class="im-book"> · Book: O-O, Nc3, Be4</span></div><div class="im-section-label">Critical Moments</div><div class="im-moment opponent-miss">Move 17: Opponent erred with Nb7 (+5.9). Winning was Nb3: Nb3 Qxb3 Qf4.</div><div class="im-moment austin-blunder">Move 16: Austin played b4 (–5.1 pawns). Best was g3 — g3 c5 d3.</div><div class="im-moment austin-blunder">Move 18: Austin played g3 (–4.1 pawns). Best was d3 — d3 a5 Qf3.</div><div class="im-section-label">Patterns</div><div class="im-tags"><span class="im-tag tactical-miss">tactical miss</span><span class="im-tag king-safety-h-file">king safety h file</span></div><div class="im-prep">Prep note: As White, watch king safety on the h-file after major piece exchanges.</div></div></div>
+</div>
+<!-- R3 -->
+<div class="game-review">
+<div class="game-header">
+<span class="round-badge">R3</span>
+<span class="game-opp">Chitta, Adithya (1685)</span>
+<span class="color-bl">Black</span>
+<span class="opening-tag">Nimzo-Indian E49</span>
+<span class="rbadge-win">Win</span>
+<span class="acc-badge">98.1%</span>
+</div>
+<div class="engine-bar">
+<div class="eb eb-cpl"><span>CPL</span><strong>11</strong></div>
+<div class="eb eb-b"><span>Blunders</span><strong>0</strong></div>
+<div class="eb eb-m"><span>Mistakes</span><strong>1</strong></div>
+<div class="eb eb-i"><span>Inaccuracies</span><strong>0</strong></div>
+</div>
+<div class="game-body">
+<table class="moments-table">
+<thead>
+<tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr>
+</thead>
+<tbody>
+<tr class="mrow"><td>MISTAKE</td><td><code>h6</code></td><td><code>Qe6</code></td><td>153</td><td>+7.42 → +5.89</td></tr>
+</tbody>
+</table>
+<p class="game-note">Austin's cleanest game — 0 blunders, 0 inaccuracies. The single mistake (h6 over Qe6) occurred from a +7 dominating position and was inconsequential.</p>
+<div class="im-analysis"><div class="im-section-label">Opening Deviation</div><div class="im-opening-row"><span>E49 Nimzo-Indian Defense: Rubinstein System — </span><span class="im-dev">Move 4 (Black): O-O</span><span class="im-book"> · Book: O-O, c5, b6</span></div><div class="im-section-label">Critical Moments</div><div class="im-moment opponent-miss">Move 23: Opponent erred with Qf1 (+2.9). Winning was Qd3: Qd3 Ne2+ Kf1.</div><div class="im-moment opponent-miss">Move 16: Opponent erred with e4 (+2.4). Winning was Nf1: Nf1 Nb8 Bd2.</div><div class="im-moment austin-blunder">Move 30: Austin played h6 (–2.2 pawns). Best was Qe6 — endgame technique: Qe6 Nf3 Qh6+.</div><div class="im-section-label">Patterns</div><div class="im-tags"><span class="im-tag tactical-miss">tactical miss</span><span class="im-tag endgame">endgame</span><span class="im-tag conversion">conversion</span></div><div class="im-prep">Prep note: Study endgame conversion as Black — missed winning technique in this game.</div></div></div>
+</div>
+<!-- R4 -->
+<div class="game-review">
+<div class="game-header">
+<span class="round-badge">R4</span>
+<span class="game-opp">Huang, Justin (1811)</span>
+<span class="color-wh">White</span>
+<span class="opening-tag">French Advanced C02</span>
+<span class="rbadge-loss">Loss</span>
+<span class="acc-badge">89.7%</span>
+</div>
+<div class="engine-bar">
+<div class="eb eb-cpl"><span>CPL</span><strong>63</strong></div>
+<div class="eb eb-b"><span>Blunders</span><strong>2</strong></div>
+<div class="eb eb-m"><span>Mistakes</span><strong>2</strong></div>
+<div class="eb eb-i"><span>Inaccuracies</span><strong>6</strong></div>
+</div>
+<div class="game-body">
+<table class="moments-table">
+<thead>
+<tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr>
+</thead>
+<tbody>
+<tr class="brow"><td>BLUNDER</td><td><code>Rd2</code></td><td><code>Rg3</code></td><td>896</td><td>-0.59 → -9.55</td></tr>
+<tr class="brow"><td>BLUNDER</td><td><code>Kf1</code></td><td><code>Rxe3</code></td><td>1000</td><td>-9.80 → -#</td></tr>
+<tr class="mrow"><td>MISTAKE</td><td><code>Qe4</code></td><td><code>Qf3</code></td><td>184</td><td>-4.74 → -6.58</td></tr>
+</tbody>
+</table>
+<p class="game-note">Rd2 was the game-deciding blunder — from a roughly equal endgame (-0.59) straight to -9.55. Rg3 (connecting rooks/activating) was correct. Kf1 later walked into forced mate.</p>
+<div class="im-analysis"><div class="im-section-label">Opening Deviation</div><div class="im-opening-row"><span>C02 French Defense: Advance Variation, Paulsen Attack — </span><span class="im-dev">Move 10 (Black): Bd7</span><span class="im-book"> · Book: Be7</span></div><div class="im-section-label">Critical Moments</div><div class="im-moment austin-blunder">Move 50: Austin played Kf1 (–984.6 pawns). Best was Rb1 — endgame technique: Rb1 h5 g4.</div><div class="im-moment austin-blunder">Move 44: Austin played Rd2 (–9.6 pawns). Best was Rg3 — endgame technique: Rg3 e4 Qe3.</div><div class="im-moment opponent-miss">Move 40: Opponent played Rc7 (blunder, +5.4). Austin could have won with Qc8: Qc8 Qe4 Qd7.</div><div class="im-section-label">Patterns</div><div class="im-tags"><span class="im-tag endgame">endgame</span><span class="im-tag conversion">conversion</span></div><div class="im-prep">Prep note: Study endgame conversion as White — missed winning technique in this game.</div></div></div>
+</div>
+<!-- R5 -->
+<div class="game-review">
+<div class="game-header">
+<span class="round-badge">R5</span>
+<span class="game-opp">Chen, Ray (1713)</span>
+<span class="color-bl">Black</span>
+<span class="opening-tag">Nimzo-Indian E51</span>
+<span class="rbadge-win">Win</span>
+<span class="acc-badge">90.6%</span>
+</div>
+<div class="engine-bar">
+<div class="eb eb-cpl"><span>CPL</span><strong>40</strong></div>
+<div class="eb eb-b"><span>Blunders</span><strong>2</strong></div>
+<div class="eb eb-m"><span>Mistakes</span><strong>2</strong></div>
+<div class="eb eb-i"><span>Inaccuracies</span><strong>7</strong></div>
+</div>
+<div class="game-body">
+<table class="moments-table">
+<thead>
+<tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr>
+</thead>
+<tbody>
+<tr class="brow"><td>BLUNDER</td><td><code>Kxf4</code></td><td><code>h6</code></td><td>644</td><td>+7.23 → +0.79</td></tr>
+<tr class="brow"><td>BLUNDER</td><td><code>Kf4</code></td><td><code>Nf5+</code></td><td>399</td><td>+13.57 → +9.58</td></tr>
+<tr class="mrow"><td>MISTAKE</td><td><code>Kc4</code></td><td><code>Ka5</code></td><td>188</td><td>+2.72 → +0.84</td></tr>
+</tbody>
+</table>
+<p class="game-note">Austin blundered twice in the endgame with premature king marches (Kxf4, Kf4), squandering a +7 and +13 advantage each time. Won despite this — opponent errors allowed recovery. All 3 critical moments involve king activity.</p>
+<div class="im-analysis"><div class="im-section-label">Opening Deviation</div><div class="im-opening-row"><span>E51 Nimzo-Indian Defense: Three Knights Variation — </span><span class="im-dev">Move 4 (Black): O-O</span><span class="im-book"> · Book: O-O, c5, b6</span></div><div class="im-section-label">Critical Moments</div><div class="im-moment opponent-miss">Move 55: Opponent played Ne3 (blunder, +977.8). Austin could have won with Kh7: Kh7 f2.</div><div class="im-moment opponent-miss">Move 58: Opponent played Kh5 (blunder, +957.4). Austin could have won with Kg7: Kg7 g3 Nxg3.</div><div class="im-moment austin-blunder">Move 55: Austin played Kf4 (–955.1 pawns). Best was Nf5+ — endgame technique: Nf5+ Nxf5 Kxf5.</div><div class="im-section-label">Patterns</div><div class="im-tags"><span class="im-tag endgame">endgame</span><span class="im-tag conversion">conversion</span></div><div class="im-prep">Prep note: Study endgame conversion as Black — missed winning technique in this game.</div></div></div>
+</div>
+<!-- R6 -->
+<div class="game-review">
+<div class="game-header">
+<span class="round-badge">R6</span>
+<span class="game-opp">Fu, Odyssey (1722)</span>
+<span class="color-wh">White</span>
+<span class="opening-tag">Sicilian B41</span>
+<span class="rbadge-loss">Loss</span>
+<span class="acc-badge">83.4%</span>
+</div>
+<div class="engine-bar">
+<div class="eb eb-cpl"><span>CPL</span><strong>108</strong></div>
+<div class="eb eb-b"><span>Blunders</span><strong>3</strong></div>
+<div class="eb eb-m"><span>Mistakes</span><strong>5</strong></div>
+<div class="eb eb-i"><span>Inaccuracies</span><strong>4</strong></div>
+</div>
+<div class="game-body">
+<table class="moments-table">
+<thead>
+<tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr>
+</thead>
+<tbody>
+<tr class="brow"><td>BLUNDER</td><td><code>Bg1</code></td><td><code>Bh4</code></td><td>374</td><td>-5.32 → -9.06</td></tr>
+<tr class="brow"><td>BLUNDER</td><td><code>Qc2</code></td><td><code>Rxd4</code></td><td>516</td><td>-9.44 → -14.60</td></tr>
+<tr class="brow"><td>BLUNDER</td><td><code>Ke2</code></td><td><code>Qf2</code></td><td>1000</td><td>-20.59 → -#</td></tr>
+</tbody>
+</table>
+<p class="game-note">Worst white game — 3 blunders and 5 mistakes. Game was lost in the middlegame well before Ke2 walked into forced mate. Bg1 (passive bishop retreat instead of Bh4) was the key structural error from a position that was already difficult.</p>
+<div class="im-analysis"><div class="im-section-label">Opening Deviation</div><div class="im-opening-row"><span>B41 Sicilian Defense: Kan Variation, Maróczy Bind, Réti Variation — </span><span class="im-dev">Move 10 (Black): O-O</span><span class="im-book"> · Book: b6, O-O, h6</span></div><div class="im-section-label">Critical Moments</div><div class="im-moment austin-blunder">Move 30: Austin played Qc2 (–989.3 pawns). Best was Rxd4 — endgame technique: Rxd4 e2+ Rxe2.</div><div class="im-moment austin-blunder">Move 27: Austin played Bg1 (–3.9 pawns). Best was Nf3 — Nf3 Qf6 Ke2.</div><div class="im-moment austin-blunder">Move 24: Austin played Qb3 (–3.3 pawns). Best was Qc3 — Qc3 axb4.</div><div class="im-section-label">Patterns</div><div class="im-tags"><span class="im-tag endgame">endgame</span><span class="im-tag conversion">conversion</span><span class="im-tag tactical-miss">tactical miss</span><span class="im-tag king-safety-h-file">king safety h file</span></div><div class="im-prep">Prep note: Study endgame conversion as White — missed winning technique in this game.</div></div></div>
+</div>
+<!-- R7 -->
+<div class="game-review">
+<div class="game-header">
+<span class="round-badge">R7</span>
+<span class="game-opp">Beegala, Keshav (1758)</span>
+<span class="color-bl">Black</span>
+<span class="opening-tag">Nimzo-Indian E49</span>
+<span class="rbadge-loss">Loss</span>
+<span class="acc-badge">94.1%</span>
+</div>
+<div class="engine-bar">
+<div class="eb eb-cpl"><span>CPL</span><strong>53</strong></div>
+<div class="eb eb-b"><span>Blunders</span><strong>1</strong></div>
+<div class="eb eb-m"><span>Mistakes</span><strong>4</strong></div>
+<div class="eb eb-i"><span>Inaccuracies</span><strong>11</strong></div>
+</div>
+<div class="game-body">
+<table class="moments-table">
+<thead>
+<tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr>
+</thead>
+<tbody>
+<tr class="brow"><td>BLUNDER</td><td><code>Ke4</code></td><td><code>Ke6</code></td><td>1000</td><td>-14.13 → -#</td></tr>
+<tr class="mrow"><td>MISTAKE</td><td colspan="3">(multiple endgame errors in a deeply lost position)</td></tr>
+</tbody>
+</table>
+<p class="game-note">94.1% accuracy overall but one king blunder (Ke4 instead of Ke6) walked into forced mate in a 121-move endgame battle. 11 inaccuracies reflect sustained pressure throughout the long game. A one-square difference — Ke4 vs Ke6 — was the difference between continuation and checkmate.</p>
+<div class="im-analysis"><div class="im-section-label">Opening Deviation</div><div class="im-opening-row"><span>E49 Nimzo-Indian Defense: Rubinstein System — </span><span class="im-dev">Move 4 (Black): O-O</span><span class="im-book"> · Book: O-O, c5, b6</span></div><div class="im-section-label">Critical Moments</div><div class="im-moment austin-blunder">Move 57: Austin played Ra1+ (–25.8 pawns). Best was Ra1+ — endgame technique: Ra1+ Kg2 Ra3.</div><div class="im-moment opponent-miss">Move 24: Opponent erred with Rh4 (+3.6). Winning was Bxg6: Bxg6 hxg6 Rh4.</div><div class="im-moment opponent-miss">Move 39: Opponent played Qh4 (blunder, +2.8). Austin could have won with Qh5: Qh5 Qf8 Bxh6.</div><div class="im-section-label">Patterns</div><div class="im-tags"><span class="im-tag endgame">endgame</span><span class="im-tag conversion">conversion</span><span class="im-tag tactical-miss">tactical miss</span></div><div class="im-prep">Prep note: Study endgame conversion as Black — missed winning technique in this game.</div></div></div>
+</div>
+<!-- R8 -->
+<div class="game-review">
+<div class="game-header">
+<span class="round-badge">R8</span>
+<span class="game-opp">Jagath, Roshan (—)</span>
+<span class="color-wh">White</span>
+<span class="opening-tag">Rossolimo Sicilian B51</span>
+<span class="rbadge-win">Win</span>
+<span class="acc-badge">98.6%</span>
+</div>
+<div class="engine-bar">
+<div class="eb eb-cpl"><span>CPL</span><strong>5</strong></div>
+<div class="eb eb-b"><span>Blunders</span><strong>0</strong></div>
+<div class="eb eb-m"><span>Mistakes</span><strong>0</strong></div>
+<div class="eb eb-i"><span>Inaccuracies</span><strong>0</strong></div>
+</div>
+<div class="game-body">
+<p class="no-errors-msg">No critical moments — perfect game with zero errors in 41 moves.</p>
+<p class="game-note">Austin's best result by engine metrics. The Rossolimo gave him a clear plan and he executed it flawlessly — 0 blunders, 0 mistakes, 0 inaccuracies.</p>
+<div class="im-analysis"><div class="im-section-label">Opening Deviation</div><div class="im-opening-row"><span>B51 Sicilian Defense: Nyezhmetdinov-Rossolimo Attack — </span><span class="im-dev">Move 4 (White): O-O</span><span class="im-book"> · Book: Bxc6+, O-O, d4</span></div><div class="im-section-label">Critical Moments</div><div class="im-moment opponent-miss">Move 18: Opponent erred with Kf7 (+988.6). Winning was Qd7: Qd7 Qxa8+ Qd8.</div><div class="im-moment opponent-miss">Move 10: Opponent played e5 (–3.0 pawns). Theory prefers Nf6 (Nf6 e5 dxe5).</div><div class="im-moment opponent-miss">Move 16: Opponent erred with Ne4 (+2.8). Winning was Rd8: Rd8 Rac1 Nb8.</div><div class="im-section-label">Patterns</div><div class="im-tags"><span class="im-tag tactical-miss">tactical miss</span><span class="im-tag opening-prep">opening prep</span></div><div class="im-prep">Prep note: Review opening after move 4 (White): book prefers Bxc6+, O-O.</div></div></div>
+</div>
+<!-- R9 -->
+<div class="game-review">
+<div class="game-header">
+<span class="round-badge">R9</span>
+<span class="game-opp">Li, Aiden (1676)</span>
+<span class="color-bl">Black</span>
+<span class="opening-tag">English A13</span>
+<span class="rbadge-loss">Loss</span>
+<span class="acc-badge">86.2%</span>
+</div>
+<div class="engine-bar">
+<div class="eb eb-cpl"><span>CPL</span><strong>112</strong></div>
+<div class="eb eb-b"><span>Blunders</span><strong>5</strong></div>
+<div class="eb eb-m"><span>Mistakes</span><strong>7</strong></div>
+<div class="eb eb-i"><span>Inaccuracies</span><strong>14</strong></div>
+</div>
+<div class="game-body">
+<table class="moments-table">
+<thead>
+<tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr>
+</thead>
+<tbody>
+<tr class="brow"><td>BLUNDER</td><td colspan="3">(multiple — position was deeply lost; engine-recommended moves still resulted in large eval drops as the endgame collapsed)</td></tr>
+</tbody>
+</table>
+<p class="game-note">Austin's most error-prone game — 5B/7M/14I at CPL:112 across 125 moves. A loss against the English/Reti that deteriorated systematically in a complex endgame. Once behind, Austin could not find defensive resources.</p>
+<div class="im-analysis"><div class="im-section-label">Opening Deviation</div><div class="im-opening-row"><span>A13 English Opening: Neo-Catalan — </span><span class="im-dev">Move 8 (Black): O-O</span><span class="im-book"> · Book: O-O</span></div><div class="im-section-label">Critical Moments</div><div class="im-moment austin-blunder">Move 52: Austin played Bxf5+ (–80.7 pawns). Best was Bxf5+ — endgame technique: Bxf5+ Kxf5 Kd7.</div><div class="im-moment austin-blunder">Move 60: Austin played Kd6 (–42.7 pawns). Best was Kd6 — endgame technique: Kd6 Kg6 Kxd5.</div><div class="im-moment opponent-miss">Move 51: Opponent played Kg6 (blunder, +42.0). Austin could have won with Kf4: Kf4 Bxg4 Kxg4.</div><div class="im-section-label">Patterns</div><div class="im-tags"><span class="im-tag endgame">endgame</span><span class="im-tag conversion">conversion</span></div><div class="im-prep">Prep note: Study endgame conversion as Black — missed winning technique in this game.</div></div></div>
+</div>
+<hr/>
+<!-- Tournament Overview -->
+<h2>Tournament Overview</h2>
+<p>Engine-grounded analysis of patterns across all 9 games (Stockfish depth 18).</p>
+<div class="section-card">
+<p class="card-title card-red">Pattern 1 — King Activity Errors in Endgames (Critical)</p>
+<div class="card-body">
+<p>The single most damaging pattern across the tournament: Austin repeatedly moved his king to the wrong square in endgames, turning wins into draws or losses into checkmate.</p>
+<p>
+<span class="pattern-tag">R5: Kxf4 (+7.23 → +0.79)</span>
+<span class="pattern-tag">R5: Kf4 (+13.57 → +9.58)</span>
+<span class="pattern-tag">R7: Ke4 → forced mate</span>
+<span class="pattern-tag">R9: multiple king errors</span>
+</p>
+<div class="warn-box">Every endgame loss or near-loss in this tournament traces directly to a king moving to the wrong square — often by just one file or rank. This is the #1 technical gap to address.</div>
+</div>
+</div>
+<div class="section-card">
+<p class="card-title card-red">Pattern 2 — Wing Pawn Blunders from Equal Positions</p>
+<div class="card-body">
+<p>Austin pushed wing pawns (b4, f5, h4) before consolidating the center, repeatedly gifting the initiative in positions that were equal or even slightly favorable.</p>
+<p>
+<span class="pattern-tag">R2: b4 from +0.92 → -4.67</span>
+<span class="pattern-tag">R4: premature f5/b4 pawn pushes</span>
+<span class="pattern-tag">R6: structural overextension</span>
+</p>
+<div class="warn-box">The recurring failure mode: equal or winning position, Austin pushes a wing pawn, opponent centralizes, game is over. The correct heuristic — "Is the center settled before I push?" — must become automatic.</div>
+</div>
+</div>
+<div class="section-card">
+<p class="card-title card-green">Pattern 3 — Near-Perfect Play When Ahead Early</p>
+<div class="card-body">
+<p>Austin's two highest-accuracy games came when he established a clear advantage in the opening and executed a plan without defensive pressure.</p>
+<p>
+<span class="pattern-tag">R3: 98.1% — CPL:11 — dominant from move 10</span>
+<span class="pattern-tag">R8: 98.6% — CPL:5 — clinical Rossolimo execution</span>
+</p>
+<div class="good-box">When Austin has a plan and isn't under pressure, he plays at a very high level. The goal is to create those conditions more consistently — through better openings and earlier consolidation.</div>
+</div>
+</div>
+<div class="section-card">
+<p class="card-title card-red">Pattern 4 — White Piece Play Systematically Weaker</p>
+<div class="card-body">
+<p>White results: 1W-3L. Losses as White averaged 85.4% accuracy vs 92.7% as Black in wins. Three different white openings (Two Knights, French Advanced, Sicilian attack) all failed, suggesting a systemic issue beyond opening preparation.</p>
+<p>
+<span class="pattern-tag">R2 White: 83.1%</span>
+<span class="pattern-tag">R4 White: 89.7%</span>
+<span class="pattern-tag">R6 White: 83.4%</span>
+<span class="pattern-tag">R8 White: 98.6% (exception)</span>
+</p>
+<div class="warn-box">R8 (Rossolimo, 98.6%) is the blueprint for what Austin's white play can be. The other three white losses all involved complex systems requiring deep theoretical knowledge that Austin doesn't yet have.</div>
+</div>
+</div>
+<div class="section-card">
+<p class="card-title card-green">Pattern 5 — Recovery Ability Under Blunder Pressure</p>
+<div class="card-body">
+<p>Austin demonstrated the ability to absorb his own blunders and win when the prior advantage was large enough.</p>
+<p>
+<span class="pattern-tag">R1: Blundered from +19, still won</span>
+<span class="pattern-tag">R5: Blundered twice, still won</span>
+</p>
+<div class="good-box">This resilience is a real competitive asset. Austin does not tilt after mistakes. The goal is to reduce the frequency of blunders so this recovery ability is tested less often.</div>
+</div>
+</div>
+<hr/>
+<!-- Immediate Next Steps -->
+<h2>Immediate Next Steps</h2>
+<ol>
+<li><strong>King safety in endgames is the #1 priority.</strong> R5, R7, and R9 all contain catastrophic king moves. Drill king triangulation and king opposition in K+P and rook endgames until every candidate king move is checked for mating nets before being played.</li>
+<li><strong>Stop pushing wing pawns from equal positions.</strong> b4 lost R2; premature pawn pushes recur throughout R4 and R6. Before every pawn advance on the wing, ask: "Is the center settled?" If not, find the central consolidation move first.</li>
+<li><strong>Study rook placement decisions — active vs passive.</strong> R4's decisive blunder was Rd2 over Rg3 — choosing a passive rook placement from a nearly equal position. Rook activity in endgames needs dedicated study.</li>
+<li><strong>Review the Two Knights (C58) deeply or replace it entirely.</strong> The R2 collapse was in the opening/early middlegame. Switching to the Italian (3.Bc4 Bc5 4.c3) removes the sharp 4.Ng5 theory pressure entirely.</li>
+<li><strong>Build a plan vs English/Reti (1.c4, 1.Nf3).</strong> R9 showed no confident plan when White avoids 1.d4. Prepare 1.c4 e5 as a solid English/Reti answer that mirrors familiar Sicilian-type counterplay instincts.</li>
+</ol>
+<hr/>
+<!-- Detailed Recommendations -->
+<h2>Detailed Recommendations</h2>
+<div class="section-card">
+<p class="card-title card-blue">Opening Recommendations</p>
+<div class="card-body">
+<h4>As White — restructure around what works</h4>
+<ul>
+<li><strong>Keep:</strong> Rossolimo Sicilian (<code>3.Bb5</code>) — R8's 98.6% confirms this is Austin's best white opening. Clear plans, no deep theory required, suits his tactical style.</li>
+<li><strong>Replace:</strong> Two Knights → <strong>Italian Game</strong> (<code>3.Bc4 Bc5 4.c3</code>) or <strong>Ruy Lopez</strong> (<code>3.Bb5</code>). Both avoid the sharp 4.Ng5 lines that require extensive theoretical preparation. The Italian especially fits a positional, consolidation-first approach.</li>
+<li><strong>Keep French Advanced but study rook placement theory.</strong> The French Advanced structure itself is sound; the R4 collapse (Rd2 over Rg3) was a rook activity error, not an opening failure. Study the exact endgame rook-placement principles for this structure.</li>
+<li><strong>Replace:</strong> Sicilian h4-h5-h6 attack → <strong>Alapin (2.c3)</strong> or <strong>Grand Prix Attack (2.Nc3 3.f4)</strong>. Both are more positionally grounded and require less move-by-move calculation to execute correctly.</li>
+</ul>
+<h4>As Black — maintain Nimzo-Indian, add one new answer</h4>
+<ul>
+<li><strong>Keep:</strong> Nimzo-Indian <code>Bxc3+</code> with <code>...b6/...Ba6</code> — 3W-1L in this tournament, and the loss (R7) was an endgame error, not an opening failure. This is Austin's strongest weapon.</li>
+<li><strong>Add:</strong> <code>1.c4 e5</code> as English/Reti answer — mirrors Austin's aggressive Black instincts, avoids unfamiliar pawn structures, and is easy to learn alongside the existing repertoire.</li>
+</ul>
+</div>
+</div>
+<div class="section-card">
+<p class="card-title card-blue">Tactical Training Focus</p>
+<div class="card-body">
+<ul>
+<li><strong>King safety checks before every endgame king move.</strong> Before playing a king move in any endgame, pause and verify: can my opponent give check or create a mating net on the square I'm moving to? Drill this as a habit using positions similar to R5 (Kxf4), R7 (Ke4), and R9.</li>
+<li><strong>Pawn-push prophylaxis — when NOT to push.</strong> Create a set of 20 positions where a wing pawn push is tempting but wrong; drill finding the consolidation move instead. R2's b4 and R4's f5 are direct examples to include.</li>
+<li><strong>Active vs passive rook placement.</strong> Compile 15–20 positions where one rook move activates (Rg3 type) and one passivates (Rd2 type). Drill recognizing the active option. R4 is the key example.</li>
+</ul>
+</div>
+</div>
+<div class="section-card">
+<p class="card-title card-blue">Endgame Training Focus</p>
+<div class="card-body">
+<ul>
+<li><strong>King opposition and triangulation in K+P endgames.</strong> Austin's R5 win shows he can calculate long pawn endgames — but R5 and R7 show the king-square selection errors that arise under time pressure. Drill opposition, corresponding squares, and triangulation until automatic.</li>
+<li><strong>Philidor position (defensive R+P vs R).</strong> The fundamental defensive rook endgame. Austin must know this cold — it is the most common defensive technique in rook endgames and appears in positions like R7.</li>
+<li><strong>Rook activity principles.</strong> Study "rook behind the passed pawn," rook on the 7th, and cutting off the king with a rook. These three principles directly address the passive rook failures in R4, R7, and R9.</li>
+<li><strong>King activity in rook+pawn endings.</strong> Use endgame tablebases on the specific positions from R5 (Kxf4, Kf4) and R7 (Ke4/Ke6) to understand exactly why the engine preferred the other square. Understanding the geometry is more durable than memorizing moves.</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>
