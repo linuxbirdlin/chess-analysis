@@ -7,19 +7,32 @@ The project in this folder is trying to help Austin to prepare the next big ches
 - based on what you have now. provide an recommendation plan when Austin play with Justin, analyze it differently when white and black
 - let's setup whatever we need for CLAUDE.md or agent.md for future need, you can provide your suggestion here.
 
-## Austin's Preparation Plan (shareable)
+## Shareable Links
 
-https://linuxbirdlin.github.io/chess-analysis/austin-prep.html
+### Index
+- **Preparation Index:** https://linuxbirdlin.github.io/chess-analysis/austin-prep.html
+- **Training Plan:** https://linuxbirdlin.github.io/chess-analysis/austin-training.html
 
-## Austin vs Justin — Matchup Plan (shareable)
+### Austin's Reviews
+- NAYCC 2025: https://linuxbirdlin.github.io/chess-analysis/austin/naycc2025/review.html
+- NAYCC 2025 Deep: https://linuxbirdlin.github.io/chess-analysis/austin/naycc2025/review-deep.html
+- PAM 2026: https://linuxbirdlin.github.io/chess-analysis/austin/pam2026/review.html
+- PAM 2026 Deep: https://linuxbirdlin.github.io/chess-analysis/austin/pam2026/review-deep.html
+- Personal Study Pt.5: https://linuxbirdlin.github.io/chess-analysis/austin/personal-study/review.html
+- Personal Study Pt.5 Deep: https://linuxbirdlin.github.io/chess-analysis/austin/personal-study/review-deep.html
 
-https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-justin.html
-
-## Tournament Reviews (shareable)
-
-NAYCC 2025: https://linuxbirdlin.github.io/chess-analysis/austin/naycc2025/review.html
-
-PAM 2026: https://linuxbirdlin.github.io/chess-analysis/austin/pam2026/review.html
+### Matchup Plans
+- Austin vs Justin: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-justin.html
+- Austin vs Aarush: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-aarush.html
+- Austin vs Aarush Deep: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-aarush-deep.html
+- Austin vs Zachary: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-zachary.html
+- Austin vs Zachary Deep: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-zachary-deep.html
+- Austin vs Heye: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-heye.html
+- Austin vs Heye Deep: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-heye-deep.html
+- Austin vs Fernando: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-fernando.html
+- Austin vs Fernando Deep: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-fernando-deep.html
+- Austin vs Pranav: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-pranav.html
+- Austin vs Pranav Deep: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-pranav-deep.html
 
 ## Task #2
 

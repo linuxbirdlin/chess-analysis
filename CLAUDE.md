@@ -11,7 +11,7 @@ This project helps **Austin Lin** prepare for competitive chess tournaments by:
 2. Analyzing potential opponents' games
 3. Generating matchup-specific preparation plans
 
-Current opponent being analyzed: **Justin Huang**
+Opponents analyzed to date: **Justin Huang, Aarush Ajith, Zachary Liu, Heye Gao, Fernando Cortes Medina, Pranav Santhosh** (Emerson Johnson, Leo Jackson, Tarun — PGN files on file, analysis pending)
 
 ---
 
@@ -19,46 +19,51 @@ Current opponent being analyzed: **Justin Huang**
 
 ```
 chess-analysis/
-├── readme.md                  # Project goals and task descriptions
-├── CLAUDE.md                  # This file — agent instructions
-├── austin-analysis.md         # Austin's detailed player analysis
-├── austin-prep.md             # Austin's 1-month training and exercise plan (source)
-├── austin-prep.html           # Shareable HTML version of austin-prep.md
-├── justin-analysis.md         # Justin's detailed player analysis
+├── readme.md                   # Project goals, task log, and shareable links
+├── CLAUDE.md                   # This file — agent instructions
+│
+├── austin-prep.html            # Shareable preparation INDEX (pure navigation hub)
+├── austin-training.html        # 4-week training plan detail (linked from index)
+├── austin-prep.md              # Source markdown for training plan content
+├── austin-analysis.md          # Austin's detailed player analysis
+│
+├── {opponent}-analysis.md      # One per opponent: justin, aarush, zachary, heye,
+│                               #   fernando, pranav (full stats, openings, patterns)
+│
 ├── matchup/
-│   ├── matchup-justin.md          # Austin vs Justin preparation plan (source)
-│   ├── matchup-justin.html        # Shareable HTML version of matchup-justin.md
-│   ├── matchup-aarush.md
-│   ├── matchup-aarush.html
-│   ├── matchup-zachary.md
-│   └── matchup-zachary.html
+│   ├── matchup-{name}.md       # Matchup prep source (per opponent)
+│   ├── matchup-{name}.html     # Matchup prep HTML (shareable)
+│   └── matchup-{name}-deep.html  # Engine-backed deep analysis HTML
+│       # Deep HTMLs exist for: zachary, heye, fernando, pranav, aarush
 │
 ├── austin/
-│   ├── naycc2025/             # NAYCC 2025 games (9 games, PGN format)
-│   │   └── review.html        # Tournament review report (shareable)
-│   ├── pam2026/               # PAM 2026 games (7 games, non-standard format)
-│   │   └── review.html        # Tournament review report (shareable)
-│   └── copilot-review/        # AI-generated tournament review template (reference document)
-│       └── Tournament_Review___Performance_Analysis.md
+│   ├── naycc2025/              # NAYCC 2025 games (9 games, PGN)
+│   │   ├── review.html         # Standard tournament review (shareable)
+│   │   └── review-deep.html    # Deep IM-level review (shareable)
+│   ├── pam2026/                # PAM 2026 games (7 games, non-standard format)
+│   │   ├── review.html
+│   │   └── review-deep.html
+│   ├── personal-study/         # Lichess study games (29 games, PGN)
+│   │   ├── review.html
+│   │   └── review-deep.html
+│   └── copilot-review/         # Reference template (not Austin's games)
 │
-├── training-coach/
-│   ├── readme.md              # Training coach goals and setup
-│   ├── qa.md                  # Q&A answers defining scope and requirements
-│   └── proposal.md            # Upgrade proposal: IM-level review pipeline
+├── scripts/
+│   ├── analyze-{opponent}.js   # Stockfish analysis scripts (one per opponent)
+│   └── {opponent}-analysis-results.json  # Cached engine results
+│
+├── training-coach/             # Training coach proposal docs
 │
 └── opponents/
-    ├── justin/
-    │   ├── canadaclosed2026/  # Canada Closed 2026 games (9 games, PGN format)
-    │   ├── pam2026/           # PAM 2026 games (9 games, non-standard format)
-    │   ├── pamschool2026/     # PAM School 2026 games (5 games, Lichess broadcast PGN)
-    │   └── torontoopen2026/   # Toronto Open 2026 games (3 games, Lichess broadcast PGN)
-    ├── aarush/
-    │   ├── canadaclosed2026/  # Canada Closed 2026 games
-    │   ├── pamschool2026/     # PAM School 2026 games
-    │   ├── pam2026/           # PAM 2026 games
-    │   └── torontoopen2026/   # Toronto Open 2026 games
-    ├── zachary/               # Zachary Liu games
-    └── heye/                  # Heye games
+    ├── justin/                 # canadaclosed2026, pam2026, pamschool2026, torontoopen2026
+    ├── aarush/                 # canadaclosed2026, pamschool2026, pam2026, torontoopen2026
+    ├── zachary/                # multiple tournament folders
+    ├── heye/                   # multiple tournament folders
+    ├── fernando/               # multiple tournament folders
+    ├── pranav/                 # agcafall2026, agcasummer2026, worldyouth2026
+    ├── emerson/                # PGN on file — analysis pending
+    ├── leo/                    # PGN on file — analysis pending
+    └── tarun/                  # PGN on file — analysis pending
 ```
 
 ---
@@ -88,17 +93,16 @@ Lin, Austin (1865) - Villalba, Pacha (1731)
 - NAYCC/Canada Closed files: `game_XXXXXXX.pgn` (game IDs from the tournament system)
 - PAM 2026 files: `round{N}.pgn` (round number)
 
-### HTML preparation plan
-`austin-prep.html` is a hand-styled HTML version of `austin-prep.md`, shareable via:
+### HTML files
+
+`austin-prep.html` is a hand-built navigation index (not pandoc-generated). Edit it directly. It links to all review pages, matchup pages, and `austin-training.html`. Shareable via:
 ```
 https://linuxbirdlin.github.io/chess-analysis/austin-prep.html
 ```
-When `austin-prep.md` is updated, regenerate the HTML with pandoc and re-apply the custom styles:
-```bash
-pandoc austin-prep.md --standalone --metadata title="Austin Lin — Tournament Preparation Plan" -o austin-prep.html
-# then replace the <style> block with the custom CSS from the existing austin-prep.html
-```
-Or edit `austin-prep.html` directly if the change is small (e.g., filling in weekly notes).
+
+`austin-training.html` is the 4-week training plan detail page. Edit it directly for weekly notes or content changes.
+
+Matchup HTMLs (`matchup/matchup-{name}.html`) and deep HTMLs (`matchup/matchup-{name}-deep.html`) are hand-built. Deep HTMLs include Stockfish accuracy data sourced from `scripts/{name}-analysis-results.json`.
 
 ---
 
@@ -134,11 +138,14 @@ When a new opponent folder is added:
    - Strategic patterns
    - Key game summaries
    - Summary profile table
-4. Create `matchup/matchup-{opponent-name}.md` (e.g., `matchup/matchup-justin.md`, `matchup/matchup-alex.md`) with:
+4. Create `matchup/matchup-{opponent-name}.md` and `.html` with:
    - Analysis by color (Austin White and Austin Black)
    - Specific opening recommendations
    - Key tactical themes to prepare
    - Psychological and practical notes
+5. Write `scripts/analyze-{name}.js` (copy `analyze-pranav.js` as a template) and run Stockfish analysis. Cache results to `scripts/{name}-analysis-results.json`.
+6. Create `matchup/matchup-{name}-deep.html` using `matchup-pranav-deep.html` as a template — include per-game accuracy stats and critical moments from the JSON.
+7. Add the opponent block to `austin-prep.html` (the index) with links to the matchup, deep, and review pages.
 
 ---
 
@@ -146,25 +153,22 @@ When a new opponent folder is added:
 
 ### Austin Lin
 - **Rating:** ~1865–1968 (U14 level)
-- **White opening:** 1.e4 exclusively
-  - vs Caro-Kann: Exchange (4.Bd3)
-  - vs French: Advanced (3.e5 / 3.Nd2)
-  - vs Sicilian: Rossolimo (Bb5) and h4 systems
-- **Black opening:** Nimzo-Indian (1.d4 Nf6 2.c4 e6 3.Nc3 Bb4) as primary weapon; Sicilian vs 1.e4
-- **Style:** Tactical, combinational, prefers sharp positions
-- **Strengths:** Knight sacrifices, IQP positions, Nimzo-Indian theory
-- **Weaknesses:** King safety on h-file, passive endgames, vs 2000+ opposition
+- **White opening:** 1.e4 exclusively — Exchange Caro-Kann (4.Bd3), Advanced French (3.e5/3.Nd2), Rossolimo Sicilian (Bb5) and h4 systems
+- **Black opening:** Nimzo-Indian `Bxc3+` with `...b6/...Ba6` vs 1.d4; Sicilian vs 1.e4
+- **Style:** Tactical, combinational, sharp positions
+- **Strengths:** Knight sacrifices, IQP positions, Nimzo theory
+- **Weaknesses:** King safety on h-file, passive endgames, accuracy drop vs 2000+
 
-### Justin Huang
-- **Rating:** ~1894–2093 (rising rapidly; was 1894 at PAM School May 2026, reached 2093 by Toronto Open July 2026)
-- **White opening:** 1.d4 exclusively; QGD-based structures, Semi-Slav, Ragozin; also handles KID/Grünfeld with quiet e3/Be2 Semi-Classical setups
-- **Black opening:** French Defense (1...e6) as primary weapon vs 1.e4; **Sicilian (1...c5) now observed** (Toronto Open R4 vs 1.e4); QGD-type against 1.d4
-- **Style:** Positional, solid, patient; strong in technical endgames
-- **Strengths:** French expertise, long endgame technique, pawn structures, queenside expansion as White
-- **Weaknesses:** Passive when Black against strong opposition (2200+), kingside attacks in Classical French, draws against lower-rated opponents
+### Opponents (see individual {name}-analysis.md for full profiles)
 
-### Direct Encounter
-- NAYCC 2025 R4: Austin (White) vs Justin (Black), French Advanced C02, **Justin won (0-1)**
+| Opponent | Rating | White | Black | Direct record |
+|---|---|---|---|---|
+| Justin Huang | 2093 | 1.d4 QGD/Semi-Slav | French + Sicilian | 0W–1L (NAYCC R4) |
+| Aarush Ajith | 1895 | 1.d4 | Sicilian Najdorf | No encounter |
+| Zachary Liu | ~2050–2250 | Reti/English | Sicilian | No encounter |
+| Heye Gao | ~2028–2065 | Italian | Slav | 1D (Mar 2026) |
+| Fernando Cortes Medina | ~2026–2133 | 1.e4/1.c4 | French | No encounter |
+| Pranav Santhosh | 1940 | 1.e4 English Attack/Maróczy | Italian/Lopez | No encounter |
 
 ---
 
@@ -182,12 +186,21 @@ When writing or updating analysis reports, follow these standards:
 
 ## Future Tasks (Suggested)
 
-When more games are added, consider:
+- **Analyze Emerson Johnson, Leo Jackson, Tarun** — PGN files are in `opponents/{emerson,leo,tarun}/`. Follow the full pipeline: analysis.md → matchup.md → matchup.html → analyze script → deep HTML → add to index.
+- **Update Austin's accuracy chart** — add accuracy data for new personal study games as they accumulate.
+- **Opening database check** — verify where Austin/Justin/Pranav deviate from theory using Lichess explorer.
+- **Endgame study list** — Austin's endgame losses: NAYCC R7 (Beegala), R9 (Li), PAM R5 (Vinales). Compile Lucena/Philidor drill set.
+- **Pattern tracking** — as more games accumulate, track recurring blunder types to identify persistent habits.
 
-- **Engine analysis:** Run Stockfish or Leela on key games to find critical missed moves (especially Austin's losses as White).
-- **Opening database check:** Verify where Austin/Justin deviate from theory in their main lines.
-- **Pattern tracking:** As more games accumulate, track recurring tactical motifs and blunders to identify persistent habits.
-- **Endgame study list:** Based on Austin's endgame losses (NAYCC R7 vs Beegala, R9 vs Li, PAM R5 vs Vinales), compile specific endgame types for Austin to study.
+## Engine Analysis Pipeline (reference)
+
+Scripts in `scripts/` use `analyze-pranav.js` as the canonical template:
+- Stockfish movetime-800, 16 threads
+- Supports standard Lichess PGN and non-standard (PAM/World Youth) formats
+- PGN repair: disambiguation of ambiguous moves, truncation at illegal moves
+- Accuracy formula: Lichess win-probability drop → `103.1668 * exp(-0.04354 * avg) - 3.1669`
+- CPL thresholds: inaccuracy ≥50, mistake ≥150, blunder ≥300
+- Results cached to JSON; re-run is safe (cached games are skipped)
 
 ---
 
