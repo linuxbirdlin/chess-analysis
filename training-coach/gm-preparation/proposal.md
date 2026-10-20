@@ -7,6 +7,8 @@
 ## What I Need From the Internet
 
 ### 1. Lichess Games API — Full Opponent History
+
+you can find the lichess username and API from .env file
 ```
 GET https://lichess.org/api/games/user/{username}?perfType=classical,rapid&max=500&clocks=true&evals=false&opening=true
 ```
@@ -38,10 +40,16 @@ GET https://tablebase.lichess.ovh/standard?fen=...
 | Item | Why |
 |---|---|
 | **Target opponent name** (one of the 12) | Determines which existing analysis to build on |
+
+-- Zachary Liu
 | **Opponent's Lichess username** | Unlocks the full game history and personal opening explorer |
+-- leilei8514
 | **Austin's Lichess username** (optional) | Lets me cross-reference their opening choices to find the best collision point |
+--iusedf5
 | **Tournament + time control** | GM prep for a 90+30 classical game is different from a 15+10 rapid |
+90+30
 | **When is the critical game?** | Sets the prep depth: 3 days vs 3 weeks changes the scope |
+about a month
 
 ---
 

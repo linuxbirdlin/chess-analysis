@@ -1,0 +1,3 @@
+# Key concept
+## Background
+Now we have pretty good shape about the deep review and analysis, opponent's review and matchup plan at IM level. Please review and find out all resource you can from internet. If I want you to prepare on special opponent at GM level because may at some critical moment like the final game where Austin can be at top 3 for the tournament. Provide me a possible solution proposal for that. Let's make it step by step. First tell me what do you need from internet or from me. Then create a proposal /solution, then create a implementation plan. you can turn yourself into plan mode. all artifact created will be stored at [training-coach/gm-preparation].
