@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Leo Jackson — Austin as White</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #2d7d46; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #2d7d46; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #2d7d46; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #2d7d46; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #f0fff4 !important; color: #1a4731; }
+    .acc-hi { color: #1a6030; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #fafbff; }
+    .rule-number { background: #2d7d46; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #f0fff5; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #2d7d46; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #2d7d46; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #e8f5ee; color: #2d7d46; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #e8f5ee; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a4731; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Leo Jackson</h1>
+    <div class="subtitle">Austin as White — Advanced French / Tarrasch into Sharp Middlegame</div>
+    <div class="meta">Leo Daniel Olivera Jackson · ~1886 FIDE / ~2000 US Chess · 47 games · Stockfish movetime 800 · Black avg 89.5% (24g) · Classical Black 2W–6L–2D · No direct encounter</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-leo.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-leo-black.html">Austin as Black →</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-leo-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="encounter-box">
+    <strong>No direct encounter on record.</strong> Engine data from 47 games across Am Continental 2026 (classical/rapid/blitz), NA U20 2025 (classical/blitz), World U12 2025, Charlotte Open 2025, and Pan Am U12 2024. Leo as Black: <strong>89.5% avg (24g)</strong> — classical Black record 2W–6L–2D. Leo plays French Defense 100% vs 1.e4 — Austin's Advanced French (3.e5) and Tarrasch (3.Nd2) hit his exact territory. The knight calculation collapse (Nb4 CPL 456, Nc6 CPL 440 back-to-back from equal) is the primary tactical exploit.
+  </div>
+
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Leo Daniel Olivera Jackson</span>
+    <span class="plabel">FIDE Rating</span><span class="pval">~1886 classical (Jun 2026); ~1966 rapid peak; ~2000 US Chess</span>
+    <span class="plabel">Style</span><span class="pval">Patient, technical, endgame-oriented. Grinds long games (100–204 moves). Defensive specialist — draws 2100+ opponents but struggles to win against the field.</span>
+    <span class="plabel">Sample</span><span class="pval">47 games, 8 tournaments, 3 time controls</span>
+    <span class="plabel">Overall accuracy</span><span class="pval">89.9% avg (47g) · White 90.2% (23g) · Black 89.5% (24g) — 0.7pp gap (balanced)</span>
+    <span class="plabel">Classical Black record</span><span class="pval">2W–6L–2D (40% score); drew Alfaro 2118, Monroy 2062; lost to Fogo 2190, Garmendia 2109, Cu Hor 2311</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">No encounter on record</span>
+    <span class="plabel">Long game signature</span><span class="pval">Am Cont R3: 149-move draw (vs 2118); NA U20 R8: 134-move win; Am Cont R8: 117-move draw (vs 2062)</span>
+  </div>
+
+  <p><strong>Opening fingerprint (as Black):</strong></p>
+  <ul>
+    <li><strong>vs 1.e4:</strong> French Defense — 100% consistent across all classical games. Advance French (3.e5 c5), Exchange French (3.exd5 exd5), Tarrasch (3.Nd2 Nf6). Never deviates.</li>
+    <li><strong>vs 1.d4:</strong> Dutch-type (...e6 + ...f5) — 0W–3L–2D classical. Irrelevant here since Austin plays 1.e4.</li>
+    <li><strong>Key pattern:</strong> Leo held draws against 2100+ French opponents (Alfaro 2118 in 149 moves, Monroy 2062 in 117 moves) but lost to Fogo 2190 and Garmendia 2109 when knight/rook coordination broke down after move 40.</li>
+  </ul>
+
+  <h2>§2 — Leo's Black Repertoire (Frequency &amp; Results)</h2>
+  <table>
+    <thead>
+      <tr><th>System</th><th>G</th><th>W</th><th>D</th><th>L</th><th>Acc%</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-safe">
+        <td>French — solid draw (Alfaro 2118)</td><td>1</td><td>0</td><td>1</td><td>0</td><td><span class="acc-hi">97.3%</span></td><td>Am Cont R3 vs Alfaro Caracas (2118) — 149 moves, 0 blunders, 0 mistakes. Best defensive French game in dataset.</td>
+      </tr>
+      <tr class="row-safe">
+        <td>French — defensive draw (Monroy 2062)</td><td>1</td><td>0</td><td>1</td><td>0</td><td><span class="acc-hi">94.2%</span></td><td>Am Cont R8 vs Monroy Lopez (2062) — 117 moves. b5 (cxd4, CPL 509) threw away +5.34 winning advantage; still drew.</td>
+      </tr>
+      <tr class="row-safe">
+        <td>French — win vs lower-rated</td><td>1</td><td>1</td><td>0</td><td>0</td><td>93.5%</td><td>Charlotte Open R3 vs Padron — won. Nf5 (CPL 1000) and a1=Q (CPL 1000) were blunders but still converted.</td>
+      </tr>
+      <tr>
+        <td>French — Exchange (Cruz Vargas 1648)</td><td>1</td><td>1</td><td>0</td><td>0</td><td>89.8%</td><td>NA U20 R8 — won vs 1648 in 134-move Exchange French grind. Kh7 (Kh5 CPL 363, +3.63→0.00) endgame blunder but won anyway.</td>
+      </tr>
+      <tr>
+        <td>French — Tran Tri (draw)</td><td>1</td><td>0</td><td>0</td><td>1</td><td>94.3%</td><td>NA U20 R6 vs Tran — Qb7 (Qe7, CPL 1000, −4.87→−15.33) from already-losing position accelerated loss.</td>
+      </tr>
+      <tr class="row-danger">
+        <td>French — Fogo Esquivel (2190)</td><td>1</td><td>0</td><td>0</td><td>1</td><td><span class="acc-lo">92.4%</span></td><td>NA U20 R4 vs Fogo (2190) — Nb4 (CPL 456, −0.38→−4.94) and Nc6 (CPL 440, −0.40→−4.80) back-to-back from EQUAL. Then Rf1 (Rg1, CPL 1000) = forced mate. <strong>Key model game.</strong></td>
+      </tr>
+      <tr class="row-danger">
+        <td>French — Garmendia (2109)</td><td>1</td><td>0</td><td>0</td><td>1</td><td><span class="acc-lo">90.9%</span></td><td>Am Cont R5 vs Garmendia (2109) — Rc4 (Rf5, CPL 1000, −15.55→−94.78) then h4 (Rc2, CPL 1000, −94.96→−#). Double rook-placement collapse.</td>
+      </tr>
+      <tr class="row-danger">
+        <td>French — Cu Hor (2311)</td><td>1</td><td>0</td><td>0</td><td>1</td><td><span class="acc-lo">92.5%</span></td><td>Am Cont R1 vs Cu Hor (2311) — Ke6 (g2, CPL 1000, −91.57→−#) and Bf8 (g2, CPL 397) late king-navigation collapse.</td>
+      </tr>
+      <tr class="row-danger">
+        <td>French — Guntaka (NA U20 R1)</td><td>1</td><td>0</td><td>0</td><td>1</td><td><span class="acc-lo">89.9%</span></td><td>Na5 (Rb3, CPL 1000, −8.90→−25.13) and Bc6 (Qxd6, CPL 1000, −15.76→−#) — back-to-back CPL-1000 moves.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Leo's classical Black record: 2W–6L–2D. He holds draws against 2100+ but loses to 2100+ with tactical middlegame complications. The Fogo and Garmendia losses show the exact pattern: equal position → piece misplacement → rook to wrong file/square → collapse.</p>
+  <div class="warn-box">
+    <strong>The draw threat is real.</strong> Leo drew Alfaro (2118) in 149 moves and Monroy (2062) in 117 moves through sheer defensive endurance. Do NOT let the game simplify into a technical grind before move 30 — Austin must create imbalances and tactical complexity in the middlegame, not the endgame.
+  </div>
+
+  <h2>§3 — Vulnerabilities as Black</h2>
+
+  <h3>A. Knight Calculation Failure (Back-to-Back from Equal — Fogo Game)</h3>
+  <table>
+    <thead><tr><th>Game</th><th>Acc%</th><th>Critical Move</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>NA U20 R4 vs Fogo (2190) — LOSS</td><td><span class="acc-lo">92.4%</span></td><td>Nb4 (best Qc7)</td><td class="acc-lo">456</td><td>−0.38→−4.94</td>
+      </tr>
+      <tr class="row-danger">
+        <td>NA U20 R4 — same game, next move</td><td><span class="acc-lo">92.4%</span></td><td>Nc6 (best f6)</td><td class="acc-lo">440</td><td>−0.40→−4.80</td>
+      </tr>
+      <tr class="row-danger">
+        <td>NA U20 R4 — rook collapse</td><td><span class="acc-lo">92.4%</span></td><td>Rf1 (best Rg1)</td><td class="acc-lo">1000</td><td>−11.46→−#</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Both knight errors (Nb4 and Nc6) were played from positions at approximately −0.38 and −0.40 — essentially equal. Leo's knight jumped to b4 opening tactical vulnerabilities, then corrected to c6 (equally wrong). Within a few moves, the rook went to the wrong file and forced mate followed. The eval swing from near-equal to forced mate happened across 3 consecutive moves.</p>
+
+  <h3>B. Rook Misplacement Pattern (Multiple Games)</h3>
+  <table>
+    <thead><tr><th>Game</th><th>Move (best)</th><th>CPL</th><th>Eval swing</th></tr></thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>NA U20 R4 vs Fogo (2190)</td><td>Rf1 (Rg1)</td><td class="acc-lo">1000</td><td>−11.46→−#</td>
+      </tr>
+      <tr class="row-danger">
+        <td>Am Cont R5 vs Garmendia (2109)</td><td>Rc4 (Rf5)</td><td class="acc-lo">1000</td><td>−15.55→−94.78</td>
+      </tr>
+      <tr class="row-danger">
+        <td>Am Cont R5 vs Garmendia — follow-up</td><td>h4 (Rc2)</td><td class="acc-lo">1000</td><td>−94.96→−#</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Rooks go to the wrong file or square in complex positions requiring precise coordination. In the Garmendia game both rook errors were consecutive — Leo didn't recover from the first one. The pattern: once one piece goes to the wrong square, the entire position unravels through follow-up errors.</p>
+
+  <h3>C. Endgame Conversion Failure</h3>
+  <p>Leo fails to convert winning advantages when they arise, even against weaker opponents:</p>
+  <ul>
+    <li><strong>Am Cont R8 vs Monroy (2062):</strong> b5 (best cxd4, CPL 509) from +5.34 — threw away a clear winning advantage and drew a 2062-rated opponent. A +5.34 position is strategically won; missing cxd4 shows concrete calculation failure at the key moment.</li>
+    <li><strong>NA U20 R8 vs Cruz Vargas (1648):</strong> Kh7 (best Kh5, CPL 363) from +3.63→0.00 — king went to the passive square in a winning endgame. Still won eventually, but the king error shows endgame navigation is unreliable even vs 1648-rated opposition.</li>
+  </ul>
+  <div class="tip-box">
+    <strong>Austin's endgame accuracy is his advantage.</strong> Leo converts +5 positions with incorrect pawn moves (b5 instead of cxd4) and misplaces kings. In any winning endgame, Austin should calculate precisely and expect Leo to miss the optimal continuation.
+  </div>
+
+  <h2>§4 — Austin's Recommended Weapon</h2>
+
+  <h3>Primary: Advanced French 3.e5 — Austin's Home System</h3>
+  <div class="var-moves">1.e4  e6  2.d4  d5  3.e5  [Advanced French — Leo's main territory]
+3...c5  4.c3  Nc6  5.Nf3  Qb6  6.a3  [space advantage + c4 break]
+or
+3...c5  4.c3  Nc6  5.Bd3  cxd4  6.cxd4  [IQP structure]
+Target: create middlegame complexity around moves 25-35 where knight placement decisions arise
+Leo's Nb4/Nc6 pattern shows he miscalculates exactly in these structures.</div>
+
+  <p><strong>Why Advanced French specifically:</strong></p>
+  <ul>
+    <li>Leo plays 3.e5 c5 in Advance French — the resulting positions have exactly the type of knight maneuvering (Nc6, Nb4, knight repositioning) where Leo's CPL-456/440 collapses occur.</li>
+    <li>Austin's repertoire includes the Advance French as a main system. This is familiar tactical territory for Austin, unexplored-at-collapse-level for Leo.</li>
+    <li>The Advance French does NOT simplify to a technical grind early — it maintains pawn tension (e5 vs ...c5) through the middlegame, exactly what Austin needs.</li>
+  </ul>
+
+  <h3>Alternative: Tarrasch 3.Nd2</h3>
+  <div class="var-moves">1.e4  e6  2.d4  d5  3.Nd2  Nf6  4.e5  Nfd7  5.Bd3  c5  6.c3  Nc6  7.Ne2
+→ IQP structure; knight on d2 blocks c3-pawn's scope; Austin targets f4 break</div>
+  <p>The Tarrasch leads to IQP structures where the knight on d7 (Leo's typical setup) often needs precise coordination — again Leo's weakness area. Slightly slower than the Advance, but equally valid.</p>
+
+  <div class="warn-box">
+    <strong>Do NOT play Exchange French 3.exd5.</strong> Leo won in 134 moves in this structure (NA U20 R8 vs Cruz Vargas). The Exchange French simplifies immediately and gives Leo the technical endgame he excels in. Austin should avoid the symmetric pawn structure entirely.
+  </div>
+
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The blueprint: <strong>NA U20 R4 — Fogo Esquivel (2190) vs Leo Jackson (Black), Advance French, loss, 92.4%, 113 moves.</strong></p>
+  <ol>
+    <li><strong>Opening (moves 1–15):</strong> <code>1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 Qb6 6.a3</code>. Leo plays standard Advance French queenside counterplay. Opening is equal — Leo does not blunder here.</li>
+    <li><strong>Equal middlegame (moves 15–40):</strong> The game was approximately equal around −0.38 to −0.40 for many moves. Austin should NOT panic here — the equality is temporary. Keep pieces active, avoid simplifying exchanges.</li>
+    <li><strong>Knight collapse window (moves 40+):</strong> In the Fogo game, Leo played Nb4 (CPL 456) from near-equal. This is the inflection point. In Austin's game, the same type of knight decision arises when Leo must reposition the knight from a passive square — specifically Nc6→b4 or Nd7→f6/b4 type leaps. Austin should have the tactical response calculated before Leo plays it.</li>
+    <li><strong>Rook coordination (moves 45–55):</strong> After the knight blunder, Leo misplaced the rook (Rf1 instead of Rg1, CPL 1000). Austin should be looking for forcing moves that require precise rook coordination on Leo's side — doubled rooks on open files, rook vs rook endgames where the active file matters.</li>
+    <li><strong>Conversion:</strong> Once Leo misplaces a piece from equal, the advantage cascades. Austin's tactical style is precisely suited for this type of collapse.</li>
+  </ol>
+  <div class="tip-box">
+    <strong>Be patient through the first 35 moves.</strong> Leo's draws vs 2100+ show he can hold equality for a very long time. The collapse does not happen in the opening — it happens in the middlegame when coordination under pressure is required. The 113-move Fogo game illustrates that patience is required, but the collapse does come.
+  </div>
+
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~60%</span>
+      Advanced French 3.e5 c5 (Main Line)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Leo:    1...e6  2...d5  3...c5  [Advance French — confirmed Leo territory]
+Austin: 1.e4  2.d4  3.e5  4.c3  5.Nf3  Qb6  6.a3  Nh6 (or Nc6)  7.b4
+→ Space advantage; queenside tension; target c4 break around move 15–20</div>
+      <ul>
+        <li><strong>Moves 6–15:</strong> After 6.a3, prevent ...Qxb2. Play b4 to cramp Leo's queenside. Develop Bd3, 0-0. The knight on h6 (Leo's typical development) is misplaced — use this.</li>
+        <li><strong>Moves 15–30:</strong> Create pawn tension with c4 break. Do NOT trade all pawns — maintain the e5 pawn as a space asset. Look for the f4-f5 pawn storm if Leo castles kingside.</li>
+        <li><strong>Middlegame target (moves 30–45):</strong> Keep knight coordination requirements on Leo's side. The Advance French generates exactly the Nc6/Nb4 repositioning decisions where Leo's 456/440 CPL errors have occurred.</li>
+      </ul>
+      <div class="tip-box"><strong>Keep the e5 pawn.</strong> The Advance French's entire logic rests on the e5 space advantage. Do not trade it away — use it to restrict Leo's pieces and force difficult coordination decisions.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~30%</span>
+      Tarrasch 3.Nd2 — IQP Structure
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Leo:    1...e6  2...d5  3...Nf6 (or c5)
+Austin: 1.e4  2.d4  3.Nd2  Nf6  4.e5  Nfd7  5.Bd3  c5  6.c3  Nc6  7.Ne2
+→ After cxd4 cxd4: IQP on d4; Austin plays Nf1-g3; target f4 advance</div>
+      <ul>
+        <li>The Tarrasch gives Austin an IQP on d4. Austin's IQP technique (from Nimzo-Indian practice) is strong. The IQP middlegame generates exactly the piece coordination complexity where Leo struggles.</li>
+        <li>After Nf1-g3 and f4, Austin can push f5 to open lines against Leo's king. Leo's French as Black prefers closed positions — the Tarrasch opens the game faster than Leo wants.</li>
+        <li>Leo's knight on d7 in this structure often needs to find good squares (Nc5, Nb6, Nf8). These repositioning decisions are exactly where the Nb4/Nc6 pattern appears.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~10%</span>
+      Exchange French 3.exd5 — Only as Surprise (Not Recommended)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Leo:    1...e6  2...d5
+Austin: 1.e4  2.d4  3.exd5  exd5  → symmetrical pawn structure
+WARNING: Leo WON in this structure (NA U20 R8 vs Cruz Vargas 1648, 134 moves)</div>
+      <ul>
+        <li>The Exchange French immediately simplifies the position and removes the pawn tension that forces Leo into difficult coordination decisions. Leo won in 134 moves in this structure — it is his comfort zone.</li>
+        <li>Use only as a surprise at most — if Austin has memorized specific endgame technique in this structure that Leo hasn't. Otherwise, strongly prefer 3.e5 or 3.Nd2.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules for This Game</h3>
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Play Advanced French 3.e5 — Leo's confirmed territory, Austin's home system</div>
+          <div class="rule-body">Leo plays French Defense 100% vs 1.e4. The Advance French (3.e5) creates the exact type of space advantage and knight coordination complexity where Leo's CPL-456/440 back-to-back collapses have occurred (NA U20 R4 vs Fogo 2190). Do NOT play 3.exd5 — Leo won in that structure in 134 moves. The Advance or Tarrasch only.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Create sharp middlegame — avoid the technical grind</div>
+          <div class="rule-body">Leo drew Alfaro Caracas (2118) in 149 moves and Monroy Lopez (2062) in 117 moves with 0 blunders. He is an endgame grinder. Austin must keep the game complex through moves 25–45 — avoid simplifying exchanges that reach a pure technical endgame. The Nb4/Nc6 pattern only appears when coordination is required under middlegame pressure, not in simplified endgames.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Be patient — the collapse comes in the knight/rook coordination phase</div>
+          <div class="rule-body">In the Fogo game, Leo played accurately for 40+ moves from the Advance French before the knight errors (Nb4 CPL 456, Nc6 CPL 440) struck from near-equal. Austin should not be alarmed if the game is roughly equal at move 30 — this is normal. The collapse window is moves 35–50 when piece coordination under time pressure is required. Austin's tactical eye (knight sacrifices, combination patterns) is exactly what converts these positions.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS WHITE — Advanced French main line:
+  1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 Qb6 6.a3
+  → After 6...Nh6: 7.b4 cxd4 8.cxd4 Nf5 9.Bd3 Nxd4 10.Nxd4 Qxd4 11.Nb3
+  → After 6...c4: 7.Nbd2 Na5 8.g3 — slow buildup, target f4
+
+Tarrasch (Variance B):
+  1.e4 e6 2.d4 d5 3.Nd2 Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 7.Ne2 cxd4 8.cxd4
+  → IQP; Nf1-Ng3; target f4-f5
+
+AVOID:
+  1.e4 e6 2.d4 d5 3.exd5 — Leo WON in 134 moves in this structure
+
+KNIGHT WATCH:
+  When Leo plays Nb4 or Nc6 repositioning — calculate the tactical response
+  Reference: Fogo game — Nb4 (CPL 456) and Nc6 (CPL 440) both from −0.38/−0.40
+  Austin should be positioned to punish the misplaced knight immediately</div>
+
+    <h3>Tactical Motifs to Watch For</h3>
+    <table>
+      <thead><tr><th>Pattern</th><th>When it arises</th><th>Engine reference</th><th>CPL</th></tr></thead>
+      <tbody>
+        <tr class="row-danger"><td>Nb4/Nc6 knight leap from equal</td><td>French middlegame ~move 35–45, piece repositioning required</td><td>NA U20 R4 vs Fogo: Nb4 (Qc7) CPL 456 and Nc6 (f6) CPL 440 back-to-back</td><td class="acc-lo">456 / 440</td></tr>
+        <tr class="row-danger"><td>Rook to wrong file (Rf1 vs Rg1)</td><td>After knight blunder, rook coordination required</td><td>NA U20 R4 vs Fogo: Rf1 (Rg1) CPL 1000, −11.46→−#</td><td class="acc-lo">1000</td></tr>
+        <tr class="row-danger"><td>Double rook collapse</td><td>Rook ending or complex rook+piece middle</td><td>Am Cont R5 vs Garmendia: Rc4 (Rf5) CPL 1000, then h4 (Rc2) CPL 1000</td><td class="acc-lo">1000</td></tr>
+        <tr><td>Missed winning pawn advance</td><td>Endgame with passed pawn or pawn break required</td><td>Am Cont R8 vs Monroy: b5 (cxd4) CPL 509 from +5.34 — drew should-win</td><td class="acc-lo">509</td></tr>
+        <tr><td>King endgame navigation (Kh7 vs Kh5)</td><td>K+P ending, active king march required</td><td>NA U20 R8 vs Cruz Vargas: Kh7 (Kh5) CPL 363, +3.63→0.00</td><td class="acc-lo">363</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>§8 — Day-of Preparation (30 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Tactics drill — 15 min:</strong> 10 puzzles focusing on <em>piece coordination under pressure</em> — specifically knight repositioning decisions. Practice positions where moving the knight to an aggressive-looking square (b4, c5, f4) is actually a blunder because of a tactical response. Ask yourself: "What does the opponent do after my knight moves here?" This mirrors Leo's Nb4/Nc6 pattern (both from near-equal, both punished immediately). Also 3 puzzles on <em>rook file selection</em> — positions where the rook must go to a specific file (Rg1 not Rf1) to avoid tactical exploitation.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Opening line review — 10 min:</strong> Replay: <code>1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 Qb6 6.a3</code>. Stop at move 6. Ask: <em>"What are my plans?"</em> Answer: (A) b4 to cramp Leo's queenside; (B) Bd3 and 0-0; (C) avoid trading the e5 pawn; (D) look for f4 advance when Leo's king is uncastled or when pieces are uncoordinated. Then mentally replay the Tarrasch (3.Nd2) line as backup: <code>3.Nd2 Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 7.Ne2</code>.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Mental visualization — 5 min:</strong> Picture the Fogo game: move 40+, position is roughly equal. Leo's knight is on c6 and needs to reposition. Ask: <em>"If Leo plays Nb4 here, what is my immediate response?"</em> The answer should be concrete — a specific tactical move that punishes the knight's departure from the critical square. Then picture Leo's rook on f1 vs g1: ask <em>"Why is g1 better?"</em> Reinforce: active rook placement is the difference between equal and lost.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Leo plays the French every time — this is known. He will hold an equal position patiently for 40 moves. That is fine. His weakness is not in the opening — it is in the knight coordination phase around moves 35–45, where Nb4 and Nc6 have cost him 456 and 440 CPL from equal positions against 2190-rated opponents. I play the Advance French, I stay complex, and I watch for the knight misplacement. When it comes, I convert. Leo grinds draws; I play for the win."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin W Advance French vs 1...e6</td><td>C02</td><td><code>1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 Qb6 6.a3</code></td></tr>
+      <tr><td>Austin W Tarrasch vs 1...e6</td><td>C05</td><td><code>1.e4 e6 2.d4 d5 3.Nd2 Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 7.Ne2</code></td></tr>
+      <tr class="row-danger"><td>AVOID: Exchange French</td><td>C01</td><td><code>1.e4 e6 2.d4 d5 3.exd5 exd5</code> — Leo WON in 134 moves in this structure</td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish movetime 800ms · 47 games (24 as Black)</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#b35800;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Opening Gaps — Leo as Black
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>French Defense is solid but not invulnerable:</strong> Leo's best French game was 97.3% (149-move draw vs Alfaro 2118). His worst was 89.9% (Guntaka game, back-to-back CPL-1000 blunders). The opening itself is well-prepared; the problems arise 30–40 moves in when coordination is required.</p>
+      <p><strong>Advance French vs Fogo (92.4% loss):</strong> Leo navigated the opening phase well and reached near-equality around move 35–40. The collapse (Nb4 CPL 456, Nc6 CPL 440) came in the middlegame, not the opening. Austin should not expect to win in the opening — the weapon is patience.</p>
+      <p><strong>No preparation for Exchange French endgames:</strong> Leo's 134-move Exchange French win (Cruz Vargas 1648) shows comfort in symmetric structures — but Austin is not the 1648-rated Cruz Vargas. The Exchange French is Leo-friendly; the Advance French forces unfamiliar coordination problems.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#7a0000;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Time-Pressure / Single-Move Collapses
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Nb4/Nc6 back-to-back (Fogo game):</strong> Both knight errors from near-equal (−0.38 and −0.40) were played consecutively, suggesting time pressure or misjudgment of piece activity. The knight went to b4 (aggressive-looking but tactically wrong), then to c6 (also wrong). Neither move was forced — both were voluntary decisions that collapsed the position.</p>
+      <p><strong>Na5/Bc6 back-to-back (Guntaka game):</strong> Na5 (CPL 1000, −8.90→−25.13) and Bc6 (CPL 1000, −15.76→−#) — two consecutive CPL-1000 moves in a losing position. The game was already losing, but the speed of the collapse (both moves forced mate) confirms Leo accelerates toward resignation when under pressure.</p>
+      <p><strong>Qb7 (Tran game):</strong> Qb7 (best Qe7, CPL 1000, −4.87→−15.33) — queen to a passive square from an already-difficult position. Queen misplacement is a recurring theme: in other games (blitz), Qd2 (CPL 576) and Qd3 (CPL 395) show systematic queen-placement errors under pressure.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#7a0000;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Endgame Technique — Conversion Failures
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Am Cont R8 — b5 from +5.34 (Monroy 2062):</strong> b5 (best cxd4, CPL 509) squandered a clear +5.34 winning advantage in an endgame and drew a 2062-rated opponent. This is not a blunder from an equal position — this was a strategically won position that Leo converted to a draw through incorrect pawn move selection. The correct break (cxd4) was available and straightforward.</p>
+      <p><strong>NA U20 R8 — Kh7 from +3.63 (Cruz Vargas 1648):</strong> Kh7 (best Kh5, CPL 363, +3.63→0.00) — king went to the passive file in a winning endgame. Even vs 1648-rated opposition, Leo's king navigation is unreliable in K+P endings. He still won because of the rating gap, but the king error is documented.</p>
+      <p><strong>Rook misplacement in two separate games:</strong> Rf1 (should be Rg1, CPL 1000) and Rc4 (should be Rf5, CPL 1000) in different tournaments confirm the rook-file selection errors are not game-specific — they are a systematic pattern across Leo's game.</p>
+      <p><strong>Verdict:</strong> Leo's endgame problems are two-fold: (1) failing to convert winning positions (b5 instead of cxd4 from +5.34), and (2) misplacing pieces in complex endings (king, rook file errors). Austin's endgame technique and calculation should dominate in any converted endgame.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">B</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">French Defense well-prepared (97.3% draw vs 2118); collapse comes 30–40 moves in, not the opening</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time Pressure</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Nb4/Nc6 (CPL 456/440) from equal; Na5/Bc6 (CPL 1000×2) back-to-back; Qb7 CPL 1000 — systematic</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">b5 threw away +5.34 (Monroy draw); Rf1/Rc4 rook file errors in 2 games; Kh7 king navigation miss</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a5276;">B</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Black 89.5% / White 90.2% — only 0.7pp gap; very balanced; no significant color preference</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

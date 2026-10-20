@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Leo Jackson — Austin as Black</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #1a5276; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #1a5276; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #1a5276; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #1a5276; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #1a5276; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #f0fff4 !important; color: #1a4731; }
+    .acc-hi { color: #1a6030; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #f0f6ff; }
+    .rule-number { background: #1a5276; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #eaf0f8; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #1a5276; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #1a5276; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #d6e4f0; color: #1a5276; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #d6e4f0; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a3a55; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Leo Jackson</h1>
+    <div class="subtitle">Austin as Black — Queen's Indian / Bogo-Indian vs Catalan</div>
+    <div class="meta">Leo Daniel Olivera Jackson · ~1886 FIDE / ~2000 US Chess · 47 games · Stockfish movetime 800 · White avg 90.2% (23g) · Classical White 3W–5L–2D · No direct encounter · ⚠️ Nimzo blocked — prepare Queen's Indian</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-leo.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-leo-white.html">← Austin as White</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-leo-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="warn-box">
+    <strong>⚠️ CRITICAL OPENING ALERT: Austin's Nimzo-Indian is blocked.</strong> Leo plays 1.d4 Nf6 2.c4 e6 <strong>3.Nf3</strong> — NOT 3.Nc3. The Nimzo-Indian requires 3.Nc3 Bb4. Against Leo's 3.Nf3, Austin must prepare <strong>Queen's Indian (3...b6)</strong> or <strong>Bogo-Indian (3...Bb4+)</strong> instead. This is the single most important preparation point for this game.
+  </div>
+
+  <div class="encounter-box">
+    <strong>No direct encounter on record.</strong> Leo as White averages <strong>90.2%</strong> across 23 games — slightly stronger with White than Black (89.5%). Classical White record: <strong>3W–5L–2D</strong>. He draws 2100-rated opponents consistently (Alfaro 2118, Angeles Vera 1904) but loses to similarly-rated players when calculation is required from equal positions. His Catalan is deeply prepared; the weakness is tactical calculation under pressure — Nxd6 (CPL 576) threw away equality against a 1609-rated player, and king navigation collapses (Kg5/Kh5/Kf6 all CPL 1000) appear in multiple games.
+  </div>
+
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Leo Daniel Olivera Jackson</span>
+    <span class="plabel">FIDE Rating</span><span class="pval">~1886 FIDE classical (Jun 2026) / ~2000 US Chess · Peak ~1966 rapid</span>
+    <span class="plabel">White Opening</span><span class="pval">1.d4 → Catalan (3.Nf3 + g3/Bg2) in 100% of classical games. 1.f4 Bird's in blitz/rapid ONLY.</span>
+    <span class="plabel">Sample</span><span class="pval">47 games, 8 tournaments (Am Continental, NA U20, World U12, Charlotte Open, Pan Am U12)</span>
+    <span class="plabel">Overall accuracy</span><span class="pval">89.9% avg · White 90.2% (23g) · Black 89.5% (24g) — 0.7pp gap (very balanced)</span>
+    <span class="plabel">Classical White record</span><span class="pval">3W–5L–2D (37.5% score) — struggles to convert White advantages</span>
+    <span class="plabel">Biggest White upset loss</span><span class="pval">NA U20 R5: lost as White (1731) to Estrada (1609) — 122-rating upset. Nxd6 CPL 576 from +0.06.</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">No encounter on record</span>
+  </div>
+
+  <p><strong>White opening fingerprint:</strong></p>
+  <ul>
+    <li><strong>Catalan (3.Nf3):</strong> Open Catalan (1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.g3 dxc4 5.Bg2), Queen's Indian (3.Nf3 b6 4.g3), QGD Catalan (1.d4 d5 2.c4 e6 3.Nf3 Nf6 4.g3 Be7 5.Bg2). Zero exceptions in classical.</li>
+    <li><strong>3.Nf3 blocks Nimzo:</strong> Leo has never played 3.Nc3 in classical. Austin's Nimzo-Indian (3.Nc3 Bb4) is not available. This is non-negotiable — Austin must have a Queen's Indian or Bogo-Indian ready.</li>
+    <li><strong>1.f4 Bird's:</strong> Blitz/rapid weapon only — 4 blitz, 2 rapid games with Bird's, 0 classical. No preparation needed for classical games.</li>
+    <li><strong>Grünfeld exception (Am Cont R6):</strong> Leo played 3.Nc3 once against Osorio (2246) — unusual, Leo lost. Not his repertoire.</li>
+  </ul>
+
+  <h2>§2 — Leo's White Repertoire vs Austin's Options</h2>
+  <table>
+    <thead>
+      <tr><th>Austin's Response</th><th>ECO</th><th>Leo's Catalan Reaction</th><th>Viability</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>Nimzo-Indian (3...Bb4)</td><td>E40–E49</td><td><strong>BLOCKED</strong> — 3.Nf3 not 3.Nc3</td><td><span class="acc-lo">Not available</span></td><td>Austin's main 1.d4 defense cannot be played. Leo's 3.Nf3 prevents it in 100% of classical games.</td>
+      </tr>
+      <tr class="row-safe">
+        <td>Queen's Indian (3...b6)</td><td>E12–E19</td><td>4.g3 Bb7 5.Bg2 Be7 6.O-O</td><td><span class="acc-hi">Recommended</span></td><td>Natural replacement for Nimzo. Active ...Bb7 pressure on e4/d5 diagonal. Avoids Leo's mainline QGD Catalan theory.</td>
+      </tr>
+      <tr class="row-safe">
+        <td>Bogo-Indian (3...Bb4+)</td><td>E11</td><td>4.Bd2 Bxd2+ or 4.Bd2 a5</td><td><span class="acc-hi">Recommended</span></td><td>Most similar to Nimzo positions Austin knows. Bishop on b4 → same structural ideas. Less Leo theory on this.</td>
+      </tr>
+      <tr>
+        <td>QGA (3...dxc4 or 3...d5 dxc4)</td><td>D20–D29</td><td>Open Catalan — Leo wins back pawn with Bg2</td><td>Viable</td><td>Active pawn grab disrupts Leo's structure immediately. Leo may be less prepared for QGA than mainline Catalan.</td>
+      </tr>
+      <tr>
+        <td>King's Indian (2...g6)</td><td>E60–E99</td><td>Leo plays 3.Nf3 g3 system (Fianchetto KID)</td><td>Viable but less exploit</td><td>Leo's Fianchetto KID is comfortable territory for him. No confirmed weakness in this structure.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="warn-box">
+    <strong>Leo drew Alfaro Caracas (2118) in 149 moves — that was from a 1.d4 e6 2.c4 f5 Dutch structure.</strong> The Dutch (1...e6 + 2...f5) is Leo's own weapon as Black — Leo knows how to play from both sides of these long positional battles. Austin should avoid passive, Stonewall-type positions where Leo's endgame patience is the deciding factor.
+  </div>
+
+  <h2>§3 — Vulnerabilities as White</h2>
+
+  <h3>A. Tactical Miscalculation from Equal Positions (Confirmed)</h3>
+  <p>In NA U20 R5 (Leo White, 87.2%, loss vs Estrada 1609), Leo had an exactly equal position (+0.06) and played <strong>Nxd6</strong> (best Qxb2, CPL 576, +0.06→−5.70) — one move threw away equality to a player rated 122 points lower. The engine found Qxb2 as the correct response; Leo played an ambitious knight fork that backfired catastrophically.</p>
+  <ul>
+    <li><strong>Nxd6</strong> (best Qxb2) — CPL 576, +0.06→−5.70 — from equality to losing in one move vs a 1609-rated player</li>
+    <li><strong>g4</strong> (best Kg3) — CPL 657, −13.71→−20.28 — second error in the ensuing king endgame</li>
+  </ul>
+  <p>This is the most damning evidence of Leo's White weakness: not blundering from a losing position, but <em>from a dead-equal position</em>, choosing an overambitious forcing move that cost the game.</p>
+
+  <h3>B. King Navigation Errors as White (Confirmed in Multiple Games)</h3>
+  <table>
+    <thead><tr><th>Game</th><th>Acc%</th><th>Move (best)</th><th>CPL</th><th>Eval swing</th></tr></thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>Am Cont R2 vs Martinez (2061) — WON</td><td>88.8%</td><td>Rb7+ (Kg5)</td><td class="acc-lo">1000</td><td>+20.19→+9.77</td>
+      </tr>
+      <tr class="row-danger">
+        <td>Am Cont R2 vs Martinez (2061) — WON</td><td>88.8%</td><td>Kg5 (Kg5 — same square!)</td><td class="acc-lo">1000</td><td>+23.22→+11.38</td>
+      </tr>
+      <tr class="row-danger">
+        <td>Am Cont R2 vs Martinez (2061) — WON</td><td>88.8%</td><td>Kh5 (Kf5)</td><td class="acc-lo">1000</td><td>+85.45→+43.47</td>
+      </tr>
+      <tr class="row-danger">
+        <td>World U12 R6 vs Demirkan — LOST</td><td>92.9%</td><td>g5 (Ke5)</td><td class="acc-lo">1000</td><td>−16.94→−91.63</td>
+      </tr>
+      <tr class="row-danger">
+        <td>World U12 R6 vs Demirkan — LOST</td><td>92.9%</td><td>Kf6 (d5)</td><td class="acc-lo">1000</td><td>−88.90→−#</td>
+      </tr>
+      <tr class="row-danger">
+        <td>NA U20 R9 vs Agama — LOST</td><td>89.7%</td><td>Qg4 (Bf1)</td><td class="acc-lo">1000</td><td>−9.17→−#</td>
+      </tr>
+      <tr class="row-danger">
+        <td>Am Cont R9 vs Linares (2021) — LOST</td><td>91.9%</td><td>Bh3 (Qe1)</td><td class="acc-lo">1000</td><td>−27.20→−#</td>
+      </tr>
+      <tr class="row-danger">
+        <td>Am Cont R6 vs Osorio (2246) — LOST</td><td>91.9%</td><td>Rd1 (Rf1)</td><td class="acc-lo">1000</td><td>−13.82→−#</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Pattern: Leo makes forced-mate-quality mistakes in positions he should draw or win. Three CPL-1000 moves while winning (Am Cont R2), two CPL-1000 king collapses (World U12 R6), rook-to-wrong-file (Rd1 vs Rf1). The Am Cont R2 game is particularly telling — Leo played Rb7+/Kg5/Kh5 all as CPL-1000 moves in a position where he was winning by +20 to +85. He won despite these errors, but the king navigation is unreliable at the critical moment.</p>
+
+  <h3>C. Forced-Mate Miss Pattern (Losing Positions)</h3>
+  <p>In losing positions, Leo consistently misses the moment he is being mated. NA U20 R9: <strong>Qg4</strong> (best Bf1, CPL 1000, −9.17→−#). Am Cont R9: <strong>Bh3</strong> (best Qe1, CPL 1000, −27.20→−#) and <strong>Qe5+</strong> (best Qe1, CPL 556, −11.93→−17.49). Am Cont R6: <strong>Rd1</strong> (best Rf1, CPL 1000, −13.82→−#). These are all positions where Leo placed pieces on wrong squares when the position required exact defensive moves. This is the rook-to-wrong-file and piece-to-wrong-rank pattern under calculation pressure.</p>
+
+  <h3>D. Color Balance — Slightly Favors White, but Barely</h3>
+  <p>White 90.2% vs Black 89.5% — only a <strong>0.7pp gap</strong>. Unlike most opponents who have a clear color preference, Leo is nearly equal. When Austin is Black (Pranav is White is the better scenario for Austin — Pranav is 8.1pp weaker as White), Leo's White is only marginally stronger. The practical implication: Austin cannot count on Leo being poorly prepared as White. The Catalan is Leo's home system.</p>
+
+  <h2>§4 — Austin's Recommended Weapon</h2>
+
+  <h3>Primary: Queen's Indian Defense (3...b6)</h3>
+  <div class="var-moves">1.d4 Nf6 2.c4 e6 3.Nf3 b6  [Queen's Indian]
+4.g3 Ba6  [QI with ...Ba6, pressure on c4]
+  → After 5.b3 Bb4+ 6.Bd2 Be7 → solid QI structure
+  → Active diagonal: ...Bb7, pressure on e4/d5 long diagonal
+  Target: tactical complexity by move 15; avoid simplified Catalan endgame</div>
+
+  <p>The Queen's Indian disrupts Leo's mainline Catalan preparation. Leo has documented Catalan games where Black plays ...d5 (QGD-type); the QI with ...Ba6 creates different dynamics and reduces overlap with his most-prepared territory. The ...Bb7 long-diagonal pressure also creates the type of piece activity that leads to tactical complications — Leo's vulnerable point.</p>
+
+  <h3>If Austin prefers Nimzo-adjacent: Bogo-Indian (3...Bb4+)</h3>
+  <div class="var-moves">1.d4 Nf6 2.c4 e6 3.Nf3 Bb4+  [Bogo-Indian]
+4.Bd2 Bxd2+  [simplest: bishop pair, structural advantage]
+  or 4.Bd2 a5  [keep bishop, sidestep immediate exchanges]
+  → Resembles Nimzo positions: doubled c-pawns potential, bishop activity
+  → Austin's Nimzo preparation partly transfers here</div>
+
+  <div class="tip-box">
+    <strong>Avoid the Fianchetto QGD.</strong> Leo's Am Cont R4 game (97.0% draw vs Fogo 2090) was in a Catalan with ...d5. His Am Cont R3 game (97.3% draw vs Alfaro 2118) was in a Dutch-type ...e6+...f5 structure. Both are Leo's best-accuracy games — positional endgame territory where his patience excels. Austin should stay in Queen's Indian or Bogo-Indian to avoid giving Leo his most familiar defensive structures.
+  </div>
+
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The reference blueprint: <strong>NA U20 R5 — Leo Jackson (White, 1731) vs Estrada Roque (1609), Catalan, 87.2%, LOSS.</strong> Leo was 122 rating points higher as White and lost.</p>
+  <ol>
+    <li><strong>Opening (moves 1–10):</strong> <code>1.d4 Nf6 2.c4 e6 3.Nf3 b6</code> — Austin plays Queen's Indian immediately, forcing Leo out of his most-prepared QGD Catalan territory. Leo will play 4.g3; Austin plays either 4...Ba6 (active) or 4...Bb7 5.Bg2 (solid). Goal: reach a position where the center is dynamic, not simplified.</li>
+    <li><strong>Middlegame — create tactical threats by move 20:</strong> In QI positions, Black often gets counterplay with ...e5 (center break), ...Ne4 (outpost), or ...d5 (locking in the fianchettoed bishop). Leo's weakness is calculating forcing moves from equal positions — if Austin creates a complex tactical threat that requires precise calculation, Leo may choose the wrong forcing reply (pattern: Nxd6 from +0.06).</li>
+    <li><strong>Equal position — keep playing:</strong> Leo's 90.2% White average means Austin should expect a tough fight. If the position is equal at move 30, that is the dangerous moment — equal is when Leo miscalculated Nxd6 (CPL 576 from +0.06) vs a 1609-rated player. Austin should keep the game alive and watch for an overambitious Leo move from an equal position.</li>
+    <li><strong>If the game reaches an endgame:</strong> Leo's king navigation is documented as unreliable (Kg5/Kh5/Kf6 all CPL 1000 in Am Cont R2 and World U12). Austin should activate the king actively and force precise king routing. Leo's instinct is wrong-direction king moves under pressure.</li>
+  </ol>
+  <div class="warn-box">
+    <strong>Do not let the game simplify to a 100+ move grind.</strong> Leo's best games are long endgames: 152-move win (Am Cont R2), 149-move draw (Am Cont R3), 134-move win (NA U20 R8), 117-move draw (Am Cont R8). These are Leo's defining results. Austin should not play for late simplifications where Leo's patience takes over — win or create the decisive advantage before move 50.
+  </div>
+
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~55%</span>
+      Queen's Indian 3...b6 — Main Weapon
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Austin Black: 1.d4 Nf6 2.c4 e6 3.Nf3 b6  [QI]
+Leo:  4.g3 Ba6  or  4.g3 Bb7 5.Bg2 Be7 6.O-O
+Key lines:
+  4.g3 Ba6 5.b3 Bb4+ 6.Bd2 Be7 → active piece placement
+  4.g3 Bb7 5.Bg2 c5 [Symmetrical QI] → tension with d4/c4 pawns
+Target: complex middlegame by move 15; avoid simple Catalan pawn structure</div>
+      <ul>
+        <li><strong>Moves 1–12:</strong> Develop to active squares. Knight to e4 or c6 with tempo. Avoid ...d5 (Leo's most-prepared QGD-Catalan territory). Keep ...c5 as a pawn-break option to dissolve Leo's center.</li>
+        <li><strong>Moves 12–25:</strong> Look for tactical imbalances — knight outposts on d3/e4, semi-open files, bishop pair if Leo trades. Create forcing threats that require exact calculation from Leo. The Nxd6 pattern means he may overreach.</li>
+        <li><strong>Avoid:</strong> Simplification into R+P endgame where Leo has confirmed drawing technique. Keep at least one minor piece on the board through move 30.</li>
+      </ul>
+      <div class="info-box"><strong>QI key idea:</strong> The ...Ba6 system pressures c4 immediately (after 5.b3, the bishop retreats to b7 via ...Bxc4 threat). This keeps the position unbalanced and forces Leo to prove he can handle the diagonal pressure — not just grind in a symmetric structure.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~30%</span>
+      Bogo-Indian 3...Bb4+ — Nimzo-Adjacent
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Austin Black: 1.d4 Nf6 2.c4 e6 3.Nf3 Bb4+  [Bogo-Indian]
+Leo:  4.Bd2 Bxd2+  [Nxd2 or Qxd2 — positional play]
+  or 4.Bd2 a5  [keep bishop, expand queenside]
+  → After 4...Bxd2+ 5.Qxd2 d6 → standard Nimzo-style structure
+  → After 4...Bxd2+ 5.Nbxd2 d5 → QGD-type with bishop pair gone</div>
+      <ul>
+        <li>Most similar to Nimzo positions Austin has studied — bishop check, structural imbalance, dynamic piece play.</li>
+        <li>Leo's preparation for Bogo-Indian may be less deep than QGD Catalan. He has zero documented Bogo-Indian games in the dataset.</li>
+        <li>After ...Bxd2+ Qxd2, Black has eliminated the light-squared bishop for both sides. The position becomes less typical-Catalan and more IQP/positional — similar to Austin's Nimzo training.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~15%</span>
+      QGA 3...dxc4 — Pawn Grab Disruption
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Austin Black: 1.d4 d5 2.c4 e6 3.Nf3 dxc4  [QGA]
+Leo:  4.e3 a6 5.Bxc4 b5  [active queenside counterplay]
+  or 3...dxc4 4.e3 c5 5.Bxc4 [QGA with ...c5 break]
+  → Black holds extra pawn temporarily, Leo must prove compensation
+  → Disrupts Leo's preferred stable structure immediately</div>
+      <ul>
+        <li>Leo's Catalan is built around recovering the gambited pawn via Bg2 + long diagonal pressure. QGA takes the pawn directly, forcing Leo to prove the compensation rather than setting his own agenda.</li>
+        <li>No documented QGA games in Leo's dataset. This is unknown territory for him.</li>
+        <li>Austin should know basic QGA theory: ...a6, ...b5, ...Bb7, ...Nbd7 — standard Black development to hold the pawn and create activity.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules for This Game</h3>
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Prepare Queen's Indian or Bogo-Indian — Nimzo is not available</div>
+          <div class="rule-body">Leo plays 3.Nf3 in 100% of classical games, permanently blocking Austin's Nimzo-Indian (3.Nc3 Bb4). This is non-negotiable. Austin must arrive at the board knowing his Queen's Indian lines (3...b6 4.g3 Ba6 or 4...Bb7) or Bogo-Indian lines (3...Bb4+). There is no way around this preparation gap — the game begins with Leo denying Austin's main weapon. Queen's Indian 3...b6 is the recommended replacement: active ...Ba6/Bb7 diagonal play, avoiding Leo's most-prepared QGD Catalan structures.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Create tactical complexity by move 20 — Leo draws 2100s in 149-move grinds</div>
+          <div class="rule-body">Leo's defining characteristic is endgame patience — his results include a 149-move draw vs Alfaro (2118), a 152-move win vs Martinez (2061), and a 117-move draw vs Monroy (2062). These are Leo at his best: long technical grind where patience wins. Austin must not let the game reach that phase. Create forcing threats, piece activity, and tactical imbalances before move 20–25. The Nxd6 blunder (CPL 576) was from an equal position under tactical pressure — that is when Leo makes his worst mistakes.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Watch for Nxd6-type overreach — Leo miscalculates forcing moves from equal positions</div>
+          <div class="rule-body">The NA U20 R5 game (Leo vs Estrada, 1609-rated) is the most instructive White game in the dataset. Leo had +0.06 (dead equal) and played Nxd6 (CPL 576), dropping to −5.70 immediately. The move was an aggressive knight fork attempt that was objectively wrong. Leo's calculation from seemingly equal positions breaks down when a "tempting" forcing move appears. Austin should create positions where such moves are available — a pseudo-fork or aggressive piece jump that looks winning but is actually incorrect. Leo may take the bait.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS BLACK vs Leo's 1.d4 Catalan — Queen's Indian (primary):
+  1.d4 Nf6 2.c4 e6 3.Nf3 b6 4.g3 Ba6 → ...Bb4+/...Be7 → active diagonal
+  or 3...b6 4.g3 Bb7 5.Bg2 c5 → Symmetrical QI with ...c5 tension
+
+AS BLACK — Bogo-Indian (Nimzo-adjacent):
+  1.d4 Nf6 2.c4 e6 3.Nf3 Bb4+ 4.Bd2 Bxd2+ → positional IQP-type play
+  or 4.Bd2 a5 → keep bishop, expand queenside
+
+AS BLACK — QGA (disruption):
+  1.d4 d5 2.c4 e6 3.Nf3 dxc4 4.e3 a6 5.Bxc4 b5
+
+NIMZO-INDIAN — NOT AVAILABLE vs Leo (3.Nf3 blocks it)
+
+ALERT PATTERN — from equal positions, Leo overreaches:
+  Watch for Nxd6-type knight fork attempt from near-equal position
+  Pattern: Nxd6 CPL 576 from +0.06→−5.70 (NA U20 R5 vs Estrada 1609)
+  If Leo plays an aggressive piece jump from equality → evaluate if it backfires</div>
+
+    <h3>Tactical Motifs to Watch For</h3>
+    <table>
+      <thead><tr><th>Pattern</th><th>When it arises</th><th>Engine reference</th><th>CPL</th></tr></thead>
+      <tbody>
+        <tr class="row-danger"><td>Nxd6 overreach from equal position</td><td>Equal middlegame, Leo sees knight fork opportunity</td><td>NA U20 R5 vs Estrada: Nxd6 CPL 576, +0.06→−5.70</td><td class="acc-lo">576</td></tr>
+        <tr class="row-danger"><td>King navigation collapse (winning)</td><td>Endgame: Leo king goes to wrong square despite large advantage</td><td>Am Cont R2: Rb7+ CPL 1000 (+20.19), Kg5 CPL 1000 (+23.22), Kh5 CPL 1000 (+85.45)</td><td class="acc-lo">1000</td></tr>
+        <tr class="row-danger"><td>King navigation collapse (losing)</td><td>Endgame: king/pawn ending, Leo plays king to wrong file</td><td>World U12 R6: g5 CPL 1000 (−16.94→−91.63), Kf6 CPL 1000 (→−#)</td><td class="acc-lo">1000</td></tr>
+        <tr class="row-danger"><td>Rook-to-wrong-file (forced mate miss)</td><td>Losing position, Leo places rook on wrong file</td><td>Am Cont R6: Rd1 (best Rf1) CPL 1000, −13.82→−#</td><td class="acc-lo">1000</td></tr>
+        <tr><td>Queen-to-wrong-square (forced mate miss)</td><td>Losing position, Leo misses defensive resource</td><td>Am Cont R9: Bh3 (best Qe1) CPL 1000, −27.20→−#; Qg4 (best Bf1) CPL 1000</td><td class="acc-lo">1000</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>§8 — Day-of Preparation (30 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Tactics drill — 15 min:</strong> 10 puzzles on <em>Queen's Indian / Bogo-Indian middlegame dynamics</em> — positions where Black has the long diagonal active (Bb7 vs g2-bishop), or where Black wins a central square. Practice the ...Ne4 outpost and ...c5 pawn-break sequences. Also 3 puzzles on <em>spotting knight fork attempts that don't work</em> — a piece jump looks tempting but is refuted by a quiet move. This is the Nxd6 pattern in reverse: Austin should know when Leo's "forcing" piece jump is a blunder and how to respond calmly.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Opening line review — 10 min:</strong> Replay mentally: <code>1.d4 Nf6 2.c4 e6 3.Nf3 b6 4.g3 Ba6</code>. Stop at move 4. Ask: <em>"What is Black's plan with ...Ba6?"</em> Answer: pressure on c4 (threatening ...Bxc4 if the pawn is unprotected), forcing Leo to play 5.b3 (weakening a2-a3 square), then ...Bb7 with long diagonal. This is fundamentally different from any standard QGD Catalan — Leo will be outside his most-prepared variation. Also review Bogo-Indian: <code>3.Nf3 Bb4+ 4.Bd2 Bxd2+</code> — know the resulting IQP structures.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Mental visualization — 5 min:</strong> Picture Leo's NA U20 R5 game: equal position, +0.06, Leo plays Nxd6 (CPL 576) — instantly losing to a 1609-rated player. Ask: <em>"What does this mean for our game?"</em> Answer: <strong>from any equal position, Leo may overreach with a forcing move that backfires.</strong> Austin should keep the game in dynamic, tactical territory through the middlegame and trust that Leo's calculation under pressure is fragile. The Catalan looks solid from the outside — but from inside, Leo's calculation can snap at any moment.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Leo plays the Catalan — solid, deeply prepared, patient endgame technique. His best games are 149-move draws and 152-move wins. I cannot let him grind. I play Queen's Indian, I create tactical complexity, and I wait for the Nxd6 moment — the equal-position miscalculation that costs him the game. He lost to a 1609-rated player as White. I am stronger than that. The opening preparation gap (Nimzo blocked) is real — I know my Queen's Indian lines and I'm ready. His calculation breaks first."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin B Queen's Indian vs 3.Nf3</td><td>E15</td><td><code>1.d4 Nf6 2.c4 e6 3.Nf3 b6 4.g3 Ba6 5.b3 Bb4+</code></td></tr>
+      <tr><td>Austin B Bogo-Indian vs 3.Nf3</td><td>E11</td><td><code>1.d4 Nf6 2.c4 e6 3.Nf3 Bb4+ 4.Bd2 Bxd2+</code></td></tr>
+      <tr><td>Austin B QGA vs Open Catalan</td><td>D20</td><td><code>1.d4 d5 2.c4 e6 3.Nf3 dxc4 4.e3 a6 5.Bxc4 b5</code></td></tr>
+      <tr class="row-danger"><td>Nimzo-Indian (NOT AVAILABLE)</td><td>E40+</td><td>Requires 3.Nc3 — Leo plays 3.Nf3. Do not attempt.</td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish movetime 800ms · 47 games analyzed</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">A</span>
+      Opening Gaps — Leo as White
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Catalan is deeply prepared — no classical opening mistakes:</strong> Leo's Catalan games show no systematic opening errors. He has not been blown out of the opening in any classical game. His Am Cont R4 (97.0% draw) and Am Cont R3 (97.3% draw) were both technically excellent in the opening. <em>The opening is NOT Leo's weakness as White.</em></p>
+      <p><strong>Leo's 3.Nf3 blocks Austin's Nimzo — preparation challenge for Austin:</strong> This is Austin's preparation gap, not Leo's. The entire matchup as Black hinges on Austin having Queen's Indian or Bogo-Indian ready instead of Nimzo. If Austin plays 3...Bb4 expecting Nimzo and Leo plays 3.Nf3, Austin's prep is derailed from move 3.</p>
+      <p><strong>Grünfeld exception (Am Cont R6, Osorio 2246, loss):</strong> Leo played 3.Nc3 once and entered Grünfeld territory where he lost in 138 moves. This is not part of his repertoire — but confirms Leo is weakest when outside his prepared Catalan structures.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">B</span>
+      Time-Pressure / Forcing-Move Collapses
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Nxd6 from +0.06 (CPL 576) — the quintessential equal-position collapse:</strong> NA U20 R5 vs Estrada (1609). Equal position, +0.06 evaluation. Leo played <code>Nxd6</code> (best Qxb2, CPL 576, +0.06→−5.70) — one overambitious knight fork that was objectively wrong. Position went from equal to −5.70 losing. He then lost the game. This is the most important single data point: Leo miscalculates FORCING moves from equal positions. He does not make passive mistakes — he makes the wrong aggressive move.</p>
+      <p><strong>Three CPL-1000 moves while winning (Am Cont R2, 88.8%):</strong> Winning by +20.19, played <code>Rb7+</code> (best Kg5, CPL 1000, +20.19→+9.77). Then still winning by +23.22, played <code>Kg5</code> to a wrong square (CPL 1000, +23.22→+11.38). Then still winning by +85.45, played <code>Kh5</code> (best Kf5, CPL 1000, +85.45→+43.47). Three consecutive king placement errors with a massive winning advantage — confirmation that king and rook coordination fails under calculation pressure regardless of the score.</p>
+      <p><strong>Bh3 forced-mate miss (Am Cont R9 vs Linares 2021):</strong> <code>Bh3</code> (best Qe1, CPL 1000, −27.20→−#) followed by <code>Qe5+</code> (best Qe1, CPL 556, −11.93→−17.49). Leo had a defensive resource (Qe1) available twice and played the wrong piece to the wrong square both times. Result: loss in classical game.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Endgame Technique — King Navigation Unreliable
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>World U12 R6 — three CPL-1000 king errors in losing endgame:</strong> <code>g5</code> (best Ke5, CPL 1000, −16.94→−91.63) — pawn push when king march was required. <code>Kf6</code> (best d5, CPL 1000, −88.90→−#) — king to wrong square. <code>h4</code> (best Ke5, CPL 481, −8.26→−13.07) — third king/pawn error. The king went to the wrong rank twice and the pawn was pushed when the king needed to move. This is an endgame where Leo consistently chose wrong direction for both king and pawn.</p>
+      <p><strong>Am Continental R2 — three CPL-1000 king/rook moves while winning by +20 to +85:</strong> Rb7+ (CPL 1000), Kg5 (CPL 1000), Kh5 (CPL 1000). Leo was winning by +20 → +23 → +85 and still managed to place king and rook on suboptimal squares three consecutive moves. Won the game eventually but the king coordination was unreliable even from a dominant position.</p>
+      <p><strong>Verdict:</strong> Leo's endgame errors appear under two distinct conditions: (1) losing positions where he places pieces on wrong files/squares defensively, and (2) even winning positions where king direction is wrong. The common thread is calculation failure under pressure — not knowledge gaps but execution gaps. Austin should force exact king-routing decisions in endgames.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a5276;">B</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Catalan deeply prepared; 97% draws confirm mastery. Austin's challenge: prepare QI/Bogo-Indian (Nimzo blocked).</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time Pressure</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Nxd6 CPL 576 from +0.06 vs 1609-rated; 3× CPL-1000 while winning +20→+85; Bh3 forced-mate miss</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">King to wrong direction: Kg5/Kh5/Kf6 all CPL 1000 (winning AND losing); Rd1 vs Rf1 mate miss</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a5276;">B</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">White 90.2% / Black 89.5% — only 0.7pp gap; no major color preference</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
