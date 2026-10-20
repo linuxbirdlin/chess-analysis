@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Tarun Sankar — Austin as Black</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #1a5276; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #1a5276; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #1a5276; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #1a5276; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #1a5276; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #f0fff4 !important; color: #1a4731; }
+    .acc-hi { color: #1a6030; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #f0f6ff; }
+    .rule-number { background: #1a5276; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #eaf0f8; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #1a5276; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #1a5276; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #d6e4f0; color: #1a5276; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #d6e4f0; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a3a55; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Tarun Sankar</h1>
+    <div class="subtitle">Austin as Black — Queen's Indian or Mikenas Defense vs English Opening</div>
+    <div class="meta">Tarun Sankar · ~1965 FIDE (Oct 2026) · 16 games · Stockfish movetime 800 · White avg 91.5% (7g) · 3W–3L–1D as White · No direct encounter · 1.c4 exclusively — prepare QI and Mikenas</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-tarun.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-tarun-white.html">← Austin as White</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-tarun-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="warn-box">
+    <strong>⚠️ OPENING ALERT — Two Lines Required.</strong> Tarun plays <strong>1.c4 (English Opening) exclusively</strong> — no 1.e4, no 1.d4. Austin's Nimzo-Indian (requires 1.d4 Nf6 2.c4 e6 3.Nc3) is NOT available. After <code>1.c4 Nf6 2.Nc3 e6</code>, Tarun may play either <strong>3.g3 (Catalan-type → prepare Queen's Indian)</strong> or <strong>3.e4 (Mikenas Attack — pawn wedge on e5 → prepare Mikenas defense)</strong>. Both need specific preparation before this game.
+  </div>
+
+  <div class="encounter-box">
+    <strong>No direct encounter on record.</strong> Engine data from 16 games across 6 tournaments. Tarun as White: <strong>91.5% avg (7g), 3W–3L–1D</strong>. His cleanest White games (Dulles R3: 95.1%, Dulles R5: 94.7%) were technical grinds. But he also lost as White to IM Fus (2419) — Kh4 (CPL 1000/mate) — and dropped three consecutive mistakes vs IM Fus from equal (Bd2/Nc3/h4). His king safety under pressure is the primary exploit when Austin is Black.
+  </div>
+
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Tarun Sankar</span>
+    <span class="plabel">FIDE Rating</span><span class="pval">~1965 (Oct 2026); peak 2002 (Mar 2026) — 600-point gain in 2.5 years</span>
+    <span class="plabel">White Opening</span><span class="pval">1.c4 exclusively: Catalan-English (g3/Bg2), Maróczy (c4+d4+Nxd4), or Mikenas Attack (e4/Nc3+e4)</span>
+    <span class="plabel">Sample</span><span class="pval">16 games, 6 tournaments (Dulles Skyline 2024, NA Championship 2024, NA Open 2025, Texas Grand Circuit 2026, 5th Skyline Open 2026, Madurai Athens 2023)</span>
+    <span class="plabel">Overall accuracy</span><span class="pval">90.1% avg · White 91.5% (7g) · Black 89.0% (9g) — 2.5pp color gap</span>
+    <span class="plabel">Worst White game</span><span class="pval">NA Open R8 vs Bynum: 89.1% · Kh4 (Kg2 CPL 1000/mate) — walked into forced mate as White</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">No encounter on record</span>
+    <span class="plabel">Rating context</span><span class="pval">~0–100 points gap; effectively even match. Fast improver — treat as 2000-level tactician</span>
+  </div>
+
+  <p><strong>White opening fingerprint:</strong></p>
+  <ul>
+    <li><strong>1.c4 e6 2.g3 d5 3.Bg2:</strong> Catalan-English fianchetto — 3 games. Patient positional setup.</li>
+    <li><strong>1.c4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4:</strong> Maróczy Bind — 2 games. Converts to Sicilian Maróczy structure.</li>
+    <li><strong>1.c4 e6 2.Nc3 Nf6 3.e4 c5 4.e5:</strong> Mikenas Attack — 1 game vs IM Fus (2419). Sharp pawn wedge on e5. His most aggressive White weapon.</li>
+    <li><strong>No 1.e4 or 1.d4 ever played as White.</strong> Austin's entire White repertoire vs d4 opponents is irrelevant here.</li>
+  </ul>
+
+  <h2>§2 — Tarun's White Repertoire (Frequency &amp; Results)</h2>
+  <table>
+    <thead>
+      <tr><th>System</th><th>G</th><th>W</th><th>D</th><th>L</th><th>Acc%</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-safe">
+        <td>English Catalan (1.c4 e6 2.g3)</td><td>3</td><td>1</td><td>2</td><td>0</td><td><span class="acc-hi">94.6%</span></td><td>Dulles R3 (95.1% draw vs He), Dulles R5 (94.7% win vs Murugan), one other. His BEST White lines — technical grinds. No blunders in best two games.</td>
+      </tr>
+      <tr>
+        <td>English Maróczy (1.c4 c5 2.Nf3 3.d4)</td><td>2</td><td>1</td><td>0</td><td>1</td><td>92.5%</td><td>Dulles R1 win vs Jackson 1876 (94%, Bxg7 CPL 320 from +4.96 blundered but still won). One loss. Mixed results despite reasonable accuracy.</td>
+      </tr>
+      <tr class="row-danger">
+        <td>Mikenas Attack (1.c4 e6 2.Nc3 3.e4)</td><td>1</td><td>0</td><td>0</td><td>1</td><td><span class="acc-lo">86.2%</span></td><td>Texas R5 vs IM Fus (2419) — <code>Bd2</code> (Bxd4 CPL 269, −0.07→−2.76), <code>Nc3</code> (Nxc5 CPL 246), <code>h4</code> (Rxd8 CPL 197). Three consecutive mistakes from equal vs IM. Still a live weapon in Tarun's arsenal.</td>
+      </tr>
+      <tr class="row-danger">
+        <td>Unspecified English (vs Bynum)</td><td>1</td><td>0</td><td>0</td><td>1</td><td><span class="acc-lo">89.1%</span></td><td>NA Open R8 — <code>Kh4</code> (Kg2 CPL 1000/mate, −6.43→−#). <strong>King walked into forced mate as White.</strong> Most alarming single White moment in dataset.</td>
+      </tr>
+      <tr>
+        <td>English Catalan (vs Peed 1829)</td><td>1</td><td>0</td><td>0</td><td>1</td><td>92.7%</td><td>Dulles R6 loss — <code>Kf2</code> (Nd7+ CPL 270, −0.33→−3.03), <code>Kg3</code> (Rc7 CPL 205, −0.60→−2.65). Two consecutive king errors from near-equal.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="warn-box">
+    <strong>Mikenas Attack is a real threat.</strong> Tarun used it against an IM (2419) at his peak rating. After <code>1.c4 Nf6 2.Nc3 e6 3.e4</code>, the pawn pushes to e5 and creates a locked pawn structure. Austin must know the main line defense (3...c5 4.e5 Ng8) before sitting down at the board.
+  </div>
+
+  <h2>§3 — Vulnerabilities as White</h2>
+
+  <h3>A. King Safety Failures (Two Separate Games)</h3>
+  <p>Tarun's most alarming White pattern is king navigation breakdown under pressure:</p>
+  <table>
+    <thead><tr><th>Game</th><th>Move (best)</th><th>CPL</th><th>Eval swing</th><th>Classification</th></tr></thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>NA Open R8 vs Bynum</td><td><code>Kh4</code> (Kg2)</td><td class="acc-lo">1000</td><td>−6.43→−#</td><td>King walked into forced mate</td>
+      </tr>
+      <tr class="row-danger">
+        <td>Dulles R6 vs Peed (1829)</td><td><code>Kf2</code> (Nd7+)</td><td class="acc-lo">270</td><td>−0.33→−3.03</td><td>King move from near-equal position</td>
+      </tr>
+      <tr class="row-danger">
+        <td>Dulles R6 vs Peed (1829)</td><td><code>Kg3</code> (Rc7)</td><td class="acc-lo">205</td><td>−0.60→−2.65</td><td>Second consecutive king error</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>The Dulles R6 game is particularly revealing: Tarun was near-equal (−0.33) and played two back-to-back king moves in the wrong direction, turning a drawable position into a loss to a 1829-rated opponent. Then in the NA Open R8, the king walked into forced mate (Kh4, CPL 1000/mate). King safety under pressure is a confirmed, repeatable weakness.</p>
+
+  <h3>B. Consecutive Mistakes From Equal (Mikenas Endgame vs IM Fus)</h3>
+  <p>In Texas Grand Circuit R5 vs IM Fus (2419), Tarun reached an approximately equal position from the Mikenas Attack and then played three consecutive mistakes:</p>
+  <ul>
+    <li><strong>Bd2</strong> (best Bxd4, CPL 269, −0.07→−2.76) — one move from equality to −2.76</li>
+    <li><strong>Nc3</strong> (best Nxc5, CPL 246, −0.09→−2.55) — second consecutive error</li>
+    <li><strong>h4</strong> (best Rxd8, CPL 197, −3.96→−5.93) — third error in endgame phase</li>
+  </ul>
+  <p>This Bd2/Nc3/h4 triple-mistake cascade from near-equal reveals that Tarun's calculation under IM-level pressure degrades rapidly. Against Austin — a strong tactical player at similar rating — the same degradation is achievable by maintaining piece tension into the middlegame.</p>
+
+  <h3>C. Blundering From Winning Positions</h3>
+  <p>In Dulles R1 vs Jackson (1876), Tarun had a +4.96 winning advantage and played <strong>Bxg7</strong> (best f5, CPL 320, +4.96→+1.76). He still won the game, but the pattern — blundering from significant advantages — appears on both colors. Combined with the NA Open R8 collapse (Kh4/mate), this shows Tarun cannot reliably convert winning positions or hold drawish ones.</p>
+
+  <h3>D. Color Balance</h3>
+  <p>White avg: <strong>91.5%</strong>. Black avg: <strong>89.0%</strong> — a 2.5pp gap. Tarun is meaningfully stronger as White. When Austin is Black, he faces Tarun at his better side. However, the 3W–3L–1D classical White record (50%) means even at his stronger color, Tarun is not converting reliably. The king safety failures and triple-mistake cascades confirm exploitable weaknesses exist.</p>
+
+  <h2>§4 — Austin's Recommended Weapon</h2>
+
+  <h3>Primary: 1...Nf6 2...e6 — Branch Based on Tarun's 3rd Move</h3>
+  <div class="var-moves">1.c4  Nf6  2.Nc3  e6  [universal response — wait to see Tarun's plan]
+
+If Tarun plays 3.g3 (Catalan-type):
+  3...b6  4.Bg2  Bb7  5.Nf3  d5  [Queen's Indian-adjacent]
+  → Active ...Bb7 on long diagonal; avoid technical endgame simplification
+  → Target: positions with dynamic piece play around e4/d5
+
+If Tarun plays 3.e4 (Mikenas Attack):
+  3...c5  4.e5  Ng8  [main Mikenas defense]
+  → Ng8 retreats knight; Black prepares ...d6 to undermine e5 pawn
+  → Complex dynamic position; Tarun's Bd2/Nc3 breakdown vs IM applies here</div>
+
+  <h3>If Tarun plays Maróczy (1.c4 c5 2.Nf3 3.d4)</h3>
+  <div class="var-moves">1.c4  c5  [if Austin wants to invite Maróczy]
+2.Nf3  Nc6  3.d4  cxd4  4.Nxd4  [Maróczy Bind]
+→ 4...g6  5.e4  Bg7  [Accelerated Dragon/Maróczy Black setup]
+→ Fianchetto bishop, prepare ...d6 and ...Nf6 with dynamic piece play</div>
+
+  <div class="tip-box">
+    <strong>Force dynamic complexity early.</strong> Tarun's two clean White wins (95.1%, 94.7%) were patient technical grinds with zero blunders. His losses came in positions requiring sharp king-safety decisions (Kh4 mate, Kf2/Kg3 cascade). Avoid long, technical simplifications — keep tactical tension alive through move 25.
+  </div>
+
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The reference blueprint: <strong>NA Open R8 — Tarun (White, 1871) vs Bynum (LOSS, 89.1%)</strong> — Tarun's king walked into forced mate from Kh4 (CPL 1000, −6.43→−#).</p>
+  <ol>
+    <li><strong>Opening (moves 1–10):</strong> Play <code>1.c4 Nf6 2.Nc3 e6</code> and wait for Tarun's 3rd move. If 3.g3 → Queen's Indian setup. If 3.e4 → Mikenas defense 3...c5 4.e5 Ng8. Either way, avoid ultra-solid setups — maintain dynamic tension.</li>
+    <li><strong>Middlegame (moves 10–25):</strong> Create positions with open files pointing toward White's king. The Kf2/Kg3 pattern (Dulles R6) and Kh4 (NA Open R8) show Tarun's king instinctively moves in the wrong direction. Push activity on the kingside or create pawn tensions that force king-safety decisions.</li>
+    <li><strong>Equal positions are dangerous for Tarun:</strong> The Bd2/Nc3/h4 triple-mistake (Texas R5) all came from near-equal positions (−0.07, −0.09). If Austin reaches equality at move 20–25, keep all pieces on and look for complex tactical threats — Tarun's calculation degrades from equality.</li>
+    <li><strong>Never assume the game is lost:</strong> Bxg7 blunder from +4.96 (Dulles R1) shows Tarun drops advantages. Even if behind, keep the position alive.</li>
+  </ol>
+  <div class="tip-box">
+    <strong>The Kh4 precedent:</strong> Tarun played Kh4 (into forced mate) while rated 1871 as White. The king navigation failure has been confirmed in two separate games. Austin should keep pressure on White's king — when Tarun must calculate king safety precisely, the pattern can emerge.
+  </div>
+
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~50%</span>
+      vs Catalan-type (3.g3) → Queen's Indian structure
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Tarun:  1.c4  Nf6  2.Nc3  e6  3.g3  [Catalan-English]
+Austin: 3...b6  4.Bg2  Bb7  5.Nf3  d5  [QI-adjacent]
+or:     3...d5  4.d4  Bb4  [Bogo-style if d4 played]
+→ ...Bb7 diagonal targets e4; keep tension on long diagonal</div>
+      <ul>
+        <li><strong>After 5...d5:</strong> Austin has solid counterplay with the ...Bb7 bishop covering the long diagonal. Avoid exchanging it early — keep it as a permanent pressure piece.</li>
+        <li><strong>Target structure:</strong> Positions where White's fianchettoed king on g1 faces queenside pressure. Tarun's Catalan wins were in simplified endgames — deny that simplification.</li>
+        <li><strong>Watch for:</strong> Tarun's Kf2/Kg3 pattern emerged from a Catalan-English position (Dulles R6). If White's king leaves g1, calculate whether it walks into trouble.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~35%</span>
+      vs Mikenas Attack (3.e4) → Mikenas defense
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Tarun:  1.c4  Nf6  2.Nc3  e6  3.e4  c5  4.e5  Ng8  [Mikenas Attack / main defense]
+Austin: 4...Ng8  5.Nf3  Nc6  6.d4  cxd4  7.Nxd4  [standard continuation]
+→ Black prepares ...d6 to undermine White's e5 pawn wedge
+→ Complex dynamic middlegame where tactical calculation decides</div>
+      <ul>
+        <li>Tarun played the Mikenas against IM Fus (2419) and blundered Bd2/Nc3/h4 from equal — three consecutive mistakes. The same structure against Austin should yield similar calculation pressure.</li>
+        <li>After 4...Ng8, Black's plan is ..d6/cxd5/exd5 to liquidate the e5 pawn. The resulting open d-file and IQP ideas suit Austin's tactical style.</li>
+        <li><strong>Do not fear the Mikenas.</strong> Tarun used it against an IM and lost — it is a sharp weapon but one where his own calculation failed under pressure.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~15%</span>
+      vs Maróczy (1.c4 c5 transposition)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Tarun:  1.c4  c5  2.Nf3  Nc6  3.d4  cxd4  4.Nxd4  [Maróczy Bind]
+Austin: 4...g6  5.e4  Bg7  [Accelerated Dragon / Maróczy Black]
+or:     4...e6  5.Nb3  d5  [challenge the center immediately]
+→ Fianchetto or direct central challenge; both maintain dynamic play</div>
+      <ul>
+        <li>Tarun's Maróczy wins (Dulles R1 vs Jackson) involved a Bxg7 blunder from +4.96 — he could not convert a large advantage. If Austin reaches a Maróczy structure, play dynamically and trust that Tarun's conversion is unreliable.</li>
+        <li>Accelerated Dragon setup (...g6 ...Bg7) creates attacking chances on the long diagonal and h-file. Suits Austin's tactical style.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules for This Game</h3>
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Prepare two lines before sitting down: QI (vs 3.g3) and Mikenas defense (vs 3.e4)</div>
+          <div class="rule-body">Tarun plays 1.c4 exclusively. After 1...Nf6 2.Nc3 e6, he can play 3.g3 (Catalan-type) or 3.e4 (Mikenas Attack). Austin's Nimzo-Indian is not available here. Know the Queen's Indian (...b6 ...Bb7) response to 3.g3 and the Mikenas defense (3...c5 4.e5 Ng8) to 3.e4. Walking in unprepared to either line gives Tarun an opening advantage in his home territory.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Create positions requiring king-safety decisions — Kh4/Kf2/Kg3 pattern</div>
+          <div class="rule-body">Tarun walked his king into forced mate (Kh4, NA Open R8) and made two back-to-back king errors from near-equal (Kf2/Kg3, Dulles R6). These are confirmed, repeatable failures. Steer toward open-file positions pointing at White's king. When Tarun has to calculate whether a king move is safe, the probability of a critical error is high. Avoid simplified technical endgames where no king decisions are needed — those are Tarun's comfort zone (Dulles R3: 95.1%, Dulles R5: 94.7%).</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Keep all pieces on through move 25 — Bd2/Nc3/h4 cascade emerges under pressure</div>
+          <div class="rule-body">In Texas Grand Circuit R5 (Mikenas vs IM Fus), Tarun reached near-equality then played three consecutive mistakes (Bd2 CPL 269, Nc3 CPL 246, h4 CPL 197) all from within −0.09 of equality. This was under the pressure of a 2419-rated opponent. Against Austin at similar rating level, the same calculation degradation is achievable by maintaining complex positions. Do NOT simplify to an equal endgame — play actively, keep multiple threats alive, and watch Tarun's moves after the opening phase ends (moves 15–25 is the window).</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS BLACK vs 1.c4 — wait for Tarun's system:
+
+After 1.c4 Nf6 2.Nc3 e6:
+  If 3.g3 (Catalan-type):
+    3...b6 4.Bg2 Bb7 5.Nf3 d5 [Queen's Indian-adjacent]
+    OR 3...d5 4.d4 Bb4 [Bogo-type if d4 comes early]
+
+  If 3.e4 (Mikenas Attack):
+    3...c5 4.e5 Ng8 [main Mikenas defense]
+    → 5.Nf3 Nc6 6.d4 cxd4 7.Nxd4 d6 [undermine e5]
+
+  If 1.c4 c5 (Maróczy invite):
+    2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 g6 5.e4 Bg7 [Accelerated Dragon]
+
+ALERT PATTERNS — Tarun as White:
+  King moves: Kh4 (CPL 1000/mate), Kf2/Kg3 cascade (CPL 270+205)
+  Triple mistakes from equal: Bd2/Nc3/h4 (CPL 269/246/197 in sequence)
+  Blundering from winning: Bxg7 (CPL 320 from +4.96) — won anyway but pattern is real</div>
+
+    <h3>Tactical Motifs to Watch For</h3>
+    <table>
+      <thead><tr><th>Pattern</th><th>When it arises</th><th>Engine reference</th><th>CPL</th></tr></thead>
+      <tbody>
+        <tr class="row-danger"><td>Kh4 → forced mate</td><td>White king under pressure, must find safe square</td><td>NA Open R8: Kh4 (Kg2) CPL 1000, −6.43→−#</td><td class="acc-lo">1000</td></tr>
+        <tr class="row-danger"><td>Kf2/Kg3 cascade from equal</td><td>Near-equal position, White king needs to find active square</td><td>Dulles R6: Kf2 CPL 270, Kg3 CPL 205 back-to-back from −0.33</td><td class="acc-lo">270</td></tr>
+        <tr class="row-danger"><td>Bd2/Nc3/h4 triple collapse</td><td>Equal middlegame → endgame transition under IM-level pressure</td><td>Texas R5 vs IM Fus: CPL 269/246/197 in sequence from −0.07</td><td class="acc-lo">269</td></tr>
+        <tr><td>Bxg7 from +4.96</td><td>White winning, bishop sacrifice on g7 looks tempting but loses advantage</td><td>Dulles R1: Bxg7 (f5) CPL 320, +4.96→+1.76</td><td class="acc-lo">320</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>§8 — Day-of Preparation (30 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Opening drill — 15 min:</strong> Review both lines Austin needs today. <strong>Line A (Queen's Indian):</strong> replay <code>1.c4 Nf6 2.Nc3 e6 3.g3 b6 4.Bg2 Bb7 5.Nf3 d5</code> and ask: what is Black's plan? (Answer: ...Bb7 pressure on long diagonal, active piece play, avoid piece trades that simplify to technical endgame.) <strong>Line B (Mikenas):</strong> replay <code>1.c4 Nf6 2.Nc3 e6 3.e4 c5 4.e5 Ng8 5.Nf3 Nc6 6.d4 cxd4 7.Nxd4 d6</code> and ask: what is Black's plan? (Answer: undermine e5 with ...d6, open the d-file, active piece play.) Know both — Tarun decides at move 3.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Tactics drill — 10 min:</strong> 5 puzzles specifically on <em>king safety exploitation</em> — positions where White's king is on h4/f2/g3 and Black has an attacking resource. This builds the pattern recognition to spot Tarun's Kh4-type errors when they appear. Also 3 puzzles on <em>consecutive threats</em> — maintaining tension through multiple moves so the opponent must answer accurately on every turn (simulating the Bd2/Nc3/h4 degradation scenario).
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Mental visualization — 5 min:</strong> Picture Tarun's NA Open R8 game: he has a manageable position as White and plays Kh4 — walking his king into forced mate. Ask: <em>"What created that error?"</em> Answer: king safety calculation failure under pressure. Now ask: <em>"How does Austin recreate that pressure?"</em> Answer: keep pieces on, create open files toward White's king, force Tarun to calculate king safety on every move in the critical moment window (moves 20–35). That is when Kf2/Kg3 and Kh4 patterns emerge.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Tarun plays 1.c4 — I need two lines, not one. I know Queen's Indian and Mikenas defense. His Catalan wins were patient technical grinds — I will NOT give him that. His losses came when kings walked into trouble and calculations cascaded from equal positions. I keep complexity alive, I keep attacking ideas on the board, and I wait for the Kh4 moment. He is a fast improver but king-safety errors are confirmed at tournament level."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin B vs Catalan-type (3.g3)</td><td>A17</td><td><code>1.c4 Nf6 2.Nc3 e6 3.g3 b6 4.Bg2 Bb7 5.Nf3 d5</code></td></tr>
+      <tr><td>Austin B vs Mikenas Attack (3.e4)</td><td>A19</td><td><code>1.c4 Nf6 2.Nc3 e6 3.e4 c5 4.e5 Ng8 5.Nf3 Nc6 6.d4</code></td></tr>
+      <tr><td>Austin B vs Maróczy (1.c4 c5)</td><td>B36</td><td><code>1.c4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 g6 5.e4 Bg7</code></td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish movetime 800ms · 16 games</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">A</span>
+      Opening Gaps — Tarun as White
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Mikenas Attack vs IM Fus (86.2%, Texas R5):</strong> Tarun chose his sharpest weapon — the Mikenas Attack (1.c4 e6 2.Nc3 Nf6 3.e4) — against a 2419-rated opponent and scored only 86.2%. The pawn wedge on e5 gave a complex position but Tarun's handling after the opening failed. This suggests the Mikenas is a known system for Tarun but not deeply prepared at the endgame transition. When Austin plays Mikenas defense, the same endgame complexity that undid Tarun vs Fus will emerge.</p>
+      <p><strong>Catalan-English as best White opening (94.6% avg):</strong> Tarun's cleanest results come from quiet Catalan-type positions with no early tactical confrontations (Dulles R3: 95.1% draw, Dulles R5: 94.7% win). This is his preparation sweet spot — Austin should steer away from it by creating early dynamic imbalances in the QI structure rather than allowing simplification.</p>
+      <p><strong>Maróczy conversion gap:</strong> Dulles R1 win despite Bxg7 CPL 320 from +4.96. Even in his winning Maróczy game, Tarun gave up significant advantage — suggesting he is not fully secure in converting Maróczy structures.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">B</span>
+      Time-Pressure / Calculation Cascades
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>NA Open R8 — Kh4 forced mate (CPL 1000):</strong> In an endgame position where White was already under pressure (−6.43), Tarun played <code>Kh4</code> (best Kg2) — king walked directly into forced mate. CPL 1000. This is a complete king-safety calculation failure under tournament pressure. The position was lost but Kh4 accelerated immediate resignation.</p>
+      <p><strong>Texas R5 vs IM Fus — Bd2/Nc3/h4 cascade (CPL 269/246/197):</strong> Three consecutive mistakes all from near-equal positions (−0.07, −0.09, −3.96). <code>Bd2</code> instead of Bxd4, <code>Nc3</code> instead of Nxc5, <code>h4</code> instead of Rxd8 — each move deteriorated the position further. The cascade suggests Tarun's calculation speed drops significantly when the position transitions from middlegame to endgame against titled-level opponents. Against Austin under similar time pressure, this window is reachable.</p>
+      <p><strong>Dulles R6 — Kf2/Kg3 back-to-back (CPL 270/205):</strong> From a near-equal position (−0.33), Tarun played <code>Kf2</code> (best Nd7+) then <code>Kg3</code> (best Rc7) on consecutive moves. Both were king retreats instead of active piece moves. The king moved when pieces should have moved — a common time-pressure symptom.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Endgame Technique as White
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Dulles R1 — Bxg7 from +4.96 (CPL 320):</strong> With a +4.96 advantage, Tarun played <code>Bxg7</code> (best f5) — dropping the position from +4.96 to +1.76 in one move. He won the game, but the blunder from a winning position confirms he cannot reliably convert large advantages. This same pattern (winning→blunder) appears on Black too (5th Skyline R4: 14...e4 from −2.0 winning position).</p>
+      <p><strong>Mikenas endgame (Texas R5):</strong> Three consecutive endgame mistakes (Bd2/Nc3/h4) starting from near-equality. Tarun's endgame technique against higher-rated opponents is clearly insufficient. The IM exploited this systematically — Austin should target the same transition window (moves 25–40).</p>
+      <p><strong>Best endgames:</strong> Dulles R3 (95.1% draw, 0 blunders) and Dulles R5 (94.7% win, 0 blunders) — both were quiet technical grinds. Austin must avoid creating these simplified positions. Keep imbalances alive.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">English Catalan well-prepared; Mikenas used vs IM but 86.2% result; Maróczy conversion gap</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time Pressure</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Kh4 CPL 1000/mate; Bd2/Nc3/h4 cascade from equal; Kf2/Kg3 from −0.33</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Bxg7 from +4.96; Bd2/Nc3/h4 endgame cascade vs IM; clean wins in simplified Catalan</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">91.5% White / 89.0% Black — 2.5pp gap; Tarun stronger as White (caution for Austin as Black)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
