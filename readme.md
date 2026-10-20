@@ -7,6 +7,18 @@ The project in this folder is trying to help Austin to prepare the next big ches
 - based on what you have now. provide an recommendation plan when Austin play with Justin, analyze it differently when white and black
 - let's setup whatever we need for CLAUDE.md or agent.md for future need, you can provide your suggestion here.
 
+## Folder Structure
+
+```
+chess-analysis/
+├── analysis/         # Player analysis reports (austin + 12 opponents)
+├── pgnlib/           # Combined PGN library — one file per opponent, date desc
+├── matchup/          # Matchup prep: overview, deep, white, black HTMLs per opponent
+├── austin/           # Austin's game PGNs and review HTMLs by tournament
+├── opponents/        # Raw PGN files organised by opponent → tournament
+└── scripts/          # Stockfish analysis scripts + build-pgnlib.js
+```
+
 ## Shareable Links
 
 ### Index
@@ -21,7 +33,7 @@ The project in this folder is trying to help Austin to prepare the next big ches
 - Personal Study Pt.5: https://linuxbirdlin.github.io/chess-analysis/austin/personal-study/review.html
 - Personal Study Pt.5 Deep: https://linuxbirdlin.github.io/chess-analysis/austin/personal-study/review-deep.html
 
-### Matchup Plans
+### Matchup Plans (12 opponents)
 - Austin vs Justin: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-justin.html
 - Austin vs Aarush: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-aarush.html
 - Austin vs Aarush Deep: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-aarush-deep.html
@@ -33,6 +45,18 @@ The project in this folder is trying to help Austin to prepare the next big ches
 - Austin vs Fernando Deep: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-fernando-deep.html
 - Austin vs Pranav: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-pranav.html
 - Austin vs Pranav Deep: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-pranav-deep.html
+- Austin vs Emerson: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-emerson.html
+- Austin vs Emerson Deep: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-emerson-deep.html
+- Austin vs Leo: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-leo.html
+- Austin vs Leo Deep: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-leo-deep.html
+- Austin vs Tarun: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-tarun.html
+- Austin vs Tarun Deep: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-tarun-deep.html
+- Austin vs Daniel H: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-danielh.html
+- Austin vs Daniel H Deep: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-danielh-deep.html
+- Austin vs Yaen: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-yaen.html
+- Austin vs Yaen Deep: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-yaen-deep.html
+- Austin vs Daniel Lee: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-danielee.html
+- Austin vs Daniel Lee Deep: https://linuxbirdlin.github.io/chess-analysis/matchup/matchup-danielee-deep.html
 
 ## Task #2
 

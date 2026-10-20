@@ -25,16 +25,24 @@ chess-analysis/
 ├── austin-prep.html            # Shareable preparation INDEX (pure navigation hub)
 ├── austin-training.html        # 4-week training plan detail (linked from index)
 ├── austin-prep.md              # Source markdown for training plan content
-├── austin-analysis.md          # Austin's detailed player analysis
 │
-├── {opponent}-analysis.md      # One per opponent: justin, aarush, zachary, heye,
-│                               #   fernando, pranav (full stats, openings, patterns)
+├── analysis/                   # Player analysis reports (one per player)
+│   ├── austin-analysis.md      # Austin's detailed player analysis
+│   └── {opponent}-analysis.md  # One per opponent: justin, aarush, zachary, heye,
+│                               #   fernando, pranav, emerson, leo, tarun,
+│                               #   danielh, yaen, danielee
+│
+├── pgnlib/                     # Combined PGN library (one file per opponent)
+│   └── {Legal Name}.pgn        # All games merged, sorted by date desc, deduplicated
+│                               #   e.g. "Huang, Justin.pgn", "Ajith, Aarush.pgn"
 │
 ├── matchup/
 │   ├── matchup-{name}.md       # Matchup prep source (per opponent)
 │   ├── matchup-{name}.html     # Matchup prep HTML (shareable)
-│   └── matchup-{name}-deep.html  # Engine-backed deep analysis HTML
-│       # Deep HTMLs exist for: zachary, heye, fernando, pranav, aarush
+│   ├── matchup-{name}-deep.html  # Engine-backed deep analysis HTML
+│   ├── matchup-{name}-white.html # Austin as White per-color prep
+│   └── matchup-{name}-black.html # Austin as Black per-color prep
+│       # Full pipeline (deep + white + black) for all 12 opponents
 │
 ├── austin/
 │   ├── naycc2025/              # NAYCC 2025 games (9 games, PGN)
@@ -50,6 +58,7 @@ chess-analysis/
 │
 ├── scripts/
 │   ├── analyze-{opponent}.js   # Stockfish analysis scripts (one per opponent)
+│   ├── build-pgnlib.js         # Builds pgnlib/ from opponents/ (deduplicates, sorts)
 │   └── {opponent}-analysis-results.json  # Cached engine results
 │
 ├── training-coach/             # Training coach proposal docs
@@ -57,16 +66,16 @@ chess-analysis/
 └── opponents/
     ├── justin/                 # canadaclosed2026, pam2026, pamschool2026, torontoopen2026
     ├── aarush/                 # canadaclosed2026, pamschool2026, pam2026, torontoopen2026
-    ├── zachary/                # multiple tournament folders
-    ├── heye/                   # multiple tournament folders
-    ├── fernando/               # multiple tournament folders
+    ├── zachary/                # britishleague, bscup2026, canadaclose2026, pam2026, pamschool2026
+    ├── heye/                   # canadaclose2026, pam2026, pamschool2026, torontoopen2026
+    ├── fernando/               # ed-national, mex-ch16th, mex-op71, olypianational2026, pamschool2026
     ├── pranav/                 # agcafall2026, agcasummer2026, worldyouth2026
-    ├── emerson/                # 7 tournaments, 38 games — full pipeline complete
-    ├── leo/                    # 8 tournaments, 47 games — full pipeline complete
-    ├── tarun/                  # 6 tournaments, 16 games — full pipeline complete
-    ├── danielh/                # queretaro2024/2025/2026, anothergame — 8 games analyzed
-    ├── yaen/                   # saenz cabrera, yaen.pgn — 51 games analyzed
-    └── danielee/               # canadaclose2026, pam2026, pamschool2026, torontoopen2026 — 24 games analyzed
+    ├── emerson/                # 7 tournaments, 40 games
+    ├── leo/                    # jackson,leo.pgn — 47 games
+    ├── tarun/                  # Tarun.pgn, grandcircuit.pgn, skyline2026.pgn — 17 games
+    ├── danielh/                # queretaro2024/2025/2026, anothergame — 8 games
+    ├── yaen/                   # saenz cabrera, yaen.pgn — 64 games
+    └── danielee/               # canadaclose2026, pam2026, pamschool2026, torontoopen2026 — 24 games
 ```
 
 ---
