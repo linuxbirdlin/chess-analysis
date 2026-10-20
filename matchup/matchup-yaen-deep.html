@@ -9,39 +9,28 @@
     body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
     .page { max-width: 860px; margin: 0 auto; background: #ffffff; padding: 48px 56px 64px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
     @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
-
     .doc-header { border-bottom: 3px solid #2d7d46; padding-bottom: 20px; margin-bottom: 32px; }
     .doc-header h1 { margin: 0 0 8px; font-size: 1.85rem; color: #1f2328; }
     .doc-header .meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.9rem; color: #57606a; }
     .doc-header .meta span strong { color: #1f2328; }
     .doc-header .back-link { display: inline-block; margin-top: 14px; font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500; }
     .doc-header .back-link:hover { text-decoration: underline; }
-
     h2 { font-size: 1.3rem; color: #1f2328; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
     h3 { font-size: 1.05rem; color: #2d7d46; margin: 24px 0 8px; }
     hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
     p { margin: 0 0 12px; }
     ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
     li { margin-bottom: 4px; }
-
     .encounter { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; font-size: 0.93rem; margin-bottom: 28px; }
     .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 12px 0; font-size: 0.93rem; color: #1a4731; }
     .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 12px 0; font-size: 0.93rem; color: #7a0000; }
     .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 12px 0; font-size: 0.93rem; color: #1a3a55; }
-
     table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 16px 0 24px; }
     thead th { background: #2d7d46; color: #ffffff; padding: 10px 14px; text-align: left; font-weight: 600; }
-    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
     tbody tr:nth-child(even) { background: #ffffff; }
     tbody td { padding: 9px 14px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
     tbody tr:last-child td { border-bottom: none; }
-
-    .part-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 24px 0; overflow: hidden; }
-    .part-title { background: #2d7d46; color: #fff; padding: 12px 20px; font-size: 1.05rem; font-weight: 600; margin: 0; }
-    .part-title.engine { background: #7a4f00; }
-    .part-title.pattern { background: #1a3a5c; }
-    .part-body { padding: 20px 24px; }
-
     .game-row { border: 1px solid #d0d7de; border-radius: 8px; margin-bottom: 14px; overflow: hidden; }
     .game-row-header { background: #f6f8fa; border-bottom: 1px solid #d0d7de; padding: 9px 14px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
     .badge-white { font-size: 0.74rem; font-weight: 700; border-radius: 3px; padding: 2px 8px; background: #2d7d46; color: #fff; }
@@ -53,34 +42,26 @@
     .badge-acc-hi      { font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; background: #dafbe1; color: #1a4731; font-weight: 700; }
     .badge-acc-lo      { font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; background: #fff5f5; color: #7a0000; font-weight: 700; }
     .game-row-body { padding: 12px 16px; }
-
     .im-section-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #57606a; margin: 10px 0 4px; }
     .im-moment { font-size: 0.84rem; padding: 6px 10px; margin: 4px 0; border-radius: 4px; border-left: 3px solid #d4750a; background: #fff8f0; }
     .im-moment.blunder { border-left-color: #cf2222; background: #fff5f5; }
-    .im-moment.good { border-left-color: #2d7d46; background: #dafbe1; }
-    .im-tags { margin: 8px 0 4px; }
-    .im-tag { display: inline-block; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 12px; padding: 2px 10px; font-size: 0.77rem; margin: 2px 3px; color: #444; }
-    .im-tag.blunder { background: #fff5f5; border-color: #cf2222; color: #7a0000; }
-    .im-tag.upset { background: #fff8e6; border-color: #d4a017; color: #7a4f00; }
-    .im-prep { font-size: 0.86rem; margin-top: 10px; padding: 8px 12px; background: #fff8e6; border-left: 3px solid #d4a017; border-radius: 0 4px 4px 0; color: #7a4f00; }
-
-    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; }
-    em { font-style: italic; color: #57606a; }
     strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
 </style>
 </head>
 <body>
 <div class="page">
 
 <div class="doc-header">
-  <h1>Yaen Saenz Cabrera — Deep Engine Analysis</h1>
+  <h1>Austin Lin vs Yaen Saenz Cabrera</h1>
   <div class="meta">
-    <span><strong>Yaen rating:</strong> ~1841 FIDE (2026), peaked ~1899 (2024)</span>
-    <span><strong>Engine:</strong> Stockfish movetime-800 · 32/51 games analyzed (partial)</span>
-    <span><strong>Overall:</strong> 91.9% avg · White 92.6% (15g) · Black 91.1% (14g)</span>
-    <span><strong>Direct encounter:</strong> None on record</span>
+    <span><strong>50</strong> games analyzed</span>
+    <span>Overall avg <strong>90.9%</strong></span>
+    <span>White: <strong>91.2%</strong> (27g, 17W–8L–2D)</span>
+    <span>Black: <strong>90.6%</strong> (23g, 14W–3L–6D)</span>
+    <span>Stockfish movetime 800 · Oct 2026</span>
   </div>
-  <a class="back-link" href="../austin-prep.html">← Back to Prep Index</a>
+  <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
   &nbsp;&nbsp;
   <a class="back-link" href="matchup-yaen.html">← Matchup Overview</a>
   &nbsp;&nbsp;
@@ -90,288 +71,54 @@
 </div>
 
 <div class="encounter">
-  <strong>Engine summary (partial — 32/51 games):</strong> Stockfish movetime-800, 16 threads. Overall avg <strong>91.9%</strong> · White 92.6% (15g) · Black 91.1% (14g) · Unknown tournament 89.9% (3g). By format: Classical/Standard avg 93.6% (6g) — strongest format. Rapid avg 91.6% (22g). Blitz avg 90.7% (4g). Key patterns: <strong>B32 Sicilian as Black is Yaen's strongest opening form</strong> (won vs 1933 at 96.1%, beat Fernando Cortes Medina 1805 at 92.5%); <strong>C45 Scotch as White collapses vs 1900+ opposition</strong> (89.1% loss to Alba 1933: 7B4M; 84.5% classical C45 with f3?? CPL599 from equal); <strong>Qxb2 blunder pattern</strong> confirmed in B32 vs Garcia 1617 (CPL1000, +6.02→-5.13).
+  <strong>No direct encounter on record.</strong> Engine data: 50 games across 12 tournaments (Liga Interestelar 2023–2024, Olimpiada Nacional 2025, Macroregional 2025, XIII Torneo CDMX 2026, Macro Regional Durango 2024, Querétaro 2024–2026, and others). Overall record: <strong>31W–11L–8D</strong> (90.9% avg accuracy).
 </div>
 
-<div class="part-card">
-<p class="part-title engine">Accuracy by Tournament</p>
-<div class="part-body">
+<h2>Tournament Summary</h2>
 <table>
-<thead><tr><th>Tournament</th><th>TC</th><th>G</th><th>Avg Acc%</th><th>Result</th><th>Best / Worst</th></tr></thead>
-<tbody>
-<tr>
-  <td>Liga Interestelar (Standard)</td><td>60/30</td><td>5g</td><td><strong>93.6%</strong></td>
-  <td>4W-1L-0D</td>
-  <td>R6 Black Win 98.4% / R4 White Loss 93.7% (4B)</td>
-</tr>
-<tr>
-  <td>Olimpiada Nacional 2025 (Rapid 25+5)</td><td>25+5</td><td>5g</td><td><strong>92.0%</strong></td>
-  <td>3W-1L-1D</td>
-  <td>R4 White Draw 96.9% / R5 Black Loss 77.9% (3B2M)</td>
-</tr>
-<tr>
-  <td>Olimpiada Nacional 2025 (Rapid 10+5)</td><td>10+5</td><td>6g</td><td><strong>92.3%</strong></td>
-  <td>5W-1L-0D</td>
-  <td>R4 Black Win 94.3% vs CM 2140 / R7 White Loss 89.1% (7B4M) vs 1933</td>
-</tr>
-<tr>
-  <td>Liga Interestelar (Standard) — Classical</td><td>60/30</td><td>1g</td><td><strong>84.5%</strong></td>
-  <td>1W-0L-0D</td>
-  <td>f3?? CPL599 from equal in Scotch</td>
-</tr>
-<tr>
-  <td>Liga Intergaláctica Rapid 2</td><td>10+5</td><td>6g</td><td><strong>90.0%</strong></td>
-  <td>3W-1L-2D</td>
-  <td>R2 White Win 96.9% / R1 Black Draw 83.5% (4B2M)</td>
-</tr>
-<tr>
-  <td>Olimpiada Nacional 2025 (Blitz)</td><td>3+2</td><td>5g</td><td><strong>91.0%</strong></td>
-  <td>2W-1L-2D</td>
-  <td>R6 White Draw 95.7% / R5 Black Draw 80.1% (Qxb2 blunder)</td>
-</tr>
-<tr>
-  <td>Liga Intergaláctica Rapid 3</td><td>10+5</td><td>1g</td><td><strong>95.4%</strong></td>
-  <td>1W-0L-0D</td>
-  <td>—</td>
-</tr>
-<tr>
-  <td>Unknown (pending identification)</td><td>?</td><td>3g</td><td><strong>89.9%</strong></td>
-  <td>3W-0L-0D</td>
-  <td>Mixed; Kd4 king-walk blunder (CPL1000)</td>
-</tr>
-</tbody>
+  <thead><tr><th>Tournament</th><th>Games</th><th>Avg Acc%</th><th>Record</th></tr></thead>
+  <tbody><tr><td>Liga Intergaláctica Rapid 2</td><td>6</td><td>90.0%</td><td>3W–1L–2D</td></tr><tr><td>Olimpiada Nacional 2025 (Rapid 10+5)</td><td>6</td><td>92.1%</td><td>5W–1L–0D</td></tr><tr><td>Liga Interestelar (Standard)</td><td>5</td><td style="color:#1a6030;font-weight:700">93.6%</td><td>4W–1L–0D</td></tr><tr><td>Olimpiada Nacional 2025 (Blitz)</td><td>5</td><td>90.9%</td><td>2W–1L–2D</td></tr><tr><td>Olimpiada Nacional 2025 (Rapid 25+5)</td><td>5</td><td>91.7%</td><td>3W–1L–1D</td></tr><tr><td>Querétaro 2025</td><td>5</td><td>91.4%</td><td>4W–1L–0D</td></tr><tr><td>Unknown</td><td>4</td><td>91.9%</td><td>4W–0L–0D</td></tr><tr><td>Olimpiada Nacional 2025 (Classical)</td><td>4</td><td style="color:#8b0000;font-weight:700">83.8%</td><td>1W–2L–1D</td></tr><tr><td>Macroregional A 2025</td><td>3</td><td>88.8%</td><td>2W–1L–0D</td></tr><tr><td>XIII Torneo CDMX 2026</td><td>3</td><td style="color:#1a6030;font-weight:700">93.7%</td><td>2W–0L–1D</td></tr><tr><td>Macro Regional Durango 2024</td><td>3</td><td>89.9%</td><td>0W–2L–1D</td></tr><tr><td>Liga Intergaláctica Rapid 3</td><td>1</td><td style="color:#1a6030;font-weight:700">95.4%</td><td>1W–0L–0D</td></tr></tbody>
 </table>
-</div>
-</div>
 
-<h2>Key Games — Critical Moments</h2>
+<h2>Key Findings</h2>
 
-<h3>Worst Performances</h3>
-
-<div class="game-row">
-<div class="game-row-header">
-  <span class="badge-black">BLACK</span>
-  <span style="font-weight:600;font-size:0.92rem;flex:1;">Olimpiada Rapid 25+5 R5 · B32 Sicilian Sveshnikov · vs Guzman Garcia, Mia Fernanda (1885)</span>
-  <span class="badge-result-loss">LOSS</span>
-  <span class="badge-acc-lo">77.9%</span>
-  <span style="font-size:0.78rem;color:#57606a;">CPL:82 · B:3 · M:2</span>
-</div>
-<div class="game-row-body">
-  <div class="im-section-label">Critical Moments — Worst Game in Dataset</div>
-  <div class="im-moment blunder"><strong>Qc8</strong> (best: unclear) — CPL 556 · <strong>+3.32→−2.24</strong>. From a winning position (+3.32 for Black), Yaen played Qc8 — a passive queen retreat. Eval swung from winning to losing in one move.</div>
-  <div class="im-tags"><span class="im-tag blunder">3 blunders, 2 mistakes — worst game</span><span class="im-tag upset">Rating upset vs 1885</span></div>
-  <div class="im-prep">Yaen's worst game: 77.9% in B32 Sicilian, his primary weapon. Lost to Guzman Garcia (1885) in rapid despite being in familiar Sveshnikov territory. Key pattern: Qc8 passive queen retreat from winning → losing. Confirms that even in the Sveshnikov, Yaen can collapse against 1800+ opposition. <strong>For Austin: if Austin can force complications in Yaen's Sveshnikov territory (vs Rossolimo this doesn't apply), expect calculation failures.</strong></div>
-</div>
-</div>
-
-<div class="game-row">
-<div class="game-row-header">
-  <span class="badge-black">BLACK</span>
-  <span style="font-weight:600;font-size:0.92rem;flex:1;">Olimpiada Blitz R5 · B32 Sicilian Sveshnikov · vs Garcia Solis, Miguel Angel (1617)</span>
-  <span class="badge-result-draw">DRAW</span>
-  <span class="badge-acc-lo">80.1%</span>
-  <span style="font-size:0.78rem;color:#57606a;">CPL:61 · B:1 · M:3</span>
-</div>
-<div class="game-row-body">
-  <div class="im-section-label">Critical Moments — Defining Qxb2 Blunder</div>
-  <div class="im-moment blunder"><strong>Qxb2</strong> (best: Qxe1) — CPL 1000 · <strong>+6.02→−5.13</strong>. From a completely dominant position (+6.02), Yaen played the greedy Qxb2 (capturing a pawn) instead of the mating/winning Qxe1 (back-rank threat). Eval crashed from winning to losing in one move — 11.15-point swing.</div>
-  <div class="im-moment"><strong>d5</strong> (best: Qc4) — CPL 260 · −0.88→−3.48. Earlier in the game, from a slightly unfavorable position (-0.88), Yaen played d5 pawn push instead of Qc4 (activating the queen). Made the position worse.</div>
-  <div class="im-tags"><span class="im-tag blunder">Qxb2 greedy capture — Yaen's signature mistake</span></div>
-  <div class="im-prep">Only drew (instead of losing) because Garcia Solis (1617) also blundered back. The Qxb2 pattern is Yaen's defining middlegame failure: he sees a "free" pawn and captures it without calculating whether a tactical refutation exists. For Austin as White (Rossolimo): position the pieces so that b2 can be "grabbed" but the queen becomes trapped.</div>
-</div>
-</div>
-
-<div class="game-row">
-<div class="game-row-header">
-  <span class="badge-white">WHITE</span>
-  <span style="font-weight:600;font-size:0.92rem;flex:1;">Olimpiada Rapid 10+5 R7 · C45 Scotch Game · vs Alba, Ruiz Kenneth Damian (1933)</span>
-  <span class="badge-result-loss">LOSS</span>
-  <span class="badge-acc-lo">89.1%</span>
-  <span style="font-size:0.78rem;color:#57606a;">CPL:64 · B:7 · M:4 = 11 major errors</span>
-</div>
-<div class="game-row-body">
-  <div class="im-section-label">Critical Moments — Worst White Game</div>
-  <div class="im-moment blunder"><strong>Rxe4</strong> (best unclear) — CPL 1000 · −8.03→−91.49. King-side collapse: in a losing position, Yaen's Rxe4 accelerated the loss dramatically (eval −8 → −91).</div>
-  <div class="im-tags"><span class="im-tag blunder">7B + 4M = 11 errors — complete collapse vs 1933</span></div>
-  <div class="im-prep"><strong>The defining White weakness in Scotch C45 vs near-equal opposition.</strong> Yaen made 11 major errors against a 1933-rated player (+92 pts above Yaen) in the Scotch. This is not a single bad move — it is a systematic breakdown of calculation under tactical pressure throughout the game. Austin at 1865 is within 68 pts of Alba 1933. The same pattern will apply.</div>
-</div>
-</div>
-
-<div class="game-row">
-<div class="game-row-header">
-  <span class="badge-white">WHITE</span>
-  <span style="font-weight:600;font-size:0.92rem;flex:1;">Olimpiada Rapid 10+5 R1 · Olimpiada Classical R5 · C45 Scotch · vs Davis, Villarreal Miguel (1566)</span>
-  <span class="badge-result-win">WIN</span>
-  <span class="badge-acc-lo">84.5%</span>
-  <span style="font-size:0.78rem;color:#57606a;">CPL:48 · B:1 · M:1 · TC: 90/30</span>
-</div>
-<div class="game-row-body">
-  <div class="im-section-label">Critical Moment — Classical Scotch Blunder</div>
-  <div class="im-moment blunder"><strong>f3</strong> (best: unclear) — CPL 599 · <strong>−0.37→−6.36</strong>. From a near-equal position (−0.37 ≈ 0.00), Yaen played f3 — solidifying the pawn center in classical time control. But this blunder immediately gave Black a −6.36 advantage. In classical time control where calculation should be better, Yaen made a critical error on move 17. This is the most concerning data point: <strong>even in 90/30 classical, Yaen blunders in the Scotch from an equal position.</strong></div>
-  <div class="im-tags"><span class="im-tag">classical 90/30 blunder from equal</span></div>
-  <div class="im-prep">Yaen won despite f3?? blunder only because Davis (1566) couldn't capitalize. For Austin: this shows the Scotch C45 is Yaen's weakness even with more time. The f3 blunder from equal in classical suggests Yaen's Scotch middlegame understanding has gaps — not just time-pressure issues.</div>
-</div>
-</div>
-
-<h3>Significant Wins — Opponent Strength Context</h3>
-
-<div class="game-row">
-<div class="game-row-header">
-  <span class="badge-black">BLACK</span>
-  <span style="font-weight:600;font-size:0.92rem;flex:1;">Olimpiada Rapid 10+5 R4 · A23 English vs ...Nc6 · vs Campillo Soto, Emilio (2140)</span>
-  <span class="badge-result-win">WIN</span>
-  <span class="badge-acc-hi">94.3%</span>
-  <span style="font-size:0.78rem;color:#57606a;">CPL:14 · B:0 · M:0</span>
-</div>
-<div class="game-row-body">
-  <div class="im-section-label">Upset Win — +299 Rating Difference</div>
-  <div class="im-moment good">94.3% accuracy, zero blunders, zero mistakes — Yaen beat Campillo Soto (2140) with near-perfect play in an English Opening A23 structure. This is Yaen's biggest upset win by rating difference in the dataset.</div>
-  <div class="im-tags"><span class="im-tag upset">Beat 2140-rated (+299 pts) with 94.3%</span></div>
-  <div class="im-prep"><strong>Warning for Austin:</strong> Yaen CAN play at 94%+ against much higher-rated opponents when the position suits him. This was not a lucky win — zero errors in a complex English structure. Austin at 1865 is "only" +24 pts above Yaen. Do not underestimate Yaen's upside in favorable positions.</div>
-</div>
-</div>
-
-<div class="game-row">
-<div class="game-row-header">
-  <span class="badge-black">BLACK</span>
-  <span style="font-weight:600;font-size:0.92rem;flex:1;">Olimpiada Rapid 25+5 R3 · B32 Sicilian Sveshnikov · vs Alba, Ruiz Kenneth Damian (1933)</span>
-  <span class="badge-result-win">WIN</span>
-  <span class="badge-acc-hi">96.1%</span>
-  <span style="font-size:0.78rem;color:#57606a;">CPL:30 · B:1 · M:0</span>
-</div>
-<div class="game-row-body">
-  <div class="im-section-label">Upset Win — Same 1933-Rated Opponent Yaen Lost to as White</div>
-  <div class="im-moment good">96.1% accuracy, 1 blunder but still won — Yaen beat the same Alba 1933 as BLACK in B32 Sveshnikov with near-perfect play. In the same Olimpiada where Yaen (as White) made 7 blunders against Alba, Yaen played a completely different game as Black.</div>
-  <div class="im-tags"><span class="im-tag upset">Beat 1933-rated (+92 pts) in B32</span><span class="im-tag">vs same player who beat Yaen as White (7B4M)</span></div>
-  <div class="im-prep"><strong>Key asymmetry confirmed:</strong> Yaen BEATS Alba 1933 as Black in Sveshnikov (96.1%) but LOSES to Alba 1933 as White in Scotch (89.1%, 11 errors). This shows the color-specific preparation gap — Yaen's B32 Black preparation is genuinely strong, while his C45 White preparation fails vs same-level opposition. Austin's Rossolimo (avoiding B32 entirely) is the correct counter.</div>
-</div>
-</div>
-
-<div class="game-row">
-<div class="game-row-header">
-  <span class="badge-white">WHITE</span>
-  <span style="font-weight:600;font-size:0.92rem;flex:1;">Olimpiada Rapid 10+5 R5 · C02 French Advance · vs Jackson, Leo Daniel Olivera (1882)</span>
-  <span class="badge-result-win">WIN</span>
-  <span class="badge-acc">93.4%</span>
-  <span style="font-size:0.78rem;color:#57606a;">CPL:22 · B:0 · M:1</span>
-</div>
-<div class="game-row-body">
-  <div class="im-section-label">Win vs Near-Austin-Level Opposition</div>
-  <div class="im-moment good">93.4% vs Leo Jackson (1882, only 17 pts below Austin) — Yaen beat Leo Jackson twice in this dataset (also Olimpiada Rapid 25+5 R7 at 92.8%) using C02 French Advance. Relevant: Austin has also analyzed Leo Jackson. Yaen played the French Advance well vs Leo — the same French Advance Austin plays.</div>
-  <div class="im-tags"><span class="im-tag">Beat Leo Jackson 1882 twice with C02 French</span></div>
-  <div class="im-prep">Yaen wins with the French Advance (C02) — the same system Austin uses as White. This shows Yaen understands this structure well as White. However, Austin plays 1.e4 vs Yaen's Sicilian — so C02 only arises if Yaen plays 1...e6 vs Austin. More relevant for this matchup: Yaen beat Leo Jackson at 93.4%, showing his White capability vs 1880-level opponents when NOT in the Scotch.</div>
-</div>
-</div>
-
-<hr>
-
-<div class="part-card">
-<p class="part-title engine">White Performance by Opening</p>
-<div class="part-body">
-<table>
-<thead><tr><th>ECO</th><th>Opening</th><th>G</th><th>Avg%</th><th>Record</th><th>Key Opponents</th></tr></thead>
-<tbody>
-<tr>
-  <td>C45</td><td>Scotch Game</td><td>5</td><td><strong>91.0%</strong></td><td>3W-1L-1D</td>
-  <td>Lost vs Alba 1933 (89.1%, 7B4M); drew vs Cardenas 1709 (blitz); won vs sub-1600</td>
-</tr>
-<tr>
-  <td>B90</td><td>Sicilian English Attack (Najdorf)</td><td>3</td><td><strong>93.5%</strong></td>
-  <td>2W-1L-0D</td>
-  <td>Lost vs Contreras 1947 (90.1%, 4M); won vs sub-1600 (blitz)</td>
-</tr>
-<tr>
-  <td>C02</td><td>French Advance</td><td>2</td><td><strong>93.1%</strong></td>
-  <td>2W-0L-0D</td>
-  <td>Beat Leo Jackson (1882) twice; Ng7+ inaccuracy vs Leo</td>
-</tr>
-<tr>
-  <td>D00</td><td>London / Queen's Pawn</td><td>2</td><td><strong>89.5%</strong></td>
-  <td>1W-0L-0D</td>
-  <td>One win vs 1599, one analyzed; h4?? CPL1000 in winning position</td>
-</tr>
-<tr>
-  <td>C47/C42/C44</td><td>Four Knights / Petrov / Scotch Gambit</td><td>3</td><td><strong>91.6%</strong></td>
-  <td>1W-1L-1D</td>
-  <td>Lost to Estrada 2151 (4B); drew vs Cardenas 1709 (blitz, C42)</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<div class="part-card">
-<p class="part-title engine">Black Performance by Opening</p>
-<div class="part-body">
-<table>
-<thead><tr><th>ECO</th><th>Opening</th><th>G</th><th>Avg%</th><th>Record</th><th>Key Opponents</th></tr></thead>
-<tbody>
-<tr>
-  <td>B32/B33</td><td>Sicilian Sveshnikov/Kalashnikov</td><td>4</td><td><strong>91.3%</strong></td>
-  <td>2W-1L-1D</td>
-  <td>Won vs Alba 1933 (96.1%); won vs Camargo 1586; lost to Cortes 1904 (92.6%, 2B); drew vs Garcia 1617 (80.1%, Qxb2 blunder)</td>
-</tr>
-<tr>
-  <td>D35/D55/D30/D43</td><td>QGD / Semi-Slav family</td><td>5</td><td><strong>92.7%</strong></td>
-  <td>4W-0L-1D</td>
-  <td>Best: 98.4% vs Maciel 1536; worst: 83.5% (4B2M) vs Camargo 1568 in D55</td>
-</tr>
-<tr>
-  <td>B22/B23</td><td>Sicilian Alapin Response</td><td>3</td><td><strong>87.9%</strong></td>
-  <td>1W-0L-2D</td>
-  <td>87% draw with 10 mistakes; worst B22 performance (84.8%, king walk Kd4)</td>
-</tr>
-<tr>
-  <td>A29/A23</td><td>English KI Attack / English</td><td>2</td><td><strong>93.4%</strong></td>
-  <td>2W-0L-0D</td>
-  <td>Beat Campillo Soto 2140 (94.3%); beat Cortes 1805 (92.5%)</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<hr>
-
-<div class="part-card">
-<p class="part-title pattern">Key Patterns — Austin's Exploitation Guide</p>
-<div class="part-body">
-
-<h3>Pattern #1 — Scotch C45 Collapse vs Near-Equal White Opposition</h3>
 <div class="warn-box">
-  <strong>C45 Scotch losses:</strong> 89.1% vs Alba 1933 (7B4M) and 84.5% in classical 90/30 (f3?? CPL599 from equal). Yaen's Scotch preparation has tactical gaps that emerge against 1850+ opposition. But since Austin plays 1...c5, the Scotch doesn't arise (requires 1...e5). The key implication: Yaen's White game overall is weaker against near-equal opponents — this applies to his B90 English Attack too (1B4M loss to Contreras 1947).
+  <strong>Worst game:</strong> Olimpiada Nacional 2025 Rapid 25+5 R5 — 77.1% as Black (LOSS vs Guzman Garcia, B32 Sicilian). Threw a +6.02 winning advantage via CPL560/478/332 triple-error sequence. Shows Yaen collapses from winning Sicilian Black positions.
 </div>
 
-<h3>Pattern #2 — Qxb2 Greedy Capture from Winning Position</h3>
 <div class="warn-box">
-  <strong>Qxb2?? (CPL1000, +6.02→−5.13) in Blitz B32:</strong> From a completely dominant position, Yaen played the greedy pawn capture instead of the mating move (Qxe1). This is not a time-pressure anomaly — it is a calculation pattern. Yaen prioritizes material over precise calculation. In Rossolimo positions, Austin should create opportunities for b2 captures that are tactically refutable.
+  <strong>Classical collapse:</strong> Olimpiada Nacional 2025 Classical averaged only <strong>83.8%</strong> (1W–2L–1D). Lost to Jalomo Toribio (CPL953 at move 32, C02) and Sevilla Ramirez (1753). Yaen’s worst performance section by far.
 </div>
 
-<h3>Pattern #3 — B32 Sveshnikov Losses Under Pressure</h3>
 <div class="warn-box">
-  <strong>Loss to Guzman Garcia 1885 (77.9%, 3B2M) and partial loss to Cortes 1904 (92.6%, 2B) in B32:</strong> Even in Yaen's primary Black weapon, he collapses against 1800+ opposition under pressure. Qc8 (CPL556, +3.32→-2.24) and Kf8 (CPL1000) confirm piece-placement failures. This is why Austin's Rossolimo is the right weapon — it avoids Yaen's B32 strength while forcing unfamiliar structural decisions.
+  <strong>Querétaro 2025 R7 — Scotch collapse:</strong> 79.5% as White, LOSS to Sevilla Ramirez (1709) in B46 Sicilian Kan. CPL1000 at move 36: near-equal position (-0.23) catastrophically became -11.52. Confirms Yaen’s White game can collapse even vs lower-rated opponents when under pressure.
 </div>
 
-<h3>Pattern #4 — Outstanding Black Accuracy vs Higher-Rated (A23/A29 English)</h3>
+<div class="warn-box">
+  <strong>Macro Regional Durango 2024 — 0W-2L-1D, both losses C25 Vienna Game:</strong> Both White losses had CPL1000 at move 27 in C25 Vienna. Possible specific theoretical gap.
+</div>
+
+<div class="tip-box">
+  <strong>Best game:</strong> Liga Interestelar (Standard) R6 — 98.4% as Black (WIN vs Maciel Martinez, D30). Near-perfect classical game.
+</div>
+
+<div class="tip-box">
+  <strong>Biggest upset win:</strong> Olimpiada Nacional 2025 Rapid 10+5 R4 — 94.3% as Black (WIN vs Campillo Soto 2140, A23 English). Beat a 2140-rated player. Demonstrates Yaen has real tactical ceiling.
+</div>
+
+<div class="tip-box">
+  <strong>Leo Jackson (Austin’s potential opponent) — beaten twice:</strong> Olimpiada Rapid 10+5 R5 (93.4%, White, WIN, C02) and Rapid 25+5 R7 (92.8%, White, WIN, C02). Both in French Advance as White vs Jackson. Yaen’s C02 is reliable.
+</div>
+
 <div class="info-box">
-  Yaen beat Campillo Soto (2140) at 94.3% in A23 and beat Cortes Medina (1805) at 92.5% in A29 — both as Black in English structures. This shows Yaen's positional understanding is genuine. In quiet, non-forcing structures where preparation matters less, Yaen can execute near-perfectly. <strong>Austin must avoid simplified, positional structures — complexity and forced lines are required.</strong>
+  <strong>Color asymmetry confirmed:</strong> Olimpiada Rapid 25+5 — Yaen LOST to Alba (1933) as White at 89.1% (7B4M, C45 Scotch) but WON vs Alba (1933) as Black at 96.1% (B32 Sicilian). Same opponent, same tournament. Austin’s Rossolimo sidesteps Yaen’s B32 prep and puts him in White Scotch territory where he collapses.
 </div>
 
-<h3>Summary Table — Biggest Blunders</h3>
-<table>
-<thead><tr><th>Pattern</th><th>Game</th><th>CPL</th><th>Eval swing</th><th>Context</th></tr></thead>
-<tbody>
-<tr><td>Qxb2 greedy capture</td><td>Olimpiada Blitz B32 [B DRAW vs 1617]</td><td>1000</td><td>+6.02→−5.13</td><td>From WINNING → losing</td></tr>
-<tr><td>Qc8 passive retreat</td><td>Olimpiada Rapid 25+5 B32 [B LOSS vs 1885]</td><td>556</td><td>+3.32→−2.24</td><td>From WINNING → losing</td></tr>
-<tr><td>Rxe4 king-side collapse</td><td>Olimpiada Rapid 10+5 C45 [W LOSS vs 1933]</td><td>1000</td><td>−8.03→−91.49</td><td>Accelerated loss</td></tr>
-<tr><td>f3 opening blunder</td><td>Olimpiada Classical C45 [W WIN vs 1566]</td><td>599</td><td>−0.37→−6.36</td><td>From EQUAL → losing (classical!)</td></tr>
-<tr><td>Qf7 wrong queen square</td><td>Liga Intergaláctica R2 D55 [B DRAW]</td><td>474</td><td>+0.00→−4.74</td><td>From EQUAL → losing</td></tr>
-<tr><td>g3 defensive error</td><td>Liga Interestelar C47 [W LOSS vs 2151]</td><td>710</td><td>−2.66→−9.76</td><td>Collapsed when losing</td></tr>
-</tbody>
-</table>
+<hr/>
 
-</div>
-</div>
+<h2>All Games (50 games, sorted by tournament)</h2>
+
+<div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-win">WIN</span> <span class="badge-acc">91.6%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Morales De Leon, Sara Christine</strong> &middot; <em>Liga Interestelar (Standard)</em> &middot; C45</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>91.6%</strong> &middot; Opp: 89.3% &middot; CPL 57 &middot; 3B 3M 9I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 53: <strong>BLUNDER</strong> (CPL 1000) · # → +6.85 · Best: Rh8+</div><div class="im-moment blunder">Move 56: <strong>BLUNDER</strong> (CPL 1000) · # → +6.77 · Best: Kc6</div><div class="im-moment blunder">Move 42: <strong>BLUNDER</strong> (CPL 477) · +5.19 → +0.42 · Best: Rb8+</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-win">WIN</span> <span class="badge-acc">93.3%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Quevedo Ponce, Juan</strong> &middot; <em>Liga Interestelar (Standard)</em> &middot; D00</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>93.3%</strong> &middot; Opp: 88.6% &middot; CPL 46 &middot; 1B 1M 5I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 46: <strong>BLUNDER</strong> (CPL 1000) · # → +9.43 · Best: Rh2+</div><div class="im-moment ">Move 42: <strong>MISTAKE</strong> (CPL 174) · +8.40 → +6.66 · Best: g3</div><div class="im-moment ">Move 22: <strong>INACCURACY</strong> (CPL 103) · +1.82 → +0.79 · Best: Ra8</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-win">WIN</span> <span class="badge-acc">91.2%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Contreras Cardona, Alfredo Ignacio</strong> &middot; <em>Liga Interestelar (Standard)</em> &middot; D35</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>91.2%</strong> &middot; Opp: 87.9% &middot; CPL 56 &middot; 4B 0M 3I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 53: <strong>BLUNDER</strong> (CPL 1000) · +91.65 → +60.01 · Best: b2</div><div class="im-moment blunder">Move 55: <strong>BLUNDER</strong> (CPL 1000) · +94.78 → +0.31 · Best: Qe1+</div><div class="im-moment blunder">Move 58: <strong>BLUNDER</strong> (CPL 582) · +5.82 → +0.00 · Best: Kb4</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-loss">LOSS</span> <span class="badge-acc">93.7%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Estrada Nieto, Julian</strong> &middot; <em>Liga Interestelar (Standard)</em> &middot; C47</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>93.7%</strong> &middot; Opp: 97% &middot; CPL 62 &middot; 4B 0M 3I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 44: <strong>BLUNDER</strong> (CPL 1000) · -19.90 → -# · Best: Ng1</div><div class="im-moment blunder">Move 38: <strong>BLUNDER</strong> (CPL 710) · -2.66 → -9.76 · Best: Kh5</div><div class="im-moment blunder">Move 41: <strong>BLUNDER</strong> (CPL 405) · -7.58 → -11.63 · Best: Ne2</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-win">WIN</span> <span class="badge-acc-hi">98.4%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Maciel Martinez, Sebastian</strong> &middot; <em>Liga Interestelar (Standard)</em> &middot; D30</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>98.4%</strong> &middot; Opp: 95.6% &middot; CPL 5 &middot; 0B 0M 1I</span><div class="im-section-label">Critical Moments</div><div class="im-moment ">Move 48: <strong>INACCURACY</strong> (CPL 97) · +6.69 → +5.72 · Best: Nc3+</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-draw">DRAW</span> <span class="badge-acc-lo">83.5%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Camargo Ortega, Ricardo</strong> &middot; <em>Liga Intergaláctica Rapid 2</em> &middot; D55</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>83.5%</strong> &middot; Opp: 86.4% &middot; CPL 57 &middot; 4B 2M 5I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 39: <strong>BLUNDER</strong> (CPL 474) · +0.00 → -4.74 · Best: Qd8</div><div class="im-moment blunder">Move 41: <strong>BLUNDER</strong> (CPL 436) · +0.00 → -4.36 · Best: Qe8</div><div class="im-moment blunder">Move 36: <strong>BLUNDER</strong> (CPL 387) · +3.87 → +0.00 · Best: Kh7</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-win">WIN</span> <span class="badge-acc-hi">96.9%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Leon Albisoru, Iulius</strong> &middot; <em>Liga Intergaláctica Rapid 2</em> &middot; C45</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>96.9%</strong> &middot; Opp: 89.8% &middot; CPL 46 &middot; 1B 0M 0I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 23: <strong>BLUNDER</strong> (CPL 1000) · # → +9.42 · Best: Nh5</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-win">WIN</span> <span class="badge-acc">93.6%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Romero Martinez, Ian</strong> &middot; <em>Liga Intergaláctica Rapid 2</em> &middot; B33</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>93.6%</strong> &middot; Opp: 90.8% &middot; CPL 28 &middot; 0B 3M 7I</span><div class="im-section-label">Critical Moments</div><div class="im-moment ">Move 44: <strong>MISTAKE</strong> (CPL 262) · +6.26 → +3.64 · Best: Qd4</div><div class="im-moment ">Move 45: <strong>MISTAKE</strong> (CPL 205) · +7.35 → +5.30 · Best: Qd4</div><div class="im-moment ">Move 49: <strong>MISTAKE</strong> (CPL 172) · +9.61 → +7.89 · Best: Nxc4</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-loss">LOSS</span> <span class="badge-acc">90.1%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Contreras Cardona, Alfredo Ignacio</strong> &middot; <em>Liga Intergaláctica Rapid 2</em> &middot; B90</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>90.1%</strong> &middot; Opp: 96% &middot; CPL 77 &middot; 1B 4M 3I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 31: <strong>BLUNDER</strong> (CPL 1000) · -10.91 → -# · Best: Rd3</div><div class="im-moment ">Move 15: <strong>MISTAKE</strong> (CPL 243) · -0.41 → -2.84 · Best: Na5</div><div class="im-moment ">Move 28: <strong>MISTAKE</strong> (CPL 190) · -7.90 → -9.80 · Best: Kd2</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-draw">DRAW</span> <span class="badge-acc">87%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Morales De Leon, Ana Lucia</strong> &middot; <em>Liga Intergaláctica Rapid 2</em> &middot; B23</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>87%</strong> &middot; Opp: 89.5% &middot; CPL 68 &middot; 0B 10M 11I</span><div class="im-section-label">Critical Moments</div><div class="im-moment ">Move 38: <strong>MISTAKE</strong> (CPL 231) · -4.58 → -6.89 · Best: Kd7</div><div class="im-moment ">Move 22: <strong>MISTAKE</strong> (CPL 218) · -0.73 → -2.91 · Best: Kg8</div><div class="im-moment ">Move 49: <strong>MISTAKE</strong> (CPL 217) · -7.21 → -9.38 · Best: f3</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-win">WIN</span> <span class="badge-acc">88.8%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Martin Del Campo Gonzalez, Naomi</strong> &middot; <em>Liga Intergaláctica Rapid 2</em> &middot; D00</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>88.8%</strong> &middot; Opp: 84.1% &middot; CPL 72 &middot; 2B 2M 4I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 32: <strong>BLUNDER</strong> (CPL 1000) · # → +7.28 · Best: Qh4</div><div class="im-moment blunder">Move 33: <strong>BLUNDER</strong> (CPL 437) · +9.65 → +5.28 · Best: Qd2</div><div class="im-moment ">Move 35: <strong>MISTAKE</strong> (CPL 266) · +4.82 → +2.16 · Best: Nxg5</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-win">WIN</span> <span class="badge-acc-hi">95.4%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Camargo Ortega, Ricardo</strong> &middot; <em>Liga Intergaláctica Rapid 3</em> &middot; D43</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>95.4%</strong> &middot; Opp: 91.6% &middot; CPL 38 &middot; 1B 1M 7I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 48: <strong>BLUNDER</strong> (CPL 833) · +88.84 → +80.51 · Best: Kg4</div><div class="im-moment ">Move 20: <strong>MISTAKE</strong> (CPL 181) · +7.49 → +5.68 · Best: Nxf4+</div><div class="im-moment ">Move 10: <strong>INACCURACY</strong> (CPL 145) · +0.79 → -0.66 · Best: dxc4</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-loss">LOSS</span> <span class="badge-acc">88.6%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Alba Ruiz, Kenneth Damian</strong> &middot; <em>Macro Regional Durango 2024</em> &middot; C25</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>88.6%</strong> &middot; Opp: 91.6% &middot; CPL 57 &middot; 2B 2M 11I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 27: <strong>BLUNDER</strong> (CPL 1000) · +4.86 → -6.19 · Best: Rd1</div><div class="im-moment blunder">Move 61: <strong>BLUNDER</strong> (CPL 420) · -9.24 → -13.44 · Best: Kh3</div><div class="im-moment ">Move 18: <strong>MISTAKE</strong> (CPL 286) · -0.06 → -2.92 · Best: Rd2</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-loss">LOSS</span> <span class="badge-acc">88.6%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Kenneth Damian Alba, Ruiz</strong> &middot; <em>Macro Regional Durango 2024</em> &middot; C25</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>88.6%</strong> &middot; Opp: 91.5% &middot; CPL 58 &middot; 2B 2M 13I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 27: <strong>BLUNDER</strong> (CPL 1000) · +5.06 → -6.63 · Best: Rd1</div><div class="im-moment blunder">Move 61: <strong>BLUNDER</strong> (CPL 416) · -10.04 → -14.20 · Best: Kh3</div><div class="im-moment ">Move 18: <strong>MISTAKE</strong> (CPL 294) · -0.13 → -3.07 · Best: Rd2</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-draw">DRAW</span> <span class="badge-acc">92.4%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Rascon Peralta, Bolivar Ernesto</strong> &middot; <em>Macro Regional Durango 2024</em> &middot; B25</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>92.4%</strong> &middot; Opp: 86.4% &middot; CPL 19 &middot; 0B 1M 2I</span><div class="im-section-label">Critical Moments</div><div class="im-moment ">Move 26: <strong>MISTAKE</strong> (CPL 157) · +0.09 → -1.48 · Best: Rab8</div><div class="im-moment ">Move 8: <strong>INACCURACY</strong> (CPL 96) · -0.23 → -1.19 · Best: b5</div><div class="im-moment ">Move 10: <strong>INACCURACY</strong> (CPL 50) · -0.63 → -1.13 · Best: d5</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-win">WIN</span> <span class="badge-acc">86.3%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Ortiz Padilla, Santiago</strong> &middot; <em>Macroregional A 2025</em> &middot; B40</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>86.3%</strong> &middot; Opp: 83.2% &middot; CPL 44 &middot; 2B 4M 7I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 41: <strong>BLUNDER</strong> (CPL 398) · +7.85 → +3.87 · Best: Rb1</div><div class="im-moment blunder">Move 23: <strong>BLUNDER</strong> (CPL 320) · +2.40 → -0.80 · Best: Nd4</div><div class="im-moment ">Move 42: <strong>MISTAKE</strong> (CPL 230) · +4.15 → +1.85 · Best: Rxh6</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-win">WIN</span> <span class="badge-acc">91.5%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Cabrera Estrada, Angel Alexis</strong> &middot; <em>Macroregional A 2025</em> &middot; B50</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>91.5%</strong> &middot; Opp: 89.1% &middot; CPL 47 &middot; 2B 5M 9I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 61: <strong>BLUNDER</strong> (CPL 1000) · # → +7.73 · Best: Re3+</div><div class="im-moment blunder">Move 25: <strong>BLUNDER</strong> (CPL 319) · +4.16 → +0.97 · Best: Bc6</div><div class="im-moment ">Move 45: <strong>MISTAKE</strong> (CPL 270) · +4.81 → +2.11 · Best: g5</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-loss">LOSS</span> <span class="badge-acc">88.7%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Alba, Ruiz Kenneth Damian</strong> &middot; <em>Macroregional A 2025</em> &middot; C45</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>88.7%</strong> &middot; Opp: 91.9% &middot; CPL 42 &middot; 1B 3M 6I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 42: <strong>BLUNDER</strong> (CPL 706) · +3.93 → -3.13 · Best: Rxa4</div><div class="im-moment ">Move 53: <strong>MISTAKE</strong> (CPL 210) · -6.49 → -8.59 · Best: h4</div><div class="im-moment ">Move 28: <strong>MISTAKE</strong> (CPL 160) · +3.91 → +2.31 · Best: f4</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-win">WIN</span> <span class="badge-acc">91.4%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Inzunza Becerra, Alexa Lizbeth</strong> &middot; <em>Olimpiada Nacional 2025 (Blitz)</em> &middot; C45</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>91.4%</strong> &middot; Opp: 86.3% &middot; CPL 29 &middot; 1B 1M 4I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 17: <strong>BLUNDER</strong> (CPL 325) · -1.44 → -4.69 · Best: Qc2</div><div class="im-moment ">Move 20: <strong>MISTAKE</strong> (CPL 228) · -0.97 → -3.25 · Best: Rab1</div><div class="im-moment ">Move 13: <strong>INACCURACY</strong> (CPL 119) · +0.43 → -0.76 · Best: a4</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-loss">LOSS</span> <span class="badge-acc">91.9%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Cortes Medina, Fernando</strong> &middot; <em>Olimpiada Nacional 2025 (Blitz)</em> &middot; B32</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>91.9%</strong> &middot; Opp: 96.2% &middot; CPL 69 &middot; 3B 1M 4I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 30: <strong>BLUNDER</strong> (CPL 1000) · -4.05 → -# · Best: Kh8</div><div class="im-moment blunder">Move 39: <strong>BLUNDER</strong> (CPL 1000) · -11.33 → -# · Best: Kf7</div><div class="im-moment blunder">Move 29: <strong>BLUNDER</strong> (CPL 337) · -0.65 → -4.02 · Best: g6</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-win">WIN</span> <span class="badge-acc-hi">95.2%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Olvera Salinas, Violeta</strong> &middot; <em>Olimpiada Nacional 2025 (Blitz)</em> &middot; B90</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>95.2%</strong> &middot; Opp: 87.6% &middot; CPL 21 &middot; 0B 0M 3I</span><div class="im-section-label">Critical Moments</div><div class="im-moment ">Move 18: <strong>INACCURACY</strong> (CPL 105) · +10.90 → +9.85 · Best: Nf5</div><div class="im-moment ">Move 16: <strong>INACCURACY</strong> (CPL 82) · +1.93 → +1.11 · Best: Qd2</div><div class="im-moment ">Move 22: <strong>INACCURACY</strong> (CPL 50) · +10.17 → +9.67 · Best: Qd6</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-draw">DRAW</span> <span class="badge-acc-lo">80.1%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Garcia Solis, Miguel Angel</strong> &middot; <em>Olimpiada Nacional 2025 (Blitz)</em> &middot; B32</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>80.1%</strong> &middot; Opp: 80.2% &middot; CPL 61 &middot; 1B 3M 6I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 32: <strong>BLUNDER</strong> (CPL 1000) · +6.02 → -5.13 · Best: Qxe1</div><div class="im-moment ">Move 24: <strong>MISTAKE</strong> (CPL 260) · -0.88 → -3.48 · Best: Qc4</div><div class="im-moment ">Move 30: <strong>MISTAKE</strong> (CPL 220) · -2.13 → -4.33 · Best: Qxe2</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-draw">DRAW</span> <span class="badge-acc-hi">95.7%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Cardenas Uribe, Mateo</strong> &middot; <em>Olimpiada Nacional 2025 (Blitz)</em> &middot; B90</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>95.7%</strong> &middot; Opp: 96.1% &middot; CPL 11 &middot; 0B 0M 0I</span></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-loss">LOSS</span> <span class="badge-acc-lo">77.9%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Jalomo Toribio, Jose Luis</strong> &middot; <em>Olimpiada Nacional 2025 (Classical)</em> &middot; C02</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>77.9%</strong> &middot; Opp: 82.7% &middot; CPL 84 &middot; 2B 3M 5I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 32: <strong>BLUNDER</strong> (CPL 953) · +6.44 → -3.09 · Best: Qd6</div><div class="im-moment blunder">Move 38: <strong>BLUNDER</strong> (CPL 683) · -0.52 → -7.35 · Best: Ra8</div><div class="im-moment ">Move 35: <strong>MISTAKE</strong> (CPL 294) · -2.03 → -4.97 · Best: Rfa1</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-loss">LOSS</span> <span class="badge-acc">87.8%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Sevilla Ramirez, Brandon Samuel</strong> &middot; <em>Olimpiada Nacional 2025 (Classical)</em> &middot; B33</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>87.8%</strong> &middot; Opp: 88.5% &middot; CPL 42 &middot; 1B 1M 4I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 30: <strong>BLUNDER</strong> (CPL 709) · +8.42 → +1.33 · Best: Nxd3</div><div class="im-moment ">Move 31: <strong>MISTAKE</strong> (CPL 174) · +1.26 → -0.48 · Best: h5</div><div class="im-moment ">Move 10: <strong>INACCURACY</strong> (CPL 87) · +0.23 → -0.64 · Best: Be7</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-win">WIN</span> <span class="badge-acc-lo">82.8%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Davis, Villarreal Miguel</strong> &middot; <em>Olimpiada Nacional 2025 (Classical)</em> &middot; C45</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>82.8%</strong> &middot; Opp: 77.1% &middot; CPL 62 &middot; 1B 1M 6I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 17: <strong>BLUNDER</strong> (CPL 1000) · -0.42 → -# · Best: Rad1</div><div class="im-moment ">Move 25: <strong>MISTAKE</strong> (CPL 169) · +1.54 → -0.15 · Best: Qd2</div><div class="im-moment ">Move 7: <strong>INACCURACY</strong> (CPL 130) · -0.22 → -1.52 · Best: Nc3</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-draw">DRAW</span> <span class="badge-acc">86.6%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Macosay Lopez, Julio David</strong> &middot; <em>Olimpiada Nacional 2025 (Classical)</em> &middot; B30</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>86.6%</strong> &middot; Opp: 87.4% &middot; CPL 45 &middot; 3B 1M 0I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 35: <strong>BLUNDER</strong> (CPL 448) · +4.86 → +0.38 · Best: c3</div><div class="im-moment blunder">Move 40: <strong>BLUNDER</strong> (CPL 433) · +4.43 → +0.10 · Best: Qb4</div><div class="im-moment blunder">Move 29: <strong>BLUNDER</strong> (CPL 361) · +5.37 → +1.76 · Best: Qb1</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-win">WIN</span> <span class="badge-acc">89.4%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Olvera Salinas, Violeta</strong> &middot; <em>Olimpiada Nacional 2025 (Rapid 10+5)</em> &middot; B90</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>89.4%</strong> &middot; Opp: 86.9% &middot; CPL 28 &middot; 0B 2M 4I</span><div class="im-section-label">Critical Moments</div><div class="im-moment ">Move 29: <strong>MISTAKE</strong> (CPL 176) · +0.54 → -1.22 · Best: Nd5</div><div class="im-moment ">Move 25: <strong>MISTAKE</strong> (CPL 174) · -0.74 → -2.48 · Best: Nc3</div><div class="im-moment ">Move 19: <strong>INACCURACY</strong> (CPL 123) · +0.57 → -0.66 · Best: Nc4</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-win">WIN</span> <span class="badge-acc-hi">95.3%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Montoya Medina, Santiago</strong> &middot; <em>Olimpiada Nacional 2025 (Rapid 10+5)</em> &middot; B22</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>95.3%</strong> &middot; Opp: 91.5% &middot; CPL 21 &middot; 0B 1M 5I</span><div class="im-section-label">Critical Moments</div><div class="im-moment ">Move 26: <strong>MISTAKE</strong> (CPL 245) · +7.18 → +4.73 · Best: Nh3+</div><div class="im-moment ">Move 17: <strong>INACCURACY</strong> (CPL 116) · +0.45 → -0.71 · Best: Nd5</div><div class="im-moment ">Move 30: <strong>INACCURACY</strong> (CPL 113) · +7.81 → +6.68 · Best: Bxe4</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-win">WIN</span> <span class="badge-acc">93.9%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Campillo Soto, Emilio</strong> &middot; <em>Olimpiada Nacional 2025 (Rapid 10+5)</em> &middot; A23</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>93.9%</strong> &middot; Opp: 93.9% &middot; CPL 15 &middot; 0B 0M 2I</span><div class="im-section-label">Critical Moments</div><div class="im-moment ">Move 9: <strong>INACCURACY</strong> (CPL 89) · +0.96 → +0.07 · Best: Bg4</div><div class="im-moment ">Move 18: <strong>INACCURACY</strong> (CPL 64) · +0.76 → +0.12 · Best: Bg4</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-win">WIN</span> <span class="badge-acc">93.3%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Jackson, Leo Daniel Olivera</strong> &middot; <em>Olimpiada Nacional 2025 (Rapid 10+5)</em> &middot; C02</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>93.3%</strong> &middot; Opp: 82.9% &middot; CPL 22 &middot; 0B 1M 2I</span><div class="im-section-label">Critical Moments</div><div class="im-moment ">Move 15: <strong>MISTAKE</strong> (CPL 212) · +4.30 → +2.18 · Best: Nf6+</div><div class="im-moment ">Move 9: <strong>INACCURACY</strong> (CPL 69) · +1.14 → +0.45 · Best: b4</div><div class="im-moment ">Move 17: <strong>INACCURACY</strong> (CPL 69) · +3.94 → +3.25 · Best: Qf6</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-win">WIN</span> <span class="badge-acc">91.6%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Cortes Medina, Fernando</strong> &middot; <em>Olimpiada Nacional 2025 (Rapid 10+5)</em> &middot; A29</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>91.6%</strong> &middot; Opp: 87.1% &middot; CPL 27 &middot; 0B 1M 4I</span><div class="im-section-label">Critical Moments</div><div class="im-moment ">Move 25: <strong>MISTAKE</strong> (CPL 299) · +3.71 → +0.72 · Best: Bf6</div><div class="im-moment ">Move 20: <strong>INACCURACY</strong> (CPL 95) · +0.00 → -0.95 · Best: Rxa4</div><div class="im-moment ">Move 30: <strong>INACCURACY</strong> (CPL 93) · +7.14 → +6.21 · Best: Ra5</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-loss">LOSS</span> <span class="badge-acc">89.1%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Alba, Ruiz Kenneth Damian</strong> &middot; <em>Olimpiada Nacional 2025 (Rapid 10+5)</em> &middot; C45</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>89.1%</strong> &middot; Opp: 91.1% &middot; CPL 62 &middot; 7B 4M 14I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 81: <strong>BLUNDER</strong> (CPL 1000) · -8.10 → -91.65 · Best: Rd7</div><div class="im-moment blunder">Move 82: <strong>BLUNDER</strong> (CPL 486) · -58.55 → -63.41 · Best: Kd2</div><div class="im-moment blunder">Move 8: <strong>BLUNDER</strong> (CPL 468) · +1.37 → -3.31 · Best: Nxc6</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-win">WIN</span> <span class="badge-acc-hi">96.2%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Alba, Ruiz Kenneth Damian</strong> &middot; <em>Olimpiada Nacional 2025 (Rapid 25+5)</em> &middot; B32</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>96.2%</strong> &middot; Opp: 92% &middot; CPL 12 &middot; 0B 0M 4I</span><div class="im-section-label">Critical Moments</div><div class="im-moment ">Move 13: <strong>INACCURACY</strong> (CPL 96) · +1.22 → +0.26 · Best: h5</div><div class="im-moment ">Move 39: <strong>INACCURACY</strong> (CPL 67) · +8.04 → +7.37 · Best: Rxd3</div><div class="im-moment ">Move 12: <strong>INACCURACY</strong> (CPL 64) · +0.96 → +0.32 · Best: d5</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-draw">DRAW</span> <span class="badge-acc-hi">96.4%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Cortes Medina, Fernando</strong> &middot; <em>Olimpiada Nacional 2025 (Rapid 25+5)</em> &middot; B28</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>96.4%</strong> &middot; Opp: 96.7% &middot; CPL 9 &middot; 0B 0M 0I</span></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-loss">LOSS</span> <span class="badge-acc-lo">77.1%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Guzman Garcia, Mia Fernanda</strong> &middot; <em>Olimpiada Nacional 2025 (Rapid 25+5)</em> &middot; B32</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>77.1%</strong> &middot; Opp: 82.7% &middot; CPL 87 &middot; 3B 3M 5I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 26: <strong>BLUNDER</strong> (CPL 560) · +3.52 → -2.08 · Best: Nc3</div><div class="im-moment blunder">Move 32: <strong>BLUNDER</strong> (CPL 478) · -4.65 → -9.43 · Best: Ng4</div><div class="im-moment blunder">Move 30: <strong>BLUNDER</strong> (CPL 332) · -0.68 → -4.00 · Best: Ng4</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-win">WIN</span> <span class="badge-acc-hi">96.8%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Rosales Flores, Nayla Belem</strong> &middot; <em>Olimpiada Nacional 2025 (Rapid 25+5)</em> &middot; B12</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>96.8%</strong> &middot; Opp: 92.6% &middot; CPL 18 &middot; 0B 0M 5I</span><div class="im-section-label">Critical Moments</div><div class="im-moment ">Move 25: <strong>INACCURACY</strong> (CPL 121) · +7.16 → +5.95 · Best: Qe3</div><div class="im-moment ">Move 9: <strong>INACCURACY</strong> (CPL 80) · +4.45 → +3.65 · Best: Nbc3</div><div class="im-moment ">Move 13: <strong>INACCURACY</strong> (CPL 74) · +6.27 → +5.53 · Best: a3</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-win">WIN</span> <span class="badge-acc">92.1%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Jackson, Leo Daniel Olivera</strong> &middot; <em>Olimpiada Nacional 2025 (Rapid 25+5)</em> &middot; C02</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>92.1%</strong> &middot; Opp: 88% &middot; CPL 24 &middot; 0B 2M 2I</span><div class="im-section-label">Critical Moments</div><div class="im-moment ">Move 27: <strong>MISTAKE</strong> (CPL 237) · +3.92 → +1.55 · Best: Qb5</div><div class="im-moment ">Move 24: <strong>MISTAKE</strong> (CPL 151) · +2.93 → +1.42 · Best: Nh4</div><div class="im-moment ">Move 31: <strong>INACCURACY</strong> (CPL 126) · +4.80 → +3.54 · Best: Nxg6</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-win">WIN</span> <span class="badge-acc">92.4%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Perez Bruno, Victor Eduardo</strong> &middot; <em>Querétaro 2025</em> &middot; C41</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>92.4%</strong> &middot; Opp: 88.1% &middot; CPL 59 &middot; 3B 0M 6I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 38: <strong>BLUNDER</strong> (CPL 1000) · # → +12.22 · Best: Rxf7</div><div class="im-moment blunder">Move 39: <strong>BLUNDER</strong> (CPL 572) · +23.68 → +17.96 · Best: Rxf7</div><div class="im-moment blunder">Move 20: <strong>BLUNDER</strong> (CPL 440) · +4.47 → +0.07 · Best: Qxa5</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-win">WIN</span> <span class="badge-acc">91.2%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Soto Resendiz, Miguel Angel</strong> &middot; <em>Querétaro 2025</em> &middot; D04</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>91.2%</strong> &middot; Opp: 86.8% &middot; CPL 29 &middot; 2B 1M 3I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 22: <strong>BLUNDER</strong> (CPL 336) · +5.25 → +1.89 · Best: g5</div><div class="im-moment blunder">Move 19: <strong>BLUNDER</strong> (CPL 333) · +3.77 → +0.44 · Best: Ne4</div><div class="im-moment ">Move 23: <strong>MISTAKE</strong> (CPL 215) · +3.00 → +0.85 · Best: h5</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-win">WIN</span> <span class="badge-acc-hi">96.6%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Vera Morales, Matheus</strong> &middot; <em>Querétaro 2025</em> &middot; C45</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>96.6%</strong> &middot; Opp: 92.9% &middot; CPL 57 &middot; 3B 0M 2I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 46: <strong>BLUNDER</strong> (CPL 1000) · +88.84 → +14.08 · Best: Kc6</div><div class="im-moment blunder">Move 50: <strong>BLUNDER</strong> (CPL 1000) · # → +63.00 · Best: Kf4</div><div class="im-moment blunder">Move 32: <strong>BLUNDER</strong> (CPL 385) · +8.75 → +4.90 · Best: a4</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-win">WIN</span> <span class="badge-acc-hi">97.5%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Urbina Ballina, Christopher</strong> &middot; <em>Querétaro 2025</em> &middot; B33</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>97.5%</strong> &middot; Opp: 91.9% &middot; CPL 7 &middot; 0B 0M 0I</span></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-loss">LOSS</span> <span class="badge-acc-lo">79.5%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Sevilla Ramirez, Brandon Samuel</strong> &middot; <em>Querétaro 2025</em> &middot; B46</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>79.5%</strong> &middot; Opp: 83.7% &middot; CPL 112 &middot; 2B 6M 11I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 36: <strong>BLUNDER</strong> (CPL 1000) · -0.23 → -11.52 · Best: Qxf7+</div><div class="im-moment blunder">Move 37: <strong>BLUNDER</strong> (CPL 1000) · -13.37 → -# · Best: Rg3</div><div class="im-moment ">Move 31: <strong>MISTAKE</strong> (CPL 206) · -4.00 → -6.06 · Best: Qg5</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-win">WIN</span> <span class="badge-acc-lo">84.4%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Montoya Medina, Ana Sofia</strong> &middot; <em>Unknown</em> &middot; B22</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>84.4%</strong> &middot; Opp: 88.6% &middot; CPL 56 &middot; 2B 2M 11I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 53: <strong>BLUNDER</strong> (CPL 1000) · +85.51 → -14.19 · Best: Ke4</div><div class="im-moment blunder">Move 22: <strong>BLUNDER</strong> (CPL 305) · +3.55 → +0.50 · Best: Qxb3</div><div class="im-moment ">Move 48: <strong>MISTAKE</strong> (CPL 198) · +9.28 → +7.30 · Best: f5</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-win">WIN</span> <span class="badge-acc-hi">95%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Carrasco Zanini Perles Blanco, Di</strong> &middot; <em>Unknown</em> &middot; C42</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>95%</strong> &middot; Opp: 89% &middot; CPL 21 &middot; 0B 1M 3I</span><div class="im-section-label">Critical Moments</div><div class="im-moment ">Move 12: <strong>MISTAKE</strong> (CPL 160) · +1.94 → +0.34 · Best: d5</div><div class="im-moment ">Move 11: <strong>INACCURACY</strong> (CPL 144) · +2.04 → +0.60 · Best: d5</div><div class="im-moment ">Move 27: <strong>INACCURACY</strong> (CPL 120) · +11.84 → +10.64 · Best: Re8+</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-win">WIN</span> <span class="badge-acc-hi">98.2%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">cortez, madera fidel leonar</strong> &middot; <em>Unknown</em> &middot; D12</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>98.2%</strong> &middot; Opp: 91.3% &middot; CPL 12 &middot; 0B 0M 2I</span><div class="im-section-label">Critical Moments</div><div class="im-moment ">Move 25: <strong>INACCURACY</strong> (CPL 130) · +8.12 → +6.82 · Best: Rd3</div><div class="im-moment ">Move 29: <strong>INACCURACY</strong> (CPL 54) · +9.40 → +8.86 · Best: Rxe3</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-win">WIN</span> <span class="badge-acc">90.1%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Baruque Hernandez, Juan Carlos</strong> &middot; <em>Unknown</em> &middot; C44</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>90.1%</strong> &middot; Opp: 85.6% &middot; CPL 82 &middot; 3B 1M 5I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 35: <strong>BLUNDER</strong> (CPL 1000) · # → +7.35 · Best: Rd7</div><div class="im-moment blunder">Move 40: <strong>BLUNDER</strong> (CPL 1000) · +29.46 → +7.87 · Best: Kxg4</div><div class="im-moment blunder">Move 9: <strong>BLUNDER</strong> (CPL 466) · -1.41 → -6.07 · Best: Bd2</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-win">WIN</span> <span class="badge-acc-hi">97.9%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Sanchez Gomez, Santiago</strong> &middot; <em>XIII Torneo CDMX 2026</em> &middot; C01</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>97.9%</strong> &middot; Opp: 92.6% &middot; CPL 62 &middot; 2B 0M 2I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 32: <strong>BLUNDER</strong> (CPL 1000) · +87.11 → +61.12 · Best: Qd5+</div><div class="im-moment blunder">Move 35: <strong>BLUNDER</strong> (CPL 1000) · +87.10 → +18.72 · Best: Qf5+</div><div class="im-moment ">Move 17: <strong>INACCURACY</strong> (CPL 59) · +7.08 → +6.49 · Best: Kh2</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-black">BLACK</span> <span class="badge-result-draw">DRAW</span> <span class="badge-acc">85.9%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Suarez Orozco, Santiago Eduardo</strong> &middot; <em>XIII Torneo CDMX 2026</em> &middot; C45</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>85.9%</strong> &middot; Opp: 86.5% &middot; CPL 38 &middot; 1B 1M 3I</span><div class="im-section-label">Critical Moments</div><div class="im-moment blunder">Move 25: <strong>BLUNDER</strong> (CPL 350) · +1.67 → -1.83 · Best: Nc4</div><div class="im-moment ">Move 26: <strong>MISTAKE</strong> (CPL 155) · +0.20 → -1.35 · Best: Raf8</div><div class="im-moment ">Move 11: <strong>INACCURACY</strong> (CPL 92) · -0.48 → -1.40 · Best: O-O</div></div></div><div class="game-row"><div class="game-row-header"><span class="badge-white">WHITE</span> <span class="badge-result-win">WIN</span> <span class="badge-acc-hi">97.3%</span> <span style="font-size:0.88rem;color:#57606a">vs <strong style="color:#1f2328">Montoya Perez, Zirel</strong> &middot; <em>XIII Torneo CDMX 2026</em> &middot; C50</span></div><div class="game-row-body"><span style="font-size:0.85rem;color:#57606a">Yaen: <strong>97.3%</strong> &middot; Opp: 92.2% &middot; CPL 19 &middot; 0B 1M 3I</span><div class="im-section-label">Critical Moments</div><div class="im-moment ">Move 34: <strong>MISTAKE</strong> (CPL 241) · +14.79 → +12.38 · Best: Qxf6</div><div class="im-moment ">Move 12: <strong>INACCURACY</strong> (CPL 125) · +6.62 → +5.37 · Best: Bxf6</div><div class="im-moment ">Move 6: <strong>INACCURACY</strong> (CPL 90) · +1.02 → +0.12 · Best: Nxe5</div></div></div>
 
 </div>
 </body>
