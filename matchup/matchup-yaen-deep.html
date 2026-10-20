@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Austin vs Yaen Saenz Cabrera — Engine Analysis (Deep)</title>
+<style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 860px; margin: 0 auto; background: #ffffff; padding: 48px 56px 64px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #2d7d46; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 8px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.9rem; color: #57606a; }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link { display: inline-block; margin-top: 14px; font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.3rem; color: #1f2328; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.05rem; color: #2d7d46; margin: 24px 0 8px; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
+    li { margin-bottom: 4px; }
+
+    .encounter { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; font-size: 0.93rem; margin-bottom: 28px; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 12px 0; font-size: 0.93rem; color: #1a4731; }
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 12px 0; font-size: 0.93rem; color: #7a0000; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 12px 0; font-size: 0.93rem; color: #1a3a55; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 16px 0 24px; }
+    thead th { background: #2d7d46; color: #ffffff; padding: 10px 14px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #ffffff; }
+    tbody td { padding: 9px 14px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+
+    .part-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 24px 0; overflow: hidden; }
+    .part-title { background: #2d7d46; color: #fff; padding: 12px 20px; font-size: 1.05rem; font-weight: 600; margin: 0; }
+    .part-title.engine { background: #7a4f00; }
+    .part-title.pattern { background: #1a3a5c; }
+    .part-body { padding: 20px 24px; }
+
+    .game-row { border: 1px solid #d0d7de; border-radius: 8px; margin-bottom: 14px; overflow: hidden; }
+    .game-row-header { background: #f6f8fa; border-bottom: 1px solid #d0d7de; padding: 9px 14px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .badge-white { font-size: 0.74rem; font-weight: 700; border-radius: 3px; padding: 2px 8px; background: #2d7d46; color: #fff; }
+    .badge-black { font-size: 0.74rem; font-weight: 700; border-radius: 3px; padding: 2px 8px; background: #1a5276; color: #fff; }
+    .badge-result-win  { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #dafbe1; color: #1a4731; }
+    .badge-result-loss { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #fff5f5; color: #7a0000; }
+    .badge-result-draw { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #fff8e6; color: #7a4f00; }
+    .badge-acc         { font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; background: #eaf0f8; color: #1a3a5c; }
+    .badge-acc-hi      { font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; background: #dafbe1; color: #1a4731; font-weight: 700; }
+    .badge-acc-lo      { font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; background: #fff5f5; color: #7a0000; font-weight: 700; }
+    .game-row-body { padding: 12px 16px; }
+
+    .im-section-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #57606a; margin: 10px 0 4px; }
+    .im-moment { font-size: 0.84rem; padding: 6px 10px; margin: 4px 0; border-radius: 4px; border-left: 3px solid #d4750a; background: #fff8f0; }
+    .im-moment.blunder { border-left-color: #cf2222; background: #fff5f5; }
+    .im-moment.good { border-left-color: #2d7d46; background: #dafbe1; }
+    .im-tags { margin: 8px 0 4px; }
+    .im-tag { display: inline-block; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 12px; padding: 2px 10px; font-size: 0.77rem; margin: 2px 3px; color: #444; }
+    .im-tag.blunder { background: #fff5f5; border-color: #cf2222; color: #7a0000; }
+    .im-tag.upset { background: #fff8e6; border-color: #d4a017; color: #7a4f00; }
+    .im-prep { font-size: 0.86rem; margin-top: 10px; padding: 8px 12px; background: #fff8e6; border-left: 3px solid #d4a017; border-radius: 0 4px 4px 0; color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; }
+    em { font-style: italic; color: #57606a; }
+    strong { font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="doc-header">
+  <h1>Yaen Saenz Cabrera — Deep Engine Analysis</h1>
+  <div class="meta">
+    <span><strong>Yaen rating:</strong> ~1841 FIDE (2026), peaked ~1899 (2024)</span>
+    <span><strong>Engine:</strong> Stockfish movetime-800 · 32/51 games analyzed (partial)</span>
+    <span><strong>Overall:</strong> 91.9% avg · White 92.6% (15g) · Black 91.1% (14g)</span>
+    <span><strong>Direct encounter:</strong> None on record</span>
+  </div>
+  <a class="back-link" href="../austin-prep.html">← Back to Prep Index</a>
+  &nbsp;&nbsp;
+  <a class="back-link" href="matchup-yaen.html">← Matchup Overview</a>
+  &nbsp;&nbsp;
+  <a class="back-link" href="matchup-yaen-white.html">Austin as White →</a>
+  &nbsp;&nbsp;
+  <a class="back-link" href="matchup-yaen-black.html">Austin as Black →</a>
+</div>
+
+<div class="encounter">
+  <strong>Engine summary (partial — 32/51 games):</strong> Stockfish movetime-800, 16 threads. Overall avg <strong>91.9%</strong> · White 92.6% (15g) · Black 91.1% (14g) · Unknown tournament 89.9% (3g). By format: Classical/Standard avg 93.6% (6g) — strongest format. Rapid avg 91.6% (22g). Blitz avg 90.7% (4g). Key patterns: <strong>B32 Sicilian as Black is Yaen's strongest opening form</strong> (won vs 1933 at 96.1%, beat Fernando Cortes Medina 1805 at 92.5%); <strong>C45 Scotch as White collapses vs 1900+ opposition</strong> (89.1% loss to Alba 1933: 7B4M; 84.5% classical C45 with f3?? CPL599 from equal); <strong>Qxb2 blunder pattern</strong> confirmed in B32 vs Garcia 1617 (CPL1000, +6.02→-5.13).
+</div>
+
+<div class="part-card">
+<p class="part-title engine">Accuracy by Tournament</p>
+<div class="part-body">
+<table>
+<thead><tr><th>Tournament</th><th>TC</th><th>G</th><th>Avg Acc%</th><th>Result</th><th>Best / Worst</th></tr></thead>
+<tbody>
+<tr>
+  <td>Liga Interestelar (Standard)</td><td>60/30</td><td>5g</td><td><strong>93.6%</strong></td>
+  <td>4W-1L-0D</td>
+  <td>R6 Black Win 98.4% / R4 White Loss 93.7% (4B)</td>
+</tr>
+<tr>
+  <td>Olimpiada Nacional 2025 (Rapid 25+5)</td><td>25+5</td><td>5g</td><td><strong>92.0%</strong></td>
+  <td>3W-1L-1D</td>
+  <td>R4 White Draw 96.9% / R5 Black Loss 77.9% (3B2M)</td>
+</tr>
+<tr>
+  <td>Olimpiada Nacional 2025 (Rapid 10+5)</td><td>10+5</td><td>6g</td><td><strong>92.3%</strong></td>
+  <td>5W-1L-0D</td>
+  <td>R4 Black Win 94.3% vs CM 2140 / R7 White Loss 89.1% (7B4M) vs 1933</td>
+</tr>
+<tr>
+  <td>Liga Interestelar (Standard) — Classical</td><td>60/30</td><td>1g</td><td><strong>84.5%</strong></td>
+  <td>1W-0L-0D</td>
+  <td>f3?? CPL599 from equal in Scotch</td>
+</tr>
+<tr>
+  <td>Liga Intergaláctica Rapid 2</td><td>10+5</td><td>6g</td><td><strong>90.0%</strong></td>
+  <td>3W-1L-2D</td>
+  <td>R2 White Win 96.9% / R1 Black Draw 83.5% (4B2M)</td>
+</tr>
+<tr>
+  <td>Olimpiada Nacional 2025 (Blitz)</td><td>3+2</td><td>5g</td><td><strong>91.0%</strong></td>
+  <td>2W-1L-2D</td>
+  <td>R6 White Draw 95.7% / R5 Black Draw 80.1% (Qxb2 blunder)</td>
+</tr>
+<tr>
+  <td>Liga Intergaláctica Rapid 3</td><td>10+5</td><td>1g</td><td><strong>95.4%</strong></td>
+  <td>1W-0L-0D</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td>Unknown (pending identification)</td><td>?</td><td>3g</td><td><strong>89.9%</strong></td>
+  <td>3W-0L-0D</td>
+  <td>Mixed; Kd4 king-walk blunder (CPL1000)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<h2>Key Games — Critical Moments</h2>
+
+<h3>Worst Performances</h3>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-black">BLACK</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">Olimpiada Rapid 25+5 R5 · B32 Sicilian Sveshnikov · vs Guzman Garcia, Mia Fernanda (1885)</span>
+  <span class="badge-result-loss">LOSS</span>
+  <span class="badge-acc-lo">77.9%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:82 · B:3 · M:2</span>
+</div>
+<div class="game-row-body">
+  <div class="im-section-label">Critical Moments — Worst Game in Dataset</div>
+  <div class="im-moment blunder"><strong>Qc8</strong> (best: unclear) — CPL 556 · <strong>+3.32→−2.24</strong>. From a winning position (+3.32 for Black), Yaen played Qc8 — a passive queen retreat. Eval swung from winning to losing in one move.</div>
+  <div class="im-tags"><span class="im-tag blunder">3 blunders, 2 mistakes — worst game</span><span class="im-tag upset">Rating upset vs 1885</span></div>
+  <div class="im-prep">Yaen's worst game: 77.9% in B32 Sicilian, his primary weapon. Lost to Guzman Garcia (1885) in rapid despite being in familiar Sveshnikov territory. Key pattern: Qc8 passive queen retreat from winning → losing. Confirms that even in the Sveshnikov, Yaen can collapse against 1800+ opposition. <strong>For Austin: if Austin can force complications in Yaen's Sveshnikov territory (vs Rossolimo this doesn't apply), expect calculation failures.</strong></div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-black">BLACK</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">Olimpiada Blitz R5 · B32 Sicilian Sveshnikov · vs Garcia Solis, Miguel Angel (1617)</span>
+  <span class="badge-result-draw">DRAW</span>
+  <span class="badge-acc-lo">80.1%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:61 · B:1 · M:3</span>
+</div>
+<div class="game-row-body">
+  <div class="im-section-label">Critical Moments — Defining Qxb2 Blunder</div>
+  <div class="im-moment blunder"><strong>Qxb2</strong> (best: Qxe1) — CPL 1000 · <strong>+6.02→−5.13</strong>. From a completely dominant position (+6.02), Yaen played the greedy Qxb2 (capturing a pawn) instead of the mating/winning Qxe1 (back-rank threat). Eval crashed from winning to losing in one move — 11.15-point swing.</div>
+  <div class="im-moment"><strong>d5</strong> (best: Qc4) — CPL 260 · −0.88→−3.48. Earlier in the game, from a slightly unfavorable position (-0.88), Yaen played d5 pawn push instead of Qc4 (activating the queen). Made the position worse.</div>
+  <div class="im-tags"><span class="im-tag blunder">Qxb2 greedy capture — Yaen's signature mistake</span></div>
+  <div class="im-prep">Only drew (instead of losing) because Garcia Solis (1617) also blundered back. The Qxb2 pattern is Yaen's defining middlegame failure: he sees a "free" pawn and captures it without calculating whether a tactical refutation exists. For Austin as White (Rossolimo): position the pieces so that b2 can be "grabbed" but the queen becomes trapped.</div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-white">WHITE</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">Olimpiada Rapid 10+5 R7 · C45 Scotch Game · vs Alba, Ruiz Kenneth Damian (1933)</span>
+  <span class="badge-result-loss">LOSS</span>
+  <span class="badge-acc-lo">89.1%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:64 · B:7 · M:4 = 11 major errors</span>
+</div>
+<div class="game-row-body">
+  <div class="im-section-label">Critical Moments — Worst White Game</div>
+  <div class="im-moment blunder"><strong>Rxe4</strong> (best unclear) — CPL 1000 · −8.03→−91.49. King-side collapse: in a losing position, Yaen's Rxe4 accelerated the loss dramatically (eval −8 → −91).</div>
+  <div class="im-tags"><span class="im-tag blunder">7B + 4M = 11 errors — complete collapse vs 1933</span></div>
+  <div class="im-prep"><strong>The defining White weakness in Scotch C45 vs near-equal opposition.</strong> Yaen made 11 major errors against a 1933-rated player (+92 pts above Yaen) in the Scotch. This is not a single bad move — it is a systematic breakdown of calculation under tactical pressure throughout the game. Austin at 1865 is within 68 pts of Alba 1933. The same pattern will apply.</div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-white">WHITE</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">Olimpiada Rapid 10+5 R1 · Olimpiada Classical R5 · C45 Scotch · vs Davis, Villarreal Miguel (1566)</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc-lo">84.5%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:48 · B:1 · M:1 · TC: 90/30</span>
+</div>
+<div class="game-row-body">
+  <div class="im-section-label">Critical Moment — Classical Scotch Blunder</div>
+  <div class="im-moment blunder"><strong>f3</strong> (best: unclear) — CPL 599 · <strong>−0.37→−6.36</strong>. From a near-equal position (−0.37 ≈ 0.00), Yaen played f3 — solidifying the pawn center in classical time control. But this blunder immediately gave Black a −6.36 advantage. In classical time control where calculation should be better, Yaen made a critical error on move 17. This is the most concerning data point: <strong>even in 90/30 classical, Yaen blunders in the Scotch from an equal position.</strong></div>
+  <div class="im-tags"><span class="im-tag">classical 90/30 blunder from equal</span></div>
+  <div class="im-prep">Yaen won despite f3?? blunder only because Davis (1566) couldn't capitalize. For Austin: this shows the Scotch C45 is Yaen's weakness even with more time. The f3 blunder from equal in classical suggests Yaen's Scotch middlegame understanding has gaps — not just time-pressure issues.</div>
+</div>
+</div>
+
+<h3>Significant Wins — Opponent Strength Context</h3>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-black">BLACK</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">Olimpiada Rapid 10+5 R4 · A23 English vs ...Nc6 · vs Campillo Soto, Emilio (2140)</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc-hi">94.3%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:14 · B:0 · M:0</span>
+</div>
+<div class="game-row-body">
+  <div class="im-section-label">Upset Win — +299 Rating Difference</div>
+  <div class="im-moment good">94.3% accuracy, zero blunders, zero mistakes — Yaen beat Campillo Soto (2140) with near-perfect play in an English Opening A23 structure. This is Yaen's biggest upset win by rating difference in the dataset.</div>
+  <div class="im-tags"><span class="im-tag upset">Beat 2140-rated (+299 pts) with 94.3%</span></div>
+  <div class="im-prep"><strong>Warning for Austin:</strong> Yaen CAN play at 94%+ against much higher-rated opponents when the position suits him. This was not a lucky win — zero errors in a complex English structure. Austin at 1865 is "only" +24 pts above Yaen. Do not underestimate Yaen's upside in favorable positions.</div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-black">BLACK</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">Olimpiada Rapid 25+5 R3 · B32 Sicilian Sveshnikov · vs Alba, Ruiz Kenneth Damian (1933)</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc-hi">96.1%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:30 · B:1 · M:0</span>
+</div>
+<div class="game-row-body">
+  <div class="im-section-label">Upset Win — Same 1933-Rated Opponent Yaen Lost to as White</div>
+  <div class="im-moment good">96.1% accuracy, 1 blunder but still won — Yaen beat the same Alba 1933 as BLACK in B32 Sveshnikov with near-perfect play. In the same Olimpiada where Yaen (as White) made 7 blunders against Alba, Yaen played a completely different game as Black.</div>
+  <div class="im-tags"><span class="im-tag upset">Beat 1933-rated (+92 pts) in B32</span><span class="im-tag">vs same player who beat Yaen as White (7B4M)</span></div>
+  <div class="im-prep"><strong>Key asymmetry confirmed:</strong> Yaen BEATS Alba 1933 as Black in Sveshnikov (96.1%) but LOSES to Alba 1933 as White in Scotch (89.1%, 11 errors). This shows the color-specific preparation gap — Yaen's B32 Black preparation is genuinely strong, while his C45 White preparation fails vs same-level opposition. Austin's Rossolimo (avoiding B32 entirely) is the correct counter.</div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-white">WHITE</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">Olimpiada Rapid 10+5 R5 · C02 French Advance · vs Jackson, Leo Daniel Olivera (1882)</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc">93.4%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:22 · B:0 · M:1</span>
+</div>
+<div class="game-row-body">
+  <div class="im-section-label">Win vs Near-Austin-Level Opposition</div>
+  <div class="im-moment good">93.4% vs Leo Jackson (1882, only 17 pts below Austin) — Yaen beat Leo Jackson twice in this dataset (also Olimpiada Rapid 25+5 R7 at 92.8%) using C02 French Advance. Relevant: Austin has also analyzed Leo Jackson. Yaen played the French Advance well vs Leo — the same French Advance Austin plays.</div>
+  <div class="im-tags"><span class="im-tag">Beat Leo Jackson 1882 twice with C02 French</span></div>
+  <div class="im-prep">Yaen wins with the French Advance (C02) — the same system Austin uses as White. This shows Yaen understands this structure well as White. However, Austin plays 1.e4 vs Yaen's Sicilian — so C02 only arises if Yaen plays 1...e6 vs Austin. More relevant for this matchup: Yaen beat Leo Jackson at 93.4%, showing his White capability vs 1880-level opponents when NOT in the Scotch.</div>
+</div>
+</div>
+
+<hr>
+
+<div class="part-card">
+<p class="part-title engine">White Performance by Opening</p>
+<div class="part-body">
+<table>
+<thead><tr><th>ECO</th><th>Opening</th><th>G</th><th>Avg%</th><th>Record</th><th>Key Opponents</th></tr></thead>
+<tbody>
+<tr>
+  <td>C45</td><td>Scotch Game</td><td>5</td><td><strong>91.0%</strong></td><td>3W-1L-1D</td>
+  <td>Lost vs Alba 1933 (89.1%, 7B4M); drew vs Cardenas 1709 (blitz); won vs sub-1600</td>
+</tr>
+<tr>
+  <td>B90</td><td>Sicilian English Attack (Najdorf)</td><td>3</td><td><strong>93.5%</strong></td>
+  <td>2W-1L-0D</td>
+  <td>Lost vs Contreras 1947 (90.1%, 4M); won vs sub-1600 (blitz)</td>
+</tr>
+<tr>
+  <td>C02</td><td>French Advance</td><td>2</td><td><strong>93.1%</strong></td>
+  <td>2W-0L-0D</td>
+  <td>Beat Leo Jackson (1882) twice; Ng7+ inaccuracy vs Leo</td>
+</tr>
+<tr>
+  <td>D00</td><td>London / Queen's Pawn</td><td>2</td><td><strong>89.5%</strong></td>
+  <td>1W-0L-0D</td>
+  <td>One win vs 1599, one analyzed; h4?? CPL1000 in winning position</td>
+</tr>
+<tr>
+  <td>C47/C42/C44</td><td>Four Knights / Petrov / Scotch Gambit</td><td>3</td><td><strong>91.6%</strong></td>
+  <td>1W-1L-1D</td>
+  <td>Lost to Estrada 2151 (4B); drew vs Cardenas 1709 (blitz, C42)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="part-card">
+<p class="part-title engine">Black Performance by Opening</p>
+<div class="part-body">
+<table>
+<thead><tr><th>ECO</th><th>Opening</th><th>G</th><th>Avg%</th><th>Record</th><th>Key Opponents</th></tr></thead>
+<tbody>
+<tr>
+  <td>B32/B33</td><td>Sicilian Sveshnikov/Kalashnikov</td><td>4</td><td><strong>91.3%</strong></td>
+  <td>2W-1L-1D</td>
+  <td>Won vs Alba 1933 (96.1%); won vs Camargo 1586; lost to Cortes 1904 (92.6%, 2B); drew vs Garcia 1617 (80.1%, Qxb2 blunder)</td>
+</tr>
+<tr>
+  <td>D35/D55/D30/D43</td><td>QGD / Semi-Slav family</td><td>5</td><td><strong>92.7%</strong></td>
+  <td>4W-0L-1D</td>
+  <td>Best: 98.4% vs Maciel 1536; worst: 83.5% (4B2M) vs Camargo 1568 in D55</td>
+</tr>
+<tr>
+  <td>B22/B23</td><td>Sicilian Alapin Response</td><td>3</td><td><strong>87.9%</strong></td>
+  <td>1W-0L-2D</td>
+  <td>87% draw with 10 mistakes; worst B22 performance (84.8%, king walk Kd4)</td>
+</tr>
+<tr>
+  <td>A29/A23</td><td>English KI Attack / English</td><td>2</td><td><strong>93.4%</strong></td>
+  <td>2W-0L-0D</td>
+  <td>Beat Campillo Soto 2140 (94.3%); beat Cortes 1805 (92.5%)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<hr>
+
+<div class="part-card">
+<p class="part-title pattern">Key Patterns — Austin's Exploitation Guide</p>
+<div class="part-body">
+
+<h3>Pattern #1 — Scotch C45 Collapse vs Near-Equal White Opposition</h3>
+<div class="warn-box">
+  <strong>C45 Scotch losses:</strong> 89.1% vs Alba 1933 (7B4M) and 84.5% in classical 90/30 (f3?? CPL599 from equal). Yaen's Scotch preparation has tactical gaps that emerge against 1850+ opposition. But since Austin plays 1...c5, the Scotch doesn't arise (requires 1...e5). The key implication: Yaen's White game overall is weaker against near-equal opponents — this applies to his B90 English Attack too (1B4M loss to Contreras 1947).
+</div>
+
+<h3>Pattern #2 — Qxb2 Greedy Capture from Winning Position</h3>
+<div class="warn-box">
+  <strong>Qxb2?? (CPL1000, +6.02→−5.13) in Blitz B32:</strong> From a completely dominant position, Yaen played the greedy pawn capture instead of the mating move (Qxe1). This is not a time-pressure anomaly — it is a calculation pattern. Yaen prioritizes material over precise calculation. In Rossolimo positions, Austin should create opportunities for b2 captures that are tactically refutable.
+</div>
+
+<h3>Pattern #3 — B32 Sveshnikov Losses Under Pressure</h3>
+<div class="warn-box">
+  <strong>Loss to Guzman Garcia 1885 (77.9%, 3B2M) and partial loss to Cortes 1904 (92.6%, 2B) in B32:</strong> Even in Yaen's primary Black weapon, he collapses against 1800+ opposition under pressure. Qc8 (CPL556, +3.32→-2.24) and Kf8 (CPL1000) confirm piece-placement failures. This is why Austin's Rossolimo is the right weapon — it avoids Yaen's B32 strength while forcing unfamiliar structural decisions.
+</div>
+
+<h3>Pattern #4 — Outstanding Black Accuracy vs Higher-Rated (A23/A29 English)</h3>
+<div class="info-box">
+  Yaen beat Campillo Soto (2140) at 94.3% in A23 and beat Cortes Medina (1805) at 92.5% in A29 — both as Black in English structures. This shows Yaen's positional understanding is genuine. In quiet, non-forcing structures where preparation matters less, Yaen can execute near-perfectly. <strong>Austin must avoid simplified, positional structures — complexity and forced lines are required.</strong>
+</div>
+
+<h3>Summary Table — Biggest Blunders</h3>
+<table>
+<thead><tr><th>Pattern</th><th>Game</th><th>CPL</th><th>Eval swing</th><th>Context</th></tr></thead>
+<tbody>
+<tr><td>Qxb2 greedy capture</td><td>Olimpiada Blitz B32 [B DRAW vs 1617]</td><td>1000</td><td>+6.02→−5.13</td><td>From WINNING → losing</td></tr>
+<tr><td>Qc8 passive retreat</td><td>Olimpiada Rapid 25+5 B32 [B LOSS vs 1885]</td><td>556</td><td>+3.32→−2.24</td><td>From WINNING → losing</td></tr>
+<tr><td>Rxe4 king-side collapse</td><td>Olimpiada Rapid 10+5 C45 [W LOSS vs 1933]</td><td>1000</td><td>−8.03→−91.49</td><td>Accelerated loss</td></tr>
+<tr><td>f3 opening blunder</td><td>Olimpiada Classical C45 [W WIN vs 1566]</td><td>599</td><td>−0.37→−6.36</td><td>From EQUAL → losing (classical!)</td></tr>
+<tr><td>Qf7 wrong queen square</td><td>Liga Intergaláctica R2 D55 [B DRAW]</td><td>474</td><td>+0.00→−4.74</td><td>From EQUAL → losing</td></tr>
+<tr><td>g3 defensive error</td><td>Liga Interestelar C47 [W LOSS vs 2151]</td><td>710</td><td>−2.66→−9.76</td><td>Collapsed when losing</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>

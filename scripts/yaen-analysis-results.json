@@ -1161,6 +1161,95 @@
           "evalAfter": "+7.30"
         }
       ]
+    },
+    "R2_Carrasco": {
+      "prColor": "white",
+      "opponent": "Carrasco Zanini Perles Blanco, Di",
+      "oppElo": 0,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "C42",
+      "event": "?",
+      "tournKey": "Unknown",
+      "date": "2025.07.13",
+      "roundKey": "R2",
+      "timeCtrl": "",
+      "prAccuracy": 95,
+      "oppAccuracy": 89,
+      "avgCPL": 21,
+      "blunders": 0,
+      "mistakes": 1,
+      "inaccuracies": 3,
+      "movesAnalyzed": 33,
+      "criticalMoments": [
+        {
+          "moveNum": 12,
+          "san": "Nh4",
+          "bestMove": "d5",
+          "cpl": 160,
+          "classification": "mistake",
+          "evalBefore": "+1.94",
+          "evalAfter": "+0.34"
+        },
+        {
+          "moveNum": 11,
+          "san": "Be3",
+          "bestMove": "d5",
+          "cpl": 144,
+          "classification": "inaccuracy",
+          "evalBefore": "+2.04",
+          "evalAfter": "+0.60"
+        },
+        {
+          "moveNum": 27,
+          "san": "Be4",
+          "bestMove": "Re8+",
+          "cpl": 120,
+          "classification": "inaccuracy",
+          "evalBefore": "+11.84",
+          "evalAfter": "+10.64"
+        }
+      ]
+    },
+    "R2_cortezma": {
+      "prColor": "black",
+      "opponent": "cortez, madera fidel leonar",
+      "oppElo": 0,
+      "result": "0-1",
+      "prResult": "win",
+      "eco": "D12",
+      "event": "?",
+      "tournKey": "Unknown",
+      "date": "2025.04.16",
+      "roundKey": "R2",
+      "timeCtrl": "",
+      "prAccuracy": 98.2,
+      "oppAccuracy": 91.3,
+      "avgCPL": 12,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 2,
+      "movesAnalyzed": 28,
+      "criticalMoments": [
+        {
+          "moveNum": 25,
+          "san": "Qb4",
+          "bestMove": "Rd3",
+          "cpl": 130,
+          "classification": "inaccuracy",
+          "evalBefore": "+8.12",
+          "evalAfter": "+6.82"
+        },
+        {
+          "moveNum": 29,
+          "san": "Qxe1+",
+          "bestMove": "Rxe3",
+          "cpl": 54,
+          "classification": "inaccuracy",
+          "evalBefore": "+9.40",
+          "evalAfter": "+8.86"
+        }
+      ]
     }
   },
   "Olimpiada Nacional 2025 (Rapid 25+5)": {
@@ -1308,6 +1397,374 @@
           "classification": "inaccuracy",
           "evalBefore": "+0.96",
           "evalAfter": "+0.32"
+        }
+      ]
+    },
+    "R5_GuzmanGa": {
+      "prColor": "black",
+      "opponent": "Guzman Garcia, Mia Fernanda",
+      "oppElo": 1885,
+      "result": "1-0",
+      "prResult": "loss",
+      "eco": "B32",
+      "event": "Olimpiada Nacional 2025. Sub 12 Mixto Rapido 25 + 5",
+      "tournKey": "Olimpiada Nacional 2025 (Rapid 25+5)",
+      "date": "2025.07.13",
+      "roundKey": "R5",
+      "timeCtrl": "",
+      "prAccuracy": 77.1,
+      "oppAccuracy": 82.7,
+      "avgCPL": 87,
+      "blunders": 3,
+      "mistakes": 3,
+      "inaccuracies": 5,
+      "movesAnalyzed": 31,
+      "criticalMoments": [
+        {
+          "moveNum": 26,
+          "san": "Qc8",
+          "bestMove": "Nc3",
+          "cpl": 560,
+          "classification": "blunder",
+          "evalBefore": "+3.52",
+          "evalAfter": "-2.08"
+        },
+        {
+          "moveNum": 32,
+          "san": "axb5",
+          "bestMove": "Ng4",
+          "cpl": 478,
+          "classification": "blunder",
+          "evalBefore": "-4.65",
+          "evalAfter": "-9.43"
+        },
+        {
+          "moveNum": 30,
+          "san": "Rb7",
+          "bestMove": "Ng4",
+          "cpl": 332,
+          "classification": "blunder",
+          "evalBefore": "-0.68",
+          "evalAfter": "-4.00"
+        }
+      ]
+    },
+    "R4_CortesMe": {
+      "prColor": "white",
+      "opponent": "Cortes Medina, Fernando",
+      "oppElo": 1805,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "B28",
+      "event": "Olimpiada Nacional 2025. Sub 12 Mixto Rapido 25 + 5",
+      "tournKey": "Olimpiada Nacional 2025 (Rapid 25+5)",
+      "date": "2025.07.12",
+      "roundKey": "R4",
+      "timeCtrl": "",
+      "prAccuracy": 96.4,
+      "oppAccuracy": 96.7,
+      "avgCPL": 9,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 0,
+      "movesAnalyzed": 28,
+      "criticalMoments": []
+    }
+  },
+  "Olimpiada Nacional 2025 (Classical)": {
+    "R5_DavisVil": {
+      "prColor": "white",
+      "opponent": "Davis, Villarreal Miguel",
+      "oppElo": 1566,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "C45",
+      "event": "Olimpiada Nacional 2025. Sub 12 Años Varonil Clásico",
+      "tournKey": "Olimpiada Nacional 2025 (Classical)",
+      "date": "2025.07.12",
+      "roundKey": "R5",
+      "timeCtrl": "90/30",
+      "prAccuracy": 82.8,
+      "oppAccuracy": 77.1,
+      "avgCPL": 62,
+      "blunders": 1,
+      "mistakes": 1,
+      "inaccuracies": 6,
+      "movesAnalyzed": 33,
+      "criticalMoments": [
+        {
+          "moveNum": 17,
+          "san": "f3",
+          "bestMove": "Rad1",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-0.42",
+          "evalAfter": "-#"
+        },
+        {
+          "moveNum": 25,
+          "san": "Nf5",
+          "bestMove": "Qd2",
+          "cpl": 169,
+          "classification": "mistake",
+          "evalBefore": "+1.54",
+          "evalAfter": "-0.15"
+        },
+        {
+          "moveNum": 7,
+          "san": "Bd3",
+          "bestMove": "Nc3",
+          "cpl": 130,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.22",
+          "evalAfter": "-1.52"
+        }
+      ]
+    },
+    "R6_MacosayL": {
+      "prColor": "black",
+      "opponent": "Macosay Lopez, Julio David",
+      "oppElo": 1762,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "B30",
+      "event": "Olimpiada Nacional 2025. Sub 12 Años Varonil Clásico",
+      "tournKey": "Olimpiada Nacional 2025 (Classical)",
+      "date": "2025.07.12",
+      "roundKey": "R6",
+      "timeCtrl": "90/30",
+      "prAccuracy": 86.6,
+      "oppAccuracy": 87.4,
+      "avgCPL": 45,
+      "blunders": 3,
+      "mistakes": 1,
+      "inaccuracies": 0,
+      "movesAnalyzed": 40,
+      "criticalMoments": [
+        {
+          "moveNum": 35,
+          "san": "Ba2",
+          "bestMove": "c3",
+          "cpl": 448,
+          "classification": "blunder",
+          "evalBefore": "+4.86",
+          "evalAfter": "+0.38"
+        },
+        {
+          "moveNum": 40,
+          "san": "Qd8",
+          "bestMove": "Qb4",
+          "cpl": 433,
+          "classification": "blunder",
+          "evalBefore": "+4.43",
+          "evalAfter": "+0.10"
+        },
+        {
+          "moveNum": 29,
+          "san": "Rxc2",
+          "bestMove": "Qb1",
+          "cpl": 361,
+          "classification": "blunder",
+          "evalBefore": "+5.37",
+          "evalAfter": "+1.76"
+        }
+      ]
+    },
+    "R1_JalomoTo": {
+      "prColor": "white",
+      "opponent": "Jalomo Toribio, Jose Luis",
+      "oppElo": 1704,
+      "result": "0-1",
+      "prResult": "loss",
+      "eco": "C02",
+      "event": "Olimpiada Nacional 2025. Sub 12 Años Varonil Clásico",
+      "tournKey": "Olimpiada Nacional 2025 (Classical)",
+      "date": "2025.07.10",
+      "roundKey": "R1",
+      "timeCtrl": "90/30",
+      "prAccuracy": 77.9,
+      "oppAccuracy": 82.7,
+      "avgCPL": 84,
+      "blunders": 2,
+      "mistakes": 3,
+      "inaccuracies": 5,
+      "movesAnalyzed": 38,
+      "criticalMoments": [
+        {
+          "moveNum": 32,
+          "san": "Bxe6",
+          "bestMove": "Qd6",
+          "cpl": 953,
+          "classification": "blunder",
+          "evalBefore": "+6.44",
+          "evalAfter": "-3.09"
+        },
+        {
+          "moveNum": 38,
+          "san": "Nd4",
+          "bestMove": "Ra8",
+          "cpl": 683,
+          "classification": "blunder",
+          "evalBefore": "-0.52",
+          "evalAfter": "-7.35"
+        },
+        {
+          "moveNum": 35,
+          "san": "Rxf8+",
+          "bestMove": "Rfa1",
+          "cpl": 294,
+          "classification": "mistake",
+          "evalBefore": "-2.03",
+          "evalAfter": "-4.97"
+        }
+      ]
+    },
+    "R2_SevillaR": {
+      "prColor": "black",
+      "opponent": "Sevilla Ramirez, Brandon Samuel",
+      "oppElo": 1753,
+      "result": "1-0",
+      "prResult": "loss",
+      "eco": "B33",
+      "event": "Olimpiada Nacional 2025. Sub 12 Años Varonil Clásico",
+      "tournKey": "Olimpiada Nacional 2025 (Classical)",
+      "date": "2025.07.10",
+      "roundKey": "R2",
+      "timeCtrl": "90/30",
+      "prAccuracy": 87.8,
+      "oppAccuracy": 88.5,
+      "avgCPL": 42,
+      "blunders": 1,
+      "mistakes": 1,
+      "inaccuracies": 4,
+      "movesAnalyzed": 34,
+      "criticalMoments": [
+        {
+          "moveNum": 30,
+          "san": "Ra1+",
+          "bestMove": "Nxd3",
+          "cpl": 709,
+          "classification": "blunder",
+          "evalBefore": "+8.42",
+          "evalAfter": "+1.33"
+        },
+        {
+          "moveNum": 31,
+          "san": "Nxd3",
+          "bestMove": "h5",
+          "cpl": 174,
+          "classification": "mistake",
+          "evalBefore": "+1.26",
+          "evalAfter": "-0.48"
+        },
+        {
+          "moveNum": 10,
+          "san": "h6",
+          "bestMove": "Be7",
+          "cpl": 87,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.23",
+          "evalAfter": "-0.64"
+        }
+      ]
+    }
+  },
+  "Querétaro 2025": {
+    "R3_PerezBru": {
+      "prColor": "white",
+      "opponent": "Perez Bruno, Victor Eduardo",
+      "oppElo": 1527,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "C41",
+      "event": "LXX Campeonato Abierto Mexicano de Ajedrez Querétaro 2025. Cat. Sub-12-Absoluta.",
+      "tournKey": "Querétaro 2025",
+      "date": "2025.04.13",
+      "roundKey": "R3",
+      "timeCtrl": "90/30",
+      "prAccuracy": 92.4,
+      "oppAccuracy": 88.1,
+      "avgCPL": 59,
+      "blunders": 3,
+      "mistakes": 0,
+      "inaccuracies": 6,
+      "movesAnalyzed": 45,
+      "criticalMoments": [
+        {
+          "moveNum": 38,
+          "san": "Bd6",
+          "bestMove": "Rxf7",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "#",
+          "evalAfter": "+12.22"
+        },
+        {
+          "moveNum": 39,
+          "san": "Rcc7",
+          "bestMove": "Rxf7",
+          "cpl": 572,
+          "classification": "blunder",
+          "evalBefore": "+23.68",
+          "evalAfter": "+17.96"
+        },
+        {
+          "moveNum": 20,
+          "san": "Nd7+",
+          "bestMove": "Qxa5",
+          "cpl": 440,
+          "classification": "blunder",
+          "evalBefore": "+4.47",
+          "evalAfter": "+0.07"
+        }
+      ]
+    },
+    "R4_SotoRese": {
+      "prColor": "black",
+      "opponent": "Soto Resendiz, Miguel Angel",
+      "oppElo": 1647,
+      "result": "0-1",
+      "prResult": "win",
+      "eco": "D04",
+      "event": "LXX Campeonato Abierto Mexicano de Ajedrez Querétaro 2025. Cat. Sub-12-Absoluta.",
+      "tournKey": "Querétaro 2025",
+      "date": "2025.04.13",
+      "roundKey": "R4",
+      "timeCtrl": "90/30",
+      "prAccuracy": 91.2,
+      "oppAccuracy": 86.8,
+      "avgCPL": 29,
+      "blunders": 2,
+      "mistakes": 1,
+      "inaccuracies": 3,
+      "movesAnalyzed": 44,
+      "criticalMoments": [
+        {
+          "moveNum": 22,
+          "san": "Kh8",
+          "bestMove": "g5",
+          "cpl": 336,
+          "classification": "blunder",
+          "evalBefore": "+5.25",
+          "evalAfter": "+1.89"
+        },
+        {
+          "moveNum": 19,
+          "san": "Qd7",
+          "bestMove": "Ne4",
+          "cpl": 333,
+          "classification": "blunder",
+          "evalBefore": "+3.77",
+          "evalAfter": "+0.44"
+        },
+        {
+          "moveNum": 23,
+          "san": "Bb6",
+          "bestMove": "h5",
+          "cpl": 215,
+          "classification": "mistake",
+          "evalBefore": "+3.00",
+          "evalAfter": "+0.85"
         }
       ]
     }
