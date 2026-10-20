@@ -1,0 +1,2233 @@
+{
+  "white": {
+    "san": "root",
+    "uci": "",
+    "fen_after": "",
+    "games": 0,
+    "wins": 0,
+    "draws": 0,
+    "losses": 0,
+    "win_pct": 0.0,
+    "avg_clock_s": null,
+    "children": {
+      "e4": {
+        "san": "e4",
+        "uci": "e2e4",
+        "fen_after": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq -",
+        "games": 196,
+        "wins": 136,
+        "draws": 22,
+        "losses": 38,
+        "win_pct": 69.4,
+        "avg_clock_s": null,
+        "children": {
+          "Nf3": {
+            "san": "Nf3",
+            "uci": "g1f3",
+            "fen_after": "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -",
+            "games": 164,
+            "wins": 118,
+            "draws": 16,
+            "losses": 30,
+            "win_pct": 72.0,
+            "avg_clock_s": 1.3,
+            "children": {
+              "d4": {
+                "san": "d4",
+                "uci": "d2d4",
+                "fen_after": "r1bqkbnr/pppp1ppp/2n5/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq -",
+                "games": 136,
+                "wins": 100,
+                "draws": 14,
+                "losses": 22,
+                "win_pct": 73.5,
+                "avg_clock_s": 1.4,
+                "children": {
+                  "Nxd4": {
+                    "san": "Nxd4",
+                    "uci": "f3d4",
+                    "fen_after": "r1bqkbnr/pppp1ppp/2n5/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq -",
+                    "games": 122,
+                    "wins": 87,
+                    "draws": 13,
+                    "losses": 22,
+                    "win_pct": 71.3,
+                    "avg_clock_s": 0.4,
+                    "children": {
+                      "Be3": {
+                        "san": "Be3",
+                        "uci": "c1e3",
+                        "fen_after": "r1bqk1nr/pppp1ppp/2n5/2b5/3NP3/4B3/PPP2PPP/RN1QKB1R b KQkq -",
+                        "games": 21,
+                        "wins": 14,
+                        "draws": 4,
+                        "losses": 3,
+                        "win_pct": 66.7,
+                        "avg_clock_s": 1.3,
+                        "children": {
+                          "Nxc6": {
+                            "san": "Nxc6",
+                            "uci": "d4c6",
+                            "fen_after": "r1bqk1nr/ppp2ppp/2Np4/2b5/4P3/4B3/PPP2PPP/RN1QKB1R b KQkq -",
+                            "games": 5,
+                            "wins": 3,
+                            "draws": 1,
+                            "losses": 1,
+                            "win_pct": 60.0,
+                            "avg_clock_s": 2.0,
+                            "children": {
+                              "Bxb6": {
+                                "san": "Bxb6",
+                                "uci": "e3b6",
+                                "fen_after": "r1bqk1nr/p1pp1ppp/1Bp5/8/4P3/8/PPP2PPP/RN1QKB1R b KQkq -",
+                                "games": 4,
+                                "wins": 2,
+                                "draws": 1,
+                                "losses": 1,
+                                "win_pct": 50.0,
+                                "avg_clock_s": 0.5,
+                                "children": {
+                                  "Nc3": {
+                                    "san": "Nc3",
+                                    "uci": "b1c3",
+                                    "fen_after": "r1bqk1nr/2pp1ppp/1pp5/8/4P3/2N5/PPP2PPP/R2QKB1R b KQkq -",
+                                    "games": 3,
+                                    "wins": 1,
+                                    "draws": 1,
+                                    "losses": 1,
+                                    "win_pct": 33.3,
+                                    "avg_clock_s": 1.0,
+                                    "children": {
+                                      "Bc4": {
+                                        "san": "Bc4",
+                                        "uci": "f1c4",
+                                        "fen_after": "r1bqk1nr/2p2ppp/1ppp4/8/2B1P3/2N5/PPP2PPP/R2QK2R b KQkq -",
+                                        "games": 3,
+                                        "wins": 1,
+                                        "draws": 1,
+                                        "losses": 1,
+                                        "win_pct": 33.3,
+                                        "avg_clock_s": 4.0,
+                                        "children": {
+                                          "O-O": {
+                                            "san": "O-O",
+                                            "uci": "e1g1",
+                                            "fen_after": "r1bqk2r/2p2ppp/1ppp1n2/8/2B1P3/2N5/PPP2PPP/R2Q1RK1 b kq -",
+                                            "games": 3,
+                                            "wins": 1,
+                                            "draws": 1,
+                                            "losses": 1,
+                                            "win_pct": 33.3,
+                                            "avg_clock_s": 5.7,
+                                            "children": {}
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Bxd4": {
+                            "san": "Bxd4",
+                            "uci": "e3d4",
+                            "fen_after": "r1bqk1nr/pppp1ppp/8/2b5/3BP3/8/PPP2PPP/RN1QKB1R b KQkq -",
+                            "games": 8,
+                            "wins": 6,
+                            "draws": 2,
+                            "losses": 0,
+                            "win_pct": 75.0,
+                            "avg_clock_s": 3.0,
+                            "children": {
+                              "Qxd4": {
+                                "san": "Qxd4",
+                                "uci": "d1d4",
+                                "fen_after": "r1bqk1nr/pppp1ppp/8/8/3QP3/8/PPP2PPP/RN2KB1R b KQkq -",
+                                "games": 7,
+                                "wins": 5,
+                                "draws": 2,
+                                "losses": 0,
+                                "win_pct": 71.4,
+                                "avg_clock_s": 0.4,
+                                "children": {
+                                  "e5": {
+                                    "san": "e5",
+                                    "uci": "e4e5",
+                                    "fen_after": "r1bqk2r/pppp1ppp/5n2/4P3/3Q4/8/PPP2PPP/RN2KB1R b KQkq -",
+                                    "games": 5,
+                                    "wins": 3,
+                                    "draws": 2,
+                                    "losses": 0,
+                                    "win_pct": 60.0,
+                                    "avg_clock_s": 1.2,
+                                    "children": {
+                                      "Be2": {
+                                        "san": "Be2",
+                                        "uci": "f1e2",
+                                        "fen_after": "r1b1k1nr/ppppqppp/8/4P3/3Q4/8/PPP1BPPP/RN2K2R b KQkq -",
+                                        "games": 3,
+                                        "wins": 1,
+                                        "draws": 2,
+                                        "losses": 0,
+                                        "win_pct": 33.3,
+                                        "avg_clock_s": 3.3,
+                                        "children": {}
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "c3": {
+                            "san": "c3",
+                            "uci": "c2c3",
+                            "fen_after": "r1b1k1nr/pppp1ppp/2n2q2/2b5/3NP3/2P1B3/PP3PPP/RN1QKB1R b KQkq -",
+                            "games": 4,
+                            "wins": 2,
+                            "draws": 1,
+                            "losses": 1,
+                            "win_pct": 50.0,
+                            "avg_clock_s": 0.8,
+                            "children": {
+                              "Bc4": {
+                                "san": "Bc4",
+                                "uci": "f1c4",
+                                "fen_after": "r1b1k2r/ppppnppp/2n2q2/2b5/2BNP3/2P1B3/PP3PPP/RN1QK2R b KQkq -",
+                                "games": 3,
+                                "wins": 2,
+                                "draws": 0,
+                                "losses": 1,
+                                "win_pct": 66.7,
+                                "avg_clock_s": 3.7,
+                                "children": {}
+                              }
+                            }
+                          },
+                          "Nc3": {
+                            "san": "Nc3",
+                            "uci": "b1c3",
+                            "fen_after": "r1b1kbnr/ppp2ppp/2np1q2/8/3NP3/2N1B3/PPP2PPP/R2QKB1R b KQkq -",
+                            "games": 4,
+                            "wins": 3,
+                            "draws": 0,
+                            "losses": 1,
+                            "win_pct": 75.0,
+                            "avg_clock_s": 12.2,
+                            "children": {
+                              "Nxc6": {
+                                "san": "Nxc6",
+                                "uci": "d4c6",
+                                "fen_after": "r1bqk2r/ppppnppp/1bN5/8/4P3/2N1B3/PPP2PPP/R2QKB1R b KQkq -",
+                                "games": 3,
+                                "wins": 2,
+                                "draws": 0,
+                                "losses": 1,
+                                "win_pct": 66.7,
+                                "avg_clock_s": 2.3,
+                                "children": {
+                                  "Bxb6": {
+                                    "san": "Bxb6",
+                                    "uci": "e3b6",
+                                    "fen_after": "r1bqk2r/pppp1ppp/1Bn5/8/4P3/2N5/PPP2PPP/R2QKB1R b KQkq -",
+                                    "games": 3,
+                                    "wins": 2,
+                                    "draws": 0,
+                                    "losses": 1,
+                                    "win_pct": 66.7,
+                                    "avg_clock_s": 1.0,
+                                    "children": {}
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "Nc3": {
+                        "san": "Nc3",
+                        "uci": "b1c3",
+                        "fen_after": "r1bqkb1r/pppp1ppp/2n2n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq -",
+                        "games": 64,
+                        "wins": 40,
+                        "draws": 8,
+                        "losses": 16,
+                        "win_pct": 62.5,
+                        "avg_clock_s": 1.3,
+                        "children": {
+                          "Be3": {
+                            "san": "Be3",
+                            "uci": "c1e3",
+                            "fen_after": "r1bqk2r/pppp1ppp/2n2n2/2b5/3NP3/2N1B3/PPP2PPP/R2QKB1R b KQkq -",
+                            "games": 21,
+                            "wins": 14,
+                            "draws": 2,
+                            "losses": 5,
+                            "win_pct": 66.7,
+                            "avg_clock_s": 1.6,
+                            "children": {
+                              "Bc4": {
+                                "san": "Bc4",
+                                "uci": "f1c4",
+                                "fen_after": "r1bqk2r/pp1pppbp/2n2np1/8/2BNP3/2N1B3/PPP2PPP/R2QK2R b KQkq -",
+                                "games": 5,
+                                "wins": 1,
+                                "draws": 1,
+                                "losses": 3,
+                                "win_pct": 20.0,
+                                "avg_clock_s": 2.6,
+                                "children": {}
+                              },
+                              "f3": {
+                                "san": "f3",
+                                "uci": "f2f3",
+                                "fen_after": "rnbqk2r/pp2ppbp/3p1np1/8/3NP3/2N1BP2/PPP3PP/R2QKB1R b KQkq -",
+                                "games": 6,
+                                "wins": 5,
+                                "draws": 0,
+                                "losses": 1,
+                                "win_pct": 83.3,
+                                "avg_clock_s": 2.8,
+                                "children": {
+                                  "Bc4": {
+                                    "san": "Bc4",
+                                    "uci": "f1c4",
+                                    "fen_after": "r1bqk2r/pp2ppbp/2np1np1/8/2BNP3/2N1BP2/PPP3PP/R2QK2R b KQkq -",
+                                    "games": 5,
+                                    "wins": 4,
+                                    "draws": 0,
+                                    "losses": 1,
+                                    "win_pct": 80.0,
+                                    "avg_clock_s": 0.0,
+                                    "children": {
+                                      "Qd2": {
+                                        "san": "Qd2",
+                                        "uci": "d1d2",
+                                        "fen_after": "r1bqk2r/1p2ppbp/p1np1np1/8/2BNP3/2N1BP2/PPPQ2PP/R3K2R b KQkq -",
+                                        "games": 5,
+                                        "wins": 4,
+                                        "draws": 0,
+                                        "losses": 1,
+                                        "win_pct": 80.0,
+                                        "avg_clock_s": 0.0,
+                                        "children": {
+                                          "O-O-O": {
+                                            "san": "O-O-O",
+                                            "uci": "e1c1",
+                                            "fen_after": "r2q1rk1/pp1bppbp/2np1np1/8/2BNP3/2N1BP2/PPPQ2PP/2KR3R b - -",
+                                            "games": 3,
+                                            "wins": 2,
+                                            "draws": 0,
+                                            "losses": 1,
+                                            "win_pct": 66.7,
+                                            "avg_clock_s": 0.7,
+                                            "children": {
+                                              "Bb3": {
+                                                "san": "Bb3",
+                                                "uci": "c4b3",
+                                                "fen_after": "2rq1rk1/pp1bppbp/2np1np1/8/3NP3/1BN1BP2/PPPQ2PP/2KR3R b - -",
+                                                "games": 3,
+                                                "wins": 2,
+                                                "draws": 0,
+                                                "losses": 1,
+                                                "win_pct": 66.7,
+                                                "avg_clock_s": 0.0,
+                                                "children": {
+                                                  "h4": {
+                                                    "san": "h4",
+                                                    "uci": "h2h4",
+                                                    "fen_after": "2rqr1k1/pp1bppbp/2np1np1/8/3NP2P/1BN1BP2/PPPQ2P1/2KR3R b - -",
+                                                    "games": 3,
+                                                    "wins": 2,
+                                                    "draws": 0,
+                                                    "losses": 1,
+                                                    "win_pct": 66.7,
+                                                    "avg_clock_s": 2.3,
+                                                    "children": {}
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "Bxd4": {
+                                "san": "Bxd4",
+                                "uci": "e3d4",
+                                "fen_after": "r1bqk1nr/pp1p1ppp/4p3/2b5/3BP3/2N5/PPP2PPP/R2QKB1R b KQkq -",
+                                "games": 3,
+                                "wins": 3,
+                                "draws": 0,
+                                "losses": 0,
+                                "win_pct": 100.0,
+                                "avg_clock_s": 2.0,
+                                "children": {
+                                  "Qxd4": {
+                                    "san": "Qxd4",
+                                    "uci": "d1d4",
+                                    "fen_after": "r1bqk1nr/pp1p1ppp/4p3/8/3QP3/2N5/PPP2PPP/R3KB1R b KQkq -",
+                                    "games": 3,
+                                    "wins": 3,
+                                    "draws": 0,
+                                    "losses": 0,
+                                    "win_pct": 100.0,
+                                    "avg_clock_s": 1.3,
+                                    "children": {}
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Ndb5": {
+                            "san": "Ndb5",
+                            "uci": "d4b5",
+                            "fen_after": "r1bqkbnr/pp3ppp/2np4/1N2p3/4P3/2N5/PPP2PPP/R1BQKB1R b KQkq -",
+                            "games": 7,
+                            "wins": 4,
+                            "draws": 1,
+                            "losses": 2,
+                            "win_pct": 57.1,
+                            "avg_clock_s": 0.6,
+                            "children": {
+                              "Bg5": {
+                                "san": "Bg5",
+                                "uci": "c1g5",
+                                "fen_after": "r1bqkb1r/pp3ppp/2np1n2/1N2p1B1/4P3/2N5/PPP2PPP/R2QKB1R b KQkq -",
+                                "games": 6,
+                                "wins": 4,
+                                "draws": 1,
+                                "losses": 1,
+                                "win_pct": 66.7,
+                                "avg_clock_s": 0.8,
+                                "children": {
+                                  "Na3": {
+                                    "san": "Na3",
+                                    "uci": "b5a3",
+                                    "fen_after": "r1bqkb1r/1p3ppp/p1np1n2/4p1B1/4P3/N1N5/PPP2PPP/R2QKB1R b KQkq -",
+                                    "games": 6,
+                                    "wins": 4,
+                                    "draws": 1,
+                                    "losses": 1,
+                                    "win_pct": 66.7,
+                                    "avg_clock_s": 1.5,
+                                    "children": {
+                                      "Nd5": {
+                                        "san": "Nd5",
+                                        "uci": "c3d5",
+                                        "fen_after": "r1bqkb1r/5ppp/p1np1n2/1p1Np1B1/4P3/N7/PPP2PPP/R2QKB1R b KQkq -",
+                                        "games": 5,
+                                        "wins": 3,
+                                        "draws": 1,
+                                        "losses": 1,
+                                        "win_pct": 60.0,
+                                        "avg_clock_s": 3.0,
+                                        "children": {
+                                          "Bxf6": {
+                                            "san": "Bxf6",
+                                            "uci": "g5f6",
+                                            "fen_after": "r1bqk2r/4bppp/p1np1B2/1p1Np3/4P3/N7/PPP2PPP/R2QKB1R b KQkq -",
+                                            "games": 5,
+                                            "wins": 3,
+                                            "draws": 1,
+                                            "losses": 1,
+                                            "win_pct": 60.0,
+                                            "avg_clock_s": 0.8,
+                                            "children": {
+                                              "c3": {
+                                                "san": "c3",
+                                                "uci": "c2c3",
+                                                "fen_after": "r1bqk2r/5ppp/p1np1b2/1p1Np3/4P3/N1P5/PP3PPP/R2QKB1R b KQkq -",
+                                                "games": 5,
+                                                "wins": 3,
+                                                "draws": 1,
+                                                "losses": 1,
+                                                "win_pct": 60.0,
+                                                "avg_clock_s": 1.8,
+                                                "children": {
+                                                  "Nc2": {
+                                                    "san": "Nc2",
+                                                    "uci": "a3c2",
+                                                    "fen_after": "r1bqk2r/5ppp/p1np4/1p1Np1b1/4P3/2P5/PPN2PPP/R2QKB1R b KQkq -",
+                                                    "games": 4,
+                                                    "wins": 3,
+                                                    "draws": 0,
+                                                    "losses": 1,
+                                                    "win_pct": 75.0,
+                                                    "avg_clock_s": 11.0,
+                                                    "children": {
+                                                      "Nce3": {
+                                                        "san": "Nce3",
+                                                        "uci": "c2e3",
+                                                        "fen_after": "r1bqk2r/4nppp/p2p4/1p1Np1b1/4P3/2P1N3/PP3PPP/R2QKB1R b KQkq -",
+                                                        "games": 3,
+                                                        "wins": 2,
+                                                        "draws": 0,
+                                                        "losses": 1,
+                                                        "win_pct": 66.7,
+                                                        "avg_clock_s": 4.7,
+                                                        "children": {}
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Bg5": {
+                            "san": "Bg5",
+                            "uci": "c1g5",
+                            "fen_after": "rnbqkb1r/1p2pppp/p2p1n2/6B1/3NP3/2N5/PPP2PPP/R2QKB1R b KQkq -",
+                            "games": 25,
+                            "wins": 15,
+                            "draws": 4,
+                            "losses": 6,
+                            "win_pct": 60.0,
+                            "avg_clock_s": 1.0,
+                            "children": {
+                              "f4": {
+                                "san": "f4",
+                                "uci": "f2f4",
+                                "fen_after": "rnbqkb1r/1p3ppp/p2ppn2/6B1/3NPP2/2N5/PPP3PP/R2QKB1R b KQkq -",
+                                "games": 18,
+                                "wins": 10,
+                                "draws": 3,
+                                "losses": 5,
+                                "win_pct": 55.6,
+                                "avg_clock_s": 1.3,
+                                "children": {
+                                  "Qf3": {
+                                    "san": "Qf3",
+                                    "uci": "d1f3",
+                                    "fen_after": "rnbqk2r/1p2bppp/p2ppn2/6B1/3NPP2/2N2Q2/PPP3PP/R3KB1R b KQkq -",
+                                    "games": 8,
+                                    "wins": 4,
+                                    "draws": 1,
+                                    "losses": 3,
+                                    "win_pct": 50.0,
+                                    "avg_clock_s": 3.0,
+                                    "children": {
+                                      "O-O-O": {
+                                        "san": "O-O-O",
+                                        "uci": "e1c1",
+                                        "fen_after": "rnb1k2r/1pq1bppp/p2ppn2/6B1/3NPP2/2N2Q2/PPP3PP/2KR1B1R b kq -",
+                                        "games": 6,
+                                        "wins": 3,
+                                        "draws": 1,
+                                        "losses": 2,
+                                        "win_pct": 50.0,
+                                        "avg_clock_s": 1.7,
+                                        "children": {
+                                          "g4": {
+                                            "san": "g4",
+                                            "uci": "g2g4",
+                                            "fen_after": "r1b1k2r/1pqnbppp/p2ppn2/6B1/3NPPP1/2N2Q2/PPP4P/2KR1B1R b kq -",
+                                            "games": 4,
+                                            "wins": 2,
+                                            "draws": 1,
+                                            "losses": 1,
+                                            "win_pct": 50.0,
+                                            "avg_clock_s": 4.2,
+                                            "children": {
+                                              "Bxf6": {
+                                                "san": "Bxf6",
+                                                "uci": "g5f6",
+                                                "fen_after": "r1b1k2r/1pqnbpp1/p2ppB1p/8/3NPPP1/2N2Q2/PPP4P/2KR1B1R b kq -",
+                                                "games": 4,
+                                                "wins": 2,
+                                                "draws": 1,
+                                                "losses": 1,
+                                                "win_pct": 50.0,
+                                                "avg_clock_s": 12.8,
+                                                "children": {
+                                                  "g5": {
+                                                    "san": "g5",
+                                                    "uci": "g4g5",
+                                                    "fen_after": "2bq1rk1/rp2bppp/p2ppn2/6P1/3NPP2/2N2Q2/PPP4P/2KR1B1R b - -",
+                                                    "games": 3,
+                                                    "wins": 2,
+                                                    "draws": 1,
+                                                    "losses": 0,
+                                                    "win_pct": 66.7,
+                                                    "avg_clock_s": 1.3,
+                                                    "children": {}
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "Qd2": {
+                                    "san": "Qd2",
+                                    "uci": "d1d2",
+                                    "fen_after": "rnb1kb1r/1p3ppp/pq1ppn2/6B1/3NPP2/2N5/PPPQ2PP/R3KB1R b KQkq -",
+                                    "games": 6,
+                                    "wins": 4,
+                                    "draws": 1,
+                                    "losses": 1,
+                                    "win_pct": 66.7,
+                                    "avg_clock_s": 1.8,
+                                    "children": {
+                                      "Rb1": {
+                                        "san": "Rb1",
+                                        "uci": "a1b1",
+                                        "fen_after": "rnb1kb1r/1p3ppp/p2ppn2/6B1/3NPP2/2N5/PqPQ2PP/1R2KB1R b Kkq -",
+                                        "games": 4,
+                                        "wins": 4,
+                                        "draws": 0,
+                                        "losses": 0,
+                                        "win_pct": 100.0,
+                                        "avg_clock_s": 1.2,
+                                        "children": {
+                                          "f5": {
+                                            "san": "f5",
+                                            "uci": "f4f5",
+                                            "fen_after": "rnb1kb1r/1p3ppp/p2ppn2/5PB1/3NP3/q1N5/P1PQ2PP/1R2KB1R b Kkq -",
+                                            "games": 4,
+                                            "wins": 4,
+                                            "draws": 0,
+                                            "losses": 0,
+                                            "win_pct": 100.0,
+                                            "avg_clock_s": 2.0,
+                                            "children": {}
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "Nf5": {
+                                "san": "Nf5",
+                                "uci": "d4f5",
+                                "fen_after": "rnbqkb1r/1p3ppp/p2p1n2/4pNB1/4P3/2N5/PPP2PPP/R2QKB1R b KQkq -",
+                                "games": 4,
+                                "wins": 3,
+                                "draws": 1,
+                                "losses": 0,
+                                "win_pct": 75.0,
+                                "avg_clock_s": 11.2,
+                                "children": {
+                                  "Bxf6": {
+                                    "san": "Bxf6",
+                                    "uci": "g5f6",
+                                    "fen_after": "rn1qkb1r/1p3ppp/p2p1B2/4pb2/4P3/2N5/PPP2PPP/R2QKB1R b KQkq -",
+                                    "games": 4,
+                                    "wins": 3,
+                                    "draws": 1,
+                                    "losses": 0,
+                                    "win_pct": 75.0,
+                                    "avg_clock_s": 3.0,
+                                    "children": {}
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Nxc6": {
+                            "san": "Nxc6",
+                            "uci": "d4c6",
+                            "fen_after": "r1bqkb1r/pp1p1ppp/2N1pn2/8/4P3/2N5/PPP2PPP/R1BQKB1R b KQkq -",
+                            "games": 5,
+                            "wins": 5,
+                            "draws": 0,
+                            "losses": 0,
+                            "win_pct": 100.0,
+                            "avg_clock_s": 0.2,
+                            "children": {}
+                          },
+                          "Bb5": {
+                            "san": "Bb5",
+                            "uci": "f1b5",
+                            "fen_after": "r1bqkb1r/pp2pppp/2np1n2/1B6/3NP3/2N5/PPP2PPP/R1BQK2R b KQkq -",
+                            "games": 3,
+                            "wins": 2,
+                            "draws": 1,
+                            "losses": 0,
+                            "win_pct": 66.7,
+                            "avg_clock_s": 1.3,
+                            "children": {}
+                          }
+                        }
+                      },
+                      "Qxd4": {
+                        "san": "Qxd4",
+                        "uci": "d1d4",
+                        "fen_after": "r1bqkbnr/pp1ppppp/8/8/3QP3/8/PPP2PPP/RNB1KB1R b KQkq -",
+                        "games": 30,
+                        "wins": 26,
+                        "draws": 1,
+                        "losses": 3,
+                        "win_pct": 86.7,
+                        "avg_clock_s": 1.5,
+                        "children": {
+                          "Nc3": {
+                            "san": "Nc3",
+                            "uci": "b1c3",
+                            "fen_after": "r1bqkbnr/pp2pppp/3p4/8/3QP3/2N5/PPP2PPP/R1B1KB1R b KQkq -",
+                            "games": 8,
+                            "wins": 6,
+                            "draws": 1,
+                            "losses": 1,
+                            "win_pct": 75.0,
+                            "avg_clock_s": 0.2,
+                            "children": {
+                              "Be3": {
+                                "san": "Be3",
+                                "uci": "c1e3",
+                                "fen_after": "r1bqkb1r/pp2pppp/3p1n2/8/3QP3/2N1B3/PPP2PPP/R3KB1R b KQkq -",
+                                "games": 3,
+                                "wins": 3,
+                                "draws": 0,
+                                "losses": 0,
+                                "win_pct": 100.0,
+                                "avg_clock_s": 2.7,
+                                "children": {}
+                              }
+                            }
+                          },
+                          "e5": {
+                            "san": "e5",
+                            "uci": "e4e5",
+                            "fen_after": "r1bqkb1r/pppp1ppp/5n2/4P3/3Q4/8/PPP2PPP/RNB1KB1R b KQkq -",
+                            "games": 12,
+                            "wins": 11,
+                            "draws": 0,
+                            "losses": 1,
+                            "win_pct": 91.7,
+                            "avg_clock_s": 1.3,
+                            "children": {
+                              "Bc4": {
+                                "san": "Bc4",
+                                "uci": "f1c4",
+                                "fen_after": "r1bqkbnr/pppp1ppp/8/4P3/2BQ4/8/PPP2PPP/RNB1K2R b KQkq -",
+                                "games": 4,
+                                "wins": 4,
+                                "draws": 0,
+                                "losses": 0,
+                                "win_pct": 100.0,
+                                "avg_clock_s": 3.0,
+                                "children": {}
+                              }
+                            }
+                          },
+                          "Qd1": {
+                            "san": "Qd1",
+                            "uci": "d4d1",
+                            "fen_after": "r1bqkbnr/pp1p1ppp/8/2p5/4P3/8/PPP2PPP/RNBQKB1R b KQkq -",
+                            "games": 5,
+                            "wins": 5,
+                            "draws": 0,
+                            "losses": 0,
+                            "win_pct": 100.0,
+                            "avg_clock_s": 2.8,
+                            "children": {
+                              "Nc3": {
+                                "san": "Nc3",
+                                "uci": "b1c3",
+                                "fen_after": "r1bqkb1r/pp1p1ppp/5n2/2p5/4P3/2N5/PPP2PPP/R1BQKB1R b KQkq -",
+                                "games": 4,
+                                "wins": 4,
+                                "draws": 0,
+                                "losses": 0,
+                                "win_pct": 100.0,
+                                "avg_clock_s": 2.5,
+                                "children": {}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "dxe5": {
+                    "san": "dxe5",
+                    "uci": "d4e5",
+                    "fen_after": "r1bqkbnr/pppp2pp/2n2p2/4P3/4P3/5N2/PPP2PPP/RNBQKB1R b KQkq -",
+                    "games": 7,
+                    "wins": 7,
+                    "draws": 0,
+                    "losses": 0,
+                    "win_pct": 100.0,
+                    "avg_clock_s": 0.9,
+                    "children": {
+                      "Qxd8+": {
+                        "san": "Qxd8+",
+                        "uci": "d1d8",
+                        "fen_after": "r1bQkbnr/ppp2ppp/2n5/4p3/4P3/5N2/PPP2PPP/RNB1KB1R b KQkq -",
+                        "games": 5,
+                        "wins": 5,
+                        "draws": 0,
+                        "losses": 0,
+                        "win_pct": 100.0,
+                        "avg_clock_s": 1.8,
+                        "children": {
+                          "Bb5": {
+                            "san": "Bb5",
+                            "uci": "f1b5",
+                            "fen_after": "r1bk1bnr/ppp2ppp/2n5/1B2p3/4P3/5N2/PPP2PPP/RNB1K2R b KQ -",
+                            "games": 3,
+                            "wins": 3,
+                            "draws": 0,
+                            "losses": 0,
+                            "win_pct": 100.0,
+                            "avg_clock_s": 0.7,
+                            "children": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "Nc3": {
+                "san": "Nc3",
+                "uci": "b1c3",
+                "fen_after": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R b KQkq -",
+                "games": 13,
+                "wins": 11,
+                "draws": 0,
+                "losses": 2,
+                "win_pct": 84.6,
+                "avg_clock_s": 2.1,
+                "children": {
+                  "d4": {
+                    "san": "d4",
+                    "uci": "d2d4",
+                    "fen_after": "r1bqkb1r/pppp1ppp/2n2n2/4p3/3PP3/2N2N2/PPP2PPP/R1BQKB1R b KQkq -",
+                    "games": 11,
+                    "wins": 9,
+                    "draws": 0,
+                    "losses": 2,
+                    "win_pct": 81.8,
+                    "avg_clock_s": 2.1,
+                    "children": {
+                      "Nxd4": {
+                        "san": "Nxd4",
+                        "uci": "f3d4",
+                        "fen_after": "r1bqkb1r/pppp1ppp/2n2n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq -",
+                        "games": 9,
+                        "wins": 7,
+                        "draws": 0,
+                        "losses": 2,
+                        "win_pct": 77.8,
+                        "avg_clock_s": 0.3,
+                        "children": {
+                          "Be3": {
+                            "san": "Be3",
+                            "uci": "c1e3",
+                            "fen_after": "r1bqk2r/pppp1ppp/2n2n2/2b5/3NP3/2N1B3/PPP2PPP/R2QKB1R b KQkq -",
+                            "games": 3,
+                            "wins": 2,
+                            "draws": 0,
+                            "losses": 1,
+                            "win_pct": 66.7,
+                            "avg_clock_s": 1.0,
+                            "children": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "Bc4": {
+                "san": "Bc4",
+                "uci": "f1c4",
+                "fen_after": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq -",
+                "games": 7,
+                "wins": 4,
+                "draws": 0,
+                "losses": 3,
+                "win_pct": 57.1,
+                "avg_clock_s": 2.1,
+                "children": {
+                  "c3": {
+                    "san": "c3",
+                    "uci": "c2c3",
+                    "fen_after": "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/2P2N2/PP1P1PPP/RNBQK2R b KQkq -",
+                    "games": 3,
+                    "wins": 1,
+                    "draws": 0,
+                    "losses": 2,
+                    "win_pct": 33.3,
+                    "avg_clock_s": 1.0,
+                    "children": {}
+                  }
+                }
+              },
+              "Nxe5": {
+                "san": "Nxe5",
+                "uci": "f3e5",
+                "fen_after": "rnbqk1nr/pppp1ppp/8/2b1N3/4P3/8/PPPP1PPP/RNBQKB1R b KQkq -",
+                "games": 3,
+                "wins": 0,
+                "draws": 1,
+                "losses": 2,
+                "win_pct": 0.0,
+                "avg_clock_s": 2.3,
+                "children": {}
+              }
+            }
+          },
+          "d4": {
+            "san": "d4",
+            "uci": "d2d4",
+            "fen_after": "rnbqkbnr/pp1ppppp/2p5/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq -",
+            "games": 24,
+            "wins": 14,
+            "draws": 5,
+            "losses": 5,
+            "win_pct": 58.3,
+            "avg_clock_s": 1.0,
+            "children": {
+              "exd5": {
+                "san": "exd5",
+                "uci": "e4d5",
+                "fen_after": "rnbqkbnr/pp2pppp/2p5/3P4/3P4/8/PPP2PPP/RNBQKBNR b KQkq -",
+                "games": 11,
+                "wins": 5,
+                "draws": 2,
+                "losses": 4,
+                "win_pct": 45.5,
+                "avg_clock_s": 0.7,
+                "children": {
+                  "Bd3": {
+                    "san": "Bd3",
+                    "uci": "f1d3",
+                    "fen_after": "rnbqkbnr/pp2pppp/8/3p4/3P4/3B4/PPP2PPP/RNBQK1NR b KQkq -",
+                    "games": 9,
+                    "wins": 4,
+                    "draws": 2,
+                    "losses": 3,
+                    "win_pct": 44.4,
+                    "avg_clock_s": 0.0,
+                    "children": {
+                      "c3": {
+                        "san": "c3",
+                        "uci": "c2c3",
+                        "fen_after": "r1bqkbnr/pp2pppp/2n5/3p4/3P4/2PB4/PP3PPP/RNBQK1NR b KQkq -",
+                        "games": 7,
+                        "wins": 2,
+                        "draws": 2,
+                        "losses": 3,
+                        "win_pct": 28.6,
+                        "avg_clock_s": 0.0,
+                        "children": {
+                          "Ne2": {
+                            "san": "Ne2",
+                            "uci": "g1e2",
+                            "fen_after": "r1b1kbnr/ppq1pppp/2n5/3p4/3P4/2PB4/PP2NPPP/RNBQK2R b KQkq -",
+                            "games": 3,
+                            "wins": 1,
+                            "draws": 1,
+                            "losses": 1,
+                            "win_pct": 33.3,
+                            "avg_clock_s": 0.0,
+                            "children": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "Nc3": {
+                "san": "Nc3",
+                "uci": "b1c3",
+                "fen_after": "rnbqkb1r/ppp1pppp/3p1n2/8/3PP3/2N5/PPP2PPP/R1BQKBNR b KQkq -",
+                "games": 3,
+                "wins": 2,
+                "draws": 0,
+                "losses": 1,
+                "win_pct": 66.7,
+                "avg_clock_s": 1.0,
+                "children": {}
+              },
+              "Nd2": {
+                "san": "Nd2",
+                "uci": "b1d2",
+                "fen_after": "rnbqkbnr/ppp2ppp/4p3/3p4/3PP3/8/PPPN1PPP/R1BQKBNR b KQkq -",
+                "games": 7,
+                "wins": 5,
+                "draws": 2,
+                "losses": 0,
+                "win_pct": 71.4,
+                "avg_clock_s": 0.7,
+                "children": {
+                  "Ngf3": {
+                    "san": "Ngf3",
+                    "uci": "g1f3",
+                    "fen_after": "rnbqkbnr/pp3ppp/4p3/2pp4/3PP3/5N2/PPPN1PPP/R1BQKB1R b KQkq -",
+                    "games": 4,
+                    "wins": 4,
+                    "draws": 0,
+                    "losses": 0,
+                    "win_pct": 100.0,
+                    "avg_clock_s": 1.0,
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "exd5": {
+            "san": "exd5",
+            "uci": "e4d5",
+            "fen_after": "rnbqkbnr/ppp1pppp/8/3P4/8/8/PPPP1PPP/RNBQKBNR b KQkq -",
+            "games": 4,
+            "wins": 2,
+            "draws": 1,
+            "losses": 1,
+            "win_pct": 50.0,
+            "avg_clock_s": 1.0,
+            "children": {
+              "Nc3": {
+                "san": "Nc3",
+                "uci": "b1c3",
+                "fen_after": "rnb1kbnr/ppp1pppp/8/3q4/8/2N5/PPPP1PPP/R1BQKBNR b KQkq -",
+                "games": 3,
+                "wins": 2,
+                "draws": 0,
+                "losses": 1,
+                "win_pct": 66.7,
+                "avg_clock_s": 4.0,
+                "children": {}
+              }
+            }
+          }
+        }
+      },
+      "d4": {
+        "san": "d4",
+        "uci": "d2d4",
+        "fen_after": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq -",
+        "games": 11,
+        "wins": 4,
+        "draws": 1,
+        "losses": 6,
+        "win_pct": 36.4,
+        "avg_clock_s": null,
+        "children": {
+          "c4": {
+            "san": "c4",
+            "uci": "c2c4",
+            "fen_after": "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq -",
+            "games": 8,
+            "wins": 4,
+            "draws": 0,
+            "losses": 4,
+            "win_pct": 50.0,
+            "avg_clock_s": 1.8,
+            "children": {
+              "e4": {
+                "san": "e4",
+                "uci": "e2e4",
+                "fen_after": "rnbqkbnr/ppp1pppp/8/8/2pPP3/8/PP3PPP/RNBQKBNR b KQkq -",
+                "games": 3,
+                "wins": 3,
+                "draws": 0,
+                "losses": 0,
+                "win_pct": 100.0,
+                "avg_clock_s": 0.0,
+                "children": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "black": {
+    "san": "root",
+    "uci": "",
+    "fen_after": "",
+    "games": 0,
+    "wins": 0,
+    "draws": 0,
+    "losses": 0,
+    "win_pct": 0.0,
+    "avg_clock_s": null,
+    "children": {
+      "c5": {
+        "san": "c5",
+        "uci": "c7c5",
+        "fen_after": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+        "games": 122,
+        "wins": 80,
+        "draws": 19,
+        "losses": 23,
+        "win_pct": 65.6,
+        "avg_clock_s": null,
+        "children": {
+          "Nc6": {
+            "san": "Nc6",
+            "uci": "b8c6",
+            "fen_after": "r1bqkbnr/pp1ppppp/2n5/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -",
+            "games": 85,
+            "wins": 54,
+            "draws": 13,
+            "losses": 18,
+            "win_pct": 63.5,
+            "avg_clock_s": 1.7,
+            "children": {
+              "cxd4": {
+                "san": "cxd4",
+                "uci": "c5d4",
+                "fen_after": "r1bqkbnr/pp1ppppp/2n5/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq -",
+                "games": 43,
+                "wins": 28,
+                "draws": 5,
+                "losses": 10,
+                "win_pct": 65.1,
+                "avg_clock_s": 0.2,
+                "children": {
+                  "Nf6": {
+                    "san": "Nf6",
+                    "uci": "g8f6",
+                    "fen_after": "r1bqkb1r/pp1ppppp/2n2n2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq -",
+                    "games": 43,
+                    "wins": 28,
+                    "draws": 5,
+                    "losses": 10,
+                    "win_pct": 65.1,
+                    "avg_clock_s": 0.7,
+                    "children": {
+                      "e5": {
+                        "san": "e5",
+                        "uci": "e7e5",
+                        "fen_after": "r1bqkb1r/pp1p1ppp/2n2n2/4p3/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq -",
+                        "games": 38,
+                        "wins": 23,
+                        "draws": 5,
+                        "losses": 10,
+                        "win_pct": 60.5,
+                        "avg_clock_s": 0.9,
+                        "children": {
+                          "d5": {
+                            "san": "d5",
+                            "uci": "d7d5",
+                            "fen_after": "r1bqkb1r/pp3ppp/2n2n2/3ppN2/4P3/2N5/PPP2PPP/R1BQKB1R w KQkq -",
+                            "games": 4,
+                            "wins": 1,
+                            "draws": 1,
+                            "losses": 2,
+                            "win_pct": 25.0,
+                            "avg_clock_s": 1.0,
+                            "children": {}
+                          },
+                          "d6": {
+                            "san": "d6",
+                            "uci": "d7d6",
+                            "fen_after": "r1bqkb1r/pp3ppp/2np1n2/1N2p3/4P3/2N5/PPP2PPP/R1BQKB1R w KQkq -",
+                            "games": 14,
+                            "wins": 12,
+                            "draws": 0,
+                            "losses": 2,
+                            "win_pct": 85.7,
+                            "avg_clock_s": 1.1,
+                            "children": {
+                              "a6": {
+                                "san": "a6",
+                                "uci": "a7a6",
+                                "fen_after": "r1bqkb1r/1p3ppp/p1np1n2/1N2p1B1/4P3/2N5/PPP2PPP/R2QKB1R w KQkq -",
+                                "games": 13,
+                                "wins": 11,
+                                "draws": 0,
+                                "losses": 2,
+                                "win_pct": 84.6,
+                                "avg_clock_s": 2.4,
+                                "children": {
+                                  "b5": {
+                                    "san": "b5",
+                                    "uci": "b7b5",
+                                    "fen_after": "r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R w KQkq -",
+                                    "games": 12,
+                                    "wins": 11,
+                                    "draws": 0,
+                                    "losses": 1,
+                                    "win_pct": 91.7,
+                                    "avg_clock_s": 3.8,
+                                    "children": {
+                                      "Be7": {
+                                        "san": "Be7",
+                                        "uci": "f8e7",
+                                        "fen_after": "r1bqk2r/4bppp/p1np1n2/1p1Np1B1/4P3/N7/PPP2PPP/R2QKB1R w KQkq -",
+                                        "games": 8,
+                                        "wins": 8,
+                                        "draws": 0,
+                                        "losses": 0,
+                                        "win_pct": 100.0,
+                                        "avg_clock_s": 2.2,
+                                        "children": {
+                                          "Bxf6": {
+                                            "san": "Bxf6",
+                                            "uci": "e7f6",
+                                            "fen_after": "r1bqk2r/5ppp/p1np1b2/1p1Np3/4P3/N7/PPP2PPP/R2QKB1R w KQkq -",
+                                            "games": 5,
+                                            "wins": 5,
+                                            "draws": 0,
+                                            "losses": 0,
+                                            "win_pct": 100.0,
+                                            "avg_clock_s": 0.6,
+                                            "children": {
+                                              "O-O": {
+                                                "san": "O-O",
+                                                "uci": "e8g8",
+                                                "fen_after": "r1bq1rk1/5ppp/p1np1b2/1p1Np3/4P3/N1P5/PP3PPP/R2QKB1R w KQ -",
+                                                "games": 4,
+                                                "wins": 4,
+                                                "draws": 0,
+                                                "losses": 0,
+                                                "win_pct": 100.0,
+                                                "avg_clock_s": 11.0,
+                                                "children": {
+                                                  "Rb8": {
+                                                    "san": "Rb8",
+                                                    "uci": "a8b8",
+                                                    "fen_after": "1rbq1rk1/5ppp/p1np1b2/1p1Np3/4P3/2P5/PPN2PPP/R2QKB1R w KQ -",
+                                                    "games": 3,
+                                                    "wins": 3,
+                                                    "draws": 0,
+                                                    "losses": 0,
+                                                    "win_pct": 100.0,
+                                                    "avg_clock_s": 1.0,
+                                                    "children": {}
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Bb4": {
+                            "san": "Bb4",
+                            "uci": "f8b4",
+                            "fen_after": "r1bqk2r/pp1p1ppp/2n2n2/4p3/1b2P3/1NN5/PPP2PPP/R1BQKB1R w KQkq -",
+                            "games": 17,
+                            "wins": 7,
+                            "draws": 4,
+                            "losses": 6,
+                            "win_pct": 41.2,
+                            "avg_clock_s": 1.5,
+                            "children": {
+                              "d5": {
+                                "san": "d5",
+                                "uci": "d7d5",
+                                "fen_after": "r1bqk2r/pp3ppp/2n2n2/3pp3/1b2P3/1NNB4/PPP2PPP/R1BQK2R w KQkq -",
+                                "games": 12,
+                                "wins": 5,
+                                "draws": 2,
+                                "losses": 5,
+                                "win_pct": 41.7,
+                                "avg_clock_s": 3.8,
+                                "children": {
+                                  "Nxd5": {
+                                    "san": "Nxd5",
+                                    "uci": "f6d5",
+                                    "fen_after": "r1bqk2r/pp3ppp/2n5/3np3/1b6/1NNB4/PPP2PPP/R1BQK2R w KQkq -",
+                                    "games": 9,
+                                    "wins": 5,
+                                    "draws": 1,
+                                    "losses": 3,
+                                    "win_pct": 55.6,
+                                    "avg_clock_s": 0.9,
+                                    "children": {
+                                      "Nxc3": {
+                                        "san": "Nxc3",
+                                        "uci": "d5c3",
+                                        "fen_after": "r1bqk2r/pp3ppp/2n5/4p3/1b6/1NnB4/PPPB1PPP/R2QK2R w KQkq -",
+                                        "games": 7,
+                                        "wins": 3,
+                                        "draws": 1,
+                                        "losses": 3,
+                                        "win_pct": 42.9,
+                                        "avg_clock_s": 2.7,
+                                        "children": {
+                                          "Bd6": {
+                                            "san": "Bd6",
+                                            "uci": "b4d6",
+                                            "fen_after": "r1bqk2r/pp3ppp/2nb4/4p3/8/2PB1N2/P1PB1PPP/R2QK2R w KQkq -",
+                                            "games": 3,
+                                            "wins": 2,
+                                            "draws": 1,
+                                            "losses": 0,
+                                            "win_pct": 66.7,
+                                            "avg_clock_s": 6.3,
+                                            "children": {}
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "Bxc3": {
+                                "san": "Bxc3",
+                                "uci": "b4c3",
+                                "fen_after": "r1bqk2r/pp1p1ppp/2n2n2/4p3/4P3/2b2N2/PPPB1PPP/R2QKB1R w KQkq -",
+                                "games": 3,
+                                "wins": 1,
+                                "draws": 1,
+                                "losses": 1,
+                                "win_pct": 33.3,
+                                "avg_clock_s": 0.0,
+                                "children": {
+                                  "Nxe4": {
+                                    "san": "Nxe4",
+                                    "uci": "f6e4",
+                                    "fen_after": "r1bqk2r/pp1p1ppp/2n5/4p3/4n3/2B2N2/PPP2PPP/R2QKB1R w KQkq -",
+                                    "games": 3,
+                                    "wins": 1,
+                                    "draws": 1,
+                                    "losses": 1,
+                                    "win_pct": 33.3,
+                                    "avg_clock_s": 0.0,
+                                    "children": {
+                                      "Nxe5": {
+                                        "san": "Nxe5",
+                                        "uci": "c6e5",
+                                        "fen_after": "r1bqk2r/pp1p1ppp/8/4n3/4n3/2B5/PPP2PPP/R2QKB1R w KQkq -",
+                                        "games": 3,
+                                        "wins": 1,
+                                        "draws": 1,
+                                        "losses": 1,
+                                        "win_pct": 33.3,
+                                        "avg_clock_s": 17.3,
+                                        "children": {}
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "bxc6": {
+                            "san": "bxc6",
+                            "uci": "b7c6",
+                            "fen_after": "r1bqkb1r/p2p1ppp/2p2n2/4p3/4P3/2N5/PPP2PPP/R1BQKB1R w KQkq -",
+                            "games": 3,
+                            "wins": 3,
+                            "draws": 0,
+                            "losses": 0,
+                            "win_pct": 100.0,
+                            "avg_clock_s": 1.0,
+                            "children": {
+                              "Bb4": {
+                                "san": "Bb4",
+                                "uci": "f8b4",
+                                "fen_after": "r1bqk2r/p2p1ppp/2p2n2/4p3/1bB1P3/2N5/PPP2PPP/R1BQK2R w KQkq -",
+                                "games": 3,
+                                "wins": 3,
+                                "draws": 0,
+                                "losses": 0,
+                                "win_pct": 100.0,
+                                "avg_clock_s": 6.0,
+                                "children": {}
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "bxc6": {
+                        "san": "bxc6",
+                        "uci": "b7c6",
+                        "fen_after": "r1bqkb1r/p2ppppp/2p2n2/8/4P3/8/PPP2PPP/RNBQKB1R w KQkq -",
+                        "games": 4,
+                        "wins": 4,
+                        "draws": 0,
+                        "losses": 0,
+                        "win_pct": 100.0,
+                        "avg_clock_s": 1.2,
+                        "children": {
+                          "e5": {
+                            "san": "e5",
+                            "uci": "e7e5",
+                            "fen_after": "r1bqkb1r/p2p1ppp/2p2n2/4p3/4P3/2N5/PPP2PPP/R1BQKB1R w KQkq -",
+                            "games": 3,
+                            "wins": 3,
+                            "draws": 0,
+                            "losses": 0,
+                            "win_pct": 100.0,
+                            "avg_clock_s": 1.3,
+                            "children": {
+                              "Bb4": {
+                                "san": "Bb4",
+                                "uci": "f8b4",
+                                "fen_after": "r1bqk2r/p2p1ppp/2p2n2/4p1B1/1b2P3/2N5/PPP2PPP/R2QKB1R w KQkq -",
+                                "games": 3,
+                                "wins": 3,
+                                "draws": 0,
+                                "losses": 0,
+                                "win_pct": 100.0,
+                                "avg_clock_s": 4.0,
+                                "children": {}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "e6": {
+                "san": "e6",
+                "uci": "e7e6",
+                "fen_after": "r1bqkbnr/pp1p1ppp/2n1p3/2p5/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq -",
+                "games": 25,
+                "wins": 15,
+                "draws": 4,
+                "losses": 6,
+                "win_pct": 60.0,
+                "avg_clock_s": 3.8,
+                "children": {
+                  "Nge7": {
+                    "san": "Nge7",
+                    "uci": "g8e7",
+                    "fen_after": "r1bqkb1r/pp1pnppp/2n1p3/2p5/4PP2/5N2/PPPPB1PP/RNBQK2R w KQkq -",
+                    "games": 8,
+                    "wins": 3,
+                    "draws": 3,
+                    "losses": 2,
+                    "win_pct": 37.5,
+                    "avg_clock_s": 3.4,
+                    "children": {
+                      "a6": {
+                        "san": "a6",
+                        "uci": "a7a6",
+                        "fen_after": "r1bqkb1r/1p1pnppp/p1n1p3/1Bp5/4P3/2P2N2/PP1P1PPP/RNBQ1RK1 w kq -",
+                        "games": 3,
+                        "wins": 2,
+                        "draws": 0,
+                        "losses": 1,
+                        "win_pct": 66.7,
+                        "avg_clock_s": 0.0,
+                        "children": {}
+                      }
+                    }
+                  },
+                  "Be7": {
+                    "san": "Be7",
+                    "uci": "f8e7",
+                    "fen_after": "r1bqk1nr/pp1pbppp/2n1p3/2p5/2P1P3/2N3P1/PP1P1P1P/R1BQKBNR w KQkq -",
+                    "games": 3,
+                    "wins": 2,
+                    "draws": 0,
+                    "losses": 1,
+                    "win_pct": 66.7,
+                    "avg_clock_s": 5.0,
+                    "children": {}
+                  },
+                  "Nf6": {
+                    "san": "Nf6",
+                    "uci": "g8f6",
+                    "fen_after": "r1bqkb1r/pp1p1ppp/2n1pn2/2p5/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq -",
+                    "games": 6,
+                    "wins": 5,
+                    "draws": 0,
+                    "losses": 1,
+                    "win_pct": 83.3,
+                    "avg_clock_s": 2.5,
+                    "children": {
+                      "d5": {
+                        "san": "d5",
+                        "uci": "d7d5",
+                        "fen_after": "r1bqkb1r/pp3ppp/2n1pn2/2pp4/2B1P3/2N2N2/PPPP1PPP/R1BQ1RK1 w kq -",
+                        "games": 5,
+                        "wins": 4,
+                        "draws": 0,
+                        "losses": 1,
+                        "win_pct": 80.0,
+                        "avg_clock_s": 2.0,
+                        "children": {}
+                      }
+                    }
+                  },
+                  "d5": {
+                    "san": "d5",
+                    "uci": "d7d5",
+                    "fen_after": "r1bqkbnr/pp3ppp/2n1p3/2pp4/4PP2/2N2N2/PPPP2PP/R1BQKB1R w KQkq -",
+                    "games": 3,
+                    "wins": 2,
+                    "draws": 0,
+                    "losses": 1,
+                    "win_pct": 66.7,
+                    "avg_clock_s": 2.7,
+                    "children": {}
+                  }
+                }
+              },
+              "d5": {
+                "san": "d5",
+                "uci": "d7d5",
+                "fen_after": "r1bqkbnr/pp2pppp/2n5/2pp4/4P3/2P2N2/PP1P1PPP/RNBQKB1R w KQkq -",
+                "games": 5,
+                "wins": 2,
+                "draws": 2,
+                "losses": 1,
+                "win_pct": 40.0,
+                "avg_clock_s": 1.6,
+                "children": {
+                  "Qxd5": {
+                    "san": "Qxd5",
+                    "uci": "d8d5",
+                    "fen_after": "r1b1kbnr/pp2pppp/2n5/2pq4/8/2P2N2/PP1P1PPP/RNBQKB1R w KQkq -",
+                    "games": 5,
+                    "wins": 2,
+                    "draws": 2,
+                    "losses": 1,
+                    "win_pct": 40.0,
+                    "avg_clock_s": 1.0,
+                    "children": {
+                      "Bg4": {
+                        "san": "Bg4",
+                        "uci": "c8g4",
+                        "fen_after": "r3kbnr/pp2pppp/2n5/2pq4/3P2b1/2P2N2/PP3PPP/RNBQKB1R w KQkq -",
+                        "games": 3,
+                        "wins": 1,
+                        "draws": 1,
+                        "losses": 1,
+                        "win_pct": 33.3,
+                        "avg_clock_s": 3.3,
+                        "children": {}
+                      }
+                    }
+                  }
+                }
+              },
+              "Nf6": {
+                "san": "Nf6",
+                "uci": "g8f6",
+                "fen_after": "r1bqkb1r/pp1ppppp/2n2n2/2p5/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq -",
+                "games": 4,
+                "wins": 4,
+                "draws": 0,
+                "losses": 0,
+                "win_pct": 100.0,
+                "avg_clock_s": 5.2,
+                "children": {}
+              },
+              "d6": {
+                "san": "d6",
+                "uci": "d7d6",
+                "fen_after": "r1bqkbnr/pp2pppp/2np4/1Bp5/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -",
+                "games": 8,
+                "wins": 5,
+                "draws": 2,
+                "losses": 1,
+                "win_pct": 62.5,
+                "avg_clock_s": 2.2,
+                "children": {
+                  "e6": {
+                    "san": "e6",
+                    "uci": "e7e6",
+                    "fen_after": "r1bqkbnr/pp3ppp/2npp3/2p5/4PP2/2N2N2/PPPP2PP/R1BQKB1R w KQkq -",
+                    "games": 3,
+                    "wins": 3,
+                    "draws": 0,
+                    "losses": 0,
+                    "win_pct": 100.0,
+                    "avg_clock_s": 3.0,
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "d5": {
+            "san": "d5",
+            "uci": "d7d5",
+            "fen_after": "rnbqkbnr/pp2pppp/8/2pp4/4P3/2P5/PP1P1PPP/RNBQKBNR w KQkq -",
+            "games": 11,
+            "wins": 7,
+            "draws": 2,
+            "losses": 2,
+            "win_pct": 63.6,
+            "avg_clock_s": 1.0,
+            "children": {
+              "Qxd5": {
+                "san": "Qxd5",
+                "uci": "d8d5",
+                "fen_after": "rnb1kbnr/pp2pppp/8/2pq4/8/2P5/PP1P1PPP/RNBQKBNR w KQkq -",
+                "games": 9,
+                "wins": 6,
+                "draws": 1,
+                "losses": 2,
+                "win_pct": 66.7,
+                "avg_clock_s": 0.3,
+                "children": {
+                  "Nf6": {
+                    "san": "Nf6",
+                    "uci": "g8f6",
+                    "fen_after": "rnb1kb1r/pp2pppp/5n2/2pq4/3P4/2P5/PP3PPP/RNBQKBNR w KQkq -",
+                    "games": 4,
+                    "wins": 1,
+                    "draws": 1,
+                    "losses": 2,
+                    "win_pct": 25.0,
+                    "avg_clock_s": 1.2,
+                    "children": {
+                      "Bg4": {
+                        "san": "Bg4",
+                        "uci": "c8g4",
+                        "fen_after": "rn2kb1r/pp2pppp/5n2/2pq4/3P2b1/2P2N2/PP3PPP/RNBQKB1R w KQkq -",
+                        "games": 3,
+                        "wins": 0,
+                        "draws": 1,
+                        "losses": 2,
+                        "win_pct": 0.0,
+                        "avg_clock_s": 0.7,
+                        "children": {}
+                      }
+                    }
+                  },
+                  "Nc6": {
+                    "san": "Nc6",
+                    "uci": "b8c6",
+                    "fen_after": "r1b1kbnr/pp2pppp/2n5/2pq4/3P4/2P5/PP3PPP/RNBQKBNR w KQkq -",
+                    "games": 4,
+                    "wins": 4,
+                    "draws": 0,
+                    "losses": 0,
+                    "win_pct": 100.0,
+                    "avg_clock_s": 0.8,
+                    "children": {
+                      "Bg4": {
+                        "san": "Bg4",
+                        "uci": "c8g4",
+                        "fen_after": "r3kbnr/pp2pppp/2n5/2pq4/3P2b1/2P2N2/PP3PPP/RNBQKB1R w KQkq -",
+                        "games": 3,
+                        "wins": 3,
+                        "draws": 0,
+                        "losses": 0,
+                        "win_pct": 100.0,
+                        "avg_clock_s": 2.0,
+                        "children": {
+                          "e6": {
+                            "san": "e6",
+                            "uci": "e7e6",
+                            "fen_after": "r3kbnr/pp3ppp/2n1p3/2pq4/3P2b1/2P2N2/PP2BPPP/RNBQK2R w KQkq -",
+                            "games": 3,
+                            "wins": 3,
+                            "draws": 0,
+                            "losses": 0,
+                            "win_pct": 100.0,
+                            "avg_clock_s": 0.3,
+                            "children": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "cxd4": {
+            "san": "cxd4",
+            "uci": "c5d4",
+            "fen_after": "rnbqkbnr/pp1ppppp/8/8/3pP3/8/PPP2PPP/RNBQKBNR w KQkq -",
+            "games": 5,
+            "wins": 5,
+            "draws": 0,
+            "losses": 0,
+            "win_pct": 100.0,
+            "avg_clock_s": 2.0,
+            "children": {
+              "Nc6": {
+                "san": "Nc6",
+                "uci": "b8c6",
+                "fen_after": "r1bqkbnr/pp1ppppp/2n5/8/3QP3/8/PPP2PPP/RNB1KBNR w KQkq -",
+                "games": 3,
+                "wins": 3,
+                "draws": 0,
+                "losses": 0,
+                "win_pct": 100.0,
+                "avg_clock_s": 0.3,
+                "children": {}
+              }
+            }
+          },
+          "d6": {
+            "san": "d6",
+            "uci": "d7d6",
+            "fen_after": "rnbqkbnr/pp2pppp/3p4/2p5/4P3/2N5/PPPP1PPP/R1BQKBNR w KQkq -",
+            "games": 14,
+            "wins": 8,
+            "draws": 3,
+            "losses": 3,
+            "win_pct": 57.1,
+            "avg_clock_s": 0.9,
+            "children": {
+              "g6": {
+                "san": "g6",
+                "uci": "g7g6",
+                "fen_after": "rnbqkbnr/pp2pp1p/3p2p1/2p5/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq -",
+                "games": 3,
+                "wins": 1,
+                "draws": 1,
+                "losses": 1,
+                "win_pct": 33.3,
+                "avg_clock_s": 1.3,
+                "children": {}
+              },
+              "Nc6": {
+                "san": "Nc6",
+                "uci": "b8c6",
+                "fen_after": "r1bqkbnr/pp2pppp/2np4/2p5/4P3/2N3P1/PPPP1P1P/R1BQKBNR w KQkq -",
+                "games": 3,
+                "wins": 2,
+                "draws": 0,
+                "losses": 1,
+                "win_pct": 66.7,
+                "avg_clock_s": 1.7,
+                "children": {}
+              }
+            }
+          },
+          "e6": {
+            "san": "e6",
+            "uci": "e7e6",
+            "fen_after": "rnbqkbnr/pp1p1ppp/4p3/2p5/2B1P3/8/PPPP1PPP/RNBQK1NR w KQkq -",
+            "games": 4,
+            "wins": 4,
+            "draws": 0,
+            "losses": 0,
+            "win_pct": 100.0,
+            "avg_clock_s": 1.5,
+            "children": {}
+          }
+        }
+      },
+      "e5": {
+        "san": "e5",
+        "uci": "e7e5",
+        "fen_after": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+        "games": 33,
+        "wins": 21,
+        "draws": 4,
+        "losses": 8,
+        "win_pct": 63.6,
+        "avg_clock_s": null,
+        "children": {
+          "Nc6": {
+            "san": "Nc6",
+            "uci": "b8c6",
+            "fen_after": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -",
+            "games": 24,
+            "wins": 15,
+            "draws": 3,
+            "losses": 6,
+            "win_pct": 62.5,
+            "avg_clock_s": 1.0,
+            "children": {
+              "Bc5": {
+                "san": "Bc5",
+                "uci": "f8c5",
+                "fen_after": "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq -",
+                "games": 13,
+                "wins": 8,
+                "draws": 2,
+                "losses": 3,
+                "win_pct": 61.5,
+                "avg_clock_s": 0.8,
+                "children": {
+                  "h6": {
+                    "san": "h6",
+                    "uci": "h7h6",
+                    "fen_after": "r1bqk1nr/pppp1pp1/2n4p/2b1p3/2B1P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -",
+                    "games": 4,
+                    "wins": 2,
+                    "draws": 1,
+                    "losses": 1,
+                    "win_pct": 50.0,
+                    "avg_clock_s": 0.5,
+                    "children": {}
+                  },
+                  "Nf6": {
+                    "san": "Nf6",
+                    "uci": "g8f6",
+                    "fen_after": "r1bqk2r/pppp1ppp/2n2n2/2b1p3/4P3/5NP1/PPPP1PBP/RNBQK2R w KQkq -",
+                    "games": 4,
+                    "wins": 3,
+                    "draws": 1,
+                    "losses": 0,
+                    "win_pct": 75.0,
+                    "avg_clock_s": 0.2,
+                    "children": {}
+                  }
+                }
+              },
+              "a6": {
+                "san": "a6",
+                "uci": "a7a6",
+                "fen_after": "r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -",
+                "games": 5,
+                "wins": 2,
+                "draws": 0,
+                "losses": 3,
+                "win_pct": 40.0,
+                "avg_clock_s": 0.6,
+                "children": {
+                  "Nf6": {
+                    "san": "Nf6",
+                    "uci": "g8f6",
+                    "fen_after": "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -",
+                    "games": 4,
+                    "wins": 2,
+                    "draws": 0,
+                    "losses": 2,
+                    "win_pct": 50.0,
+                    "avg_clock_s": 1.8,
+                    "children": {
+                      "Be7": {
+                        "san": "Be7",
+                        "uci": "f8e7",
+                        "fen_after": "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -",
+                        "games": 4,
+                        "wins": 2,
+                        "draws": 0,
+                        "losses": 2,
+                        "win_pct": 50.0,
+                        "avg_clock_s": 3.2,
+                        "children": {
+                          "b5": {
+                            "san": "b5",
+                            "uci": "b7b5",
+                            "fen_after": "r1bqk2r/2ppbppp/p1n2n2/1p2p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 w kq -",
+                            "games": 4,
+                            "wins": 2,
+                            "draws": 0,
+                            "losses": 2,
+                            "win_pct": 50.0,
+                            "avg_clock_s": 1.2,
+                            "children": {
+                              "O-O": {
+                                "san": "O-O",
+                                "uci": "e8g8",
+                                "fen_after": "r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w - -",
+                                "games": 4,
+                                "wins": 2,
+                                "draws": 0,
+                                "losses": 2,
+                                "win_pct": 50.0,
+                                "avg_clock_s": 1.0,
+                                "children": {
+                                  "d6": {
+                                    "san": "d6",
+                                    "uci": "d7d6",
+                                    "fen_after": "r1bq1rk1/2p1bppp/p1np1n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - -",
+                                    "games": 3,
+                                    "wins": 1,
+                                    "draws": 0,
+                                    "losses": 2,
+                                    "win_pct": 33.3,
+                                    "avg_clock_s": 1.3,
+                                    "children": {}
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Nf6": {
+            "san": "Nf6",
+            "uci": "g8f6",
+            "fen_after": "rnbqkb1r/pppp1ppp/5n2/4p3/2P5/2N5/PP1PPPPP/R1BQKBNR w KQkq -",
+            "games": 9,
+            "wins": 6,
+            "draws": 1,
+            "losses": 2,
+            "win_pct": 66.7,
+            "avg_clock_s": 3.3,
+            "children": {
+              "Nc6": {
+                "san": "Nc6",
+                "uci": "b8c6",
+                "fen_after": "r1bqkb1r/pppp1ppp/2n2n2/4p3/2P5/2N3P1/PP1PPP1P/R1BQKBNR w KQkq -",
+                "games": 5,
+                "wins": 4,
+                "draws": 1,
+                "losses": 0,
+                "win_pct": 80.0,
+                "avg_clock_s": 3.2,
+                "children": {
+                  "d6": {
+                    "san": "d6",
+                    "uci": "d7d6",
+                    "fen_after": "r1bqkb1r/ppp2ppp/2np1n2/4p3/2P5/2N3P1/PP1PPPBP/R1BQK1NR w KQkq -",
+                    "games": 3,
+                    "wins": 2,
+                    "draws": 1,
+                    "losses": 0,
+                    "win_pct": 66.7,
+                    "avg_clock_s": 2.7,
+                    "children": {}
+                  }
+                }
+              },
+              "Be7": {
+                "san": "Be7",
+                "uci": "f8e7",
+                "fen_after": "rnbqk2r/ppppbppp/5n2/4p3/2P5/2NP4/PP2PPPP/R1BQKBNR w KQkq -",
+                "games": 3,
+                "wins": 2,
+                "draws": 0,
+                "losses": 1,
+                "win_pct": 66.7,
+                "avg_clock_s": 2.7,
+                "children": {}
+              }
+            }
+          }
+        }
+      },
+      "d5": {
+        "san": "d5",
+        "uci": "d7d5",
+        "fen_after": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
+        "games": 21,
+        "wins": 14,
+        "draws": 1,
+        "losses": 6,
+        "win_pct": 66.7,
+        "avg_clock_s": null,
+        "children": {
+          "Nf6": {
+            "san": "Nf6",
+            "uci": "g8f6",
+            "fen_after": "rnbqkb1r/ppp1pppp/5n2/3p4/3P4/2N5/PPP1PPPP/R1BQKBNR w KQkq -",
+            "games": 6,
+            "wins": 5,
+            "draws": 0,
+            "losses": 1,
+            "win_pct": 83.3,
+            "avg_clock_s": 1.3,
+            "children": {
+              "e6": {
+                "san": "e6",
+                "uci": "e7e6",
+                "fen_after": "rnbqkb1r/ppp2ppp/4pn2/3p2B1/3P4/2N5/PPP1PPPP/R2QKBNR w KQkq -",
+                "games": 4,
+                "wins": 3,
+                "draws": 0,
+                "losses": 1,
+                "win_pct": 75.0,
+                "avg_clock_s": 6.5,
+                "children": {
+                  "Be7": {
+                    "san": "Be7",
+                    "uci": "f8e7",
+                    "fen_after": "rnbqk2r/ppp1bppp/4pn2/3p4/3P4/5NP1/PPP1PPBP/RNBQK2R w KQkq -",
+                    "games": 3,
+                    "wins": 2,
+                    "draws": 0,
+                    "losses": 1,
+                    "win_pct": 66.7,
+                    "avg_clock_s": 1.7,
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "c6": {
+            "san": "c6",
+            "uci": "c7c6",
+            "fen_after": "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -",
+            "games": 9,
+            "wins": 4,
+            "draws": 1,
+            "losses": 4,
+            "win_pct": 44.4,
+            "avg_clock_s": 0.4,
+            "children": {
+              "Nf6": {
+                "san": "Nf6",
+                "uci": "g8f6",
+                "fen_after": "rnbqkb1r/pp2pppp/2p2n2/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq -",
+                "games": 7,
+                "wins": 3,
+                "draws": 1,
+                "losses": 3,
+                "win_pct": 42.9,
+                "avg_clock_s": 0.1,
+                "children": {
+                  "e6": {
+                    "san": "e6",
+                    "uci": "e7e6",
+                    "fen_after": "rnbqkb1r/pp3ppp/2p1pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq -",
+                    "games": 6,
+                    "wins": 3,
+                    "draws": 1,
+                    "losses": 2,
+                    "win_pct": 50.0,
+                    "avg_clock_s": 0.2,
+                    "children": {
+                      "Nbd7": {
+                        "san": "Nbd7",
+                        "uci": "b8d7",
+                        "fen_after": "r1bqkb1r/pp1n1ppp/2p1pn2/3p2B1/2PP4/2N2N2/PP2PPPP/R2QKB1R w KQkq -",
+                        "games": 6,
+                        "wins": 3,
+                        "draws": 1,
+                        "losses": 2,
+                        "win_pct": 50.0,
+                        "avg_clock_s": 0.7,
+                        "children": {
+                          "Bd6": {
+                            "san": "Bd6",
+                            "uci": "f8d6",
+                            "fen_after": "r1bqk2r/pp1n1ppp/2pbpn2/3p4/2PP4/2N1PN2/PPQ2PPP/R1B1KB1R w KQkq -",
+                            "games": 3,
+                            "wins": 2,
+                            "draws": 0,
+                            "losses": 1,
+                            "win_pct": 66.7,
+                            "avg_clock_s": 5.3,
+                            "children": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "c5": {
+            "san": "c5",
+            "uci": "c7c5",
+            "fen_after": "rnbqkbnr/pp2pppp/8/2pp4/3P1B2/8/PPP1PPPP/RN1QKBNR w KQkq -",
+            "games": 5,
+            "wins": 5,
+            "draws": 0,
+            "losses": 0,
+            "win_pct": 100.0,
+            "avg_clock_s": 0.4,
+            "children": {
+              "Nc6": {
+                "san": "Nc6",
+                "uci": "b8c6",
+                "fen_after": "r1bqkbnr/pp2pppp/2n5/2pp4/3P1B2/2P5/PP2PPPP/RN1QKBNR w KQkq -",
+                "games": 5,
+                "wins": 5,
+                "draws": 0,
+                "losses": 0,
+                "win_pct": 100.0,
+                "avg_clock_s": 0.6,
+                "children": {
+                  "Nf6": {
+                    "san": "Nf6",
+                    "uci": "g8f6",
+                    "fen_after": "r1bqkb1r/pp2pppp/2n2n2/2pp4/3P1B2/2P2N2/PP2PPPP/RN1QKB1R w KQkq -",
+                    "games": 5,
+                    "wins": 5,
+                    "draws": 0,
+                    "losses": 0,
+                    "win_pct": 100.0,
+                    "avg_clock_s": 1.6,
+                    "children": {
+                      "Qb6": {
+                        "san": "Qb6",
+                        "uci": "d8b6",
+                        "fen_after": "r1b1kb1r/pp2pppp/1qn2n2/2pp4/3P1B2/2P1PN2/PP3PPP/RN1QKB1R w KQkq -",
+                        "games": 5,
+                        "wins": 5,
+                        "draws": 0,
+                        "losses": 0,
+                        "win_pct": 100.0,
+                        "avg_clock_s": 1.4,
+                        "children": {
+                          "c4": {
+                            "san": "c4",
+                            "uci": "c5c4",
+                            "fen_after": "r1b1kb1r/pp2pppp/1qn2n2/3p4/2pP1B2/1QP1PN2/PP3PPP/RN2KB1R w KQkq -",
+                            "games": 3,
+                            "wins": 3,
+                            "draws": 0,
+                            "losses": 0,
+                            "win_pct": 100.0,
+                            "avg_clock_s": 0.0,
+                            "children": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "Nf6": {
+        "san": "Nf6",
+        "uci": "g8f6",
+        "fen_after": "rnbqkb1r/pppppppp/5n2/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+        "games": 31,
+        "wins": 13,
+        "draws": 6,
+        "losses": 12,
+        "win_pct": 41.9,
+        "avg_clock_s": null,
+        "children": {
+          "g6": {
+            "san": "g6",
+            "uci": "g7g6",
+            "fen_after": "rnbqkb1r/pppppp1p/5np1/8/8/5NP1/PPPPPP1P/RNBQKB1R w KQkq -",
+            "games": 10,
+            "wins": 4,
+            "draws": 2,
+            "losses": 4,
+            "win_pct": 40.0,
+            "avg_clock_s": 2.2,
+            "children": {
+              "Bg7": {
+                "san": "Bg7",
+                "uci": "f8g7",
+                "fen_after": "rnbqk2r/ppppppbp/5np1/8/8/5NP1/PPPPPPBP/RNBQK2R w KQkq -",
+                "games": 4,
+                "wins": 2,
+                "draws": 1,
+                "losses": 1,
+                "win_pct": 50.0,
+                "avg_clock_s": 1.0,
+                "children": {
+                  "O-O": {
+                    "san": "O-O",
+                    "uci": "e8g8",
+                    "fen_after": "rnbq1rk1/ppppppbp/5np1/8/3P4/5NP1/PPP1PPBP/RNBQK2R w KQ -",
+                    "games": 4,
+                    "wins": 2,
+                    "draws": 1,
+                    "losses": 1,
+                    "win_pct": 50.0,
+                    "avg_clock_s": 1.0,
+                    "children": {}
+                  }
+                }
+              },
+              "d5": {
+                "san": "d5",
+                "uci": "d7d5",
+                "fen_after": "rnbqkb1r/ppp1pp1p/5np1/3p4/2P5/2N2N2/PP1PPPPP/R1BQKB1R w KQkq -",
+                "games": 6,
+                "wins": 2,
+                "draws": 1,
+                "losses": 3,
+                "win_pct": 33.3,
+                "avg_clock_s": 16.5,
+                "children": {
+                  "Bg7": {
+                    "san": "Bg7",
+                    "uci": "f8g7",
+                    "fen_after": "rnbqk2r/ppp1ppbp/5np1/3p4/2P5/2N1PN2/PP1P1PPP/R1BQKB1R w KQkq -",
+                    "games": 5,
+                    "wins": 1,
+                    "draws": 1,
+                    "losses": 3,
+                    "win_pct": 20.0,
+                    "avg_clock_s": 7.4,
+                    "children": {}
+                  }
+                }
+              }
+            }
+          },
+          "e6": {
+            "san": "e6",
+            "uci": "e7e6",
+            "fen_after": "rnbqkb1r/pppp1ppp/4pn2/8/3P4/5N2/PPP1PPPP/RNBQKB1R w KQkq -",
+            "games": 15,
+            "wins": 7,
+            "draws": 3,
+            "losses": 5,
+            "win_pct": 46.7,
+            "avg_clock_s": 1.9,
+            "children": {
+              "Bb4": {
+                "san": "Bb4",
+                "uci": "f8b4",
+                "fen_after": "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PP2PPPP/R1BQKBNR w KQkq -",
+                "games": 5,
+                "wins": 2,
+                "draws": 1,
+                "losses": 2,
+                "win_pct": 40.0,
+                "avg_clock_s": 1.4,
+                "children": {
+                  "d5": {
+                    "san": "d5",
+                    "uci": "d7d5",
+                    "fen_after": "rnbqk2r/ppp2ppp/4pn2/3p4/1bPP4/2N2P2/PP2P1PP/R1BQKBNR w KQkq -",
+                    "games": 3,
+                    "wins": 2,
+                    "draws": 0,
+                    "losses": 1,
+                    "win_pct": 66.7,
+                    "avg_clock_s": 4.3,
+                    "children": {}
+                  }
+                }
+              },
+              "d5": {
+                "san": "d5",
+                "uci": "d7d5",
+                "fen_after": "rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq -",
+                "games": 5,
+                "wins": 3,
+                "draws": 1,
+                "losses": 1,
+                "win_pct": 60.0,
+                "avg_clock_s": 1.6,
+                "children": {}
+              }
+            }
+          },
+          "d5": {
+            "san": "d5",
+            "uci": "d7d5",
+            "fen_after": "rnbqkb1r/ppp1pppp/5n2/3p4/2P5/5N2/PP1PPPPP/RNBQKB1R w KQkq -",
+            "games": 3,
+            "wins": 1,
+            "draws": 1,
+            "losses": 1,
+            "win_pct": 33.3,
+            "avg_clock_s": 2.0,
+            "children": {}
+          }
+        }
+      }
+    }
+  }
+}

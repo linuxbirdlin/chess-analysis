@@ -75,6 +75,7 @@ def find_candidates(
       2. They play it quickly (clock ≤ 30s avg) — so they assume Austin will follow
       3. There is at least one other legal move at this position
     Returns a ranked list of novelty candidates.
+    Walks ALL branches with ≥ MIN_GAMES games (not just dominant ones at root).
     """
     opponent_color = "black" if color == "white" else "white"
     tree_root = tree.get(opponent_color, {})
@@ -85,13 +86,13 @@ def find_candidates(
         if ply > 30:
             return
 
+        # Check if THIS node has a dominant move — novelty target
         dominant = _dominant_move(node)
         if dominant:
             top_san, freq = dominant
             child = node["children"][top_san]
             is_fast = _is_fast_move(child)
 
-            # We want positions where the opponent moves predictably AND fast
             score = freq * (1.0 if is_fast else 0.5)
 
             candidates.append({
@@ -104,18 +105,27 @@ def find_candidates(
                 "games_here": child.get("games", 0),
                 "fen_before": node.get("fen_after", ""),
                 "score": round(score, 3),
-                "engine_eval": None,   # filled in by verify_novelty
-                "alternative_moves": [],  # filled in by verify_novelty
+                "engine_eval": None,
+                "alternative_moves": [],
             })
 
-            # Continue down the dominant line
-            _search(child, ply + 1, san_path + [top_san])
+        # Always descend into ALL sufficiently-sampled children
+        for san, child in (node.get("children") or {}).items():
+            if child.get("games", 0) >= MIN_GAMES_AT_NODE:
+                _search(child, ply + 1, san_path + [san])
 
     _search(tree_root, 0, [])
 
-    # Sort by score descending, take top 10 for engine verification
-    candidates.sort(key=lambda c: -c["score"])
-    return candidates[:10]
+    # Deduplicate by fen_before (keep highest score)
+    seen: dict[str, dict] = {}
+    for c in candidates:
+        key = c["fen_before"] or c["path"].__repr__()
+        if key not in seen or c["score"] > seen[key]["score"]:
+            seen[key] = c
+
+    result = list(seen.values())
+    result.sort(key=lambda c: -c["score"])
+    return result[:10]
 
 
 def verify_novelty(candidate: dict, stockfish_depth: int = 30, multipv: int = 3) -> dict:
@@ -258,8 +268,8 @@ if __name__ == "__main__":
     candidates = find_candidates(tree, clocks, args.color)
     print(f"  Found {len(candidates)} candidates. Verifying top 3 with engine...")
 
-    verified = [verify_novelty(c, stockfish_depth=args.depth) for c in candidates[:3]]
-    verified += candidates[3:]
+    verified = [verify_novelty(c, stockfish_depth=args.depth) for c in candidates[:5]]
+    verified += candidates[5:]
 
     report = generate_novelty_report(verified, args.opponent, args.color)
     print(report)

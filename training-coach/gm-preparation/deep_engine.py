@@ -54,7 +54,6 @@ class DeepStockfish:
         self._engine.configure({
             "Threads": STOCKFISH_THREADS,
             "Hash": STOCKFISH_HASH_MB,
-            "MultiPV": self.multipv,
         })
         return self
 
@@ -77,11 +76,12 @@ class DeepStockfish:
         board = chess.Board(fen)
         limit = chess.engine.Limit(depth=d)
 
-        # Configure multi-PV on the fly if needed
-        if mpv != self.multipv:
-            self._engine.configure({"MultiPV": mpv})
-
+        # Pass multipv directly to analyse() — python-chess manages it automatically
         infos = self._engine.analyse(board, limit, multipv=mpv)
+
+        # analyse() returns a list when multipv > 1, a single dict when multipv = 1
+        if isinstance(infos, dict):
+            infos = [infos]
 
         results = []
         for rank, info in enumerate(infos, start=1):
@@ -99,10 +99,6 @@ class DeepStockfish:
                 "depth": info.get("depth", d),
                 "pv": _pv_to_san(board, pv),
             })
-
-        # Restore multi-PV to default
-        if mpv != self.multipv:
-            self._engine.configure({"MultiPV": self.multipv})
 
         return results
 

@@ -33,7 +33,9 @@ OPPONENTS = {
     "zachary": {
         "legal_name": "Liu, Zachary",
         "lichess_username": "leilei8514",
-        "known_white": "1.Nf3 English/Reti",
+        # PGN from Lichess uses the username, not the legal name
+        "pgn_player_name": "leilei8514",
+        "known_white": "1.Nf3 English/Reti (local PGN) / 1.e4 Open Sicilian (Lichess 2020-2022)",
         "known_weakness": "Taimanov English Attack (B46/B47) — 4 blunders in worst game",
         "austin_weapon_black": "Dutch Leningrad (1...f5) to avoid Reti preparation",
     },
@@ -66,6 +68,8 @@ def run(
 ):
     opp_config = OPPONENTS.get(opponent, {})
     legal_name = opp_config.get("legal_name", opponent.title())
+    # Lichess PGNs use usernames; local PGNs use "Last, First" format
+    pgn_player_name = opp_config.get("pgn_player_name", legal_name)
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     pgn_path       = OUTPUT_DIR / f"{opponent}-full.pgn"
@@ -102,7 +106,7 @@ def run(
         print(f"  Would build opening tree from {pgn_path} → {tree_path}")
     elif not _cached(tree_path, force):
         from opening_tree import build_tree, save_tree
-        tree = build_tree(pgn_path, legal_name)
+        tree = build_tree(pgn_path, pgn_player_name)
         save_tree(tree, tree_path)
 
     # ── Phase 3: Clock profiling ──────────────────────────────────────────────
@@ -111,7 +115,7 @@ def run(
         print(f"  Would extract [%clk] annotations → {clocks_path}")
     elif not _cached(clocks_path, force):
         from clock_analyzer import extract_clocks, save_profile
-        clocks = extract_clocks(pgn_path, legal_name)
+        clocks = extract_clocks(pgn_path, pgn_player_name)
         save_profile(clocks, clocks_path)
 
     # ── Phase 4: Novelty discovery ────────────────────────────────────────────
