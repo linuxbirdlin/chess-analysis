@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Heye Gao — Austin as Black</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #1a5276; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #1a5276; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #1a5276; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #1a5276; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #1a5276; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #eaf4fb !important; color: #1a3a55; }
+    .acc-hi { color: #1a5276; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #eaf4fb; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #e8f0f8; border: 1px solid #1a5276; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #1a3a55; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #fafbff; }
+    .rule-number { background: #1a5276; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #eaf4fb; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #1a5276; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #1a5276; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #dce8f5; color: #1a5276; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #dce8f5; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a3a55; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Heye Gao</h1>
+    <div class="subtitle">Austin as Black — Sicilian Najdorf vs Italian-focused 1.e4</div>
+    <div class="meta">CM Heye Gao · 2028–2065 FIDE · 24 games (qualitative analysis) · Direct encounter: Austin was White only</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-heye.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-heye-white.html">← Austin as White</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-heye-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="encounter-box">
+    <strong>Color note — no direct encounter with Austin Black:</strong> Austin and Heye have met once (Mar 2026, Austin was White). When Heye plays White, he uses <strong>1.e4 exclusively</strong> — Italian Game (C54/C55) as his primary weapon, deeply rehearsed across Canada Closed, Ontario Open, and PAM 2026. His White record is <strong>8W–1D–3L</strong>. Austin's goal: avoid the Italian mirror entirely and play Sicilian, forcing Heye into systems where his preparation depth is unknown or untested.
+  </div>
+
+  <!-- ═══ SECTION 1 ═══ -->
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Heye Gao (CM — Candidate Master)</span>
+    <span class="plabel">FIDE Rating</span><span class="pval">2028–2065 (peak PAM Jul 2026)</span>
+    <span class="plabel">Style</span><span class="pval">Deep Italian preparation as White; queenside expansion (b4/a4) is his structural weapon</span>
+    <span class="plabel">Sample</span><span class="pval">24 games, 4 tournaments (Canada Closed 2026, Ontario Open, PAM 2026, Toronto Open)</span>
+    <span class="plabel">White record</span><span class="pval">8W–1D–3L — significantly stronger on this side</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">1 study game (Austin White, B43 Kan, result unfinished)</span>
+  </div>
+  <div class="info-box">
+    Heye as White opens <strong>1.e4 in 100% of games</strong>. His Italian Game (C54/C55) involves <code>Bc4/d3/c3</code> with <code>b4/a4/a5</code> queenside expansion — a plan he has executed consistently across 3+ tournaments. His Yugoslav Attack (Be3/f3/Qd2) wins both documented games vs Dragon and Scheveningen. Against the Najdorf specifically: <strong>zero documented games</strong>. This is Austin's strategic gap to exploit.
+  </div>
+
+  <!-- ═══ SECTION 2 ═══ -->
+  <h2>§2 — Heye's White Repertoire (Frequency &amp; Results)</h2>
+  <table>
+    <thead>
+      <tr><th>ECO</th><th>System</th><th>Games</th><th>W%</th><th>D%</th><th>L%</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-safe">
+        <td>C54/C55</td><td>Italian Game (Bc4/d3/c3/b4)</td><td>4+</td><td class="acc-hi">~80%</td><td>—</td><td>~20%</td><td>PRIMARY — deeply prepared, clean endgame conversion</td>
+      </tr>
+      <tr class="row-safe">
+        <td>B75/B80</td><td>Yugoslav Attack (Be3/f3/Qd2)</td><td>2</td><td class="acc-hi">100%</td><td>0%</td><td>0%</td><td>vs Dragon + Scheveningen — both games won convincingly</td>
+      </tr>
+      <tr class="row-danger">
+        <td>C16</td><td>French h4 Attack (Winawer 5.h4)</td><td>1</td><td>0%</td><td>0%</td><td class="acc-lo">100%</td><td>Ontario R5 vs Razin 2329 — lost, position −1.7 by move 10</td>
+      </tr>
+      <tr>
+        <td>B58</td><td>English Attack Sicilian</td><td>1</td><td>100%</td><td>—</td><td>—</td><td>Canada R9 vs Yin — 1 game sample</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="warn-box">
+    <strong>NEVER play 1...e6 (French) or 1...e5 (Italian mirror).</strong> 1...e6 invites Heye's prepared h4 attack (5.h4 b6 6.h5 h6 7.Rh3) — he lost it once but has it as a prepared weapon. 1...e5 leads directly into Heye's Italian home territory (Bc4 d3 c3 b4), where he has 4+ wins and deep preparation. Austin must play Sicilian.
+  </div>
+
+  <!-- ═══ SECTION 3 ═══ -->
+  <h2>§3 — Heye's Vulnerabilities as White</h2>
+
+  <h3>A. Lines Where He Scores Poorly</h3>
+  <table>
+    <thead><tr><th>Line</th><th>Record</th><th>Why He Struggles</th></tr></thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>French h4 Attack vs prepared opponent</td><td>0W–0D–1L</td><td>Ontario R5: Rh3 on move 7 abandoned kingside structure; position reached −1.7 by move 10 — Black simply counterattacked the overextended h-pawn</td>
+      </tr>
+      <tr class="row-danger">
+        <td>Italian with Kf1 leaving h2 unguarded</td><td>Risk: Canada R7 lost</td><td>Played Kf1 while queenside pawns were advanced — Dukic (2230) won immediately with Bxh2</td>
+      </tr>
+      <tr class="row-safe">
+        <td>Najdorf (B90) as White</td><td><strong>0 games</strong></td><td>Zero preparation data — Austin's primary weapon</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>B. Tactical Weaknesses as White</h3>
+  <ul>
+    <li><strong>Canada Closed R7 (C55 vs Zachary Dukic 2230):</strong> Position slightly favorable for Heye; played <strong>Kf1</strong> leaving h2 unguarded. Dukic won with Bxh2 immediately. Pattern: when Heye castles kingside and advances queenside pawns, the h2 pawn becomes a tactical target.</li>
+    <li><strong>Ontario R5 (C16 French vs Razin 2329):</strong> Played <strong>Rh3 on move 7</strong> — a rook lift that abandoned the kingside. Position reached −1.7 for White by move 10.</li>
+    <li><strong>Both failures share a cause:</strong> kingside pawns neglected while queenside was expanded. When Heye commits to queenside expansion as White, watch for the h2 moment.</li>
+  </ul>
+  <div class="tip-box">
+    <strong>The Bxh2 opportunity:</strong> When Heye castles kingside, advances b4/a4 queenside pawns, and plays Kf1 or Kg1 with h2 unguarded — that is Austin's moment for Bxh2! The Canada R7 game shows this pattern concretely. Scan for h2 vulnerability every time Heye's queenside expands.
+  </div>
+
+  <h3>C. Color Imbalance</h3>
+  <p>White record: <strong>8W–1D–3L</strong>. Black record: <strong>4W–4D–4L</strong>. Heye is significantly better as White. Austin needs to fight for counterplay rather than playing solidly into a technical endgame.</p>
+
+  <h3>D. Najdorf Preparation Depth</h3>
+  <p>Italian (C54/C55) preparation is deep — Heye plays it consistently across multiple tournaments to move 15+. Yugoslav Attack (B75/B80) — 2-game sample, both wins. <strong>Najdorf (B90) — zero documented games.</strong> Austin should prepare the main English Attack response to move 12–14.</p>
+
+  <!-- ═══ SECTION 4 ═══ -->
+  <h2>§4 — Austin's Recommended Weapon as Black</h2>
+
+  <h3>Primary: Sicilian Najdorf (5...a6, B90)</h3>
+  <div class="var-moves">Heye:   1.e4
+Austin: 1...c5  2...d6  3...Nf6  4...a6  [Najdorf B90]
+Full:   1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6</div>
+
+  <p><strong>Why this targets Heye specifically:</strong></p>
+  <ul>
+    <li><strong>Zero Heye games vs the Najdorf</strong> — no preparation data whatsoever. He must choose on the spot between 6.Be3 (English Attack), 6.Bg5 (Classical), or 6.f4 — systems he has never played in this dataset.</li>
+    <li>Heye's Yugoslav Attack (Be3/f3/Qd2) fits the Najdorf English Attack — but Austin is prepared for this: <code>6.Be3 e5! 7.Nb3 Be6</code> breaks the center before White's storm organizes.</li>
+    <li>Austin's Sicilian is his standard weapon vs 1.e4 — comfort territory, not an improvisation.</li>
+    <li>Keeps the game away from Italian structures where Heye has deep preparation from both colors.</li>
+  </ul>
+
+  <p><strong>If Heye plays English Attack (6.Be3 f3 Qd2 O-O-O):</strong></p>
+  <div class="var-moves">Austin:  5...a6  6.Be3  e5!  7.Nb3  Be6  8.f3  Be7  9.Qd2  O-O
+Plan:    ...a5 / ...Nbd7→b5 queenside counterplay before g4-g5 storm</div>
+  <p>The <code>...e5!</code> break on move 6 anchors the center and forces Nb3, slowing White's development. Do NOT play <code>...d5</code> prematurely. Critical choice at move 9–10: either <code>...Nbd7</code> (supports ...b5 queenside break) or <code>...Nc6</code> (challenges Nb3). Both are playable — know which you prefer.</p>
+
+  <div class="warn-box">
+    <strong>NEVER play 1...e5.</strong> This leads directly into Heye's Italian — Bc4 d3 c3 b4/a4 is his deepest preparation from both sides. He has 4+ Italian wins in this dataset. Austin plays Sicilian.
+  </div>
+
+  <h3>Alternate: Scheveningen (5...e6, B80) — lower risk</h3>
+  <div class="var-moves">Austin: 1...c5  2...d6  3...e6  [Scheveningen B80]</div>
+  <p>The Scheveningen invites Heye's Yugoslav Attack (Be3/f3/Qd2), which he's won 2/2 with. <em>Only use if Austin has deep Scheveningen Black preparation.</em> The Najdorf is safer because Heye has zero Najdorf data.</p>
+
+  <!-- ═══ SECTION 5 ═══ -->
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The <strong>Najdorf English Attack (6.Be3)</strong> is Black's most theoretically rich Sicilian system. The structural plan for Black:</p>
+  <ol>
+    <li><strong>Development (moves 5–9):</strong> <code>...a6, ...e5!, ...Be6, ...Be7, ...O-O</code>. The bishop on e6 is Austin's most important piece — it controls d5 and supports the queenside.</li>
+    <li><strong>Queenside counterplay (moves 9–14):</strong> <code>...a5</code> or <code>...Nbd7 → ...b5 → ...b4</code>. This is the mirror of Austin's own a4 challenge vs Heye's Kan — execute it before White's g4-g5 storm lands (before move 15).</li>
+    <li><strong>Central activity (moves 14–20):</strong> <code>...Rc8</code> or <code>...Nd7-c5</code> knight maneuver to activate pieces on the queenside files.</li>
+    <li><strong>Endgame alert:</strong> Avoid trading the Be6 bishop. It defends d5, supports the queenside, and controls key dark squares. If Heye plays Nd5 Nxe6, recapture with fxe6 only if it opens the f-file for attack.</li>
+  </ol>
+  <div class="tip-box">
+    <strong>Symmetry lesson from the direct encounter:</strong> When Austin played White vs Heye's Kan, he used a4 to challenge Heye's b5 expansion (the queenside pawn challenge). Now Austin is Black — play ...b5 before Heye's a4 disrupts him. Move order: <code>...a6</code> first (to support ...b5) then <code>...b5</code> at the right moment. This is the same structural battle, reversed.
+  </div>
+
+  <!-- ═══ SECTION 6 ═══ -->
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~70%</span>
+      Heye plays English Attack vs Najdorf (6.Be3 f3 Qd2)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Heye:   6.Be3  7.f3  8.Qd2  9.O-O-O
+Austin: 6...e5  7...Be6  8...Be7  9...O-O  10...a5 [or ...Nbd7 → ...b5]
+→ Semi-closed Najdorf — mutual attacks on opposite wings</div>
+      <ul>
+        <li><strong>Moves 10–14:</strong> Launch queenside counterplay before White's g4-g5 storm. Either <code>...a5</code> (fixing queenside) or <code>...Nbd7 → ...b5 → ...b4</code> (queenside attack). The counterattack must begin before move 15 or the g4-g5 pawn storm will be too fast.</li>
+        <li><strong>Moves 14–20:</strong> If White plays Nd5 → Austin takes Nxd5 exd5, getting a mobile d5 pawn with active pieces. If White avoids Nd5 → <code>...Nc5</code> maneuver activates the knight on the c-file.</li>
+        <li><strong>Endgame alert:</strong> Avoid opposite-colored bishop endings (Heye's endgame technique is 4/5). Keep at least one pair of rooks on.</li>
+      </ul>
+      <div class="warn-box"><strong>Watch out for early h4:</strong> Heye has a tendency toward h4-type attacks (Ontario R5 French). In the Najdorf if Heye plays an early h4 without completing development, Austin responds with <code>...Be6 → ...h6</code> to stop g5 before launching queenside counterplay.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~20%</span>
+      Heye plays Classical Najdorf (6.Bg5)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Heye:   6.Bg5
+Austin: 6...e6  7...Be7  8...O-O  [Najdorf Classical — solid]
+→ Avoid 6...h6 7.Bh4 g5 (Poisoned Pawn / Keres) unless Austin is prepared</div>
+      <ul>
+        <li>Play <code>6...e6</code> solidly — do NOT play <code>6...h6 7.Bh4 g5?!</code> (Keres or Poisoned Pawn variations) unless Austin has specific preparation. Play the safe Classical Najdorf instead.</li>
+        <li><strong>Moves 8–14:</strong> Same queenside plan: <code>...a5</code> or <code>...b5</code>. Heye will likely play <code>9.Qd2 10.O-O-O</code> — same Yugoslav setup pattern applies.</li>
+        <li><strong>Endgame alert:</strong> In Classical positions, Heye may play Bxf6 exf6 to give Austin doubled f-pawns. The resulting ending is queen + rook vs queen + rook with Austin's pawn weakness. Study this endgame type to understand when it's acceptable vs when to avoid Bxf6.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~10%</span>
+      Contingency — if Austin ends up in Italian (avoid this)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">CONTINGENCY ONLY: Austin plays 1...e5 [DO NOT DO THIS]
+If in Italian (2...Nc6 3.Bc4 Bc5 4.d3):
+→ Response: ...d5! break at the right moment (after O-O and Be6)</div>
+      <ul>
+        <li>If Austin accidentally enters Italian: the <code>...d5!</code> central break is the only equalizing counter. Timing: do NOT play it before O-O and ...Be6 — the break needs piece support.</li>
+        <li>If Heye plays <code>a4</code> (his queenside expansion): respond immediately with <code>...a5</code> to block the a-file (not ...b4, which concedes c4).</li>
+        <li><strong>Watch out for:</strong> Heye's <code>Bxe6 fxe6</code> sacrifice — he plays this in multiple Italian games to give Black permanent doubled e-pawns. Defend with <code>...Be7</code> (not ...Bc5) to prevent the exchange when Bxe6 is threatened.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 7 ═══ -->
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules for This Game</h3>
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Clock — Go fast in the opening, slow in the middlegame</div>
+          <div class="rule-body">Heye's Italian preparation is deep — he knows the first 15 moves well. Do not waste clock studying Italian positions mid-game. Play the Najdorf confidently (Austin should know moves 1–12 cold) to preserve clock for the complex mutual-attack phase (moves 13–25), where Heye has no preparation advantage.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Psychology — Don't expect early mistakes; target move 30+</div>
+          <div class="rule-body">Heye has never lost with White in the Italian. Do NOT expect blunders before move 20. His White weakness is tactical: when his king is on the kingside with h2 unguarded, or when he's under 25 minutes (his Black time-pressure pattern). Keep the game alive into move 30+ and watch for the h2 moment if he castles kingside.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Risk — Draw acceptable, but play for more with active queenside</div>
+          <div class="rule-body">Rating gap is ~100–200 points. A draw with Black is a respectable result. But if Austin achieves ...b5 queenside counterplay before White's g4-g5 storm lands, the position becomes double-edged — play for the win. Don't agree to a draw until Austin has exhausted the queenside counterplay options.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS BLACK vs Heye's 1.e4:
+  Main: 1...c5 2...d6 3...Nf6 4...a6 → Najdorf (B90)
+  If Heye plays 6.Be3 (English Attack):
+    → 6...e5! 7...Be6 8...Be7 9...O-O 10...a5 or ...Nbd7→b5
+  If Heye plays 6.Bg5 (Classical):
+    → 6...e6 7...Be7 8...O-O → positional, same queenside plan
+
+NEVER: 1...e5 (Italian mirror — his deepest prep)
+NEVER: 1...e6 (French h4 attack — his prepared weapon)
+Key break: ...b5 before move 14.  Key defender: Be6 — do NOT trade cheaply.
+Tactical alert: Watch for Kf1 + h2 unguarded → Bxh2!</div>
+
+    <h3>Tactical Motifs to Watch For</h3>
+    <table>
+      <thead><tr><th>Tactic</th><th>When it arises</th><th>Example game</th></tr></thead>
+      <tbody>
+        <tr><td>Bxh2! kingside pawn grab</td><td>Heye castles kingside + expands queenside + h2 unguarded</td><td>Canada R7 vs Dukic 2230 (1-0 for Black)</td></tr>
+        <tr><td>...d5! central break</td><td>After ...e6/...Be7/...O-O in Italian — when Heye plays Na4 or c4</td><td>Standard Italian counter</td></tr>
+        <tr><td>...Nd4! / ...Nc5 knight intrusion</td><td>After ...e5 in Najdorf with White's queenside pieces committed</td><td>Najdorf main line middlegame</td></tr>
+        <tr><td>...b5-b4 queenside break</td><td>When White commits O-O-O and starts g4 — launch queenside before storm</td><td>Najdorf English Attack main line</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══ SECTION 8 ═══ -->
+  <h2>§8 — Day-of Preparation (30 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Tactics drill — 15 min:</strong> 10 puzzles on <em>queenside pawn breaks</em> (specifically ...b5/...b4 against a castled White king). When is ...b5 safe? When does White win material? Also 5 puzzles on <em>Bxh2 kingside pawn grab</em> — recognize the pattern: White king on g1/f1, h2 unguarded, Black bishop can take. These are the two tactical themes directly relevant to Heye's White patterns.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Opening line review — 10 min:</strong> Replay mentally: <code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.Be3 e5 7.Nb3 Be6</code>. Stop at move 7. Ask: <em>"What does Black do next?"</em> Answer: Be7 → O-O → either a5 or Nbd7 depending on White's plan. Know both branches — a5 if White plays Nd5, Nbd7 if White plays g4 immediately.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Reference game — 5 min:</strong> Study the Canada Closed R7 game (Heye vs Zachary Dukic) — specifically how Dukic won with <strong>Bxh2</strong> after Heye played Kf1 leaving h2 unguarded. The lesson: watch for Kf1 moments when Heye's queenside is extended and the h2 pawn is unguarded — that is the Bxh2 opportunity Austin should calculate immediately.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Heye has never lost with White in the Italian. But I'm not playing the Italian — I'm playing the Najdorf and he has zero preparation data. My opening is the surprise. I play ...e5 on move 6, I keep Be6 alive, I launch ...b5 before move 14. If I get to move 20 with queenside counterplay, I'm in this game — and I'm watching for the Kf1/h2 moment."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin B Najdorf vs English Attack</td><td>B90</td><td><code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.Be3 e5 7.Nb3 Be6</code></td></tr>
+      <tr><td>Austin B Najdorf vs Classical (6.Bg5)</td><td>B96</td><td><code>5...a6 6.Bg5 e6 7.f4 Be7 8.Qf3 Qc7 9.O-O-O</code></td></tr>
+      <tr><td>Austin B Italian contingency (avoid)</td><td>C54</td><td><code>1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.d3 d6 5.c3 ...d5!</code></td></tr>
+    </tbody>
+  </table>
+
+</div>
+</body>
+</html>

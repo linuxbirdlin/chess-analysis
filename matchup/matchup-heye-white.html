@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Heye Gao — Austin as White</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #2d7d46; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #2d7d46; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #2d7d46; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #2d7d46; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #f0fff4 !important; color: #1a4731; }
+    .acc-hi { color: #1a6030; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #fafbff; }
+    .rule-number { background: #2d7d46; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #f0fff5; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #2d7d46; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #2d7d46; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #e8f5ee; color: #2d7d46; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #e8f5ee; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a4731; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Heye Gao</h1>
+    <div class="subtitle">Austin as White — English Attack vs Sicilian Kan</div>
+    <div class="meta">CM Heye Gao · 2028–2065 FIDE · 24 games (qualitative analysis) · Direct encounter: B43 Kan study game</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-heye.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-heye-black.html">Austin as Black →</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-heye-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="encounter-box">
+    <strong>Direct encounter — Mar 22 2026 (Austin White, B43 Sicilian Kan, result: * unfinished study game, 60+ moves):</strong>
+    Austin played 7.O-O (book recommends a3/O-O/Be3). Depth-22 analysis reveals critical miss: <strong>move 42 c8=Q+ (−5.2 pawns)</strong> — best was Ra7 (endgame technique: rook behind the passed pawn). Heye missed f2+ at move 40 (+2.9 for Austin). Heye deviated at move 9 with d6 (−2.6, book prefers Bd6) — suggesting limited deep Kan preparation. The lesson: <strong>Austin can build and hold an advantage in the Kan — the endgame conversion technique is the gap to close.</strong>
+  </div>
+
+  <!-- ═══ SECTION 1 ═══ -->
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Heye Gao (CM — Candidate Master)</span>
+    <span class="plabel">FIDE Rating</span><span class="pval">2028–2065 (peak PAM Jul 2026)</span>
+    <span class="plabel">Style</span><span class="pval">Positional-technical as White (Italian specialist); tactically unreliable as Black under time pressure</span>
+    <span class="plabel">Sample</span><span class="pval">24 games, 4 tournaments (Canada Closed 2026, Ontario Open, PAM 2026, Toronto Open)</span>
+    <span class="plabel">Black record</span><span class="pval">4W–4D–4L — dramatically weaker than White (8W–1D–3L)</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">1 study game (Austin White, B43 Kan, result unfinished)</span>
+  </div>
+
+  <p><strong>Opening fingerprint:</strong></p>
+  <ul>
+    <li><strong>As White:</strong> 1.e4 exclusively — Italian Game (C54/C55) with Bc4/d3/c3/b4/a4 queenside expansion as primary weapon</li>
+    <li><strong>As Black vs 1.e4 (Austin):</strong> Sicilian Kan (B43) — <code>1...c5 2...e6 3...a6 4...Qc7 5...b5 6...Bb7</code> confirmed in direct encounter</li>
+    <li><strong>As Black vs 1.d4:</strong> Catalan Open (E04) — takes the gambit pawn; Slav (D11/D12) — mixed record</li>
+    <li><strong>As Black vs 1.Nf3/1.c4:</strong> d5/c6/Nf6 Slav-type structures (A11, D02)</li>
+  </ul>
+
+  <!-- ═══ SECTION 2 ═══ -->
+  <h2>§2 — Heye's Black Repertoire (Frequency &amp; Results)</h2>
+  <table>
+    <thead>
+      <tr><th>Situation</th><th>System</th><th>ECO</th><th>Games</th><th>W</th><th>D</th><th>L</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>vs 1.e4 (Austin)</td><td>Sicilian Kan</td><td>B43</td><td>1</td><td>—</td><td>—</td><td>—</td><td>Confirmed: <code>1...c5 2...e6 3...a6; ...b5/...Bb7</code> queenside setup</td>
+      </tr>
+      <tr class="row-safe">
+        <td>vs 1.d4</td><td>Catalan Open</td><td>E04</td><td>1</td><td>1</td><td>0</td><td>0</td><td>Beat Aarush 1941 in 31 moves — solid Catalan pawn grab</td>
+      </tr>
+      <tr class="row-danger">
+        <td>vs 1.d4/1.c4</td><td>Slav Defense</td><td>D11–D12</td><td>3</td><td>0</td><td>1</td><td>2</td><td>Drew Plotkin 2382 (D23); lost to Rodriguez 1971 (D12, 23...Kg8??)</td>
+      </tr>
+      <tr>
+        <td>vs 1.Nf3</td><td>d5/Nf6/Bf5</td><td>D02/A11</td><td>1</td><td>0</td><td>1</td><td>0</td><td>Drew Zachary Liu (A11), 91 moves</td>
+      </tr>
+      <tr>
+        <td>vs 1.e4 (others)</td><td>Open 1...e5</td><td>C47</td><td>1</td><td>1</td><td>0</td><td>0</td><td>Beat Vettese 2410 (Ontario R4) after opponent's g4?? blunder</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Heye's Black is inconsistent — he can beat 2400-rated players but has lost to 1971-rated Rodriguez. The Slav has a 0W–1D–2L record. The Kan vs Austin is the only confirmed data for this matchup.</p>
+  <div class="warn-box">
+    <strong>Heye's Kan preparation depth is unknown.</strong> He played it once (vs Austin, study game) without a result. The depth-22 analysis shows he deviated at move 9 with d6 (book prefers Bd6), suggesting he may not have deep Kan theory. Austin should be ready at least to move 15.
+  </div>
+
+  <!-- ═══ SECTION 3 ═══ -->
+  <h2>§3 — Vulnerabilities as Black</h2>
+
+  <h3>A. Lines Where He Scores Poorly</h3>
+  <table>
+    <thead><tr><th>Line</th><th>ECO</th><th>Record</th><th>Why He Struggles</th></tr></thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>Slav Defense (d5/c6/Nf6)</td><td>D11–D12</td><td>0W–1D–2L</td><td>Tactical errors under time pressure — 23...Kg8?? in D12 (lost to Rodriguez 1971)</td>
+      </tr>
+      <tr>
+        <td>Open 1...e5 systems</td><td>C47</td><td>1W (vs 2410 only)</td><td>Win came after White's g4?? blunder — sample too small to evaluate fairly</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>B. Documented Tactical Failures as Black</h3>
+  <ul>
+    <li><strong>PAM R9 (D12 Slav vs Rodriguez 1971):</strong> Eval was −1.4 (Heye slightly better). Played <strong>23...Kg8??</strong> allowing Re8+ Kh7 Be4+ g6 Ne2 — White's pieces flooded in. Lost a completely playable position to a 94-point lower-rated opponent. Classic calculation failure under time pressure.</li>
+    <li><strong>PAM R7 (vs Diaz Guerrero CM 2209):</strong> Two blunders in succession — <strong>24...Qe7??</strong> allowing exf7, then <strong>28...Qxf7??</strong> losing the bishop. Both under 25 minutes on the clock.</li>
+  </ul>
+  <div class="warn-box">
+    <strong>Time pressure pattern — confirmed:</strong> Both PAM losses as Black occurred when Heye had under 25 minutes on the clock. Austin should spend his clock deliberately in the middlegame (moves 20–35) to force Heye into time trouble during the critical endgame transitions.
+  </div>
+
+  <h3>C. Color Imbalance</h3>
+  <p>White record: <strong>8W–1D–3L</strong> (~67% win rate). Black record: <strong>4W–4D–4L</strong> (~33% win rate). A ~34-point gap — Heye is dramatically more dangerous as White. Austin should feel confident pressing positions when Heye has the Black pieces.</p>
+
+  <h3>D. Opening Preparation Depth in the Kan</h3>
+  <p>The depth-22 analysis of the direct encounter shows Heye deviated at move 9 with d6 (book: Bd6). This suggests he may improvise after move 10–12 rather than following deep Kan theory. Austin should prepare concrete lines to move 15.</p>
+
+  <!-- ═══ SECTION 4 ═══ -->
+  <h2>§4 — Austin's Recommended Weapon</h2>
+
+  <h3>Primary: English Attack setup with a4 disruption (B43)</h3>
+  <div class="var-moves">1.e4  c5  2.Nf3  e6  3.d4  cxd4  4.Nxd4  a6
+5.Nc3  Qc7  6.Be2  b5  7.Bf3!  [English Attack setup]</div>
+
+  <p><strong>Why 7.Bf3:</strong> This is the continuation from the direct encounter. Austin already knows this position. The bishop on f3 pressures d5, supports e4, and sets up a kingside attack. From here:</p>
+  <ul>
+    <li>If <code>7...Nc6</code>: <code>8.Re1 d6 9.a4! b4 10.Nd5 Qa5 11.Nxc6 Bxc6 12.Nxb4</code> — Austin wins a pawn and enters a structural edge</li>
+    <li>If <code>7...Nf6</code>: <code>8.O-O Be7 9.Re1 d6 10.a4 b4 11.Nd5</code> — standard Kan with Nd5 central outpost</li>
+  </ul>
+
+  <p><strong>Critical decision — Move 9:</strong> When Austin plays a4, Heye must choose between b4 (conceding the c4 square), bxa4 (open b-file, White gets a-file), or d6 (allowing a5 space grab). Know all three responses before the game.</p>
+
+  <div class="warn-box">
+    <strong>NEVER play 7.O-O directly without the a4 challenge.</strong> The Kan with b5/Bb7 gives Black easy queenside play if White doesn't challenge it immediately. The a4 push is mandatory. Also: do NOT simplify into a pawn endgame — Heye's Black endgame technique remains inconsistent, but there is no reason to test it at equal material.
+  </div>
+
+  <h3>Sideline: Keres Attack (5.g4!?) — if fully drilled</h3>
+  <div class="var-moves">1.e4  c5  2.Nf3  e6  3.d4  cxd4  4.Nxd4  a6  5.g4!?</div>
+  <p>Extreme aggression before Heye can organize. This is well outside any standard Kan preparation. <em>Only use if Austin has specifically drilled the resulting positions</em> — the Keres Attack requires precise move-order knowledge.</p>
+
+  <!-- ═══ SECTION 5 ═══ -->
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The <strong>a4 challenge in the Kan (B43)</strong> was a key weapon of Kasparov and Anand in their 1990s B43/B47 battles. The structural plan:</p>
+  <ol>
+    <li><strong>Development (moves 6–9):</strong> Be2 or Bf3, Re1 (or O-O), prepare a4. Do not let Black's b5 advance unchallenged.</li>
+    <li><strong>a4 challenge (move 9):</strong> Disrupt Black's b5 pawn before it becomes a queenside wedge. Force Heye to decide on b4, bxa4, or d6 — each concedes something.</li>
+    <li><strong>Nd5 outpost (moves 10–12):</strong> After b4 → Nd5 Qa5 Nxc6 Bxc6 Nxb4. The knight on d5 dominates the position. Black must either trade (giving doubled c-pawns) or suffer permanent pressure.</li>
+    <li><strong>Endgame alert:</strong> Ra7 technique — rook behind the passed pawn, NOT in front. This is the precise miss from the direct encounter (c8=Q+ was wrong; Ra7 wins cleanly).</li>
+  </ol>
+  <div class="tip-box">
+    <strong>Direct encounter lesson:</strong> The depth-22 analysis shows Austin had a technically winning rook ending but played c8=Q+ (−5.2) instead of Ra7. This specific endgame pattern — rook + pawn vs rook, rook on the 7th — is the one technique to review before the game. Heye deviated at move 9 from book, suggesting he may improvise in the middlegame too.
+  </div>
+
+  <!-- ═══ SECTION 6 ═══ -->
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~60%</span>
+      Sicilian Kan — Heye's confirmed response
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Heye:   1...c5  2...e6  3...a6  4...Qc7  5...b5  6...Bb7
+Austin: 1.e4  2.Nf3  3.d4 cxd4  4.Nxd4  5.Nc3  6.Be2  7.Bf3!
+→ English Attack vs Kan — Austin's home territory from the direct encounter</div>
+      <ul>
+        <li><strong>Moves 7–12:</strong> Bf3 → Re1 → a4! Challenge b5 immediately. If b4 → Nd5 Qa5 Nxc6 Bxc6 Nxb4 (pawn + structure edge). If bxa4 → rook to a1, recapture and use open a-file.</li>
+        <li><strong>Moves 12–18:</strong> With Nd5 outpost established, advance g4-g5 if queens are still on. If long castled (O-O-O), g5→g6 pawn wedge.</li>
+        <li><strong>Endgame alert:</strong> Ra7 technique — rook behind the passed pawn, not in front. Study the position from the direct encounter (move 41–42) before the game.</li>
+      </ul>
+      <div class="warn-box"><strong>Watch out for:</strong> Heye's ...Nc6 before ...Nf6. The Nc6 setup allows ...Nb4 hitting d3 — know the refutation: a4! again (stops Nb4 if c4 isn't available) or c3 to deny the b4 square.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~30%</span>
+      Heye plays 1...e5 — open game
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Heye:   1...e5  2...Nc6
+Austin: 1.e4  2.Nf3  3.d4! [Scotch] or 3.Nc3 Nf6 4.Bb5 [Ruy Lopez]
+→ Keep it sharp — avoid the Italian mirror (Bc4 d3) entirely</div>
+      <ul>
+        <li><strong>Critical: DO NOT play Bc4 d3</strong> if Heye plays 1...e5. That structure is Heye's home territory as White — he knows every idea from both sides. Play Scotch (3.d4 exd4 4.Nxd4) or Ruy Lopez (3.Bb5) instead.</li>
+        <li><strong>Moves 8–14:</strong> In the Scotch: after 4...Nf6 5.Nxc6 bxc6 6.e5 Qe7 7.Qe2, play for kingside attack with f4-f5 or g4. In Ruy: after 3...a6 4.Ba4 Nf6 5.O-O Be7 6.Re1, advance d4 and aim for f4-f5.</li>
+        <li><strong>Endgame alert:</strong> Heye's endgame technique is rated 4/5. Do NOT simplify into rook+pawn endings with equal material — keep pieces on the board.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~10%</span>
+      Heye plays 1...Nf6 or 1...d5 — rare deviation
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Heye:   1...Nf6 [Alekhine-type or waiting move]
+Austin: 1.e4  2.e5! Nd5  3.d4  d6  4.Nf3  → Alekhine Defense (B02)
+→ Sharp, well outside Heye's preparation vs 1.e4</div>
+      <ul>
+        <li>Heye might play 1...Nf6 as a waiting move to transpose into the Dragon (2...g6) or Four Knights (2...Nc6 3.Nc3 Nf6). Be ready: after 2.e5 Nd5 3.d4, Austin enters Alekhine territory where Heye has zero preparation data.</li>
+        <li>If Heye plays 1...d5: 2.exd5 Qxd5 3.Nc3 — standard Scandinavian response. Austin knows this from his 1.e4 repertoire.</li>
+        <li><strong>Watch out for:</strong> 1...g6 Dragon invite. If Heye plays 1...g6, play 2.d4 followed by standard Sicilian/Dragon White lines (Bc4, Nf3, Be3).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 7 ═══ -->
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules for This Game</h3>
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Clock — Force time pressure in the transition</div>
+          <div class="rule-body">Heye blunders under 25 minutes as Black: PAM R9 (23...Kg8??) and PAM R7 (24...Qe7?? + 28...Qxf7??). Spend your clock deliberately in the middlegame (moves 20–35) so Heye enters the endgame transition with under 20 minutes. Do not play quickly just because the position looks familiar — make him spend time on every critical decision.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Psychology — Black draws are against 2382+ players, not Austin</div>
+          <div class="rule-body">Heye's 4 Black draws came against Plotkin (2382) and Zachary Liu (2050+) — strong, technical players. He is not drawing these games because he wants a draw; he draws because the position is too solid to crack. Against Austin's level, with sharp Kan complications, Heye will be pressing for a result too. Do NOT accept an early draw offer — Heye's Black is beatable in this position type.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Risk — Play for a full point, not a draw</div>
+          <div class="rule-body">Austin is rated ~100–200 points below Heye. A draw with White is acceptable but undersells the position. Heye's Black record (4W–4D–4L) is his worst color. The Kan with g4 storm or Nd5 complications gives Austin winning chances. Steer toward tactical complexity — that is where Heye's Black calculation degrades.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS WHITE vs Kan (B43):
+  Main: 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6 5.Nc3 Qc7 6.Be2 b5 7.Bf3! → English Attack
+  If 7...Nc6: 8.Re1 d6 9.a4! b4 10.Nd5 Qa5 11.Nxc6 Bxc6 12.Nxb4 [pawn + structure]
+  If 7...Nf6: 8.O-O Be7 9.Re1 d6 10.a4 b4 11.Nd5 [central outpost]
+
+IF Heye plays 1...e5: AVOID Bc4 d3 (Italian mirror)
+  → Play 3.d4 exd4 4.Nxd4 [Scotch] or 3.Nc3 Nf6 4.Bb5 [Ruy Lopez]
+
+NEVER: 7.O-O without a4; never simplify to pawn endgame
+ENDGAME: Ra7 (rook behind pawn) NOT c8=Q+ (premature promotion)</div>
+
+    <h3>Tactical Motifs to Watch For</h3>
+    <table>
+      <thead><tr><th>Tactic</th><th>When it arises</th><th>Example game/move</th></tr></thead>
+      <tbody>
+        <tr><td>Nd5! outpost</td><td>After 9.a4 b4 in the Kan — the knight leaps in</td><td>Direct encounter, move 10–11</td></tr>
+        <tr><td>23...Kg8?? king misplacement</td><td>Heye under time pressure in complex endgame</td><td>PAM R9 vs Rodriguez 1971 (loss)</td></tr>
+        <tr><td>24...Qe7?? queen misplacement</td><td>Middlegame under 25 minutes</td><td>PAM R7 vs Diaz Guerrero CM 2209</td></tr>
+        <tr><td>Ra7 endgame technique</td><td>Rook + passed pawn ending — rook belongs behind the pawn</td><td>Direct encounter move 42 (Austin's conversion miss)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══ SECTION 8 ═══ -->
+  <h2>§8 — Day-of Preparation (30 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Tactics drill — 15 min:</strong> 10 puzzles on <em>Nd5 outpost exploitation</em> — positions where White has a knight on d5 and Black has a6/b5/Qc7. What is the best follow-up after Nd5? Practice the sequence: Nd5 Qa5 Nxc6 Bxc6 Nxb4. Also 3 puzzles on <em>rook behind passed pawn</em> (Ra7 technique) — specifically: rook endgame where one side has a passed pawn, rook must get behind it to win. These are the two concrete techniques from the direct encounter.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Opening line review — 10 min:</strong> Replay mentally: <code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6 5.Nc3 Qc7 6.Be2 b5 7.Bf3</code>. Stop at move 7. Ask: <em>"What does White do after 7...Nc6?"</em> Answer: Re1 → d6 → a4! Challenge the b5 pawn before it advances. Then visualize: <code>9.a4 b4 10.Nd5 Qa5 11.Nxc6 Bxc6 12.Nxb4</code>.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Reference game — 5 min:</strong> Replay the direct encounter (Mar 2026) through move 42. Stop at move 41. Ask: <em>"What is the winning move for White?"</em> Answer: <strong>Ra7</strong> — rook behind the pawn, not c8=Q+ immediately. This is the endgame technique Austin missed last time. Reinforce it now before sitting across from Heye again.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Heye's Black has 4W–4D–4L — he's not comfortable here. Last time I had this game in my hands at move 42 and let it slip with one endgame mistake. Today I know the Ra7 technique. I play 7.Bf3, I push a4 on move 9, I build Nd5. The clock is my weapon — I take my time in the middlegame and let Heye enter the endgame under 20 minutes."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin W English Attack vs Kan</td><td>B43</td><td><code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6 5.Nc3 Qc7 6.Be2 b5 7.Bf3</code></td></tr>
+      <tr><td>Austin W Scotch vs 1...e5</td><td>C45</td><td><code>1.e4 e5 2.Nf3 Nc6 3.d4 exd4 4.Nxd4 Nf6 5.Nxc6 bxc6 6.e5</code></td></tr>
+      <tr><td>Austin W Ruy Lopez vs 1...e5 Nc6</td><td>C60</td><td><code>1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Ba4 Nf6 5.O-O Be7 6.Re1</code></td></tr>
+      <tr><td>Austin W Alekhine vs 1...Nf6</td><td>B02</td><td><code>1.e4 Nf6 2.e5 Nd5 3.d4 d6 4.Nf3 dxe5 5.Nxe5</code></td></tr>
+    </tbody>
+  </table>
+
+</div>
+</body>
+</html>
