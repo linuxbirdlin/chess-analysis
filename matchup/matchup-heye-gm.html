@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle Plan: Austin vs Gao, Heye (GM Prep)</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Georgia', serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg);
+}
+h1 { font-size: 1.6em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.15em; margin: 28px 0 10px; border-left: 5px solid var(--blue); padding-left: 10px; }
+h3 { font-size: 1em; margin: 14px 0 6px; color: #333; }
+.subtitle { font-size: 0.85em; color: #666; margin-bottom: 22px; }
+.subtitle span { margin-right: 16px; }
+
+.sources { background: #f0f4ff; border: 1px solid #aac; border-radius: 5px; padding: 10px 14px; margin-bottom: 18px; font-size: 0.85em; }
+.sources strong { display: block; margin-bottom: 4px; }
+.src-classical { color: var(--blue); font-weight: bold; }
+.src-lichess { color: #666; }
+
+.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.intel-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.intel-card h3 { margin-top: 0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }
+.intel-card ul { padding-left: 16px; margin-top: 4px; }
+.intel-card li { margin-bottom: 3px; }
+
+.callout { border-radius: 4px; padding: 10px 14px; margin: 10px 0; font-size: 0.9em; }
+.callout-gold  { background: #fffbe0; border-left: 4px solid var(--gold); }
+.callout-blue  { background: #eef4ff; border-left: 4px solid var(--blue); }
+.callout-green { background: #efffef; border-left: 4px solid var(--green); }
+.callout-danger { background: #fff0f0; border-left: 4px solid var(--red); }
+
+.move-line { background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+             padding: 8px 12px; margin: 6px 0; font-size: 0.92em; line-height: 1.9; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: #eef4ff; border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.note { color: #555; font-style: italic; font-size: 0.88em; }
+
+.badge { display: inline-block; border-radius: 3px; padding: 1px 7px;
+         font-size: 0.78em; font-weight: bold; margin-left: 4px; vertical-align: middle; }
+.b-green { background: #dff0df; color: #1a5c1a; border: 1px solid #88bb88; }
+.b-gold  { background: #fff3cc; color: #7a5c00; border: 1px solid #ccaa44; }
+.b-red   { background: #ffe0e0; color: #8b1a1a; border: 1px solid #cc8888; }
+.b-blue  { background: #dde8ff; color: #1a4a8b; border: 1px solid #8899cc; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
+th { background: #333; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+
+hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20px; }
+
+/* CSS-only accordion */
+.acc-toggle { display: none; }
+.acc-label {
+  display: block; cursor: pointer; padding: 8px 12px; margin: 4px 0;
+  background: #eee; border: 1px solid #ccc; border-radius: 4px;
+  font-weight: bold; font-size: 0.9em; user-select: none;
+}
+.acc-label::before { content: '▶ '; font-size: 0.75em; color: #666; }
+.acc-toggle:checked ~ .acc-label::before { content: '▼ '; }
+.acc-content { display: none; padding: 10px 14px; background: #fafaf6;
+               border: 1px solid #ddd; border-top: none; border-radius: 0 0 4px 4px; margin-bottom: 6px; }
+.acc-toggle:checked ~ .acc-content { display: block; }
+
+@media print {
+  .acc-content { display: block !important; }
+  .acc-label::before { content: '' !important; }
+  body { font-size: 12px; padding: 10px; }
+  .intel-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<h1>Battle Plan: Austin (White &amp; Black) vs Gao, Heye</h1>
+<div class="subtitle">
+  <span><strong>GM Prep</strong></span>
+  <span>Heye rating: ~2028–2065 (CM)</span>
+  <span>Direct record: 1 draw (study game, Mar 2026)</span>
+  <span>Classical games analyzed: 26</span>
+</div>
+
+<div class="sources">
+  <strong>Data sources</strong>
+  <span class="src-classical">Primary: 26 classical games (Canada Closed, Ontario Open, PAM 2026, Toronto Open 2026) — engine-analyzed at movetime-800.</span>
+  <span class="src-lichess">Supplementary: Lichess games (Carlnosen, rapid/blitz) — opening line frequency only.</span>
+</div>
+
+<!-- Intel grid -->
+<div class="intel-grid">
+  <div class="intel-card">
+    <h3>Heye as White</h3>
+    <ul>
+      <li><strong>1.e4 exclusively</strong></li>
+      <li>Italian (C54/C55): Bc4/d3/c3 + b4/a4 — <strong>primary weapon</strong></li>
+      <li>Yugoslav Attack vs Sicilian (B75/B80/B58)</li>
+      <li>Sharp h4/Rh3 vs French (C16) — unreliable</li>
+      <li>White avg accuracy: <strong>95.0%</strong></li>
+      <li>Best games: Italian (97–99%) — deeply prepared</li>
+      <li>Worst: French Winawer (88.2%, 2 blunders)</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Heye as Black</h3>
+    <ul>
+      <li>vs Austin's 1.e4: <strong>Sicilian Kan (B43)</strong> — confirmed</li>
+      <li>vs 1.d4: Slav (D11/D12), Catalan Open (E04)</li>
+      <li>vs 1.e4 (others): 1...e5 Four Knights / Italian Black</li>
+      <li>Black avg accuracy: <strong>93.0%</strong> (3% below White)</li>
+      <li>Worst games: 87.8–88.7% under time pressure</li>
+      <li>Confirmed blunders: 23...Kg8?? (R9), 24...Qe7?? (R7)</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Tactical fingerprint</h3>
+    <ul>
+      <li><strong>Strength:</strong> Italian endgame conversion (consistent)</li>
+      <li><strong>Strength:</strong> Yugoslav Attack delivery (PAM R6 vs Sen)</li>
+      <li><strong>Weakness:</strong> Black calculation under time pressure</li>
+      <li><strong>Weakness:</strong> French Winawer — 2 blunders, loss</li>
+      <li>Pattern: blunders in C50/D12 positions when defending late</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Direct encounter (Mar 2026)</h3>
+    <ul>
+      <li>Austin White, Heye Black — B43 Sicilian Kan</li>
+      <li>Heye accuracy: 93.9% · 3 mistakes</li>
+      <li>Heye played <strong>...d6</strong> (best: Bd6) → Austin +2.05</li>
+      <li>Heye played <strong>...b4</strong> (best: Nxd4) → Austin +4.07</li>
+      <li>Austin played a4! to challenge b5 expansion</li>
+      <li>Result: * (unfinished study game)</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ═══════════════ PART 1 — AUSTIN WHITE ═══════════════ -->
+<h2>Part 1 — Austin as White vs Heye</h2>
+
+<div class="callout callout-blue">
+  <strong>What Heye will play:</strong> Sicilian Kan (B43) — 1...c5 2...e6 3...a6 4...Qc7 5...b5 6...Bb7.
+  Confirmed by the direct encounter (Mar 2026). He delayed knight development to prioritize
+  queenside expansion with ...b5/...Bb7. Austin already knows this structure from the study game.
+</div>
+
+<h3>The Opening — English Attack vs Kan</h3>
+<div class="move-line">
+  <span class="mv-a">1.e4</span>
+  <span class="mv-z">c5</span>
+  <span class="mv-a">2.Nf3</span>
+  <span class="mv-z">e6</span>
+  <span class="mv-a">3.d4</span>
+  <span class="mv-z">cxd4</span>
+  <span class="mv-a">4.Nxd4</span>
+  <span class="mv-z">a6</span>
+  <span class="mv-a">5.Nc3</span>
+  <span class="mv-z">Qc7</span>
+  <span class="mv-a">6.Be2</span>
+  <span class="mv-z">b5</span>
+  <span class="mv-a"><span class="key-move">7.Bf3!</span></span>
+  <span class="note">— key move from direct encounter. Develops bishop actively to f3, attacks the center.</span>
+</div>
+
+<div class="callout callout-gold">
+  <strong>Why 7.Bf3!</strong>
+  In the direct encounter, Austin played 7.Bf3 and the resulting position gave him a structural edge.
+  The bishop on f3 eyes the d5 square, and Austin later played a4! to challenge b5. This exact
+  move order put Heye under immediate pressure — he responded with 7...Nc6 8.Re1 d6 and then
+  made his first mistake (...d6 when ...Bd6 was better, dropping to −2.05).
+</div>
+
+<input class="acc-toggle" type="checkbox" id="w1" checked>
+<label class="acc-label" for="w1">Main line: 7...Nc6 8.Re1 d6 — from direct encounter</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">7...Nc6</span>
+    <span class="mv-a"><span class="key-move">8.Re1</span></span>
+    <span class="note">(rook to e1, preparing e5 push)</span>
+    <span class="mv-z">8...d6</span>
+    <span class="note">(Heye's mistake in direct encounter — Bd6 was correct)</span><br>
+    <span class="mv-a"><span class="key-move">9.a4!</span></span>
+    <span class="note">— immediately challenge the queenside expansion. This is the key move.</span><br>
+    <span class="mv-z">9...b4</span>
+    <span class="mv-a"><span class="key-move">10.Nd5!</span></span>
+    <span class="note">— knight dominates the center. After 10.Nd5 Qa5 11.Nxc6 bxc6</span><br>
+    <span class="mv-z">11...Qa5</span>
+    <span class="mv-a"><span class="key-move">11.Nxc6 bxc6 12.Nxb4!</span></span>
+    <span class="note">— Austin wins a pawn and enters a structural edge.</span>
+    <span class="badge b-green">+1 pawn, better structure</span>
+  </div>
+  <div class="callout callout-blue" style="margin-top:8px">
+    <strong>From the direct encounter:</strong>
+    After Heye's ...b4 (mistake — Nxd4 was correct), eval jumped to +4.07 for Austin.
+    The a4/Nd5/Nxb4 plan is the concrete refutation of Heye's queenside expansion.
+  </div>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="w2" checked>
+<label class="acc-label" for="w2">If 7...Nf6 — standard Kan setup</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">7...Nf6</span>
+    <span class="mv-a"><span class="key-move">8.O-O</span></span>
+    <span class="mv-z">8...Be7</span>
+    <span class="mv-a"><span class="key-move">9.Re1 d6 10.a4!</span></span>
+    <span class="note">— same a4 plan; challenge b5 before Heye can stabilize.</span><br>
+    <span class="mv-z">10...b4</span>
+    <span class="mv-a"><span class="key-move">11.Nd5!</span></span>
+    <span class="note">— Nd5 is the permanent threat. Heye must either exchange or accept an outpost.</span><br>
+    <span class="mv-z">11...Nxd5</span>
+    <span class="mv-a"><span class="key-move">12.exd5</span></span>
+    <span class="note">— Austin has d5 space and e5 square for pieces. Good attacking chances.</span>
+    <span class="badge b-blue">=+</span>
+  </div>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="w3" checked>
+<label class="acc-label" for="w3">If Heye delays ...b5 and plays ...Bc5 or ...Be7 first</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">6...Nc6 (or 6...Nf6)</span>
+    <span class="note">— Heye delays queenside expansion</span><br>
+    <span class="mv-a"><span class="key-move">7.Be3</span></span>
+    <span class="note">— shift to English Attack proper: Be3/f3/Qd2</span><br>
+    <span class="mv-a">8.f3</span>
+    <span class="mv-a">9.Qd2</span>
+    <span class="mv-a">10.O-O-O</span>
+    <span class="note">— Austin castles long. Then g4-g5 pawn storm.</span><br>
+    <span class="note">This is Austin's known Taimanov English Attack — same system used vs Zachary.</span>
+    <span class="badge b-blue">=+</span>
+  </div>
+</div>
+
+<h3 style="margin-top:18px">Key Tactical Themes — Austin White</h3>
+
+<table>
+  <tr><th>Motif</th><th>When</th><th>How</th></tr>
+  <tr>
+    <td><strong>Nd5 outpost</strong></td>
+    <td>After ...b4 or any time Nc3 is freed</td>
+    <td>Nd5 wins material or dominates the game. Never trade it for nothing.</td>
+  </tr>
+  <tr>
+    <td><strong>a4! challenger</strong></td>
+    <td>As soon as Heye plays ...b5</td>
+    <td>a4! immediately. If ...b4, play Nd5. If ...bxa4, play Nxa4 with central control.</td>
+  </tr>
+  <tr>
+    <td><strong>e5 advance</strong></td>
+    <td>After Re1 and Heye hasn't played ...d5</td>
+    <td>e5 kicks the Nf6 and gives Austin space. Prepares the f4-f5 kingside pawn storm.</td>
+  </tr>
+  <tr>
+    <td><strong>Keep queens on</strong></td>
+    <td>Always</td>
+    <td>Heye's Italian endgame technique is elite. Never trade into rook endings voluntarily.</td>
+  </tr>
+</table>
+
+<div class="callout callout-danger">
+  <strong>Do NOT simplify early.</strong>
+  Heye's Italian White record includes converting endgames cleanly at 95–99% accuracy.
+  As Black in simplified positions he may be weaker, but Austin must keep the position complex.
+  A queen trade in the Kan before move 25 almost always favors the player with better endgame
+  technique — that's Heye.
+</div>
+
+<hr class="section-divider">
+
+<!-- ═══════════════ PART 2 — AUSTIN BLACK ═══════════════ -->
+<h2>Part 2 — Austin as Black vs Heye</h2>
+
+<div class="callout callout-danger">
+  <strong>Do NOT play 1...e5 against Heye's 1.e4</strong>
+  Heye's Italian (C54/C55) accuracy: 97.4%, 98.2%, 95.2%, 95.4%, 98.0% — his best scores.
+  The Italian is his deep preparation and where he wins most reliably. Going 1...e5 walks
+  Austin directly into a wall of preparation.
+</div>
+
+<h3>Austin's weapon: Sicilian Najdorf (5...a6)</h3>
+<div class="move-line">
+  <span class="mv-z">1.e4</span>
+  <span class="mv-a"><span class="key-move">c5!</span></span>
+  <span class="mv-z">2.Nf3</span>
+  <span class="mv-a"><span class="key-move">d6</span></span>
+  <span class="mv-z">3.d4</span>
+  <span class="mv-a"><span class="key-move">cxd4</span></span>
+  <span class="mv-z">4.Nxd4</span>
+  <span class="mv-a"><span class="key-move">Nf6</span></span>
+  <span class="mv-z">5.Nc3</span>
+  <span class="mv-a"><span class="key-move">a6!</span></span>
+  <span class="note">— Najdorf. Heye has <strong>zero documented Najdorf games as White</strong> in the dataset.</span>
+</div>
+
+<div class="callout callout-gold">
+  <strong>Why Najdorf?</strong>
+  Heye's White games are: Italian (C54/C55), Yugoslav Attack vs Dragon/Scheveningen (B75/B80),
+  English Attack vs B58. He has never been recorded facing the Najdorf (B90–B99).
+  The Najdorf forces him into either familiar Yugoslav/English Attack territory (where Austin
+  can prepare) or completely unfamiliar Najdorf theory — either way, Austin gains preparation
+  advantage.
+</div>
+
+<input class="acc-toggle" type="checkbox" id="b1" checked>
+<label class="acc-label" for="b1">If Heye plays English Attack (6.Be3 f3 Qd2) — Austin's response</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">6.Be3</span>
+    <span class="mv-a"><span class="key-move">e5!</span></span>
+    <span class="note">— immediately challenge the center. This is the Najdorf 6.Be3 e5 English Attack main line.</span><br>
+    <span class="mv-z">7.Nb3</span>
+    <span class="mv-a"><span class="key-move">Be6!</span></span>
+    <span class="note">— develop bishop, prepare to connect rooks</span><br>
+    <span class="mv-z">8.f3</span>
+    <span class="mv-a"><span class="key-move">Be7 9.Qd2 O-O</span></span>
+    <span class="note">— castle kingside first before queenside counterplay</span><br>
+    <span class="mv-z">10.O-O-O</span>
+    <span class="mv-a"><span class="key-move">Nbd7 → Nb6 → Rc8</span></span>
+    <span class="note">— queenside counterplay. Austin should push ...a5-a4 to open lines.</span>
+    <span class="badge b-blue">=</span>
+  </div>
+  <div class="callout callout-blue" style="margin-top:8px">
+    This is Austin's home territory — the English Attack is the same system he drills as White
+    vs Zachary. He knows the plans from both sides.
+  </div>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="b2" checked>
+<label class="acc-label" for="b2">If Heye plays 6.Bg5 (Classical Najdorf) or 6.Bc4</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">6.Bg5</span>
+    <span class="mv-a"><span class="key-move">e6!</span></span>
+    <span class="note">— main Najdorf response: 6...e6 shuts the pin</span><br>
+    <span class="mv-z">7.f4</span>
+    <span class="mv-a"><span class="key-move">Be7 8.Qf3</span></span>
+    <span class="mv-a"><span class="key-move">Qc7!</span></span>
+    <span class="note">— standard defensive queen deployment</span>
+    <span class="badge b-blue">=</span>
+  </div>
+  <div class="move-line" style="margin-top:6px">
+    <span class="mv-z">6.Bc4</span>
+    <span class="mv-a"><span class="key-move">e6!</span></span>
+    <span class="note">— close the Bc4 diagonal</span><br>
+    <span class="mv-z">7.Bb3</span>
+    <span class="mv-a"><span class="key-move">Be7 8.O-O O-O</span></span>
+    <span class="note">— solid development, prepare ...b5-b4 queenside pressure</span>
+    <span class="badge b-blue">=</span>
+  </div>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="b3" checked>
+<label class="acc-label" for="b3">If Heye plays a quiet Italian-style 6.Be2 or anti-Sicilian</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">6.Be2</span>
+    <span class="mv-a"><span class="key-move">e5!</span></span>
+    <span class="mv-z">7.Nb3</span>
+    <span class="mv-a"><span class="key-move">Be7 8.O-O O-O 9.Be3 Be6</span></span>
+    <span class="note">— solid setup; Black has no problems here</span>
+    <span class="badge b-green">=+</span>
+  </div>
+  <div class="move-line" style="margin-top:6px">
+    <span class="mv-z">2.Nc3 (anti-Sicilian)</span>
+    <span class="mv-a"><span class="key-move">Nc6!</span></span>
+    <span class="note">— Grand Prix / Closed Sicilian: Black develops normally. No preparation needed.</span>
+  </div>
+</div>
+
+<h3 style="margin-top:18px">Key Themes as Austin Black</h3>
+<table>
+  <tr><th>Theme</th><th>Target</th><th>Action</th></tr>
+  <tr>
+    <td><strong>...a5-a4 queenside push</strong></td>
+    <td>After Heye castles long</td>
+    <td>Open the a-file. Heye's long-castle king will be vulnerable.</td>
+  </tr>
+  <tr>
+    <td><strong>...b5-b4 counterplay</strong></td>
+    <td>After Heye plays Nc3</td>
+    <td>...b5 expands queenside; after ...b4 the Nc3 is displaced.</td>
+  </tr>
+  <tr>
+    <td><strong>Avoid f7-f5 (weakening)</strong></td>
+    <td>In the English Attack</td>
+    <td>f7-f5 in the Najdorf often weakens g6 and the king. Prefer ...Nbd7/...Rc8 counterplay.</td>
+  </tr>
+  <tr>
+    <td><strong>Keep central tension</strong></td>
+    <td>Don't simplify</td>
+    <td>Heye's endgame technique is 95+ accuracy. Complex middlegames are Austin's territory.</td>
+  </tr>
+</table>
+
+<hr class="section-divider">
+
+<!-- ═══════════════ PART 3 — CLOCK STRATEGY ═══════════════ -->
+<h2>Part 3 — Clock and Psychological Strategy</h2>
+
+<div class="callout callout-gold">
+  <strong>Heye's accuracy collapses under time pressure — this is the most important strategic lever.</strong>
+</div>
+
+<table>
+  <tr><th>Situation</th><th>Austin's action</th><th>Why</th></tr>
+  <tr>
+    <td>Opening moves (1–15)</td>
+    <td>Play <strong>instantly</strong> — these are all memorized</td>
+    <td>Demonstrate preparation confidence; give Heye less think-time</td>
+  </tr>
+  <tr>
+    <td>Heye enters known territory</td>
+    <td>Continue quickly — stay in prep as long as possible</td>
+    <td>Force Heye to respond, not calculate. His preparation ends somewhere.</td>
+  </tr>
+  <tr>
+    <td>Heye gets under 25 minutes</td>
+    <td>Create tactical complications — don't simplify</td>
+    <td>Both PAM blunder games (R7, R9) happened under 25 min. Austin should reach this zone.</td>
+  </tr>
+  <tr>
+    <td>Heye as Black in defending position</td>
+    <td>Keep attacking — don't trade pieces</td>
+    <td>Heye's 3 worst Black games (88.7%, 88.7%, 87.8%) are all defensive losses. He is weakest when defending as Black under time pressure.</td>
+  </tr>
+  <tr>
+    <td>Heye's Italian (Austin as Black)</td>
+    <td>Build a complex Najdorf middlegame — make him think</td>
+    <td>Heye's Italian is auto-pilot (95–99%). The Najdorf forces him off it into computation.</td>
+  </tr>
+</table>
+
+<h3 style="margin-top:14px">Heye's accuracy profile</h3>
+<table>
+  <tr><th>Context</th><th>Accuracy range</th><th>Blunders</th></tr>
+  <tr><td>Italian as White (C54/C55)</td><td>95.2%–99.0%</td><td>0–1 per game</td></tr>
+  <tr><td>Sicilian Yugoslav as White (B75/B80)</td><td>91.1%–95.9%</td><td>0–1 per game</td></tr>
+  <tr><td>Black, comfortable position</td><td>93.0%–98.2%</td><td>0</td></tr>
+  <tr><td><strong>Black, time pressure / defending</strong></td><td><strong>87.8%–88.7%</strong></td><td><strong>2–3 per game</strong></td></tr>
+  <tr><td>Direct encounter vs Austin (Black, B43)</td><td>93.9%</td><td>0 blunders, 3 mistakes</td></tr>
+</table>
+
+<hr class="section-divider">
+
+<!-- ═══════════════ PART 4 — IF/THEN QUICK REFERENCE ═══════════════ -->
+<h2>Part 4 — If / Then Quick Reference</h2>
+
+<input class="acc-toggle" type="checkbox" id="q1" checked>
+<label class="acc-label" for="q1">Austin as White — opening decisions</label>
+<div class="acc-content">
+  <table>
+    <tr><th>If Heye plays...</th><th>Austin plays...</th></tr>
+    <tr><td>1...c5 (Sicilian)</td><td>1.e4 c5 2.Nf3 e6 3.d4 → Kan setup confirmed</td></tr>
+    <tr><td>5...Qc7 (Kan)</td><td>6.Be2 b5 7.Bf3! → direct encounter setup</td></tr>
+    <tr><td>7...Nc6</td><td>8.Re1 d6 9.a4! — challenge immediately</td></tr>
+    <tr><td>...b4 (queenside lock)</td><td>Nd5! — jump to the outpost</td></tr>
+    <tr><td>...Nf6 instead of ...Nc6</td><td>8.O-O Be7 9.Re1 d6 10.a4! — same plan</td></tr>
+    <tr><td>Delays ...b5 (plays ...Nc6 first)</td><td>7.Be3 → English Attack (Be3/f3/Qd2/O-O-O)</td></tr>
+  </table>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="q2" checked>
+<label class="acc-label" for="q2">Austin as Black — opening decisions</label>
+<div class="acc-content">
+  <table>
+    <tr><th>If Heye plays...</th><th>Austin plays...</th></tr>
+    <tr><td>1.e4</td><td>1...c5! — always Sicilian</td></tr>
+    <tr><td>2.Nf3</td><td>2...d6 — Najdorf move order</td></tr>
+    <tr><td>6.Be3 (English Attack)</td><td>6...e5! → Najdorf English Attack main line</td></tr>
+    <tr><td>6.Bg5 (Classical)</td><td>6...e6! → classical defense</td></tr>
+    <tr><td>6.Bc4</td><td>6...e6 → close the diagonal, normal Najdorf dev</td></tr>
+    <tr><td>6.Be2 (quiet)</td><td>6...e5 7.Nb3 Be7 → solid, no problems</td></tr>
+    <tr><td>1.e4 e5?? (Austin plays 1...e5)</td><td>DO NOT — Heye Italian 95–99% accuracy</td></tr>
+  </table>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="q3" checked>
+<label class="acc-label" for="q3">Middlegame decisions</label>
+<div class="acc-content">
+  <table>
+    <tr><th>Situation</th><th>Action</th></tr>
+    <tr><td>Queen trade is possible (Austin White)</td><td>DECLINE — keep queens on board</td></tr>
+    <tr><td>Heye offers rook ending</td><td>AVOID — Heye converts Italian rook endings cleanly</td></tr>
+    <tr><td>Heye is under 25 min on clock</td><td>CREATE complications — don't simplify</td></tr>
+    <tr><td>Austin has Nd5 available (White)</td><td>PLAY IT — never delay the outpost</td></tr>
+    <tr><td>Austin as Black, Heye castles long</td><td>...a5-a4 queenside attack immediately</td></tr>
+    <tr><td>Austin as Black, Heye g4 pawn storm</td><td>...b5-b4 queenside counterplay — race</td></tr>
+  </table>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="q4" checked>
+<label class="acc-label" for="q4">Warning signs — common mistakes to avoid</label>
+<div class="acc-content">
+  <table>
+    <tr><th>Trap</th><th>Why it's wrong</th></tr>
+    <tr><td>Playing 1...e5 as Black</td><td>Heye's Italian accuracy 95–99% — guaranteed bad position for Austin</td></tr>
+    <tr><td>Trading queens before move 25</td><td>Heye Italian endgame technique is exceptional</td></tr>
+    <tr><td>Delaying a4! as White</td><td>Heye will stabilize with ...b4 and the queenside is gone</td></tr>
+    <tr><td>Ignoring Nd5 opportunity</td><td>Nd5 is the concrete winning idea — delay costs the edge</td></tr>
+    <tr><td>Simplifying when Heye is under time pressure</td><td>Time pressure is Austin's best weapon; don't trade it away</td></tr>
+  </table>
+</div>
+
+<hr class="section-divider">
+
+<!-- ═══════════════ PART 5 — KAN ENGLISH ATTACK DRILL ═══════════════ -->
+<h2>Part 5 — Kan English Attack Opening Drill (Austin as White)</h2>
+
+<div class="callout callout-blue">
+  <strong>Drill the direct encounter sequence.</strong> Austin already played this position once and had
+  Heye at −4.07 (Austin +4 pawn advantage) before the game was abandoned. This is the exact
+  weapon to re-enter for the next game.
+</div>
+
+<h3>Main setup — from direct encounter</h3>
+<div class="move-line">
+  <span class="mv-a">1.e4</span>
+  <span class="mv-z">c5</span>
+  <span class="mv-a">2.Nf3</span>
+  <span class="mv-z">e6</span>
+  <span class="mv-a">3.d4</span>
+  <span class="mv-z">cxd4</span>
+  <span class="mv-a">4.Nxd4</span>
+  <span class="mv-z">a6</span>
+  <span class="mv-a">5.Nc3</span>
+  <span class="mv-z">Qc7</span>
+  <span class="mv-a">6.Be2</span>
+  <span class="mv-z">b5</span>
+  <span class="mv-a"><span class="key-move">7.Bf3!</span></span>
+  <span class="mv-z">Nc6</span>
+  <span class="mv-a"><span class="key-move">8.Re1</span></span>
+  <span class="mv-z">d6</span>
+  <span class="mv-a"><span class="key-move">9.a4!</span></span>
+  <span class="note">— the critical idea. If Heye plays ...b4: Nd5. If Heye plays ...bxa4: Nxa4.</span>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="d1" checked>
+<label class="acc-label" for="d1">Branch A — Heye plays ...b4 (direct encounter line)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">9...b4</span>
+    <span class="mv-a"><span class="key-move">10.Nd5!</span></span>
+    <span class="note">— jump to the outpost immediately</span><br>
+    <span class="mv-z">10...Qa5</span>
+    <span class="mv-a"><span class="key-move">11.Nxc6 bxc6 12.Nxb4!</span></span>
+    <span class="note">— picks up the b4 pawn. Austin up a pawn with central control.</span><br>
+    <span class="mv-z">12...Qxb4</span>
+    <span class="mv-a"><span class="key-move">13.Bd2</span></span>
+    <span class="note">— Bd2 attacks the queen while developing. Austin is excellent here.</span>
+    <span class="badge b-green">+1 pawn, structural edge</span>
+  </div>
+  <div class="callout callout-gold" style="margin-top:8px">
+    <strong>From the direct encounter:</strong>
+    After ...b4 (Nxd4 was correct, CPL=191), Austin reached +4.07 advantage.
+    This line is the EXACT refutation of Heye's Kan setup.
+  </div>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="d2" checked>
+<label class="acc-label" for="d2">Branch B — Heye plays ...bxa4 (safer)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">9...bxa4</span>
+    <span class="mv-a"><span class="key-move">10.Nxa4</span></span>
+    <span class="note">— knight now controls c5, b6, d6 squares. Active posting.</span><br>
+    <span class="mv-z">10...Be7</span>
+    <span class="mv-a"><span class="key-move">11.O-O O-O 12.Bg5!</span></span>
+    <span class="note">— pin the Nf6 (if Heye has played ...Nf6) and prepare Nd4/Ne2-f4</span><br>
+    <span class="note">Austin has better piece coordination and the open a-file.</span>
+    <span class="badge b-blue">=+</span>
+  </div>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="d3" checked>
+<label class="acc-label" for="d3">Branch C — Heye plays ...Bb7 (delays queen/knight)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">7...Bb7</span>
+    <span class="mv-a"><span class="key-move">8.O-O Nf6</span></span>
+    <span class="mv-z">9.Re1 d6</span>
+    <span class="mv-a"><span class="key-move">10.a4!</span></span>
+    <span class="note">— always a4. If ...b4: Nd5 and same plan. If ...bxa4: Nxa4.</span><br>
+    <span class="mv-z">10...b4</span>
+    <span class="mv-a"><span class="key-move">11.Nd5! Nxd5 12.exd5</span></span>
+    <span class="note">— Austin has d5 pawn wedge and e5 square. Strong spatial advantage.</span>
+    <span class="badge b-blue">=+</span>
+  </div>
+</div>
+
+<h3 style="margin-top:18px">The a4! rule</h3>
+<div class="callout callout-gold">
+  <strong>After Heye plays ...b5, Austin always plays a4! on the very next move.</strong>
+  No delays. If a4 is available and Heye has played ...b5, a4 is always correct.
+  The only question is what to do after ...b4 vs ...bxa4 — both lead to Austin advantage.
+</div>
+
+<table>
+  <tr><th>After a4!, Heye's response</th><th>Austin's reply</th><th>Result</th></tr>
+  <tr><td>...b4 (direct encounter)</td><td>Nd5! → Nxc6 bxc6 → Nxb4!</td><td>+1 pawn, structural edge</td></tr>
+  <tr><td>...bxa4 (capture)</td><td>Nxa4 → Nc5 or Nd6 outpost</td><td>Active knight, better structure</td></tr>
+  <tr><td>...b4 followed by ...Nxd4</td><td>Nxd4 → Nd5! still available</td><td>Nd5 outpost dominates</td></tr>
+  <tr><td>...a5 (lock queenside)</td><td>b4! — counter-expand</td><td>Austin controls the open b-file</td></tr>
+</table>
+
+<h3 style="margin-top:18px">10-Move Drill</h3>
+<input class="acc-toggle" type="checkbox" id="dr1">
+<label class="acc-label" for="dr1">Drill — recite Austin's moves through move 12 before revealing</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6 5.Nc3 Qc7</span><br>
+    <span class="mv-a"><span class="key-move">6.Be2</span></span>
+    <span class="mv-z">b5</span>
+    <span class="mv-a"><span class="key-move">7.Bf3!</span></span>
+    <span class="mv-z">Nc6</span>
+    <span class="mv-a"><span class="key-move">8.Re1</span></span>
+    <span class="mv-z">d6</span>
+    <span class="mv-a"><span class="key-move">9.a4!</span></span>
+    <span class="mv-z">b4</span>
+    <span class="mv-a"><span class="key-move">10.Nd5!</span></span>
+    <span class="mv-z">Qa5</span>
+    <span class="mv-a"><span class="key-move">11.Nxc6 bxc6 12.Nxb4!</span></span>
+    <span class="note">— Austin up a pawn, Heye at −4 from direct encounter.</span>
+    <br><br>
+    <span class="badge b-green">This is the line Austin needs to know cold.</span>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ═══════════════ PART 6 — ACCURACY TABLE ═══════════════ -->
+<h2>Part 6 — Engine Accuracy Reference (26 Classical Games)</h2>
+
+<table>
+  <tr><th>Tournament / Game</th><th>Color</th><th>Opponent</th><th>Result</th><th>ECO</th><th>Accuracy</th><th>Bl/Mi</th></tr>
+  <tr><td>Canada Closed G266901</td><td>White</td><td>Ajith, Aarush</td><td>Win</td><td>B92</td><td>97.4%</td><td>0/0</td></tr>
+  <tr><td>Canada Closed G266934</td><td>White</td><td>Yin, Andrew</td><td>Win</td><td>B43</td><td><strong>99.0%</strong></td><td>0/0</td></tr>
+  <tr><td>Canada Closed G267000</td><td>White</td><td>Latorre, Vincent</td><td>Win</td><td>B06</td><td>96.8%</td><td>0/1</td></tr>
+  <tr><td>Canada Closed G267079</td><td>White</td><td>Dukic, Zachary</td><td>Loss</td><td>C55</td><td>91.6%</td><td>1/3</td></tr>
+  <tr><td>Canada Closed G267162</td><td>White</td><td>Yin, Zeming</td><td>Loss</td><td>B58</td><td>87.5%</td><td>1/1</td></tr>
+  <tr><td>Ontario R5</td><td>White</td><td>Razin, Vadim</td><td>Loss</td><td>C16</td><td>88.2%</td><td>2/1</td></tr>
+  <tr><td>Ontario R1</td><td>White</td><td>Yao, Henry</td><td>Win</td><td>C54</td><td>95.2%</td><td>0/0</td></tr>
+  <tr><td>PAM R1</td><td>White</td><td>Rincon, Justin</td><td>Win</td><td>C54</td><td><strong>98.2%</strong></td><td>0/0</td></tr>
+  <tr><td>PAM R3</td><td>White</td><td>Ramirez Villegas</td><td>Win</td><td>B80</td><td>91.1%</td><td>1/0</td></tr>
+  <tr><td>PAM R6</td><td>White</td><td>Sen, Samant</td><td>Win</td><td>B75</td><td>95.9%</td><td>0/1</td></tr>
+  <tr><td>PAM R8</td><td>White</td><td>Simbler, Facundo</td><td>Win</td><td>C55</td><td>95.4%</td><td>0/0</td></tr>
+  <tr><td>Toronto R2</td><td>White</td><td>Wu, Nolan</td><td>Draw</td><td>B36</td><td><strong>98.0%</strong></td><td>0/0</td></tr>
+  <tr style="background:#fff0f0"><td>Canada G266828</td><td>Black</td><td>Vettese, Nicholas</td><td>Loss</td><td>A06</td><td>92.4%</td><td>1/0</td></tr>
+  <tr style="background:#fff0f0"><td>Canada G266957</td><td>Black</td><td>Plotkin, Mark</td><td>Draw</td><td>D23</td><td>95.4%</td><td>1/1</td></tr>
+  <tr style="background:#fff0f0"><td>Canada G267039</td><td>Black</td><td>Plotkin, Victor</td><td>Draw</td><td>C50</td><td><strong>98.2%</strong></td><td>0/0</td></tr>
+  <tr style="background:#fff0f0"><td>Canada G267125</td><td>Black</td><td>Liu, Zachary</td><td>Draw</td><td>A11</td><td>93.0%</td><td>0/0</td></tr>
+  <tr style="background:#fff0f0"><td>Ontario R4</td><td>Black</td><td>Vettese, Nicholas</td><td>Win</td><td>C47</td><td>95.9%</td><td>0/2</td></tr>
+  <tr style="background:#fff0f0"><td>Ontario R2</td><td>Black</td><td>Ivanchuk, Serghii</td><td>Draw</td><td>D02</td><td>92.3%</td><td>0/0</td></tr>
+  <tr style="background:#fff0f0"><td>PAM R2</td><td>Black</td><td>Murcia, Leonardo</td><td>Win</td><td>C54</td><td>94.9%</td><td>0/0</td></tr>
+  <tr style="background:#fff0f0"><td>PAM R4</td><td>Black</td><td>Jackson, Leo</td><td>Win</td><td>D11</td><td>95.9%</td><td>0/3</td></tr>
+  <tr style="background:#fff0f0"><td>PAM R5</td><td>Black</td><td>Ajith, Aarush</td><td>Win</td><td>E04</td><td>94.5%</td><td>0/1</td></tr>
+  <tr style="background:#ffe0e0"><td><strong>PAM R7</strong></td><td>Black</td><td>Diaz Guerrero</td><td><strong>Loss</strong></td><td>C50</td><td><strong>88.7%</strong></td><td>2/0</td></tr>
+  <tr style="background:#ffe0e0"><td><strong>PAM R9</strong></td><td>Black</td><td>Rodriguez</td><td><strong>Loss</strong></td><td>D12</td><td><strong>88.7%</strong></td><td>3/1</td></tr>
+  <tr style="background:#ffe0e0"><td><strong>Toronto R3</strong></td><td>Black</td><td>Lu, Tony</td><td><strong>Loss</strong></td><td>C25</td><td><strong>87.8%</strong></td><td>1/3</td></tr>
+  <tr style="background:#eef4ff"><td><strong>Direct (Mar 2026)</strong></td><td>Black</td><td>Lin, Austin</td><td>Study</td><td>B43</td><td>93.9%</td><td>0/3</td></tr>
+</table>
+<p style="font-size:0.8em; color:#666; margin-top:6px">Red rows = Heye's 3 worst Black results (time pressure losses). Blue row = direct encounter.</p>
+
+<div style="margin-top:24px; font-size:0.78em; color:#888; border-top:1px solid #ddd; padding-top:10px; line-height:1.6">
+  <strong>Sources:</strong>
+  Classical: 26 games engine-analyzed (movetime-800, 4 tournaments, 2026). Supplementary: Lichess games
+  (Carlnosen, rapid/blitz) — opening line frequency only. Engine: Stockfish. Accuracy formula: Lichess win-probability method.
+  Direct encounter (Mar 2026): Austin White vs Heye Black — B43 Kan, study game (unfinished), Heye 93.9% / 3 mistakes.
+</div>
+
+</body>
+</html>

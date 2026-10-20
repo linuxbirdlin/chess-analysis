@@ -39,6 +39,15 @@ OPPONENTS = {
         "known_weakness": "Taimanov English Attack (B46/B47) — 4 blunders in worst game",
         "austin_weapon_black": "Dutch Leningrad (1...f5) to avoid Reti preparation",
     },
+    "heye": {
+        "legal_name": "Gao, Heye",
+        "lichess_username": "Carlnosen",
+        "pgn_player_name": "Carlnosen",
+        "known_white": "1.e4 Italian (C54/C55) — Bc4/d3/c3 + b4/a4 queenside expansion; Yugoslav Attack vs Sicilian",
+        "known_weakness": "Tactical blunders as Black under time pressure (23...Kg8??, 24...Qe7??)",
+        "austin_weapon_white": "English Attack vs Sicilian Kan (B43) — Heye's confirmed Black system vs Austin",
+        "austin_weapon_black": "Sicilian Najdorf (5...a6) — avoids Heye's deep Italian White preparation",
+    },
 }
 
 
