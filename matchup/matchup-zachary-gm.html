@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle Plan: Austin vs Liu, Zachary</title>
+<style>
+:root {
+  --green: #1a5c1a; --yellow: #b8860b; --red: #8b1a1a;
+  --gold: #c9920a; --blue: #1a4a8b; --gray: #555;
+  --bg: #f8f6f2; --card: #fff; --border: #ddd;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Georgia', serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg);
+}
+h1 { font-size: 1.6em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.15em; margin: 28px 0 10px; color: #1a1a1a;
+     border-left: 5px solid var(--blue); padding-left: 10px; }
+h3 { font-size: 1em; margin: 14px 0 6px; color: #333; }
+.subtitle { font-size: 0.85em; color: #666; margin-bottom: 20px; }
+.subtitle span { margin-right: 18px; }
+
+/* Summary box */
+.summary-box {
+  background: #fff8e6; border: 1px solid #e8c84a; border-radius: 6px;
+  padding: 14px 18px; margin-bottom: 24px;
+}
+.summary-box h3 { margin-top: 0; color: var(--gold); }
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+.summary-item { font-size: 0.9em; }
+.summary-item strong { display: block; color: #333; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 2px; }
+
+/* Data badge */
+.data-badge { font-size: 0.75em; background: #e8e8e8; border-radius: 3px; padding: 1px 5px; color: #555; font-family: monospace; }
+.badge-games { background: #d4edda; color: #155724; }
+.badge-eval-pos { background: #d4edda; color: #155724; }
+.badge-eval-neg { background: #f8d7da; color: #721c24; }
+.badge-eval-even { background: #cfe2ff; color: #084298; }
+
+/* Clock annotations */
+.fast { color: #c05800; font-size: 0.85em; }
+.slow { color: #6c3483; font-size: 0.85em; }
+.fast::before { content: '⚡ '; }
+.slow::before { content: '⏳ '; }
+
+/* Move line */
+.move-line {
+  font-family: 'Courier New', monospace; font-size: 13px;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 5px; padding: 10px 14px; margin: 8px 0;
+  line-height: 1.9;
+}
+.move-line .mv { font-weight: bold; }
+.mv-austin { color: #1a4a8b; }
+.mv-zachary { color: #8b1a1a; }
+.novelty-move {
+  background: var(--gold); color: #fff; font-weight: bold;
+  padding: 1px 6px; border-radius: 3px; font-size: 0.95em;
+}
+.comment { font-size: 0.85em; color: #555; font-family: Georgia, serif; margin-left: 4px; }
+.arrow { color: #999; margin: 0 4px; }
+
+/* Accordion (CSS-only) */
+.accordion { margin: 8px 0; }
+.acc-toggle { display: none; }
+.acc-label {
+  display: block; cursor: pointer; padding: 8px 12px;
+  background: #f0f0f0; border: 1px solid #ccc; border-radius: 4px;
+  font-size: 0.9em; font-weight: bold; user-select: none;
+}
+.acc-label:hover { background: #e4e4e4; }
+.acc-label::before { content: '▸ '; color: #888; }
+.acc-content { display: none; padding: 10px 14px; border: 1px solid #ccc; border-top: none; border-radius: 0 0 4px 4px; background: #fff; }
+.acc-toggle:checked + .acc-label + .acc-content { display: block; }
+.acc-toggle:checked + .acc-label::before { content: '▾ '; }
+
+/* Key positions */
+.key-box {
+  background: #f0f7ff; border: 1px solid #aac8e8; border-radius: 6px;
+  padding: 14px 18px; margin: 12px 0;
+}
+.key-box h3 { color: var(--blue); margin-bottom: 8px; }
+.key-row { display: flex; gap: 10px; align-items: baseline; margin: 6px 0; font-size: 0.9em; }
+.key-num { font-weight: bold; color: var(--blue); min-width: 22px; font-size: 1em; }
+
+/* Stats table */
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
+th { background: #333; color: #fff; padding: 5px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #e0e0e0; }
+tr:nth-child(even) td { background: #f9f9f9; }
+
+/* Danger / safe / note callouts */
+.callout { border-radius: 5px; padding: 10px 14px; margin: 10px 0; font-size: 0.9em; }
+.callout-danger { background: #fdf0f0; border-left: 4px solid #c0392b; }
+.callout-safe { background: #f0fdf0; border-left: 4px solid var(--green); }
+.callout-note { background: #f0f4ff; border-left: 4px solid var(--blue); }
+.callout-gold { background: #fffbf0; border-left: 4px solid var(--gold); }
+.callout strong { display: block; margin-bottom: 3px; }
+
+@media print {
+  body { max-width: 100%; padding: 10px; font-size: 11px; background: #fff; }
+  .acc-content { display: block !important; }
+  .acc-label::before { content: '' !important; }
+  h2 { page-break-before: always; }
+  h2:first-of-type { page-break-before: avoid; }
+}
+</style>
+</head>
+<body>
+
+<h1>Battle Plan: Austin vs Liu, Zachary</h1>
+<div class="subtitle">
+  <span>Tournament: Canada Closed 2027</span>
+  <span>Time control: 90+30 classical</span>
+  <span>Data: 423 Lichess games (2020–2022) + local tournament PGNs</span>
+</div>
+
+<div class="summary-box">
+  <h3>Intelligence Summary</h3>
+  <div class="summary-grid">
+    <div class="summary-item">
+      <strong>Zachary as Black (Austin plays White)</strong>
+      Sicilian Sveshnikov 100% <span class="data-badge badge-games">122 g</span><br>
+      Plays entire opening on autopilot — avg clock ≤4s through move 10
+    </div>
+    <div class="summary-item">
+      <strong>Zachary as White (Austin plays Black)</strong>
+      1.e4 Open Sicilian <span class="data-badge badge-games">196 g</span><br>
+      English Attack specialist — lines: Bg5/f4/Qf3, Be3/f3/Bc4, Ndb5/Na3/Nd5
+    </div>
+    <div class="summary-item">
+      <strong>Biggest weakness (confirmed)</strong>
+      English Attack g4/h4 vs Taimanov — 79.4% accuracy, 4 blunders in worst game
+    </div>
+    <div class="summary-item">
+      <strong>Biggest strength</strong>
+      Technical endgames, deep opening preparation — 93–97% accuracy as White
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2>Part 1 — Austin as White</h2>
+
+<div class="callout callout-note">
+  <strong>Key insight from 423 games</strong>
+  Zachary plays the Sveshnikov (1...c5 → ...Nc6 → ...cxd4 → ...Nf6 → ...e5) in
+  <strong>100% of games</strong> and his average clock through move 10 is <strong>≤4 seconds</strong>.
+  He is in deep preparation the entire time. To win this game, Austin must choose
+  between two paths: (A) use a surprise weapon before move 4, or (B) master the
+  specific Sveshnikov branch that hurts him.
+</div>
+
+<h3>Path A — The Smith-Morra Gambit (Surprise Weapon)</h3>
+
+<div class="callout callout-gold">
+  <strong>★ Recommended novelty: 4.c3!</strong>
+  After 1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 — instead of the standard 4.Nxd4,
+  play 4.c3! (Smith-Morra Gambit). Zachary plays Nf6 in <1 second on the clock
+  after Nxd4 — he has never seen 4.c3 in these games. Eval: −0.27 (small cost,
+  massive disruption).
+</div>
+
+<div class="move-line">
+  <span class="mv mv-austin">1.e4</span>
+  <span class="arrow">→</span>
+  <span class="mv mv-zachary">1...c5</span>
+  <span class="fast">fast (Zachary plays this every game)</span>
+  <br>
+  <span class="mv mv-austin">2.Nf3</span>
+  <span class="arrow">→</span>
+  <span class="mv mv-zachary">2...Nc6</span>
+  <span class="fast">fast (71% frequency, avg 2s)</span>
+  <br>
+  <span class="mv mv-austin">3.d4</span>
+  <span class="arrow">→</span>
+  <span class="mv mv-zachary">3...cxd4</span>
+  <span class="fast">fast (51% frequency, avg 0s)</span>
+  <br>
+  <span class="mv mv-austin"><span class="novelty-move">4.c3!</span></span>
+  <span class="comment">— Smith-Morra Gambit. Zachary's preparation expects 4.Nxd4. He now has to think.</span>
+  <br>
+  <span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;After 4...dxc3 5.Nxc3 → Morra Gambit accepted — lead in development, open lines</span>
+  <br>
+  <span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;After 4...Nf6 → 5.e5 Nd5 6.cxd4 — still active</span>
+  <br>
+  <span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;After 4...d3 (decline) → 5.Bxd3 — solid edge, opponent avoids main Morra</span>
+</div>
+
+<div class="key-box">
+  <h3>Smith-Morra — What to know</h3>
+  <div class="key-row"><span class="key-num">1.</span>Austin must know the main Morra Accepted line: 4.c3 dxc3 5.Nxc3 Nc6 6.Bc4 e6 7.0-0 d6 8.Qe2 Nf6 9.Rd1 — White has full piece activity for the pawn.</div>
+  <div class="key-row"><span class="key-num">2.</span>The whole point: Zachary spent zero time preparing against c3. Even a slightly inferior position where he has to think is better than a slightly better position where he plays in 1-second moves.</div>
+  <div class="key-row"><span class="key-num">3.</span>Engine says: +0.29 for standard Nxd4 vs −0.27 for c3. That is less than half a pawn difference. Given the clock pressure and surprise value, c3 is the better practical choice.</div>
+</div>
+
+<h3>Path B — English Attack (Stay in Sveshnikov)</h3>
+
+<div class="callout callout-note">
+  <strong>If Austin prefers the Open Sicilian</strong>
+  The confirmed engine weakness is in the English Attack vs Taimanov (6.Be3 7.f3 g4 h4).
+  Zachary showed 79.4% accuracy with 4 blunders in one game when Austin's local PGNs
+  recorded this line. Novelty targets: moves 7–10 in the English Attack where he begins improvising.
+</div>
+
+<div class="move-line">
+  <span class="mv mv-austin">1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3</span>
+  <span class="arrow">→</span>
+  <span class="mv mv-zachary">5...e5</span>
+  <span class="fast">fast (90%, avg 1s) — Sveshnikov</span>
+  <br>
+  <span class="mv mv-austin">6.Ndb5 d6 7.Nd5</span>
+  <span class="arrow">→</span>
+  <span class="mv mv-zachary">7...Nxd5 8.exd5 Nb8</span>
+  <br>
+  <span class="mv mv-austin">9.a4</span> <span class="comment">— standard. Now:</span>
+  <br>
+  <span class="mv mv-zachary">9...a6</span>
+  <span class="fast">fast (100%, avg 2s)</span>
+  <span class="arrow">→</span>
+  <span class="mv mv-austin"><span class="novelty-move">10.Bg5!</span></span>
+  <span class="data-badge badge-eval-pos">+0.26</span>
+  <span class="comment">— instead of 10.Na3 (expected). Zachary starts thinking.</span>
+  <br>
+  <span class="mv mv-zachary">10...b5</span>
+  <span class="fast">fast (100%, avg 4s)</span>
+  <span class="arrow">→</span>
+  <span class="mv mv-austin"><span class="novelty-move">11.Na3!</span></span>
+  <span class="data-badge badge-eval-pos">+0.29</span>
+  <span class="comment">pv: b4 12.Nc4 Nd7 13.Bxe7 Qxe7</span>
+</div>
+
+<table>
+  <tr><th>After</th><th>Zachary's move</th><th>Freq</th><th>Clock</th><th>Austin plays</th><th>Eval</th></tr>
+  <tr><td>...cxd4</td><td>Nf6</td><td>100%</td><td><span class="fast">1s</span></td><td><span class="novelty-move">c3!</span> (Smith-Morra)</td><td><span class="data-badge badge-eval-even">−0.27</span></td></tr>
+  <tr><td>Sveshnikov ...a6</td><td>b5</td><td>100%</td><td><span class="fast">4s</span></td><td><span class="novelty-move">Na3!</span></td><td><span class="data-badge badge-eval-pos">+0.29</span></td></tr>
+  <tr><td>Sveshnikov ...d6</td><td>a6</td><td>100%</td><td><span class="fast">2s</span></td><td><span class="novelty-move">Bg5!</span></td><td><span class="data-badge badge-eval-pos">+0.26</span></td></tr>
+  <tr><td>5...Bb4 line</td><td>d5</td><td>80%</td><td><span class="fast">4s</span></td><td>standard exd5</td><td>even</td></tr>
+</table>
+
+<div class="callout callout-danger">
+  <strong>Do NOT play 6.Nxc6 Exchange Variation</strong>
+  Local tournament PGNs confirm Austin lost directly in this line. Zachary handles
+  the symmetrical Exchange Sicilian with ease. Avoid it entirely.
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2>Part 2 — Austin as Black</h2>
+
+<div class="callout callout-note">
+  <strong>Note on data</strong>
+  Zachary's Lichess games (2020–2022) show 1.e4 as White (196 games). Recent local
+  tournament PGNs show 1.Nf3 → c4 Reti/English. Both weapon sets are covered below.
+</div>
+
+<h3>If Zachary plays 1.Nf3 → 1.c4 (Reti/English)</h3>
+
+<div class="callout callout-gold">
+  <strong>★ Recommended weapon: Dutch Leningrad (1...f5)</strong>
+  Zachary's 1.Nf3/c4 Reti/English is prepared at 93–97% accuracy in local games —
+  he has memorized the Catalan, the symmetrical English, and standard KID responses.
+  1...f5 (Dutch Leningrad) is almost never played against him and immediately forces
+  him off his prepared 2.c4 / 2.g3 structures.
+</div>
+
+<div class="move-line">
+  <span class="mv mv-zachary">1.Nf3</span>
+  <span class="arrow">→</span>
+  <span class="mv mv-austin"><span class="novelty-move">1...f5!</span></span>
+  <span class="comment">— Dutch Leningrad. Zachary must now play without preparation.</span>
+  <br>
+  <span class="mv mv-zachary">2.d4</span>
+  <span class="arrow">→</span>
+  <span class="mv mv-austin">2...Nf6 3...g6 4...Bg7 5...0-0 6...d6</span>
+  <span class="comment">— Leningrad setup</span>
+  <br>
+  <span class="mv mv-zachary">2.g3</span>
+  <span class="arrow">→</span>
+  <span class="mv mv-austin">2...Nf6 3.Bg2 g6 4.0-0 Bg7</span>
+  <span class="comment">— King's Indian Reversed structure, Austin comfortable</span>
+  <br>
+  <span class="mv mv-zachary">2.c4</span>
+  <span class="arrow">→</span>
+  <span class="mv mv-austin">2...Nf6 3.g3 g6 4.Bg2 Bg7 5.0-0 0-0 6.d3 d6</span>
+  <span class="comment">— Leningrad Dutch vs English</span>
+</div>
+
+<div class="key-box">
+  <h3>Leningrad key themes</h3>
+  <div class="key-row"><span class="key-num">1.</span>Target: the ...e5 break — usually on move 8–12 after ...d6, ...Nc6, ...e5. Opens the g7-bishop diagonal.</div>
+  <div class="key-row"><span class="key-num">2.</span>If White plays Nd5 → exchange it and get ...c6/...e5 structure.</div>
+  <div class="key-row"><span class="key-num">3.</span>Avoid early ...c5 — Zachary thrives in symmetrical pawn structures where his technique dominates.</div>
+  <div class="key-row"><span class="key-num">4.</span>Keep queens on. Zachary is the technical endgame specialist — reduce to a middlegame fight.</div>
+</div>
+
+<h3>If Zachary plays 1.e4</h3>
+
+<div class="callout callout-note">
+  Zachary played 1.e4 in 196 Lichess games (2020–2022). His White repertoire then:
+  English Attack with Bg5/f4/Qf3 (25%), Be3/f3/Bc4 system (45%), Ndb5/Na3/Nd5 lines (30%).
+  All are in the Open Sicilian — meaning Austin's 1...c5 Sicilian is fine.
+</div>
+
+<div class="move-line">
+  <span class="mv mv-zachary">1.e4</span>
+  <span class="arrow">→</span>
+  <span class="mv mv-austin">1...c5</span>
+  <span class="comment">— Sicilian. Zachary plays Open Sicilian (2.Nf3 3.d4)</span>
+  <br>
+  <span class="mv mv-zachary">2.Nf3 Nc6 3.d4 cxd4 4.Nxd4</span>
+  <span class="arrow">→</span>
+  <span class="mv mv-austin">4...e6</span>
+  <span class="comment">— Taimanov/Paulsen — avoid giving Zachary the English Attack with 4...Nf6 5.Nc3 and 6.Be3</span>
+  <br>
+  or:
+  <span class="mv mv-austin">4...Nf6 5.Nc3 e5</span>
+  <span class="comment">— Sveshnikov mirror: Austin plays it against him</span>
+</div>
+
+<div class="callout callout-danger">
+  <strong>Avoid Najdorf (4...a6) vs Zachary's Bg5 system</strong>
+  Zachary's Lichess White tree shows heavy Bg5 usage vs Najdorf. His f4/Qf3 lines
+  score well in his database. Stick to Taimanov (4...e6) or Sveshnikov mirror (4...Nf6 5...e5).
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2>Clock Strategy</h2>
+
+<table>
+  <tr><th>Phase</th><th>Zachary's typical pace</th><th>Austin's target</th></tr>
+  <tr><td>Opening (moves 1–10)</td><td><span class="fast">1–4s per move — deep prep</span></td><td>Match his pace — be in preparation. Use clock advantage later.</td></tr>
+  <tr><td>Novelty point</td><td><span class="slow">Will start spending time (5–20× jump)</span></td><td>This is the moment. Play fast (you prepared this) — use the psychological edge.</td></tr>
+  <tr><td>Middlegame (moves 11–25)</td><td>Normal pace, 1–3 min/move</td><td>This is the fight. Use your clock freely.</td></tr>
+  <tr><td>Endgame</td><td>Precise — elite technique</td><td>Avoid passive endgames. Keep pieces active. An endgame vs Zachary is a coin flip at best.</td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2>If/Then Quick Reference (print this)</h2>
+
+<div class="accordion">
+  <input class="acc-toggle" type="checkbox" id="a1" checked>
+  <label class="acc-label" for="a1">Austin White — Zachary plays 1...c5</label>
+  <div class="acc-content">
+    <div class="move-line">
+      1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 →<br>
+      <b>Option A:</b> <span class="novelty-move">4.c3!</span> (Smith-Morra — surprise, forces thinking)<br>
+      &nbsp;&nbsp;If 4...dxc3 → 5.Nxc3 e6 6.Bc4 Nf6 7.0-0 d6 8.Qe2 Be7 9.Rd1<br>
+      &nbsp;&nbsp;If 4...Nf6 → 5.e5 Nd5 6.cxd4 ±<br>
+      <b>Option B:</b> 4.Nxd4 Nf6 5.Nc3 e5 (Sveshnikov) →<br>
+      &nbsp;&nbsp;6.Ndb5 d6 7.Nd5 Nxd5 8.exd5 Nb8 9.a4 a6 →<br>
+      &nbsp;&nbsp;<span class="novelty-move">10.Bg5!</span> <span class="data-badge badge-eval-pos">+0.26</span> (instead of Na3)<br>
+      &nbsp;&nbsp;If ...b5 → <span class="novelty-move">Na3!</span> <span class="data-badge badge-eval-pos">+0.29</span>
+    </div>
+  </div>
+</div>
+
+<div class="accordion">
+  <input class="acc-toggle" type="checkbox" id="a2" checked>
+  <label class="acc-label" for="a2">Austin White — Zachary plays 1...e5</label>
+  <div class="acc-content">
+    <div class="callout callout-note" style="margin:0">
+      Zachary played 1...e5 in 33 Lichess games (8% frequency).
+      Austin plays the standard Ruy Lopez / Italian. No special preparation needed —
+      Zachary is not primarily an Open Game player.
+    </div>
+  </div>
+</div>
+
+<div class="accordion">
+  <input class="acc-toggle" type="checkbox" id="a3" checked>
+  <label class="acc-label" for="a3">Austin Black — Zachary plays 1.Nf3</label>
+  <div class="acc-content">
+    <div class="move-line">
+      1.Nf3 → <span class="novelty-move">1...f5!</span> Dutch Leningrad<br>
+      2.d4 → 2...Nf6 3.g3 g6 4.Bg2 Bg7 5.0-0 0-0 6.c4 d6<br>
+      2.g3 → 2...Nf6 3.Bg2 g6 4.0-0 Bg7 (KID reversed)<br>
+      2.c4 → 2...Nf6 3.g3 g6 4.Bg2 Bg7 (Leningrad vs English)<br>
+      <b>Target:</b> ...e5 break, f4-e3-Nf3 attacking structure
+    </div>
+  </div>
+</div>
+
+<div class="accordion">
+  <input class="acc-toggle" type="checkbox" id="a4" checked>
+  <label class="acc-label" for="a4">Austin Black — Zachary plays 1.e4</label>
+  <div class="acc-content">
+    <div class="move-line">
+      1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 →<br>
+      <b>Recommended:</b> 4...e6 (Taimanov) — sidesteps Zachary's English Attack Bg5/f4 vs Najdorf<br>
+      5.Nc3 → 5...Qc7 (classical Taimanov) or 5...a6 (Kan)<br>
+      <b>Alternative:</b> 4...Nf6 5.Nc3 e5 (Sveshnikov as Black — Austin knows this theory)<br>
+      <b>Avoid:</b> Najdorf (4...a6) — Zachary's Bg5/f4/Qf3 scores well in his White database
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:24px; font-size:0.8em; color:#888; border-top:1px solid #ddd; padding-top:10px;">
+  Generated from 423 Lichess games (leilei8514, 2020–2022) + local tournament PGNs.
+  Engine: Stockfish depth-20 multi-PV. Clock data: 14,664 positions, 414 games with annotations.
+  <span style="float:right">⚡ = plays fast (preparation) &nbsp; ⏳ = thinks (uncertain)</span>
+</div>
+
+</body>
+</html>
