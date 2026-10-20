@@ -1154,12 +1154,196 @@ tr:nth-child(even) td { background: #f9f9f9; }
   </div>
 </div>
 
+<hr class="section-divider">
+
+<!-- ═══════════════ PART 6 — DIRECT GAME POST-MORTEM ═══════════════ -->
+<h2>Part 6 — Direct Game Post-Mortem (Sep 12, 2026)</h2>
+
+<div class="callout callout-danger">
+  <strong>Result: Austin 0–1 (Zachary, 67 moves)</strong>
+  ECO B46 · Sicilian Taimanov · Austin White · Austin accuracy 91.8% · Zachary 93.8%<br>
+  The game was decided by a single missed calculation on move 14. The rest of the game
+  is a 50-move technical grind that Zachary converted cleanly — endgame technique as expected.
+</div>
+
+<h3>The Game (abridged)</h3>
+<div class="move-line" style="background:#fff; border:1px solid #ddd; padding:10px 14px; border-radius:4px; line-height:2">
+  1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 a6 6.Nxc6 bxc6<br>
+  <span class="note">— Zachary plays 6...bxc6 (Taimanov recapture). Austin gets the English Attack.</span><br>
+  7.Bd3 d5 8.O-O Nf6 9.Re1 Be7 10.Bf4 a5 11.Qe2 O-O 12.Rad1 Bb7 13.e5 Nd7<br>
+  <span class="note">— Both sides follow the mainline. After 13.e5, the Nd7 blocks the Bb7.</span><br>
+  <strong>14.Qh5??</strong>
+  <span class="badge b-red">CRITICAL ERROR — eval collapses from +3.79 to ≈0</span><br>
+  14...g6 15.Qf3 Bg5 16.Ne2 Bxf4 17.Qxf4 f6 — White's initiative evaporates<br>
+  18.Qg4 fxe5 19.Qxe6+ Rf7 20.Ng3 Qe7 — Zachary stabilizes<br>
+  <span class="note">... 50 more moves of technical endgame ending 0-1 on move 67.</span>
+</div>
+
+<h3 style="margin-top:18px">The Critical Position — Move 14</h3>
+<div class="callout callout-gold">
+  <strong>Position after 13...Nd7 — Austin to play</strong><br>
+  White pieces: Bd3, Bf4, Nc3, Re1, Rad1, Qe2 — all active. Black king has castled but the
+  h7 square is undefended. The Nd7 blocks the Bb7 from defending the kingside. This is
+  the textbook Bxh7+ sacrifice setup.
+</div>
+
+<div style="font-family:monospace; background:#1a1a1a; color:#f0ead6; padding:14px 18px; border-radius:6px; font-size:0.85em; line-height:1.8; margin:10px 0">
+<strong style="color:#f5c842">Position after 13...Nd7 — White to move</strong><br>
+FEN: r1bq1rk1/pb1nbppp/p1p1p3/3pP3/3B4/2NB4/PPP1QPPP/3RR1K1 w - - 0 14<br>
+<br>
+  a  b  c  d  e  f  g  h<br>
+8 r  .  b  q  .  r  k  .  (Bb7, Nd7, Black King on g8)<br>
+7 p  b  .  n  b  p  p  p  (Nd7 blocks Bb7 from h3!)<br>
+6 p  .  p  .  p  .  .  .  <br>
+5 .  .  .  p  P  .  .  .  (White e5 pawn advanced)<br>
+4 .  .  .  B  .  .  .  .  (Bf4 covers h2 diagonal)<br>
+3 .  .  N  B  .  .  .  .  (Bd3 points at h7!)<br>
+2 P  P  P  .  Q  P  P  P  (Qe2 ready to swing to h5)<br>
+1 .  .  .  R  R  .  K  .  (Rad1 ready for Rd3-h3)<br>
+</div>
+
+<h3 style="margin-top:16px">Correct: 14.Bxh7+! — Full Calculation Tree</h3>
+
+<input class="acc-toggle" type="checkbox" id="pm1" checked>
+<label class="acc-label" for="pm1">Main line: 14.Bxh7+! — the winning sacrifice (+3.79)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a"><span class="key-move">14.Bxh7+!</span></span>
+    <span class="note">Bd3xh7+. Bishop lands on h7, checking the king.</span><br>
+    <span class="mv-z">14...Kxh7</span>
+    <span class="note">(forced — if 14...Kh8? 15.Bg6 Nf6 16.Bxf6+ Bxf6 17.exf6 and the f-pawn is deadly)</span><br>
+    <span class="mv-a"><span class="key-move">15.Qh5+</span></span>
+    <span class="note">Qe2-h5+. Only square — Kg8 forced.</span><br>
+    <span class="mv-z">15...Kg8</span>
+    <span class="note">(15...Kh6?? 16.Bg5+ Kxg5 17.f4+ Kh4 18.Qg4#)</span><br>
+    <span class="mv-a"><span class="key-move">16.Rd3!</span></span>
+    <span class="badge b-gold">KEY QUIET MOVE — the one Austin missed</span><br>
+    <span class="note">Rook swings to h3 in one move. This is the hardest calculation step.</span><br>
+    <span class="mv-z">16...f6</span>
+    <span class="note">(Black tries to break — if 16...Nf8? 17.Rg3 f6 18.exf6 gxf6 19.Rg7+ Kh8 20.Rxf7+ Kg8 21.Rxf6 and White wins)</span><br>
+    <span class="mv-a"><span class="key-move">17.Rh3!</span></span>
+    <span class="note">(or 17.Rg3 — same idea)</span>
+    <span class="mv-z">17...Ra7</span>
+    <span class="note">(if 17...fxe5 18.Qh8+ Kf7 19.Qh5+ and the king runs into a perpetual or mating net)</span><br>
+    <span class="mv-a"><span class="key-move">18.Qh7+ Kf7</span></span>
+    <span class="mv-a"><span class="key-move">19.Rg3</span></span>
+    <span class="note">— threatens Rg7#. Black has no defense. +5 to +6.</span>
+    <span class="badge b-green">Decisive White advantage</span>
+  </div>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="pm2" checked>
+<label class="acc-label" for="pm2">What Austin actually played: 14.Qh5? — why it fails</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">14.Qh5?</span>
+    <span class="note">Queen to h5 without the sacrifice. Looks aggressive but has no follow-up.</span><br>
+    <span class="mv-z">14...g6!</span>
+    <span class="note">Black simply pushes g6, attacking the queen. Now White has NO attack.</span><br>
+    <span class="mv-a">15.Qf3</span>
+    <span class="note">(forced — 15.Qh6? Re8! and the rook defends f8; 15.Qg4 f5! kicks the queen further)</span><br>
+    <span class="mv-z">15...Bg5!</span>
+    <span class="note">Bg7 would be inactive but after g6 the Bg5 trades off Austin's key Bf4.</span><br>
+    <span class="mv-a">16.Ne2</span>
+    <span class="note">(intending Ne2-g3-h5 or Nf4 via e2, but too slow)</span><br>
+    <span class="mv-z">16...Bxf4 17.Qxf4</span>
+    <span class="note">— Bf4 is gone. White has no attacking pieces on the kingside.</span>
+    <span class="badge b-red">Initiative gone — position is roughly equal.</span>
+    <br><br>
+    <span class="mv-z">17...f6 18.Qg4 fxe5 19.Qxe6+ Rf7 20.Ng3 Qe7</span>
+    <span class="note">— Zachary consolidates. From here it's a slow endgame where Zachary's technique is elite.</span>
+  </div>
+</div>
+
+<h3 style="margin-top:18px">Why Austin Missed It</h3>
+<table>
+  <tr><th>Factor</th><th>Detail</th></tr>
+  <tr>
+    <td><strong>Pattern recognition gap</strong></td>
+    <td>Austin knew the Bxh7+ motif conceptually but didn't trigger it here — probably because the bishop was on d3 (two squares away) rather than on h2-diagonal directly. Standard Bxh7+ is more common from c2 or from a light-squared bishop.</td>
+  </tr>
+  <tr>
+    <td><strong>Missed the quiet Rd3!</strong></td>
+    <td>Even if Austin started calculating 14.Bxh7+, he may have stopped at 16.Rd3! — a rook swing to d3 (not immediately to h3) is a non-obvious "quiet" preparatory move. Calculators often miss rook swings that don't check or capture.</td>
+  </tr>
+  <tr>
+    <td><strong>Qh5 bias</strong></td>
+    <td>The queen naturally wants to go to h5 in this structure. Austin's pattern-matching sent the queen there directly, skipping the prerequisite bishop sacrifice.</td>
+  </tr>
+  <tr>
+    <td><strong>Time pressure unknown</strong></td>
+    <td>This was a 90+30 classical game. Clock data not available. Calculation failures in classical games are harder to excuse — suggests the motif wasn't computed.</td>
+  </tr>
+</table>
+
+<h3 style="margin-top:18px">The Training Rule</h3>
+
+<div class="callout callout-gold">
+  <strong>Before playing Qh5 in any attacking position — ask: "Can I play Bxh7+ first?"</strong><br>
+  The Bxh7+/Qh5+/Rd3-h3 pattern is a complete attacking system. The queen reaching h5
+  alone achieves nothing if Black can play ...g6. The bishop must go first.
+</div>
+
+<table>
+  <tr><th>Bxh7+ checklist — all 4 must be true</th><th>Status in this game</th></tr>
+  <tr><td>1. Bishop on d3 or c2 (pointed at h7)</td><td><span style="color:green">✓ Bd3 is on the h7 diagonal</span></td></tr>
+  <tr><td>2. Queen can reach h5 (via e2 or d1)</td><td><span style="color:green">✓ Qe2 → Qh5 in one move</span></td></tr>
+  <tr><td>3. Black king on g8 (has castled)</td><td><span style="color:green">✓ Black has castled</span></td></tr>
+  <tr><td>4. A rook can reach h3 or g3 (via Rd3 or Rg3)</td><td><span style="color:green">✓ Rad1 → Rd3 → Rh3</span></td></tr>
+</table>
+<p style="margin-top:8px; font-size:0.9em">All 4 were true on move 14. Austin should have played 14.Bxh7+!</p>
+
+<h3 style="margin-top:18px">Calculation Drill — Replay the Sacrifice</h3>
+
+<input class="acc-toggle" type="checkbox" id="pm3">
+<label class="acc-label" for="pm3">Drill — After 13...Nd7, calculate Austin's attack before looking</label>
+<div class="acc-content">
+  <div class="move-line">
+    <strong>Starting position:</strong> 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 a6 6.Nxc6 bxc6
+    7.Bd3 d5 8.O-O Nf6 9.Re1 Be7 10.Bf4 a5 11.Qe2 O-O 12.Rad1 Bb7 13.e5 Nd7<br><br>
+    <strong>Calculate in your head before reading:</strong><br>
+    <em>1. What's the best White move? (Hint: sacrifice.)</em><br>
+    <em>2. After the sacrifice, what is the key quiet move on move 16?</em><br>
+    <em>3. What if Black plays 16...f6 — where does the rook go?</em><br><br>
+    <span class="mv-a"><span class="key-move">14.Bxh7+!</span></span> →
+    <span class="mv-z">Kxh7</span> →
+    <span class="mv-a"><span class="key-move">15.Qh5+</span></span> →
+    <span class="mv-z">Kg8</span> →
+    <span class="mv-a"><span class="key-move">16.Rd3!</span></span> →
+    <span class="mv-z">f6</span> →
+    <span class="mv-a"><span class="key-move">17.Rh3!</span></span> →
+    <span class="mv-z">Ra7</span> →
+    <span class="mv-a"><span class="key-move">18.Qh7+ Kf7 19.Rg3</span></span>
+    <span class="note">— mating attack. Decisive.</span>
+  </div>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="pm4">
+<label class="acc-label" for="pm4">Drill — After 15...Kg8, what is move 16? (The hard one.)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <strong>After 14.Bxh7+ Kxh7 15.Qh5+ Kg8 — White to play:</strong><br><br>
+    Common wrong answers:<br>
+    ✗ 16.Bg5? — too slow, 16...Nf6 defends<br>
+    ✗ 16.Nd5? — doesn't threaten immediate mate, 16...cxd5 17.exd5 Nf6<br>
+    ✗ 16.Rh1? — rook is already on e1, doesn't help<br><br>
+    <strong>Correct:</strong>
+    <span class="mv-a"><span class="key-move">16.Rd3!</span></span>
+    <span class="note">The rook quietly swings from d1 to d3, ready to go to h3 next move.
+    The queen on h5 keeps the threat of Qh7+/Qh8+. Black has no useful defensive move.</span>
+    <br><br>
+    <strong>Remember:</strong> The rook swing Rd3-Rh3 is the delivery mechanism of the attack.
+    Miss the rook swing → miss the whole combination.
+  </div>
+</div>
+
 <div style="margin-top:24px; font-size:0.78em; color:#888; border-top:1px solid #ddd; padding-top:10px; line-height:1.6">
   <strong>Sources:</strong>
   Classical: 34 games fully engine-analyzed (movetime-800, 5 tournaments, 2026).
   Supplementary: 423 Lichess games (leilei8514, rapid/blitz, 2020–2022) — used for opening line frequency only.
   Engine: Stockfish. Accuracy formula: Lichess win-probability method.
   Direct encounter (Sep 2026): Austin 91.8% · Zachary 93.8% · Austin lost on move-14 calculation failure (missed Bxh7+! at +3.79).
+  Post-mortem (Part 6) sourced from Austin's own Lichess study annotation (study poQAjleK, chapter nhA4fD2o).
 </div>
 
 </body>
