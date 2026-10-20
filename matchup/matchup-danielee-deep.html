@@ -55,10 +55,10 @@
 <div class="doc-header">
   <h1>Austin Lin vs Daniel Joshua Lee</h1>
   <div class="meta">
-    <span><strong>17</strong> of 24 games analyzed (PAM School + Toronto/Skyline pending)</span>
-    <span>Overall avg <strong>92.9%</strong></span>
-    <span>White: <strong>93.2%</strong> (8g, 3W–2D–3L)</span>
-    <span>Black: <strong>92.7%</strong> (9g, 5W–0D–4L)</span>
+    <span><strong>24</strong> games analyzed</span>
+    <span>Overall avg <strong>93.4%</strong></span>
+    <span>White: <strong>93.4%</strong> (11g, 5W–3D–3L)</span>
+    <span>Black: <strong>93.4%</strong> (13g, 7W–2D–4L)</span>
     <span>Stockfish movetime 800 · Oct 2026</span>
   </div>
   <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
@@ -71,10 +71,10 @@
 </div>
 
 <div class="encounter">
-  <strong>No direct encounter on record.</strong> Engine data from 17 games across 2 tournaments (Canada Closed 2026: 8g, PAM 2026: 9g). PAM School 2026 and Toronto/Skyline Open 2026 games still being analyzed. Overall record from 17 games: <strong>8W–2D–7L</strong>. FIDE rating: 2191 (Sep 2026), surged from 1942 in April 2026 (+249 pts in 5 months).
+  <strong>No direct encounter on record.</strong> Engine data from 24 games across 5 tournaments (Canada Closed 2026: 8g, PAM 2026: 9g, PAM School 2026: 5g, Toronto Open 2026: 1g, 5th Skyline Open: 1g). Overall record: <strong>12W–5D–7L</strong>. FIDE rating: 2191 (Sep 2026), surged from 1942 in April 2026 (+249 pts in 5 months).
 </div>
 
-<h2>Tournament Summary (17 games analyzed)</h2>
+<h2>Tournament Summary (24 games)</h2>
 <table>
   <thead><tr><th>Tournament</th><th>Games</th><th>Avg Acc%</th><th>White Record</th><th>Black Record</th></tr></thead>
   <tbody>
@@ -89,6 +89,24 @@
       <td style="color:#1a6030;font-weight:700">93.9%</td>
       <td>3W–1D–0L (95.0% avg)</td>
       <td>4W–0D–1L (93.1% avg)</td>
+    </tr>
+    <tr>
+      <td>PAM School 2026</td><td>5</td>
+      <td style="color:#1a6030;font-weight:700">94.8%</td>
+      <td>2W–1D–0L (92.2% avg)</td>
+      <td>2W–1D–0L (96.6% avg)</td>
+    </tr>
+    <tr>
+      <td>Toronto Open 2026</td><td>1</td>
+      <td style="color:#b35800;font-weight:700">90.0%</td>
+      <td>—</td>
+      <td>0W–0D–1L (90.0%)</td>
+    </tr>
+    <tr>
+      <td>5th Skyline Open</td><td>1</td>
+      <td style="color:#1a6030;font-weight:700">97.7%</td>
+      <td>1W–0D–0L (97.7%)</td>
+      <td>—</td>
     </tr>
   </tbody>
 </table>
@@ -410,33 +428,165 @@
 
 <hr/>
 
-<h2>Accuracy by Opening (17 games)</h2>
+<hr/>
+
+<h2>PAM School 2026 — 5 Games</h2>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-black">BLACK</span>
+    <span class="badge-result-draw">DRAW</span>
+    <span class="badge-acc-hi">96.7%</span>
+    <strong>R3 vs Gil Chacon, Fernando Enrique (2097)</strong>
+    <em>C99 Ruy Lopez Chigorin · CPL minimal · 0B 0M 1I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment">m25: Nxe4 (best: Bxf5) · −0.14→−2.47 · CPL 233 · From near-equal (−0.14), misplaced knight capture instead of bishop exchange — cost Daniel some advantage in an already slightly worse position</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;">Excellent draw vs 2097-rated Gil Chacon in Closed Spanish (C99 Chigorin). 96.7% accuracy — confirms Daniel can handle Ruy Lopez structures as Black. Single inaccuracy from near-equality. Reinforces why Exchange Spanish (not Closed) is Austin's better choice — Daniel handles Closed Spanish well.</p>
+  </div>
+</div>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-white">WHITE</span>
+    <span class="badge-result-win">WIN</span>
+    <span class="badge-acc">92.1%</span>
+    <strong>R4 vs Palomino Quispe, Mateo Henry (2041)</strong>
+    <em>B38 Sicilian Maróczy Dragon · CPL 49 avg · 1B 1M ·</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment blunder">m25: Rxd3 (best: exd6) · +6.12→+2.17 · CPL 395 · Had +6.12 (dominant position), chose wrong capture — reduced advantage significantly</div>
+    <div class="im-moment blunder">m31: Nc3 (best: c5) · +6.07→+3.28 · CPL 279 · Again chose passive piece move over decisive pawn advance</div>
+    <div class="im-moment">m38: Qc3 (best: Nxb6) · +4.60→+2.90 · CPL 170 · Third time failing to find the most efficient conversion</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;"><strong>Won vs 2041-rated Palomino in B38 Maróczy Dragon.</strong> Had multiple +6 advantages and failed to convert cleanly — yet still won because the position was so dominant. Daniel's Maróczy Bind execution as White is powerful but imprecise in conversion. Beat a 2041-rated player — his strongest White result by opponent rating in the dataset.</p>
+  </div>
+</div>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-black">BLACK</span>
+    <span class="badge-result-draw">DRAW</span>
+    <span class="badge-acc">94.3%</span>
+    <strong>R5 vs Yin, Andrew (1970)</strong>
+    <em>C54 Italian Giuoco Piano · CPL minimal · 0B 0M 3I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment">m23: Kh8 (best: fxe5) · +0.02→−0.84 · CPL 86 · King move instead of pawn capture — gave up slight edge from equality</div>
+    <div class="im-moment">m24: b5 (best: fxe5) · +0.00→−1.35 · CPL 135 · Pawn push instead of capture — continued passivity theme</div>
+    <div class="im-moment">m38: Be2 (best: g5+) · −0.39→−2.17 · CPL 178 · Passive bishop in slightly worse position</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;">Drew vs 1970-rated Yin in C54 Italian as Black. Missed fxe5 twice from equal positions — a pattern of avoiding pawn captures in favor of more "positional" moves. Drew despite the inaccuracies. Shows that even in his home C54 territory, Daniel can make passive moves from equality.</p>
+  </div>
+</div>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-white">WHITE</span>
+    <span class="badge-result-draw">DRAW</span>
+    <span class="badge-acc">92.3%</span>
+    <strong>R6 vs Ayala Delgado, Oscar Enrique (2044)</strong>
+    <em>B45 Sicilian Four Knights · CPL minimal · 0B 1M 3I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment blunder">m24: Bxc5 (best: Rxe6) · +4.07→+0.98 · CPL 309 · MISTAKE — bishop capture instead of rook to e6 threw a +4 advantage to near-equal</div>
+    <div class="im-moment blunder">m30: Qd6 (best: h3) · +3.66→+0.87 · CPL 279 · Again threw large advantage — queen to wrong square</div>
+    <div class="im-moment">m38: Re3 (best: Re6) · +2.61→+0.45 · CPL 216 · Third time giving back advantage in same game</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;">Drew vs 2044-rated Ayala in B45 Sicilian Four Knights as White. Had +4 advantage THREE TIMES and failed to convert each time — eventually drew. Classic pattern of squandering large advantages in winning positions. This is a recurring theme across Daniel's dataset (R4cc missed +2.18, R7p gave back +7.30, R2pam +6.80, R4pam +6.12). <strong>Daniel cannot reliably convert large advantages.</strong></p>
+  </div>
+</div>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-black">BLACK</span>
+    <span class="badge-result-win">WIN</span>
+    <span class="badge-acc-hi">98.8%</span>
+    <strong>R9 vs Rojas Raraz, Leonidas Brayan (1614)</strong>
+    <em>D02 Queen's Pawn · CPL minimal · 1B 0M 0I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment blunder">m28: Qxf1 (best: Rxe4) · +14.14→+11.75 · CPL 239 · Missed cleaner winning move in completely won position</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;">98.8% — near-perfect game vs 1614-rated opponent. Best accuracy in full dataset. Clean Black win in D02 Queen's Pawn. Straightforward result vs much weaker opposition.</p>
+  </div>
+</div>
+
+<hr/>
+
+<h2>Toronto Open 2026 + 5th Skyline Open — 2 Games</h2>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-black">BLACK</span>
+    <span class="badge-result-loss">LOSS</span>
+    <span class="badge-acc">90%</span>
+    <strong>Toronto Open R1 vs Xie, Irene (WFM, 1969)</strong>
+    <em>C54 Italian Giuoco Piano · CPL minimal · 0B 1M 2I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment">m21: f5 (best: b6) · −0.06→−2.04 · CPL 198 · From near-equal (−0.06), pawn push instead of b6 — lost positional control</div>
+    <div class="im-moment blunder">m33: Kf8 (best: Ke7) · −2.36→−6.34 · CPL 398 · King to wrong square in losing position — accelerated defeat</div>
+    <div class="im-moment">m35: Bh8 (best: Rxc6) · −6.66→−7.66 · CPL 100 · Bishop retreat in hopeless endgame</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;">Lost vs WFM Xie Irene (1969) in C54 Italian as Black. Another C54 Black loss — from near-equal at m21, played the pawn push f5 instead of the positional b6, which immediately deteriorated. <strong>Second C54 Black loss in dataset</strong> (also lost R3cc vs Lu 1897). Both C54 losses involve passive pawn moves from equality (h5 in R3cc, f5 here vs Xie) rather than active piece play. Important: even Daniel's "home" line C54 can be lost when he makes passive pawn decisions.</p>
+  </div>
+</div>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-white">WHITE</span>
+    <span class="badge-result-win">WIN</span>
+    <span class="badge-acc-hi">97.7%</span>
+    <strong>5th Skyline Open R6 vs Zhou, Alexander (1859)</strong>
+    <em>B47 Sicilian Taimanov · CPL 5 avg · 0B 0M 2I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment">m17: Bc2 (best: Rb1) · +6.35→+5.83 · CPL 52 · Minor — rook vs bishop choice in dominant position</div>
+    <div class="im-moment">m20: Qd2 (best: Qd3) · +8.05→+7.39 · CPL 66 · Queen placement — both squares winning</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;">97.7% — near-perfect Sicilian Taimanov (B47) execution as White vs 1859-rated Zhou. Zero blunders, zero mistakes. Confirms Daniel's White Sicilian repertoire (B45/B47 Taimanov) is very strong vs below-2000 opposition. CPL 5 in a winning B47 game — exceptional precision when not under pressure from 2100+ players.</p>
+  </div>
+</div>
+
+<hr/>
+
+<h2>Accuracy by Opening (24 games)</h2>
 <table>
   <thead><tr><th>ECO</th><th>Opening</th><th>Games</th><th>Avg Acc%</th><th>Record</th><th>Notes</th></tr></thead>
   <tbody>
     <tr>
       <td>C54/C55</td>
       <td>Italian Giuoco Piano (both colors)</td>
+      <td>7</td>
+      <td style="color:#1a6030;font-weight:700">95.5%</td>
+      <td>4W–2D–3L</td>
+      <td>Primary line both colors. R8pam 98% (draw vs 2209), R9pam 97.4% (win vs 2137). Two C54 Black losses (R3cc vs Lu 1897 from h5 passivity; Toronto vs Xie 1969 from f5 passivity) — not invincible in home territory.</td>
+    </tr>
+    <tr>
+      <td>B36/B38/B45/B47</td>
+      <td>Maróczy/Sicilian White systems</td>
+      <td>4</td>
+      <td style="color:#1a6030;font-weight:700">94.7%</td>
+      <td>3W–1D–0L</td>
+      <td>Undefeated. B36 96.7% vs Rodriguez 1847, B47 Skyline 97.7% vs Zhou 1859, B38 92.1% vs Palomino 2041 (won), B45 92.3% draw vs Ayala 2044. Austin's Sveshnikov prevents B36/B38 Maróczy entirely.</td>
+    </tr>
+    <tr>
+      <td>D27/D20/D04/D02</td>
+      <td>QGA / Queen's Pawn (Black, vs 1.d4)</td>
       <td>5</td>
-      <td style="color:#1a6030;font-weight:700">96.5%</td>
-      <td>3W–1D–1L</td>
-      <td>Best opening by accuracy. R8pam 98% (draw vs 2209), R9pam 97.4% (win vs 2137), R8cc 94.9% (win vs 2080). Only loss: R3cc 94% vs Lu 1897 — upset due to h5 passivity.</td>
+      <td>94.7%</td>
+      <td>4W–0D–1L</td>
+      <td>Beat 2206 Duong (D27, 87.7%), beat Cabrera (D20 95.9%), near-perfect D02 (98.8%). Lost to 2076 Qian (D27, 92.5%). Reliable vs 1.d4 — Austin plays 1.e4 so this is secondary.</td>
     </tr>
     <tr>
-      <td>D27/D20</td>
-      <td>QGA (vs 1.d4, Black)</td>
-      <td>3</td>
-      <td>92.0%</td>
-      <td>2W–0D–1L</td>
-      <td>Good overall. Beat 2206 Duong (87.7%), beat 1834 Cabrera (95.9%), lost to 2076 Qian (92.5%).</td>
-    </tr>
-    <tr>
-      <td>B36/B38</td>
-      <td>Maróczy Bind (White vs Sicilian)</td>
-      <td>1</td>
-      <td style="color:#1a6030;font-weight:700">96.7%</td>
-      <td>1W–0D–0L</td>
-      <td>Near-perfect execution vs Rodriguez 1847. Undefeated. Austin's Sveshnikov prevents this setup.</td>
+      <td>C88/C99</td>
+      <td>Ruy Lopez Closed / Chigorin (Black)</td>
+      <td>2</td>
+      <td style="color:#1a6030;font-weight:700">93.5%</td>
+      <td>1W–1D–0L</td>
+      <td>Drew 2097 Gil in C99 (96.7%), won vs 1833 Delgado in C88 (90.2%). Handles Closed Spanish well. Exchange Spanish (Austin's plan) bypasses this territory.</td>
     </tr>
     <tr>
       <td>C07</td>
@@ -444,7 +594,7 @@
       <td>1</td>
       <td style="color:#8b0000;font-weight:700">92.7%</td>
       <td>0W–0D–1L</td>
-      <td>5 blunders including game-deciding f4?? (CPL605 from +0.01). French Tarrasch = White weakness confirmed.</td>
+      <td>5 blunders including f4?? (CPL605 from +0.01 equal). French Tarrasch = confirmed White weakness.</td>
     </tr>
     <tr>
       <td>C47</td>
@@ -452,23 +602,15 @@
       <td>1</td>
       <td style="color:#8b0000;font-weight:700">84%</td>
       <td>0W–0D–1L</td>
-      <td>WORST game in dataset. Lost to 1915-rated Sen. Blunders at m8 and m10 from equal positions. Unfamiliar territory confirmed.</td>
+      <td>WORST game. Lost to 1915-rated Sen. Blundered at m8 (O-O CPL343) and m10 (Bf8 CPL438) from equality. Unfamiliar territory confirmed.</td>
     </tr>
     <tr>
       <td>B90</td>
-      <td>Sicilian Najdorf (White)</td>
+      <td>Sicilian Najdorf English Attack (White)</td>
       <td>1</td>
       <td>91.2%</td>
       <td>0W–0D–1L</td>
-      <td>Lost to Dhaliwal 2162. King movement errors (m28 Kg1, m29 Kf1) from near-equal position. Not Daniel's primary weapon.</td>
-    </tr>
-    <tr>
-      <td>C88</td>
-      <td>Ruy Lopez Closed (Black)</td>
-      <td>1</td>
-      <td>90.2%</td>
-      <td>1W–0D–0L</td>
-      <td>Won vs 1833 Delgado despite CPL730 blunder at m49. Daniel can handle Closed Spanish as Black.</td>
+      <td>Lost to Dhaliwal 2162. King movement errors from near-equal. Not primary weapon.</td>
     </tr>
   </tbody>
 </table>
@@ -476,7 +618,7 @@
 <h2>Summary Findings for Austin's Preparation</h2>
 
 <div class="warn-box">
-  <strong>Italian territory is off-limits for Austin as White.</strong> Daniel's C54/C55 accuracy across 5 games is 96.5% avg including a perfect 98% draw vs 2209. Playing 1.e4 e5 3.Bc4 against Daniel is almost certainly losing. Use Ruy Lopez (3.Bb5) with Exchange variation.
+  <strong>Italian territory is off-limits for Austin as White.</strong> Daniel's C54/C55 accuracy across 7 games averages 95.5% including a perfect 98% draw vs 2209. Playing 1.e4 e5 3.Bc4 against Daniel is extremely high risk. Use Ruy Lopez (3.Bb5) with Exchange variation.
 </div>
 
 <div class="warn-box">
@@ -492,7 +634,7 @@
 </div>
 
 <div class="info-box">
-  <strong>Analysis still in progress.</strong> PAM School 2026 (5 games) and Toronto Open/Skyline Open 2026 (2 games) are still being analyzed by Stockfish. This page will be updated with complete 24-game data. Current stats based on 17 games (Canada Closed + PAM 2026 complete).
+  <strong>Recurring pattern — squandering large advantages:</strong> Across the full dataset, Daniel repeatedly fails to convert dominant positions: R4cc missed +2.18 win (drew vs Wu 1906), R6cc threw +4.51 three times (but still won), R4pam gave back +6.12 multiple times (still won), R7pam threw +7.30 to 0.00, R4ps gave back +4.07/+3.66/+2.61 and drew vs Ayala 2044, R6pam gave back +4.87. This is a systematic pattern — Daniel often plays passive continuation moves (piece retreats, wrong rook squares) instead of decisive pawn advances (c5, h4, Rb1) in winning positions. Against Austin as Black, creating and then patiently maintaining complicated imbalances is more important than finding the single-best move.
 </div>
 
 </div>
