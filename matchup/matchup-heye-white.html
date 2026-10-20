@@ -82,7 +82,7 @@
   <div class="doc-header">
     <h1>Austin Lin vs Heye Gao</h1>
     <div class="subtitle">Austin as White — English Attack vs Sicilian Kan</div>
-    <div class="meta">CM Heye Gao · 2028–2065 FIDE · 24 games (qualitative analysis) · Direct encounter: B43 Kan study game</div>
+    <div class="meta">CM Heye Gao · 2028–2065 FIDE · 25 games, depth-18 Stockfish · Overall 93.8% avg · White 94.5% · Black 93.2% · Direct encounter: B43 Kan</div>
     <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
     &nbsp;&nbsp;
     <a class="back-link" href="matchup-heye.html">← Matchup Overview</a>
@@ -93,8 +93,8 @@
   </div>
 
   <div class="encounter-box">
-    <strong>Direct encounter — Mar 22 2026 (Austin White, B43 Sicilian Kan, result: * unfinished study game, 60+ moves):</strong>
-    Austin played 7.O-O (book recommends a3/O-O/Be3). Depth-22 analysis reveals critical miss: <strong>move 42 c8=Q+ (−5.2 pawns)</strong> — best was Ra7 (endgame technique: rook behind the passed pawn). Heye missed f2+ at move 40 (+2.9 for Austin). Heye deviated at move 9 with d6 (−2.6, book prefers Bd6) — suggesting limited deep Kan preparation. The lesson: <strong>Austin can build and hold an advantage in the Kan — the endgame conversion technique is the gap to close.</strong>
+    <strong>Direct encounter — Mar 22 2026 (Austin White, B43 Sicilian Kan, result: * unfinished study game, 119 ply):</strong>
+    Stockfish depth-18 · Heye: <strong>93.9% · CPL 28 · B:0 M:3 I:7</strong> | Austin: <strong>96%</strong>. Heye's three mistakes: <strong>d6</strong> (Bd6, CPL 228, +0.23→−2.05), <strong>b4</strong> (Nxd4, CPL 191, −2.16→−4.07), <strong>Rxg2+</strong> (f2+, CPL 226, −6.61→−8.87). Heye deviated from book at move 9 with d6 (book prefers Bd6), confirming limited deep Kan theory. Austin's conversion miss: c8=Q+ (premature); best was Ra7 (rook behind the passed pawn). The lesson: <strong>Austin can build and hold an advantage in the Kan — Heye's Black accuracy of 93.9% is his lowest by color, and the endgame conversion technique is the one gap to close.</strong>
   </div>
 
   <!-- ═══ SECTION 1 ═══ -->
@@ -103,7 +103,7 @@
     <span class="plabel">Name</span><span class="pval">Heye Gao (CM — Candidate Master)</span>
     <span class="plabel">FIDE Rating</span><span class="pval">2028–2065 (peak PAM Jul 2026)</span>
     <span class="plabel">Style</span><span class="pval">Positional-technical as White (Italian specialist); tactically unreliable as Black under time pressure</span>
-    <span class="plabel">Sample</span><span class="pval">24 games, 4 tournaments (Canada Closed 2026, Ontario Open, PAM 2026, Toronto Open)</span>
+    <span class="plabel">Sample</span><span class="pval">25 games, 4 tournaments (Canada Closed 2026, Ontario Open, PAM 2026, Toronto Open)</span>
     <span class="plabel">Black record</span><span class="pval">4W–4D–4L — dramatically weaker than White (8W–1D–3L)</span>
     <span class="plabel">Direct record vs Austin</span><span class="pval">1 study game (Austin White, B43 Kan, result unfinished)</span>
   </div>
@@ -120,23 +120,23 @@
   <h2>§2 — Heye's Black Repertoire (Frequency &amp; Results)</h2>
   <table>
     <thead>
-      <tr><th>Situation</th><th>System</th><th>ECO</th><th>Games</th><th>W</th><th>D</th><th>L</th><th>Notes</th></tr>
+      <tr><th>Situation</th><th>System</th><th>ECO</th><th>Games</th><th>W</th><th>D</th><th>L</th><th>Acc%</th><th>Notes</th></tr>
     </thead>
     <tbody>
       <tr class="row-danger">
-        <td>vs 1.e4 (Austin)</td><td>Sicilian Kan</td><td>B43</td><td>1</td><td>—</td><td>—</td><td>—</td><td>Confirmed: <code>1...c5 2...e6 3...a6; ...b5/...Bb7</code> queenside setup</td>
+        <td>vs 1.e4 (Austin)</td><td>Sicilian Kan</td><td>B43</td><td>1</td><td>—</td><td>—</td><td>—</td><td><span class="acc-lo">93.9%</span></td><td>Confirmed: <code>1...c5 2...e6 3...a6; ...b5/...Bb7</code> queenside setup · CPL 28 · B:0 M:3 I:7</td>
       </tr>
       <tr class="row-safe">
-        <td>vs 1.d4</td><td>Catalan Open</td><td>E04</td><td>1</td><td>1</td><td>0</td><td>0</td><td>Beat Aarush 1941 in 31 moves — solid Catalan pawn grab</td>
+        <td>vs 1.d4</td><td>Catalan Open</td><td>E04</td><td>1</td><td>1</td><td>0</td><td>0</td><td><span class="acc-hi">94.5%</span></td><td>Beat Aarush 1941 (PAM R5) in 31 moves — solid Catalan pawn grab · CPL 26</td>
       </tr>
       <tr class="row-danger">
-        <td>vs 1.d4/1.c4</td><td>Slav Defense</td><td>D11–D12</td><td>3</td><td>0</td><td>1</td><td>2</td><td>Drew Plotkin 2382 (D23); lost to Rodriguez 1971 (D12, 23...Kg8??)</td>
+        <td>vs 1.d4/1.c4</td><td>Slav / QGA</td><td>D11/D12/D23</td><td>3</td><td>1</td><td>1</td><td>1</td><td><span class="acc-lo">93.3%</span></td><td>Drew Plotkin 2382 (D23, 95.4%); WON vs Jackson (D11, 95.9%); LOST Rodriguez 1971 (D12, 88.7% — 23...Kg8?? CPL 392)</td>
       </tr>
       <tr>
-        <td>vs 1.Nf3</td><td>d5/Nf6/Bf5</td><td>D02/A11</td><td>1</td><td>0</td><td>1</td><td>0</td><td>Drew Zachary Liu (A11), 91 moves</td>
+        <td>vs 1.Nf3/1.c4</td><td>d5/Nf6/Bf5</td><td>D02/A11</td><td>2</td><td>0</td><td>2</td><td>0</td><td>92.7%</td><td>Drew Zachary Liu (A11, 93%); drew Ivanchuk (D02, 92.3%)</td>
       </tr>
       <tr>
-        <td>vs 1.e4 (others)</td><td>Open 1...e5</td><td>C47</td><td>1</td><td>1</td><td>0</td><td>0</td><td>Beat Vettese 2410 (Ontario R4) after opponent's g4?? blunder</td>
+        <td>vs 1.e4 (others)</td><td>Open 1...e5</td><td>C47</td><td>1</td><td>1</td><td>0</td><td>0</td><td><span class="acc-hi">95.9%</span></td><td>Beat Vettese 2410 (Ontario R4) after opponent's g4?? blunder · CPL 19</td>
       </tr>
     </tbody>
   </table>
@@ -163,15 +163,15 @@
 
   <h3>B. Documented Tactical Failures as Black</h3>
   <ul>
-    <li><strong>PAM R9 (D12 Slav vs Rodriguez 1971):</strong> Eval was −1.4 (Heye slightly better). Played <strong>23...Kg8??</strong> allowing Re8+ Kh7 Be4+ g6 Ne2 — White's pieces flooded in. Lost a completely playable position to a 94-point lower-rated opponent. Classic calculation failure under time pressure.</li>
-    <li><strong>PAM R7 (vs Diaz Guerrero CM 2209):</strong> Two blunders in succession — <strong>24...Qe7??</strong> allowing exf7, then <strong>28...Qxf7??</strong> losing the bishop. Both under 25 minutes on the clock.</li>
+    <li><strong>PAM R9 (D12 Slav vs Rodriguez 1971) — 88.7% CPL 64 B:3 M:1 I:6:</strong> Position was equal (+0.00). Played <strong>23...Kg8??</strong> (CPL 392, +0.00→−3.92 best c5) allowing Re8+ Kh7 Be4+ g6 Ne2 — White's pieces flooded in. Followed by Bb6?? (CPL 485, best Nd7) and Nxg6?? (CPL 491, best Qf3). Lost a completely playable position to a 94-point lower-rated opponent. Classic calculation failure under time pressure.</li>
+    <li><strong>PAM R7 (C50 Italian mirror vs Diaz Guerrero CM 2209) — 88.7% CPL 50 B:2 M:0 I:3:</strong> Two blunders in succession — <strong>24...Qe7??</strong> (CPL 504, −0.19→−5.23 best Qf4) allowing exf7, then <strong>28...Qxf7??</strong> (CPL 531, −4.10→−9.41 best Qf4). Both under 25 minutes on the clock.</li>
   </ul>
   <div class="warn-box">
     <strong>Time pressure pattern — confirmed:</strong> Both PAM losses as Black occurred when Heye had under 25 minutes on the clock. Austin should spend his clock deliberately in the middlegame (moves 20–35) to force Heye into time trouble during the critical endgame transitions.
   </div>
 
   <h3>C. Color Imbalance</h3>
-  <p>White record: <strong>8W–1D–3L</strong> (~67% win rate). Black record: <strong>4W–4D–4L</strong> (~33% win rate). A ~34-point gap — Heye is dramatically more dangerous as White. Austin should feel confident pressing positions when Heye has the Black pieces.</p>
+  <p>White avg: <strong>94.5%</strong> (8W–1D–3L, ~67% win rate). Black avg: <strong>93.2%</strong> (4W–4D–4L, ~33% win rate). A 1.3% accuracy gap and a ~34% win-rate gap — Heye is dramatically more dangerous as White. Austin should feel confident pressing positions when Heye has the Black pieces.</p>
 
   <h3>D. Opening Preparation Depth in the Kan</h3>
   <p>The depth-22 analysis of the direct encounter shows Heye deviated at move 9 with d6 (book: Bd6). This suggests he may improvise after move 10–12 rather than following deep Kan theory. Austin should prepare concrete lines to move 15.</p>
@@ -209,7 +209,7 @@
     <li><strong>Endgame alert:</strong> Ra7 technique — rook behind the passed pawn, NOT in front. This is the precise miss from the direct encounter (c8=Q+ was wrong; Ra7 wins cleanly).</li>
   </ol>
   <div class="tip-box">
-    <strong>Direct encounter lesson:</strong> The depth-22 analysis shows Austin had a technically winning rook ending but played c8=Q+ (−5.2) instead of Ra7. This specific endgame pattern — rook + pawn vs rook, rook on the 7th — is the one technique to review before the game. Heye deviated at move 9 from book, suggesting he may improvise in the middlegame too.
+    <strong>Direct encounter lesson (Heye 93.9% · Austin 96%):</strong> Austin had a technically winning rook ending but played c8=Q+ instead of Ra7. This specific endgame pattern — rook + pawn vs rook, rook on the 7th — is the one technique to review before the game. Heye made 3 mistakes (d6 CPL 228, b4 CPL 191, Rxg2+ CPL 226) — his worst accuracy by color — confirming Black is his weaker side in this matchup.
   </div>
 
   <!-- ═══ SECTION 6 ═══ -->
@@ -310,12 +310,13 @@ ENDGAME: Ra7 (rook behind pawn) NOT c8=Q+ (premature promotion)</div>
 
     <h3>Tactical Motifs to Watch For</h3>
     <table>
-      <thead><tr><th>Tactic</th><th>When it arises</th><th>Example game/move</th></tr></thead>
+      <thead><tr><th>Tactic</th><th>When it arises</th><th>Example game/move</th><th>CPL</th></tr></thead>
       <tbody>
-        <tr><td>Nd5! outpost</td><td>After 9.a4 b4 in the Kan — the knight leaps in</td><td>Direct encounter, move 10–11</td></tr>
-        <tr><td>23...Kg8?? king misplacement</td><td>Heye under time pressure in complex endgame</td><td>PAM R9 vs Rodriguez 1971 (loss)</td></tr>
-        <tr><td>24...Qe7?? queen misplacement</td><td>Middlegame under 25 minutes</td><td>PAM R7 vs Diaz Guerrero CM 2209</td></tr>
-        <tr><td>Ra7 endgame technique</td><td>Rook + passed pawn ending — rook belongs behind the pawn</td><td>Direct encounter move 42 (Austin's conversion miss)</td></tr>
+        <tr><td>Nd5! outpost</td><td>After 9.a4 b4 in the Kan — the knight leaps in</td><td>Direct encounter, move 10–11</td><td>—</td></tr>
+        <tr><td>23...Kg8?? king misplacement</td><td>Heye under time pressure in complex ending (PAM R9)</td><td>PAM R9 vs Rodriguez 1971 (loss, 88.7%)</td><td class="acc-lo">392</td></tr>
+        <tr><td>24...Qe7?? + 28...Qxf7?? queen moves</td><td>Middlegame under 25 minutes (PAM R7)</td><td>PAM R7 vs Diaz Guerrero CM 2209 (loss, 88.7%)</td><td class="acc-lo">504 / 531</td></tr>
+        <tr><td>Ra7 endgame technique</td><td>Rook + passed pawn ending — rook belongs behind the pawn</td><td>Direct encounter (Austin's conversion miss)</td><td>—</td></tr>
+        <tr><td>D12 Slav: Bb6?? + Nxg6?? collapse</td><td>Heye under pressure in complex Slav endgame</td><td>PAM R9 (3 blunders: CPL 392+485+491)</td><td class="acc-lo">485 / 491</td></tr>
       </tbody>
     </table>
   </div>
