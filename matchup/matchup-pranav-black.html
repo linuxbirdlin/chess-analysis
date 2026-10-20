@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Pranav Santhosh — Austin as Black</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #1a5276; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #1a5276; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #1a5276; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #1a5276; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #1a5276; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #f0fff4 !important; color: #1a4731; }
+    .acc-hi { color: #1a6030; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #f0f6ff; }
+    .rule-number { background: #1a5276; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #eaf0f8; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #1a5276; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #1a5276; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #d6e4f0; color: #1a5276; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #d6e4f0; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a3a55; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Pranav Santhosh</h1>
+    <div class="subtitle">Austin as Black — Sicilian Najdorf vs Pranav's Weak White Play</div>
+    <div class="meta">Pranav Santhosh · ~1940 FIDE · 20 games, depth-18 Stockfish · Overall 84.9% avg · White 81.6% (12g) · Black 89.7% (8g) · No direct encounter</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-pranav.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-pranav-white.html">← Austin as White</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-pranav-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="encounter-box">
+    <strong>No direct encounter on record.</strong> Pranav as White averages <strong>81.6%</strong> — the weakest White performance of all analyzed opponents. His worst games: AGCA Summer R9 (B50 Sicilian, <strong>51%</strong> / 13 blunders / Qd4 CPL 967 from +9.69), AGCA Summer R2 (A38 English, <strong>53.1%</strong> / 5 blunders), and R3 (B92 Najdorf, <strong>80%</strong> — missed Nxd4 twice, CPL 808 and 781). Austin's Sicilian Najdorf (1...c5 ...a6) forces Pranav into exactly these structures.
+  </div>
+
+  <!-- ═══ SECTION 1 ═══ -->
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Pranav Santhosh</span>
+    <span class="plabel">FIDE Rating</span><span class="pval">~1940 (fluctuating; World Youth 2026 participant)</span>
+    <span class="plabel">White Opening</span><span class="pval">Mixed: 1.e4 (B50/B92/B36 Sicilian systems), 1.d4 (E49 Nimzo-Indian), 1.c4 (A38 English). No single dominant choice.</span>
+    <span class="plabel">Sample</span><span class="pval">20 games, 3 tournaments (AGCA Fall 2026, AGCA Summer 2026, World Youth 2026)</span>
+    <span class="plabel">Overall accuracy</span><span class="pval">84.9% avg · White 81.6% (12g) · Black 89.7% (8g) — 8.1pp color gap</span>
+    <span class="plabel">Worst White games</span><span class="pval">R9 B50 Sicilian: 51% / CPL 339 / 13 blunders; R2 A38 English: 53.1% / CPL 208 / 5 blunders</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">No encounter on record</span>
+    <span class="plabel">Color advantage for Austin</span><span class="pval">Pranav as White = 81.6% — weakest of all 6 analyzed opponents</span>
+  </div>
+
+  <p><strong>White opening fingerprint:</strong></p>
+  <ul>
+    <li><strong>1.e4:</strong> Faces Sicilian as opponent (B50 Modern, B92 Najdorf Opocensky, B36 Maróczy Bind)</li>
+    <li><strong>1.d4:</strong> E49 Nimzo-Indian Botvinnik System (88.5% — his best White result, vs Rachael Li 2286)</li>
+    <li><strong>1.c4:</strong> A38 English Opening Symmetrical (53.1% — catastrophic)</li>
+    <li><strong>Key pattern:</strong> Missed Nxd4 twice in B92 (CPL 808 and CPL 781 in the same game); catastrophic Qd4 collapse in B50 (CPL 967 from +9.69)</li>
+  </ul>
+
+  <!-- ═══ SECTION 2 ═══ -->
+  <h2>§2 — Pranav's White Repertoire (Frequency &amp; Results)</h2>
+  <table>
+    <thead>
+      <tr><th>ECO</th><th>System</th><th>G</th><th>W</th><th>D</th><th>L</th><th>Acc%</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>B50</td><td>Sicilian Modern (anti-Qxd4)</td><td>1</td><td>0</td><td>0</td><td>1</td><td><span class="acc-lo">51.0%</span></td><td>AGCA Summer R9 — worst White game; <code>Qd4</code> (Nxd8 CPL 967, +9.69→+0.02) — queen blunder from a +9.69 crushing position. CPL 339, B:13 M:2</td>
+      </tr>
+      <tr class="row-danger">
+        <td>A38</td><td>English Symmetrical (1.c4)</td><td>1</td><td>0</td><td>0</td><td>1</td><td><span class="acc-lo">53.1%</span></td><td>AGCA Summer R2 — <code>Nd4</code> (d4 CPL 800, +0.40→−7.60), <code>Bf3</code> (d3 CPL 656), <code>g4</code> (Bg2 CPL 592). 5 blunders, CPL 208</td>
+      </tr>
+      <tr class="row-danger">
+        <td>B92</td><td>Sicilian Najdorf Opocensky</td><td>1</td><td>0</td><td>1</td><td>0</td><td><span class="acc-lo">80.0%</span></td><td>AGCA Summer R3 — missed Nxd4 TWICE: <code>Be3</code> (Nxd4 CPL 808, +0.35→−7.73), <code>Nc3</code> (Nxd4 CPL 781, +0.33→−7.48). Incomplete result.</td>
+      </tr>
+      <tr class="row-danger">
+        <td>B36</td><td>Sicilian Maróczy Bind</td><td>1</td><td>1</td><td>0</td><td>0</td><td><span class="acc-lo">78.3%</span></td><td>AGCA Summer R5 win vs Maddipati 1936 — <code>Bd4</code> (Bxb6 CPL 792, +8.53→+0.61) nearly threw a +8.53 position. Won despite B:1 M:1</td>
+      </tr>
+      <tr>
+        <td>E49</td><td>Nimzo-Indian Botvinnik System</td><td>1</td><td>0</td><td>0</td><td>1</td><td>88.5%</td><td>AGCA Summer R6 — best White result by accuracy; lost vs Li, Rachael (2286). <code>Bg2</code> (Be2 CPL 312) key error. Hard opponent.</td>
+      </tr>
+      <tr>
+        <td>WY R11</td><td>Unspecified (1.e4?)</td><td>1</td><td>1</td><td>0</td><td>0</td><td>94.8%</td><td>World Youth R11 win vs Fadeev 2127 — best White accuracy game; Qxf6+ (Qg7+ CPL 420) but still won comfortably</td>
+      </tr>
+      <tr>
+        <td>WY other (W)</td><td>Unspecified</td><td>6</td><td>3</td><td>0</td><td>3</td><td>~92%</td><td>WY R1/R6/R8/R10/R3 — mixed results; R10 had 7 blunders (Ne5/Nc6+/Ne5 CPL 1000 knight misplacements)</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Pranav's AGCA Summer performance as White: <strong>2W–1L–1D at avg 70.3%</strong> — catastrophically weak. WY games averaged ~92% but with scattered CPL-1000 blunders. Austin's Sicilian Najdorf forces Pranav back into the AGCA Summer territory (B50/B92/A38) where the 51–80% games live.</p>
+  <div class="warn-box">
+    <strong>Sicilian Najdorf (5...a6) is the confirmed weapon.</strong> Pranav's only documented Najdorf-related game (B92 Opocensky) scored 80% and missed Nxd4 twice (CPL 808, CPL 781). His B50 Sicilian game collapsed at 51%. Force Pranav into 1.e4 Sicilian territory and let the engine data speak.
+  </div>
+
+  <!-- ═══ SECTION 3 ═══ -->
+  <h2>§3 — Vulnerabilities as White</h2>
+
+  <h3>A. The Nxd4 Miss — B92 Najdorf Opocensky</h3>
+  <p>In AGCA Summer R3 (B92 vs Thomas, Michael D 1781), Pranav missed the same move — <strong>Nxd4</strong> — on consecutive turns:</p>
+  <ul>
+    <li>Move 4: <strong>Nc3</strong> (best Nxd4) — CPL 781, +0.33→−7.48. After Black played ...cxd4 on move 3, White's correct response was Nxd4 to recapture. Pranav played Nc3 instead — immediate positional error.</li>
+    <li>Move 5: <strong>Be3</strong> (best Nxd4) — CPL 808, +0.35→−7.73. Second consecutive miss of the same move. Pranav had a second chance to recapture and missed it again.</li>
+  </ul>
+  <p>This suggests a <strong>preparation gap in the Najdorf Opocensky (5.Be3/6.Be3 systems)</strong>. Pranav may not know the correct recapture move order, or miscalculated the Nxd4 consequences both times. Austin plays Najdorf as Black — this is exactly Austin's territory.</p>
+
+  <h3>B. The B50 Qd4 Collapse</h3>
+  <p>In AGCA Summer R9 (B50 Sicilian vs Padmanabhan, Akshay 1914), Pranav had +9.69 advantage on move 8 — a nearly winning position — and played <strong>Qd4</strong> (best Nxd8, CPL 967). The position went from +9.69 to +0.02 in one move. He then played Nxd8 the next move but the advantage was gone. 13 total blunders, 51% accuracy.</p>
+  <div class="warn-box">
+    <strong>The Qd4 move from +9.69 (CPL 967) is the most alarming single blunder in the dataset.</strong> Pranav had a position equivalent to being up a queen and played a losing move. The B50 structures clearly overloaded his calculation. If Austin steers into B50/B92 Sicilian territory, Pranav's clock and calculation pressure will manifest.
+  </div>
+
+  <h3>C. Knight Misplacement Pattern (WY R10)</h3>
+  <p>In World Youth R10 (Pranav White, 93.8%, 7 blunders vs RAGAVAN 2148), the blunders were all knight misplacements in the late endgame:</p>
+  <ul>
+    <li>Move 61: <strong>Ne5</strong> (CPL 1000, −13.82→−36.44) — knight moved to wrong square under losing pressure</li>
+    <li>Move 62: <strong>Nc6+</strong> (CPL 1000, −67.52→−77.70) — knight check that accelerated the loss</li>
+    <li>Move 63: <strong>Ne5</strong> (CPL 1000) — repeated the same knight misplacement</li>
+  </ul>
+  <p>Pattern: under pressure, Pranav's knight moves become erratic — moving the same piece to the same wrong square three times in a row. This is a panic-calculation failure similar to the Nxd4 miss.</p>
+
+  <h3>D. Color Imbalance — The Core Advantage</h3>
+  <p>Pranav White: <strong>81.6% avg</strong>. Pranav Black: <strong>89.7% avg</strong> — an 8.1pp gap, the largest color imbalance of all six analyzed opponents. When Austin is Black (and Pranav is White), Austin is facing <em>Pranav at his weakest</em>. This is Austin's better scenario for the matchup.</p>
+
+  <!-- ═══ SECTION 4 ═══ -->
+  <h2>§4 — Austin's Recommended Weapon</h2>
+
+  <h3>Primary: Sicilian Najdorf 5...a6 — Force B92/B50 Territory</h3>
+  <div class="var-moves">If Pranav plays 1.e4:
+1...c5  2...d6  3...Nf6  4...a6  [Najdorf — Austin's main weapon]
+→ Forces Pranav into B90–B92 structures where he scored 51–80%
+→ If Pranav plays 5.Be3: WATCH FOR Nxd4 miss — he missed it twice (CPL 808, CPL 781)
+→ If Pranav plays 5.Nc3: standard Najdorf English Attack
+
+Specific trigger: if Pranav plays 5.Be3 (Opocensky) or similar:
+  Look for ...cxd4 → Pranav may fail to recapture Nxd4 again</div>
+
+  <h3>If Pranav plays 1.d4</h3>
+  <div class="var-moves">Austin: Nimzo-Indian Bxc3+ variation (Austin's main 1.d4 defense)
+1.d4  Nf6  2.c4  e6  3.Nc3  Bb4  4.e3  O-O  5.Bd3  d5  [Nimzo-Indian]
+→ Pranav's only documented 1.d4 game (E49 Nimzo-Indian) scored 88.5% — respectable
+→ Austin should be prepared for a serious fight; no obvious exploit here
+→ Pranav's Nimzo showed Bg2 (Be2 CPL 312) — watch if he miscalculates the bishop square</div>
+
+  <h3>If Pranav plays 1.c4</h3>
+  <div class="var-moves">Austin: transpose to Nimzo-Indian or play Sicilian structure
+1.c4  e5  [reverse English — aggressive] or 1.c4  Nf6  2.Nc3  e6  [→ Nimzo transpose]
+→ Pranav's A38 English (53.1%, 5 blunders) confirms 1.c4 is dangerous territory for him
+→ Nd4 (d4 CPL 800), Bf3 (d3 CPL 656) — White's center handling was catastrophic</div>
+
+  <div class="tip-box">
+    <strong>Force the Sicilian.</strong> Pranav's AGCA Summer White games in Sicilian structures (B50, B92, B36) averaged 70.3% with 13 blunders in the worst game. Austin plays Najdorf — this is the confirmed overlap between Austin's strength and Pranav's weakness.
+  </div>
+
+  <!-- ═══ SECTION 5 ═══ -->
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The reference blueprint: <strong>AGCA Summer R3 — Pranav Santhosh White vs Thomas, Michael D 1781 (B92 Sicilian Najdorf Opocensky, result unknown)</strong> — Pranav missed Nxd4 on consecutive turns from +0.33 and +0.35 winning positions, losing the advantage both times.</p>
+  <ol>
+    <li><strong>Opening pressure (moves 1–8):</strong> <code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6</code>. Austin plays Najdorf. After 5.Nc3, the game is in standard territory. If Pranav plays 6.Be3 (Opocensky), immediately look for Nxd4 recapture opportunities — if he mishandles the c4/d4 pawn structure, the advantage shifts fast.</li>
+    <li><strong>Middlegame plan (moves 10–20):</strong> In Najdorf structures, Black typically plays ...e5 to contest the center or keeps tension with ...Nbd7-Nc5. Austin's Nimzo training translates — dynamic piece play, knight outposts, IQP ideas. Do NOT simplify prematurely; keep the position alive.</li>
+    <li><strong>Pressure on Pranav's clock:</strong> In AGCA Summer R9 (B50), Pranav had clock 0:32 remaining by move 12 — extremely time-pressured from the opening. If Austin plays at a normal pace and keeps complex positions on the board through move 15–20, Pranav's calculation will degrade.</li>
+    <li><strong>Endgame patience:</strong> If the game enters an endgame, Pranav's White endgame (WY R10: Ne5/Nc6+/Ne5 CPL 1000 knight errors) shows the same knight misplacement pattern. Austin should stay active in endgames and watch for Pranav's piece confusion.</li>
+  </ol>
+  <div class="tip-box">
+    <strong>The B50 collapse precedent:</strong> In AGCA Summer R9, Pranav was winning by +9.69 and dropped it instantly with Qd4 (CPL 967). This means even from a losing position, Austin should not resign mentally — Pranav's calculation can fail from any advantage level.
+  </div>
+
+  <!-- ═══ SECTION 6 ═══ -->
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~50%</span>
+      Sicilian Najdorf 5...a6 vs Pranav's 1.e4
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Pranav:  1.e4  [likely — B50/B92 confirmed 1.e4 player]
+Austin:  1...c5  2...d6  3...Nf6  4...a6  [Najdorf]
+→ Force B92 (Opocensky) or B50 (Modern) — Pranav's 51–80% territory</div>
+      <ul>
+        <li><strong>If Pranav plays 5.Be3 (Opocensky):</strong> This is the exact move order where he missed Nxd4 twice. Play normal Najdorf development — ...e5, ...Nbd7, ...b5 — and watch for White's center collapse. If Pranav again fails to recapture the d4 knight properly, the position tilts Black immediately.</li>
+        <li><strong>If Pranav plays 5.Nc3 6.Be3 (English Attack):</strong> Austin's comfort zone. Play ...e5, ...Be6, ...Nc6 → ...Nd4 outpost plan. Keep the position complex and watch Pranav's clock.</li>
+        <li><strong>If Pranav plays 5.g4 (Keres-type):</strong> Austin has trained vs Keres attack for Aarush matchup. Respond with ...h6 or ...Nfd7 — Pranav has no documented Keres Attack experience in dataset.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~30%</span>
+      Nimzo-Indian Bxc3+ vs Pranav's 1.d4
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Pranav:  1.d4  [documented once — E49 Nimzo Botvinnik System]
+Austin:  1...Nf6  2...e6  3...Bb4  [Nimzo-Indian]
+→ Austin's main weapon vs 1.d4 — familiar territory</div>
+      <ul>
+        <li>Pranav's only documented 1.d4 game (E49, 88.5%, loss vs Li 2286) showed Bg2 (Be2 CPL 312) — bishop placement error. Austin should be prepared for serious play; Pranav's 1.d4 is more respectable than his 1.e4.</li>
+        <li>Austin's Nimzo plan: ...Bxc3+ (double the c-pawns), ...b6/...Ba6 (bishop trade for IQP advantage). Austin is deeply prepared here.</li>
+        <li>No obvious exploit in 1.d4 territory — but Austin is comfortable and Pranav showed the Bg2 bishop misplacement that could be targeted.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~20%</span>
+      Aggressive vs 1.c4 English — exploit A38 weakness
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Pranav:  1.c4  [documented — A38 English, 53.1% disaster]
+Austin:  1...e5  [Reverse English — aggressive counter] or 1...Nf6 → Nimzo transpose
+→ Pranav scored 53.1% with 5 blunders in A38 — center handling catastrophic</div>
+      <ul>
+        <li>Pranav's A38 game (53.1%): <code>Nd4</code> (d4 CPL 800), <code>Bf3</code> (d3 CPL 656), <code>g4</code> (Bg2 CPL 592) — three major errors in the center/kingside. The English Opening appears to be poor preparation for Pranav.</li>
+        <li>After 1.c4 e5 2.Nc3 Nc6: play for ..f5 (Grand Prix-style) or ...Nf6 → Reversed Sicilian. Keep the center dynamic.</li>
+        <li>If 1.c4 Nf6 2.Nc3 e6 3.d4 Bb4 → transposition to Nimzo-Indian (same as Variance B). Pranav cannot escape Austin's preparation.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 7 ═══ -->
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules for This Game</h3>
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Play Sicilian Najdorf — force Pranav into his worst territory</div>
+          <div class="rule-body">Pranav's B50 (51%, 13 blunders) and B92 (80%, missed Nxd4 twice) are the worst White games in the dataset. Pranav's 1.e4 Sicilian handling is confirmed weak. Austin plays Najdorf as his main Black response — this is the overlap. Play 1...c5, play ...a6, reach B90-B92. Pranav will either repeat the Nxd4 miss or will be forced into unfamiliar territory.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Never resign from a losing position — Qd4 from +9.69 happened</div>
+          <div class="rule-body">In AGCA Summer R9 (B50), Pranav had +9.69 (near-winning advantage) and played Qd4 (CPL 967), immediately dropping to +0.02. The most extreme single-move collapse in the entire dataset. This means: even in positions where Austin is materially down or objectively worse, keep playing. Pranav's calculation can fail from any advantage level. One wrong move from him reverses everything.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Watch for Nxd4 miss in Najdorf structures</div>
+          <div class="rule-body">In B92, Pranav missed Nxd4 on moves 4 AND 5 of the same game — twice the exact same mistake. If Austin plays ...cxd4 and Pranav responds with anything other than Nxd4 (standard recapture), the position immediately shifts in Austin's favor. This is an opening-level calculation error confirmed under tournament conditions. Know that if Pranav plays 5.Be3 or 5.Nc3 in a position where Nxd4 is correct, alert immediately.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS BLACK vs 1.e4 — Sicilian Najdorf (B90/B92):
+  1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6
+  If 6.Be3 (Opocensky): WATCH Nxd4 miss — Pranav missed CPL 808 + 781
+  If 6.Be3 7.f3 (English Attack): ...e5, ...Be6, ...Nbd7, ...Nc5/Nd4 plan
+  If 6.g4 (Keres): ...h6 or ...Nfd7 — prepared from Aarush matchup
+
+AS BLACK vs 1.d4 — Nimzo-Indian Bxc3+ (Austin's prep):
+  1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 → ...Bxc3+ b6/Ba6 variation
+
+AS BLACK vs 1.c4 — Reverse English (or Nimzo transpose):
+  1.c4 e5 [aggressive] or 1.c4 Nf6 2.Nc3 e6 3.d4 Bb4 [Nimzo]
+
+ALERT PATTERN — if Pranav misses Nxd4:
+  ...cxd4 played → White should play Nxd4 — if instead Nc3/Be3/other
+  → Black is immediately better; keep the d4-pawn as target</div>
+
+    <h3>Tactical Motifs to Watch For</h3>
+    <table>
+      <thead><tr><th>Pattern</th><th>When it arises</th><th>Engine reference</th><th>CPL</th></tr></thead>
+      <tbody>
+        <tr class="row-danger"><td>Nxd4 miss (White)</td><td>B92: after ...cxd4, White plays Be3 or Nc3 instead of Nxd4</td><td>AGCA Summer R3: Be3 CPL 808, Nc3 CPL 781 — consecutive</td><td class="acc-lo">808</td></tr>
+        <tr class="row-danger"><td>Qd4?? from +9.69 (White)</td><td>B50: White has huge advantage, panics under clock pressure</td><td>AGCA Summer R9: Qd4 CPL 967, +9.69→+0.02</td><td class="acc-lo">967</td></tr>
+        <tr class="row-danger"><td>Nd4 English collapse</td><td>A38: 1.c4 position, White mishandles d4 knight</td><td>AGCA Summer R2: Nd4 CPL 800, Bf3 CPL 656</td><td class="acc-lo">800</td></tr>
+        <tr><td>Ne5/Nc6+/Ne5 knight repeat</td><td>WY R10: late endgame with knight under pressure</td><td>WY R10: all three moves CPL 1000 — knight misplacement loop</td><td class="acc-lo">1000</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══ SECTION 8 ═══ -->
+  <h2>§8 — Day-of Preparation (30 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Tactics drill — 15 min:</strong> 10 puzzles on <em>Sicilian Najdorf middlegame dynamics</em> — positions where Black has the ...Nd4 outpost available or where the d4-pawn needs to be targeted. Practice the ...e5 → ...Nd4 knight outpost sequence. Also 3 puzzles on <em>spotting Nxd4 recaptures</em> — White has a pawn on d4, Black plays ...cxd4, what should White play? (Answer: Nxd4.) This reinforces knowing exactly when Pranav might miss it, so Austin can spot the free piece/advantage immediately.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Opening line review — 10 min:</strong> Replay mentally: <code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.Be3</code> (Opocensky — Pranav's documented line). Stop at move 6. Ask: <em>"What is Black's best plan here?"</em> Answer: 6...e5 (main) or 6...Ng4 (aggressive) or 6...e6 (solid). Know that Pranav scored 80% in this line with Nxd4 misses — the B92 structure is favorable for Austin.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Mental visualization — 5 min:</strong> Picture Pranav's AGCA Summer R9 game: Pranav has +9.69 — a nearly winning position — and in one move plays Qd4 (CPL 967) instead of Nxd8, dropping from +9.69 to +0.02. Ask: <em>"What does this mean for our game?"</em> Answer: <strong>Never give up from any position.</strong> Even if Pranav has a material or positional advantage, his calculation can fail completely in one move. Austin should keep every position alive and maintain fighting chess through the endgame.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Pranav is 81.6% as White — the weakest of all my opponents with White. His Sicilian handling has collapsed at 51% and 80%. I play Najdorf, I force him into B92/B50 territory, and I watch for the Nxd4 miss. Even if he gets an advantage, Qd4 from +9.69 already happened — I keep playing until the position is decided. His White play is exploitable from move 4."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin B Najdorf vs 1.e4</td><td>B90</td><td><code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6</code></td></tr>
+      <tr><td>Austin B Najdorf vs Opocensky</td><td>B92</td><td><code>5...a6 6.Be3 e5 7.Nb3 Be6</code> (main line Black)</td></tr>
+      <tr><td>Austin B Nimzo-Indian vs 1.d4</td><td>E40–E49</td><td><code>1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.e3 O-O 5.Bd3</code></td></tr>
+      <tr><td>Austin B vs 1.c4 English</td><td>A30</td><td><code>1.c4 e5 [Reverse English] or 1.c4 Nf6 2.Nc3 e6 3.d4 Bb4</code></td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish depth 18 · movetime 800ms</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">A</span>
+      Opening Gaps — Pranav as White
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>B92 Najdorf Opocensky (80%, missed Nxd4 ×2):</strong> AGCA Summer R3 — <code>Nc3</code> (Nxd4 CPL 781, +0.33→−7.48) then <code>Be3</code> (Nxd4 CPL 808, +0.35→−7.73) on consecutive moves. The same standard recapture missed twice in one game. This is a fundamental opening knowledge gap — after ...cxd4, White must recapture Nxd4. Pranav played development moves instead. Austin plays Najdorf; this structural error will occur again.</p>
+      <p><strong>B50 Modern Sicilian (51%, Qd4 from +9.69):</strong> AGCA Summer R9 — <code>Qd4</code> (Nxd8 CPL 967, +9.69→+0.02). Had a +9.69 advantage and blundered the queen to the wrong square, giving up almost all advantage in one move. 13 blunders total. The most extreme White collapse in the dataset.</p>
+      <p><strong>A38 English (53.1%, three consecutive center blunders):</strong> AGCA Summer R2 — <code>Nd4</code> (d4 CPL 800), <code>Bf3</code> (d3 CPL 656), <code>g4</code> (Bg2 CPL 592) — three critical errors in opening/early middlegame. English Opening preparation was non-existent.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">B</span>
+      Time-Pressure / Calculation Failures
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Qd4?? from +9.69 (CPL 967) — the quintessential time-pressure collapse:</strong> AGCA Summer R9 (B50) — Pranav had a +9.69 winning advantage (approximately equivalent to being up a queen in practical terms). Under clock pressure (0:32 remaining by move 12), he played <code>Qd4</code> instead of the obvious <code>Nxd8</code>. The advantage dropped from +9.69 to +0.02 instantly. This is the largest single-move eval swing in the dataset.</p>
+      <p><strong>AGCA Fall R3 — consecutive blunders from advantage:</strong> Pranav White at 71.3% — <code>Bd4</code> (Nxc6 CPL 821, +1.77→−6.44), <code>Qf2</code> (Nxc6 CPL 562), <code>Nxa5</code> (Rc2 CPL 529). Three blunders in four moves from a +1.77 advantage — complete calculation breakdown.</p>
+      <p><strong>WY R10 knight misplacement (repeated ×3):</strong> Under endgame pressure, played <code>Ne5</code> (CPL 1000), then <code>Nc6+</code> (CPL 1000), then <code>Ne5</code> again (CPL 1000). Moved the same knight to the same wrong square twice, with a check in between. This is panic calculation under time/position pressure.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Endgame Technique as White
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>WY R1 king endgame errors:</strong> WY R1 (94.2%, loss vs Negrean 2366) — <code>hxg3</code> (CPL 1000, −17.40→−62.80), <code>g4</code> (Ke3 CPL 1000, −77.20→mate). Even in a lost position, the king moves accelerated the mate. Pranav cannot navigate losing king positions.</p>
+      <p><strong>WY R8 — endgame conversion miss:</strong> 89.8% but <code>g3</code> (Bc5 CPL 335, +3.59→+0.24) from a +3.59 winning position, squandering 3+ pawns of advantage in one pawn push. Then <code>Rd7</code> (h4 CPL 202, +2.35→+0.33) — second major miss. Still won but the conversion was inefficient.</p>
+      <p><strong>Color verdict:</strong> Pranav's endgame technique as White (WY R1/R10) mirrors his endgame failures as Black (WY R5/R7). King navigation and piece coordination both fail under pressure regardless of color — but White performance is structurally weaker (81.6% vs 89.7%).</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">B92 Nxd4 miss ×2; B50 51%; A38 53% — Sicilian structures broken</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time Pressure</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Qd4 CPL 967 from +9.69; 3 blunders in 4 moves from +1.77; Ne5 ×2 same move</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">WY R1 king collapse; g3 squandered +3.59 in WY R8; WY R10 knight loop</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">81.6% White / 89.7% Black — 8.1pp gap; Austin as Black = facing Pranav at his weakest</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

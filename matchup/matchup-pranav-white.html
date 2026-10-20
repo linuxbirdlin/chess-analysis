@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Pranav Santhosh — Austin as White</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #2d7d46; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #2d7d46; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #2d7d46; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #2d7d46; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #f0fff4 !important; color: #1a4731; }
+    .acc-hi { color: #1a6030; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #fafbff; }
+    .rule-number { background: #2d7d46; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #f0fff5; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #2d7d46; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #2d7d46; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #e8f5ee; color: #2d7d46; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #e8f5ee; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a4731; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Pranav Santhosh</h1>
+    <div class="subtitle">Austin as White — Italian Game + King Navigation Endgame Trap</div>
+    <div class="meta">Pranav Santhosh · ~1940 FIDE · 20 games, depth-18 Stockfish · Overall 84.9% avg · White 81.6% (12g) · Black 89.7% (8g) · No direct encounter</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-pranav.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-pranav-black.html">Austin as Black →</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-pranav-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="encounter-box">
+    <strong>No direct encounter on record.</strong> Engine data from 20 games across AGCA Fall 2026, AGCA Summer 2026, and World Youth 2026. Pranav as Black: <strong>89.7% avg (8g)</strong> — his stronger color — with systematic king navigation failures in K+P endings (confirmed across 4 separate games). Austin is White and Pranav is Black — note: Austin faces Pranav at his stronger color. The plan must steer past the opening into endgames where the king navigation pattern breaks down.
+  </div>
+
+  <!-- ═══ SECTION 1 ═══ -->
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Pranav Santhosh</span>
+    <span class="plabel">FIDE Rating</span><span class="pval">~1940 (fluctuating; World Youth 2026 participant)</span>
+    <span class="plabel">Style</span><span class="pval">Solid as Black (D35 QGD, C54 Italian) with endgame confidence that breaks down under king navigation pressure. White play is much weaker (81.6%).</span>
+    <span class="plabel">Sample</span><span class="pval">20 games, 3 tournaments (AGCA Fall 2026, AGCA Summer 2026, World Youth 2026)</span>
+    <span class="plabel">Overall accuracy</span><span class="pval">84.9% avg · White 81.6% (12g) · Black 89.7% (8g) — 8.1pp color gap</span>
+    <span class="plabel">King endgame record</span><span class="pval">4 games with CPL-1000 king blunders as Black (WY R5 ×11, WY R7 ×2, WY R4, C54 R4 miss)</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">No encounter on record</span>
+    <span class="plabel">Worst Black game</span><span class="pval">AGCA Fall R2 — 63.9% / CPL 191 / 5 blunders in 26 moves</span>
+  </div>
+
+  <p><strong>Opening fingerprint (as Black):</strong></p>
+  <ul>
+    <li><strong>vs 1.e4:</strong> Accepts Italian (C54 Classical Greco Gambit, Dubov Italian) — 90.8% in one documented game. Also faces Sicilian structures as Black in various WY games.</li>
+    <li><strong>vs 1.d4:</strong> D35 QGD Exchange Variation — 93.3% in one documented game. Solid theoretical choice.</li>
+    <li><strong>Key pattern:</strong> 4 games with CPL-1000 king blunders in king+pawn endings — WY R5 (11 blunders), WY R7 (Kf5/Kf6), WY R4 (Bxb2/Ke6), AGCA Summer R4 (missed Kb5 from +4.63)</li>
+  </ul>
+
+  <!-- ═══ SECTION 2 ═══ -->
+  <h2>§2 — Pranav's Black Repertoire (Frequency &amp; Results)</h2>
+  <table>
+    <thead>
+      <tr><th>ECO</th><th>System</th><th>G</th><th>W</th><th>D</th><th>L</th><th>Acc%</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>C54</td><td>Italian Classical (Dubov)</td><td>1</td><td>0</td><td>1</td><td>0</td><td>90.8%</td><td>AGCA Summer R4 draw vs Lonie 1846 — <em>should have won</em>: Kd7 (Kb5 CPL 404, +4.63→+0.59), Kc6 (b5 CPL 208). King march missed twice from winning position.</td>
+      </tr>
+      <tr>
+        <td>D35</td><td>QGD Exchange Positional</td><td>1</td><td>0</td><td>1</td><td>0</td><td>93.3%</td><td>AGCA Summer R7 draw vs Kaliyur 1878 — solid play, 0 blunders, 0 mistakes; best technical Black game</td>
+      </tr>
+      <tr class="row-danger">
+        <td>?</td><td>WY R5 (Black) — king+pawn ending</td><td>1</td><td>0</td><td>0</td><td>1</td><td><span class="acc-lo">93.7%</span></td><td>Lost despite 93.7% — Kf6 (CPL 1000), d3 (Kg5 CPL 1000), Kg5 (CPL 1000) — 11 total blunders in K+P endgame</td>
+      </tr>
+      <tr class="row-danger">
+        <td>?</td><td>WY R7 (Black) — king+pawn ending</td><td>1</td><td>0</td><td>0</td><td>1</td><td>95.7%</td><td>Lost despite 95.7% — Kf5 (g5 CPL 1000), Kf6 (CPL 1000) — king walked into losing positions twice</td>
+      </tr>
+      <tr class="row-danger">
+        <td>?</td><td>WY R4 (Black) — endgame blunder</td><td>1</td><td>0</td><td>0</td><td>1</td><td>93.3%</td><td>h4 (Bd7 CPL 516), Bxb2 (Ke6 CPL 1000) — collapsed from −0.77 to −91.65 on final king blunder</td>
+      </tr>
+      <tr class="row-danger">
+        <td>?</td><td>AGCA Fall R2 (Black) — opening collapse</td><td>1</td><td>0</td><td>1</td><td>0</td><td><span class="acc-lo">63.9%</span></td><td>Worst Black game — Ng4 (Rxc8 CPL 743), Ne7 (axb5 CPL 718), Bxb3 (exd4 CPL 663) — 5 blunders in 26 moves</td>
+      </tr>
+      <tr class="row-safe">
+        <td>?</td><td>WY R9 (Black) — win</td><td>1</td><td>1</td><td>0</td><td>0</td><td>95.1%</td><td>Best Black result — won vs Ivancic 2166, despite CPL-1000 endgame errors (Qh4+ from mate, Kh6) still converted</td>
+      </tr>
+      <tr>
+        <td>?</td><td>WY R2 (Black) — win</td><td>1</td><td>1</td><td>0</td><td>0</td><td>92%</td><td>Won vs Kitaev 1644 — dxe3+ (dxc3+ CPL 1000 missed forced mate) but still won; B:1 M:2</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Pranav's Black record: 2W–3L–2D (excluding unknowns). Strong technical games in QGD/Italian but <strong>systematic king navigation failure in K+P endings</strong> — 4 separate games confirm the pattern.</p>
+  <div class="warn-box">
+    <strong>King navigation failure is the exploit — not the opening.</strong> Pranav reaches solid positions as Black (90%+) but then loses in the endgame when king marches are required. Austin must steer past the opening and into technical endings — do NOT try to win before move 30.
+  </div>
+
+  <!-- ═══ SECTION 3 ═══ -->
+  <h2>§3 — Vulnerabilities as Black</h2>
+
+  <h3>A. King Navigation Failure (Confirmed in 4 Games)</h3>
+  <table>
+    <thead><tr><th>Game</th><th>Acc%</th><th>Critical Move</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>WY R5 — 11 blunders</td><td><span class="acc-lo">93.7%</span></td><td>Kf6 (best Kf6 also wrong → Kg5)</td><td class="acc-lo">1000</td><td>−61.45→−88.77</td>
+      </tr>
+      <tr class="row-danger">
+        <td>WY R7 — 3 blunders</td><td>95.7%</td><td>Kf5 (best g5)</td><td class="acc-lo">1000</td><td>−73.83→−86.18</td>
+      </tr>
+      <tr class="row-danger">
+        <td>WY R4 — 2 blunders</td><td>93.3%</td><td>Bxb2 (best Ke6)</td><td class="acc-lo">1000</td><td>−10.22→−91.65</td>
+      </tr>
+      <tr class="row-danger">
+        <td>AGCA Summer R4 (C54) — missed win</td><td>90.8%</td><td>Kd7 (best Kb5)</td><td class="acc-lo">404</td><td>+4.63→+0.59</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>The pattern across all four games: Pranav plays accurate chess through the opening and middlegame, then misses critical king marches or missteps the king in K+P endings. In WY R5 and R7 specifically, he was already losing — but the king errors confirm the king navigation is unreliable even when the game is theoretically drawn/winning.</p>
+
+  <h3>B. Italian Endgame — The C54 Case Study</h3>
+  <p>In AGCA Summer R4 (C54 Italian Classical vs Lonie 1846), Pranav drew a game he should have won. Starting from +4.63 with winning king march available:</p>
+  <ul>
+    <li>Move 33: <strong>Kd7</strong> (best <strong>Kb5</strong>) — CPL 404, +4.63→+0.59. The king needed to march queenside immediately; Pranav went the wrong direction.</li>
+    <li>Move 34: <strong>Kc6</strong> (best <strong>b5</strong> pawn push) — CPL 208, +6.73→+4.65. Second chance to activate and missed again.</li>
+    <li>Result: drew a game that was objectively won. The Italian endgame king march requires precise king routing — <strong>Pranav cannot find it</strong>.</li>
+  </ul>
+  <div class="tip-box">
+    <strong>Steer for Italian endings specifically.</strong> The C54 is Pranav's documented Italian line. It naturally produces king+pawn endings. Pranav already proved he can't find the winning king march even when ahead by +4.63. If Austin reaches a C54 ending with White, the conversion is more likely than against any other opponent.
+  </div>
+
+  <h3>C. Color Asymmetry</h3>
+  <p>White avg: <strong>81.6%</strong>. Black avg: <strong>89.7%</strong> — an 8.1% accuracy gap. Pranav is <em>significantly</em> stronger as Black than as White. When Austin is White and Pranav is Black, Austin is facing Pranav at his best. However, the king endgame weakness still applies regardless of color — and steeling Austin's game to the endgame is the path through this asymmetry.</p>
+
+  <!-- ═══ SECTION 4 ═══ -->
+  <h2>§4 — Austin's Recommended Weapon</h2>
+
+  <h3>Primary: Italian Game 3.Bc4 → Steer for King+Pawn Endgame</h3>
+  <div class="var-moves">1.e4  e5  2.Nf3  Nc6  3.Bc4  [Italian — confirmed Pranav Black territory]
+3...Bc5  4.c3  Nf6  5.d4  exd4  6.cxd4  Bb4+  [C54 / Dubov Italian main line]
+or
+3...Bc5  4.c3  Nf6  5.d3  [Slow Italian — avoid early complications]
+Target: Reach a king+pawn endgame by move 30–40.
+Pranav missed Kb5 from +4.63 — Austin will find it.</div>
+
+  <p><strong>Why Italian specifically:</strong></p>
+  <ul>
+    <li>Pranav's documented Black game vs Italian (C54) ended in a draw he should have won because he missed the king march. The Italian naturally produces the exact king+pawn ending structures where Pranav's weakness has been confirmed.</li>
+    <li>Austin's own strengths (IQP positions, Nimzo endgame conversion) translate directly to Italian middlegame/endgame technique. He is comfortable in these structures.</li>
+    <li>The Italian avoids Pranav's QGD preparation (1.d4 → D35) and keeps the game in 1.e4 territory where Austin has his full repertoire.</li>
+  </ul>
+
+  <h3>If Pranav plays 1...c5 (Sicilian)</h3>
+  <div class="var-moves">Austin White vs 1...c5: Rossolimo 3.Bb5+ [avoid open Sicilian theory]
+1.e4  c5  2.Nf3  Nc6  3.Bb5  [Rossolimo]
+or
+1.e4  c5  2.Nf3  d6  3.d4  cxd4  4.Nxd4  Nf6  5.Nc3  a6  [normal Najdorf]
+→ English Attack: 6.Be3 → Qd2 → O-O-O + endgame steering</div>
+  <p>Pranav's game data shows no Sicilian as Black — his documented Black responses are Italian/QGD. Most likely response to 1.e4 is 1...e5 into Italian. If Sicilian appears, the Rossolimo sidestep keeps play controlled.</p>
+
+  <div class="warn-box">
+    <strong>Do NOT play for a quick kingside attack.</strong> Pranav as Black scores 89.7% — this is his strong side. Trying to win in 25 moves with an early h4 storm risks meeting well-prepared counterplay. The Italian endgame plan is lower-variance and exploits the confirmed weakness directly.
+  </div>
+
+  <!-- ═══ SECTION 5 ═══ -->
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The reference blueprint: <strong>AGCA Summer R4 — Pranav Santhosh vs Lonie Chase Rugby (C54 Italian, draw)</strong> — Pranav was at +4.63 on move 33 and missed the winning king march twice. The opponent got lucky.</p>
+  <ol>
+    <li><strong>Italian opening (moves 1–12):</strong> <code>1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.c3 Nf6 5.d4 exd4 6.cxd4 Bb4+</code>. Develop normally, avoid early complications. Target: IQP structure or open Italian where pieces can trade off toward the endgame.</li>
+    <li><strong>Middlegame simplification (moves 15–25):</strong> Trade off minor pieces strategically. Do NOT trade queens early — keep the queen on to maintain tension. But trade one pair of rooks if it simplifies to a king+pawn ending.</li>
+    <li><strong>King march readiness (moves 30+):</strong> When down to K+P, immediately calculate the optimal king march. Pranav's R4 error was Kd7 instead of Kb5. In any king+pawn ending, the king belongs on the queenside if pawns are there. <strong>Austin should have calculated Kb5 and b5 — Pranav won't.</strong></li>
+    <li><strong>Conversion:</strong> With correct king routing Austin converts; Pranav's documented miss at +4.63 means this type of position is winnable even from near-equal.</li>
+  </ol>
+  <div class="tip-box">
+    <strong>Be patient — Pranav's endgame fails late.</strong> WY R5 and R7 both showed Pranav at 93%+ accuracy and still losing on king moves after move 50. Austin should not panic if the middlegame is complex — the endgame is the destination, not the danger.
+  </div>
+
+  <!-- ═══ SECTION 6 ═══ -->
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~65%</span>
+      Italian C54 → Endgame Steer (Main Line)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Pranav:  1...e5  2...Nc6  3...Bc5  [Italian response — likely]
+Austin:  1.e4  2.Nf3  3.Bc4  4.c3  5.d4  exd4  6.cxd4  [IQP]
+→ Aim: simplify to king+pawn ending by move 35–40</div>
+      <ul>
+        <li><strong>Moves 6–15:</strong> After cxd4 IQP, develop naturally: Nc3, 0-0, Re1, Bg5/Be3. Trade off the dark-squared bishop when possible to simplify structure.</li>
+        <li><strong>Moves 15–30:</strong> Look for rook trades. Avoid unnecessary pawn advances that lock the position. Keep one rook to maneuver, then trade it in a favorable K+R+P vs K+R+P ending.</li>
+        <li><strong>Endgame target:</strong> K+P with Austin's king active. Pranav will misplace the king — Austin should be positioned to march correctly (opposite side from Pranav's instinct).</li>
+      </ul>
+      <div class="tip-box"><strong>Specific pattern to know:</strong> In C54 endings, if White has passed pawn on d5 or c4, the White king marches to d4/e4 and supports it while Black's king fumbles. Austin should study the Kd4→Ke5 triangulation pattern vs Pranav's Kd7 tendency.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~25%</span>
+      Slow Italian (3.Bc4 → d3) — Avoid Early Theory
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Pranav:  1...e5  2...Nc6  3...Bc5 or 3...Nf6
+Austin:  1.e4  2.Nf3  3.Bc4  4.c3  5.d3  [slow Italian]
+→ Long maneuvering game, target f4 break or bishop pair advantage</div>
+      <ul>
+        <li>The slow Italian (d3 instead of d4) avoids the sharp IQP lines. It leads to a slower buildup where Austin can outmaneuver Pranav positionally.</li>
+        <li>After 5.d3 0-0 6.0-0 d6, play Nbd2, Re1, Nf1-g3/e3 plan. The knight on g3 eyes the kingside; the position gradually opens.</li>
+        <li>This variation also leads to endgames — the bishop pair (if White keeps Bc4 vs Black's Bc5) is a lasting advantage in slow pawn structures.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~10%</span>
+      Rossolimo 3.Bb5+ — if Pranav plays Sicilian
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Pranav:  1...c5  [Sicilian — less likely based on data]
+Austin:  1.e4  c5  2.Nf3  Nc6  3.Bb5  [Rossolimo]
+→ After 3...g6 4.0-0 Bg7 5.c3 Nf6 6.Re1 — positional IQP-type play</div>
+      <ul>
+        <li>The Rossolimo sidesteps all sharp Sicilian theory. It leads to positional pawn structures where Austin's IQP and endgame skills apply.</li>
+        <li>No documented Pranav Sicilian-as-Black games in dataset — this variance is low probability but should be known.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 7 ═══ -->
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules for This Game</h3>
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Steer for the endgame — king navigation is the weapon</div>
+          <div class="rule-body">Pranav missed a winning king march from +4.63 in the Italian (Kd7 instead of Kb5). He collapsed with CPL-1000 king blunders in three World Youth games. Do NOT play for a quick kingside attack or tricky middlegame — the Italian endgame is where Austin wins. Trade pieces, simplify structure, and march the king to the correct side. Pranav won't find Kb5 — Austin should have it calculated before playing it.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Play the Italian — not d4 systems</div>
+          <div class="rule-body">Pranav's documented QGD (D35) was 93.3% with 0 blunders — his cleanest Black game. If Austin plays 1.d4, he might face Pranav's best-prepared defense. The Italian (3.Bc4) targets C54 territory where Pranav already showed the king march weakness in a real game at 90.8%. Stick to the plan: 1.e4 e5 2.Nf3 Nc6 3.Bc4.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Be patient through the middlegame — the blunder comes late</div>
+          <div class="rule-body">WY R5 and WY R7 show Pranav playing at 93–95% accuracy for 50+ moves, then collapsing with CPL-1000 king errors in the endgame. Austin should not panic if the game is equal at move 25 or even slightly worse at move 35. The statistical pattern says: keep playing, steer to K+P, and wait for the king navigation failure. It is a confirmed, systematic weakness across multiple tournaments and multiple game types.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS WHITE — Italian main line (C54):
+  1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.c3 Nf6 5.d4 exd4 6.cxd4 Bb4+ 7.Nc3
+  → IQP structure: develop, castle, aim for rook trade + king+pawn ending
+
+Slow Italian (Variance B):
+  3.Bc4 Bc5 4.c3 Nf6 5.d3 d6 6.O-O O-O 7.Nbd2 → Nf1-Ng3/Ne3 plan
+
+Rossolimo (if 1...c5):
+  1.e4 c5 2.Nf3 Nc6 3.Bb5 g6 4.O-O Bg7 5.c3 Nf6 6.Re1
+
+ENDGAME PLAN — king march:
+  When Pranav plays Kd7 (wrong) → Austin should be on Kd4/Ke4/d5 march
+  Pranav's C54 error: Kd7 instead of Kb5 from +4.63
+  Austin's target: king reaches e5/d5 before Pranav reaches defensive square</div>
+
+    <h3>Tactical Motifs to Watch For</h3>
+    <table>
+      <thead><tr><th>Pattern</th><th>When it arises</th><th>Engine reference</th><th>CPL</th></tr></thead>
+      <tbody>
+        <tr class="row-safe"><td>Pranav misses Kb5 king march</td><td>C54 Italian king+pawn ending with passed pawn</td><td>AGCA Summer R4: Kd7 instead of Kb5, +4.63→+0.59</td><td class="acc-lo">404</td></tr>
+        <tr class="row-danger"><td>Kf5/Kf6 king collapse (late)</td><td>K+P ending, Pranav under time pressure, move 50+</td><td>WY R7: Kf5 (g5) CPL 1000, Kf6 CPL 1000</td><td class="acc-lo">1000</td></tr>
+        <tr class="row-danger"><td>11-blunder K+P crash</td><td>Pawn ending, Pranav's king trapped on wrong side</td><td>WY R5: Kf6/d3/Kg5 all CPL 1000 — 11 blunders</td><td class="acc-lo">1000</td></tr>
+        <tr><td>Ng4/Ne7 tactical collapse (Black)</td><td>AGCA Fall R2 — complex knight moves under pressure</td><td>Ng4 CPL 743, Ne7 CPL 718 back-to-back</td><td class="acc-lo">743</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══ SECTION 8 ═══ -->
+  <h2>§8 — Day-of Preparation (30 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Tactics drill — 15 min:</strong> 10 puzzles on <em>king march in king+pawn endings</em> — positions where the king must march accurately to support a passed pawn. Practice: king on wrong rank/file (like Kd7), find the correct path (Kb5 → Ka4 → Ka3). Specifically study Lucena/opposition positions where the active king wins and passive king draws. Pranav's specific miss: from +4.63, find <strong>Kb5-Ka4-Ka3</strong> route that supports the b-pawn. Also 3 puzzles on <em>endgame triangulation</em> — outmaneuvering the opponent's king.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Opening line review — 10 min:</strong> Replay mentally: <code>1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.c3 Nf6 5.d4 exd4 6.cxd4</code>. Stop at move 6. Ask: <em>"What is White's plan with the IQP?"</em> Answer: Develop Nc3, castle short, Re1, then trade pieces toward a simplified K+P ending. Remind yourself: do NOT rush. The Italian is a long-game plan. If the game is equal at move 30, that is fine — the endgame is the weapon, not the opening.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Mental visualization — 5 min:</strong> Picture Pranav's AGCA Summer R4 game: he has a winning position (+4.63), his king is on e8, and the path to Kb5 is open — but he plays Kd7 instead. Ask: <em>"What should Black have done?"</em> Answer: <strong>Kb5 → Ka4 → Ka3</strong> to support the b-pawn. Now flip it: in the same structure with White's perspective, Austin's king should be on the active queenside square, not passive. This visualization reinforces king activity in endings.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Pranav plays well as Black — 89.7% average. He will be solid in the opening and middlegame. But he has missed winning king marches and collapsed in K+P endings in four separate tournaments. I play the Italian, I simplify carefully, and I reach the endgame where the king navigation failure happens. The game is not decided at move 20 — it is decided at move 40 when I find Kb5 and he finds Kd7."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin W Italian (IQP) vs 1...e5</td><td>C54</td><td><code>1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.c3 Nf6 5.d4 exd4 6.cxd4</code></td></tr>
+      <tr><td>Austin W Slow Italian vs 1...e5</td><td>C50</td><td><code>1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.c3 Nf6 5.d3 d6 6.O-O</code></td></tr>
+      <tr><td>Austin W Rossolimo vs 1...c5</td><td>B30</td><td><code>1.e4 c5 2.Nf3 Nc6 3.Bb5 g6 4.O-O Bg7 5.c3</code></td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish depth 18 · movetime 800ms</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#2d7d46;color:#fff;padding:2px 10px;border-radius:12px;">A</span>
+      Opening Gaps — Pranav as Black
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>AGCA Fall R2 (63.9%, worst Black game):</strong> <code>Ng4</code> (Rxc8 CPL 743, −0.17→−7.60) — piece blunder from a near-equal position. Then <code>Ne7</code> (axb5 CPL 718, +6.46→−0.72) — squandered a +6 advantage. Then <code>Bxb3</code> (exd4 CPL 663) — third consecutive critical error. Five blunders in 26 moves in an opening/early middlegame, suggesting Pranav's preparation in that specific structure failed completely.</p>
+      <p><strong>C54 Italian (90.8%, drew should-win):</strong> 90.8% is nominally good, but Pranav should have won. The endgame error (Kd7 instead of Kb5) is the first documented case of the king navigation failure, here in a relatively common Italian ending. He drew against a 1846-rated player from +4.63.</p>
+      <p><strong>D35 QGD (93.3%, cleanest):</strong> This is Pranav's most prepared Black defense — 0 blunders, 0 mistakes. Avoid playing 1.d4 — this is his comfort zone.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#2d7d46;color:#fff;padding:2px 10px;border-radius:12px;">B</span>
+      Time-Pressure / Single-Move Collapses
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>AGCA Fall R2 back-to-back blunders:</strong> <code>Ng4</code> (CPL 743) and <code>Ne7</code> (CPL 718) were played consecutively — both from near-equal or winning positions. The knight misplacements suggest panic calculation. Draw against strong opponent suggests opponent also collapsed; Pranav got lucky.</p>
+      <p><strong>WY R5 final cascade (11 blunders):</strong> 11 blunders total in the game with Kf6/d3/Kg5 all CPL 1000. While the position was already losing, the king error acceleration under time pressure accelerated resignation. Pattern: Pranav's calculation completely breaks in the late endgame phase.</p>
+      <p><strong>WY R9 missed forced mate:</strong> <code>Qh4+</code> (Rxf1+ CPL 1000 — missed a forced mate). <code>Kh6</code> (Bh6 CPL 1000). Still won the game, but two CPL-1000 moves shows even in winning positions Pranav misses the clearest path.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#2d7d46;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Endgame Technique — King Navigation Failure (Systematic)
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>WY R5 — 11 blunders in K+P ending:</strong> <code>Kf6</code> (CPL 1000, −61.45→−88.77), <code>d3</code> (Kg5 CPL 1000), <code>Kg5</code> (CPL 1000). The king walked into increasingly losing positions. 11 total blunders in a king+pawn ending across 84 moves. This is Pranav's most catastrophic endgame showing.</p>
+      <p><strong>WY R7 — king walk into losing positions:</strong> <code>Kf5</code> (best g5, CPL 1000, −73.83→−86.18) and <code>Kf6</code> (CPL 1000, −54.20→−85.77). Two consecutive CPL-1000 king moves — the king advanced when it should have stayed. Classic king misplacement in a K+P endgame.</p>
+      <p><strong>C54 Italian — missed winning king march:</strong> <code>Kd7</code> (Kb5 CPL 404, +4.63→+0.59) from a winning position. Pranav's king went the wrong direction. The correct path (Kb5-Ka4-Ka3) was straightforward but missed. Converted a win into a draw.</p>
+      <p><strong>Verdict:</strong> Pranav's king navigation is broken across ALL endgame types — not just K+P but also complex endings with rooks and pieces. The weakness is systematic and confirmed across 4 separate games in 3 tournaments.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#2d7d46;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a5276;">B</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Generally solid (C54 90.8%, D35 93.3%); AGCA Fall 63.9% outlier</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time Pressure</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Ng4/Ne7 back-to-back CPL 743/718; WY R9 missed forced mate CPL 1000</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">King navigation broken: 4 games confirmed, 11 blunders in WY R5</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">81.6% White / 89.7% Black — 8.1pp gap; Pranav STRONGER as Black (caution)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
