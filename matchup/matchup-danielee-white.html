@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Daniel Joshua Lee — Austin as White</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #2d7d46; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #2d7d46; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #2d7d46; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #2d7d46; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #f0fff4 !important; color: #1a4731; }
+    .acc-hi { color: #1a6030; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #fafbff; }
+    .rule-number { background: #2d7d46; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #f0fff5; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #2d7d46; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #2d7d46; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #e8f5ee; color: #2d7d46; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #e8f5ee; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a4731; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Daniel Joshua Lee</h1>
+    <div class="subtitle">Austin as White — Exchange Ruy Lopez to Sidestep Italian Preparation</div>
+    <div class="meta">Daniel Joshua Lee · 2191 FIDE (Sep 2026, was 1942 Apr 2026) · 24 games · Stockfish movetime 800 · Black C54 Italian (7g, 3W–2D–2L) = primary weapon · No direct encounter · ~−326 pts Austin underdog</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-danielee.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-danielee-black.html">Austin as Black →</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-danielee-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="encounter-box">
+    <strong>No direct encounter on record.</strong> Engine data from 24 games across 4 tournaments. Daniel as Black: <strong>C54 Italian is his primary weapon (7 games, 3W–2D–2L)</strong> — he drew a 2209-rated opponent and beat a 2137-rated opponent in this line. Austin's 1.e4 standard faces a well-prepared Italian expert. Primary recommendation: <strong>Ruy Lopez 3.Bb5</strong> to sidestep Italian territory entirely. Exchange Variation (4.Bxc6) offers Austin familiar structural play. Rating gap: Austin ~1865, Daniel ~2191 — <strong>−326 pts, significant underdog</strong>. Austin's edge: create complications and force time-pressure errors in unfamiliar Lopez territory.
+  </div>
+
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Daniel Joshua Lee</span>
+    <span class="plabel">FIDE ID / Rating</span><span class="pval">2640708 · 2191 FIDE (Sep 2026) — surged from 1942 in Apr 2026 (+249 in 5 months)</span>
+    <span class="plabel">Style</span><span class="pval">Classical positional — Italian long-game specialist. Thrives in C54/C55 Giuoco Pianissimo structures (60–90 move games). Not a sharp attacker.</span>
+    <span class="plabel">Sample</span><span class="pval">24 games: Canada Closed 2026 (8g), PAM 2026 (9g), PAM School 2026 (5g), Toronto Open / Skyline Open (2g)</span>
+    <span class="plabel">Black record</span><span class="pval">7W–2D–4L across 13 games (61.5%)</span>
+    <span class="plabel">Best Black result</span><span class="pval">Beat 2206-rated Duong (D27 QGA) at Canada Closed; Drew 2097-rated Gil in C99 Chigorin Lopez</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">No encounter on record</span>
+    <span class="plabel">Defining strength (Black)</span><span class="pval">C54 Italian Giuoco Pianissimo — 7 games, primary Black weapon. Beat 2137 Fernandez (PAM R9). Drew 2209 Diaz not as White but near (PAM context).</span>
+  </div>
+
+  <p><strong>Opening fingerprint (as Black vs 1.e4):</strong></p>
+  <ul>
+    <li><strong>C54 Italian / Giuoco Piano (7 games):</strong> <code>1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.c3 Nf6 5.d4 exd4</code> — his single most-played line. Beat 2137-rated Fernandez in C54, beat 2206 vicinity. This is Austin's primary DANGER ZONE as White.</li>
+    <li><strong>C88/C99 Ruy Lopez (2 games):</strong> Beat 1833-rated Delgado (C88) and drew 2097-rated Gil (C99 Chigorin). Daniel can play the Closed Spanish too — he adapts.</li>
+    <li><strong>C47 Four Knights (1 game):</strong> Lost to Sen 1915 — only documented loss in a 1.e4 e5 line as Black. Not his prepared territory.</li>
+    <li><strong>Austin plays 1.e4 exclusively</strong> — must have a non-Italian weapon ready.</li>
+  </ul>
+
+  <h2>§2 — Daniel's Black Repertoire (Frequency &amp; Results)</h2>
+  <table>
+    <thead>
+      <tr><th>ECO</th><th>System</th><th>G</th><th>W</th><th>D</th><th>L</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>C54/C55</td><td>Italian Giuoco Piano (vs 1.e4 e5)</td><td>7</td><td>3</td><td>2</td><td>2</td><td>Primary Black weapon. Beat 2137 Fernandez (PAM R9). Drew 2097 Gil in similar structures. AUSTIN MUST AVOID THIS LINE.</td>
+      </tr>
+      <tr>
+        <td>C88/C99</td><td>Ruy Lopez / Closed Spanish</td><td>2</td><td>1</td><td>1</td><td>0</td><td>C88 beat 1833 Delgado; C99 Chigorin drew 2097 Gil. Daniel handles Spanish too — not as deep as Italian but solid.</td>
+      </tr>
+      <tr class="row-safe">
+        <td>C47</td><td>Four Knights</td><td>1</td><td>0</td><td>0</td><td>1</td><td>Lost to Sen 1915 in Four Knights — this appears to be non-prepared territory for Daniel. His ONLY documented 1.e4 e5 Black loss.</td>
+      </tr>
+      <tr>
+        <td>D27/D20</td><td>QGA (vs 1.d4)</td><td>3</td><td>2</td><td>0</td><td>1</td><td>Beat 2206 Duong (D27), beat 1834 Cabrera, lost to 2076 Qian. Austin plays 1.e4 so QGA is irrelevant — but shows Daniel fights for initiative, not passive draws.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="warn-box">
+    <strong>Daniel's Italian territory (C54/C55) is a TRAP for Austin as White.</strong> Playing 1.e4 e5 2.Nf3 Nc6 3.Bc4 leads directly to Daniel's deepest preparation. He has 7 games in C54 including results against 2100+ opponents. With a 326-point rating gap, walking into Daniel's home territory is extremely high risk. Austin must steer away with 3.Bb5.
+  </div>
+
+  <h2>§3 — Daniel's Vulnerabilities as Black</h2>
+
+  <h3>A. Four Knights (C47) — Only Documented 1.e4 e5 Loss</h3>
+  <table>
+    <thead><tr><th>Game</th><th>Result</th><th>Opponent</th><th>ECO</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>PAM School 2026 R? — C47</td><td>LOSS</td><td>Sen (1915)</td><td>C47</td><td>Only 1.e4 e5 Black loss in dataset. Four Knights is not Daniel's prepared territory. Lost to a 1915-rated player — suggests unfamiliarity.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>B. Canada Closed White Collapse</h3>
+  <p>As White in Canada Closed 2026 (avg opp ~2100+): <strong>0W–1D–3L</strong>. Daniel struggled with the White pieces against top Canadian competition — lost to Dhaliwal 2162, Wiebe 2060, Kalinin 2137, and only drew Wu 1906. This collapse under pressure is the primary indicator that Daniel's technique cracks in complex positions vs equal or stronger opponents.</p>
+  <div class="tip-box">
+    <strong>Key psychological note:</strong> Daniel's rating surged from 1942 to 2191 primarily in PAM 2026 and PAM School 2026, where he faced a weaker South American field. His Canada Closed record (3W-1D-5L overall) shows he cannot consistently perform at 2100+ level. As the underdog, Austin should actively try to create the type of complex, forced-calculation positions where Daniel's White game cracked.
+  </div>
+
+  <h3>C. Spanish Lines (C88/C99) — Solid but Not as Deep as Italian</h3>
+  <p>Daniel has only 2 documented games in Ruy Lopez lines as Black (both C88/C99 Closed Spanish). Results are positive (1W-1D), but the sample is small and his opponents were less challenging than his Italian competition. If Austin plays the Exchange Spanish (a structural, not theoretical battle), Daniel faces different demands than his C54 mastery.</p>
+
+  <h2>§4 — Austin's Recommended Weapon</h2>
+
+  <h3>Primary: Exchange Ruy Lopez — 3.Bb5 a6 4.Bxc6</h3>
+  <div class="var-moves">1.e4  e5  2.Nf3  Nc6  3.Bb5  a6  4.Bxc6  dxc6
+5.O-O  Qd6  6.d4  exd4  7.Nxd4  [Exchange Spanish — Austin's style]
+→ Daniel's Italian preparation becomes irrelevant after 3.Bb5
+→ Exchange on c6 gives Black doubled pawns but bishop pair
+→ White's plan: d4 break, exploit weak doubled pawns long-term
+
+Alt path: 3.Bb5 Nf6 4.O-O Bc5 5.c3 O-O [Spanish without exchange]
+→ If Daniel plays ...Bc5 (Italian-like), White keeps pressure without entering 3.Bc4 territory</div>
+
+  <p><strong>Why Exchange Ruy Lopez specifically:</strong></p>
+  <ul>
+    <li>Austin's style mirrors the Exchange Caro-Kann (his primary White weapon vs 1...c6) — structural play with fixed pawn structure. Exchange Spanish gives the same feel: doubled pawns on c6, open d-file, long-term positional pressure.</li>
+    <li>Daniel's documented 1.e4 e5 Black responses are C54 Italian (3.Bc4) and C88/C99 Spanish. The Exchange (4.Bxc6) is a specific sub-variation Daniel may not have deeply studied — it bypasses his Giuoco Piano preparation entirely.</li>
+    <li>Exchange Spanish positions require different technique than C54 — active piece play with the bishop pair vs White's structural + open-file pressure. Daniel's Italian expertise does not transfer directly.</li>
+  </ul>
+
+  <h3>Alternative: Closed Spanish 5.O-O → Maintain Tension</h3>
+  <div class="var-moves">1.e4  e5  2.Nf3  Nc6  3.Bb5  a6  4.Ba4  Nf6  5.O-O
+5...Be7  6.Re1  b5  7.Bb3  [Ruy Lopez Closed — complex middlegame]
+→ If Daniel plays ...d6, ...Be7 → fully Closed Spanish
+→ White plan: d4 break, Rook on e1, flexible Nbd2-f1-g3 maneuver</div>
+
+  <div class="warn-box">
+    <strong>Do NOT play 1.e4 e5 2.Nf3 Nc6 3.Bc4.</strong> This enters Italian territory (C54/C55) where Daniel has 7 games of deep preparation including results against 2100+ opponents. Given the 326-point rating gap, walking into Daniel's home lines is almost certain to end badly. The 3.Bb5 move order is the critical deviation.
+  </div>
+
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The reference blueprint: <strong>PAM 2026 — Daniel as Black in C54 Italian (beat 2137-rated Fernandez, beat 2041-rated Rueda)</strong>. These are the games Austin must AVOID replicating as White.</p>
+  <p><strong>Why the Italian fails as Austin's weapon:</strong></p>
+  <ol>
+    <li><strong>Opening preparation depth:</strong> Daniel has played C54 Italian in 7 games. He knows the Giuoco Piano plans, the c3+d4 break timing, the ...Bg4 pin setups, and the long endgame conversion techniques. He beat a 2137-rated opponent in this line.</li>
+    <li><strong>Rating amplification:</strong> When a weaker player enters a stronger player's home theory, the effective rating gap increases. Daniel at 2191 in the Italian vs Austin at 1865 could feel like a 500-point gap, not 326.</li>
+    <li><strong>The Spanish alternative is valid:</strong> Daniel plays C88/C99 Spanish too, but his results there (1W-1D vs weaker opponents) are not as impressive. The Exchange Spanish specifically creates structural positions Daniel cannot navigate on Italian preparation alone.</li>
+  </ol>
+  <div class="tip-box">
+    <strong>Lesson:</strong> Austin's Exchange Caro-Kann shows he is comfortable in structural imbalance positions (bishop pair vs doubled pawns). The Exchange Spanish creates an identical dynamic: Daniel gets the bishop pair, Austin gets the cleaner pawn structure and d-file. This is Austin's comfort zone transplanted to 1...e5 territory.
+  </div>
+
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~60%</span>
+      Exchange Ruy Lopez (3.Bb5 a6 4.Bxc6) — Main Line
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Daniel:  1...e5  2...Nc6  3...a6  4...dxc6  [accepts Exchange — most likely]
+Austin:  1.e4  e5  2.Nf3  Nc6  3.Bb5  a6  4.Bxc6  dxc6  5.O-O
+→ After 5...Qd6 6.d4 exd4 7.Nxd4: White is up in development; Black has bishop pair
+→ Plan: c4 (Maroczy-style), Nc3, f4, pressure on weak c6 pawn</div>
+      <ul>
+        <li><strong>Structure Austin knows:</strong> Fixed doubled pawns (c6/c7) = same as Exchange Caro-Kann. Austin has deep experience with this structural type. Daniel must navigate unfamiliar pawn structure with his "new" bishop pair.</li>
+        <li><strong>Active piece play required:</strong> After d4 break, both sides need to calculate accurately in open positions. This is Austin's tactical strength — he excels in combinational, open games.</li>
+        <li><strong>Avoid purely technical conversion:</strong> If Austin reaches an endgame at equal material, Daniel's 2191 technique should be superior. Keep pieces on and maintain tactical complexity through move 35+.</li>
+      </ul>
+      <div class="tip-box"><strong>Expected sequence:</strong> Daniel accepts the Exchange, builds with the bishop pair, and tries to create a positional long game. Austin presses with d4 break and c4, creating open files and targeting the doubled c-pawns. The position is sharp enough to generate tactical opportunities before move 25.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~25%</span>
+      Closed Spanish (3.Bb5 a6 4.Ba4 Nf6 5.O-O) — If Daniel Avoids Exchange
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Daniel:  1...e5  2...Nc6  3...a6  4...Nf6  [Morphy Defense, avoids Exchange]
+Austin:  1.e4  e5  2.Nf3  Nc6  3.Bb5  a6  4.Ba4  Nf6  5.O-O
+→ After 5...Be7 6.Re1 b5 7.Bb3: enters main Closed Spanish
+→ Plan: d4 break (Ruy Lopez main plan), knight maneuver Nbd2-f1-g3
+→ Marshall Attack possibility: 5...Be7 6.Re1 b5 7.Bb3 0-0 8.c3 d5 9.exd5 Nxd5 [prepare with Anti-Marshall]</div>
+      <ul>
+        <li>If Daniel plays the Closed Spanish (C78–C99), he is in more familiar territory — his C88/C99 games show capability here. However, these were vs weaker opponents.</li>
+        <li>Anti-Marshall setup (8.h3 instead of 8.c3 d5 gambit) avoids the sharpest forced lines and keeps the position in Austin's control.</li>
+        <li>Closed Spanish is a deep theoretical battleground — both players need preparation. Daniel's Italian prep does not transfer to Closed Spanish, but he is adaptable.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~15%</span>
+      Scotch Opening (2.Nf3 Nc6 3.d4) — Maximum Shock Value
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Daniel:  1...e5  2...Nc6  [standard development]
+Austin:  1.e4  e5  2.Nf3  Nc6  3.d4  [Scotch — not 3.Bc4, not 3.Bb5]
+→ After 3...exd4 4.Nxd4: enters Scotch Game C44/C45
+→ Plan: exchange on c6 option, or maintain knight tension
+→ Strong players can handle Scotch, but Daniel shows no Scotch games in dataset</div>
+      <ul>
+        <li>Daniel has ZERO documented Scotch games — complete surprise opening. His entire 1.e4 e5 preparation is built around Italian/Spanish structures (moves 3.Bc4 and 3.Bb5). The Scotch's 3.d4 disrupts his preparation tree at move 3.</li>
+        <li>Use only if Austin has studied Scotch lines. A completely unprepared weapon is risky even if it surprises Daniel.</li>
+        <li>Scotch Gambit (3.d4 exd4 4.Bc4) maintains Italian-like piece activity but in a different pawn structure — hybrid approach.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules for This Game</h3>
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Play 3.Bb5 NOT 3.Bc4 — Daniel's Italian (C54) is off-limits</div>
+          <div class="rule-body">Daniel has 7 games in C54 Italian as Black including a 2137 scalp. With a 326-point disadvantage, entering his deeply-prepared home theory is near-suicidal. 3.Bb5 immediately steers away from his preparation. The Exchange variation (4.Bxc6) takes it into Austin's structural comfort zone (doubled pawns = Exchange Caro-Kann territory). This single move choice (3.Bb5 vs 3.Bc4) is the most critical decision of the game.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Create complications before move 25 — don't let Daniel reach a quiet endgame</div>
+          <div class="rule-body">Daniel is a "long game specialist" — he excels in C54 Italian endgames that go 60–90 moves. His best results come from converting complex middlegames into technical endgames where his 2191 technique dominates. Austin must create tactical complications, open lines, and forcing sequences before the position simplifies. The Exchange Spanish naturally creates open d-file pressure and c-pawn targets that require active play from both sides through move 30+.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Accept the rating gap — play for time pressure, not technique</div>
+          <div class="rule-body">At 326 points lower, Austin cannot out-calculate Daniel in endgame technique. Austin's advantage is time pressure tactics and combinational complexity. If the position is still unresolved at move 30 with complex tactical patterns, Daniel must calculate accurately in time pressure — where his Canada Closed White collapse (0W-1D-3L) shows he can fail. The goal is not to be better than Daniel technically; it is to create a position where Daniel's calculation errors can occur.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS WHITE — Exchange Ruy Lopez (main plan):
+  1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Bxc6 dxc6 5.O-O
+  → After 5...Qd6 6.d4 exd4 7.Nxd4: active piece play
+  → After 5...f6 6.d4: pressure on e5, White better development
+  → After 5...Bd6 6.d4 exd4 7.Nxd4: same plan
+
+CRITICAL ALTERNATIVE (if Daniel plays C88/C99 Spanish):
+  3.Bb5 a6 4.Ba4 Nf6 5.O-O Be7 6.Re1 b5 7.Bb3
+  → Anti-Marshall: 8.h3 (avoid 8.c3 d5 Marshall)
+  → Plan: d4 break, Nbd2-f1-g3 maneuver
+
+DO NOT PLAY:
+  3.Bc4 [enters Italian C54 — Daniel's preparation territory]
+
+OPENING EXIT CONDITION — play the Exchange when:
+  Daniel plays 3...a6 → go 4.Bxc6 immediately
+  Daniel plays 3...Nf6 → retreat 4.Ba4, then play Closed Spanish</div>
+
+    <h3>Critical Themes Table</h3>
+    <table>
+      <thead><tr><th>Theme</th><th>When it arises</th><th>Austin's response</th></tr></thead>
+      <tbody>
+        <tr class="row-danger"><td>Daniel plays 3...Bc5 (Italian signal)</td><td>After 1.e4 e5 2.Nf3 Nc6 3.Bb5</td><td>Fine — 3.Bb5 means we're in Lopez, not Italian. 3...Bc5 → 4.c3, maintain Lopez structure. DO NOT switch to 3.Bc4.</td></tr>
+        <tr class="row-danger"><td>Daniel enters C54/C55 territory</td><td>Only possible if Austin plays 3.Bc4 — DO NOT DO THIS</td><td>If accidentally played, enter slowest Giuoco Pianissimo (4.d3 instead of 4.c3) — reduces sharpness but still bad for Austin.</td></tr>
+        <tr><td>Exchange position after 4.Bxc6 dxc6</td><td>After Exchange variation</td><td>Execute d4 break immediately (5.O-O → 6.d4), activate rooks, target doubled c-pawns. Don't simplify to pure endgame.</td></tr>
+        <tr><td>Daniel uses bishop pair to dominate</td><td>Exchange Spanish endgame</td><td>Keep queens on. Don't trade into opposite-colored bishop endgame where Daniel's technique wins. Maintain rooks and one set of pawns active.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>§8 — Day-of Preparation (20 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Tactics drill — 8 min:</strong> 6 puzzles in Exchange Spanish structures — specifically positions with open d-files, doubled pawns on c6/c7, and bishop pair vs structural advantage. Practice finding the d4 break timing and rook activation ideas. Also: 2 puzzles on "don't oversimplify" — positions where trading into a quiet endgame vs a 2100+ player is the losing choice. Reinforce: in this game, complexity is Austin's friend.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Opening line review — 7 min:</strong> Replay: <code>1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Bxc6 dxc6 5.O-O Qd6 6.d4 exd4 7.Nxd4</code>. Stop at move 7. Ask: <em>"What does White want?"</em> Answer: c4 (Maróczy bind), Nc3, f4 advance to exploit the structure. If Daniel plays 3...Nf6 (avoiding Exchange), replay: <code>3.Bb5 a6 4.Ba4 Nf6 5.O-O Be7 6.Re1 b5 7.Bb3 O-O 8.h3</code> (Anti-Marshall). The 8.h3 move is the critical Anti-Marshall choice — remember it.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Mental visualization — 5 min:</strong> Visualize Daniel playing 3...a6 (expected — testing if Austin will enter Italian via 4.Ba4-c4). Austin plays 4.Bxc6 — the Exchange. Daniel gets the bishop pair; Austin gets structural pressure. The game becomes a long middlegame fight. At move 30, the position is complex and both players are in time pressure. Daniel must calculate a tactical sequence accurately — this is where his Canada Closed White collapse pattern may emerge. Ask: <em>"Why am I the favorite to handle time pressure better?"</em> Answer: Austin is the stronger combinational player in his style; Daniel is the stronger technical player. Time pressure = Austin's domain.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Daniel is 326 points above me and is an Italian preparation expert. I cannot beat him in his prepared theory. My weapon is 3.Bb5 — Exchange Spanish — which places us both in less-charted territory. His bishop pair doesn't automatically win; I have structural pressure and open files. At move 30 in a complex position, both players are calculating. That's where I have a chance. My job is to keep the position alive until then."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin W Exchange Lopez (main plan)</td><td>C68</td><td><code>1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Bxc6 dxc6 5.O-O</code></td></tr>
+      <tr><td>Austin W Closed Spanish (if Daniel avoids Exchange)</td><td>C84</td><td><code>1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Ba4 Nf6 5.O-O Be7 6.Re1 b5 7.Bb3 O-O 8.h3</code></td></tr>
+      <tr><td>Austin W Scotch (shock value)</td><td>C44</td><td><code>1.e4 e5 2.Nf3 Nc6 3.d4 exd4 4.Nxd4</code></td></tr>
+      <tr class="row-danger"><td>AVOID — Italian (Daniel's home)</td><td>C54/C55</td><td><code>1.e4 e5 2.Nf3 Nc6 3.Bc4</code> — DO NOT PLAY</td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish movetime 800ms · 24 games across 4 tournaments (partial data; Canada Closed 2026 fully analyzed)</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#b35800;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Opening Gaps — Daniel as Black (Austin as White context)
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Italian C54/C55 is Daniel's strength, not weakness:</strong> 7 Black games (3W-2D-2L) including a win vs 2137 and draw vs near-2100 level. Playing into this line as White would hand Daniel a 326-pt-amplified advantage. The "opening gap" is Austin's risk, not Daniel's — Austin must be the one to sidestep.</p>
+      <p><strong>Exchange Spanish territory is the gap:</strong> Daniel's C88/C99 Closed Spanish results (1W-1D vs weaker opponents) suggest he can handle general Lopez structures. But the Exchange variation (4.Bxc6 dxc6) is a specific structural choice Daniel may not have deeply prepared. His 2 Spanish games were in the Closed/Chigorin subtypes (5...Be7/5...a5), not the Exchange. Austin's Exchange Caro-Kann expertise gives him structural familiarity Daniel may lack.</p>
+      <p><strong>Four Knights (C47) — only confirmed weakness:</strong> Lost to Sen 1915 in Four Knights. While the sample is too small to confirm a pattern, it is the only documented 1.e4 e5 loss as Black. Four Knights shares structural similarity with Exchange Spanish — both involve early knight symmetry and open e5/d4 pawn centers.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#7a0000;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Time / Calculation — Canada Closed White Collapse
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Canada Closed White record: 0W-1D-3L (4 games, avg opp ~2100+).</strong> Lost to Dhaliwal 2162 (B90, 91.2%), Wiebe 2060 (87.3%), Kalinin 2137 (C07). Only drew Wu 1906. These were games where Daniel had White — the favorable color — and still collapsed.</p>
+      <p><strong>Engine data (partial — Canada Closed R1 White: 91.2% / R7 White: 87.3%):</strong> Daniel's worst accuracy came in his White losses (87.3% in R7 vs Wiebe). The pattern: Daniel handles Black better than White against top competition. His Canada Closed Black results (2W-2L including beating 2206 Duong) are stronger than his White results (0W-1D-3L). This is unusual — normally White has the initiative advantage.</p>
+      <p><strong>Implication for Austin:</strong> Daniel's calculation under pressure appears stronger as Black (reacting) than as White (initiating). This explains why his Italian Black games are so strong — he knows the defensive patterns. As White in complex, calculated positions, he makes more errors. Austin as White faces the better-calculated version of Daniel — but the Exchange Spanish creates non-Italian structures where Daniel cannot rely on memorized patterns.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#b35800;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Endgame — Long-Game Specialist; Austin Must Avoid Technical Endings
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Daniel's strongest feature is the Italian endgame:</strong> C54 Giuoco Piano games run 60–90 moves in his dataset. He converts complex endgames arising from the Italian structure with 2191-level technique. This is exactly where Austin must NOT end up.</p>
+      <p><strong>Exchange Spanish endgames are different:</strong> The bishop pair + doubled pawn structure creates different endgame questions — not Italian long-game patterns. Daniel's endgame mastery is in Italian piece coordination (bishop vs knight, Rook endgames from e5/d4 structures). Exchange Spanish creates different rook/pawn endgames that may challenge Daniel more.</p>
+      <p><strong>Key directive:</strong> If Austin reaches a queen+piece endgame in the Exchange Spanish, do NOT rush to simplify. Keep one tactical threat alive — a passed pawn, a rook infiltration, a fork motif — to prevent Daniel from entering pure conversion mode.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#b35800;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Color Balance — Better as Black than White at Top Level
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Daniel's overall: White 5W-3D-3L (59.1%) vs Black 7W-2D-4L (61.5%).</strong> Black is slightly higher — unusual for a classical player who plays 1.e4. His strongest results (beating 2206, 2137; drawing 2097) are primarily as Black. His White record against 2100+ in Canada Closed: 0W-1D-3L.</p>
+      <p><strong>As White, Daniel faces the Exchange Spanish against Austin:</strong> The Exchange Lopez is a White positional weapon that creates long-term structural pressure. Austin (White) is playing to Daniel's WORSE side — Daniel performs relatively worse with White in pressure games. This is the optimal matchup: Austin has White, Daniel is in the weaker-performing color role (White under pressure).</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#b35800;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Italian C54 is his strength (7g); Exchange Spanish is largely uncharted; Four Knights (C47) sole 1.e4 e5 loss</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time / Calculation</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Canada Closed White 0W-1D-3L vs 2100+; calculation fails in non-home-theory positions; 87.3% accuracy in R7 loss</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Italian endgames = strength (60-90 move games); Exchange Spanish endgames = different structural demands; avoid Italian simplifications</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Paradoxically stronger as Black (7W-2D-4L, 61.5%) than White (5W-3D-3L, 59.1%) — White collapse vs 2100+ in Canada Closed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

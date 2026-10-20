@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Daniel Joshua Lee — Austin as Black</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #1a5276; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #1a5276; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #1a5276; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #1a5276; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #1a5276; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #f0fff4 !important; color: #1a4731; }
+    .acc-hi { color: #1a6030; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #fafbff; }
+    .rule-number { background: #1a5276; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #eaf3fb; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #1a5276; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #1a5276; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #d6eaf8; color: #1a5276; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #d6eaf8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a3a55; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Daniel Joshua Lee</h1>
+    <div class="subtitle">Austin as Black — Sveshnikov Sicilian to Kill the Maróczy Bind</div>
+    <div class="meta">Daniel Joshua Lee · 2191 FIDE (Sep 2026) · 24 games · Stockfish movetime 800 · Daniel White: B38/B36/B45 Maróczy vs Sicilian (5g, 3W–2D) · No direct encounter · ~−326 pts Austin underdog</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-danielee.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-danielee-white.html">← Austin as White</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-danielee-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="encounter-box">
+    <strong>No direct encounter on record.</strong> Engine data from 24 games across 4 tournaments. Daniel as White vs Sicilian: <strong>Maróczy Bind (B36/B38/B45/B47) — 5 games, 3W–2D–0L</strong> — undefeated in this setup. Austin's standard Sicilian leads directly into Daniel's preferred White setup. Primary recommendation: <strong>Sveshnikov / Kalashnikov (4...e5)</strong> — prevents the Maróczy Bind entirely and forces Daniel into unfamiliar B32/B33 theory. Rating gap: Austin ~1865, Daniel ~2191 — <strong>−326 pts, significant underdog</strong>. Austin's goal: create tactical complexity in non-Maróczy territory where Daniel's White preparation does not apply.
+  </div>
+
+  <h2>§1 — Daniel's White Repertoire</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Daniel Joshua Lee</span>
+    <span class="plabel">FIDE Rating</span><span class="pval">2191 FIDE (Sep 2026) — rapidly rising (was 1942 Apr 2026)</span>
+    <span class="plabel">Primary 1.e4 response</span><span class="pval">Italian / Giuoco Piano C54/C55 vs 1...e5; Maróczy Bind B36/B38/B45/B47 vs Sicilian; French Tarrasch C07 vs French</span>
+    <span class="plabel">White record vs Sicilian</span><span class="pval">3W–2D–0L in Maróczy-type systems — undefeated</span>
+    <span class="plabel">Best White result vs Sicilian</span><span class="pval">Beat 2041-rated Palomino (B38 Maróczy Dragon) at PAM School 2026</span>
+    <span class="plabel">Weakness</span><span class="pval">Canada Closed White 0W-1D-3L vs avg 2100+; no Sveshnikov games on record</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">No encounter on record</span>
+  </div>
+
+  <p><strong>Daniel's White opening fingerprint (vs Austin's expected Sicilian 1...c5):</strong></p>
+  <ul>
+    <li><strong>B36/B38 — Maróczy Dragon (5 games):</strong> <code>1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 g6 5.c4</code> — classic Maróczy Bind. Beat 2041 Palomino in B38, beat Rodriguez 1847 in B36. <strong>Undefeated in Maróczy setups</strong>. This is Austin's primary danger as Black.</li>
+    <li><strong>B45/B47 — Sicilian Taimanov/Four Knights (2 games):</strong> Varied setups suggesting Daniel can play multiple Sicilian anti-Dragon options. Drew Wu 1906 in B32 (basic Sicilian).</li>
+    <li><strong>B90 — Najdorf English Attack (1 game):</strong> <em>Lost</em> to Dhaliwal 2162 in B90 — this suggests Najdorf/English Attack is NOT Daniel's primary weapon. He may avoid it or is less prepared here.</li>
+    <li><strong>Austin plays 1...c5 (Sicilian)</strong> — the Maróczy encounter is the primary scenario.</li>
+  </ul>
+
+  <h2>§2 — Daniel's White Sicilian Repertoire (Threat Assessment)</h2>
+  <table>
+    <thead>
+      <tr><th>ECO</th><th>System</th><th>G</th><th>W</th><th>D</th><th>L</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>B36/B38</td><td>Maróczy Dragon / Bind</td><td>2</td><td>2</td><td>0</td><td>0</td><td>Undefeated. Beat 2041 Palomino (B38) and 1847 Rodriguez (B36). Austin's Dragon Sicilian (1...c5 2...g6) leads HERE. AVOID this territory.</td>
+      </tr>
+      <tr class="row-danger">
+        <td>B45/B47</td><td>Sicilian Taimanov / Four Knights</td><td>2</td><td>1</td><td>1</td><td>0</td><td>Won vs 1928 Rueda (B45), drew Wu 1906 (B47). Undefeated. Suggests Daniel prepares multiple Sicilian setups.</td>
+      </tr>
+      <tr class="row-safe">
+        <td>B90</td><td>Sicilian Najdorf English Attack</td><td>1</td><td>0</td><td>0</td><td>1</td><td>LOST to Dhaliwal 2162 in Canada Closed R1. This appears to be Daniel's weaker Sicilian weapon — not his primary preparation.</td>
+      </tr>
+      <tr>
+        <td>B32</td><td>Sicilian Basic / Open</td><td>1</td><td>0</td><td>1</td><td>0</td><td>Drew Wu 1906 — inconclusive data.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="warn-box">
+    <strong>Daniel's Maróczy Bind (B36/B38) is 2W-0D-0L — undefeated.</strong> Austin's standard Sicilian repertoire (Dragon, Scheveningen) leads directly into this. The Sveshnikov's 4...e5 is the only move that prevents 5.c4 (the Maróczy's defining move) and forces Daniel out of his prepared setup.
+  </div>
+
+  <h2>§3 — Austin's Recommended Weapon</h2>
+
+  <h3>Primary: Sicilian Sveshnikov / Kalashnikov — 4...e5</h3>
+  <div class="var-moves">1.e4  c5  2.Nf3  Nc6  3.d4  cxd4  4.Nxd4  e5  [Sveshnikov/Kalashnikov — kills Maróczy]
+5.Nb5  d6  6.c4??  [IMPOSSIBLE — e5 controls this square]
+
+INSTEAD after 4...e5:
+5.Nb5  d6  6.N1c3  a6  7.Na3  b5  [Sveshnikov proper B33]
+→ OR: 5.Nf3  Nf6  6.Nc3  Bb4  [Kalashnikov B32 with ...Bb4]
+→ OR: 5.Nb5  a6  6.Nd6+  Bxd6  7.exd6  [Sveshnikov with Nd6 exchange]
+
+WHY 4...e5 KILLS MAROC:
+  After 4...e5: White knight on d4 MUST MOVE (can't stay with Black pawn on e5)
+  5.c4 is IMPOSSIBLE (e5 pawn controls d4+c3 vicinity, and the knight is undefended)
+  Daniel cannot play his Maróczy Bind — he must go into Sveshnikov theory instead</div>
+
+  <p><strong>Why Sveshnikov (4...e5) specifically:</strong></p>
+  <ul>
+    <li><strong>Mathematically kills the Maróczy:</strong> After 1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 — now Black plays 4...e5. White's knight on d4 is attacked and must retreat. 5.c4 (the Maróczy) is literally impossible because the Black e5 pawn controls d4. Daniel <em>cannot</em> play his primary preparation.</li>
+    <li><strong>Daniel has zero Sveshnikov games on record:</strong> His entire Sicilian White preparation is built around Maróczy-type setups (B36/B38) and Taimanov/Four Knights (B45/B47). Sveshnikov forces him into B32/B33 territory — 0 games on record.</li>
+    <li><strong>High tactical content suits Austin:</strong> Sveshnikov creates sharp, imbalanced positions — Black has the e5 pawn outpost but a weak d5 square. Complex tactical play around the b5-d6 pawn structure is Austin's combinational strength.</li>
+    <li><strong>Austin's standard Sicilian avoided:</strong> Austin's Rossolimo/Dragon setups lead to Daniel's prepared Maróczy territory. Sveshnikov is a clean preparation sidestep.</li>
+  </ul>
+
+  <div class="warn-box">
+    <strong>Do NOT play 1...c5 and then 2...g6 (Dragon setup).</strong> Dragon leads to B36/B38 Maróczy Bind — Daniel's 2W-0L preparation. Do NOT play 2...e6 (Scheveningen) leading to B45 Taimanov territory — Daniel also has preparation here. The Sveshnikov 4...e5 is the critical move that bypasses all of Daniel's documented White Sicilian setups.
+  </div>
+
+  <h3>Alternative: Rossolimo via 1...c5 2.Nf3 e6 — Sidestep Maróczy at move 2</h3>
+  <div class="var-moves">1.e4  c5  2.Nf3  e6  [instead of 2...Nc6 — avoids Maróczy setup]
+→ After 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3: enters Scheveningen B80–B89
+→ OR: 2.Nc3 → Austin's standard Rossolimo: 2...e6 3.Bb5 [no d4 system]
+→ Daniel plays 2.Nf3 (not 2.Nc3), so Rossolimo requires different move order</div>
+  <p>If Austin prefers to avoid Sveshnikov complexity, playing 2...e6 reaches French-like structures after 3.d4. But risk: Daniel may still reach Taimanov-type setups via 4.Nxd4 Nc6 5.Nc3 — his B47 data. The cleanest weapon remains Sveshnikov (4...e5).</p>
+
+  <h2>§4 — Daniel's White Weaknesses</h2>
+
+  <h3>A. Canada Closed White Collapse (0W–1D–3L vs avg 2100+)</h3>
+  <p>Daniel's most revealing weakness: as White in Canada Closed 2026 vs the top Canadian field (~avg 2100+ opponents), he scored 0W-1D-3L. This is not a small sample anomaly — 4 White games, zero wins. His losses:</p>
+  <ul>
+    <li><strong>R1 vs Dhaliwal 2162 (B90):</strong> Lost in Najdorf English Attack as White — 91.2% acc, but 1 blunder.</li>
+    <li><strong>R7 vs Wiebe 2060 (C54 Italian):</strong> Lost playing Italian as White — 87.3% acc. His WORST accuracy game in the dataset.</li>
+    <li><strong>R8 vs Kalinin 2137 (C07 French Tarrasch):</strong> Lost. French Tarrasch as White failed vs strong opposition.</li>
+    <li><strong>Drew R4 vs Wu 1906 — only White half-point.</strong></li>
+  </ul>
+  <div class="tip-box">
+    <strong>The Canada Closed pattern shows:</strong> Daniel's White technique collapses under pressure vs 2000+ level opposition. His PAM 2026 White record (3W-1D-0L) was vs weaker South American competition. When Austin plays Sveshnikov, Daniel is forced into unfamiliar B32/B33 territory and must calculate without preparation support — exactly the condition where his Canada Closed errors occurred.
+  </div>
+
+  <h3>B. B90 Najdorf (Lost to 2162) — Not His Weapon</h3>
+  <p>Daniel played the Najdorf English Attack (B90) in Canada Closed R1 and lost to Dhaliwal 2162. This loss, plus his general Maróczy-centric Sicilian preparation, suggests he is NOT deeply prepared in B90/Najdorf territory. This is information for Austin's Sicilian move-order choices: if Austin plays the Najdorf (1...c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6), Daniel may face his own preparation gap.</p>
+
+  <h3>C. PAM White Wins Were Against Weaker Fields</h3>
+  <p>Daniel's PAM 2026 White record (3W-1D): beat Rodriguez 1847, drew Wiebe-adjacent (approx 2060 vicinity), beat Rueda 1928. His strongest White win was vs Palomino 2041 (PAM School). These are significantly weaker than the Canada Closed field. Against Austin at 1865, Daniel is in "comfortable territory" by rating — but Austin's Sveshnikov creates the type of unfamiliar, calculated positions that broke him at Canada Closed.</p>
+
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The reference blueprint: <strong>Canada Closed R1 — Daniel (1942) as White vs Dhaliwal (2162), B90 Najdorf, 91.2% accuracy, LOSS</strong>. Daniel started with 1 blunder despite high overall accuracy. The position became heavy with material imbalance that Daniel couldn't manage.</p>
+  <p><strong>What this tells Austin:</strong></p>
+  <ol>
+    <li><strong>Daniel's high accuracy doesn't prevent losing:</strong> 91.2% accuracy and still lost. This means accuracy statistics alone don't win the game — the critical moments matter. Austin should aim to create the type of position where one critical moment decides everything (the "B90 R1 blunder" pattern).</li>
+    <li><strong>Daniel struggles with complex material imbalances:</strong> The B90 loss involved heavy material imbalance. Sveshnikov is known for exactly this type of imbalanced positions (Black has a backward d6 pawn, an e5 outpost, and active piece play — complex calculation required at every stage).</li>
+    <li><strong>Time pressure + complex positions = Daniel's breakdown conditions:</strong> The Canada Closed was his high-pressure tournament. Sveshnikov creates these conditions naturally.</li>
+  </ol>
+  <div class="tip-box">
+    <strong>Lesson:</strong> Austin cannot out-technique Daniel in a clean endgame. But Austin can create a Sveshnikov structure where the b5/d6 pawn tension and open c-file create repeated tactical decisions. Every move Daniel faces in unfamiliar Sveshnikov territory is a calculation challenge — exactly where his Canada Closed White game cracked.
+  </div>
+
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~70%</span>
+      Sveshnikov 4...e5 (Main Line — kills Maróczy)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Daniel: 1.e4  c5  2.Nf3  Nc6  3.d4  cxd4  4.Nxd4  [expected — standard anti-Sicilian]
+Austin: 1...c5  2...Nc6  3...cxd4  4...e5  [SVESHNIKOV — 5.c4 now impossible]
+→ After 5.Nb5 d6 6.N1c3 a6 7.Na3 b5: Sveshnikov proper
+→ OR after 5.Nb5 a6 6.Nd6+ Bxd6 7.exd6: simplified exchange variation
+→ Active Black plan: ...f5 break, ...Nf6-g4 maneuver, ...Rb8+b4 battery</div>
+      <ul>
+        <li><strong>Move 4...e5 is the key:</strong> It attacks the d4 knight, prevents 5.c4 (Maróczy), and establishes the e5 stronghold immediately. Daniel must retreat the knight (5.Nb5 most common) — now he's out of Maróczy territory entirely.</li>
+        <li><strong>Black's plan in Sveshnikov:</strong> Control e5 pawn (important outpost), develop with ...Nf6, ...Bb4 or ...Be7, castle queenside. The b5 push creates queenside counterplay. Black accepts the weak d5 square in exchange for active piece play and the e5 outpost.</li>
+        <li><strong>Tactical themes:</strong> ...f5 break in the middlegame, Nd4 fork threats, open c-file battery. Austin's combinational strength is well-suited for this tactical complexity.</li>
+      </ul>
+      <div class="tip-box"><strong>Expected pattern:</strong> Daniel faces an unfamiliar Sveshnikov structure. His Maróczy preparation (Maróczy Bind plans, c4/e4 space advantage) is completely bypassed. He must calculate independently in B32/B33 territory with zero game experience. This is where time pressure and calculation errors are most likely to occur.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~20%</span>
+      If Daniel plays non-standard vs Sicilian (2.Nc3, Rossolimo territory)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Daniel: 2.Nc3  [not 2.Nf3 — goes to Rossolimo territory]
+Austin: 2...e6  [Kan/Taimanov setup] OR 2...g6  [Accelerated Dragon]
+→ After 2.Nc3 e6 3.Nf3 Nc6 4.d4 cxd4 5.Nxd4: standard Open Sicilian
+→ Now 4...e5 still kills Maróczy: 5.Nb5 d6 6.N1c3 is standard Sveshnikov
+→ Or: 2.Nc3 g6 3.d4 cxd4 4.Nxd4 Nc6 [Accelerated Dragon] → Maróczy possible
+
+CRITICAL: If Daniel plays 2.Nc3 and Austin plays 2...g6, the Maróczy (5.c4) becomes possible again!
+Best response to 2.Nc3: play 2...e6 then reach Sveshnikov later via 4...e5.</div>
+      <ul>
+        <li>If Daniel plays 2.Nc3 (not 2.Nf3), Austin should avoid 2...g6 (leads to Accelerated Dragon / Maróczy). Instead 2...e6 reaches a standard Open Sicilian where 4...e5 is still available.</li>
+        <li>Daniel's only 2.Nc3 data: no documented games as White starting with 2.Nc3. He appears to play 2.Nf3 standardly. But preparation for 2.Nc3 is prudent.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~10%</span>
+      If Daniel plays 1.d4 instead of 1.e4
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Daniel: 1.d4  [no 1.d4 games documented as White — rare or new]
+Austin: 1...Nf6  2...e6  3...Bb4  [Nimzo-Indian vs 3.Nc3]
+→ OR: 1...d5 2.c4 e6 [QGD — solid but passive vs higher-rated]
+→ Austin's Nimzo-Indian (Bxc3+ with b6/Ba6): familiar Black territory</div>
+      <ul>
+        <li>Daniel has ZERO 1.d4 games as White documented in the 24-game dataset. If he plays 1.d4, it is unprepared territory — potentially a surprise himself.</li>
+        <li>Austin's Nimzo-Indian (1.d4 Nf6 2.c4 e6 3.Nc3 Bb4) is his primary 1.d4 Black weapon. Standard, well-prepared, creates imbalances. Use it.</li>
+        <li>Low probability scenario — Daniel is a committed 1.e4 player based on all available data.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules for This Game (Austin as Black)</h3>
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Play 4...e5 (Sveshnikov) — the Maróczy Bind is Daniel's most dangerous weapon</div>
+          <div class="rule-body">After 1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4, Austin MUST play 4...e5. This single move makes 5.c4 (Maróczy Bind — Daniel's undefeated 2W-0L setup) physically impossible. The e5 pawn controls the c4/d5 area preventing the Maróczy's defining move. Any other 4th move (4...g6 Dragon, 4...e6 Scheveningen, 4...Nf6 Taimanov-style) risks reaching Daniel's prepared Maróczy or Taimanov territory. 4...e5 is the single most important move in the entire game.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Create imbalances before move 20 — Daniel thrives in quiet technical positions</div>
+          <div class="rule-body">Daniel's best results are in long, classical games (C54 Italian going 60-90 moves, or Maróczy positional squeeze). Against a 326-point higher-rated opponent, Austin cannot win a purely technical game. Austin must use Sveshnikov's natural tactical ideas: the b5 pawn advance, the ...f5 break, queen-side pressure with ...Rb8. These create forcing sequences that demand calculation from both sides. The more forcing the position, the smaller Daniel's rating advantage matters — and the larger Austin's combinational strength becomes relevant.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Target time pressure — Daniel's calculation fails in unfamiliar positions under clock pressure</div>
+          <div class="rule-body">Canada Closed White: 0W-1D-3L vs 2100+ — Daniel's worst performance was with White in pressure games. Sveshnikov is an unfamiliar territory for Daniel (0 games on record). Combined with clock pressure in the late middlegame, this is the optimal condition for his calculation failures. Austin should play quickly in the Sveshnikov opening moves (he should be more prepared here than Daniel) and aim to reach a complex position at move 25+ where Daniel has less time than usual. Rapid, forcing moves in the middlegame amplify time pressure asymmetry.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS BLACK — Sveshnikov (main plan):
+  1...c5  2...Nc6  3...cxd4  4...e5  [KEY MOVE — prevents Maróczy]
+  → After 5.Nb5 d6 6.N1c3 a6 7.Na3 b5: Sveshnikov proper (B33)
+  → After 5.Nb5 a6 6.Nd6+ Bxd6 7.exd6: exchange variation
+  → Plan: ...Nf6, ...Be7 or ...Bb4, ...0-0 or ...0-0-0, ...f5 break
+
+MOVE ORDER CHECK:
+  2.Nc3 Nc6 (not 2...g6! — Maróczy risk)
+  2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 → play 4...e5 IMMEDIATELY
+
+MARÓCZY PREVENTION CHECKLIST:
+  After 4.Nxd4: does 5.c4 work? → 4...e5 makes it impossible (e5 pawn attacks d4)
+  After 4...g6 5.c4: YES — MARÓCZY. Avoid 4...g6.
+  After 4...e5 5.c4: IMPOSSIBLE — c4 is attacked by e5.
+
+IF DANIEL PLAYS 1.d4:
+  1...Nf6 2...e6 3...Bb4 [Nimzo-Indian — Austin's standard weapon]</div>
+
+    <h3>Critical Move-Order Threats Table</h3>
+    <table>
+      <thead><tr><th>Daniel's Move</th><th>Risk</th><th>Austin's Response</th></tr></thead>
+      <tbody>
+        <tr class="row-danger"><td>4.Nxd4 (standard)</td><td>If Austin plays 4...g6 → Daniel plays 5.c4 MARÓCZY (2W-0L)</td><td>Must play 4...e5 NOT 4...g6. This is the critical move.</td></tr>
+        <tr class="row-danger"><td>4.Nxd4 (standard)</td><td>If Austin plays 4...e6 → Daniel may reach Taimanov B45/B47 (1W-1D-0L)</td><td>4...e5 is safer. Sveshnikov is more specifically preparation-bypassing.</td></tr>
+        <tr><td>5.Nb5 (after 4...e5)</td><td>Standard Sveshnikov — Daniel must go into unfamiliar B32/B33</td><td>5...d6 6.N1c3 a6 7.Na3 b5 — classic Sveshnikov development. Daniel has 0 games here.</td></tr>
+        <tr><td>5.Nf3 (retreat after 4...e5)</td><td>Less common — Daniel avoids Sveshnikov structure</td><td>5...Nf6 6.Nc3 Bb4 → Kalashnikov-type. Still out of Maróczy territory.</td></tr>
+        <tr class="row-safe"><td>B90 Najdorf English Attack territory</td><td>Daniel LOST in B90 (Canada Closed R1 vs Dhaliwal 2162)</td><td>If Austin plays Najdorf (4...Nf6 after 3.d4 cxd4 4.Nxd4 d6): Daniel in weakest Sicilian White territory.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>§8 — Day-of Preparation (20 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Tactics drill — 8 min:</strong> 6 puzzles in Sveshnikov/Open Sicilian structures. Specifically: Black's ...b4, ...Rb8, and ...f5 tactical ideas. Also 2 puzzles on "defending the d5 weak square" — the Sveshnikov's structural concession is the d5 hole. Recognizing when White can exploit it vs when it is harmless is critical. Practice: evaluate whether a White knight on d5 is threatening or can be driven away with ...c6 or ...Be6.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Opening line review — 7 min:</strong> Replay: <code>1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 e5 5.Nb5 d6 6.N1c3 a6 7.Na3 b5</code>. Stop at move 7. Ask: <em>"What does Black want?"</em> Answer: ...Nf6, ...Be7, castle (kingside or queenside depending on White's setup), then ...f5 break. The b5 pawn structure creates queenside pressure that White must address. Confirm: at move 4, play e5 not g6. Write "4...e5" on scratch paper as a reminder if needed.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Mental visualization — 5 min:</strong> Visualize Daniel playing 4.Nxd4 (expected after 1.e4 c5 2.Nf3 Nc6 3.d4 cxd4). Visualize Austin's immediate response: 4...e5. Feel the certainty — this is the correct move, it prevents the Maróczy, and Daniel is now in unfamiliar territory. Visualize Daniel thinking for 5–8 minutes at move 5 (Nb5 is forced but he's recalling unfamiliar lines). Austin has used 2 minutes; Daniel is using 6 minutes. This clock asymmetry is the foundation of Austin's game plan.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Daniel is a 2191 Maróczy Bind specialist. His undefeated record in B36/B38 means I absolutely cannot play ...g6. My 4...e5 destroys his preparation completely — he must calculate from scratch. In Sveshnikov territory, I know the plans and he doesn't. Every minute he spends thinking is a minute of my advantage building. I don't need to outplay him in technique — I need to create a complex tactical fight where one mistake decides it."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin B Sveshnikov (main plan)</td><td>B33</td><td><code>1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 e5 5.Nb5 d6 6.N1c3 a6 7.Na3 b5</code></td></tr>
+      <tr><td>Austin B Kalashnikov (alt)</td><td>B32</td><td><code>1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 e5 5.Nf3 Nf6 6.Nc3 Bb4</code></td></tr>
+      <tr><td>Austin B Nimzo-Indian (if 1.d4)</td><td>E20-E59</td><td><code>1.d4 Nf6 2.c4 e6 3.Nc3 Bb4</code></td></tr>
+      <tr class="row-danger"><td>AVOID — Dragon (Maróczy risk)</td><td>B36/B38</td><td><code>1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 g6 5.c4</code> = Daniel's home territory</td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish movetime 800ms · 24 games across 4 tournaments (partial data; Canada Closed 2026 fully analyzed)</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf3fb;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#b35800;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Opening — Maróczy Strength vs Sveshnikov Blind Spot
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Maróczy Bind (B36/B38) — Daniel's strongest White weapon:</strong> 2W-0D-0L. Beat 2041-rated Palomino in B38, beat 1847-rated Rodriguez in B36. The Maróczy (c4+e4 pawn center) limits Black counterplay systematically. Daniel knows the positional plans (restricting Black's piece activity, exploiting the d5 weakness, long-term outpost on d5 for White knight). This is where Daniel at 2191 would completely dominate Austin at 1865.</p>
+      <p><strong>Sveshnikov (B32/B33) — zero games on record:</strong> Daniel has never documented a Sveshnikov game in the dataset (24 games). After 4...e5, he must rely on general principle and independent calculation rather than memorized preparation. This blind spot is Austin's primary opportunity as Black.</p>
+      <p><strong>B90 Najdorf English Attack — confirmed weakness:</strong> Lost to Dhaliwal 2162 (Canada Closed R1). Daniel played the English Attack and lost despite 91.2% accuracy (meaning the loss was positional/strategic, not just blunders). B90 is apparently not his primary Sicilian weapon.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf3fb;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#7a0000;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Time / Calculation — White Collapse at Canada Closed
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Canada Closed White: 0W-1D-3L vs avg ~2100+ opposition.</strong> Engine data (partially complete): R1 vs Dhaliwal 2162 — 91.2% accuracy, LOSS. R7 vs Wiebe 2060 — <strong>87.3% accuracy (lowest in dataset), LOSS</strong>. Pattern: Daniel's White calculation degrades significantly under pressure vs strong opposition.</p>
+      <p><strong>The R7 87.3% performance is the critical data point:</strong> In a game where Daniel had White (the favorable starting color), vs an opponent rated 2060 (still below his 2191), he produced his worst accuracy in the entire dataset. 2 blunders, 2 mistakes. This is not a one-game fluke — it fits the 0W-1D-3L Canada Closed White pattern.</p>
+      <p><strong>Sveshnikov creates the ideal conditions for Daniel's White calculation to fail:</strong> Unfamiliar opening territory (0 Sveshnikov games on record) + pressure to calculate independently from move 5 onwards + Austin playing quickly through prepared lines = Daniel's most likely calculation failure scenario.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf3fb;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#b35800;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Endgame — Classical Long-Game Expert; Avoid His Comfort Zone
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Daniel's best endgames are in Italian/Giuoco Piano structures (C54):</strong> His C54 Black games go 60–90 moves with precise technique. He converted wins vs 2137 and beat 2206 in endgames arising from C54 territory. This Italian endgame technique is specific to that structural type — rook endgames with e5/d4 pawn complexes, bishop-knight coordination in Giuoco Piano structures.</p>
+      <p><strong>Sveshnikov endgames are structurally different:</strong> Black's e5 pawn creates different endgame themes — backward d6 pawn potentially weak, but also a passed e-pawn potential, different rook activation paths. Daniel's mastery of Italian endgames does not directly transfer.</p>
+      <p><strong>Key directive as Austin (Black):</strong> If reaching an endgame from the Sveshnikov, maintain the e5 pawn as a dynamic element. The e5-d6 pawn complex creates endgame imbalance that Daniel may not handle with the same precision as his Italian endgames. Avoid simplifying into a pure rook endgame before move 40 — keep tactical elements alive.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf3fb;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#b35800;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Color Balance — Daniel Stronger as Black; Relatively Weaker White at Top Level
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Daniel's color record: White 5W-3D-3L (59.1%) vs Black 7W-2D-4L (61.5%).</strong> His Black percentage is higher, which is unusual for a 1.e4 player. The discrepancy is explained by Canada Closed: his White record there (0W-1D-3L vs 2100+) is dramatically worse than his Black record (2W-0D-2L, including beating 2206 Duong).</p>
+      <p><strong>Daniel is relatively easier to beat when he has White:</strong> His best results come as Black (C54 Italian Black expertise, QGA wins). As White, his Canada Closed collapse shows a pattern that Austin can exploit. Sveshnikov forces Daniel into a demanding White position with no preparation support — Austin is effectively targeting the weaker side of Daniel's game.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf3fb;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#b35800;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Maróczy B36/B38 = strength (2W-0L); Sveshnikov = 0 games, blind spot; B90 Najdorf = confirmed loss vs 2162</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time / Calculation</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Canada Closed White 0W-1D-3L vs 2100+; R7 87.3% (2B2M) = worst game; White calc fails in unfamiliar positions</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Italian endgames = mastered (C54 long-game expert); Sveshnikov endgames structurally different; avoid quiet technical simplifications</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Paradoxically stronger as Black (61.5%) than White (59.1%); White collapse at Canada Closed is repeatable pattern</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

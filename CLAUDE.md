@@ -11,7 +11,7 @@ This project helps **Austin Lin** prepare for competitive chess tournaments by:
 2. Analyzing potential opponents' games
 3. Generating matchup-specific preparation plans
 
-Opponents analyzed to date: **Justin Huang, Aarush Ajith, Zachary Liu, Heye Gao, Fernando Cortes Medina, Pranav Santhosh, Emerson Johnson, Leo Jackson, Tarun Sankar, Daniel Hernandez Gamboa, Yaen Saenz Cabrera** — full pipeline complete for all 11 opponents (deep HTML + white/black matchup HTMLs)
+Opponents analyzed to date: **Justin Huang, Aarush Ajith, Zachary Liu, Heye Gao, Fernando Cortes Medina, Pranav Santhosh, Emerson Johnson, Leo Jackson, Tarun Sankar, Daniel Hernandez Gamboa, Yaen Saenz Cabrera, Daniel Joshua Lee** — full pipeline complete for all 12 opponents (deep HTML + white/black matchup HTMLs)
 
 ---
 
@@ -65,7 +65,8 @@ chess-analysis/
     ├── leo/                    # 8 tournaments, 47 games — full pipeline complete
     ├── tarun/                  # 6 tournaments, 16 games — full pipeline complete
     ├── danielh/                # queretaro2024/2025/2026, anothergame — 8 games analyzed
-    └── yaen/                   # saenz cabrera, yaen.pgn — 51 games analyzed
+    ├── yaen/                   # saenz cabrera, yaen.pgn — 51 games analyzed
+    └── danielee/               # canadaclose2026, pam2026, pamschool2026, torontoopen2026 — 24 games analyzed
 ```
 
 ---
@@ -176,6 +177,7 @@ When a new opponent folder is added:
 | Tarun Sankar | ~1965 FIDE (peak 2002) | 1.c4 English (Catalan/Mikenas) | Sicilian | No encounter |
 | Daniel Hernandez Gamboa | ~1685–1692 FIDE | 1.e4 (Philidor/Pirc/Sicilian) | 1...e5 Four Knights | No encounter |
 | Yaen Saenz Cabrera | ~1841 FIDE (peak 1899) | 1.e4 Scotch C45 | Sicilian Sveshnikov B32/B33 | No encounter |
+| Daniel Joshua Lee | ~2191 FIDE (Sep 2026; was 1942 Apr 2026) | 1.e4 Maróczy Bind B36/B38/Taimanov B45/B47 | Italian C54/C55 + QGA D27/D20 | No encounter |
 
 ---
 

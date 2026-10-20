@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Austin vs Daniel Joshua Lee — Engine Analysis (Deep)</title>
+<style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 860px; margin: 0 auto; background: #ffffff; padding: 48px 56px 64px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+    .doc-header { border-bottom: 3px solid #2d7d46; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 8px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.9rem; color: #57606a; }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link { display: inline-block; margin-top: 14px; font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+    h2 { font-size: 1.3rem; color: #1f2328; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.05rem; color: #2d7d46; margin: 24px 0 8px; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
+    li { margin-bottom: 4px; }
+    .encounter { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; font-size: 0.93rem; margin-bottom: 28px; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 12px 0; font-size: 0.93rem; color: #1a4731; }
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 12px 0; font-size: 0.93rem; color: #7a0000; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 12px 0; font-size: 0.93rem; color: #1a3a55; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 16px 0 24px; }
+    thead th { background: #2d7d46; color: #ffffff; padding: 10px 14px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #ffffff; }
+    tbody td { padding: 9px 14px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .game-row { border: 1px solid #d0d7de; border-radius: 8px; margin-bottom: 14px; overflow: hidden; }
+    .game-row-header { background: #f6f8fa; border-bottom: 1px solid #d0d7de; padding: 9px 14px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .badge-white { font-size: 0.74rem; font-weight: 700; border-radius: 3px; padding: 2px 8px; background: #2d7d46; color: #fff; }
+    .badge-black { font-size: 0.74rem; font-weight: 700; border-radius: 3px; padding: 2px 8px; background: #1a5276; color: #fff; }
+    .badge-result-win  { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #dafbe1; color: #1a4731; }
+    .badge-result-loss { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #fff5f5; color: #7a0000; }
+    .badge-result-draw { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #fff8e6; color: #7a4f00; }
+    .badge-acc         { font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; background: #eaf0f8; color: #1a3a5c; }
+    .badge-acc-hi      { font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; background: #dafbe1; color: #1a4731; font-weight: 700; }
+    .badge-acc-lo      { font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; background: #fff5f5; color: #7a0000; font-weight: 700; }
+    .game-row-body { padding: 12px 16px; }
+    .im-section-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #57606a; margin: 10px 0 4px; }
+    .im-moment { font-size: 0.84rem; padding: 6px 10px; margin: 4px 0; border-radius: 4px; border-left: 3px solid #d4750a; background: #fff8f0; }
+    .im-moment.blunder { border-left-color: #cf2222; background: #fff5f5; }
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="doc-header">
+  <h1>Austin Lin vs Daniel Joshua Lee</h1>
+  <div class="meta">
+    <span><strong>17</strong> of 24 games analyzed (PAM School + Toronto/Skyline pending)</span>
+    <span>Overall avg <strong>92.9%</strong></span>
+    <span>White: <strong>93.2%</strong> (8g, 3W–2D–3L)</span>
+    <span>Black: <strong>92.7%</strong> (9g, 5W–0D–4L)</span>
+    <span>Stockfish movetime 800 · Oct 2026</span>
+  </div>
+  <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+  &nbsp;&nbsp;
+  <a class="back-link" href="matchup-danielee.html">← Matchup Overview</a>
+  &nbsp;&nbsp;
+  <a class="back-link" href="matchup-danielee-white.html">Austin as White →</a>
+  &nbsp;&nbsp;
+  <a class="back-link" href="matchup-danielee-black.html">Austin as Black →</a>
+</div>
+
+<div class="encounter">
+  <strong>No direct encounter on record.</strong> Engine data from 17 games across 2 tournaments (Canada Closed 2026: 8g, PAM 2026: 9g). PAM School 2026 and Toronto/Skyline Open 2026 games still being analyzed. Overall record from 17 games: <strong>8W–2D–7L</strong>. FIDE rating: 2191 (Sep 2026), surged from 1942 in April 2026 (+249 pts in 5 months).
+</div>
+
+<h2>Tournament Summary (17 games analyzed)</h2>
+<table>
+  <thead><tr><th>Tournament</th><th>Games</th><th>Avg Acc%</th><th>White Record</th><th>Black Record</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Canada Closed 2026</td><td>8</td>
+      <td style="color:#b35800;font-weight:700">91.9%</td>
+      <td>0W–1D–3L (91.4% avg)</td>
+      <td>2W–0D–2L (92.3% avg)</td>
+    </tr>
+    <tr>
+      <td>PAM 2026</td><td>9</td>
+      <td style="color:#1a6030;font-weight:700">93.9%</td>
+      <td>3W–1D–0L (95.0% avg)</td>
+      <td>4W–0D–1L (93.1% avg)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Key Findings</h2>
+
+<div class="warn-box">
+  <strong>Canada Closed White collapse:</strong> 0W–1D–3L (4 games) vs avg ~2100+ opposition. White accuracy: 91.4% avg with worst performance in R7 vs Wiebe 2060 (<strong>87.3%</strong>, 2B2M, decisive loss). This is Daniel's clearest weakness: White pieces under top-field pressure. Not a sample size fluke — 4 consecutive White failures.
+</div>
+
+<div class="warn-box">
+  <strong>Worst game: PAM R5 vs Sen 1915 (C47 Four Knights) — 84%, LOSS.</strong> Critical collapse: m8:O-O (CPL343, +0.09→−3.34) and m10:Bf8 (CPL438, −0.99→−5.37). From near-equal positions, Daniel blundered in the opening/early-middlegame. Four Knights (C47) is confirmed as Daniel's weakest documented 1.e4 e5 line as Black. Lost to a 1915-rated opponent — notable upset.
+</div>
+
+<div class="warn-box">
+  <strong>Canada Closed R9 vs Kalinin 2137 (C07 French Tarrasch) — 92.7% but 5 blunders.</strong> Five blunders in one game — catastrophic material loss in a completely lost position (CPL1000 at m39, m35). The high accuracy metric is misleading when the game was already decided by move 27 (f4?? CPL605 from +0.01 equal). French Tarrasch as White appears to be a structural weakness.
+</div>
+
+<div class="tip-box">
+  <strong>Best game: PAM R8 vs Diaz Guerrero 2209 (C54 Italian) — 98% accuracy, DRAW.</strong> Zero blunders, zero mistakes, zero inaccuracies. Drew a 2209-rated opponent with near-perfect play. Daniel's C54 Italian performance is exceptional — this is his true ceiling and his home preparation territory. Austin must avoid the Italian (3.Bc4) as White.
+</div>
+
+<div class="tip-box">
+  <strong>PAM R9 vs Fernandez 2137 (C54 Italian) — 97.4% accuracy, WIN as Black.</strong> Beat a 2137-rated opponent in Italian structures as Black. This confirms Daniel's C54 mastery — he can win at the highest preparation level. Austin faces his BEST game when playing Italian-type positions.
+</div>
+
+<div class="tip-box">
+  <strong>PAM 2026 White undefeated (3W–1D, 95% avg):</strong> vs weaker South American opposition (avg ~1900), Daniel's White game is very strong. The Canada Closed collapse is specific to the stronger Canadian field. Austin's 1865 rating is close to the PAM field average — but his Sveshnikov sidesteps Daniel's Maróczy Bind preparation entirely.
+</div>
+
+<div class="info-box">
+  <strong>Color asymmetry by field strength:</strong> Canada Closed (strong field, avg 2100+) — White 0W-1D-3L, Black 2W-0D-2L. PAM 2026 (weaker field, avg ~1900) — White 3W-1D-0L, Black 4W-0D-1L. Daniel performs better as Black regardless of field strength. His White game degrades more sharply vs stronger opposition.
+</div>
+
+<hr/>
+
+<h2>Canada Closed 2026 — 8 Games</h2>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-white">WHITE</span>
+    <span class="badge-result-loss">LOSS</span>
+    <span class="badge-acc-lo">91.2%</span>
+    <strong>R1 vs Dhaliwal, Jaipreet Singh (2162)</strong>
+    <em>B90 Sicilian Najdorf English Attack · CPL 29 avg · 1B 0M 5I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment blunder">m22: Qe4 (best: Rd5) · +0.00→−0.89 · CPL 89 · Inaccuracy from equal position — misplaced queen instead of active rook</div>
+    <div class="im-moment blunder">m28: Kg1 (best: h4) · −0.36→−1.46 · CPL 110 · King retreat when h4 maintained defense</div>
+    <div class="im-moment blunder">m29: Kf1 (best: h4) · −0.37→−3.98 · CPL 361 · BLUNDER — second consecutive king move into losing position. From near-equal to −3.98 in two moves.</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;">Daniel had a roughly equal position (+0.00 at m22) and lost control through passive king moves. Against a 2162-rated player, the smallest inaccuracy cascade became decisive. Shows White calculation fragility vs strong opposition.</p>
+  </div>
+</div>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-black">BLACK</span>
+    <span class="badge-result-loss">LOSS</span>
+    <span class="badge-acc">92.5%</span>
+    <strong>R2 vs Qian, Eric (2076)</strong>
+    <em>D27 QGA · CPL 29 avg · 0B 2M 4I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment blunder">m20: Nd6 (best: Nec5) · −0.83→−3.38 · CPL 255 · Mistake — knight to wrong square in already-disadvantaged position</div>
+    <div class="im-moment blunder">m41: Kc6 (best: Kb5) · −4.25→−6.10 · CPL 185 · King to wrong square in lost endgame</div>
+    <div class="im-moment blunder">m43: Nxd5 (best: Kb5) · −6.09→−7.19 · CPL 110 · Final mistake in lost position</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;">QGA as Black — the position was already −0.83 (slightly worse for Daniel) when the critical mistake occurred at m20. Shows Daniel's Black D27 QGA is less reliable vs 2076-rated than his C54 Italian.</p>
+  </div>
+</div>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-black">BLACK</span>
+    <span class="badge-result-loss">LOSS</span>
+    <span class="badge-acc">94%</span>
+    <strong>R3 vs Lu, Aiden Harrison (1897)</strong>
+    <em>C54 Italian Giuoco Piano · CPL 26 avg · 0B 3M 1I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment">m31: h5 (best: Nc5) · +0.00→−1.63 · CPL 163 · From equal position — passive pawn move instead of activating knight</div>
+    <div class="im-moment blunder">m32: g6 (best: Qe7) · −1.53→−4.49 · CPL 296 · Mistake — pawn weakening rather than queen activation</div>
+    <div class="im-moment blunder">m36: Nc6 (best: Qe7) · −5.55→−7.28 · CPL 173 · Knight to wrong square in losing position</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;">Interesting: Daniel LOST a C54 Italian game as Black (his primary weapon) to a 1897-rated player. The collapse began from equality at m31 with a passive h5 pawn move — very similar to Daniel Hernandez's Nxe4-type pattern (piece activity blunder from equal). Lost to a player 200 points lower.</p>
+  </div>
+</div>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-white">WHITE</span>
+    <span class="badge-result-draw">DRAW</span>
+    <span class="badge-acc">94.5%</span>
+    <strong>R4 vs Wu, Tingeng (1906)</strong>
+    <em>B32 Sicilian · CPL 14 avg · 0B 1M 2I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment blunder">m22: Bxe6 (best: Nb5) · +0.96→+0.26 · CPL 70 · Exchanged off a good bishop prematurely, reducing winning advantage</div>
+    <div class="im-moment blunder">m26: Rf1 (best: c5) · +1.57→+0.56 · CPL 101 · Passive rook instead of pawn advance</div>
+    <div class="im-moment blunder">m27: Nc3 (best: c5) · +2.18→+0.24 · CPL 194 · Knight retreat when c5 maintained advantage — missed winning opportunity</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;">Daniel had +2.18 — a clear winning advantage — at m27 and failed to convert with c5. Missed win pattern against a 1906-rated player. White only point in Canada Closed. Shows Daniel struggles to convert winning positions under pressure.</p>
+  </div>
+</div>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-black">BLACK</span>
+    <span class="badge-result-win">WIN</span>
+    <span class="badge-acc-lo">87.7%</span>
+    <strong>R6 vs Duong, Thanh Nha (2206)</strong>
+    <em>D27 QGA · CPL 41 avg · 2B 3M 1I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments (won despite errors)</div>
+    <div class="im-moment blunder">m24: Nge5 (best: Rxf3) · +4.51→+1.08 · CPL 343 · Threw large winning advantage (+4.51) with wrong piece placement</div>
+    <div class="im-moment blunder">m29: Nd3+ (best: Qf7+) · +4.94→+1.60 · CPL 334 · Check in wrong direction — another large advantage squandered</div>
+    <div class="im-moment blunder">m35: Nd3 (best: Nc4) · +3.16→+0.59 · CPL 257 · Third major error in winning position, yet opponent couldn't capitalize</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;"><strong>Remarkable result:</strong> Won vs 2206-rated Duong despite 87.7% accuracy (2B 3M). Daniel had multiple +4 advantages that he reduced to near-equal through repeated errors, but Duong also erred and Daniel converted. This is his most impressive result but also shows his tendency to give back large advantages. <em>His best result came with his worst accuracy in this section.</em></p>
+  </div>
+</div>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-white">WHITE</span>
+    <span class="badge-result-loss">LOSS</span>
+    <span class="badge-acc-lo">87.3%</span>
+    <strong>R7 vs Wiebe, Isaac (2060)</strong>
+    <em>C54 Italian Giuoco Piano · CPL 49 avg · 2B 2M 6I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment">m28: Rb1 (best: h4) · +3.65→+1.58 · CPL 207 · Passive rook move when h4 maintained winning advantage</div>
+    <div class="im-moment blunder">m35: Qa2 (best: Re1) · −2.51→−7.15 · CPL 464 · BLUNDER — queen to passive square in losing position</div>
+    <div class="im-moment blunder">m37: Ndf3 (best: Qxd5) · −7.06→−10.75 · CPL 369 · Passive knight move in hopeless position</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;"><strong>Worst game by accuracy in Canada Closed (87.3%).</strong> Had +3.65 advantage at m28 and misplayed into a loss. 2 blunders, 2 mistakes, 6 inaccuracies. Against a 2060-rated player with White — should be winnable. This is the clearest evidence of Daniel's White calculation failure under pressure.</p>
+  </div>
+</div>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-black">BLACK</span>
+    <span class="badge-result-win">WIN</span>
+    <span class="badge-acc">94.9%</span>
+    <strong>R8 vs Wang, Nathan (2080)</strong>
+    <em>C54 Italian Giuoco Piano · CPL 20 avg · 0B 1M 6I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment">m23: c6 (best: Bxe3) · +3.15→+1.71 · CPL 144 · Pawn move instead of piece capture — gave back some advantage but maintained winning position</div>
+    <div class="im-moment">m36: Rd7 (best: Ke6) · +6.12→+4.26 · CPL 186 · Rook placement instead of king advance in winning endgame</div>
+    <div class="im-section-label" style="margin-top:8px;">Note</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:4px;">Clean win vs 2080-rated opponent as Black in C54 Italian. Daniel's Italian Black preparation serves him well here — managed 94.9% accuracy and converted the win despite some imprecision in the endgame. This is typical of his C54 Black mastery.</p>
+  </div>
+</div>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-white">WHITE</span>
+    <span class="badge-result-loss">LOSS</span>
+    <span class="badge-acc">92.7%</span>
+    <strong>R9 vs Kalinin, Dzmitry (2137)</strong>
+    <em>C07 French Tarrasch · CPL 97 avg · 5B 0M 6I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment blunder">m27: f4 (best: Kc2) · +0.01→−6.04 · CPL 605 · GAME-DECIDING BLUNDER — from equal (+0.01), f4 pawn push immediately lost the game (−6.04)</div>
+    <div class="im-moment blunder">m35: a6 (best: Ke2) · −82.61→−91.37 · CPL 876 · Deep in lost position</div>
+    <div class="im-moment blunder">m39: Kxf5 (best: Kf6) · −60.58→−91.65 · CPL 1000 · Hopeless endgame</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;"><strong>Five blunders total but the game was decided at m27: f4?? (CPL 605 from +0.01 equal).</strong> From a completely equal position in French Tarrasch, Daniel played the pawn push f4 instead of the king consolidation Kc2. Eval crashed from +0.01 to −6.04. This is the defining Canada Closed example — a catastrophic "active-looking" move from equality that immediately lost the game. Pattern mirrors the danielh Nxe4 blunder. <em>French Tarrasch as White appears weak for Daniel.</em></p>
+  </div>
+</div>
+
+<hr/>
+
+<h2>PAM 2026 — 9 Games</h2>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-black">BLACK</span>
+    <span class="badge-result-win">WIN</span>
+    <span class="badge-acc-hi">97.8%</span>
+    <strong>R1 vs Logan, Lia (1605)</strong>
+    <em>D04 Queen's Pawn · CPL 99 avg · 4B 0M 0I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments (won position — opponent errors)</div>
+    <div class="im-moment blunder">m26: e5 (best: Bg3) · #→+10.21 · CPL 1000 · Missed a checkmate sequence — played winning pawn move instead</div>
+    <div class="im-moment blunder">m30: Bf4 (best: d4) · +23.32→+13.85 · CPL 947 · In a completely winning position, suboptimal move order but still decisive</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;">97.8% accuracy — the high blunder count is misleading; these were missed wins in an already-won position. Clean performance vs 1605-rated opponent. Daniel converted without difficulty.</p>
+  </div>
+</div>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-white">WHITE</span>
+    <span class="badge-result-win">WIN</span>
+    <span class="badge-acc">91.7%</span>
+    <strong>R2 vs Piza Vera, Jose Moises (1766)</strong>
+    <em>A04 Reti / KIA · CPL 49 avg · 2B 1M 9I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment blunder">m14: Nxa3 (best: b5) · +6.80→+3.54 · CPL 326 · Took a-pawn instead of b5 push — reduced large advantage</div>
+    <div class="im-moment blunder">m31: Qxc3 (best: Rb1) · +8.21→+5.28 · CPL 293 · Missed stronger continuation in winning position</div>
+    <div class="im-moment blunder">m38: Qb2+ (best: Qe5+) · +12.60→+8.26 · CPL 434 · Check in wrong direction in winning endgame</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;">Won vs 1766-rated opponent but showed a pattern of not finding the most efficient winning moves in dominant positions. The Reti/KIA (A04) gave Daniel easy development — suggests he plays this as a positional alternative when not wanting Italian structures.</p>
+  </div>
+</div>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-black">BLACK</span>
+    <span class="badge-result-win">WIN</span>
+    <span class="badge-acc-hi">95.9%</span>
+    <strong>R3 vs Cabrera Arellano, Luis (1834)</strong>
+    <em>D20 QGA · CPL 18 avg · 0B 1M 2I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment">m26: Nxe3 (best: Bxe3+) · +8.23→+6.09 · CPL 214 · Minor piece choice in winning position</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;">Clean win in QGA (D20) — one of Daniel's reliable Black weapons vs 1.d4. Near-perfect accuracy (95.9%) in a decisive win vs 1834-rated. Confirms D20/D27 QGA is solid when he has the rating advantage.</p>
+  </div>
+</div>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-white">WHITE</span>
+    <span class="badge-result-win">WIN</span>
+    <span class="badge-acc-hi">96.7%</span>
+    <strong>R4 vs Rodriguez Yamasaki, Enrique (1847)</strong>
+    <em>B36 Sicilian Maróczy · CPL 11 avg · 0B 0M 1I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment">m20: Bh6 (best: a4) · +2.10→+0.94 · CPL 116 · Exchanged bishop instead of a4 positional advance</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;"><strong>96.7% — near-perfect Maróczy Bind execution.</strong> Zero blunders, zero mistakes. This is Daniel's White Maróczy at its best — systematic positional control in B36. Beat a 1847-rated player with ease. Austin's Sveshnikov 4...e5 prevents this setup entirely.</p>
+  </div>
+</div>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-black">BLACK</span>
+    <span class="badge-result-loss">LOSS</span>
+    <span class="badge-acc-lo">84%</span>
+    <strong>R5 vs Sen, Samanyu (1915)</strong>
+    <em>C47 Four Knights · CPL 63 avg · 2B 0M 4I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment blunder">m8: O-O (best: Nf6) · +0.09→−3.34 · CPL 343 · BLUNDER — castled into a losing position when Nf6 development was required. From essentially equal (+0.09) to −3.34.</div>
+    <div class="im-moment blunder">m10: Bf8 (best: Nxd4) · −0.99→−5.37 · CPL 438 · BLUNDER — bishop retreat instead of tactical capture. Game effectively over by move 10.</div>
+    <div class="im-moment">m20: Kh8 (best: Be6) · −7.73→−8.70 · CPL 97 · King move in completely lost position</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;"><strong>Worst game in dataset (84%, C47 Four Knights as Black).</strong> Lost to a 1915-rated player despite Daniel being ~2000+ at this point. BLUNDERED at moves 8 AND 10 from near-equal positions. O-O (m8, CPL343) and Bf8 (m10, CPL438) — both early opening blunders. The Four Knights (C47) is clearly uncharted territory for Daniel. This is the only 1.e4 e5 loss documented, and it came in Four Knights, not Italian territory. <em>This is Austin's model for what can happen to Daniel in unfamiliar opening territory.</em></p>
+  </div>
+</div>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-white">WHITE</span>
+    <span class="badge-result-win">WIN</span>
+    <span class="badge-acc">93.7%</span>
+    <strong>R6 vs Rueda Ahuja, Carlos Daniel (1928)</strong>
+    <em>C55 Italian (Two Knights) · CPL 23 avg · 1B 0M 8I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment blunder">m28: Ree1 (best: h4) · +4.87→+1.78 · CPL 309 · Passive rook instead of h4 pawn advance — reduced large winning advantage</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;">Won vs 1928-rated Rueda in C55 Italian as White. Pattern: gave back a large advantage (m28: +4.87→+1.78) but eventually converted. Daniel plays Italian as White too — C55 Two Knights. Converted despite inaccuracy. Shows Italian is deeply understood from both sides.</p>
+  </div>
+</div>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-black">BLACK</span>
+    <span class="badge-result-win">WIN</span>
+    <span class="badge-acc">90.2%</span>
+    <strong>R7 vs Delgado Guerrero, Carlos (1833)</strong>
+    <em>C88 Ruy Lopez Closed · CPL 44 avg · 2B 2M 6I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment blunder">m49: Qc6 (best: Rd4) · +7.30→+0.00 · CPL 730 · BLUNDER — threw a +7.30 winning advantage down to 0.00 in one move</div>
+    <div class="im-moment blunder">m60: Qxd3 (best: Qc6+) · +12.27→+7.65 · CPL 462 · Missed stronger winning move in already-won position</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;">Won in C88 Ruy Lopez as Black despite a CPL730 blunder at m49 (threw a +7.30 advantage to 0.00). The opponent also blundered, allowing Daniel to recover and win. Shows Daniel's dangerous habit of squandering large advantages — but also that he can recover when opponents also err.</p>
+  </div>
+</div>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-white">WHITE</span>
+    <span class="badge-result-draw">DRAW</span>
+    <span class="badge-acc-hi">98%</span>
+    <strong>R8 vs Diaz Guerrero, Jesus Daniel (2209)</strong>
+    <em>C54 Italian Giuoco Piano · CPL 5 avg · 0B 0M 0I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:4px;"><strong>PERFECT GAME — 98% accuracy, zero blunders, zero mistakes, zero inaccuracies.</strong> Drew vs 2209-rated Diaz Guerrero in C54 Italian as White. This is Daniel's ceiling performance: an essentially flawless game in his home preparation line against top-level opposition. CPL 5 average is extraordinary. This is the game Austin must avoid at all costs — Daniel's Italian White preparation is elite.</p>
+  </div>
+</div>
+
+<div class="game-row">
+  <div class="game-row-header">
+    <span class="badge-black">BLACK</span>
+    <span class="badge-result-win">WIN</span>
+    <span class="badge-acc-hi">97.4%</span>
+    <strong>R9 vs Fernandez Herrera, Andres (2137)</strong>
+    <em>C54 Italian Giuoco Piano · CPL minimal · 0B 0M 2I</em>
+  </div>
+  <div class="game-row-body">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment">m41: Bh5 (best: cxb4) · +1.44→+0.80 · CPL 64 · Minor inaccuracy in converted winning position</div>
+    <div class="im-moment">m42: Bf7 (best: cxb4) · +1.80→+1.21 · CPL 59 · Same pattern — bishop moves instead of pawn capture</div>
+    <p style="font-size:0.88rem;color:#57606a;margin-top:8px;"><strong>97.4% accuracy — beat 2137-rated Fernandez Herrera as Black in C54 Italian.</strong> This is Daniel's signature result: Black Italian expert performance against strong opposition. The two inaccuracies (minor CPL64/59) are trivial — both in a position where Daniel was already winning. Confirms C54 as Black is his most dangerous weapon. Austin MUST avoid 1.e4 e5 3.Bc4.</p>
+  </div>
+</div>
+
+<hr/>
+
+<h2>Accuracy by Opening (17 games)</h2>
+<table>
+  <thead><tr><th>ECO</th><th>Opening</th><th>Games</th><th>Avg Acc%</th><th>Record</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>C54/C55</td>
+      <td>Italian Giuoco Piano (both colors)</td>
+      <td>5</td>
+      <td style="color:#1a6030;font-weight:700">96.5%</td>
+      <td>3W–1D–1L</td>
+      <td>Best opening by accuracy. R8pam 98% (draw vs 2209), R9pam 97.4% (win vs 2137), R8cc 94.9% (win vs 2080). Only loss: R3cc 94% vs Lu 1897 — upset due to h5 passivity.</td>
+    </tr>
+    <tr>
+      <td>D27/D20</td>
+      <td>QGA (vs 1.d4, Black)</td>
+      <td>3</td>
+      <td>92.0%</td>
+      <td>2W–0D–1L</td>
+      <td>Good overall. Beat 2206 Duong (87.7%), beat 1834 Cabrera (95.9%), lost to 2076 Qian (92.5%).</td>
+    </tr>
+    <tr>
+      <td>B36/B38</td>
+      <td>Maróczy Bind (White vs Sicilian)</td>
+      <td>1</td>
+      <td style="color:#1a6030;font-weight:700">96.7%</td>
+      <td>1W–0D–0L</td>
+      <td>Near-perfect execution vs Rodriguez 1847. Undefeated. Austin's Sveshnikov prevents this setup.</td>
+    </tr>
+    <tr>
+      <td>C07</td>
+      <td>French Tarrasch (White)</td>
+      <td>1</td>
+      <td style="color:#8b0000;font-weight:700">92.7%</td>
+      <td>0W–0D–1L</td>
+      <td>5 blunders including game-deciding f4?? (CPL605 from +0.01). French Tarrasch = White weakness confirmed.</td>
+    </tr>
+    <tr>
+      <td>C47</td>
+      <td>Four Knights (Black)</td>
+      <td>1</td>
+      <td style="color:#8b0000;font-weight:700">84%</td>
+      <td>0W–0D–1L</td>
+      <td>WORST game in dataset. Lost to 1915-rated Sen. Blunders at m8 and m10 from equal positions. Unfamiliar territory confirmed.</td>
+    </tr>
+    <tr>
+      <td>B90</td>
+      <td>Sicilian Najdorf (White)</td>
+      <td>1</td>
+      <td>91.2%</td>
+      <td>0W–0D–1L</td>
+      <td>Lost to Dhaliwal 2162. King movement errors (m28 Kg1, m29 Kf1) from near-equal position. Not Daniel's primary weapon.</td>
+    </tr>
+    <tr>
+      <td>C88</td>
+      <td>Ruy Lopez Closed (Black)</td>
+      <td>1</td>
+      <td>90.2%</td>
+      <td>1W–0D–0L</td>
+      <td>Won vs 1833 Delgado despite CPL730 blunder at m49. Daniel can handle Closed Spanish as Black.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Summary Findings for Austin's Preparation</h2>
+
+<div class="warn-box">
+  <strong>Italian territory is off-limits for Austin as White.</strong> Daniel's C54/C55 accuracy across 5 games is 96.5% avg including a perfect 98% draw vs 2209. Playing 1.e4 e5 3.Bc4 against Daniel is almost certainly losing. Use Ruy Lopez (3.Bb5) with Exchange variation.
+</div>
+
+<div class="warn-box">
+  <strong>Maróczy Bind (B36/B38) is off-limits for Austin as Black.</strong> Daniel has 96.7% accuracy in his one Maróczy game and is undefeated in this setup. Austin's Sveshnikov 4...e5 prevents 5.c4 entirely.
+</div>
+
+<div class="tip-box">
+  <strong>Four Knights (C47) and French Tarrasch (C07) are confirmed weakness openings.</strong> C47: 84% accuracy, blundered on moves 8 AND 10 from equality. C07: f4?? blunder (CPL605) from +0.01 equal. Both show the same pattern: playing an "active-looking" move from equality that catastrophically loses the game. Austin's preparation should mentally catalog this pattern.
+</div>
+
+<div class="tip-box">
+  <strong>Canada Closed White collapse (0W-1D-3L) is the structural weakness.</strong> Engine data confirms: R7 White loss was 87.3% (2B2M), R1 White loss had critical king movement errors, R9 White loss had f4?? game-deciding blunder. Against the strong Canadian field, Daniel's White calculation repeatedly failed. Sveshnikov forces Daniel into a calculated White position with no preparation support — the optimal condition for this pattern to repeat.
+</div>
+
+<div class="info-box">
+  <strong>Analysis still in progress.</strong> PAM School 2026 (5 games) and Toronto Open/Skyline Open 2026 (2 games) are still being analyzed by Stockfish. This page will be updated with complete 24-game data. Current stats based on 17 games (Canada Closed + PAM 2026 complete).
+</div>
+
+</div>
+</body>
+</html>
