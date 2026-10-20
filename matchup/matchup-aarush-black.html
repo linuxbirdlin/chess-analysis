@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Aarush Ajith — Austin as Black</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #1a5276; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #1a5276; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #1a5276; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #1a5276; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #1a5276; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #eaf4fb !important; color: #1a3a55; }
+    .acc-hi { color: #1a5276; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #eaf4fb; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #e8f0f8; border: 1px solid #1a5276; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #1a3a55; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #fafbff; }
+    .rule-number { background: #1a5276; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #eaf4fb; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #1a5276; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #1a5276; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #dce8f5; color: #1a5276; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #dce8f5; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a3a55; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Aarush Ajith</h1>
+    <div class="subtitle">Austin as Black — Nimzo-Indian vs Catalan/Fianchetto</div>
+    <div class="meta">Aarush Ajith · 1895–1941 FIDE · 17 games, depth-18 Stockfish · White avg 91.4% (8g) · Catalan (E04/E08) avg 88.7% · K+P endgame: 3 consecutive CPL-1000 blunders confirmed</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-aarush.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-aarush-white.html">Austin as White →</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-aarush-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="encounter-box">
+    <strong>Direct encounters with Austin as Black — two E00 Catalan games, both draws:</strong>
+    Game 1 (Feb 16 2026): Austin <strong>89.5% CPL:29 B:1 I:4</strong> vs Aarush <strong>91.4%</strong>. Austin missed <code>...Bxc3+</code> exchange sac <strong>five times</strong> (Qe5?? CPL 388 →−3.88; h6 CPL 113; Qc4 CPL 92; Bh3 CPL 72; Qe8 CPL 55 — engine consistently wanted ...Bxc3+). Game 3 (Jun 21 2026): Austin <strong>90.3% CPL:25 M:1 I:4</strong> vs Aarush <strong>90%</strong>. Austin had +1.74 winning advantage with <code>Qa8!</code> but played <strong>Qc6??</strong> (CPL 160, +1.74→+0.14) and let it go to equality then drew. <strong>Austin LEFT WINS ON THE TABLE in both games — not outplayed, just missed the key moves.</strong>
+  </div>
+
+  <!-- ═══ SECTION 1 ═══ -->
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Aarush Ajith</span>
+    <span class="plabel">FIDE Rating</span><span class="pval">1895–1941 (fluctuating; current ~1895 post Toronto Open Sep 2026)</span>
+    <span class="plabel">White style</span><span class="pval">Positional Catalan builder — methodical, correct, but folds vs 2000+ and in endgames</span>
+    <span class="plabel">Sample</span><span class="pval">17 games, 4 tournaments (Canada Closed, PAM School, PAM 2026, Toronto Open)</span>
+    <span class="plabel">White accuracy</span><span class="pval">91.4% avg (8 games) · Best: 98.2% CPL:9 (E68 vs Velasquez 1925) · Worst: 85.7% CPL:59 (E04 vs Yin Zeming 2098)</span>
+    <span class="plabel">Catalan record</span><span class="pval">E04/E08: 0W–3L avg 88.7% — NEVER won a Catalan game vs 2000+</span>
+    <span class="plabel">Endgame weakness</span><span class="pval">K+P endgame: CPL-1000 king blunders in 2 separate games (Canada R7, PAM R8)</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">0W–0L–3D (Games 1 &amp; 3 as White: both draws, Austin missed winning advantages)</span>
+  </div>
+  <div class="info-box">
+    Aarush plays <strong>1.d4 in 100% of games as White</strong>. His system is the Catalan/fianchetto: g3/Bg2/Nf3/O-O with c4 queenside expansion. He has <strong>never won a Catalan Open (E04) game against a 2000+ opponent</strong> — 0W–2L–0D in that structure vs strong players. His KID Fianchetto (E68) is his best system: 1W-0L at 98.2% vs weaker, 0W-1L at 87.9% vs stronger (5 blunders vs 1833-rated opponent). Austin's weapon: Nimzo-Indian, force Bxc3+ to ruin the queenside, steer for endgames.
+  </div>
+
+  <!-- ═══ SECTION 2 ═══ -->
+  <h2>§2 — Aarush's White Repertoire (Frequency &amp; Results)</h2>
+  <table>
+    <thead>
+      <tr><th>ECO</th><th>System</th><th>G</th><th>W</th><th>D</th><th>L</th><th>Acc%</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>E68</td><td>KID Fianchetto</td><td>2</td><td>1</td><td>0</td><td>1</td><td>93.1%</td><td>Best: Canada R9 vs Velasquez 1925 — 98.2% CPL:9 (near-perfect); Worst: PAM R6 vs Delgado 1833 — 87.9% CPL:100 <strong>B:5 M:5</strong></td>
+      </tr>
+      <tr class="row-danger">
+        <td>E04</td><td>Catalan Open</td><td>2</td><td>0</td><td>0</td><td>2</td><td><span class="acc-lo">86.8%</span></td><td>Canada R4 vs Yin Zeming 2098 (85.7% — <code>Rfe1??</code> CPL 536, <code>Bh4??</code> CPL 445); PAM R5 vs Heye 2065 (87.9% — <code>Nd5</code> CPL 214, <code>h4</code> CPL 192)</td>
+      </tr>
+      <tr class="row-danger">
+        <td>E08</td><td>Catalan Closed</td><td>1</td><td>0</td><td>0</td><td>1</td><td><span class="acc-lo">92.1%</span></td><td>PAM School R2 vs Zachary Liu 2051 — <code>Nc4??</code> CPL 368 (−3.32→−7.00); 92.1% but collapsed tactically</td>
+      </tr>
+      <tr class="row-safe">
+        <td>D10</td><td>Slav g3</td><td>1</td><td>1</td><td>0</td><td>0</td><td><span class="acc-hi">93.4%</span></td><td>Canada R3 win vs Laughlin 1947 — clean, 19 CPL; Catalan at its best</td>
+      </tr>
+      <tr class="row-danger">
+        <td>D11</td><td>Slav g3 (endgame)</td><td>1</td><td>0</td><td>0</td><td>1</td><td>93.3%</td><td>Canada R7 vs Yin Aiden <strong>1824</strong> — played 93.3% but LOST on 3 consecutive king blunders (Kd6/Kf3/Ke3, all CPL 1000) in K+P endgame</td>
+      </tr>
+      <tr class="row-danger">
+        <td>D30</td><td>QGD</td><td>1</td><td>0</td><td>0</td><td>1</td><td>93.0%</td><td>PAM R8 vs Fernandez 2137 — 93% but 4 endgame blunders (Kxb4/Kd5/Kg6 all CPL 1000); same K+P collapse pattern</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="warn-box">
+    <strong>Aarush's White record vs 2000+ opponents: 0W–5L in Catalan/Slav structures.</strong> He can play correctly for 60+ moves and then collapse completely in the endgame. Austin at 1865+ is in this danger zone for Aarush.
+  </div>
+
+  <!-- ═══ SECTION 3 ═══ -->
+  <h2>§3 — Aarush's Vulnerabilities as White</h2>
+
+  <h3>A. King+Pawn Endgame Catastrophe</h3>
+  <p>The single most consistent pattern in Aarush's dataset. Confirmed in two separate games:</p>
+  <ul>
+    <li><strong>Canada Closed R7 vs Yin Aiden 1824 (D11 Slav) — 93.3% accuracy, then lost:</strong> Three consecutive king blunders: <strong>Kd6??</strong> (CPL 1000, −10.36→−23.33), <strong>Kf3??</strong> (CPL 1000, −69.87→−88.21), <strong>Ke3??</strong> (CPL 1000, −49.89→−88.21). Lost to an opponent rated 84 points below him despite playing 93.3% accuracy for the middlegame. The K+P endgame king navigation is a blind spot.</li>
+    <li><strong>PAM R8 vs Fernandez Herrera 2137 (D30 QGD) — 93% accuracy, then lost:</strong> Same pattern — solid play for 70 moves, then <strong>Kxb4??</strong> (CPL 1000), <strong>Kd5??</strong> (CPL 1000), <strong>Kg6??</strong> (CPL 1000). Three consecutive king-to-losing-square blunders. Identical signature to Canada R7.</li>
+  </ul>
+  <div class="tip-box">
+    <strong>Austin should steer for K+P endgames.</strong> Even if Aarush plays perfectly through the middlegame, history shows he cannot navigate king-and-pawn endgames. The Nimzo-Indian Bxc3+ ruins Aarush's queenside pawns, creating the doubled c-pawns and asymmetric structure that naturally leads to K+P endings. These endgames are where Aarush systematically loses points at CPL 1000.
+  </div>
+
+  <h3>B. Catalan Under Pressure from ~2000+</h3>
+  <p>Aarush's Catalan works against sub-1947 opponents (clean 93.4% win in Canada R3) but collapses when facing 2000+ opposition or tactical complications:</p>
+  <ul>
+    <li><strong>E04 vs Yin Zeming 2098 (85.7%, B:2):</strong> <strong>Rfe1??</strong> (CPL 536, −1.22→−6.58) — rook to wrong file; then <strong>Bh4??</strong> (CPL 445, −0.61→−5.06) — bishop misplaced. Two tactical errors in the same position.</li>
+    <li><strong>E04 vs Heye 2065 (87.9%, M:4):</strong> Missed the pawn break <code>e5</code> three times (CPL 214, 192, 181 for Nd5/h4/Nd2 instead of e5). Played h4 on the wrong side of the board while Black won on the queenside.</li>
+    <li><strong>E08 vs Zachary Liu 2051 (92.1%):</strong> <strong>Nc4??</strong> (CPL 368, −3.32→−7.00) — knight leaps into a tactical trap.</li>
+  </ul>
+
+  <h3>C. 5 Blunders vs a 1833-Rated Opponent</h3>
+  <p><strong>PAM R6 (E68 vs Delgado Gutierrez 1833) — 87.9% CPL:100 B:5 M:5 I:8:</strong> The most alarming White game in dataset. Lost to a 1833 opponent as White with 5 blunders and 5 mistakes in a 100-move game. <strong>Re2??</strong> moved into a mating net (CPL 1000, −9.16→mate); Bf4?? (CPL 924). Complete tactical meltdown under time pressure. Aarush's error rate cascades catastrophically when low on clock.</p>
+
+  <!-- ═══ SECTION 4 ═══ -->
+  <h2>§4 — Austin's Recommended Weapon as Black</h2>
+
+  <h3>Primary: Nimzo-Indian ...Bxc3+ (E32–E49)</h3>
+  <div class="var-moves">Aarush:  1.d4  [always]
+Austin:  1...Nf6  2...e6  3...Bb4  [Nimzo-Indian if Nc3]
+Full:    1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 → ...Bxc3+! at the right moment</div>
+
+  <p><strong>Why this targets Aarush specifically:</strong></p>
+  <ul>
+    <li><strong>Fix Game 1's mistake:</strong> In the Feb 16 direct encounter, Austin was in a Catalan position and the engine wanted <code>...Bxc3+</code> on five separate moves (CPL 388, 113, 92, 72, 55). Aarush's Catalan structure is built around the c4 pawn and the Nc3 knight — Bxc3+ directly ruins this foundation.</li>
+    <li>After <code>...Bxc3+ bxc3</code>, Aarush has doubled c-pawns and a structurally compromised queenside. The Catalan fianchetto's power depends on coordinated queenside expansion — Bxc3+ stops that plan cold.</li>
+    <li>The resulting asymmetric position with doubled pawns naturally steers toward K+P endgames — exactly where Aarush has CPL-1000 king blunders on record.</li>
+    <li>Austin's main Black weapon vs 1.d4 is already the Nimzo — comfort territory, not an improvisation.</li>
+  </ul>
+
+  <p><strong>If Aarush avoids Nc3 (Catalan with 3.g3 or 3.Nf3 without Nc3):</strong></p>
+  <div class="var-moves">Aarush:  1.d4 Nf6 2.c4 e6 3.g3 or 3.Nf3 [avoids Nc3]
+Austin:  3...Bb4+! [Bogo-Indian] → 4.Bd2 Bxd2+ [take the initiative]
+→ After Bxd2+: similar structure, slight tempo advantage, keep queenside active</div>
+
+  <div class="warn-box">
+    <strong>Fix the two direct-encounter mistakes NOW:</strong> (1) <code>...Bxc3+</code> — this was the right move on moves 5, 6, 7, 8, and 9 of Game 1. When Aarush has Nc3 and c4, calculate ...Bxc3+ EVERY single time before playing anything else. (2) <code>...Qa8</code> not <code>...Qc6</code> — in Game 3, Austin had +1.74 with Qa8 and played Qc6 (CPL 160). When the queen is heading to an endgame with queenside pawns, Qa8 controls the long diagonal and the a-file. Visualize the difference now.
+  </div>
+
+  <!-- ═══ SECTION 5 ═══ -->
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The reference: <strong>Canada Closed R7, Yin Aiden 1824 def. Aarush Ajith (93.3% accuracy, K+P endgame, 128 moves).</strong></p>
+  <ol>
+    <li><strong>Opening (moves 1–15):</strong> Solid Slav/Catalan structure, Aarush played correctly. No mistakes in the first 50 moves — this is his comfort zone.</li>
+    <li><strong>Middlegame conversion (moves 50–80):</strong> Both sides have similar pieces. Aarush manages the position reasonably. Still 93.3% accuracy overall — looks like a hard fight.</li>
+    <li><strong>K+P endgame phase (moves 90+):</strong> Kings must navigate. Aarush plays Kd6?? (CPL 1000) — wrong square. Then Kf3?? (CPL 1000). Then Ke3?? (CPL 1000). Three consecutive king blunders to losing squares. Lost to a 1824-rated opponent after playing well for 90 moves.</li>
+    <li><strong>Austin's lesson:</strong> Get to an endgame, any endgame, and play accurately. Aarush will self-destruct in the king navigation phase. Austin doesn't need to win the middlegame brilliantly — just reach a technical ending with active king play.</li>
+  </ol>
+  <div class="tip-box">
+    <strong>Symmetry with Austin's White plan:</strong> When Austin plays White vs Aarush's Najdorf, the h4 attack is the weapon. When Austin plays Black vs Aarush's Catalan, the Bxc3+ endgame steer is the weapon. Both plans exploit specific confirmed weaknesses: h4 (0W-3L) and K+P navigation (CPL 1000 × 3 in two games).
+  </div>
+
+  <!-- ═══ SECTION 6 ═══ -->
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~65%</span>
+      Nimzo-Indian Bxc3+ — Aarush plays 3.Nc3
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Aarush:  1.d4  2.c4  3.Nc3  [or 3.Nf3 e6 4.Nc3]
+Austin:  1...Nf6  2...e6  3...Bb4  4...Bxc3+! [take immediately or early]
+→ After bxc3: Aarush has doubled c-pawns, compromised queenside</div>
+      <ul>
+        <li><strong>When to take Bxc3+:</strong> As soon as White plays Nc3 + c4 together — typically move 3–5. Don't wait for "the perfect moment" — engine wanted it 5 times in Game 1 and Austin kept finding other moves. Just take.</li>
+        <li><strong>After ...Bxc3+ bxc3 O-O:</strong> Aarush will play g3/Bg2/Nf3/O-O. Austin plays ...d6 or ...c5 to pressure the doubled c-pawns immediately. The plan: ...c5 → ...Nc6 → ...e5 or ...d5, targeting the weak c3/c4 complex.</li>
+        <li><strong>Steer for endgame:</strong> Trade queens when the position simplifies, then activate the king. Aarush's king blunders trigger in K+P and R+P endings. Austin should play accurately through the transition and let Aarush navigate king moves.</li>
+      </ul>
+      <div class="tip-box"><strong>The Qa8 resource:</strong> In queening endgames (passed pawn on the 7th), the queen belongs on a8 controlling the long diagonal, not on c6 blocking the a-file. Game 3: Austin had +1.74 with Qa8!, played Qc6?? (CPL 160) and drew. Know Qa8 before sitting down.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~25%</span>
+      Bogo-Indian Bb4+ — Aarush avoids Nc3
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Aarush:  1.d4 Nf6 2.c4 e6 3.g3 or 3.Nf3  [no Nc3]
+Austin:  3...Bb4+! [Bogo-Indian]
+After:   4.Bd2 Bxd2+ 5.Qxd2 [or 5.Nbxd2] d5 → QGD-type with tempo</div>
+      <ul>
+        <li>If Aarush plays 3.g3 (pure Catalan without Nc3): Austin plays Bogo-Indian with 3...Bb4+ forcing either Bd2 (exchange) or Nd2 (awkward). After Bxd2+, Austin has traded the bishop for a defender and has tempo on d4.</li>
+        <li><strong>After 4.Bd2 Bxd2+ 5.Qxd2 d5:</strong> Play a QGD-type structure — ...O-O, ...c5, ...Nc6 targeting d4. The same endgame steer applies.</li>
+        <li>If Aarush avoids 4.Bd2 and plays 4.Nbd2: similar structure, Black has a tempo advantage. Continue with ...O-O → ...d5 → ...Nbd7.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~10%</span>
+      King's Indian / Benoni gambit — sharp counterplay
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Aarush:  1.d4 Nf6 2.c4 g6  [KID setup]
+Austin:  3.Nc3 Bg7 4.e4 d6 5.Nf3 O-O → Classical KID (E90+)</div>
+      <ul>
+        <li>Aarush played 2 KID-type games as White (1W-1L with a combined record including blunders). The PAM R6 disaster (5 blunders vs 1833) was a KID Fianchetto game. His KID White preparation is unreliable.</li>
+        <li><em>Only use if Austin wants sharp imbalanced counterplay</em> — the Nimzo Bxc3+ approach is more clinical and better tailored to Aarush's specific endgame weakness.</li>
+        <li>In KID positions, Austin's ...f5 attacks and ...e5 pawn storms are natural. Aarush's fianchetto bishop becomes his main defender — target it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 7 ═══ -->
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules for This Game</h3>
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Play ...Bxc3+ — don't miss it again (missed 5 times in Game 1)</div>
+          <div class="rule-body">The engine wanted ...Bxc3+ on moves 5, 6, 7, 8, and 9 of Game 1 (CPL 388 → 113 → 92 → 72 → 55). Austin played Qe5, h6, Qc4, Bh3, Qe8 instead. Every time White has Nc3 + c4, calculate ...Bxc3+ before any other move. Aarush's Catalan is built on that structure — destroying it is the plan.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Steer for K+P endgames — Aarush blunders CPL-1000 king moves</div>
+          <div class="rule-body">Confirmed pattern across two separate games (Canada R7, PAM R8): Aarush plays 90+ moves correctly and then loses on 3 consecutive king blunders at CPL 1000 each. Austin doesn't need to find the brilliancy in the middlegame — just reach a technical king+pawn ending with accurate play and let Aarush navigate king moves. History says he can't.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Qa8, not Qc6 — remember the Game 3 miss</div>
+          <div class="rule-body">In Game 3 (Jun 21), Austin had a +1.74 winning advantage: the queen belongs on a8 controlling the a-file and the long diagonal toward the queenside pawn. Austin played Qc6?? (CPL 160, +1.74→+0.14) — blocked the a-file and threw away the win. Before any queen move in a queening endgame or passed-pawn position, ask: does Qa8 work first?</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS BLACK vs Aarush's 1.d4:
+  Main: 1...Nf6 2...e6 → Nimzo if 3.Nc3: 3...Bb4 → ...Bxc3+ (early!)
+  After Bxc3+ bxc3: ...O-O → ...c5 → ...Nc6 → target doubled c-pawns
+  If no Nc3 (Catalan 3.g3): 3...Bb4+ [Bogo-Indian] → 4.Bd2 Bxd2+ 5.Qxd2 d5
+
+KEY ENDGAME: Steer for K+P endings — Aarush has CPL-1000 king blunders × 3
+MISSED WIN: Qa8 &gt; Qc6 in passed-pawn queening endgames (Game 3: +1.74 → +0.14)
+NEVER: ...Bxc3+ delay — take it the first time you can</div>
+
+    <h3>Tactical Motifs to Watch For</h3>
+    <table>
+      <thead><tr><th>Tactic</th><th>When it arises</th><th>Engine reference</th><th>CPL</th></tr></thead>
+      <tbody>
+        <tr class="row-safe"><td>...Bxc3+ exchange sac</td><td>Aarush plays Nc3 + c4 (Nimzo structure)</td><td>Game 1: missed 5× (CPL 388→55 each time)</td><td class="acc-lo">388</td></tr>
+        <tr class="row-safe"><td>King navigation blunder</td><td>K+P or R+P endgame — Aarush must move king actively</td><td>Canada R7: Kd6/Kf3/Ke3 all CPL 1000; PAM R8: Kxb4/Kd5/Kg6 all CPL 1000</td><td class="acc-lo">1000</td></tr>
+        <tr><td>Qa8! (not Qc6) resource</td><td>Queen endgame, queenside pawn, a-file activation</td><td>Game 3: +1.74 lost to +0.14 via Qc6?? (CPL 160)</td><td class="acc-lo">160</td></tr>
+        <tr><td>...c5 pressure on doubled pawns</td><td>After ...Bxc3+ bxc3 — target the c3/c4 structure</td><td>Nimzo-Indian plan vs Catalan</td><td>—</td></tr>
+        <tr><td>Nc4?? / Rfe1?? Catalan collapse</td><td>Aarush under pressure from 2000+ in Catalan</td><td>E08: CPL 368; E04: CPL 536 + 445</td><td class="acc-lo">536</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══ SECTION 8 ═══ -->
+  <h2>§8 — Day-of Preparation (30 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Tactics drill — 15 min:</strong> 10 puzzles on <em>...Bxc3+ exchange sacrifice</em> — positions where Black has Bb4 and White has Nc3 + c4. Practice calculating the best recapture for White (bxc3 vs Qxc3) and what Black does next (...O-O → ...c5, targeting the doubled pawns). Also 3 puzzles on <em>active king navigation in K+P endgames</em> — where is the active king square? These are the two concrete themes from the direct encounters.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Opening line review — 10 min:</strong> Replay Game 1 (Feb 16 2026) from the starting position. At every move where the engine wanted ...Bxc3+, visualize taking it. Replay: <code>1.d4 Nf6 2.c4 e6 3.Nc3 Bb4</code> — stop at move 3. Ask: <em>"When do I take Bxc3+?"</em> Answer: as soon as the position justifies it — typically when c4 knight together create a target. Don't overthink it. Then review the move-3 Nimzo main lines to move 8.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Reference game — 5 min:</strong> Replay Game 3 (Jun 21 2026) through move 28. Stop at the position before Qc6??. Ask: <em>"What wins here?"</em> Answer: <strong>Qa8!</strong> — queen to a8 controls the long diagonal and the a-file, keeping the winning advantage of +1.74. Visualize Qa8 now so the reflex is there in the game.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Aarush builds the Catalan correctly — but I have the Nimzo, and I take Bxc3+ the first chance I get. His structure falls apart. I steer for endgames, and when his king has to navigate — that's where he gives me the point. I know about Qa8 now. Three draws in a row: today I convert one."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin B Nimzo-Indian vs 3.Nc3</td><td>E32</td><td><code>1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.Qc2 O-O 5.a3 Bxc3+ 6.Qxc3 b6</code></td></tr>
+      <tr><td>Austin B Nimzo-Indian (Rubinstein)</td><td>E46</td><td><code>1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.e3 O-O 5.Nge2 d5 ...Bxc3+</code></td></tr>
+      <tr><td>Austin B Bogo-Indian vs 3.g3/3.Nf3</td><td>E11</td><td><code>1.d4 Nf6 2.c4 e6 3.Nf3 Bb4+ 4.Bd2 Bxd2+ 5.Qxd2 d5 6.g3</code></td></tr>
+      <tr><td>Austin B KID contingency</td><td>E97</td><td><code>1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.Nf3 O-O 6.Be2 e5</code></td></tr>
+    </tbody>
+  </table>
+
+</div>
+</body>
+</html>

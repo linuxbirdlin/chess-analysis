@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Aarush Ajith — Austin as White</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #2d7d46; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #2d7d46; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #2d7d46; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #2d7d46; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #f0fff4 !important; color: #1a4731; }
+    .acc-hi { color: #1a6030; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #fafbff; }
+    .rule-number { background: #2d7d46; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #f0fff5; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #2d7d46; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #2d7d46; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #e8f5ee; color: #2d7d46; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #e8f5ee; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a4731; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Aarush Ajith</h1>
+    <div class="subtitle">Austin as White — Keres Attack vs Sicilian Najdorf</div>
+    <div class="meta">Aarush Ajith · 1895–1941 FIDE · 17 games, depth-18 Stockfish · Overall 90.2% avg · White 91.4% · Black 89.1% · Direct encounter: B90 Najdorf (Austin 83%, Aarush 88%)</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-aarush.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-aarush-black.html">Austin as Black →</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-aarush-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="encounter-box">
+    <strong>Direct encounter — Feb 22 2026 (Austin White, B90 Sicilian Najdorf, result: draw):</strong>
+    Engine movetime-1500ms · Austin: <strong>83% · CPL 56 · B:2 M:2 I:4</strong> | Aarush: <strong>88%</strong>. Austin self-destructed from +0.00 with <strong>Bxc2??</strong> (best Bc1, CPL 788, +0.00→−7.88 — piece blunder, should keep bishop on c1 to prevent Black's queenside expansion) followed by <strong>Qd4??</strong> (best Bxe4, CPL 380). Both blunders in the first 15 moves of the Sicilian middlegame. The lesson: <strong>the position was objectively equal — Austin lost because of tactical lapses, not strategic error. The h4 attacking plan was correct; the execution failed. Fix Bxc2.</strong>
+  </div>
+
+  <!-- ═══ SECTION 1 ═══ -->
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Aarush Ajith</span>
+    <span class="plabel">FIDE Rating</span><span class="pval">1895–1941 (fluctuating; current ~1895 post Toronto Open Sep 2026)</span>
+    <span class="plabel">Style</span><span class="pval">Positional as White (Catalan builder); tactical-reactive as Black (Najdorf). Paradox: better in sharp defensive positions than as attacker.</span>
+    <span class="plabel">Sample</span><span class="pval">17 games, 4 tournaments (Canada Closed, PAM School, PAM 2026, Toronto Open)</span>
+    <span class="plabel">Overall accuracy</span><span class="pval">90.2% avg · White 91.4% (8g) · Black 89.1% (9g)</span>
+    <span class="plabel">h4 attack record</span><span class="pval">0W–3L (E60 80.6%, B92 vs Heye 91.5%, A00 Toronto 84%) — systematic weakness</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">0W–0L–3D (Game 2 as White: Austin 83%, Aarush 88%)</span>
+    <span class="plabel">FIDE ID</span><span class="pval">30943329 · Canada · U14–U16</span>
+  </div>
+
+  <p><strong>Opening fingerprint:</strong></p>
+  <ul>
+    <li><strong>As White:</strong> 1.d4 exclusively — Catalan/fianchetto system (D10/D11 Slav g3, E04/E08 Catalan Open/Closed, E68 KID Fianchetto, D30 QGD). Never plays 1.e4.</li>
+    <li><strong>As Black vs 1.e4:</strong> Sicilian Najdorf (B90–B92) exclusively — <code>1...c5 2...d6 3...Nf6 4...a6</code></li>
+    <li><strong>As Black vs 1.d4:</strong> KID-like g6/Bg7 fianchetto structures (E60, A48)</li>
+    <li><strong>Key pattern:</strong> 0W–3L record vs any h4 kingside attack — worst vulnerability in dataset</li>
+  </ul>
+
+  <!-- ═══ SECTION 2 ═══ -->
+  <h2>§2 — Aarush's Black Repertoire (Frequency &amp; Results)</h2>
+  <table>
+    <thead>
+      <tr><th>ECO</th><th>System</th><th>G</th><th>W</th><th>D</th><th>L</th><th>Acc%</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>B90–B92</td><td>Sicilian Najdorf</td><td>4</td><td>1</td><td>1</td><td>2</td><td>91.4%</td><td>PAM R3 win 92.8%; Canada R8 draw 93.4%; Canada R2 vs Heye loss 91.5% (<code>Kf7??</code> CPL 1000); PAM School R8 incomplete 92.5%</td>
+      </tr>
+      <tr class="row-danger">
+        <td>E60</td><td>KID vs h4 attack</td><td>1</td><td>0</td><td>0</td><td>1</td><td><span class="acc-lo">80.6%</span></td><td>Canada R1 LOSS — worst Black game in dataset; <code>Rxa7</code> CPL 563; B:3 M:2 I:8</td>
+      </tr>
+      <tr class="row-danger">
+        <td>A00</td><td>Saragossa/early h4</td><td>1</td><td>0</td><td>0</td><td>1</td><td><span class="acc-lo">84.0%</span></td><td>Toronto R6 LOSS — <code>Qb4??</code> CPL 1000 from +7.31 WINNING position; B:4 M:1</td>
+      </tr>
+      <tr class="row-danger">
+        <td>A48</td><td>London/Torre (g6/Bg7)</td><td>1</td><td>0</td><td>0</td><td>1</td><td><span class="acc-lo">90.3%</span></td><td>Canada R6 LOSS — <code>Rd7??</code> CPL 579 from +0.00 equality; one-move collapse</td>
+      </tr>
+      <tr>
+        <td>B51</td><td>Sicilian Bb5+</td><td>1</td><td>0</td><td>0</td><td>1</td><td>89.3%</td><td>Canada R5 LOSS vs Hartner 2013 — M:2 I:9</td>
+      </tr>
+      <tr class="row-safe">
+        <td>A45</td><td>Trompowsky (irregular)</td><td>1</td><td>1</td><td>0</td><td>0</td><td>87.7%</td><td>PAM R4 WIN despite <code>Bh6+??</code> CPL 771 — opponent also collapsed; lucky win</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Aarush's Black record: 4W–5L–1D overall. Against h4 systems specifically: <strong>0W–3L</strong> in three different structures. The Najdorf is his best defense but still lost to Heye's h4 attack at 91.5% accuracy.</p>
+  <div class="warn-box">
+    <strong>The h4 weapon is confirmed across three separate tournaments and structures.</strong> Aarush has no antidote. Even from winning positions (+7.31 in Toronto) he collapsed with time pressure on the clock. Play h4 early and play it committedly.
+  </div>
+
+  <!-- ═══ SECTION 3 ═══ -->
+  <h2>§3 — Vulnerabilities as Black</h2>
+
+  <h3>A. Lines Where He Scores Poorly</h3>
+  <table>
+    <thead><tr><th>Line</th><th>ECO</th><th>Record</th><th>Avg Acc%</th><th>Why He Struggles</th></tr></thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>Any h4 kingside attack</td><td>E60/B92/A00</td><td>0W–3L</td><td><span class="acc-lo">85.4%</span></td><td>Tactical meltdown under kingside pressure — blunders king, queen, and rook in separate games</td>
+      </tr>
+      <tr class="row-danger">
+        <td>KID/London (g6/Bg7)</td><td>E60/A48</td><td>0W–2L</td><td><span class="acc-lo">85.5%</span></td><td>Canada R1 (80.6%) and Canada R6 (90.3%) — poor structure understanding vs direct attacks</td>
+      </tr>
+      <tr>
+        <td>Sicilian Bb5+</td><td>B51</td><td>0W–1L</td><td>89.3%</td><td>Canada R5 — no winning chances, allowed opponent counterplay</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>B. Documented Tactical Failures as Black</h3>
+  <ul>
+    <li><strong>Canada Closed R2 (B92 Najdorf h4 vs Heye Gao 2028) — 91.5% CPL 69:</strong> Lost with Sicilian Najdorf despite decent accuracy. Played <strong>Kf7??</strong> (CPL 1000, best Rf8, −8.31→mate) — king walk into attack. Pattern: h4 attack forces king-side decisions Aarush cannot calculate correctly.</li>
+    <li><strong>Toronto Open R6 (A00 Saragossa h4 vs Raymond Gao CM 2086) — 84% CPL 112 B:4:</strong> Most alarming game in dataset. Aarush was actually <strong>WINNING (+7.31, −6.11 eval by move 21)</strong> after White's blunder on move 17. Under 8 minutes on clock, played <strong>Qb4??</strong> (CPL 1000, best Qxg5, +7.31→−6.05) — walked into a mating net from a completely won position. Lost by move 38.</li>
+    <li><strong>Canada Closed R6 (A48 London vs Zhu Elber 1936) — 90.3% CPL 42 B:2:</strong> Played <strong>Rd7??</strong> (CPL 579, best Qc2, +0.00→−5.79) from a completely equal position. One-move collapse from equality — not even under material pressure, just miscalculation.</li>
+  </ul>
+  <div class="warn-box">
+    <strong>Time pressure cascade — confirmed:</strong> All three major blunders (Kf7??, Qb4??, Rd7??) occurred when Aarush had under 15 minutes on the clock. Austin should play a relatively normal pace in the opening, then slow down in the middlegame (moves 15–25) to force Aarush into h4 decisions under time pressure.
+  </div>
+
+  <h3>C. Color Imbalance</h3>
+  <p>White avg: <strong>91.4%</strong>. Black avg: <strong>89.1%</strong> — a 2.3% accuracy gap. Aarush is measurably weaker as Black. Austin should feel confident pressing positions when Aarush has the Black pieces.</p>
+
+  <!-- ═══ SECTION 4 ═══ -->
+  <h2>§4 — Austin's Recommended Weapon</h2>
+
+  <h3>Primary: Keres Attack 6.g4! vs Sicilian Najdorf (B81)</h3>
+  <div class="var-moves">1.e4  c5  2.Nf3  d6  3.d4  cxd4  4.Nxd4  Nf6  5.Nc3  a6
+6.g4!  [Keres Attack — direct h4 assault]
+6...e6  7.g5  Nfd7  8.h4  → h4-h5 pawn storm incoming</div>
+
+  <p><strong>Why the Keres Attack specifically:</strong></p>
+  <ul>
+    <li>Aarush's 0W–3L record vs h4 systems is the clearest pattern in the dataset. The Keres Attack (6.g4 → h4-h5) directly exploits this structural weakness from the first 8 moves.</li>
+    <li>The Keres Attack forces Aarush's knight off f6 immediately (7.g5 Nfd7) before it can coordinate defense. Then h4-h5 threatens to crack the kingside open before Black organizes.</li>
+    <li>In the direct encounter (Feb 22), Austin played the Sicilian as White but blundered with Bxc2?? — the h4 plan itself was strategically correct. The Keres Attack formalizes the h4 commitment from move 6.</li>
+  </ul>
+
+  <p><strong>If Aarush deviates from 6...e6:</strong></p>
+  <ul>
+    <li><code>6...g6?</code>: 7.g5 Nh5 8.Be3 — Black's knight is misplaced on h5; 9.Qd2 Bg7 10.O-O-O and h4-h5 is even faster</li>
+    <li><code>6...Nc6?</code>: 7.g5 Nd7 8.Be3 g6 9.h4 — same attacking structure, knight reorganized</li>
+  </ul>
+
+  <h3>Alternate: English Attack 6.Be3 with early h4</h3>
+  <div class="var-moves">1.e4  c5  2.Nf3  d6  3.d4  cxd4  4.Nxd4  Nf6  5.Nc3  a6
+6.Be3  e5  7.Nb3  Be6  8.f3  Be7  9.Qd2  O-O  10.O-O-O  → h4 ASAP</div>
+  <p>If Austin prefers the English Attack (familiar territory from his usual Sicilian play), the h4 push must come no later than move 11–12. <em>Do NOT delay h4 in the English Attack</em> — Aarush will castle queenside and counterattack before h4-h5 lands.</p>
+
+  <div class="warn-box">
+    <strong>CRITICAL: Do NOT repeat Bxc2?? from the direct encounter.</strong> In the English Attack structure, when Aarush plays ...c4 to drive the knight, the bishop on e3 should retreat to c1 or d2 — NEVER take on c2. That piece blunder (CPL 788, +0.00→−7.88) is the reason Austin drew instead of winning. Fix this pattern.
+  </div>
+
+  <!-- ═══ SECTION 5 ═══ -->
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The reference blueprint: <strong>Heye Gao vs Aarush Ajith, Canada Closed R2 (B92, h4 attack)</strong> — Aarush lost with 91.5% accuracy, his Kf7?? king blunder (CPL 1000) deciding the game.</p>
+  <ol>
+    <li><strong>Development (moves 6–10):</strong> After 6.g4 e6 7.g5 Nfd7, Heye developed Be3, Qd2, and O-O-O rapidly. The key: all pieces pointed at the kingside before launching h4.</li>
+    <li><strong>h4 commitment (moves 8–11):</strong> 8.h4 — threaten h5 immediately. Aarush must respond to h5 or the kingside cracks open. Every response (h5, g6, h6) creates weaknesses.</li>
+    <li><strong>King hunt (moves 15+):</strong> After Kf7?? was played, Heye's attacking pieces dominated instantly. The knight on f6 (or lack thereof) is what makes h4-h5 so dangerous — Nfd7 removes the f6 guard.</li>
+    <li><strong>Time pressure target:</strong> Aarush blundered Kf7?? with under 20 minutes. Austin should be in a time-balanced position by move 15 to force Aarush to calculate the h5 break under clock pressure.</li>
+  </ol>
+  <div class="tip-box">
+    <strong>Toronto lesson (Aarush's Qb4?? from +7.31):</strong> Aarush is capable of catastrophic blunders even from winning positions when low on time. If Austin reaches move 20+ with active pieces and Aarush under 15 minutes, the statistical probability of a major blunder is significant — stay patient and keep the pressure on.
+  </div>
+
+  <!-- ═══ SECTION 6 ═══ -->
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~60%</span>
+      Keres Attack — Aarush plays Najdorf (confirmed)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Aarush:  1...c5  2...d6  3...Nf6  4...a6  [Najdorf — confirmed]
+Austin:  1.e4  2.Nf3  3.d4 cxd4  4.Nxd4  5.Nc3  6.g4!  7.g5  8.h4
+→ Keres Attack — direct h4-h5 kingside pawn storm</div>
+      <ul>
+        <li><strong>Moves 6–11:</strong> After 6.g4 e6 7.g5 Nfd7 8.h4, develop Be3 and Qd2. Castle queenside (O-O-O) to remove king from center. Then h5 threatens to crack g6 or force h6 (weakening g6).</li>
+        <li><strong>Moves 11–18:</strong> If Aarush plays 8...Nc6 → 9.Be3 Nb6 → 10.Qd2 then h5. If he plays 8...h6 → 9.gxh6 Rxh6 → 10.Be3 Qb6 → 11.Nd3 — he's lost the h6 pawn and the kingside is open.</li>
+        <li><strong>Endgame alert:</strong> Aarush sometimes survives the opening storm and creates counterplay. If queens come off, remember his K+P endgame collapses — steer for technical endings.</li>
+      </ul>
+      <div class="warn-box"><strong>Watch out for 6...h6:</strong> If Aarush plays 6...h6 trying to stop g5: 7.h4! — threaten h5 directly; 7...hxg5? 8.hxg5 Rxh1 9.Qxh1 — Black gave up a rook for pawn; 7...g6 8.h5! — storm continues regardless.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~30%</span>
+      English Attack 6.Be3 — with mandatory early h4
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Aarush:  1...c5  ...a6  ...e5  [Najdorf standard]
+Austin:  1.e4  2.Nf3  3.d4 cxd4  4.Nxd4  5.Nc3  6.Be3  e5  7.Nb3  Be6
+         8.f3  Be7  9.Qd2  O-O  10.O-O-O  h4! [no delay]</div>
+      <ul>
+        <li><strong>Mandatory:</strong> h4 must come by move 11. Aarush will play ...Nbd7→Nb6→...Nc4 to activate queenside pieces. If White delays h4, the counterattack comes first.</li>
+        <li><strong>After 10...Nc6 or 10...Nbd7:</strong> 11.h4 — now h5 threatens with real force. Black must spend tempo to address it.</li>
+        <li><strong>Critical mistake to AVOID:</strong> Bxc2 (from direct encounter). When Aarush plays ...c4 to drive the Nb3 → the bishop retreats to c1 or d2, NOT captures on c2. CPL 788 last time.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~10%</span>
+      Rossolimo 3.Bb5+ — sidestep the Najdorf
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Aarush:  1...c5  2...d6  3...Nf6
+Austin:  1.e4  2.Nf3  3.Bb5+! [Rossolimo — sidestep Najdorf]
+→ After 3...Nc6 4.O-O / 3...Bd7 4.Bxd7+ Qxd7 5.O-O — c3/d4 structure</div>
+      <ul>
+        <li>Aarush played B51 (Bb5+ defense) and lost with 89.3% accuracy. This suggests he's not deeply comfortable with the Anti-Sicilian structure either.</li>
+        <li>After 3.Bb5+ Bd7 4.Bxd7+ Qxd7 5.O-O Nc6 6.c3 → play for d4 with a structural edge. No Najdorf complications.</li>
+        <li><em>Only use if Austin wants to sidestep Najdorf theory entirely</em> — the Keres Attack is more forcing and exploits the confirmed h4 weakness more directly.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 7 ═══ -->
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules for This Game</h3>
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">h4 is the weapon — commit before move 12</div>
+          <div class="rule-body">Aarush is 0W–3L vs h4 attacks in three different structures across three tournaments. This is the most consistent pattern in the dataset. Don't hesitate — play g4 on move 6 (Keres) or h4 by move 11 (English Attack). Aarush has no prepared antidote. Once h4 is on the board, the pressure is his problem to solve under the clock.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Don't repeat Bxc2 — the bishop stays on c1</div>
+          <div class="rule-body">In the direct encounter (Feb 22), Austin blundered Bxc2?? from +0.00 — a CPL 788 piece drop that turned a winning position into a loss. The correct response to ...c4 (Aarush pushing to drive the knight) is Bc1 or Bd2 — never take on c2. This one pattern cost Austin the game last time. It cannot happen again.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Stay calm when Aarush is winning — he might Qb4??</div>
+          <div class="rule-body">In Toronto, Aarush was +7.31 (objectively crushing) and then played Qb4?? (CPL 1000) under time pressure. If Austin reaches a difficult position, do NOT resign mentally. Keep pieces coordinated, spend reasonable time, and watch for the one-move collapse. The statistical pattern confirms: Aarush's time-pressure blunders turn winning positions into losses for himself.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS WHITE vs Najdorf (B90):
+  Keres Attack: 1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.g4! e6 7.g5 Nfd7 8.h4
+  After 8...Nc6: 9.Be3 → 10.Qd2 → 11.O-O-O → h5
+  After 8...h6:  9.gxh6 Rxh6 10.Be3 → h5 storm continues
+
+  English Attack alt: 6.Be3 e5 7.Nb3 Be6 8.f3 Be7 9.Qd2 O-O 10.O-O-O h4 [move 11]
+
+NEVER: Bxc2 when Black plays ...c4 (bishop retreats to c1/d2!)
+NEVER: Delay h4 past move 12 in English Attack
+
+If Aarush plays h4 response incorrectly → h5 is coming regardless</div>
+
+    <h3>Tactical Motifs to Watch For</h3>
+    <table>
+      <thead><tr><th>Tactic</th><th>When it arises</th><th>Engine reference</th><th>CPL</th></tr></thead>
+      <tbody>
+        <tr class="row-safe"><td>h4-h5 kingside storm</td><td>Any Najdorf structure after g4/g5 forces Nfd7</td><td>0W–3L record; Kf7?? Canada R2 vs Heye</td><td class="acc-lo">1000</td></tr>
+        <tr class="row-danger"><td>Bxc2?? (AVOID — Austin's error)</td><td>Be3 on board, Aarush plays ...c4 to push knight</td><td>Feb 22 direct enc: CPL 788, +0.00→−7.88</td><td class="acc-lo">788</td></tr>
+        <tr><td>Qb4?? time-pressure collapse</td><td>Aarush under &lt;15 min from a winning/equal position</td><td>Toronto R6: CPL 1000 from +7.31 winning</td><td class="acc-lo">1000</td></tr>
+        <tr><td>Rd7?? one-move equality collapse</td><td>Equal endgame, Aarush under time pressure</td><td>Canada R6: CPL 579, +0.00→−5.79</td><td class="acc-lo">579</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══ SECTION 8 ═══ -->
+  <h2>§8 — Day-of Preparation (30 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Tactics drill — 15 min:</strong> 10 puzzles on <em>Keres Attack h4-h5 kingside storm</em> — positions with g5 on the board, Nfd7 forced, h5 threatening. What does White do? Practice: h5 threat → if Black plays h6 gxh6 → if h5 is met by g6 then pawn or piece through g6. Also 3 puzzles on <em>bishop retreat vs ...c4</em> — recognize when the c4 push threatens the bishop and where Bc1/Bd2 is better than Bxc2 (the direct encounter mistake pattern).
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Opening line review — 10 min:</strong> Replay mentally: <code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.g4 e6 7.g5 Nfd7 8.h4</code>. Stop at move 8. Ask: <em>"What does White do after 8...Nc6?"</em> Answer: 9.Be3 → 10.Qd2 → 11.O-O-O → h5 if possible. The key: all attacking pieces pointing right before h5 lands.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Reference game — 5 min:</strong> Replay the direct encounter (Feb 22 2026) through move 15. Stop at the moment of Bxc2??. Ask: <em>"What should White have played instead?"</em> Answer: <strong>Bc1</strong> — retreat the bishop to deny Black the queenside expansion. This is the one concrete opening mistake Austin made last time. Reinforce the correct response now.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Aarush has never beaten an h4 attack — in three games, three separate structures, three separate tournaments. I play g4 on move 6, I push h4 on move 8, I keep my bishop on c1 when he pushes c4. He'll be in unfamiliar territory under clock pressure. When I see h4-h5 opportunity, I take it — that's the weapon."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin W Keres Attack vs Najdorf</td><td>B81</td><td><code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.g4 e6 7.g5 Nfd7 8.h4</code></td></tr>
+      <tr><td>Austin W English Attack vs Najdorf</td><td>B90</td><td><code>5...a6 6.Be3 e5 7.Nb3 Be6 8.f3 Be7 9.Qd2 O-O 10.O-O-O h4</code></td></tr>
+      <tr><td>Austin W Rossolimo sidestep</td><td>B51</td><td><code>1.e4 c5 2.Nf3 d6 3.Bb5+ Bd7 4.Bxd7+ Qxd7 5.O-O Nc6 6.c3</code></td></tr>
+    </tbody>
+  </table>
+
+</div>
+</body>
+</html>
