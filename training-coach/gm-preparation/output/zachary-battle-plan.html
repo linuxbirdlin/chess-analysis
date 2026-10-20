@@ -419,5 +419,404 @@ tr:nth-child(even) td { background: #f9f9f9; }
   Direct encounter (Sep 2026): Austin 91.8% · Zachary 93.8% · Austin lost on move-14 calculation failure (missed Bxh7+! at +3.79).
 </div>
 
+<hr class="section-divider">
+
+<!-- ═══════════════ PART 4 — ENGLISH ATTACK OPENING DRILL ═══════════════ -->
+<h2>Part 4 — English Attack Opening Drill</h2>
+
+<div class="callout callout-blue">
+  <strong>How to use this section</strong>
+  Each accordion is one branch of Zachary's possible responses. Read Austin's move, cover the continuation, and try to find it yourself before expanding.
+  The goal is to know the first 12–15 moves of each line cold — no thinking required before the novelty zone.
+</div>
+
+<h3>Setup: reaching the English Attack</h3>
+<div class="move-line">
+  <span class="mv-a">1.e4</span> <span class="mv-z">c5</span>
+  <span class="mv-a">2.Nf3</span> <span class="mv-z">e6</span>
+  <span class="note">(Zachary always plays 2...e6 in classical — Taimanov move order)</span><br>
+  <span class="mv-a">3.d4</span> <span class="mv-z">cxd4</span>
+  <span class="mv-a">4.Nxd4</span> <span class="mv-z">Nc6</span>
+  <span class="mv-a">5.Nc3</span> <span class="mv-z">Qc7</span>
+  <span class="note">(primary Taimanov)</span><br>
+  <span class="mv-a"><span class="key-move">6.Be3</span></span>
+  <span class="mv-z">a6</span>
+  <span class="mv-a"><span class="key-move">7.f3</span></span>
+  <span class="note">— English Attack setup. Now Zachary must choose.</span>
+</div>
+
+<table style="margin-bottom:14px">
+  <tr><th>Zachary's 7th move</th><th>Frequency (Lichess Taimanov sample)</th><th>Austin's reply</th></tr>
+  <tr><td><strong>7...b5</strong></td><td>Most common — 60%+</td><td><span class="key-move">8.g4!</span></td></tr>
+  <tr><td><strong>7...Nge7</strong></td><td>Solid — ~20%</td><td><span class="key-move">8.g4!</span></td></tr>
+  <tr><td><strong>7...Nf6</strong></td><td>Aggressive — ~15%</td><td><span class="key-move">8.g4! h6 9.h4</span></td></tr>
+  <tr><td><strong>7...d6</strong></td><td>Scheveningen — ~5%</td><td><span class="key-move">8.g4!</span></td></tr>
+</table>
+
+<p style="font-size:0.88em; color:#555; margin-bottom:14px">
+  <strong>Note:</strong> If Zachary plays 5...d6 (Scheveningen) instead of 5...Qc7, the same 6.Be3 7.f3 8.g4 plan applies unchanged — the pawn storm works against all Sicilian structures.
+</p>
+
+<!-- Branch A -->
+<input class="acc-toggle" type="checkbox" id="d1" checked>
+<label class="acc-label" for="d1">Branch A — 7...b5 (most likely) → 8.g4!</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">7...b5</span>
+    <span class="mv-a"><span class="key-move">8.g4!</span></span>
+    <span class="note">— pawn storm begins. Ignore material, create kingside threats.</span>
+  </div>
+
+  <input class="acc-toggle" type="checkbox" id="d1a" checked>
+  <label class="acc-label" for="d1a">A1 — 8...Bb7 (most natural, defending b5)</label>
+  <div class="acc-content">
+    <div class="move-line">
+      <span class="mv-z">8...Bb7</span>
+      <span class="mv-a"><span class="key-move">9.Qd2</span></span>
+      <span class="note">(prepare O-O-O, connect rooks)</span><br>
+      <span class="mv-z">9...Nf6</span>
+      <span class="mv-a"><span class="key-move">10.O-O-O</span></span>
+      <span class="note">— castle queenside, rooks point toward center</span><br>
+      <span class="mv-z">10...b4</span>
+      <span class="mv-a"><span class="key-move">11.Nce2!</span></span>
+      <span class="note">(sidestep the b4 hit, knight reroutes to d4/f4)</span><br>
+      <span class="mv-z">11...d5</span>
+      <span class="mv-a"><span class="key-move">12.exd5</span></span>
+      <span class="mv-z">Nxd5</span>
+      <span class="mv-a"><span class="key-move">13.Nxd5</span></span>
+      <span class="mv-z">Bxd5</span>
+      <span class="mv-a"><span class="key-move">14.g5!</span></span>
+      <span class="note">— pawn storms through. White has strong initiative.</span><br>
+      <span class="mv-z">14...Bc6</span>
+      <span class="mv-a"><span class="key-move">15.Nf4</span></span>
+      <span class="note">— knight dominates, Bd3 coming, rooks active.</span>
+      <span class="badge b-green">±</span>
+    </div>
+    <div class="callout callout-blue" style="margin-top:8px">
+      <strong>Key idea: after 11.Nce2</strong>
+      The knight goes to d4 or f4 — both are excellent outposts. Do not chase material
+      with 11.Nd5? Nxd5 12.exd5 — this opens the center for Black and the e5-pawn becomes a target.
+      Always keep the structure closed and the pawn storm going.
+    </div>
+  </div>
+
+  <input class="acc-toggle" type="checkbox" id="d1b" checked>
+  <label class="acc-label" for="d1b">A2 — 8...h6 (trying to stop g5) → 9.h4!</label>
+  <div class="acc-content">
+    <div class="move-line">
+      <span class="mv-z">8...h6</span>
+      <span class="mv-a"><span class="key-move">9.h4!</span></span>
+      <span class="note">— do NOT play g5 yet. h4 first: creates a pawn lever, prepares h5.</span><br>
+      <span class="mv-z">9...Nf6</span>
+      <span class="mv-a"><span class="key-move">10.Qd2</span></span>
+      <span class="mv-z">d6</span>
+      <span class="mv-a"><span class="key-move">11.O-O-O</span></span>
+      <span class="mv-z">b4</span>
+      <span class="mv-a"><span class="key-move">12.Nce2</span></span>
+      <span class="mv-z">Nd7</span>
+      <span class="mv-a"><span class="key-move">13.g5!</span></span>
+      <span class="note">— now g5 comes because h5 is next, undermining the h6 pawn.</span><br>
+      <span class="mv-z">13...hxg5</span>
+      <span class="mv-a"><span class="key-move">14.hxg5</span></span>
+      <span class="mv-z">Rxh1</span>
+      <span class="mv-a"><span class="key-move">15.Rxh1</span></span>
+      <span class="note">— White has open h-file, rook already active, Black king stuck.</span>
+      <span class="badge b-green">±</span>
+    </div>
+    <div class="callout callout-danger" style="margin-top:8px">
+      <strong>Common mistake: playing g5 immediately on move 9</strong>
+      After 8...h6 9.g5? hxg5 10.h4 g4 — Black's g-pawn becomes advanced and White's
+      storm is halted. Always play 9.h4! first when Black plays ...h6.
+    </div>
+  </div>
+
+  <input class="acc-toggle" type="checkbox" id="d1c" checked>
+  <label class="acc-label" for="d1c">A3 — 8...Nf6 (developing, ignoring g4) → 9.g5!</label>
+  <div class="acc-content">
+    <div class="move-line">
+      <span class="mv-z">8...Nf6</span>
+      <span class="mv-a"><span class="key-move">9.g5!</span></span>
+      <span class="note">— kick the knight immediately</span><br>
+      <span class="mv-z">9...Nd7</span>
+      <span class="mv-a"><span class="key-move">10.f4!</span></span>
+      <span class="note">— continue the storm. f4–f5 is the threat.</span><br>
+      <span class="mv-z">10...Nb6</span>
+      <span class="mv-a"><span class="key-move">11.Qd2</span></span>
+      <span class="mv-z">d6</span>
+      <span class="mv-a"><span class="key-move">12.O-O-O</span></span>
+      <span class="note">— standard setup complete. f5 follows.</span>
+      <span class="badge b-green">±</span>
+    </div>
+  </div>
+</div>
+
+<!-- Branch B -->
+<input class="acc-toggle" type="checkbox" id="d2" checked>
+<label class="acc-label" for="d2">Branch B — 7...Nge7 (solid, delays ...b5) → 8.g4!</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">7...Nge7</span>
+    <span class="mv-a"><span class="key-move">8.g4!</span></span>
+    <span class="note">— don't wait. Storm continues regardless.</span><br>
+    <span class="mv-z">8...b5</span>
+    <span class="mv-a"><span class="key-move">9.Qd2</span></span>
+    <span class="mv-z">Ng6</span>
+    <span class="mv-a"><span class="key-move">10.O-O-O</span></span>
+    <span class="mv-z">Bb7</span>
+    <span class="mv-a"><span class="key-move">11.g5</span></span>
+    <span class="note">— space gained, knight on g6 is misplaced</span><br>
+    <span class="mv-z">11...d5</span>
+    <span class="mv-a"><span class="key-move">12.exd5</span></span>
+    <span class="mv-z">Nxd5</span>
+    <span class="mv-a"><span class="key-move">13.Nxd5</span></span>
+    <span class="mv-z">Bxd5</span>
+    <span class="mv-a"><span class="key-move">14.f4</span></span>
+    <span class="badge b-green">±</span>
+  </div>
+  <div class="callout callout-blue" style="margin-top:8px">
+    <strong>Why 7...Nge7 fails</strong>
+    The knight on e7 is passive and blocks the dark-squared bishop. White's pawn storm
+    reaches g5 with tempo because the g6 square is occupied awkwardly.
+  </div>
+</div>
+
+<!-- Branch C -->
+<input class="acc-toggle" type="checkbox" id="d3" checked>
+<label class="acc-label" for="d3">Branch C — 5...d6 Scheveningen (instead of 5...Qc7) → same plan</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">5...d6</span>
+    <span class="mv-a"><span class="key-move">6.Be3</span></span>
+    <span class="mv-z">Nf6</span>
+    <span class="mv-a"><span class="key-move">7.f3</span></span>
+    <span class="mv-z">Be7</span>
+    <span class="mv-a"><span class="key-move">8.Qd2</span></span>
+    <span class="mv-z">O-O</span>
+    <span class="mv-a"><span class="key-move">9.O-O-O</span></span>
+    <span class="mv-z">a6</span>
+    <span class="mv-a"><span class="key-move">10.g4!</span></span>
+    <span class="note">— same English Attack. Kingside castled = prime target for g5-h4.</span><br>
+    <span class="mv-z">10...b5</span>
+    <span class="mv-a"><span class="key-move">11.g5!</span></span>
+    <span class="mv-z">Nd7</span>
+    <span class="mv-a"><span class="key-move">12.h4</span></span>
+    <span class="note">— pawn storm rolling. h5 coming.</span>
+    <span class="badge b-green">±</span>
+  </div>
+  <div class="callout callout-gold" style="margin-top:8px">
+    <strong>If Black has castled kingside — h4-h5-h6 is the winning plan</strong>
+    After g5 Nd7 h4 → h5 → h6 pawn breaks open Black's kingside.
+    If Black plays ...g6 to stop h6: f4-f5 opens the f-file instead.
+    Austin always has a way to create open lines.
+  </div>
+</div>
+
+<!-- Tactical themes -->
+<h3 style="margin-top:22px">Key Tactical Motifs — Know These Cold</h3>
+
+<input class="acc-toggle" type="checkbox" id="t1" checked>
+<label class="acc-label" for="t1">Motif 1 — Bxh7+! (the missed sacrifice from the direct game)</label>
+<div class="acc-content">
+  <div class="callout callout-danger">
+    <strong>Austin missed this on move 14 in the Sep 2026 game (position was +3.79)</strong>
+    Engine: 14.Bxh7+! Kxh7 15.Qh5+ Kg8 16.Ng5 — White wins.
+    Austin played 14.Qh5 instead (eval dropped to 0.00). Calculation failure cost a winning game.
+  </div>
+  <div class="move-line">
+    <strong>The Bxh7+ sacrifice works when:</strong><br>
+    <span class="note">1. White has a bishop on d3 (or c2) pointing at h7</span><br>
+    <span class="note">2. Black king is on g8 (castled) or e8 (uncastled)</span><br>
+    <span class="note">3. White has a knight that can come to g5 after Qh5+</span><br>
+    <span class="note">4. No Black piece covers g5 after ...Kg8</span><br><br>
+    <span class="mv-a">Bxh7+!</span> <span class="mv-z">Kxh7</span>
+    <span class="mv-a">Qh5+</span> <span class="mv-z">Kg8</span>
+    <span class="mv-a">Ng5</span>
+    <span class="note">— threatens Qh7# and Nxf7. Black is lost.</span><br><br>
+    <strong>If Black plays 16...Re8 (trying to defend):</strong><br>
+    <span class="mv-a">17.Qxf7+!</span> <span class="mv-z">Kh8</span>
+    <span class="mv-a">18.Qh5+</span> <span class="mv-z">Kg8</span>
+    <span class="mv-a">19.Qh7+</span> <span class="mv-z">Kf8</span>
+    <span class="mv-a">20.Qh8#</span>
+  </div>
+  <div class="callout callout-gold" style="margin-top:8px">
+    <strong>Training exercise</strong>
+    Before each training game or analysis session: set up a Taimanov English Attack position
+    and ask: "Is Bxh7+ available?" Conditions: bishop on d3, knight near g5/f3, Black
+    king on g8/e8, no Black piece on f5 or h5. If all four hold, calculate it.
+  </div>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="t2" checked>
+<label class="acc-label" for="t2">Motif 2 — g5 pawn kick (forcing Nd7, gaining space)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <strong>When to play g5:</strong>
+    <span class="note">After g4 has been played and Black's knight is on f6. g5! forces Nd7,
+    misplacing the knight and gaining kingside space in one move.</span><br><br>
+    After g5 Nd7:
+    <span class="mv-a">f4</span> <span class="note">— continue the storm. f4–f5 is the plan.</span><br>
+    Or: <span class="mv-a">h4</span> <span class="note">— prepare h5, threatening h6 pawn break.</span><br><br>
+    <strong>Do NOT play g5 if Black hasn't played ...Nf6 yet</strong> — it's wasted tempo.
+    Play <span class="mv-a">Qd2 + O-O-O</span> first, then g5 when the moment is right.
+  </div>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="t3" checked>
+<label class="acc-label" for="t3">Motif 3 — Nd5! outpost (knight dominates the center)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <strong>The Nd5 outpost:</strong>
+    <span class="note">After queenside castling and g4, White often has a knight on c3 or e2.
+    Nd5 is available when the e6 square is exchanged away or Black plays ...d6.</span><br><br>
+    <span class="mv-a">Nd5!</span> <span class="mv-z">exd5</span>
+    <span class="mv-a">exd5</span>
+    <span class="note">— Black's Nc6 is forced to retreat. White's d5 pawn is a passed pawn
+    or a permanent space advantage.</span><br><br>
+    <span class="mv-z">Nb8</span>
+    <span class="mv-a">a4!</span>
+    <span class="note">— fix the queenside, Black's pieces are passive.</span>
+    <span class="badge b-green">+–</span>
+  </div>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="t4" checked>
+<label class="acc-label" for="t4">Motif 4 — f5! (counter-blow when Black plays ...f5)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <strong>Situation:</strong>
+    <span class="note">Black plays ...f5 to meet the g4 storm (common Taimanov defensive idea).</span><br><br>
+    <span class="mv-z">...f5</span>
+    <span class="mv-a"><span class="key-move">e5!</span></span>
+    <span class="note">— central counter-blow. Opens the e-file toward Black's king.
+    Black's ...f5 pawn cannot be supported and becomes a weakness.</span><br><br>
+    After e5:
+    <span class="mv-z">...d5</span>
+    <span class="mv-a">exd6 e.p.</span>
+    <span class="note">en passant — Black's center collapses</span><br>
+    After e5:
+    <span class="mv-z">...Nd4</span>
+    <span class="mv-a">Bxd4</span>
+    <span class="note">— eliminate the active knight, retain the e5 wedge</span>
+  </div>
+</div>
+
+<!-- Nce2 handling b4 -->
+<h3 style="margin-top:22px">Handling Zachary's Queenside Counter (...b4)</h3>
+<div class="callout callout-blue">
+  <strong>The b4 push is Zachary's main counterplay</strong>
+  After Austin plays O-O-O, Zachary will almost always push ...b4 to hit the Nc3.
+  Austin must be ready.
+</div>
+
+<table>
+  <tr><th>After ...b4</th><th>Austin plays</th><th>Why</th></tr>
+  <tr>
+    <td>Normal position — no immediate d5 break</td>
+    <td><span class="key-move">Nce2!</span></td>
+    <td>Knight reroutes to d4 or f4 — both excellent. Avoids the b4 hit cleanly.</td>
+  </tr>
+  <tr>
+    <td>Knight already on e2, Black plays ...d5</td>
+    <td><span class="key-move">exd5 Nxd5 Nxd5 Bxd5 g5</span></td>
+    <td>Open position favors White's active pieces and g5 pawn storm.</td>
+  </tr>
+  <tr>
+    <td>Knight already on e2, Black doesn't break</td>
+    <td><span class="key-move">Nd4</span></td>
+    <td>Knight on d4 = dominant outpost. Threatens Nf5 or Nb5.</td>
+  </tr>
+  <tr>
+    <td>Tempting: Nd5? after ...b4</td>
+    <td><strong>Don't</strong> — Black takes and opens center</td>
+    <td>Nxd5 exd5 gives Black the e5 square and relief from pressure.</td>
+  </tr>
+</table>
+
+<!-- 10-move drill -->
+<h3 style="margin-top:22px">10-Move Drill (recite from memory)</h3>
+<div class="callout callout-green">
+  <strong>Goal: know this cold before the game</strong>
+  Cover the continuation and play each of Austin's moves out loud before revealing.
+</div>
+
+<input class="acc-toggle" type="checkbox" id="m1">
+<label class="acc-label" for="m1">Main line drill — reveal Austin's moves one by one</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">1...c5</span>
+    <span class="mv-a"><span class="key-move">2.Nf3</span></span>
+    <span class="mv-z">e6</span>
+    <span class="mv-a"><span class="key-move">3.d4</span></span>
+    <span class="mv-z">cxd4</span>
+    <span class="mv-a"><span class="key-move">4.Nxd4</span></span>
+    <span class="mv-z">Nc6</span>
+    <span class="mv-a"><span class="key-move">5.Nc3</span></span>
+    <span class="mv-z">Qc7</span>
+    <span class="mv-a"><span class="key-move">6.Be3</span></span>
+    <span class="mv-z">a6</span>
+    <span class="mv-a"><span class="key-move">7.f3</span></span>
+    <span class="mv-z">b5</span>
+    <span class="mv-a"><span class="key-move">8.g4!</span></span>
+    <span class="mv-z">Bb7</span>
+    <span class="mv-a"><span class="key-move">9.Qd2</span></span>
+    <span class="mv-z">Nf6</span>
+    <span class="mv-a"><span class="key-move">10.O-O-O</span></span>
+    <span class="mv-z">b4</span>
+    <span class="mv-a"><span class="key-move">11.Nce2</span></span>
+    <span class="mv-z">d5</span>
+    <span class="mv-a"><span class="key-move">12.exd5</span></span>
+    <span class="mv-z">Nxd5</span>
+    <span class="mv-a"><span class="key-move">13.Nxd5</span></span>
+    <span class="mv-z">Bxd5</span>
+    <span class="mv-a"><span class="key-move">14.g5!</span></span>
+    <br><br>
+    <span class="badge b-green">White is clearly better. Storm is rolling.</span>
+  </div>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="m2">
+<label class="acc-label" for="m2">Drill variant — Black plays 7...b5 8.g4 h6 → find Austin's move</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">8...h6</span>
+    <span class="note">← Black tries to stop g5. What does Austin play?</span><br><br>
+    <span class="mv-a"><span class="key-move">9.h4!</span></span>
+    <span class="note">← NOT 9.g5. Always h4! when Black plays ...h6 after g4.</span><br>
+    Continue: <span class="mv-z">Nf6</span>
+    <span class="mv-a"><span class="key-move">10.Qd2</span></span>
+    <span class="mv-z">d6</span>
+    <span class="mv-a"><span class="key-move">11.O-O-O</span></span>
+    <span class="mv-z">b4</span>
+    <span class="mv-a"><span class="key-move">12.Nce2</span></span>
+    <span class="mv-z">Nd7</span>
+    <span class="mv-a"><span class="key-move">13.g5!</span></span>
+    <span class="mv-z">hxg5</span>
+    <span class="mv-a"><span class="key-move">14.hxg5</span></span>
+    <span class="note">— open h-file, rook active, Black king exposed.</span>
+    <span class="badge b-green">±</span>
+  </div>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="m3">
+<label class="acc-label" for="m3">Drill variant — Black plays ...f5 as a counter → find Austin's move</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">...f5</span>
+    <span class="note">← Black tries to close the kingside. What does Austin play?</span><br><br>
+    <span class="mv-a"><span class="key-move">e5!</span></span>
+    <span class="note">← Central counter-blow. NOT gxf5 (relieves Black's tension).</span><br>
+    The e5 pawn is a wedge: it opens lines, restricts Black's pieces,
+    and takes away the d6 square.
+  </div>
+</div>
+
+<div style="margin-top:24px; font-size:0.78em; color:#888; border-top:1px solid #ddd; padding-top:10px; line-height:1.6">
+  <strong>Sources:</strong>
+  Classical: 34 games fully engine-analyzed (movetime-800, 5 tournaments, 2026).
+  Supplementary: 423 Lichess games (leilei8514, rapid/blitz, 2020–2022) — used for opening line frequency only.
+  Engine: Stockfish. Accuracy formula: Lichess win-probability method.
+  Direct encounter (Sep 2026): Austin 91.8% · Zachary 93.8% · Austin lost on move-14 calculation failure (missed Bxh7+! at +3.79).
+</div>
+
 </body>
 </html>
