@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Emerson Johnson — Austin as Black</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #1a5276; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #1a5276; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #1a5276; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #1a5276; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #1a5276; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #f0fff4 !important; color: #1a4731; }
+    .acc-hi { color: #1a6030; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #f0f6ff; }
+    .rule-number { background: #1a5276; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #eaf0f8; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #1a5276; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #1a5276; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #d6e4f0; color: #1a5276; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #d6e4f0; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a3a55; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Emerson Johnson</h1>
+    <div class="subtitle">Austin as Black — Sicilian vs Rossolimo into Tactical Complexity</div>
+    <div class="meta">Emerson Johnson · ~1925 FIDE / ~2078 US Chess · 38 games · Stockfish movetime 800 · White avg 92.9% (19g) · Black avg 91.6% · No direct encounter</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-emerson.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-emerson-white.html">← Austin as White</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-emerson-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="encounter-box">
+    <strong>No direct encounter on record.</strong> Emerson as White averages <strong>92.9%</strong> — his better color, but only by 1.3pp. His primary White opening is 1.e4 with Ruy Lopez (C77) — record 2W–2L, including a <strong>shock loss to 1597-rated Vinayagaram</strong> (Rg5 CPL 581 from +0.00). Against Austin's Sicilian, Emerson will play Rossolimo (3.Bb5+) — his documented response — where his B51 record is 0W–1L–1D (88.9% avg). Austin must steer clear of long technical struggles (Emerson's specialty) and force sharp, complex middlegames where the Rg5/Kxg5 endgame blunder pattern emerges.
+  </div>
+
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Emerson Aurelius Johnson</span>
+    <span class="plabel">FIDE / US Chess Rating</span><span class="pval">~1925 FIDE / ~2078 US Chess (Sep 2026)</span>
+    <span class="plabel">White Opening</span><span class="pval">1.e4 exclusively — Ruy Lopez d3 system (C77), Rossolimo Sicilian (B51/B52), Exchange Caro-Kann (B13). Long technical positional games are his specialty.</span>
+    <span class="plabel">Sample</span><span class="pval">38 games, 7 tournaments (Natl Elem 2024, Unknown 2025, SW Open 2025, Natl K-12 2025, TX Scholastic 2026, TX State 2026, SW Open 2026)</span>
+    <span class="plabel">Overall accuracy</span><span class="pval">92.2% avg · White 92.9% (19g) · Black 91.6% (19g) — only 1.3pp color gap</span>
+    <span class="plabel">Worst White games</span><span class="pval">SW Open 2026 R3 vs Vinayagaram 1597: 90.6% / Rg5 CPL 581 (+0.00→−6.04) — shock LOSS to 1597; E61 vs Goodrich: h4 CPL 1000 (walked into mate)</span>
+    <span class="plabel">Best White games</span><span class="pval">TX State 2026 R6 vs Zheng 2092: 97.4% (Nxh7 sacrifice); TX Scholastic R6 vs Li 1816: 97.5%; B52 vs WIM Chumpitaz 2358: 95.9% (127 moves)</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">No encounter on record</span>
+  </div>
+
+  <p><strong>White opening fingerprint:</strong></p>
+  <ul>
+    <li><strong>C77 Ruy Lopez d3 system:</strong> 4 games, 2W–2L — inconsistent. Beats sub-2000, loses to 2158 (Anandh, 134 moves) and 1597 (Vinayagaram, 98 moves). Pattern: Rg5/Kxg5 endgame blunders from equal positions.</li>
+    <li><strong>B52 Rossolimo exchange (3.Bb5+ Bd7 4.Bxd7+):</strong> 1 win vs WIM Chumpitaz 2358 — 127 moves, 95.9%, his best White game. Long R+B vs R endgame.</li>
+    <li><strong>B51 Rossolimo (other):</strong> 0W–1L–1D, avg 88.9% — worst White ECO by average accuracy.</li>
+    <li><strong>B13 Exchange Caro-Kann (4.Bd3):</strong> 2W–1D — solid. Vadher 1779: 96.9%, Bates, Karry (draws).</li>
+    <li><strong>B07 Pirc:</strong> 1W (97.4% vs Zheng 2092 — Nxh7 sacrifice). <strong>B40 Sicilian:</strong> 1W (97.5% vs Li 1816).</li>
+    <li><strong>E61 KID:</strong> 0W–1L — h4 CPL 1000/mate vs Goodrich 1921 (walked into forced mate).</li>
+    <li><strong>C04/C07 French:</strong> 0W–1L–1D — Nf3 CPL 1000/mate vs Chodniewicz 1850.</li>
+  </ul>
+
+  <h2>§2 — Emerson's White Repertoire (Frequency &amp; Results)</h2>
+  <table>
+    <thead>
+      <tr><th>ECO</th><th>System</th><th>G</th><th>W</th><th>D</th><th>L</th><th>Acc%</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-safe">
+        <td>B52</td><td>Rossolimo Exchange (Bd7 4.Bxd7+)</td><td>1</td><td>1</td><td>0</td><td>0</td><td><span class="acc-hi">95.9%</span></td><td>SW Open 2025 R2 vs WIM Chumpitaz 2358 — WIN. 127 moves, R+B vs R endgame. Best White game. Long technical squeeze — <em>exactly Emerson's specialty.</em></td>
+      </tr>
+      <tr class="row-danger">
+        <td>B51</td><td>Rossolimo (other)</td><td>2</td><td>0</td><td>1</td><td>1</td><td><span class="acc-lo">88.9%</span></td><td>WORST White ECO avg. Loss and draw — Rossolimo in non-exchange lines is where Emerson struggles most with White vs Sicilian.</td>
+      </tr>
+      <tr>
+        <td>B31</td><td>Rossolimo Nc6 g6</td><td>1</td><td>0</td><td>1</td><td>0</td><td>93.4%</td><td>SW Open 2025 R5 draw vs FM Lares Flores 2303 — 139 moves. Solid draw, but very long game (FM-level opponent).</td>
+      </tr>
+      <tr class="row-danger">
+        <td>C77</td><td>Ruy Lopez d3 system</td><td>4</td><td>2</td><td>0</td><td>2</td><td>~91.1%</td><td>2W vs sub-2000; 2L — vs Anandh 2158 (134 moves, Kxg5 CPL 355 from +0.00) and vs <strong>Vinayagaram 1597</strong> (Rg5 CPL 581 from +0.00 — shock loss). Rg5 pattern repeated across BOTH losses.</td>
+      </tr>
+      <tr class="row-safe">
+        <td>B13</td><td>Exchange Caro-Kann (4.Bd3)</td><td>3</td><td>2</td><td>1</td><td>0</td><td><span class="acc-hi">94.3%</span></td><td>Vadher 1779: 96.9%, Bates and Karry draws. Strong White system — same system Austin uses. Emerson is comfortable here.</td>
+      </tr>
+      <tr class="row-safe">
+        <td>B07/B40</td><td>Pirc / Open Sicilian (other)</td><td>2</td><td>2</td><td>0</td><td>0</td><td><span class="acc-hi">97.5%</span></td><td>B07 97.4% vs Zheng 2092 (Nxh7 sacrifice); B40 97.5% vs Li 1816. High-accuracy wins vs specific opponents but both were 1-off systems.</td>
+      </tr>
+      <tr class="row-danger">
+        <td>E61</td><td>KID vs 1...Nf6</td><td>1</td><td>0</td><td>0</td><td>1</td><td><span class="acc-lo">92.7%</span></td><td>Natl Elem 2024 vs Goodrich 1921 — h4 CPL 1000 (walked into forced mate). 92.7% accuracy but still lost to a mate pattern — king safety blind spot confirmed early.</td>
+      </tr>
+      <tr class="row-danger">
+        <td>C04/C07</td><td>French (White)</td><td>2</td><td>0</td><td>1</td><td>1</td><td>~90.8%</td><td>Unknown 2025 R1 vs Chodniewicz 1850: Nf3 CPL 1000/mate — missed defensive move, lost. Chodniewicz was only 1850-rated.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Emerson's White Sicilian record: B52 is his best (1W vs WIM), but B51 is worst (0W–1L–1D, 88.9%). Austin's Sicilian will trigger Rossolimo — the B51/B52 line. The outcome hinges on whether Emerson plays the exchange (B52) or allows a complex Rossolimo (B51). B51 is confirmed weaker.</p>
+  <div class="info-box">
+    <strong>Emerson will play Rossolimo (3.Bb5+) against Austin's Sicilian.</strong> His 1.e4 c5 games document Rossolimo responses (B51/B52/B31). The exchange line (B52, Bd7 4.Bxd7+) leads to the long technical struggle where Emerson won vs WIM Chumpitaz — Austin should avoid this and steer for complexity. The non-exchange B51 line (88.9% avg) is the target territory.
+  </div>
+
+  <h2>§3 — Vulnerabilities as White</h2>
+
+  <h3>A. The Rg5 Endgame Blunder — Repeated Pattern</h3>
+  <p>Emerson has blundered <strong>Rg5</strong> (or equivalent king/rook misplacement) from equal positions in multiple Ruy Lopez games:</p>
+  <ul>
+    <li><strong>SW Open 2026 R3 vs Vinayagaram 1597 (C77, 90.6%, LOSS):</strong> Move 35 <strong>Rg5</strong> (best Ne7) — CPL 581, +0.00→−6.04. Dropped from equal to −6 against a 1597-rated player. The game was lost on one move from an equal endgame. This is the most alarming result in the dataset: losing as White to 1597 from +0.00.</li>
+    <li><strong>TX State 2026 R4 vs Anandh 2158 (C77, 134 moves, LOSS):</strong> Move 13 <strong>Nc4</strong> (mistake, +0.63→−1.52 CPL ~100), then later <strong>Kxg5</strong> (a6 CPL 355, +0.00→−3.49) — endgame king blunder from +0.00 to −3.49. Pattern repeated: rook/king to wrong square from an equal endgame.</li>
+  </ul>
+  <p>Both C77 Ruy Lopez losses share the same root cause: Emerson blunders from +0.00 in an equal endgame, moving a piece (Rg5 or Kxg5) to an active-looking square that is actually a decisive error. This is not a positional mistake — it is a calculation failure in positions he should know.</p>
+
+  <h3>B. King Safety Blind Spots (h4/Nf3 Mate Patterns)</h3>
+  <p>Beyond the endgame collapses, Emerson has twice <em>walked into forced mate</em> as White:</p>
+  <ul>
+    <li><strong>E61 vs Goodrich 1921 (Natl Elem 2024):</strong> <strong>h4</strong> CPL 1000/mate — played a pawn advance that created a forced mate sequence. Goodrich was only 1921-rated. Emerson's king safety evaluation in KID structures is unreliable.</li>
+    <li><strong>C04 vs Chodniewicz 1850 (Unknown 2025 R1):</strong> <strong>Nf3</strong> CPL 1000/mate — missed the correct defensive move, walked into a forced mate vs a 1850-rated player. Two separate mate-in-N miscalculations across different openings.</li>
+  </ul>
+  <div class="warn-box">
+    <strong>Emerson has a confirmed king safety calculation gap.</strong> h4 (walked into mate vs 1921) and Nf3 (missed defensive move vs 1850) are not isolated events — they suggest Emerson does not always verify forcing sequences around his king. Austin should generate king-side threats; Emerson may misjudge their severity.
+  </div>
+
+  <h3>C. Upset Losses to Lower-Rated Opponents</h3>
+  <p>Emerson's loss record includes several upsets that reveal brittleness under pressure:</p>
+  <ul>
+    <li>Loss to <strong>Vinayagaram 1597</strong> (FIDE) in SW Open 2026 R3 — his rating was ~1925 at the time. A 328-point rating gap loss from +0.00 in one move.</li>
+    <li>Loss to <strong>Chodniewicz 1850</strong> (Unknown 2025 R1) — early in his career but still a 31-point loss to a lower-rated player.</li>
+    <li>Loss to <strong>Lonie 1818</strong> (Unknown 2025 R6) — 90.6% but 15 blunders in a 187-move endgame. Won the game up until complete time-pressure collapse.</li>
+  </ul>
+  <p>The pattern: Emerson is capable of strong technical play but can completely fail when a position requires exact calculation from a seemingly equal or winning position. Austin at ~1965 FIDE should not be intimidated by the rating gap.</p>
+
+  <h3>D. Color Balance — Minimal Gap</h3>
+  <p>White avg: <strong>92.9%</strong>. Black avg: <strong>91.6%</strong> — only 1.3pp gap. This is the smallest color imbalance of all six analyzed opponents. Emerson does not have a significant color preference — his technical skill applies regardless of color. However, his upset losses as White (to 1597!) and the Rg5 endgame pattern mean Austin as Black still has clear exploitable lines.</p>
+
+  <h2>§4 — Austin's Recommended Weapon</h2>
+
+  <h3>Primary: Sicilian 1...c5 → Avoid Rossolimo Exchange, Force B51 Complexity</h3>
+  <div class="var-moves">1.e4  c5  2.Nf3  Nc6  3.Bb5  [Rossolimo — Emerson's documented Sicilian response]
+Austin's choice:  3...g6  [Rossolimo with fianchetto — B31/B51 territory]
+4.O-O  Bg7  5.c3  Nf6  6.Re1  O-O  7.d4  cxd4  8.cxd4  d5
+
+Alternative if Emerson plays 3.Bb5+  (note: Bd7):
+3...Bd7  →  4.Bxd7+  Qxd7  [exchange Rossolimo B52 — Emerson's WIM-beating line]
+AVOID: this leads to Emerson's best technical structure (127-move endgame)
+PREFER: 3...g6 to keep the bishop on g7 and create kingside counterplay</div>
+
+  <p><strong>Why avoid the B52 exchange:</strong></p>
+  <ul>
+    <li>Emerson's only B52 game ended in a 127-move technical win vs WIM Chumpitaz (2358, 95.9% accuracy). The exchange Rossolimo with Qxd7 leads to long, technical, equal-but-slow positions — exactly where Emerson converts.</li>
+    <li>After 3...g6 4.O-O Bg7, the position stays complex. Emerson's B51 record is 0W–1L–1D (88.9%) — measurably worse. The fianchettoed bishop creates long-term tactical counterplay.</li>
+    <li>Austin's tactical, combinational style is better served by a live bishop on g7 than the structural equality of the exchange lines.</li>
+  </ul>
+
+  <h3>If Emerson plays 2.c3 Alapin</h3>
+  <div class="var-moves">1.e4  c5  2.c3  Nf6  3.e5  Nd5  [Nimzowitsch counterattack vs Alapin]
+or
+1.e4  c5  2.c3  d5  3.exd5  Qxd5  [immediate d5 break]
+→ Emerson has 1 documented Alapin win (B22 vs Lan) — not deeply tested
+→ Keep the position sharp; avoid simplification into drawn pawn structures</div>
+
+  <div class="tip-box">
+    <strong>Force complexity — Emerson's long-game specialty is the danger zone.</strong> His best White results are all in long technical games (95.9% at 127 moves, 97.4% at 85 moves). Austin must play for active, imbalanced positions where quick calculation matters. The Rg5 and h4 errors both occurred when Emerson needed to calculate accurately from dynamic positions — that is Austin's territory.
+  </div>
+
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The reference blueprint: <strong>SW Open 2026 R3 — Emerson Johnson (White) vs Nethra Vinayagaram (1597), C77 Ruy Lopez, Emerson LOSS, 90.6% accuracy</strong></p>
+  <ol>
+    <li><strong>Equal game through move 34:</strong> Emerson had +0.00 at move 35 — a completely equal endgame. His earlier mistake at move 13 (<strong>Nc4</strong>, CPL ~100, +0.63→−1.52) had already given away a slight early edge, but the position was objectively equal before the decisive error.</li>
+    <li><strong>Move 35: Rg5?? (best Ne7, CPL 581, +0.00→−6.04).</strong> The rook moved to an active-looking square but created a decisive tactical weakness. The position went from dead equal to −6.04 against a player rated 328 points lower. Emerson resigned within the next few moves.</li>
+    <li><strong>Lesson for Austin:</strong> "Equal position" for Emerson is dangerous territory when piece coordination is required. Austin should maintain equal or slightly worse positions without conceding — keep material on the board and force Emerson to calculate actively. One wrong move from Emerson can reverse everything.</li>
+    <li><strong>Practical application:</strong> In the Rossolimo position after castling, Austin should create dynamic imbalances — queenside counterplay with ...b5, ...a5, or ...d5 breaks — that force Emerson to calculate the consequences of each piece placement. The Rg5 pattern shows Emerson sometimes plays active-looking moves without fully calculating the tactical consequences.</li>
+  </ol>
+  <div class="tip-box">
+    <strong>Never give up from equal or slightly worse positions.</strong> Emerson dropped from +0.00 to −6.04 in one move vs a 1597-rated player. The same can happen against Austin. Keep fighting in equal endgames and watch for the moment Emerson overextends a piece.
+  </div>
+
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~55%</span>
+      Sicilian 1...c5 → Rossolimo 3.Bb5 → 3...g6 (fianchetto)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Emerson:  1.e4  c5  2.Nf3  Nc6  3.Bb5  [Rossolimo — expected]
+Austin:   3...g6  4.O-O  Bg7  5.c3  Nf6  6.Re1  O-O
+→ B51/B31 territory — Emerson's avg 88.9–93.4% (weaker than B52)
+→ Bishop on g7 creates long-term kingside pressure</div>
+      <ul>
+        <li><strong>Moves 7–15:</strong> After 6...O-O 7.d4 cxd4 8.cxd4 d5 9.e5 Ne4 — active counter in the center. Black's bishop on g7 will become a monster once the center opens. Emerson will need to calculate precisely to avoid losing material in the complications.</li>
+        <li><strong>Middlegame target:</strong> Create kingside pressure with ...f6 or ...e6 → ...d5 breaks. Force Emerson to calculate forced sequences around the g7-h8 diagonal — his h4 (walked into mate) pattern suggests he may misjudge forcing lines targeting the king.</li>
+        <li><strong>Endgame principle:</strong> If the game reaches an endgame with rooks, keep the position unbalanced (not simplified R+P vs R+P) — Emerson's Rg5 errors occurred in rook endings where he thought he could be active. Keep enough material to punish those decisions.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~30%</span>
+      Sicilian 1...c5 → Rossolimo → 3...d6 (pin defense)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Emerson:  1.e4  c5  2.Nf3  Nc6  3.Bb5  [Rossolimo]
+Austin:   3...d6  4.O-O  Bd7  5.Re1  Nf6  [pin defense — keep tension]
+→ Avoid 4...Bd7? if Emerson plays 4.Bxd7+ → B52 exchange (avoid)
+→ After 3...d6 4.c3 Nf6 5.d4 — Open Sicilian transpose possible</div>
+      <ul>
+        <li>After 3...d6, if Emerson plays 4.c3 followed by 5.d4 (common), the position transposes toward a Sicilian with White having an extra tempo from Bb5. Austin can play ...e5 → Najdorf-type structure or keep it in Scheveningen territory.</li>
+        <li>The key: after 3...d6 4.Bxc6+ (Emerson might try the exchange immediately to get into technical play), Austin recaptures 4...bxc6 and gets the bishop pair. The doubled pawns give dynamic counterplay.</li>
+        <li>Avoid passive setups. Emerson's long-game strength is in equal, slow positions. Keep the bishop pair active and generate queenside counterplay early.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~15%</span>
+      Alapin 2.c3 — if Emerson deviates from Rossolimo
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Emerson:  1.e4  c5  2.c3  [Alapin — documented once, B22 win vs Lan]
+Austin:   2...Nf6  3.e5  Nd5  [Nimzowitsch vs Alapin — active]
+or
+          2...d5  3.exd5  Qxd5  [immediate d5 — direct counterattack]
+→ Keep the position sharp; do not allow Emerson's technical style to simplify</div>
+      <ul>
+        <li>After 2.c3 Nf6 3.e5 Nd5: Black puts immediate pressure on the center. If 4.d4 cxd4 5.cxd4 d6 — active Black counterplay. The knight on d5 is a strong outpost.</li>
+        <li>Emerson's one documented Alapin win (B22) was against an unspecified opponent. The line is not deeply tested. Austin should play for dynamic imbalances rather than the solid 2...d5 dxe5 structural approach.</li>
+        <li>The position after 2...Nf6 3.e5 Nd5 4.d4 is sharp enough to create calculation demands — Emerson's Rg5/h4 patterns suggest he can miscalculate in dynamic positions.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules for This Game</h3>
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Play Sicilian — expect Rossolimo 3.Bb5+, steer to B51 not B52</div>
+          <div class="rule-body">Emerson plays Rossolimo against the Sicilian (3.Bb5+). His B52 exchange line (Bd7 4.Bxd7+) produced his longest technical White win — 127 moves vs WIM Chumpitaz at 95.9%. That is not Austin's terrain. Respond with 3...g6 (fianchetto) to keep the bishop alive and steer to B51/B31 territory where Emerson averaged 88.9–93.4%. The live bishop on g7 creates tactical threats Emerson must calculate correctly — something he failed to do with Rg5 and h4.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Force sharp middlegames — Emerson's technical endgame specialty is the danger</div>
+          <div class="rule-body">Emerson's best wins are in long patient technical games: 127 moves (B52), 85 moves (B07 97.4%), 193 moves as Black (D11 98.3%). His worst results occur in dynamic positions requiring calculation: Rg5 (CPL 581 from +0.00 vs 1597), h4 (CPL 1000/mate vs 1921), Kxg5 (CPL 355 from +0.00 vs 2158). Austin must create active imbalances — ...b5/...a5 queenside breaks, piece sacrifices, dynamic king-side complications. Do not allow simplification into technical R+P vs R+P endings where Emerson thrives.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Never resign from equal positions — Rg5 from +0.00 already happened</div>
+          <div class="rule-body">Emerson dropped from +0.00 to −6.04 in a single move against a 1597-rated player (Rg5 vs Vinayagaram). He also blundered Kxg5 (CPL 355) from +0.00 in another Ruy Lopez endgame against a 2158. This means equal positions are not safe for Emerson — one wrong active-looking move can end the game. Austin should maintain an equal or slightly worse position without panic, keep material on the board, and wait for the Rg5-type overextension. The blunder will come in a position that looks harmless.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS BLACK vs 1.e4 — Sicilian + Rossolimo (B51/B31):
+  1.e4 c5 2.Nf3 Nc6 3.Bb5 g6  [fianchetto — avoid 3...Bd7 B52 exchange]
+  4.O-O Bg7 5.c3 Nf6 6.Re1 O-O 7.d4 cxd4 8.cxd4 d5
+  → Bishop on g7 = long-term pressure; create queenside counterplay
+
+If Emerson plays 3.Bb5+ Bd7 4.Bxd7+ (exchange — B52):
+  4...Qxd7 5.O-O Nf6 6.Re1 e6 → solid positional fight
+  (This is Emerson's WIM-beating structure — acceptable but not preferred)
+
+AS BLACK vs 2.c3 Alapin (B22):
+  1.e4 c5 2.c3 Nf6 3.e5 Nd5 [active counterattack]
+  or 2...d5 3.exd5 Qxd5 [direct central counter]
+
+AVOID: ultra-simplified R+P endings → Emerson's technical specialty
+TARGET: imbalanced middlegames, bishop pair, active piece play</div>
+
+    <h3>Tactical Motifs to Watch For</h3>
+    <table>
+      <thead><tr><th>Pattern</th><th>When it arises</th><th>Engine reference</th><th>CPL</th></tr></thead>
+      <tbody>
+        <tr class="row-danger"><td>Rg5?? from +0.00 (White)</td><td>Equal Ruy Lopez endgame — Emerson plays active-looking rook move</td><td>SW Open 2026 R3: Rg5 (Ne7) +0.00→−6.04 vs Vinayagaram 1597</td><td class="acc-lo">581</td></tr>
+        <tr class="row-danger"><td>Kxg5?? king walk into losing position</td><td>C77 endgame — Emerson king moves to active square</td><td>TX State 2026 R4: Kxg5 (a6 CPL 355, +0.00→−3.49) vs Anandh 2158</td><td class="acc-lo">355</td></tr>
+        <tr class="row-danger"><td>h4 walks into forced mate (White)</td><td>KID / kingside pawn advance with exposed king</td><td>Natl Elem 2024: h4 CPL 1000/mate vs Goodrich 1921</td><td class="acc-lo">1000</td></tr>
+        <tr><td>Nf3 misses defensive move (White)</td><td>French C04 — White knight development ignores defensive requirement</td><td>Unknown 2025 R1: Nf3 CPL 1000/mate vs Chodniewicz 1850</td><td class="acc-lo">1000</td></tr>
+        <tr><td>Nc4 positional giveaway (White)</td><td>C77 early middlegame — White knight retreats without purpose</td><td>TX State 2026 R4: Nc4 CPL ~100, +0.63→−1.52 vs Anandh 2158</td><td>~100</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>§8 — Day-of Preparation (30 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Tactics drill — 15 min:</strong> 10 puzzles on <em>Sicilian counterplay and piece activity</em> — positions where Black's Sicilian knight and bishop create pressure before the endgame. Focus on positions where White plays an active-looking rook or king move and Black has a forcing response (pin, fork, tactical shot). Also 3 puzzles on <em>king safety evaluation</em> — positions where an active-looking king or rook move is actually a decisive blunder (the Rg5 pattern). Being able to spot Emerson's overextension is as important as knowing Black's active plans.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Opening line review — 10 min:</strong> Replay mentally: <code>1.e4 c5 2.Nf3 Nc6 3.Bb5 g6 4.O-O Bg7 5.c3 Nf6 6.Re1</code>. Stop at move 6. Ask: <em>"What is Black's plan here?"</em> Answer: ...O-O, then ...d5 or ...e5 depending on White's setup. The bishop on g7 is a long-term asset — do not trade it off without compensation. Remind yourself: Emerson's B51 record is 0W–1L–1D (88.9%). The B51 structure is Austin's terrain.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Mental visualization — 5 min:</strong> Picture Emerson's SW Open 2026 R3 game: he has +0.00 — a completely equal endgame — against a 1597-rated player. On move 35 he plays Rg5 (best Ne7) and the position goes from +0.00 to −6.04 in one move. He loses. Ask: <em>"What does this mean for me?"</em> Answer: <strong>Emerson can lose from equal positions in one move.</strong> Austin should play fighting chess through every phase. An equal game at move 30 is not a draw — it is an opportunity. Stay alert for the moment Emerson plays an active-looking piece move that is actually a blunder.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Emerson is a technical player — patient, endgame-focused. But he lost to 1597 from +0.00 with one bad rook move. He walked into forced mate twice as White. His B51 Rossolimo record is 88.9% — worse than any of his other White lines. I play Sicilian, I steer to B51 complexity with 3...g6, I keep the position active and unbalanced. The endgame is not automatically a draw — equal positions are where the Rg5 blunder lives. I stay alert and I keep fighting."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin B Sicilian → Rossolimo fianchetto</td><td>B51/B31</td><td><code>1.e4 c5 2.Nf3 Nc6 3.Bb5 g6 4.O-O Bg7 5.c3 Nf6</code></td></tr>
+      <tr><td>Austin B Sicilian → Rossolimo exchange (if forced)</td><td>B52</td><td><code>3.Bb5+ Bd7 4.Bxd7+ Qxd7 5.O-O Nf6 6.Re1 e6</code></td></tr>
+      <tr><td>Austin B vs Alapin 2.c3</td><td>B22</td><td><code>1.e4 c5 2.c3 Nf6 3.e5 Nd5</code> (Nimzowitsch)</td></tr>
+      <tr><td>Austin B vs Open Sicilian (if Emerson plays 3.d4)</td><td>B90</td><td><code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6</code> (Najdorf)</td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish movetime 800ms · 38 games</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">A</span>
+      Opening Gaps — Emerson as White
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>B51 Rossolimo (88.9% avg, 0W–1L–1D):</strong> Emerson's worst White ECO by average. His B52 exchange (Bd7 4.Bxd7+) produced the WIM win at 95.9%, but non-exchange Rossolimo lines are confirmed weaker. Austin's 3...g6 steers Emerson away from the B52 structure he knows best and into B51/B31 territory where his 88.9% record applies.</p>
+      <p><strong>E61 KID — h4 CPL 1000/mate (vs Goodrich 1921):</strong> Emerson played a pawn advance that created a forced mate sequence against a 1921-rated player. This happened early in his career (Natl Elem 2024), but the pattern of misjudging kingside pawn structure is consistent with the Rg5 endgame error. He does not always verify forcing lines near the king.</p>
+      <p><strong>C04 French — Nf3 CPL 1000/mate (vs Chodniewicz 1850):</strong> Missed the correct defensive move and walked into a mating sequence vs a 1850-rated opponent. Two separate mate-in-N miscalculations (E61, C04) across different openings and different career stages suggest a systematic pattern, not an early-career fluke.</p>
+      <p><strong>C77 Ruy Lopez — Nc4 early positional giveaway (vs Anandh 2158):</strong> Move 13 Nc4 (+0.63→−1.52) gave away White's slight advantage without compensation. The early concession set up the eventual Kxg5 endgame blunder later in the same game. Emerson's Ruy Lopez play is undermined by subtle positional mistakes even before the endgame phase.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">B</span>
+      Time-Pressure / Single-Move Collapses as White
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Rg5?? from +0.00 (CPL 581) vs 1597-rated player:</strong> SW Open 2026 R3 — Move 35, equal endgame, Emerson plays Rg5 instead of Ne7. Position shifts from +0.00 to −6.04 in one move against an opponent rated 1597 FIDE. He was ~1925 rated at the time — a 328-point rating gap, and he still lost from a completely equal position on a single piece misplacement. This is the defining data point: Emerson can lose from dead-equal positions with one calculation error under pressure.</p>
+      <p><strong>Kxg5?? from +0.00 (CPL 355) vs 2158-rated player:</strong> TX State 2026 R4 — equal endgame against Anandh 2158, Emerson plays Kxg5 (best a6), position goes from +0.00 to −3.49. The Rg5/Kxg5 pattern is not coincidence — in Ruy Lopez endgames specifically, Emerson consistently overextends a piece (rook or king) to an "active" square that is actually a decisive error. Both losses are from equal positions (+0.00) in the same opening (C77).</p>
+      <p><strong>Rb2 mid-game error (B52 vs WIM Chumpitaz 2358):</strong> Even in his best White game (95.9%, 127 moves), Emerson had one blunder on move 47 (Rb2 instead of h4, CPL ~300) that lost some advantage. He recovered and still won at 127 moves — but the calculation failure occurred even in his most precise game. Under normal tournament time pressure against Austin, the pattern will likely recur.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Endgame Technique as White — Inconsistent
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>B52 Rossolimo — 127-move R+B vs R win (his best):</strong> SW Open 2025 R2 vs WIM Chumpitaz (2358). One blunder (Rb2 CPL ~300) but sustained high accuracy over 127 moves. This confirms Emerson's technical endgame strength in R+B vs R — the long patient technical conversion is genuinely good. Austin should NOT allow simplification into this structure.</p>
+      <p><strong>C77 Ruy Lopez — two separate endgame collapses from +0.00:</strong> Both Ruy Lopez losses (vs 2158 and vs 1597) ended with a king or rook moving to an "active" square from an equal position. The +0.00→−3.49 (Kxg5) and +0.00→−6.04 (Rg5) errors suggest Emerson's endgame calculation in Ruy Lopez pawn structures is specifically unreliable — he may play for activity without verifying tactical consequences.</p>
+      <p><strong>Verdict:</strong> Emerson's endgame is bimodal — brilliant in slow R+B vs R technical conversions (127-move WIM win), but brittle in active Ruy Lopez endings where quick calculation is required. The difference is the type of endgame, not general skill. Austin must steer for endgames where calculation matters (piece activity, forcing lines) rather than pure technique (pawn king position, R+B vs R conversion).</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a5276;">B</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Solid 1.e4 player; B13/B07/B40 strong; B51 Rossolimo 88.9% weak; h4/Nf3 king safety gaps</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time Pressure</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Rg5 CPL 581 from +0.00 vs 1597; Kxg5 CPL 355 from +0.00 vs 2158; both in C77 endgames</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Excellent in long technical R+B vs R; brittle in active Ruy Lopez endings requiring calculation</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a5276;">B</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">92.9% White / 91.6% Black — only 1.3pp gap; Emerson is not dramatically stronger as White</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

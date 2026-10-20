@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Emerson Johnson — Austin as White</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #2d7d46; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #2d7d46; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #2d7d46; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #2d7d46; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #f0fff4 !important; color: #1a4731; }
+    .acc-hi { color: #1a6030; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #fafbff; }
+    .rule-number { background: #2d7d46; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #f0fff5; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #2d7d46; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #2d7d46; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #e8f5ee; color: #2d7d46; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #e8f5ee; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a4731; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Emerson Johnson</h1>
+    <div class="subtitle">Austin as White — Exchange Caro-Kann into Positional Pressure</div>
+    <div class="meta">Emerson Johnson · ~1925 FIDE / ~2078 US Chess · 38 games · Stockfish movetime 800 · Black avg 91.6% (19g) · White avg 92.9% · No direct encounter</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-emerson.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-emerson-black.html">Austin as Black →</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-emerson-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="encounter-box">
+    <strong>No direct encounter on record.</strong> Emerson as Black averages <strong>91.6%</strong> — his weaker color, though only by 1.3pp vs White. His primary Black defense is the <strong>Caro-Kann (B10–B12)</strong>, with a total record of 1W–6L–2D across all Caro-Kann lines. The B12 Classical/Advance specifically is 0W–3L–1D (avg 88.4%) — the worst ECO in his Black dataset. Austin's Exchange Caro-Kann (4.Bd3) directly targets this structure. Emerson also shows a pattern of <strong>queen panics from winning positions</strong> (Be7 CPL 615 from +6.15, Ra8 CPL 1000 from +17.67) that turns wins into draws or losses.
+  </div>
+
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Emerson Aurelius Johnson</span>
+    <span class="plabel">FIDE / US Chess Rating</span><span class="pval">~1925 FIDE / ~2078 US Chess (Sep 2026)</span>
+    <span class="plabel">Black Defense vs 1.e4</span><span class="pval">Caro-Kann (B10/B11/B12) — primary. Total record 1W–6L–2D across all Caro-Kann. B12 specifically: 0W–3L–1D (88.4% avg).</span>
+    <span class="plabel">Black Defense vs 1.d4</span><span class="pval">QGA (D20/D25) with ...Bg4 — 3W–0L–1D (best Black ECO). Avoid 1.d4!</span>
+    <span class="plabel">Sample</span><span class="pval">38 games, 7 tournaments; 19 games as Black</span>
+    <span class="plabel">Overall Black accuracy</span><span class="pval">91.6% avg (19g) · Worst: B12 88.4% (0W–3L–1D) · Best: D11 Slav 98.3% (1D vs Albert 2044)</span>
+    <span class="plabel">Key Black weakness</span><span class="pval">Queen/piece panics from winning positions: Be7 (CPL 615, +6.15→+0.00), Ra8 (CPL 1000, +17.67→+5.39), Rc5 (CPL 1000, forced mate→+8.75)</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">No encounter on record</span>
+  </div>
+
+  <p><strong>Black opening fingerprint:</strong></p>
+  <ul>
+    <li><strong>Caro-Kann (B10–B12):</strong> Emerson's primary Black defense vs 1.e4. Total 1W–6L–2D. B12 Classical specifically: 0W–3L–1D (83.8%, 88.0%, 90.1%, 91.7%). Losses to WGM Paramzina (2269), Gu (2295), Samant (2621). Only draw vs Kaul (1729).</li>
+    <li><strong>QGA (D20/D25) vs 1.d4:</strong> 3W–0L–1D — his best Black result by far. Balaji (win), Hyltin (draw), Gani (win), Caridad (win). <strong>Austin should NOT play 1.d4.</strong></li>
+    <li><strong>KIA/Reti structure (A07) as Black:</strong> 0W–0L–2D — both draws vs IM Fus 2514 and Joseph Julian. Solid, passive but draws strong players. Not a weapon for Austin.</li>
+    <li><strong>Slav (D11) as Black:</strong> 1D — 98.3% draw vs Albert 2044, his highest-accuracy game. Technically excellent in Slav structures.</li>
+  </ul>
+
+  <h2>§2 — Emerson's Black Repertoire vs 1.e4 (Frequency &amp; Results)</h2>
+  <table>
+    <thead>
+      <tr><th>ECO</th><th>System</th><th>G</th><th>W</th><th>D</th><th>L</th><th>Acc%</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>B12</td><td>Caro-Kann Classical/Advance</td><td>4</td><td>0</td><td>1</td><td>3</td><td><span class="acc-lo">88.4%</span></td><td>WORST Black ECO. SW Open 2025 R6 vs Paramzina 2269: 83.8% / B:6 M:6 — <code>a4</code> CPL 1000/mate, <code>Qe4</code> CPL 1000. Natl K-12 R4 vs Gu 2295: 88.0% — <code>Nxe5</code> CPL 783, <code>Ne4</code> CPL 642. SW Open 2025 R9 vs Samant 2621: 90.1% — <code>Nc2</code> CPL 559, <code>Qe7</code> CPL 307. Only draw vs Kaul 1729.</td>
+      </tr>
+      <tr class="row-danger">
+        <td>B10</td><td>Caro-Kann Two Knights (defense)</td><td>2</td><td>0</td><td>0</td><td>2</td><td><span class="acc-lo">91.3%</span></td><td>Unknown 2025 R4 vs Joseph Julian: 89.9% / <code>Nd5</code> CPL 342 (+0.00→−3.42). SW Open 2025 R3 vs Rodrigue-Lemieux 2529: 92.6% (GM opponent). Both losses.</td>
+      </tr>
+      <tr>
+        <td>B11</td><td>Caro-Kann Two Knights (alternate)</td><td>2</td><td>1</td><td>1</td><td>0</td><td>94.7%</td><td>TX Scholastic R3 vs Aguayo: 97.7% win; SW Open 2026 R6 vs Bupeshnath: 91.6% draw. Solid — better results than B10/B12.</td>
+      </tr>
+      <tr class="row-safe">
+        <td>D25</td><td>QGA (vs 1.d4)</td><td>3</td><td>2</td><td>1</td><td>0</td><td><span class="acc-hi">90.9%</span></td><td>SW Open 2026 R4 Balaji win (92.5%), SW Open 2026 R2 Hyltin draw (89.5%), TX State R5 Gani win (90.7%). His best Black opening — <em>avoid 1.d4</em>.</td>
+      </tr>
+      <tr class="row-safe">
+        <td>D11</td><td>Slav (vs 1.d4)</td><td>1</td><td>0</td><td>1</td><td>0</td><td><span class="acc-hi">98.3%</span></td><td>Unknown Tourn. R2 vs Albert 2044: CPL:4, 0 blunders, 193 moves. His highest accuracy game. Technically elite in Slav structures. <em>Avoid 1.d4.</em></td>
+      </tr>
+      <tr>
+        <td>A07</td><td>KIA / Reti</td><td>2</td><td>0</td><td>2</td><td>0</td><td>94.7%</td><td>SW Open 2025 R1 vs IM Fus 2514: 95.5% draw; TX Scholastic R5 vs Joseph Julian: 93.8% draw. Passive but solid — drew IMs. Not a target.</td>
+      </tr>
+      <tr class="row-danger">
+        <td>A11</td><td>English (defense)</td><td>1</td><td>0</td><td>0</td><td>1</td><td><span class="acc-lo">90.6%</span></td><td>Unknown 2025 R6 vs Lonie 1818: 90.6% but 15 blunders in 187 moves — <code>Qh3+</code> CPL 1000, <code>Qa3</code> CPL 1000, <code>Qe3+</code> CPL 1000. Lost to 1818-rated in late endgame time pressure.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Emerson's Caro-Kann total: 1W–6L–2D across all Caro-Kann lines (B10/B11/B12). Against strong opponents (2100+), the Caro-Kann collapses completely — 0W–5L–0D vs 2100+ rated players in B10/B12. Austin's Exchange Caro-Kann (4.Bd3) directly challenges the B13 structure; Emerson has zero documented games as Black in B13 (no exchange Caro-Kann experience as Black).</p>
+  <div class="warn-box">
+    <strong>Do NOT play 1.d4.</strong> Emerson's QGA (D25) is 3W–0L–1D — his best Black system. His Slav (D11) drew a 2044-rated player at 98.3%. Playing 1.d4 gives Emerson his best Black preparation. Austin should stick to 1.e4 and the Exchange Caro-Kann where Emerson's Caro-Kann record is 0W–3L–1D in B12 specifically.
+  </div>
+
+  <h2>§3 — Vulnerabilities as Black</h2>
+
+  <h3>A. B12 Caro-Kann — Systematic Collapse vs Strong Opponents</h3>
+  <p>Emerson's B12 record (0W–3L–1D, avg 88.4%) is the clearest pattern in the dataset. Three separate losses to 2100+ rated opponents confirm this is not variance:</p>
+  <ul>
+    <li><strong>SW Open 2025 R6 vs WGM Paramzina 2269 (83.8%, 6 blunders):</strong> <code>a4</code> (best Qc3, CPL 1000, −19.37→forced mate) — queen panic in a losing position. <code>Qe4</code> (CPL 1000). 6 blunders, 6 mistakes in 132 moves. His worst Black game in the dataset.</li>
+    <li><strong>Natl K-12 2025 R4 vs Gu Ethan 2295 (88.0%, 3 blunders):</strong> <code>Nxe5</code> (best gxf6, CPL 783, −7.91→−15.74) — piece exchange that accelerated the loss. <code>Ne4</code> (best Nd8, CPL 642) — knight to wrong square.</li>
+    <li><strong>SW Open 2025 R9 vs Samant Aditya 2621 (90.1%, 2 blunders):</strong> <code>Nc2</code> (best Kh7, CPL 559) — king safety miss under pressure. <code>Qe7</code> (best d4, CPL 307) — queen to passive square from a playable position.</li>
+  </ul>
+  <p>The common thread: in B12 structures, Emerson is consistently inaccurate in tactical complications, miscalculates knight placements, and panics with queen/king moves under time pressure. All three losses were to opponents rated 2200+, confirming the B12 collapses specifically against strong play.</p>
+
+  <h3>B. Winning Position Collapses — "Threw it Away" Pattern</h3>
+  <p>Beyond the B12 losses, Emerson has repeatedly thrown away winning positions as Black:</p>
+  <ul>
+    <li><strong>SW Open 2026 R2 vs Hyltin (D25 QGA, draw):</strong> <code>Be7</code> (best Rc8, CPL 615, +6.15→+0.00) — from a +6.15 winning position, one move drew the game. His best Black opening went from winning to drawn on a single piece placement.</li>
+    <li><strong>SW Open 2026 R4 vs Balaji (D25 QGA, win despite blunders):</strong> <code>Ra8</code> (best Qf5, CPL 1000, +17.67→+5.39) — from a +17.67 position (effectively won), the rook moved to the wrong square, losing 12+ pawns of advantage. He still won, but the collapse from +17.67 shows systematic evaluation failure.</li>
+    <li><strong>TX Scholastic 2026 R1 vs Caridad (D20 QGA, win despite blunders):</strong> <code>Rc5</code> (best g4, CPL 1000, forced mate position) and <code>Rxf5</code> (CPL 1000, forced mate) — missed two forced mate sequences even from winning positions. Still won but both CPL 1000 moves were missed mates.</li>
+    <li><strong>TX State Amateur 2026 R5 vs Gani (D25, win with blunders):</strong> <code>Ra8</code> (best Qf5, CPL 1000, +17.67→+5.39) — same Ra8 pattern, different game. Emerson's rook consistently goes to the wrong square from winning positions.</li>
+  </ul>
+  <div class="warn-box">
+    <strong>Emerson repeatedly throws away winning positions as Black.</strong> Be7 (CPL 615 from +6.15), Ra8 (CPL 1000 from +17.67), Rc5 (CPL 1000 from mating position) across multiple games show he cannot consistently convert winning advantages. Austin should stay fighting in any position — Emerson may self-destruct even from a clearly winning position.
+  </div>
+
+  <h3>C. Late Endgame Queen/Piece Panics</h3>
+  <p>Under time pressure in extended endgames, Emerson's queen and pieces go to wrong squares in a cascade:</p>
+  <ul>
+    <li><strong>Unknown 2025 R6 vs Lonie 1818 (A11, 15 blunders, LOSS):</strong> <code>Qh3+</code> (Qf8+, CPL 1000), <code>Qa3</code> (Kg7, CPL 1000), <code>Qe3+</code> (CPL 1000) — three consecutive queen moves all CPL 1000 in a 187-move game under time pressure. Lost to a 1818-rated player in a position he had played at 90.6% for the first 100+ moves. Classic total collapse under time pressure.</li>
+    <li><strong>TX State Amateur 2026 R7 vs Meng 2119 (A01, LOSS):</strong> <code>Bb3</code> (best g3+, CPL 1000, −6.57→−17.35) — missed a check that would have improved the position. <code>e3</code> (best Kh7, CPL 447, +2.46→−2.01) — king safety error from a winning position, reversed the result.</li>
+    <li><strong>TX State Amateur 2026 R1 vs Vivekananthan 2407 (D00, LOSS):</strong> <code>Kxb7</code> (CPL 1000, −12.69→−91.65) — king walked to the wrong square in a losing position, accelerating the loss into a forced mate sequence.</li>
+  </ul>
+
+  <h2>§4 — Austin's Recommended Weapon</h2>
+
+  <h3>Primary: Exchange Caro-Kann 4.Bd3 (B13) — Austin's System, Emerson's Worst Territory</h3>
+  <div class="var-moves">Emerson:  1...c6  [Caro-Kann — primary Black defense vs 1.e4]
+Austin:   1.e4  c6  2.d4  d5  3.exd5  cxd5  4.Bd3  [Exchange Caro-Kann]
+4...Nc6  5.c3  Nf6  6.Bf4  Bg4  7.Qb3  Qd7  8.Nd2  e6  9.Ngf3  Bd6
+
+Or: 4...Nf6  5.c3  Nc6  6.Bf4  Bg4  7.Qb3
+→ The Exchange Caro-Kann is Austin's own system AND Emerson's worst territory
+→ Emerson has ZERO documented games as Black in B13 Exchange position
+→ B12 losses: Paramzina 83.8%, Gu 88.0%, Samant 90.1% — all vs 2200+</div>
+
+  <p><strong>Why Exchange Caro-Kann specifically:</strong></p>
+  <ul>
+    <li>Austin already plays this system — he knows the theory, the typical plans, the tactical patterns from the White side. There is no preparation cost.</li>
+    <li>Emerson's B12 record (0W–3L–1D) is the confirmed worst Black ECO. The Exchange variation (B13) transitions from the same move orders — after 3.exd5 cxd5, the Exchange structure is reached regardless of whether Emerson "prepared" for B12 vs B13.</li>
+    <li>Emerson's three B12 losses all featured calculation failures in tactical complications: Nxe5 (CPL 783), Ne4 (CPL 642), Nc2 (CPL 559), Qe7 (CPL 307). The Exchange Caro-Kann positions are positionally rich and structurally complex — exactly where these errors occur.</li>
+  </ul>
+
+  <h3>If Emerson plays 1...e5</h3>
+  <div class="var-moves">Austin:  1.e4  e5  2.Nf3  [standard — Emerson has no documented 1...e5 games as Black]
+→ Open game: Austin's Advanced French / Rossolimo preparation still applies
+→ If 2...Nc6 3.Bb5 [Ruy Lopez] — Emerson's repertoire shows NO Black Ruy Lopez games
+→ If 2...Nf6 3.Nxe5 [Petrov] — less likely; Austin can play 3.d4 d6 4.Nc3</div>
+
+  <div class="tip-box">
+    <strong>Austin should play aggressively in the Exchange Caro-Kann.</strong> The standard plan is Bd3, Qb3 (pressure on b7), Nf3, castle short, then minority attack on the queenside or kingside pressure with h4. Emerson's Caro-Kann losses show he handles tactics badly in complex Exchange-type positions.
+  </div>
+
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The reference blueprint: <strong>SW Open 2025 R6 — WGM Anastasya Paramzina (2269) vs Emerson Johnson (Black), B12 Caro-Kann, Emerson LOSS, 83.8%</strong></p>
+  <ol>
+    <li><strong>Opening (moves 1–15):</strong> B12 Caro-Kann structure. Emerson reached a playable position through the opening phase — his Caro-Kann theory is adequate to survive the opening.</li>
+    <li><strong>Complications (moves 20–50):</strong> Tactical complications arose and Emerson began losing accuracy. The first wave of blunders (6 blunders, 6 mistakes total) occurred as the position became sharp. <code>Nxe5</code>-type piece miscalculations show he cannot reliably calculate multi-piece sequences.</li>
+    <li><strong>Late collapse (move 59–60):</strong> <code>a4</code> (best Qc3, CPL 1000, −19.37→forced mate) — Emerson played a pawn push that allowed a forced mate when the correct queen retreat was Qc3. Then <code>Qe4</code> (CPL 1000) — second consecutive forced-mate miss. The game ended.</li>
+    <li><strong>Lesson for Austin:</strong> In Exchange Caro-Kann positions that reach complications, Emerson's calculation degrades under pressure. Austin should seek sharp continuations where piece calculation is required in the 20–40 move range. Do NOT simplify into an endgame too early — the B12 losses were not caused by endgame technique failures but by middlegame tactical breakdowns.</li>
+  </ol>
+  <div class="tip-box">
+    <strong>Additional reference:</strong> Natl K-12 R4 vs Gu Ethan (2295, B12) — Nxe5 (CPL 783) and Ne4 (CPL 642). Even at 88% accuracy, Emerson's knight calculations failed critically. In the Exchange Caro-Kann, when Austin creates imbalances around d5 and the knight squares (c5, e5, f4), Emerson's calculation will be challenged.
+  </div>
+
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~60%</span>
+      Exchange Caro-Kann 4.Bd3 → Tactical Complications (Main Line)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Emerson:  1...c6  [Caro-Kann — expected]
+Austin:   1.e4  c6  2.d4  d5  3.exd5  cxd5  4.Bd3  Nc6  5.c3  Nf6  6.Bf4
+→ Austin's main preparation — familiar territory</div>
+      <ul>
+        <li><strong>Moves 6–12:</strong> After 6.Bf4 Bg4, play Qb3 — pressure on b7 and d5 simultaneously. Emerson's Caro-Kann losses show he handles double threats poorly. If 7...Qd7 8.Nd2 e6 9.Ngf3 Bd6 — Austin should aim for castle short then h4 push after preparation.</li>
+        <li><strong>Middlegame plan:</strong> Generate tactical complications around the d5 pawn and the c5/e5 knight squares. In the Natl K-12 R4 game, Nxe5 (CPL 783) — Emerson calculated a knight capture incorrectly from similar structure. Austin should create positions where multiple piece captures are possible.</li>
+        <li><strong>Don't simplify into pure endings early:</strong> Emerson's best endgame performances are in technical Slav/QGA structures (98.3% in D11). The B12 losses were tactical, not endgame failures. Keep the game complex through move 30 before steering to any technical endgame.</li>
+      </ul>
+      <div class="tip-box"><strong>Specific pattern to create:</strong> Build a position where White has a knight on e5/c5 and Black must decide whether to take it. Emerson chose Nxe5 (CPL 783) incorrectly in K-12 R4. Any position requiring a knight sacrifice evaluation from Black is a danger zone for Emerson.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~25%</span>
+      Advanced French 3.e5 — if Emerson plays 1...e6
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Emerson:  1...e6  [French — less likely; no documented French Black games]
+Austin:   1.e4  e6  2.d4  d5  3.e5  [Advanced French — Austin's system]
+3...c5  4.c3  Nc6  5.Nf3  Qb6  [main line: 6.Bd3 cxd4 7.cxd4]
+→ Austin's advanced French preparation applies
+→ Emerson has no documented French-as-Black games in dataset</div>
+      <ul>
+        <li>If Emerson plays the French, Austin is in his most-prepared White territory. The Advanced French with 3.e5 produces locked pawn structures that eventually open into tactical complications.</li>
+        <li>No documented French-as-Black games for Emerson — he would be outside his preparation. Austin should be confident in this variation.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~15%</span>
+      Rossolimo / Italian — if Emerson plays 1...c5 or 1...e5
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Emerson:  1...c5  [Sicilian — Emerson has no documented Sicilian-as-Black games]
+Austin:   1.e4  c5  2.Nf3  Nc6  3.Bb5  [Rossolimo]
+or
+Emerson:  1...e5  [Open game — also undocumented for Emerson as Black]
+Austin:   1.e4  e5  2.Nf3  Nc6  3.Bc4  [Italian]
+→ In either case: Austin in familiar territory, Emerson outside preparation</div>
+      <ul>
+        <li>Emerson's Black opening is almost certainly the Caro-Kann (all documented Black games vs 1.e4 are B10/B11/B12). A Sicilian or Open Game response is very unlikely but Austin should know the plan.</li>
+        <li>Rossolimo (3.Bb5) vs Sicilian: Austin's standard tool. Emerson's Rossolimo as White won vs WIM Chumpitaz — but as Black in Rossolimo structures, he has no data. Territory is unknown for him.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules for This Game</h3>
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Play Exchange Caro-Kann (4.Bd3) — Austin's system, Emerson's worst territory</div>
+          <div class="rule-body">Emerson's B12 Caro-Kann is 0W–3L–1D (avg 88.4%). His three losses were to 2269, 2295, and 2621 — all strong opponents who created tactical complications in B12. Austin plays the Exchange Caro-Kann and knows this structure as White. There is no preparation gap: Austin's own opening weaponizes Emerson's worst ECO. Play 1.e4 c6 2.d4 d5 3.exd5 cxd5 4.Bd3 and build from there. Emerson has zero documented games as Black in the Exchange (B13) position — he may not know this specific pawn structure from Black's side at all.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Avoid 1.d4 — Emerson's QGA/Slav is his best Black preparation</div>
+          <div class="rule-body">Emerson's QGA (D25) is 3W–0L–1D — his best Black system. His Slav (D11) drew a 2044-rated opponent at 98.3% accuracy. If Austin plays 1.d4, Emerson enters his strongest Black territory. The contrast is stark: B12 Caro-Kann (0W–3L–1D, 88.4%) vs QGA/Slav (3W–0L–2D, 94%+). Austin must play 1.e4 and force the Caro-Kann. This is the most important strategic decision in the matchup.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Create tactical complications in the middlegame — Emerson throws away winning positions</div>
+          <div class="rule-body">Emerson's "winning position collapses" pattern: Be7 (CPL 615, +6.15→+0.00), Ra8 (CPL 1000, +17.67→+5.39), Rc5 (CPL 1000 from mating position). He does not always convert advantages and can throw away material evaluations even from clearly winning positions. Austin should keep the game complex and tactical through move 30+. Do not allow simplification into a pure technical endgame before the complications have extracted errors from Emerson's calculation. In particular, positions with knight captures available (Nxe5 CPL 783 pattern from K-12) are dangerous for Emerson.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS WHITE — Exchange Caro-Kann (B13) vs 1...c6:
+  1.e4 c6 2.d4 d5 3.exd5 cxd5 4.Bd3 Nc6 5.c3 Nf6 6.Bf4
+  → 7.Qb3 (pressure b7+d5) → Nd2, Ngf3, O-O, h4 plan
+  → Target: knight calculations around c5/e5 where Emerson fails (Nxe5 CPL 783)
+
+AS WHITE vs 1...c6 2.d4 d5 3.exd5 4.Bd3 Nf6 (instead of 4...Nc6):
+  5.c3 Nc6 6.Bf4 Bg4 7.Qb3 Qd7 8.Nd2 e6 9.Ngf3 Bd6
+  → Standard Exchange plan; familiar Austin territory
+
+AVOID 1.d4 — Emerson's QGA (3W-0L-1D) is his best Black system
+
+TACTICAL PATTERN — watch for Emerson miscalculating:
+  When White has Ne5/Nc5 option, create double threat
+  Emerson's B12 losses: Nxe5 CPL 783, Ne4 CPL 642 — knight calculation errors
+  Any position requiring Black to calculate a knight capture = danger zone</div>
+
+    <h3>Critical Moments Database (Emerson as Black)</h3>
+    <table>
+      <thead><tr><th>Pattern</th><th>When it arises</th><th>Engine reference</th><th>CPL</th></tr></thead>
+      <tbody>
+        <tr class="row-danger"><td>Nxe5 piece capture miscalculation</td><td>B12 Caro-Kann, knight capture under pressure</td><td>K-12 R4 vs Gu 2295: Nxe5 (gxf6 CPL 783, −7.91→−15.74)</td><td class="acc-lo">783</td></tr>
+        <tr class="row-danger"><td>Ne4 knight to wrong square</td><td>B12 complications — knight retreat decision</td><td>K-12 R4: Ne4 (Nd8 CPL 642, −1.41→−7.83)</td><td class="acc-lo">642</td></tr>
+        <tr class="row-danger"><td>Be7 threw away +6.15 position</td><td>D25 QGA — piece placement from winning position</td><td>SW Open 2026 R2: Be7 (Rc8 CPL 615, +6.15→+0.00)</td><td class="acc-lo">615</td></tr>
+        <tr class="row-danger"><td>Nc2 king safety miss</td><td>B12 vs Samant — defensive move missed</td><td>SW Open 2025 R9: Nc2 (Kh7 CPL 559, −7.39→−12.98)</td><td class="acc-lo">559</td></tr>
+        <tr class="row-danger"><td>a4 pawn push into forced mate</td><td>B12 vs Paramzina — late endgame panic</td><td>SW Open 2025 R6: a4 (Qc3 CPL 1000, −19.37→forced mate)</td><td class="acc-lo">1000</td></tr>
+        <tr><td>Nd5 from equal position (Black)</td><td>B10 — knight outpost attempt from +0.00</td><td>Unknown 2025 R4: Nd5 (Qa3 CPL 342, +0.00→−3.42)</td><td class="acc-lo">342</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>§8 — Day-of Preparation (30 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Tactics drill — 15 min:</strong> 10 puzzles on <em>Exchange Caro-Kann middlegame themes</em> — positions where White has an active bishop on d3, a rook on e1, and pressure against the isolated d5 pawn. Practice the Qb3 double threat (b7 and d5 simultaneously). Also 3 puzzles on <em>knight sacrifice evaluation</em> — positions where White can sacrifice or plant a knight on e5/c5 and Black must calculate correctly whether to take. Emerson miscalculated Nxe5 (CPL 783) in K-12 R4 — Austin should be able to spot when such a sacrifice is sound before playing it.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Opening line review — 10 min:</strong> Replay mentally: <code>1.e4 c6 2.d4 d5 3.exd5 cxd5 4.Bd3 Nc6 5.c3 Nf6 6.Bf4 Bg4 7.Qb3</code>. Stop at move 7. Ask: <em>"What is the threat?"</em> Answer: Qxb7 threatening the a8 rook AND Qxd5 winning the d5 pawn — Emerson must respond accurately. The Exchange Caro-Kann Qb3 plan creates immediate double threats that test calculation. Austin should know this line cold so he can play it quickly and put Emerson on the clock.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Mental visualization — 5 min:</strong> Picture Emerson's Natl K-12 R4 game: Emerson has a playable B12 Caro-Kann position, and then plays Nxe5 (CPL 783, −7.91→−15.74) — miscalculating the knight capture. The position goes from −7.91 to −15.74. Then Ne4 (CPL 642) the next move. Ask: <em>"When will this happen against me?"</em> Answer: when Austin creates a position where Emerson must calculate a knight capture under time pressure in a tactically complex position around move 20–30. Build toward that moment patiently.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Emerson plays Caro-Kann as Black — 0W–3L–1D in B12, 88.4% average. I play Exchange Caro-Kann — my own system. He has no B13 games as Black. I create tactical complications in the middlegame, especially around knight calculations on c5/e5. I don't play 1.d4 — his QGA is 3W–0L–1D. The Caro-Kann is the weapon. Qb3 creates immediate threats. I play actively and watch for Nxe5-type miscalculations."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin W Exchange Caro-Kann vs 1...c6</td><td>B13</td><td><code>1.e4 c6 2.d4 d5 3.exd5 cxd5 4.Bd3 Nc6 5.c3 Nf6 6.Bf4</code></td></tr>
+      <tr><td>Austin W Exchange Caro-Kann (Qb3 variation)</td><td>B13</td><td><code>4.Bd3 Nc6 5.c3 Nf6 6.Bf4 Bg4 7.Qb3 Qd7 8.Nd2 e6 9.Ngf3 Bd6</code></td></tr>
+      <tr><td>Austin W Advanced French vs 1...e6</td><td>C02</td><td><code>1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 Qb6 6.Bd3</code></td></tr>
+      <tr><td>Austin W Rossolimo vs 1...c5</td><td>B30</td><td><code>1.e4 c5 2.Nf3 Nc6 3.Bb5 g6 4.O-O Bg7 5.c3</code></td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish movetime 800ms · 19 games as Black</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#2d7d46;color:#fff;padding:2px 10px;border-radius:12px;">A</span>
+      Opening Gaps — Emerson as Black
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>B12 Caro-Kann Classical/Advance — 0W–3L–1D (88.4% avg):</strong> Three separate losses to opponents rated 2269, 2295, and 2621. In all three: calculation errors in tactical complications from the Caro-Kann structure. <code>Nxe5</code> (CPL 783) vs Gu, <code>Ne4</code> (CPL 642) vs Gu, <code>Nc2</code> (CPL 559) vs Samant — all knight/piece miscalculations in sharp B12 positions. The only B12 non-loss was a draw vs Kaul 1729 (a much lower-rated player). B12 at the level of Austin's play is a confirmed liability.</p>
+      <p><strong>B10 Caro-Kann Two Knights — 0W–0L–2D (91.3% avg, both losses):</strong> Wait — actually 0W-0L-2D is wrong per data: 2 losses. Unknown 2025 R4 vs Joseph Julian (89.9%, <code>Nd5</code> CPL 342, +0.00→−3.42) and SW Open 2025 R3 vs Rodrigue-Lemieux 2529 (92.6%, GM opponent). The Nd5 error (+0.00→−3.42) is the concern — a positionally equal position went to −3.42 from one knight move. The same calculation failure pattern as B12.</p>
+      <p><strong>Critical contrast — B11 is better (94.7%, 1W–0L–1D):</strong> Emerson's B11 games (Two Knights alternate) are significantly stronger than B10/B12. Austin's 4.Bd3 Exchange line specifically creates B13 structures (not B11). The Exchange variation targets Emerson's known weaknesses while avoiding his stronger B11 lines.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#2d7d46;color:#fff;padding:2px 10px;border-radius:12px;">B</span>
+      Time-Pressure / Winning Position Collapses
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Be7 from +6.15 (D25 QGA, CPL 615) — drew a won game:</strong> SW Open 2026 R2 vs Hyltin — Emerson had +6.15 (substantial winning advantage). <code>Be7</code> (best Rc8) dropped it to +0.00 in one move. Drew a completely won position. This is the same pattern as the White-side Rg5 blunders but happening as Black: Emerson makes an "active-looking" piece move from a winning position without verifying the tactical consequence. This pattern exists on BOTH colors.</p>
+      <p><strong>Ra8 from +17.67 (D25 QGA, CPL 1000) — nearly threw it away:</strong> TX State Amateur 2026 R5 vs Gani — <code>Ra8</code> (best Qf5) dropped from +17.67 to +5.39 in one rook move. The rook moved to a passive square from a crushing position. Still won the game but the Ra8 pattern (identical to the rook misplacement in SW Open 2026 R3 as White) confirms a systematic piece-placement calculation failure across both colors.</p>
+      <p><strong>Qh3+/Qa3/Qe3+ queen panic cascade (A11, 15 blunders vs Lonie 1818):</strong> Unknown 2025 R6 — under time pressure in a 187-move endgame, Emerson played three consecutive CPL 1000 queen moves: <code>Qh3+</code> (Qf8+), <code>Qa3</code> (Kg7), <code>Qe3+</code>. Lost to a 1818-rated player who he had matched in accuracy for 100+ moves. The queen cascade under time pressure is the most extreme single-game collapse in the dataset.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#2d7d46;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Endgame Technique as Black
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>D11 Slav — 98.3% draw vs Albert 2044 (193 moves):</strong> His highest-accuracy game, longest game. Technical endgame defense at near-perfect levels over 193 moves. Emerson's endgame skill in Slav/QGA-type structures (symmetrical pawn structures) is genuinely elite for his rating level. This is the danger zone — Austin must NOT steer into simplified symmetrical pawn endgames.</p>
+      <p><strong>A07 KIA — 95.5% draw vs IM Fus 2514 (61 moves):</strong> Held an IM with only 2 inaccuracies, 0 blunders/mistakes. Passive but technically solid. The KIA defense as Black is another clean endgame performance. If Emerson reaches a quiet, closed position as Black, his defensive endgame skill is high.</p>
+      <p><strong>Kxb7 king panic (D00, TX State R1, CPL 1000):</strong> vs Vivekananthan 2407 — <code>Kxb7</code> (CPL 1000, −12.69→−91.65) — king moved to wrong square in a losing position, accelerating the mate. In sharp positions where Emerson is already losing, his king navigation fails (same as the White-side king errors). The endgame strength is limited to patient defensive structures — not to active fighting positions.</p>
+      <p><strong>Verdict:</strong> Emerson's endgame as Black is strong in technical defensive positions (Slav, KIA, QGA where he has played 98.3% over 193 moves) but breaks down in sharp, unbalanced endgames requiring calculation. Austin should steer for the latter, not the former.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#2d7d46;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">B12 Caro-Kann 88.4% (0W–3L–1D); B10 both losses; B11 is solid — must force B13</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time Pressure</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Be7 CPL 615 from +6.15; Ra8 CPL 1000 from +17.67; Qh3+/Qa3 cascade (15 blunders vs 1818)</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Elite in technical defense (98.3% D11); brittle in sharp positions (Kxb7 CPL 1000)</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a5276;">B</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">91.6% Black / 92.9% White — 1.3pp gap only; Austin faces near-equal Emerson as Black</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
