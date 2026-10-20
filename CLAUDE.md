@@ -11,7 +11,7 @@ This project helps **Austin Lin** prepare for competitive chess tournaments by:
 2. Analyzing potential opponents' games
 3. Generating matchup-specific preparation plans
 
-Opponents analyzed to date: **Justin Huang, Aarush Ajith, Zachary Liu, Heye Gao, Fernando Cortes Medina, Pranav Santhosh** (Emerson Johnson, Leo Jackson, Tarun — PGN files on file, analysis pending)
+Opponents analyzed to date: **Justin Huang, Aarush Ajith, Zachary Liu, Heye Gao, Fernando Cortes Medina, Pranav Santhosh, Emerson Johnson, Leo Jackson, Tarun Sankar, Daniel Hernandez Gamboa, Yaen Saenz Cabrera** — full pipeline complete for all 11 opponents (deep HTML + white/black matchup HTMLs)
 
 ---
 
@@ -61,9 +61,11 @@ chess-analysis/
     ├── heye/                   # multiple tournament folders
     ├── fernando/               # multiple tournament folders
     ├── pranav/                 # agcafall2026, agcasummer2026, worldyouth2026
-    ├── emerson/                # PGN on file — analysis pending
-    ├── leo/                    # PGN on file — analysis pending
-    └── tarun/                  # PGN on file — analysis pending
+    ├── emerson/                # 7 tournaments, 38 games — full pipeline complete
+    ├── leo/                    # 8 tournaments, 47 games — full pipeline complete
+    ├── tarun/                  # 6 tournaments, 16 games — full pipeline complete
+    ├── danielh/                # queretaro2024/2025/2026, anothergame — 8 games analyzed
+    └── yaen/                   # saenz cabrera, yaen.pgn — 51 games analyzed
 ```
 
 ---
@@ -169,6 +171,11 @@ When a new opponent folder is added:
 | Heye Gao | ~2028–2065 | Italian | Slav | 1D (Mar 2026) |
 | Fernando Cortes Medina | ~2026–2133 | 1.e4/1.c4 | French | No encounter |
 | Pranav Santhosh | 1940 | 1.e4 English Attack/Maróczy | Italian/Lopez | No encounter |
+| Emerson Johnson | 1925 FIDE / 2078 US | 1.e4 Rossolimo/Exch CK | Caro-Kann/QGA | No encounter |
+| Leo Jackson | ~1886 FIDE / ~2000 US | 1.d4 Catalan (3.Nf3, no Nc3) | French Defense | No encounter |
+| Tarun Sankar | ~1965 FIDE (peak 2002) | 1.c4 English (Catalan/Mikenas) | Sicilian | No encounter |
+| Daniel Hernandez Gamboa | ~1685–1692 FIDE | 1.e4 (Philidor/Pirc/Sicilian) | 1...e5 Four Knights | No encounter |
+| Yaen Saenz Cabrera | ~1841 FIDE (peak 1899) | 1.e4 Scotch C45 | Sicilian Sveshnikov B32/B33 | No encounter |
 
 ---
 

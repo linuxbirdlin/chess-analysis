@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Austin vs Daniel Hernandez Gamboa — Engine Analysis (Deep)</title>
+<style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 860px; margin: 0 auto; background: #ffffff; padding: 48px 56px 64px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #2d7d46; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 8px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.9rem; color: #57606a; }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link { display: inline-block; margin-top: 14px; font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.3rem; color: #1f2328; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.05rem; color: #2d7d46; margin: 24px 0 8px; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
+    li { margin-bottom: 4px; }
+
+    .encounter { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; font-size: 0.93rem; margin-bottom: 28px; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 12px 0; font-size: 0.93rem; color: #1a4731; }
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 12px 0; font-size: 0.93rem; color: #7a0000; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 12px 0; font-size: 0.93rem; color: #1a3a55; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 16px 0 24px; }
+    thead th { background: #2d7d46; color: #ffffff; padding: 10px 14px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #ffffff; }
+    tbody td { padding: 9px 14px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+
+    .part-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 24px 0; overflow: hidden; }
+    .part-title { background: #2d7d46; color: #fff; padding: 12px 20px; font-size: 1.05rem; font-weight: 600; margin: 0; }
+    .part-title.engine { background: #7a4f00; }
+    .part-title.pattern { background: #1a3a5c; }
+    .part-body { padding: 20px 24px; }
+
+    .game-row { border: 1px solid #d0d7de; border-radius: 8px; margin-bottom: 14px; overflow: hidden; }
+    .game-row-header { background: #f6f8fa; border-bottom: 1px solid #d0d7de; padding: 9px 14px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .badge-white { font-size: 0.74rem; font-weight: 700; border-radius: 3px; padding: 2px 8px; background: #2d7d46; color: #fff; }
+    .badge-black { font-size: 0.74rem; font-weight: 700; border-radius: 3px; padding: 2px 8px; background: #1a5276; color: #fff; }
+    .badge-result-win  { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #dafbe1; color: #1a4731; }
+    .badge-result-loss { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #fff5f5; color: #7a0000; }
+    .badge-result-draw { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #fff8e6; color: #7a4f00; }
+    .badge-acc         { font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; background: #eaf0f8; color: #1a3a5c; }
+    .badge-acc-hi      { font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; background: #dafbe1; color: #1a4731; font-weight: 700; }
+    .badge-acc-lo      { font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; background: #fff5f5; color: #7a0000; font-weight: 700; }
+    .game-row-body { padding: 12px 16px; }
+
+    .im-section-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #57606a; margin: 10px 0 4px; }
+    .im-moment { font-size: 0.84rem; padding: 6px 10px; margin: 4px 0; border-radius: 4px; border-left: 3px solid #d4750a; background: #fff8f0; }
+    .im-moment.blunder { border-left-color: #cf2222; background: #fff5f5; }
+    .im-moment.good { border-left-color: #2d7d46; background: #dafbe1; }
+    .im-tags { margin: 8px 0 4px; }
+    .im-tag { display: inline-block; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 12px; padding: 2px 10px; font-size: 0.77rem; margin: 2px 3px; color: #444; }
+    .im-tag.time-pressure { background: #fff5f5; border-color: #cf2222; color: #7a0000; }
+    .im-tag.endgame { background: #fff8e6; border-color: #d4a017; color: #7a4f00; }
+    .im-prep { font-size: 0.86rem; margin-top: 10px; padding: 8px 12px; background: #fff8e6; border-left: 3px solid #d4a017; border-radius: 0 4px 4px 0; color: #7a4f00; }
+
+    em { font-style: italic; color: #57606a; }
+    strong { font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="doc-header">
+  <h1>Daniel Hernandez Gamboa — Deep Engine Analysis</h1>
+  <div class="meta">
+    <span><strong>Daniel rating:</strong> 1685–1692 FIDE (2026), peaked 1767 (Apr 2025)</span>
+    <span><strong>Engine:</strong> Stockfish movetime-800 · 8 games</span>
+    <span><strong>Overall:</strong> 90.4% avg · White 89.8% (5g) · Black 91.5% (3g)</span>
+    <span><strong>Direct encounter:</strong> None on record</span>
+  </div>
+  <a class="back-link" href="../austin-prep.html">← Back to Prep Index</a>
+  &nbsp;&nbsp;
+  <a class="back-link" href="matchup-danielh.html">← Matchup Overview</a>
+  &nbsp;&nbsp;
+  <a class="back-link" href="matchup-danielh-white.html">Austin as White →</a>
+  &nbsp;&nbsp;
+  <a class="back-link" href="matchup-danielh-black.html">Austin as Black →</a>
+</div>
+
+<div class="encounter">
+  <strong>Engine summary:</strong> 8 games analyzed (Stockfish movetime-800, 16 threads). Overall avg <strong>90.4%</strong> — Black is slightly better (91.5%) than White (89.8%). By tournament: Querétaro 2024 avg 94.9%, Querétaro 2025 avg 85.0%, Querétaro 2026 avg 89.3%, Aguascalientes 2026 90.3%. Key pattern: <strong>Daniel's 2025 games show a dramatic accuracy drop (85.0%) with 3 blunders and 7 mistakes in a single game</strong> — confirming time-pressure collapses that are absent in his 2024 games. He drew CM Agama Hernandez (2003) at 90.3% accuracy — his best result by opponent strength.
+</div>
+
+<div class="part-card">
+<p class="part-title engine">Accuracy by Tournament</p>
+<div class="part-body">
+<table>
+<thead><tr><th>Tournament</th><th>Games</th><th>Avg Accuracy</th><th>Best Game</th><th>Worst Game</th></tr></thead>
+<tbody>
+<tr>
+  <td>Querétaro 2024</td><td>3g</td><td><strong>94.9%</strong></td>
+  <td>R4 Draw vs Tierrafria 97.1% (Black)</td>
+  <td>R7 Win vs Juarez 93.1% (White)</td>
+</tr>
+<tr>
+  <td>Querétaro 2025</td><td>2g</td><td><strong>85.0%</strong></td>
+  <td>R2 Loss vs Cadena 86.7% (Black)</td>
+  <td>R1 Win vs Rodriguez 83.2% (White)</td>
+</tr>
+<tr>
+  <td>Querétaro 2026</td><td>2g</td><td><strong>89.3%</strong></td>
+  <td>R6 Draw vs Brito 90.6% (Black)</td>
+  <td>R5 Draw vs Flores 88.0% (White)</td>
+</tr>
+<tr>
+  <td>Aguascalientes 2026</td><td>1g</td><td><strong>90.3%</strong></td>
+  <td>R4 Draw vs CM Agama (90.3%)</td>
+  <td>—</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<h2>Querétaro 2024 — 3 Games (avg 94.9%)</h2>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-white">WHITE</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R3 · C41 Philidor Defense Exchange · vs Hernandez Macias (1514)</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc-hi">94.4%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:23 · B:0 · M:0 · I:8</span>
+</div>
+<div class="game-row-body">
+  <div class="im-section-label">Critical Moments (top inaccuracies)</div>
+  <div class="im-moment"><strong>O-O-O</strong> (best: f4) — CPL 138 · +5.46→+4.08. Queenside castling into a complex position when f4 was more direct.</div>
+  <div class="im-moment"><strong>Ndb5</strong> (best: Kb1) — CPL 132 · +3.26→+1.94. Knight to aggressive square when king safety came first.</div>
+  <div class="im-moment"><strong>Bd6</strong> (best: c4) — CPL 119 · +6.88→+5.69. Suboptimal bishop when clearly winning.</div>
+  <div class="im-tags"><span class="im-tag">8 inaccuracies — imprecise winning technique</span></div>
+  <div class="im-prep">94.4% on 8 inaccuracies — Daniel was dominant (+5 to +7 eval throughout) but converted imprecisely. Won with a forced mating finish after an advanced pawn promotion. The 8 inaccuracies show Daniel tends to play imprecisely even in winning positions, rather than finding the sharpest continuations.</div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-black">BLACK</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R4 · A34 English Symmetrical Fianchetto · vs Hernandez Tierrafria (1524)</span>
+  <span class="badge-result-draw">DRAW</span>
+  <span class="badge-acc-hi">97.1%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:7 · B:0 · M:0 · I:0</span>
+</div>
+<div class="game-row-body">
+  <div class="im-section-label">Assessment</div>
+  <div class="im-moment good">Near-perfect game — 97.1% accuracy, CPL:7, zero blunders/mistakes/inaccuracies. Daniel played the English Symmetrical as Black with exceptional precision. Both sides exchanged pieces repeatedly into a drawn rook endgame.</div>
+  <div class="im-tags"><span class="im-tag">best single game in dataset</span><span class="im-tag">solid positional play</span></div>
+  <div class="im-prep">This is Daniel's ceiling: 97.1% in a quiet symmetrical position. He excels at solid, non-committal positions where there is limited tactical complexity. For Austin: avoid symmetrical, simplified positions against Daniel — he handles them well.</div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-white">WHITE</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R7 · B07 Pirc Defense · vs Juarez Gordillo (1539)</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc">93.1%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:19 · B:0 · M:0 · I:5</span>
+</div>
+<div class="game-row-body">
+  <div class="im-section-label">Critical Moments</div>
+  <div class="im-moment"><strong>Bh6</strong> (best: Nh3) — CPL 103 · +1.63→+0.60. In the sharp Pirc Yugoslav-style attack, bishop to h6 instead of knight development slowed the attack.</div>
+  <div class="im-moment"><strong>f4</strong> (best: Qd6) — CPL 70 · −0.26→−0.96. Pawn push slightly premature.</div>
+  <div class="im-section-label">Result</div>
+  <div class="im-moment good">Checkmate finish: <code>Ng5+, Bxh5, Ng3+, Ng5+ → Nf5+, Qd8#</code>. Daniel executed a kingside attack with 4.f3, 7.h4, 8.g4 → forced mating net in 27 moves. Despite the early inaccuracies, demonstrated strong attack calculation.</div>
+  <div class="im-tags"><span class="im-tag">mating attack</span><span class="im-tag">Yugoslav-style</span></div>
+  <div class="im-prep">Daniel CAN calculate sharp king attacks. The mating finish shows tactical ability. For Austin: avoid early d6/Pirc structures as Black against Daniel — he plays 4.f3 aggressively. Daniel's White kingside attack style (h4, g4) is his strongest mode of play.</div>
+</div>
+</div>
+
+<h2>Querétaro 2025 — 2 Games (avg 85.0%)</h2>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-white">WHITE</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R1 · B44 Sicilian Taimanov · vs Rodriguez Chavez (unrated)</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc-lo">83.2%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:58 · B:3 · M:7 · I:4</span>
+</div>
+<div class="game-row-body">
+  <div class="im-section-label">Critical Moments — 10 Major Errors</div>
+  <div class="im-moment blunder"><strong>Bg5</strong> (best: e5) — CPL 690 · <strong>+7.04→+0.14</strong>. From a completely winning position (+7.04), Daniel played a bishop pin instead of the decisive e5 thrust. The eval crashed from near-winning to essentially equal in a single move.</div>
+  <div class="im-moment blunder"><strong>Rbc3</strong> (best: Rb7) — CPL 360 · +4.76→+1.16. Rook to wrong file when Rb7 was winning. Second major error in an already-won endgame.</div>
+  <div class="im-moment blunder"><strong>g4</strong> (best: c7+) — CPL 322 · +5.18→+1.96. Third blunder from a winning position — pawn push instead of promoting the c-pawn immediately.</div>
+  <div class="im-tags"><span class="im-tag time-pressure">3 blunders, 7 mistakes — worst game in dataset</span><span class="im-tag">mutual blunder-fest</span></div>
+  <div class="im-prep"><strong>Daniel's worst-quality game.</strong> Won vs unrated Rodriguez despite 3 blunders and 7 mistakes at 83.2%. Both players blundered repeatedly — opponent's errors allowed Daniel to win. Key insight: under time pressure or in complex endgames, Daniel's calculation breaks down completely. This is the primary weakness Austin should target.</div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-black">BLACK</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R2 · C49 Four Knights Spanish Symmetrical · vs Cadena Rojas (1560)</span>
+  <span class="badge-result-loss">LOSS</span>
+  <span class="badge-acc">86.7%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:54 · B:1 · M:2 · I:7</span>
+</div>
+<div class="game-row-body">
+  <div class="im-section-label">Critical Moments — Rating Upset</div>
+  <div class="im-moment blunder"><strong>Nxe4</strong> (best: g5) — CPL 519 · <strong>+0.20→−4.99</strong>. From a <em>completely equal position</em> (+0.20 ≈ 0.00), Daniel sacrificed a piece with Nxe4. The position was essentially equal; g5 was the correct active move. This piece blunder immediately decided the game — a −207 rating upset loss.</div>
+  <div class="im-moment"><strong>Qf6</strong> (best: Qf7) — CPL 194 · −5.93→−7.87. Already losing, Daniel chose the wrong queen square.</div>
+  <div class="im-moment"><strong>h6</strong> (best: Ne7) — CPL 167 · −0.05→−1.72. Earlier inaccuracy from near-equal position — h6 weakened the kingside rather than activating the knight.</div>
+  <div class="im-tags"><span class="im-tag time-pressure">Nxe4 blunder from equal</span><span class="im-tag">−207 rating upset</span></div>
+  <div class="im-prep"><strong>Key data point for Austin as White:</strong> Daniel plays 1...e5 as Black against 1.e4 and reaches Four Knights symmetrical structures. From a completely equal position, his Nxe4 piece blunder on move 16 immediately decided the game. This is not endgame collapse — it is a calculation failure from equality in the middlegame. Austin should reach complex middlegame positions where this calculation pattern can recur.</div>
+</div>
+</div>
+
+<h2>Querétaro 2026 — 2 Games (avg 89.3%)</h2>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-white">WHITE</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R5 · D00 Accelerated London · vs Flores Ojeda (1812)</span>
+  <span class="badge-result-draw">DRAW</span>
+  <span class="badge-acc">88.0%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:34 · B:1 · M:1 · I:7</span>
+</div>
+<div class="game-row-body">
+  <div class="im-section-label">Critical Moments</div>
+  <div class="im-moment blunder"><strong>cxd4</strong> (best: exd4) — CPL 302 · −0.57→−3.59. Daniel played cxd4 in a slightly unfavorable position — the recapture choice was wrong, giving Black a strong passed pawn structure. Should have played exd4.</div>
+  <div class="im-moment"><strong>a4</strong> (best: fxg5) — CPL 193 · −1.11→−3.04. Queenside pawn advance when the kingside needed attention (fxg5 was correct).</div>
+  <div class="im-tags"><span class="im-tag">drew +127-rated Flores Ojeda (1812)</span><span class="im-tag endgame">complex draw</span></div>
+  <div class="im-prep">Despite cxd4 (CPL 302) and a4 (CPL 193) that should have been losing, Daniel held a draw against a 1812-rated player (127 pts above him). The opponent also blundered (Rbc8?? move 26, Bd3?? move 40) allowing Daniel to equalize. Shows Daniel's tenacity — he can hold draws from inferior positions.</div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-black">BLACK</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R6 · A93 Dutch Defense Stonewall Botvinnik · vs Brito De La O (1734)</span>
+  <span class="badge-result-draw">DRAW</span>
+  <span class="badge-acc">90.6%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:25 · B:1 · M:0 · I:2</span>
+</div>
+<div class="game-row-body">
+  <div class="im-section-label">Critical Moments</div>
+  <div class="im-moment blunder"><strong>g4</strong> (best: gxf4) — CPL 324 · <strong>+2.62→−0.62</strong>. From a winning position (+2.62 for Black), Daniel pushed g4 aggressively instead of capturing gxf4 first. Dropped from winning to equal in a single move — a missed win against a 1734-rated player.</div>
+  <div class="im-moment"><strong>Qf7</strong> (best: g5) — CPL 65 · +0.61→−0.04. Earlier inaccuracy that slightly favored White.</div>
+  <div class="im-tags"><span class="im-tag">g4 from +2.62 — missed win</span><span class="im-tag">Dutch Stonewall</span></div>
+  <div class="im-prep">Daniel missed a win with g4 (CPL 324 from +2.62) in a Dutch Stonewall structure. The correct gxf4 capture would have maintained the winning advantage. Instead, the game equalized and ended in a draw. <strong>Pattern confirmed:</strong> Daniel blunders from winning positions — both as White (Bg5 CPL 690 in 2025 R1) and as Black (g4 CPL 324 here). He cannot convert winning positions reliably.</div>
+</div>
+</div>
+
+<h2>Aguascalientes 2026 — 1 Game (90.3%)</h2>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-white">WHITE</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R4 · E35 Nimzo-Indian Classical, Noa Variation · vs Agama Hernandez CM (2003)</span>
+  <span class="badge-result-draw">DRAW</span>
+  <span class="badge-acc">90.3%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:29 · B:0 · M:2 · I:10</span>
+</div>
+<div class="game-row-body">
+  <div class="im-section-label">Critical Moments — vs CM (+318 Elo)</div>
+  <div class="im-moment"><strong>Kf2</strong> (best: Bg3) — CPL 208 · −0.95→−3.03. King walk to f2 when Bg3 would have held the position. Daniel misassessed king safety.</div>
+  <div class="im-moment"><strong>Na2</strong> (best: h4) — CPL 207 · −1.90→−3.97. Knight to a2 (passive corner square) instead of active h4. Positional retreat when attack was required.</div>
+  <div class="im-section-label">Result</div>
+  <div class="im-moment good">Held a draw vs CM Agama Hernandez (2003) — Daniel's best result by opponent strength. The draw confirms Daniel can compete against much higher-rated players in complex Nimzo-Indian structures. Both Kf2 and Na2 mistakes (CPL 207–208) occurred from slightly unfavorable positions (−1 to −2) — not catastrophic blunders from winning.</div>
+  <div class="im-tags"><span class="im-tag">drew CM Agama Hernandez (+318 pts)</span><span class="im-tag">Nimzo Classical</span></div>
+  <div class="im-prep">Daniel played the Qc2 Nimzo-Indian as White (E35) against a CM-rated player and drew. The Kf2/Na2 mistakes suggest Daniel had king safety assessment issues but held due to the CM's imprecision (Bd3?? on move 40, Rbc8?? on move 26). For Austin: the Nimzo Qc2 line is documented and Daniel knows the basic theory. Austin plays Nimzo as Black — be prepared for the Qc2 classical variation.</div>
+</div>
+</div>
+
+<hr>
+
+<div class="part-card">
+<p class="part-title pattern">Key Patterns — Austin's Exploitation Guide</p>
+<div class="part-body">
+
+<h3>Pattern #1 — Blunders from Winning Positions (Both Colors)</h3>
+<div class="warn-box">
+  <strong>Bg5</strong> (CPL 690, +7.04→+0.14) as White and <strong>g4</strong> (CPL 324, +2.62→−0.62) as Black — in both cases Daniel had a clear winning advantage and threw it away with an aggressive-looking move that was tactically unsound. This is his defining weakness: when he has the advantage, he overreaches rather than consolidating.
+</div>
+
+<h3>Pattern #2 — Piece Blunder from Equal (Nxe4 in Four Knights)</h3>
+<div class="warn-box">
+  <strong>Nxe4</strong> (CPL 519, +0.20→−4.99) — from a perfectly equal position, Daniel sacrificed a piece for no compensation. This is Austin's primary target as White: reach a complex middlegame from 1.e4 e5 territory, allow the position to be nominally equal around move 15–20, and wait for Daniel's calculation to fail. The Four Knights loss to 1560-rated Cadena Rojas confirms this pattern vs 1.e4.
+</div>
+
+<h3>Pattern #3 — Dramatic Accuracy Collapse Under Time Pressure (Q2025 R1)</h3>
+<div class="warn-box">
+  83.2% accuracy with 3 blunders and 7 mistakes in a single game vs an unrated player. This is the worst-quality game in the dataset and occurred in 2025 (recent). The 10-error game shows Daniel can collapse completely under time pressure. By contrast, his 2024 games averaged 94.9% — a 10% accuracy swing between tournaments.
+</div>
+
+<h3>Positive: Draws Against Higher-Rated Players</h3>
+<div class="info-box">
+  Daniel drew CM Agama Hernandez (2003, +318 pts), drew Flores Ojeda (1812, +127 pts), and drew Brito De La O (1734, +42 pts) — all in 2026. He is capable of holding draws against significantly higher-rated players through tenacity. Austin cannot expect an easy win — Daniel will fight for draws even when outmatched.
+</div>
+
+<h3>Summary Table — Key Numbers</h3>
+<table>
+<thead><tr><th>Pattern</th><th>Game</th><th>CPL</th><th>Eval swing</th><th>Context</th></tr></thead>
+<tbody>
+<tr><td>Bg5 — missed win</td><td>Q2025 R1 [W WIN]</td><td>690</td><td>+7.04→+0.14</td><td>From WINNING → equal</td></tr>
+<tr><td>Nxe4 — piece blunder</td><td>Q2025 R2 [B LOSS]</td><td>519</td><td>+0.20→−4.99</td><td>From EQUAL → losing</td></tr>
+<tr><td>g4 — missed win</td><td>Q2026 R6 [B DRAW]</td><td>324</td><td>+2.62→−0.62</td><td>From WINNING → equal</td></tr>
+<tr><td>Rbc3 — wrong rook file</td><td>Q2025 R1 [W WIN]</td><td>360</td><td>+4.76→+1.16</td><td>From WINNING</td></tr>
+<tr><td>g4 — wrong capture</td><td>Q2025 R1 [W WIN]</td><td>322</td><td>+5.18→+1.96</td><td>c7+ was winning</td></tr>
+<tr><td>cxd4 — wrong recapture</td><td>Q2026 R5 [W DRAW]</td><td>302</td><td>−0.57→−3.59</td><td>exd4 was correct</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>

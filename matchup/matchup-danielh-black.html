@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Daniel Hernandez Gamboa — Austin as Black</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #1a5276; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #1a5276; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #1a5276; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #1a5276; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #1a5276; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #f0fff4 !important; color: #1a4731; }
+    .acc-hi { color: #1a6030; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #f0f6ff; }
+    .rule-number { background: #1a5276; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #eaf0f8; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #1a5276; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #1a5276; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #d6e4f0; color: #1a5276; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #d6e4f0; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a3a55; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Daniel Hernandez Gamboa</h1>
+    <div class="subtitle">Austin as Black — Sicilian vs 1.e4 · Nimzo-Indian vs 1.d4</div>
+    <div class="meta">Daniel Hernandez Gamboa · ~1685–1692 FIDE (2026, peaked 1767) · 8 games · Stockfish movetime 800 · White avg 89.8% (5g) · 3W–0L–2D as White · No direct encounter</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-danielh.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-danielh-white.html">← Austin as White</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-danielh-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="encounter-box">
+    <strong>No direct encounter on record.</strong> Engine data from 8 games across 4 tournaments. Daniel as White: <strong>89.8% avg (5g), 3W–0L–2D</strong>. His worst White game (Querétaro 2025 R1: 83.2%, 3 blunders + 7 mistakes) was won only because his opponent blundered worse. His best results came from Querétaro 2024 vs sub-1550 opponents — his White play against sub-1550s is clean, but 1700+ opponents drew him. Austin at ~1865 is the strongest opponent he has faced in this dataset.
+  </div>
+
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Daniel Hernandez Gamboa</span>
+    <span class="plabel">FIDE Rating</span><span class="pval">~1685–1692 (2026); peaked 1767 (Apr 2025) — declining from peak</span>
+    <span class="plabel">White Opening</span><span class="pval">1.e4 primarily (C41 Philidor, B07 Pirc, B44 Sicilian); secondary 1.d4 (D00 London)</span>
+    <span class="plabel">Sample</span><span class="pval">8 games, 4 tournaments (Querétaro 2024, 2025, 2026; Aguascalientes 2026)</span>
+    <span class="plabel">White accuracy</span><span class="pval">89.8% avg · Range 83.2%–94.4% · Best vs sub-1550, weakest vs 1734–1812 range</span>
+    <span class="plabel">Worst White game</span><span class="pval">Q2025 R1: 83.2% — Bg5?? CPL 690 threw away +7.04 winning position; 3 blunders total</span>
+    <span class="plabel">Notable achievement</span><span class="pval">Drew CM Agama Hernandez (2003, +318 pts) as White in Nimzo-Indian — 90.3%</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">No encounter on record</span>
+  </div>
+
+  <p><strong>White opening fingerprint:</strong></p>
+  <ul>
+    <li><strong>1.e4 primary:</strong> C41 Philidor Exchange (vs ...e5...d6), B07 Pirc with Yugoslav-style 4.f3 Be3 h4 g4 attack, B44 Sicilian Taimanov territory (Open Sicilian)</li>
+    <li><strong>1.d4 secondary:</strong> D00 Accelerated London (1.d4 d5 2.Bf4 e3 Nd2) — used in Querétaro 2026 vs Flores Ojeda (1812), drew</li>
+    <li><strong>vs Nimzo-Indian:</strong> E35 Nimzo Classical Qc2 line — played vs CM in Aguascalientes. Daniel drew with 90.3% accuracy despite facing +318-rated opponent.</li>
+  </ul>
+
+  <h2>§2 — Daniel's White Repertoire (Frequency &amp; Results)</h2>
+  <table>
+    <thead>
+      <tr><th>ECO</th><th>Opening</th><th>Result</th><th>Opp Elo</th><th>Acc%</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-safe">
+        <td>C41</td><td>Philidor Defense Exchange</td><td>Win</td><td>1514</td><td><span class="acc-hi">94.4%</span></td><td>Q2024 R3 — 0 blunders, solid win. Opponent unrated-level.</td>
+      </tr>
+      <tr class="row-safe">
+        <td>B07</td><td>Pirc Defense (Yugoslav Attack)</td><td>Win</td><td>1539</td><td><span class="acc-hi">93.1%</span></td><td>Q2024 R7 — 4.f3 Be3 h4 g4 kingside storm, forced mate. Bh6 CPL 103 (best Nh3), still won cleanly.</td>
+      </tr>
+      <tr class="row-danger">
+        <td>B44</td><td>Sicilian Taimanov (White)</td><td>Win</td><td>unrated</td><td><span class="acc-lo">83.2%</span></td><td>Q2025 R1 — 3B 7M 4I. Bg5?? CPL 690 threw away +7.04. Won only because opponent blundered worse. Dangerous pattern: complacent in large advantages.</td>
+      </tr>
+      <tr>
+        <td>D00</td><td>Accelerated London</td><td>Draw</td><td>1812</td><td>88.0%</td><td>Q2026 R5 — cxd4?? CPL 302 from losing position (−0.57→−3.59), then stabilized. Held draw vs higher-rated.</td>
+      </tr>
+      <tr>
+        <td>E35</td><td>Nimzo-Indian Classical Qc2</td><td>Draw</td><td>2003 (CM)</td><td>90.3%</td><td>Aguascalientes R4 — Kf2 CPL 208, Na2 CPL 207 from already-losing position. Still held draw vs CM. Noteworthy resilience.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="warn-box">
+    <strong>⚠️ Back-to-Back Blunder Pattern.</strong> In Q2025 R1, Daniel played <strong>Bg5?? (CPL 690, +7.04→+0.14)</strong> then <strong>Rbc3?? (CPL 360, +4.76→+1.16)</strong> then <strong>g4?? (CPL 322, +5.18→+1.96)</strong> — three consecutive blunders from dominant positions. He won only because the opponent was unrated and blundered back. This cascading error pattern from winning positions is a confirmed Daniel fingerprint.
+  </div>
+
+  <h2>§3 — Vulnerabilities as White</h2>
+
+  <h3>A. Consecutive Blunders From Winning Positions (Q2025 R1)</h3>
+  <p>Daniel's most alarming White pattern is cascading errors when holding a large advantage:</p>
+  <table>
+    <thead><tr><th>Game</th><th>Move (best)</th><th>CPL</th><th>Eval swing</th><th>Classification</th></tr></thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>Q2025 R1 (White vs unrated)</td><td><code>Bg5</code> (e5)</td><td class="acc-lo">690</td><td>+7.04→+0.14</td><td>Blunder — threw away near-winning position</td>
+      </tr>
+      <tr class="row-danger">
+        <td>Q2025 R1</td><td><code>Rbc3</code> (Rb7)</td><td class="acc-lo">360</td><td>+4.76→+1.16</td><td>Blunder — second consecutive error</td>
+      </tr>
+      <tr class="row-danger">
+        <td>Q2025 R1</td><td><code>g4</code> (c7+)</td><td class="acc-lo">322</td><td>+5.18→+1.96</td><td>Blunder — third consecutive error</td>
+      </tr>
+      <tr class="row-danger">
+        <td>Q2026 R5 (White vs 1812)</td><td><code>cxd4</code> (exd4)</td><td class="acc-lo">302</td><td>−0.57→−3.59</td><td>Blunder — worsened already-losing position</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>The triple-blunder cascade (Bg5/Rbc3/g4) all occurred when Daniel already had a large advantage — suggesting he loses focus or miscalculates when he thinks the game is won. Austin must create complications even when slightly behind: Daniel can give back everything in a single sequence.</p>
+
+  <h3>B. London Blunder Under Pressure</h3>
+  <p>In Q2026 R5 vs Flores Ojeda (1812), Daniel was already slightly behind (−0.57) and played <strong>cxd4??</strong> (best exd4, CPL 302) — making the position even worse (−3.57). He eventually held a draw, but the blunder from an already-losing position shows Daniel compounding mistakes under pressure rather than defending precisely.</p>
+
+  <h3>C. Nimzo Endgame Mistakes (Aguascalientes R4)</h3>
+  <p>Vs CM Agama Hernandez (2003), Daniel played two consecutive mistakes when defending a losing endgame: <strong>Kf2</strong> (best Bg3, CPL 208, −0.95→−3.03) and <strong>Na2</strong> (best h4, CPL 207, −1.90→−3.97). Both moved away from activity when activity was required. Remarkable he held the draw — CM also had inaccuracies (90.6% opp accuracy) — but the pattern of passive king/knight moves under pressure is repeatable.</p>
+
+  <h2>§4 — Austin's Recommended Weapon</h2>
+
+  <h3>Primary vs 1.e4: Sicilian Defense</h3>
+  <div class="var-moves">1.e4  c5  [Sicilian — Austin's standard Black weapon]
+2.Nf3  [Daniel's documented response]
+2...  Nc6  OR  d6  [standard Sicilian structures]
+→ Dragon:    2...d6  3.d4  cxd4  4.Nxd4  Nf6  5.Nc3  g6
+→ Scheveningen: 2...d6  3.d4  cxd4  4.Nxd4  Nf6  5.Nc3  e6
+→ Taimanov:  2...e6  3.d4  cxd4  4.Nxd4  Nc6 [Daniel's documented B44 territory]</div>
+
+  <div class="info-box">
+    <strong>Dragon/Scheveningen recommended.</strong> Daniel's B44 Sicilian game (Q2025 R1) resulted in 83.2% accuracy with 3 blunders — his worst White performance. Steering into complex Sicilian structures forces Daniel out of his comfort zone. The Dragon or Scheveningen creates dynamic imbalances that maximize the chance of triggering his cascade-blunder pattern.
+  </div>
+
+  <h3>Secondary vs 1.d4: Nimzo-Indian Defense</h3>
+  <div class="var-moves">1.d4  Nf6  2.c4  e6  3.Nc3  Bb4  [Nimzo-Indian Bxc3+ line]
+→ 4.Qc2  d5  5.cxd5  exd5  [Classical Noa Variation — E35 as in Aguascalientes game]
+→ 4.e3  b6  or  0-0  [Classical/Rubinstein lines]
+Austin knows Nimzo deeply — this is his strength</div>
+
+  <div class="tip-box">
+    <strong>Daniel faced Nimzo at CM level (2003) and drew at 90.3%.</strong> This shows Daniel has some Nimzo preparation. However, drawing vs a CM is different from winning — and Austin's Nimzo preparation is stronger than an unrated player's. Austin's Bxc3+/b6/Ba6 Nimzo system creates structural complexity Daniel may not have studied at the club player level.
+  </div>
+
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The reference blueprint: <strong>Q2025 R1 — Daniel (White, 1767) vs Rodriguez Chavez (unrated)</strong> — Daniel won but played 83.2% with 3 blunders, 7 mistakes, 4 inaccuracies.</p>
+  <ol>
+    <li><strong>Opening (moves 1–12):</strong> Daniel played 1.e4 c5 → Open Sicilian (B44 Taimanov territory). Austin should play 1...c5 and enter the Dragon or Scheveningen to create dynamic middlegame imbalances. Daniel's worst White performance came in a Sicilian — not coincidentally.</li>
+    <li><strong>Middlegame (moves 12–30):</strong> After establishing the Sicilian structure, Austin should create multiple threats requiring precise calculation. Daniel's cascade (Bg5→Rbc3→g4) all came from positions where he had a large advantage but couldn't find the best continuation. <em>Even if Austin is behind, Daniel may blunder his advantage away if positions remain complex.</em></li>
+    <li><strong>Critical window — moves 25–40:</strong> Daniel's endgame technique is inconsistent. In the London game (Q2026 R5), he blundered a pawn transition (cxd4, CPL 302) into a losing endgame. In the Aguascalientes game, he made passive king/knight moves (Kf2, Na2) at the critical moment. Austin should keep endgame transitions complex and avoid simplifying to clean technical positions.</li>
+    <li><strong>Never over-simplify:</strong> Daniel draws via simplification (Querétaro 2024 R4: 97.1% perfect draw in Four Knights symmetrical exchange). Austin should NOT simplify to symmetrical endgames — Daniel neutralizes those precisely.</li>
+  </ol>
+  <div class="tip-box">
+    <strong>The Bg5 precedent:</strong> Daniel had +7.04 (over 7 pawns of advantage) and played Bg5?? — throwing it all away. This is not a fluke: it's the third time in this game he blundered from a dominant position. Austin's job is to survive the opening, reach a complex middlegame, and wait for the cascade. Daniel will often do it himself.
+  </div>
+
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~55%</span>
+      vs 1.e4 → Sicilian Dragon/Scheveningen
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Daniel: 1.e4  c5  2.Nf3  d6  3.d4  cxd4  4.Nxd4  Nf6  5.Nc3  [Open Sicilian]
+Austin: 5...g6  [Dragon setup]
+→  6.Be3  Bg7  7.f3  0-0  8.Qd2  Nc6  [Yugoslav attack vs Dragon]
+→  OR 5...e6  [Scheveningen]
+→  6.Be2  a6  7.0-0  Qc7  [Hedgehog Scheveningen]</div>
+      <ul>
+        <li>Dragon creates a double-edged dynamic where both sides attack (Black on c-file/queenside, White on kingside). Daniel's kingside attacks are known (B07 Pirc: 4.f3 h4 g4) but Austin knows how to handle this in the Dragon.</li>
+        <li>Scheveningen is more flexible — the Hedgehog structure (...a6, ...Qc7, ...b5) creates queenside counterplay that takes Daniel out of straightforward attacking plans.</li>
+        <li>Either line forces Daniel into fresh Sicilian middlegame calculation rather than known pawn structures. His 83.2% Sicilian game confirms calculation stress in these positions.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~30%</span>
+      vs 1.d4 → Nimzo-Indian Bxc3+ line
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Daniel: 1.d4  Nf6  2.c4  e6  3.Nc3  [allows Nimzo]
+Austin: 3...Bb4  [Nimzo-Indian]
+→ 4.Qc2  d5  5.cxd5  exd5  [Classical Noa — E35 — exactly what Daniel faced vs CM]
+→ OR 4.e3  b6  5.Nge2  Ba6  [Austin's signature ...Ba6 Nimzo line]</div>
+      <ul>
+        <li>If Daniel plays 3.Nc3, Austin's Nimzo is fully available. The exact E35 Qc2 line appeared in the Aguascalientes game — Daniel handled it acceptably (90.3% draw vs CM) but that was a draw with 2 mistakes in the endgame.</li>
+        <li>Austin's speciality is the Bxc3+/b6/Ba6 system, which creates structural complexity beyond what Daniel has studied at the club level. Austin should aim for this rather than the Classical Noa variation Daniel knows.</li>
+        <li>Daniel's Aguascalientes draw showed passive defensive moves (Kf2, Na2) — Austin should steer to positions requiring active piece play where these passive moves lose immediately.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~15%</span>
+      vs 1.d4 London (2.Bf4) → Solid QGD structure
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Daniel: 1.d4  d5  2.Bf4  [London System — documented D00]
+Austin: 2...Nf6  3.e3  e6  [solid QGD-type setup]
+→ 4.Nd2  Be7  5.Ngf3  0-0  [develop normally, then ...c5 break]
+→ OR 2...c5  [challenge the center immediately, Sicilian London structure]</div>
+      <ul>
+        <li>If Daniel plays the London (as he did vs Flores Ojeda 1812, drawn), Austin plays a solid QGD structure and waits for the ...c5 break. Daniel's London game had a blunder (cxd4?? CPL 302) in the critical transition — similar breaks will create similar stress.</li>
+        <li>The ...c5 challenge early is the most principled: it forces Daniel to commit to a London structure that he has only one game in (and a draw with a mistake).</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules for This Game</h3>
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Play Sicilian — Daniel's 83.2% Sicilian game is the template</div>
+          <div class="rule-body">Daniel's worst White performance came in a Sicilian position (B44 Taimanov, Q2025 R1: 83.2%, 3B 7M). He had a +7.04 winning position and blundered three consecutive times. Austin's 1...c5 puts Daniel in his worst-documented opening territory. The Dragon or Scheveningen creates complex dynamic positions requiring precise calculation — exactly where Daniel's cascade errors emerge. Even if Daniel has learned since that game, complex Sicilian middlegames are confirmed stress points.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Never trust a quiet draw when behind — Daniel blunders from large advantages</div>
+          <div class="rule-body">In Q2025 R1, Daniel had +7.04 and played Bg5?? (CPL 690), then had +4.76 and played Rbc3?? (CPL 360), then had +5.18 and played g4?? (CPL 322). He only won because his opponent blundered back. Against Austin — a significantly stronger player — these same cascades can be decisive. Keep fighting even when significantly behind material: Daniel cannot reliably convert large advantages in complex positions. Austin's job is to keep the position alive.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Avoid symmetrical simplification — Daniel holds perfect draws in clean positions</div>
+          <div class="rule-body">Daniel's best performance was Q2024 R4: 97.1% in a Four Knights symmetrical draw (0 blunders, 0 mistakes, 0 inaccuracies). He neutralized a 1524-rated opponent perfectly. Against Austin, if the game simplifies to a symmetric or technical endgame with no dynamic imbalances, Daniel knows exactly how to draw. Austin must keep asymmetric structures alive — imbalanced pawn structures, bishop vs knight, active pieces — to prevent Daniel from using his "perfect draw" mode.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS BLACK vs Daniel Hernandez Gamboa:
+
+vs 1.e4 (primary — most likely):
+  1...c5 [Sicilian — Austin's standard weapon]
+  → Dragon:       ...d6 ...g6 ...Bg7 ...0-0 [sharp]
+  → Scheveningen: ...d6 ...e6 ...Nf6 ...a6  [flexible]
+
+vs 1.d4 + 2.c4 + 3.Nc3 (Nimzo available):
+  3...Bb4 [Nimzo-Indian Bxc3+ line — Austin's strength]
+  → 4.Qc2 → Noa Variation (E35 — exactly Daniel's documented line)
+  → 4.e3 → ...b6 ...Ba6 (Austin's signature line)
+
+vs 1.d4 + 2.Bf4 (London system):
+  2...Nf6 3.e3 e6 [solid QGD] then ...c5 break
+
+ALERT PATTERNS — Daniel as White:
+  Cascade from big advantage: Bg5/Rbc3/g4 (CPL 690/360/322 in sequence)
+  cxd4 blunder from losing (CPL 302, Q2026 R5)
+  Passive king/knight: Kf2 CPL 208, Na2 CPL 207 (Aguascalientes)
+  Perfect draws in symmetric positions (avoid simplification!)</div>
+
+    <h3>Critical Moments Reference</h3>
+    <table>
+      <thead><tr><th>Pattern</th><th>When it arises</th><th>Engine reference</th><th>CPL</th></tr></thead>
+      <tbody>
+        <tr class="row-danger"><td>Bg5 cascade (3× blunders from winning)</td><td>Daniel has large advantage, loses calculation focus</td><td>Q2025 R1: Bg5 CPL 690, +7.04→+0.14 (best e5)</td><td class="acc-lo">690</td></tr>
+        <tr class="row-danger"><td>cxd4 from losing</td><td>Already behind, makes critical transition error</td><td>Q2026 R5: cxd4 CPL 302, −0.57→−3.59 (best exd4)</td><td class="acc-lo">302</td></tr>
+        <tr><td>Kf2/Na2 passive retreat</td><td>Losing endgame, needs active defense</td><td>Aguascalientes R4: Kf2 CPL 208, Na2 CPL 207</td><td class="acc-lo">208</td></tr>
+        <tr class="row-safe"><td>Perfect symmetrical draw</td><td>Simplified positions — AVOID these</td><td>Q2024 R4: 97.1%, 0 B/M/I — perfect neutralization</td><td class="acc-hi">7</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>§8 — Day-of Preparation (15 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Opening drill — 8 min:</strong> Replay the Dragon or Scheveningen structure. Review <code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 g6 6.Be3 Bg7 7.f3</code> — confirm Austin knows the Yugoslav Attack pawn structure and Black's counterplay ideas (...Rc8, ...a5, ...Qa5). If preferring Scheveningen, replay <code>5...e6 6.Be2 a6 7.0-0 Qc7</code>. Also review Nimzo-Indian line <code>1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.e3 b6 5.Nge2 Ba6</code> — Austin's signature Nimzo prep.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Pattern recognition — 5 min:</strong> Visualize Daniel's Q2025 cascade: position with White dominant (+7 pawns), then Bg5 (throws it to 0). Ask: <em>how did this happen?</em> Answer: Daniel miscalculated Bg5 as a winning threat; actually it allowed the opponent to equalize. Now ask: <em>how do I create that calculation pressure?</em> Answer: keep multiple threats active, make Daniel calculate precisely on every move rather than playing "obvious" moves. Two or three active pieces with unresolved tension is the recipe.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Mental framing — 2 min:</strong> Daniel is rated ~1685 — about 180 points below Austin. But he drew a CM (2003). His recent 2026 results show he can hold higher-rated players. Treat this as a full-preparation game. The rating gap is real but not huge. The plan is: Sicilian, dynamic middlegame, keep complications alive, and let Daniel's cascade pattern do the work.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Daniel plays 1.e4. I play Sicilian — my territory. He blundered three times in his best Sicilian White game. His worst game was 83.2% in a Sicilian — and he only won because his opponent blundered more. I keep the position complex, I keep fighting, and I do not simplify. If I reach an equal or slightly worse middlegame at move 25, I'm in good shape — that's exactly where his cascade pattern emerges."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin B vs 1.e4 — Dragon</td><td>B70</td><td><code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 g6</code></td></tr>
+      <tr><td>Austin B vs 1.e4 — Scheveningen</td><td>B80</td><td><code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 e6</code></td></tr>
+      <tr><td>Austin B vs 1.d4 — Nimzo</td><td>E32</td><td><code>1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.Qc2 0-0</code></td></tr>
+      <tr><td>Austin B vs 1.d4 London</td><td>D02</td><td><code>1.d4 Nf6 2.Bf4 d5 3.e3 e6</code></td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish movetime 800ms · 8 games (5 as White)</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#b35800;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Opening Gaps — Daniel as White
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Sicilian territory (B44, 83.2%):</strong> Daniel's one documented Sicilian White game produced his worst performance — 83.2% with 3 blunders, 7 mistakes. Bg5?? threw away a +7.04 position. This is the weakest opening territory in his White dataset by a significant margin. Austin's Sicilian immediately targets this gap.</p>
+      <p><strong>Philidor/Pirc comfort zone (94.4%, 93.1%):</strong> Daniel's best White results come against 1...e5 responses (Philidor C41, Pirc B07). He has clear preparation in these lines. However, these ECOs only arise if Austin plays 1...e5 — which Austin should avoid.</p>
+      <p><strong>Nimzo territory (E35, 90.3%):</strong> Daniel drew vs CM in the Qc2 Nimzo Classical. This shows some preparation in the main Nimzo Qc2 line. Austin's specialty is the ...Ba6/...b6 system, which is less common at club level and may be outside Daniel's studied lines.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#7a0000;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Time-Pressure / Calculation Cascades
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Q2025 R1 — Triple-blunder cascade (CPL 690/360/322):</strong> In the same game, Daniel played <code>Bg5??</code> (best e5, CPL 690, +7.04→+0.14), then <code>Rbc3??</code> (best Rb7, CPL 360, +4.76→+1.16), then <code>g4??</code> (best c7+, CPL 322, +5.18→+1.96). Three consecutive blunders from dominant positions in the same game (83.2% total accuracy). This is the single most revealing White data point — Daniel's calculation completely breaks down when converting large advantages.</p>
+      <p><strong>Q2026 R5 — cxd4?? from losing (CPL 302):</strong> Already slightly behind (−0.57), Daniel played <code>cxd4??</code> (best exd4) — immediately making the position worse (−3.59). This is a different failure mode: instead of miscalculating from a winning position, Daniel also compounds errors when losing. Both directions of the score show the same time-pressure degradation.</p>
+      <p><strong>Aguascalientes R4 — Kf2/Na2 from losing (CPL 208/207):</strong> Two consecutive passive moves from already-losing endgame. <code>Kf2</code> (best Bg3) and <code>Na2</code> (best h4) both failed to seek active counterplay. However, Daniel still drew — opponent also had inaccuracies. Against Austin, passive defense won't hold.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#b35800;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Endgame Technique as White
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>London endgame (Q2026 R5, 88.0%):</strong> The cxd4?? blunder (CPL 302) occurred at the pawn recapture decision — a critical endgame transition choice. Instead of the correct exd4, Daniel chose cxd4, worsening his position by 3 pawns. Recapture decisions at pawn exchanges are a documented weakness — he also blundered Rbc3?? in the Q2025 R1 endgame (CPL 360 from +4.76).</p>
+      <p><strong>Nimzo endgame (Aguascalientes R4, 90.3%):</strong> With a complex IQP + bishop-pair structure, Daniel made two passive king/knight moves (Kf2/Na2) rather than active counterplay. Drew vs CM despite this — showing luck played a role. Against Austin, passive king moves from a losing endgame will not save the game.</p>
+      <p><strong>Clean endgames:</strong> Q2024 R4 (97.1%, draw, 0 B/M/I) in the Four Knights symmetrical — Daniel holds perfect draws in simplified, symmetric positions. Austin must not simplify to this structure.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">B</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Sicilian: 83.2% (worst); Philidor/Pirc: 93–94% (best); Nimzo Qc2: 90.3% known; London: 88.0%</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time Pressure</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Triple cascade CPL 690/360/322 in one game; cxd4 CPL 302; Kf2/Na2 CPL 208/207</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Passive Kf2/Na2 from losing; cxd4 recapture error; clean draws in symmetrical only</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a5276;">B</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">As White: 3W–0L–2D (60% wins) — strong White record; no losses but 2 draws vs 1734–1812</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

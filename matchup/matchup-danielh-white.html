@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Daniel Hernandez Gamboa — Austin as White</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #2d7d46; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #2d7d46; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #2d7d46; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #2d7d46; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #f0fff4 !important; color: #1a4731; }
+    .acc-hi { color: #1a6030; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #fafbff; }
+    .rule-number { background: #2d7d46; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #f0fff5; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #2d7d46; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #2d7d46; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #e8f5ee; color: #2d7d46; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #e8f5ee; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a4731; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Daniel Hernandez Gamboa</h1>
+    <div class="subtitle">Austin as White — Italian Game into Complex Middlegame Trap</div>
+    <div class="meta">Daniel Hernandez Gamboa · ~1685–1692 FIDE (Oct 2026) · 8 games · Stockfish movetime 800 · Black avg 91.5% (3g) · 0W–1L–2D as Black · No direct encounter · ~+173–180 Austin advantage</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-danielh.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-danielh-black.html">Austin as Black →</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-danielh-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="encounter-box">
+    <strong>No direct encounter on record.</strong> Engine data from 8 games across 4 tournaments. Daniel as Black: <strong>91.5% avg (3g), 0W–1L–2D</strong> — zero wins as Black. Rating gap: Austin ~1865, Daniel ~1685 — <strong>+173–180 pts Austin</strong>. Austin is the clear favorite. Key data: Daniel's only documented response to 1.e4 is <strong>1...e5 → Four Knights C49</strong>, where his Nxe4?? blunder (CPL 519 from equal, +0.20→−4.99) immediately decided the game. Austin's task: reach a complex 1.e4 e5 middlegame around move 15–20 and wait for Daniel's signature piece blunder from equality.
+  </div>
+
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Daniel Hernandez Gamboa</span>
+    <span class="plabel">FIDE Rating</span><span class="pval">~1685–1692 (Oct 2026); peaked 1767 (Apr 2025) — declining ~75 pts in 18 months</span>
+    <span class="plabel">Style</span><span class="pval">Solid/passive as Black; tactical attacker as White. Blunders piece sacrifices from equal positions (Nxe4 CPL 519) and misses wins from dominant positions (g4 CPL 324 from +2.62).</span>
+    <span class="plabel">Sample</span><span class="pval">8 games, 4 tournaments (Querétaro 2024, Querétaro 2025, Querétaro 2026, Aguascalientes 2026)</span>
+    <span class="plabel">Overall accuracy</span><span class="pval">90.4% avg · White 89.8% (5g) · Black 91.5% (3g)</span>
+    <span class="plabel">Black record</span><span class="pval">0W–1L–2D — zero wins as Black</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">No encounter on record</span>
+    <span class="plabel">Defining weakness</span><span class="pval">Nxe4?? piece blunder from equal (+0.20→−4.99, CPL 519); g4 missed win (+2.62→−0.62, CPL 324)</span>
+  </div>
+
+  <p><strong>Opening fingerprint (as Black):</strong></p>
+  <ul>
+    <li><strong>vs 1.e4:</strong> 1...e5 → Four Knights C49 (only documented response). Specifically the Spanish Symmetrical: <code>1.e4 e5 2.Nf3 Nc6 3.Nc3 Nf6 4.Bb5 Bb4</code>. Daniel plays symmetrically and reaches near-equal positions. His one game in this line ended in a LOSS (Nxe4?? from +0.20 equal).</li>
+    <li><strong>vs 1.d4:</strong> Dutch Stonewall A93 (Querétaro 2026 R6, DRAW at 90.6%). Possibly a secondary weapon — only one game on record. Also: English/Symmetrical A34 response (Querétaro 2024 R4, DRAW at 97.1%). Both draws against lower-rated (sub-1750) players.</li>
+    <li><strong>Austin plays 1.e4 exclusively</strong> — the 1.e4 e5 Four Knights territory is the primary battleground.</li>
+  </ul>
+
+  <h2>§2 — Daniel's Black Repertoire (Frequency &amp; Results)</h2>
+  <table>
+    <thead>
+      <tr><th>ECO</th><th>System</th><th>G</th><th>W</th><th>D</th><th>L</th><th>Acc%</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>C49</td><td>Four Knights Spanish Symmetrical (vs 1.e4)</td><td>1</td><td>0</td><td>0</td><td>1</td><td><span class="acc-lo">86.7%</span></td><td>Q2025 R2 vs Cadena Rojas (1560) — Nxe4?? (CPL 519, +0.20→−4.99) from a completely equal position. Piece blunder immediately decided the game. −207 rating upset.</td>
+      </tr>
+      <tr>
+        <td>A93</td><td>Dutch Stonewall Botvinnik (vs 1.d4)</td><td>1</td><td>0</td><td>1</td><td>0</td><td>90.6%</td><td>Q2026 R6 vs Brito De La O (1734) — g4?? (CPL 324, +2.62→−0.62) missed a win. Drew despite having a winning position. Austin plays 1.e4 so Dutch is less relevant.</td>
+      </tr>
+      <tr>
+        <td>A34</td><td>English Symmetrical Fianchetto (vs 1.c4/English)</td><td>1</td><td>0</td><td>1</td><td>0</td><td><span class="acc-hi">97.1%</span></td><td>Q2024 R4 vs Hernandez Tierrafria (1524) — near-perfect game (CPL:7, 0B0M0I). Drew with superb precision. But this was vs 1.c4 (English), not 1.e4. Daniel's BEST game is in quiet symmetrical positions.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Daniel's Black record: 0W–1L–2D. His sole 1.e4 response (Four Knights C49) ended in a loss due to a catastrophic piece blunder from equality. <strong>His only comfortable Black games are in quiet, symmetrical positions</strong> (A34 at 97.1%) — exactly where Austin should NOT go.</p>
+  <div class="warn-box">
+    <strong>Daniel's Black ceiling is quiet, symmetrical positions.</strong> His 97.1% accuracy game was in a drawish English Symmetrical (A34) — both sides exchanged repeatedly into a drawn ending. If Austin allows a purely symmetrical, simplified structure, Daniel can reach his comfort zone and hold a draw. Austin must create imbalances and force Daniel into asymmetric, calculated positions.
+  </div>
+
+  <h2>§3 — Vulnerabilities as Black</h2>
+
+  <h3>A. Catastrophic Piece Blunder from Equal — Nxe4?? (Confirmed)</h3>
+  <table>
+    <thead><tr><th>Game</th><th>Acc%</th><th>Move Played (Best)</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>Q2025 R2 — Nxe4??</td><td><span class="acc-lo">86.7%</span></td><td>Nxe4 (best: g5)</td><td class="acc-lo">519</td><td>+0.20→−4.99</td>
+      </tr>
+      <tr class="row-danger">
+        <td>Q2025 R2 — follow-up Qf6</td><td><span class="acc-lo">86.7%</span></td><td>Qf6 (best: Qf7)</td><td class="acc-lo">194</td><td>−5.93→−7.87</td>
+      </tr>
+      <tr class="row-danger">
+        <td>Q2025 R2 — earlier h6</td><td><span class="acc-lo">86.7%</span></td><td>h6 (best: Ne7)</td><td>167</td><td>−0.05→−1.72</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>The decisive blunder: From +0.20 — an essentially EQUAL position — Daniel played Nxe4, sacrificing a knight for no compensation. The engine's recommendation was the active g5, which maintains equality. This was not an endgame collapse under time pressure; it was a middlegame calculation failure from a completely balanced position on move ~16 of the Four Knights.</p>
+
+  <h3>B. Missed Win from Dominant Position — g4?? (Confirmed)</h3>
+  <table>
+    <thead><tr><th>Game</th><th>Acc%</th><th>Move Played (Best)</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>Q2026 R6 — g4??</td><td>90.6%</td><td>g4 (best: gxf4)</td><td class="acc-lo">324</td><td>+2.62→−0.62</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>In the Dutch Stonewall, Daniel had a +2.62 advantage (clearly winning). Instead of gxf4 (correct capture), he pushed g4 aggressively — an "attacking" move that lost the winning advantage in one move. This confirms Daniel cannot convert winning positions on <em>either</em> side of the board.</p>
+
+  <h3>C. Color Asymmetry</h3>
+  <p>White avg: <strong>89.8%</strong>. Black avg: <strong>91.5%</strong> — technically better accuracy as Black, but <strong>0W–1L–2D</strong> record. The accuracy gap is narrow, but all his Black games are draws or losses. Both draws were vs lower-rated (sub-1750) players; the loss was an upset to a 1560-rated opponent. Austin starts this game with an inherent advantage just from having White.</p>
+
+  <div class="tip-box">
+    <strong>The game plan writes itself:</strong> Play 1.e4, reach the Four Knights or Italian middlegame, avoid early simplification into symmetrical structures, and wait for Daniel's Nxe4-type calculation failure around move 15–20. Daniel's pattern is confirmed: from an equal position, he plays an aggressive-looking piece sacrifice that is tactically unsound.
+  </div>
+
+  <h2>§4 — Austin's Recommended Weapon</h2>
+
+  <h3>Primary: Italian Game 3.Bc4 → Complex Middlegame</h3>
+  <div class="var-moves">1.e4  e5  2.Nf3  Nc6  3.Bc4  [Italian Game — Austin's 1.e4 e5 weapon]
+3...Nf6  4.d3  Bc5  5.c3  d6  6.O-O  [Giuoco Piano setup — slow, strategic]
+     OR
+3...Nf6  4.Ng5  [Two Knights Attack — sharp, immediate pressure on f7]
+     OR
+3...Bc5  4.c3  Nf6  5.d4  [Classical Giuoco Piano with d4]
+
+→ Daniel's DOCUMENTED Black response: Four Knights (1...e5 2.Nf3 Nc6 3.Nc3 Nf6 4.Bb5)
+→ If Austin plays 3.Bc4 Nf6 4.Nc3: enters Vienna/Italian hybrid — still familiar territory
+→ Target: complex middlegame around move 12–20 where Daniel's Nxe4-type blunder pattern activates</div>
+
+  <p><strong>Why Italian 3.Bc4 specifically:</strong></p>
+  <ul>
+    <li>Austin's standard against 1...e5 — familiar home territory. Daniel's only documented 1...e5 defense (Four Knights C49) involves early ...Nf6 and ...Nc6 — both compatible with Italian transpositions.</li>
+    <li>The Italian creates exactly the asymmetric, calculated middlegames where Daniel's Nxe4-type blunder pattern emerges. Symmetric, drawish structures (Daniel's A34 comfort zone) are avoided by Austin's central pawn tension.</li>
+    <li>Daniel's Four Knights loss showed calculation failure from an equal position — the Italian produces exactly such balanced, tense middlegames where one side overreaches.</li>
+  </ul>
+
+  <h3>Alternative: Ruy Lopez 3.Bb5 → if Daniel plays Four Knights again</h3>
+  <div class="var-moves">1.e4  e5  2.Nf3  Nc6  3.Bb5  [Ruy Lopez / Spanish]
+3...Nf6  4.O-O  Bc5  5.c3  O-O  [Lopez — strategic pressure]
+     OR
+3...Nf6  4.Nc3  → 4...Bb4 enters Four Knights Spanish (C49 — Daniel's documented line)
+→ Four Knights Spanish: 5.O-O O-O 6.d3 d6 7.Bg5 [pin ...Nf6, pressure building]</div>
+
+  <div class="warn-box">
+    <strong>Do NOT allow early piece exchanges into a symmetrical endgame.</strong> Daniel's 97.1% accuracy came in an A34 English Symmetrical where both sides traded pieces repeatedly. If Austin accepts early trades and reaches a simplified rook endgame or minor-piece ending before move 25, Daniel can hold a draw through pure technical precision. Keep queens on; keep the position rich.
+  </div>
+
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The reference blueprint: <strong>Q2025 R2 — Cadena Rojas, Diego Eliseo (1560) vs Daniel Hernandez Gamboa, C49 Four Knights Spanish Symmetrical, 86.7%, LOSS for Daniel</strong>.</p>
+  <ol>
+    <li><strong>Opening (moves 1–12):</strong> <code>1.e4 e5 2.Nf3 Nc6 3.Nc3 Nf6 4.Bb5 Bb4</code>. Four Knights Spanish Symmetrical. Both sides developed normally. Position reached approximate equality (+0.20 for White, essentially 0.00) by move 16.</li>
+    <li><strong>Equal position — the danger zone (moves 13–16):</strong> Daniel had an equal game. The engine shows h6 (CPL 167, −0.05→−1.72) as an early imprecision — pawn to h6 instead of activating Ne7. This slight inaccuracy suggests Daniel was already playing passively and misjudging pawn moves vs piece activity.</li>
+    <li><strong>Critical moment — Nxe4?? (move ~16):</strong> From +0.20 (equal), Daniel played Nxe4 — a piece sacrifice. Engine recommendation: g5 (maintaining equality). Nxe4 dropped the eval from +0.20 to −4.99 in a single move. This is not an aggressive losing gamble from a bad position; it is a piece blunder from a completely equal position.</li>
+    <li><strong>Follow-through — Qf6 (CPL 194):</strong> After losing the piece, Daniel played Qf6 instead of Qf7 — wrong queen square even in the already-losing position. The game ended with Daniel unable to recover.</li>
+  </ol>
+  <div class="tip-box">
+    <strong>Lesson:</strong> When Austin's Italian middlegame reaches approximately equal evaluation around move 15–20, that is exactly when Daniel's Nxe4-type calculation failure has historically occurred. Austin does not need to create a large advantage — he needs to maintain an equal but complex position and wait for the Nxe4 moment.
+  </div>
+
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~65%</span>
+      Italian 3.Bc4 → Giuoco Piano / Two Knights (Main Line)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Daniel:  1...e5  2...Nc6  3...Nf6 [or 3...Bc5]  [expected response]
+Austin:  1.e4  e5  2.Nf3  Nc6  3.Bc4  Nf6  4.d3  [slow Giuoco Piano]
+→ After 4...Bc5 5.c3 d6 6.O-O: build with Nbd2, a4 or h3 plan
+→ OR: 4.Ng5 d5 5.exd5 Na5 [Two Knights — sharp, f7 pressure]</div>
+      <ul>
+        <li><strong>Moves 7–14:</strong> Castle short, develop naturally. Avoid early piece exchanges — maintain both bishops and multiple pieces. The Giuoco Piano gives Austin a central space advantage (d4 break) without forcing complications prematurely.</li>
+        <li><strong>Moves 14–22:</strong> This is Daniel's documented blunder zone from the Four Knights loss. Push for asymmetric pawn structure — avoid symmetrical positions. One side should have the initiative.</li>
+        <li><strong>Do NOT exchange into drawish endings before move 22.</strong> Daniel's best Black game (97.1%) was in a symmetrical structure where he traded pieces into a draw. The Italian's asymmetric bishop/pawn structure avoids this.</li>
+      </ul>
+      <div class="tip-box"><strong>Expected sequence:</strong> Daniel will play solidly through the opening, maintaining approximate equality. Around move 15–20, when the position requires precise calculation to hold or gain advantage, Daniel will misjudge the piece dynamics and play a Nxe4-type sacrifice. Austin captures and converts. Pattern confirmed in his only documented 1.e4 e5 game.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~25%</span>
+      Ruy Lopez 3.Bb5 → Four Knights Spanish (if Daniel transposes to C49)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Daniel:  1...e5  2...Nc6  3...Nf6  4...Bb4  [Four Knights Spanish C49]
+Austin:  1.e4  e5  2.Nf3  Nc6  3.Bb5  Nf6  4.Nc3  Bb4  [enters C49]
+→ After 5.O-O O-O 6.d3 d6 7.Bg5: pin on Nf6, build pressure
+→ Maintain pin pressure with Bg5; avoid releasing tension early</div>
+      <ul>
+        <li>If Austin plays 3.Bb5, Daniel may transpose directly to the Four Knights Spanish (his documented line). This is actually Austin's prepared territory — the Bb5 system, but now with the Four Knights structure.</li>
+        <li>After 4...Bb4, White has the bishop pair advantage long-term and the Bg5 pin creates immediate problems. Daniel's h6 inaccuracy pattern suggests he misplays pawn moves around this pin.</li>
+        <li>The 7.Bg5 plan keeps the game asymmetric — White has the pin, Black has the bishop pair. Complex enough to trigger Daniel's blunder pattern.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~10%</span>
+      Vienna 2.Nc3 → if preferring immediate central complexity
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Daniel:  1...e5  [expected]
+Austin:  1.e4  e5  2.Nc3  Nc6  3.Bc4  [Vienna Game → Italian-style]
+→ OR: 2.Nc3 Nf6 3.f4 [Vienna Gambit — aggressive]</div>
+      <ul>
+        <li>The Vienna avoids early theory and leads to rich middlegame positions. Less theory-intensive than the Italian mainlines — Daniel is unlikely to have prepared Vienna responses specifically.</li>
+        <li>Use only if Austin wants to surprise Daniel early in the game or if Daniel shows unexpected preparation in the Italian lines.</li>
+        <li>The Vienna Gambit (f4) creates immediate pawn tension — more complex than quiet Giuoco Piano but more theory-demanding for Austin.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules for This Game</h3>
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Play Italian 3.Bc4 — don't let Daniel reach his symmetrical comfort zone</div>
+          <div class="rule-body">Daniel's best Black game (97.1%, A34) was in a quiet symmetrical English/Italian structure where he exchanged pieces repeatedly. His worst Black game (86.7%, C49) was in the Four Knights where he blundered a piece from equality. The Italian creates exactly the asymmetric, tense middlegame that triggers Daniel's Nxe4-type calculation errors. Symmetrical piece exchanges before move 20 = Daniel's draw-hold zone. Avoid them.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Be patient around equality — Daniel blunders from equal positions, not just losing ones</div>
+          <div class="rule-body">The key counterintuitive point: Nxe4?? occurred from +0.20 — an EQUAL position. Daniel's blunder was not triggered by a bad position or time pressure desperation; he simply miscalculated from a balanced game. This means Austin does not need to create a large advantage first. He needs to maintain a complex, equal middlegame long enough for Daniel's Nxe4-type piece sacrifice to appear. Around move 15–22, when the position requires accurate calculation, the pattern emerges.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Be ready to punish with immediate precision — Daniel's blunders are decisive</div>
+          <div class="rule-body">Nxe4?? (CPL 519, +0.20→−4.99) is an instant material loss — Austin must immediately capture and not allow Daniel to complicate. When the piece sacrifice comes, take the piece and verify: is there a tactical refutation that returns it? In the Four Knights C49 game, Nxe4 was simply a piece blunder with no compensation. Austin should have the capture ready (dxe4 or Nxe4 depending on position) and verify there is no back-rank trick or discovered attack. Then convert the material advantage cleanly.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS WHITE — Italian Game (main line):
+  1.e4 e5 2.Nf3 Nc6 3.Bc4 Nf6 4.d3 Bc5 5.c3 d6 6.O-O
+  → After 6...O-O 7.Nbd2: plan h3, Bb3, Nc4/Ne3
+
+Italian with Two Knights option:
+  3.Bc4 Nf6 4.Ng5 d5 5.exd5 Na5 [sharp f7 pressure]
+
+Ruy Lopez (if preferring standard):
+  3.Bb5 Nf6 4.Nc3 Bb4 [Four Knights Spanish C49 — Daniel's line]
+  → 5.O-O O-O 6.d3 d6 7.Bg5 [pin and pressure]
+
+CRITICAL MOMENT RECOGNITION:
+  Daniel blunder zone: moves 15–22 in complex middlegames
+  Expected pattern: piece sacrifice from approximately equal position (±0.5)
+  His signature: aggressive-looking but tactically unsound move (Nxe4-type)
+  Austin's response: take the piece, verify no tricks, convert material advantage</div>
+
+    <h3>Tactical Motifs to Watch For</h3>
+    <table>
+      <thead><tr><th>Pattern</th><th>When it arises</th><th>Engine reference</th><th>CPL</th></tr></thead>
+      <tbody>
+        <tr class="row-danger"><td>Nxe4-type piece sacrifice from equal</td><td>Equal position (≈ 0.00), Daniel plays "attacking" piece leap</td><td>Q2025 R2: Nxe4 (g5) from +0.20 → −4.99</td><td class="acc-lo">519</td></tr>
+        <tr class="row-danger"><td>g4-type overreach from winning</td><td>Daniel has advantage, pushes aggressive pawn instead of capture</td><td>Q2026 R6: g4 (gxf4) from +2.62 → −0.62</td><td class="acc-lo">324</td></tr>
+        <tr><td>h6 pawn inaccuracy — passive move</td><td>Middlegame, Daniel plays defensive h6 instead of activating piece</td><td>Q2025 R2: h6 (Ne7) CPL 167, −0.05→−1.72</td><td>167</td></tr>
+        <tr><td>Wrong queen square (Qf6 vs Qf7)</td><td>After piece loss, Daniel plays the queen to wrong file</td><td>Q2025 R2: Qf6 (Qf7) CPL 194, −5.93→−7.87</td><td>194</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>§8 — Day-of Preparation (20 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Tactics drill — 8 min:</strong> 6 puzzles on <em>refuting piece sacrifices from equal positions</em>. Specifically: opponent plays Nxe4 in an Italian structure — find the recapture and verify there is no discovered attack or back-rank trick. Also: opponent plays a "tempting" aggressive pawn push (g4-type or e4-type) from a winning position — calculate whether it fails immediately or needs further preparation to refute. Daniel's errors look like active play; Austin needs to recognize when the "active" move is actually a blunder.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Opening line review — 7 min:</strong> Replay: <code>1.e4 e5 2.Nf3 Nc6 3.Bc4 Nf6 4.d3 Bc5 5.c3 d6 6.O-O O-O 7.Nbd2</code>. Stop at move 7. Ask: <em>"What does White want?"</em> Answer: avoid symmetrical piece exchanges, maintain tension with h3 (prevent ...Bg4), build with Nc4 or Nf1-g3 plan. Remind yourself: Daniel's comfort zone is a quiet, symmetrical position where he trades into a draw. Anything that avoids that and creates a complex middlegame is favorable.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Mental visualization — 5 min:</strong> Replay the Q2025 R2 game conceptually. Position is equal (+0.20). Daniel is Black. He needs a precise move (g5 was best — active but solid). Instead he plays Nxe4 — it looks like a piece sac for dynamic play. But it loses material with no compensation. Ask: <em>"If I were Daniel, why would I play Nxe4?"</em> It looks attacking, active, creates complications. Now flip: as Austin (White), when Daniel plays Nxe4 in the middlegame, Austin needs to have already recognized: this is a piece sacrifice, not a combination. Take the piece.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Daniel is a ~1685-rated tactical player from Mexico who plays solidly. He will reach an equal position with me in the Italian or Four Knights structure — he is capable of that. But his only 1.e4 e5 game as Black ended with Nxe4?? from a completely equal position. He saw an attacking-looking move and played it without finishing the calculation. I keep the position complex until move 15–22. When he makes his aggressive move, I take the piece and convert. The rating gap (+173 pts) means I am the stronger calculator — I just need to create the condition where calculation is required."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin W Italian → Giuoco Piano slow</td><td>C54</td><td><code>1.e4 e5 2.Nf3 Nc6 3.Bc4 Nf6 4.d3 Bc5 5.c3 d6 6.O-O</code></td></tr>
+      <tr><td>Austin W Italian → Two Knights sharp</td><td>C57</td><td><code>1.e4 e5 2.Nf3 Nc6 3.Bc4 Nf6 4.Ng5 d5 5.exd5 Na5</code></td></tr>
+      <tr><td>Austin W Lopez → Four Knights Spanish</td><td>C49</td><td><code>1.e4 e5 2.Nf3 Nc6 3.Bb5 Nf6 4.Nc3 Bb4 5.O-O O-O 6.d3</code></td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish movetime 800ms · 8 games across 4 tournaments</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#b35800;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Opening Gaps — Daniel as Black
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Daniel's Black repertoire vs 1.e4 is thin:</strong> only 1 documented game (Four Knights C49, LOSS). He has not been tested in Italian mainlines, Ruy Lopez structures, or King's Gambit positions. His only response to 1.e4 e5 territory (the Four Knights) ended in a piece blunder from equality on approximately move 16. This is not a deep opening preparation failure — it is a calculation failure in the resulting middlegame. Austin faces an opponent who has minimal Black vs 1.e4 experience at the tournament level.</p>
+      <p><strong>vs 1.d4 (secondary concern):</strong> Dutch Stonewall A93 (1 game, DRAW) and English Symmetrical A34 (1 game, DRAW). Both draws vs sub-1750 opponents. But Austin plays 1.e4 exclusively, so Daniel's 1.d4 responses are irrelevant unless Austin varies his opening (he should not).</p>
+      <p><strong>Pattern consistency:</strong> Daniel's two quieter Black games (A34 at 97.1%, A93 at 90.6%) are draws against lower-rated players. The moment he faced an unequal position in the Italian/Four Knights (C49, LOSS at 86.7%), he blundered. The Italian creates this type of position reliably.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#7a0000;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Time-Pressure / Piece Sacrifice from EQUAL Position
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Q2025 R2 — Nxe4?? (CPL 519 from +0.20):</strong> This is Daniel's defining weakness as Black. The position was +0.20 — essentially zero advantage for either side. Daniel played Nxe4, sacrificing a knight. The engine preferred g5 (active but solid, maintaining equality). After Nxe4, the eval dropped from +0.20 to −4.99. This is not an overreaching move from a winning position — it is a piece blunder from an equal position. Nxe4 "looks" like it attacks (the knight goes to an active central square), but it loses a piece with no compensation.</p>
+      <p><strong>Context — rating upset vs 1560-rated Cadena Rojas:</strong> Daniel was 1685+ at the time of this loss, yet blundered to a 1560-rated player. A −207 rating upset. The move suggests Daniel was either in time trouble or misjudged the position's tactical demands. Either explanation confirms Austin's game plan: create tactical complexity and wait for the same calculation failure.</p>
+      <p><strong>Pattern confirmed on opposite side:</strong> g4?? (CPL 324 from +2.62→−0.62) in Q2026 R6 confirms Daniel also blunders from winning positions as Black. Whether Daniel is ahead or equal, he cannot maintain the advantage when the position demands precise calculation of active moves.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#b35800;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Endgame — Limited Data, Structural Draws
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>A34 English Symmetrical (Q2024 R4):</strong> Daniel reached an endgame by symmetrically trading pieces. His 97.1% accuracy shows excellent endgame precision in a drawn rook ending. However, this was vs a 1524-rated player in a simplified position — not a meaningful endgame test.</p>
+      <p><strong>A93 Dutch Stonewall (Q2026 R6):</strong> Daniel missed a win with g4?? (CPL 324 from +2.62) and eventually drew. The endgame from the Dutch Stonewall was within Daniel's technical ability to handle — he reached a draw from a position he should have won. This shows Daniel's endgame quality drops when converting from a winning position; he cannot execute conversion plans.</p>
+      <p><strong>Verdict:</strong> Daniel's endgame is not a confirmed weakness as strongly as his middlegame calculation. The primary exploit is the middlegame piece sacrifice pattern (Nxe4-type), not endgame technique. If Austin reaches the endgame, the +173 point rating gap alone should be decisive.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#7a0000;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Color Balance — Zero Wins as Black
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Daniel's Black record: 0W–1L–2D across 3 games.</strong> Zero wins as Black. Both draws were against lower-rated opponents (1524 and 1734) in quiet symmetrical structures. The one loss was a piece blunder against a 1560-rated player. This is a player who cannot create winning chances from the Black side and relies on draws — often through symmetrical play.</p>
+      <p><strong>Austin starts this game with structural advantage</strong> by simply having White against an opponent who never wins as Black. The question is not whether Austin can win — it is whether Austin can create enough middlegame complexity to trigger Daniel's calculation error. The Italian creates that complexity reliably.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#b35800;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Only 1 game vs 1.e4 as Black (C49 LOSS); thin repertoire; missed 97.1% is in quiet A34 English — avoid symmetry</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time / Calculation</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Nxe4?? CPL 519 from equal (+0.20→−4.99); g4?? CPL 324 from winning (+2.62→−0.62) — both middlegame calculation failures</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Missed winning conversion (g4?? from +2.62 in Dutch endgame); good precision in simplified draws (A34 97.1%)</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">0W–1L–2D as Black; both draws vs sub-1750; only win chances come in quiet symmetrical structures</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

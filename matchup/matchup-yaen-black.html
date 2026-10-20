@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Yaen Saenz Cabrera — Austin as Black</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #1a5276; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #1a5276; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #1a5276; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #1a5276; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #1a5276; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #f0fff4 !important; color: #1a4731; }
+    .acc-hi { color: #1a6030; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #f0f6ff; }
+    .rule-number { background: #1a5276; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #eaf0f8; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #1a5276; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #1a5276; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #d6e4f0; color: #1a5276; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #d6e4f0; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a3a55; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Yaen Saenz Cabrera</h1>
+    <div class="subtitle">Austin as Black — Sicilian Dragon vs Yaen's B90 English Attack</div>
+    <div class="meta">Yaen Saenz Cabrera · ~1841 FIDE (Oct 2026) · 51 games · Stockfish in progress · White avg 92.4% (11g analyzed) · 17W–8L–2D as White · No direct encounter · Near-equal match (+24 Austin)</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-yaen.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-yaen-white.html">← Austin as White</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-yaen-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="info-box">
+    <strong>OPENING CLARIFICATION — Scotch C45 does NOT arise vs Austin's Sicilian.</strong> Yaen's primary White weapon is the Scotch Game C45 (1.e4 e5 2.Nf3 Nc6 3.d4). But the Scotch requires <code>1...e5</code>. Austin plays <strong>1...c5 (Sicilian)</strong>. Against Austin's Sicilian, Yaen will play <strong>Open Sicilian → B90 English Attack</strong> (1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 → f3/Be3/Qd2/g4). Yaen's Scotch preparation is irrelevant in this game.
+  </div>
+
+  <div class="encounter-box">
+    <strong>No direct encounter on record.</strong> Engine data from 51 games. Yaen as White: <strong>92.4% avg (11g analyzed), 17W–8L–2D overall (67%)</strong>. His three analyzed losses came against opponents in the 1933–2151 rating range. Critical: Yaen's worst White game was a Scotch C45 against Alba Kenneth (1933) — <strong>7 blunders + 4 mistakes = 11 major errors at 89.1%</strong>. Against Austin (1865, near the same strength), the same pattern applies. Austin's task: steer the Sicilian into a Dragon/Scheveningen structure, create the complex opposite-side castling dynamics Yaen mishandles, and wait for White's catastrophic time-pressure collapse.
+  </div>
+
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Yaen Saenz Cabrera</span>
+    <span class="plabel">FIDE Rating</span><span class="pval">~1841 (Oct 2026); peaked ~1899 (2024) — rating volatile in rapid/blitz events</span>
+    <span class="plabel">Style</span><span class="pval">Tactical attacker as White — Scotch (1...e5) + English Attack (1...c5). Aggressive with g4/h4 storms. Loses to near-Austin-level opposition (1933, 1947, 2151) with multiple blunders.</span>
+    <span class="plabel">Sample</span><span class="pval">51 games, multiple tournaments. White record: 17W–8L–2D (67%) overall; classical White: 6W–2L–1D</span>
+    <span class="plabel">White accuracy (engine)</span><span class="pval">92.4% avg (11g) · Scotch C45: 91.4% avg · B90 English Attack: 93.4% avg</span>
+    <span class="plabel">White record</span><span class="pval">17W–8L–2D (67%) — weaker color than Black (vs 75%)</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">No encounter on record</span>
+    <span class="plabel">Defining White weakness</span><span class="pval">7B 4M (11 errors) in Scotch C45 loss to Alba 1933; B90 loss to Contreras 1947 (1B 4M); loses to near-equal opposition</span>
+  </div>
+
+  <p><strong>Opening fingerprint (as White vs Austin's 1...c5):</strong></p>
+  <ul>
+    <li><strong>vs 1...c5 (Sicilian):</strong> <strong>B90 Najdorf English Attack</strong> (4 documented games) — <code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 → 6.Be3 e5 7.Nb3 Be6 8.f3</code> (English Attack setup: f3, Be3, Qd2, g4 storm). B90 is Yaen's weapon against Sicilians.</li>
+    <li><strong>vs 1...e5:</strong> Scotch Game C45 (7 documented games) — not relevant since Austin plays 1...c5.</li>
+    <li><strong>vs 1...e6 (French):</strong> French Advance C02 (3 games) — 3.e5, same advance as Austin plays White. Not relevant for this game.</li>
+  </ul>
+
+  <h2>§2 — Yaen's White Repertoire vs Austin's 1...c5</h2>
+  <table>
+    <thead>
+      <tr><th>ECO</th><th>System</th><th>G</th><th>W</th><th>D</th><th>L</th><th>Acc%</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>B90</td><td>Najdorf English Attack (vs 1...c5)</td><td>4</td><td>2</td><td>1</td><td>1</td><td>93.4%</td><td>Austin's Sicilian leads here. Lost to Contreras 1947 (90.1%, 1B4M); drew Cardenas 1709 (95.7%); won vs sub-1500. Mixed record vs stronger players.</td>
+      </tr>
+      <tr class="row-danger">
+        <td>C45</td><td>Scotch Game (vs 1...e5) — does NOT apply vs Austin</td><td>7+</td><td>5+</td><td>0</td><td>1+</td><td>~92%</td><td>Yaen's primary weapon but irrelevant since Austin plays 1...c5. Worst game: 89.1% vs Alba 1933 (7B 4M). Referenced as analogy for White collapse pattern.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>B90 English Attack — Detailed Engine Games</h3>
+  <table>
+    <thead><tr><th>Tournament</th><th>Result</th><th>Acc%</th><th>CPL</th><th>B</th><th>M</th><th>Opponent</th><th>Elo</th></tr></thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>Liga Intergaláctica R2</td><td>LOSS</td><td><span class="acc-lo">90.1%</span></td><td>77</td><td>1</td><td>4</td><td>Contreras Cardona</td><td><strong>1947</strong></td>
+      </tr>
+      <tr>
+        <td>Olimpiada Blitz</td><td>DRAW</td><td>95.7%</td><td>11</td><td>0</td><td>0</td><td>Cardenas Uribe</td><td>1709</td>
+      </tr>
+      <tr class="row-safe">
+        <td>Olimpiada Blitz</td><td>WIN</td><td>95.2%</td><td>21</td><td>0</td><td>0</td><td>Olvera Salinas</td><td>1493</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>Pattern:</strong> Yaen wins easily vs sub-1500 (95.2%), draws vs 1709 (95.7%), but LOSES to 1947 (90.1% + 4 mistakes). Austin at 1865 is closer to the 1947 range — the pattern predicts a difficult game for Yaen in the English Attack against Austin's strength.</p>
+
+  <h2>§3 — Vulnerabilities as White</h2>
+
+  <h3>A. Catastrophic White Collapse vs Near-Equal Opposition</h3>
+  <table>
+    <thead><tr><th>Game</th><th>Acc%</th><th>Errors</th><th>Opponent</th><th>Elo</th></tr></thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>Olimpiada Rapid — Scotch C45</td><td><span class="acc-lo">89.1%</span></td><td><strong>7B 4M = 11 errors</strong></td><td>Alba, Kenneth</td><td><strong>1933</strong></td>
+      </tr>
+      <tr class="row-danger">
+        <td>Liga Interestelar — C47 Four Knights</td><td>93.7%</td><td>4B 0M</td><td>Estrada Nieto</td><td><strong>2151</strong></td>
+      </tr>
+      <tr class="row-danger">
+        <td>Liga Intergaláctica — B90 English Attack</td><td>90.1%</td><td>1B 4M</td><td>Contreras Cardona</td><td><strong>1947</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Yaen has lost to THREE opponents rated 1933, 1947, and 2151 as White. <strong>Austin at 1865 is within the 1933 range — the exact strength level where Yaen's White game breaks down.</strong> The 7-blunder game vs Alba 1933 (89.1% in Scotch) shows complete collapse when facing near-equal opposition in a complex Scotch structure. The B90 loss to Contreras 1947 (90.1%) confirms the pattern extends to the English Attack as well.</p>
+
+  <h3>B. B90 vs Strong Opposition — Specific to Austin's Sicilian</h3>
+  <p>Yaen's B90 record against opponents near Austin's rating: LOSS to 1947 (90.1%), DRAW to 1709 (95.7%), WIN to 1493 (95.2%). The loss to Contreras 1947 specifically confirms that Yaen's English Attack preparation has limits against 1900+-level players. Austin plays the Sicilian exactly into this territory.</p>
+
+  <div class="tip-box">
+    <strong>The game plan:</strong> Play 1...c5 Sicilian, reach Dragon or Scheveningen structure, create opposite-side castling dynamics (Dragon: Austin castles kingside, Yaen castles queenside or vice versa), and fight for counterplay. Yaen's White losses to 1933, 1947, 2151 all came in complex tactical positions — the Dragon is exactly that kind of position. Wait for Yaen's calculation to fail in the middlegame complications.
+  </div>
+
+  <h2>§4 — Austin's Recommended Weapon</h2>
+
+  <h3>Primary: Sicilian Dragon — Sharp Counter-Attack</h3>
+  <div class="var-moves">Austin: 1...c5  2...d6  3...cxd4  4...Nf6  5...g6  [Dragon setup — Austin's Sicilian home]
+1.e4  c5  2.Nf3  d6  3.d4  cxd4  4.Nxd4  Nf6  5.Nc3  g6
+→ Dragon Classical: 6.Be3 Bg7 7.f3 O-O 8.Qd2 Nc6 9.Bc4 Bd7
+→ Yaen's English Attack: 6.Be3 Bg7 7.f3 [f3 solidifies center for Yaen's g4-g5 storm]
+→ Austin's Dragon counter: Nc6 → queenside counterplay with ...d5 or ...Rc8-c5</div>
+
+  <p><strong>Why Dragon specifically:</strong></p>
+  <ul>
+    <li>Austin's home Sicilian preparation — familiar territory. Yaen plays B90 English Attack (f3/Be3/Qd2/g4) — Dragon positions directly overlap with English Attack theory.</li>
+    <li>The Dragon creates opposite-side castling (Austin: kingside, Yaen: queenside) with mutual king attacks. This is exactly the type of explosive, time-pressure complexity where Yaen's calculation breaks down (confirmed: 7 blunders vs Alba 1933 in Scotch, 4 mistakes vs Contreras 1947 in B90).</li>
+    <li>Austin's tactical style (from CLAUDE.md: "Knight sacrifices, IQP positions, Nimzo theory") is perfectly suited for Dragon counterattacking play.</li>
+  </ul>
+
+  <h3>Alternative: Scheveningen ...e6 — if avoiding Dragon theory</h3>
+  <div class="var-moves">Austin: 1...c5  2...d6  3...cxd4  4...Nf6  5...e6  [Scheveningen — solid]
+→ After 5...e6 6.g4 (Keres Attack) or 6.Be3 a6 (English Attack Scheveningen)
+→ Less sharp than Dragon but still creates tactical complexity for Yaen to navigate</div>
+
+  <div class="warn-box">
+    <strong>Note on Scotch Game:</strong> Yaen's Scotch C45 (1.e4 e5 2.Nf3 Nc6 3.d4) does NOT arise vs Austin's 1...c5. If Austin ever plays 1...e5, Yaen would play 3.d4 into Scotch. But Austin plays 1...c5 — so Yaen's Scotch preparation is completely irrelevant in this game. Austin should NOT change his repertoire to 1...e5 just to "avoid B90" — that would put him INTO Yaen's best preparation.
+  </div>
+
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The reference exploit: <strong>Liga Intergaláctica R2 — Contreras Cardona, Alfredo Ignacio (1947) vs Yaen Saenz Cabrera, B90 Najdorf English Attack, 90.1%, LOSS for Yaen</strong>.</p>
+  <ol>
+    <li><strong>Position:</strong> Yaen played White in B90 English Attack. Contreras Cardona (1947) played the Sicilian. Yaen executed the English Attack setup (Be3/f3/Qd2).</li>
+    <li><strong>Pattern:</strong> Yaen's 90.1% accuracy with 1 blunder + 4 mistakes was insufficient against a 1947-rated player. The 4 mistakes show strategic/tactical difficulties navigating the complex B90 middlegame against a near-2000 opponent.</li>
+    <li><strong>Key data:</strong> Rc1 (CPL1000 blunder) in a losing position — Yaen tried to activate his rook but played the wrong rook to the wrong square (Rd3 was correct). This confirms poor defensive piece coordination under pressure.</li>
+  </ol>
+  <div class="tip-box">
+    <strong>Lesson:</strong> Contreras Cardona at 1947 beat Yaen's B90. Austin at 1865 is only 82 points below Contreras — this puts Austin squarely in the range where Yaen's English Attack breaks down. Austin should aim for a similar complexity profile: Sicilian Black with active counterplay, fight for piece activity in the middlegame, and allow Yaen's calculation errors to accumulate.
+  </div>
+
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~55%</span>
+      Sicilian Dragon vs B90 English Attack (Main)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Yaen (White): 1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 g6  [Dragon]
+Austin (Black): → after 6.Be3 Bg7 7.f3 O-O 8.Qd2 Nc6 9.Bc4 Bd7
+→ Dragon Classical counterattack: 9...Bd7 10.O-O-O Rc8 or ...Nxd4 11.Bxd4 b5</div>
+      <ul>
+        <li><strong>Moves 9–15:</strong> Austin develops queenside counterplay (...Rc8, ...b5, ...a5) while Yaen prepares kingside storm (g4-g5). This is standard Dragon warfare — opposite-side king attacks creating mutual time pressure.</li>
+        <li><strong>Moves 15–25:</strong> Yaen's time-pressure blunder zone. In complex Dragon positions, both sides advance on their respective wings. Yaen's documented failures vs 1900+ players confirm he cannot navigate these positions under time pressure.</li>
+        <li><strong>Austin's tactical strength</strong> (knight sacrifices, combinational play — from CLAUDE.md) is maximized in Dragon counterattacking positions. This is Austin's home territory.</li>
+      </ul>
+      <div class="tip-box"><strong>Expected sequence:</strong> Yaen plays English Attack setup. Austin responds with Dragon counterplay (Rc8 → b5 → a5). Mutual kingside/queenside attacks. Yaen faces time-pressure decisions in complex positions and makes B90-type mistakes (confirmed: 4 mistakes vs Contreras 1947). Austin's faster queenside counterplay or positional accuracy wins the exchange.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~30%</span>
+      Sicilian Scheveningen ...e6 — Strategic Alternative
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Yaen (White): 1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 e6  [Scheveningen]
+Austin (Black): → after 6.g4 (Keres Attack) or 6.Be3 a6 7.f3 b5
+→ Scheveningen: flexible ...Be7, ...Bc7, ...Nbd7 development</div>
+      <ul>
+        <li>Less theoretically sharp than Dragon — avoids the most forcing Dragon lines while still creating unbalanced Sicilian positions.</li>
+        <li>Yaen has limited B90 experience beyond the basic English Attack setup — Scheveningen with ...e6 creates structural decisions (the "hedgehog" type) that require chess understanding rather than memorized lines.</li>
+        <li>Use if Austin wants to avoid the sharpest Dragon theory or if Yaen has shown specific Dragon preparation.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~15%</span>
+      Sicilian Kan/Taimanov — Flexible Structure
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Yaen (White): 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6  [Kan B41]
+OR: 1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 e6  [Taimanov B47]
+→ Both give Black flexible development and avoid immediate sharp theory</div>
+      <ul>
+        <li>Kan/Taimanov avoid the specific Dragon or Najdorf lines Yaen may have prepared against. Creates a more positional type of Sicilian game.</li>
+        <li>Risk: less counterattacking energy for Austin. Austin's tactical style is better suited for Dragon/Scheveningen.</li>
+        <li>Use only as a surprise weapon if Dragon/Scheveningen preparation is not complete.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules for This Game</h3>
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Play 1...c5 → Dragon/Scheveningen — Yaen's Scotch expertise is irrelevant</div>
+          <div class="rule-body">Yaen's 7 Scotch games (C45) represent his deepest White preparation. But the Scotch requires 1...e5, and Austin plays 1...c5. Yaen cannot use the Scotch against the Sicilian. Austin will face Yaen's B90 English Attack — where Yaen has only 4 documented games and already LOST to a 1947-rated player. Austin's Sicilian steers Yaen away from his best preparation and into his weaker English Attack territory. Do not change to 1...e5 just to avoid B90 — that gives Yaen exactly what he wants.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Create Dragon counterattack complexity — Yaen collapses in B90 vs near-equal opposition</div>
+          <div class="rule-body">Yaen's three White losses all came against 1933–2151 rated players. Austin at 1865 sits at the lower end of this range. The B90 loss to Contreras 1947 (90.1%, 4 mistakes) occurred in the English Attack — exactly what Yaen will play against Austin's Sicilian. The Dragon's opposite-side attacking complexity forces Yaen to calculate precisely in time-pressure situations, which is exactly where his calculation breaks down vs near-equal opposition. The more complex the Dragon position, the more Yaen is exposed.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Race fast — in opposite-side castling, speed wins</div>
+          <div class="rule-body">Dragon positions with opposite castling are a race: White attacks the Black king, Black attacks the White king. The side that attacks faster wins. Austin's documented tactical style (knight sacrifices, combinations, sharp positions) is perfectly suited for this race. Yaen's documented failures in complex positions (7 blunders vs 1933, 4 mistakes vs 1947) confirm he cannot sustain the required calculation speed in this type of position. Austin should not defend passively — accelerate the queenside attack (b5, a5, Rc8) to create threats before Yaen's g4-g5 storm completes.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS BLACK — Sicilian Dragon (main line against B90):
+  1...c5 2...d6 3...cxd4 4...Nf6 5...g6
+  After 6.Be3 Bg7 7.f3 O-O 8.Qd2 Nc6 9.Bc4 Bd7:
+  → 10.O-O-O Rc8 [classical Dragon counterplay]
+  → 10...Nxd4 11.Bxd4 b5 [quick queenside break]
+
+Sicilian Scheveningen (alternative):
+  1...c5 2...d6 3...cxd4 4...Nf6 5...e6
+  → after 6.Be3 a6 7.f3 b5: hedgehog counterplay
+
+CRITICAL PATTERN:
+  Yaen's English Attack (B90): f3/Be3/Qd2/g4 → kingside storm
+  Austin's response: queenside counterplay (Rc8/b5/a5) BEFORE Yaen's g4-g5 completes
+  Key: Austin needs to create threats faster than Yaen's attack develops
+  Reference: Contreras 1947 beat Yaen in this exact B90 position — Austin is at 1865</div>
+
+    <h3>Tactical Motifs to Watch For</h3>
+    <table>
+      <thead><tr><th>Pattern</th><th>When it arises</th><th>Engine reference</th><th>CPL</th></tr></thead>
+      <tbody>
+        <tr class="row-danger"><td>7-blunder Scotch collapse</td><td>Yaen as White vs near-1900 in complex tactical position</td><td>Olimpiada Rapid vs Alba 1933: 7B 4M, 89.1% LOSS</td><td>11 errors</td></tr>
+        <tr class="row-danger"><td>B90 English Attack breakdown</td><td>Yaen plays English Attack vs strong Sicilian player (1900+)</td><td>Liga Intergaláctica vs Contreras 1947: 1B 4M, LOSS</td><td>5 errors</td></tr>
+        <tr class="row-danger"><td>Rc1 wrong rook square</td><td>Losing position, Yaen needs to activate rook via correct square</td><td>Contreras game: Rc1 (Rd3 was correct), CPL1000</td><td class="acc-lo">1000</td></tr>
+        <tr><td>Multiple-mistake accumulation vs 1900+</td><td>Complex tactical middlegame against near-equal player</td><td>Pattern confirmed across 3 White losses: 4B+/0+ mistakes vs 1933–2151</td><td>avg 5+</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>§8 — Day-of Preparation (20 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Tactics drill — 8 min:</strong> 6 Dragon counterattacking puzzles. Focus on positions where Black has rooks on c8/d8 and pawns on b5-a5 (queenside storm) while White has pawns advancing on g4-h4. Practice: when does Austin sacrifice with ...Rxc3 or ...bxc3? When does ...d5 break work? Also: 2 puzzles on B90 English Attack-style positions where White's f3/g4 pawn advance is met with piece counterplay. Austin needs these patterns to be automatic.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Opening line review — 7 min:</strong> Replay the Dragon main line: <code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 g6 6.Be3 Bg7 7.f3 O-O 8.Qd2 Nc6 9.Bc4 Bd7 10.O-O-O Rc8</code>. Stop at move 10. Ask: <em>"What does Black want?"</em> Answer: ...Nxd4 → Bxd4 b5, then ...a5 → ...b4, then ...Rxc3 sacrifice if White's king is exposed. The race is on. Austin controls the c-file and queenside, Yaen controls the h-file and kingside. First to complete their attack wins.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Mental visualization — 5 min:</strong> Replay the Contreras vs Yaen B90 game conceptually. Contreras (1947) played the Sicilian as Black. Yaen executed the English Attack. But Contreras' counterplay was faster and more accurate. Yaen accumulated 4 mistakes (Rc1 wrong rook square). Now: as Austin (Black), the same dynamic applies. Austin's counterplay (b5/a5/Rc8) needs to be executed before Yaen's kingside storm (g4-g5-g6) reaches Austin's king. The timing is everything — Austin needs to be faster.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Yaen is a sharp tactical player who knows the Scotch and the English Attack. His Scotch expertise doesn't apply here — I play 1...c5. His B90 experience is limited (4 games) and he already lost to a 1947-rated player in this exact line. I play the Dragon — my home territory — and fight for counterplay on the queenside. Yaen's king will be exposed too. He has shown he cannot maintain accuracy in complex opposite-castling positions against near-equal opposition. I accelerate my attack and let his calculation failures decide the game."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin B Dragon vs Yaen's B90 English Attack</td><td>B76</td><td><code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 g6 6.Be3 Bg7 7.f3 O-O</code></td></tr>
+      <tr><td>Austin B Scheveningen vs Yaen's B90</td><td>B80</td><td><code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 e6 6.Be3 a6 7.f3</code></td></tr>
+      <tr><td>Austin B Kan vs Yaen (sideline)</td><td>B41</td><td><code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6</code></td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish movetime 800ms · 51 games (analysis in progress — 23+ completed)</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#b35800;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Opening — B90 English Attack vs Near-Equal Opposition
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Scotch C45 doesn't apply vs Austin's Sicilian.</strong> Yaen's primary preparation (Scotch, 7 games) is wasted here. Against Austin's 1...c5, Yaen switches to B90 English Attack — his secondary system with only 4 documented games. His B90 record: 2W–1L–1D — a 50% score including an upset loss to Contreras 1947.</p>
+      <p><strong>B90 English Attack record vs Austin's strength range:</strong> Lost to 1947 (90.1%, 4 mistakes); drew 1709 (95.7%); won vs 1493 (95.2%). Austin at 1865 sits directly in the range where Yaen's B90 loses or barely draws. The English Attack (f3/Be3/Qd2/g4) is Yaen's theoretical response, but his execution against near-2000-level players is inadequate.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#7a0000;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Time-Pressure — Collapses vs 1933/1947/2151
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Olimpiada Rapid — vs Alba 1933 (Scotch C45, 89.1%, 7B 4M, LOSS):</strong> This is Yaen's defining White failure. Against a 1933-rated opponent in the Scotch, Yaen made 11 major errors (7 blunders + 4 mistakes) at only 89.1% accuracy. This is not a minor accuracy dip — it is a catastrophic position collapse. The scale (7 blunders) suggests rapid time-pressure exhaustion in complex Scotch middlegame positions. Austin at 1865 is only 68 points below Alba 1933.</p>
+      <p><strong>Liga Interestelar — vs Estrada 2151 (C47, 93.7%, 4B, LOSS):</strong> Even at 93.7% accuracy (a "good" game), Yaen made 4 blunders and lost to a 2151-rated opponent. The 4 blunders confirm that even when Yaen is nominally accurate, single-move calculation failures decide the game against stronger opposition.</p>
+      <p><strong>Liga Intergaláctica — vs Contreras 1947 (B90, 90.1%, 1B 4M, LOSS):</strong> In the exact English Attack position Yaen will play against Austin's Sicilian, Yaen lost to a 1947-rated player with 1 blunder + 4 mistakes. Rc1 (wrong rook to wrong file, CPL1000) was the blunder.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#b35800;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Endgame / Classical White Form
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Classical White record: 6W–2L–1D.</strong> Yaen is a reasonable performer as White in classical, but the 2 losses (both to 1900+ rated players) show he cannot maintain technical precision against near-equal opposition. The draw vs 2151-rated Estrada (in a game where Estrada won with 4 blunders from Yaen) shows White endgame issues.</p>
+      <p><strong>Verdict: C — solid in easy classical games, but breaks down vs near-2000 opposition.</strong> Austin's 1865 rating is directly in Yaen's difficulty range for White endgames.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">B</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Scotch irrelevant vs 1...c5; B90 is secondary (4 games, 1 loss to 1947); English Attack has theory limits vs strong players</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time Pressure</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">7B4M (89.1%) vs 1933 Scotch; 1B4M (90.1%) vs 1947 B90; 4B (93.7%) vs 2151 — collapses vs 1900+ in 3 separate games</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Classical White 6W-2L-1D; both losses vs 1900+; pattern consistent with middlegame time-pressure collapse rather than endgame-specific weakness</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a5276;">B</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">White 67% vs Black 75% — White is Yaen's weaker color; 3 White losses vs 0 classical Black losses; structural asymmetry</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

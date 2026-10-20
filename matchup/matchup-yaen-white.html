@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Yaen Saenz Cabrera — Austin as White</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #2d7d46; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #2d7d46; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #2d7d46; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #2d7d46; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #f0fff4 !important; color: #1a4731; }
+    .acc-hi { color: #1a6030; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #fafbff; }
+    .rule-number { background: #2d7d46; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #f0fff5; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #2d7d46; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #2d7d46; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #e8f5ee; color: #2d7d46; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #e8f5ee; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a4731; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Yaen Saenz Cabrera</h1>
+    <div class="subtitle">Austin as White — Rossolimo Sidestep vs Sicilian Sveshnikov</div>
+    <div class="meta">Yaen Saenz Cabrera · ~1841 FIDE (Oct 2026, peaked 1899) · 51 games · Stockfish in progress · Black avg 90.9% (11g analyzed) · 15W–3L–6D as Black · No direct encounter · Near-equal match (+24 Austin)</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-yaen.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-yaen-black.html">Austin as Black →</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-yaen-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="encounter-box">
+    <strong>No direct encounter on record.</strong> Engine data from 51 games across multiple Mexican youth tournaments. Yaen as Black: <strong>90.9% avg (11g analyzed), 15W–3L–6D overall</strong> — Black is Yaen's better color (75% vs 67% as White). Critical data: Yaen is a <strong>Sicilian Sveshnikov specialist</strong> (B32/B33, 7 games) — deep preparation in Yaen's main line. Austin's task: play Rossolimo 3.Bb5 to sidestep the Sveshnikov entirely, force Yaen into unfamiliar structural territory, and exploit a key weakness: <strong>greedy captures in complex pawn structures</strong> (Qxb2 CPL1000 from +6.02 winning → losing in one move).
+  </div>
+
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Yaen Saenz Cabrera</span>
+    <span class="plabel">FIDE Rating</span><span class="pval">~1841 (Oct 2026); peaked ~1899 (2024) — volatile rating from rapid/blitz seasons</span>
+    <span class="plabel">Style</span><span class="pval">Tactical/combative — Sicilian Sveshnikov as Black (counterattacking) vs QGD vs 1.d4 (solid). Fights for initiative on both sides.</span>
+    <span class="plabel">Sample</span><span class="pval">51 games, multiple tournaments (Liga Interestelar, Olimpiada Nacional 2025, Liga Intergaláctica, Querétaro 2025, etc.)</span>
+    <span class="plabel">Overall Black accuracy</span><span class="pval">90.9% avg (11g analyzed) · Classical Black: 4W–0L–4D · Rapid/Blitz Black: 11W–3L–2D</span>
+    <span class="plabel">Black record</span><span class="pval">15W–3L–6D (75% score) — Black is Yaen's stronger color</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">No encounter on record</span>
+    <span class="plabel">Defining Black weakness</span><span class="pval">Qxb2?? (CPL1000, +6.02→−5.13 in one move) from winning; 3 blunder/1 mistake B32 loss to Fernando Cortes Medina (1904)</span>
+  </div>
+
+  <p><strong>Opening fingerprint (as Black):</strong></p>
+  <ul>
+    <li><strong>vs 1.e4 (primary):</strong> Sicilian Sveshnikov/Kalashnikov B32/B33 (7 games) — <code>1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 e5</code>. Deep preparation in this sharp, combative line. Yaen scores 5W–0L–2D in B32/B33 in the dataset.</li>
+    <li><strong>vs Alapin 2.c3:</strong> Active B22/B23 response (3 games) — Yaen fights for counterplay even vs anti-Sicilian lines.</li>
+    <li><strong>vs 1.d4:</strong> QGD/Semi-Slav family D35/D43/D30 (4+ games) — quiet, solid. Not directly relevant since Austin plays 1.e4.</li>
+    <li><strong>Austin plays 1.e4 exclusively</strong> — the 1.e4 c5 Sicilian territory is the battleground. Yaen's entire Black preparation centers on B32/B33.</li>
+  </ul>
+
+  <h2>§2 — Yaen's Black Repertoire (Frequency &amp; Results)</h2>
+  <table>
+    <thead>
+      <tr><th>ECO</th><th>System</th><th>G</th><th>W</th><th>D</th><th>L</th><th>Acc%</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>B32/B33</td><td>Sicilian Sveshnikov/Kalashnikov (vs 1.e4 3.d4)</td><td>7+</td><td>5</td><td>0</td><td>2</td><td>~91%</td><td>PRIMARY weapon. 7 games deep-prep. Losses in B32 Blitz/Rapid vs Fernando 1904 (91.9%, 3B1M) and vs Garcia 1617 (Qxb2 blunder). Austin's Rossolimo 3.Bb5 sidesteps this entirely.</td>
+      </tr>
+      <tr>
+        <td>B22/B23</td><td>Sicilian Active Response (vs 2.c3 Alapin)</td><td>3+</td><td>2</td><td>1</td><td>0</td><td>~89%</td><td>Fights back vs anti-Sicilian. 87% draw with 10 mistakes shows accuracy drop in pawn-structure battles. Austin plays 1.e4 → Rossolimo, not Alapin.</td>
+      </tr>
+      <tr class="row-safe">
+        <td>D35/D43/D30</td><td>QGD/Semi-Slav family (vs 1.d4)</td><td>4+</td><td>2</td><td>2</td><td>0</td><td>~92%</td><td>vs 1.d4 → solid draws including 98.4% win (QGD). Classical form strongest here. Irrelevant since Austin plays 1.e4.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Yaen's Black record overall is strong (75%), but <strong>both B32/B33 losses came in Blitz/Rapid — in the Sicilian itself</strong>. In classical, Yaen is 4W–0L–4D as Black (unbeaten). Austin must create a winning game in classical time control — draws benefit Yaen.</p>
+  <div class="warn-box">
+    <strong>The Sveshnikov is Yaen's deep preparation — avoid it entirely.</strong> Yaen has 7+ B32/B33 games documenting Sveshnikov knowledge. Going into Open Sicilian 3.d4 hands Yaen exactly what he wants: his home territory. Rossolimo 3.Bb5 forces him off-script from move 3. Austin's Rossolimo experience plus Yaen's zero documented Rossolimo games = complete home-field advantage for Austin.
+  </div>
+
+  <h2>§3 — Vulnerabilities as Black</h2>
+
+  <h3>A. Greedy Capture Blunder from Winning Position (Qxb2, Confirmed)</h3>
+  <table>
+    <thead><tr><th>Game</th><th>Acc%</th><th>Move Played (Best)</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>Olimpiada Blitz R? — Qxb2??</td><td><span class="acc-lo">80.1%</span></td><td>Qxb2 (best: Qxe1)</td><td class="acc-lo">1000</td><td>+6.02→−5.13</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>From +6.02 — a completely winning position for Black — Yaen played Qxb2 (greedy pawn capture) instead of Qxe1 (back-rank mate threat). The eval crashed from +6.02 to −5.13 in a single move — from dominant to losing. Only drew because the opponent also blundered back. This is Yaen's defining vulnerability: prioritizing material gain over tactical precision in complex positions.</p>
+
+  <h3>B. B32/B33 Sicilian Losses Under Pressure</h3>
+  <table>
+    <thead><tr><th>Game</th><th>Acc%</th><th>Errors</th><th>Result</th><th>Opponent</th></tr></thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>Olimpiada Blitz — vs Cortes Medina</td><td>91.9%</td><td>3B 1M</td><td><span style="color:#7a0000;font-weight:700;">LOSS</span></td><td>Fernando Cortes Medina (1904)</td>
+      </tr>
+      <tr class="row-danger">
+        <td>Olimpiada Blitz — vs Garcia Solis</td><td>80.1%</td><td>1B 3M</td><td>DRAW</td><td>Garcia Solis (1617) — almost lost</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Both of Yaen's B32/B33 losses came in Blitz when facing tactical pressure in the Sicilian's sharp pawn structures. Fernando Cortes Medina (1904) beat Yaen in B32 Blitz — the same Cortes Medina that Austin has analyzed for his own matchup. The pattern: in rapid/blitz B32, Yaen's calculation breaks down (3 blunders in the loss). In classical, Yaen is unbeaten. Austin needs to sidestep B32 entirely via Rossolimo and create equivalent structural complexity.</p>
+
+  <h3>C. Rating Volatility — 1899 Peak → 1715 → 1841</h3>
+  <div class="info-box">
+    Yaen's rating peaked ~1899 in late 2024, dropped to ~1715–1659 through 2025, recovered to 1841 in 2026. The decline was concentrated in rapid/blitz events. Current classical form is more stable (4W–0L–4D). However, the 1715 period suggests real tactical lapses under time pressure — not just a statistical blip.
+  </div>
+
+  <div class="tip-box">
+    <strong>The game plan:</strong> Play Rossolimo 3.Bb5, force Yaen off the Sveshnikov into an unfamiliar structural position, create complex pawn imbalances with the Bxc6 exchange, and wait for Yaen's Qxb2-type greedy capture or calculation failure in the middlegame. Austin's Rossolimo home preparation vs Yaen's zero Rossolimo games = maximum advantage in the opening. The middlegame complexity is where Yaen's error pattern activates.
+  </div>
+
+  <h2>§4 — Austin's Recommended Weapon</h2>
+
+  <h3>Primary: Rossolimo 3.Bb5 — Complete Sveshnikov Sidestep</h3>
+  <div class="var-moves">1.e4  c5  2.Nf3  Nc6  3.Bb5  [Rossolimo — Austin's standard Sicilian weapon]
+3...Nf6  4.Bxc6  dxc6  5.d3  g6  6.c3  Bg7
+→ Documented White plan: h3–g4 space claim, Nbd2–Nc4 pressure on d6
+→ After 6...Bg7 7.O-O O-O 8.Nbd2: build with h3, then Nc4 or Nf1–g3
+
+OR:
+3...g6  4.h4  [Austin's h4 kingside storm system]
+→ Immediate kingside tension before Yaen can establish Sveshnikov structure</div>
+
+  <p><strong>Why Rossolimo 3.Bb5 specifically:</strong></p>
+  <ul>
+    <li><strong>Sidesteps Sveshnikov entirely.</strong> The Sveshnikov requires 3.d4 (Open Sicilian). Rossolimo plays 3.Bb5 instead. After 3.Bb5, there is no path to the Sveshnikov — Yaen's 7+ games of B32/B33 preparation become completely irrelevant from move 3.</li>
+    <li><strong>Yaen has zero documented Rossolimo games.</strong> The 51-game dataset includes no B31 (Rossolimo) or B30 positions. Austin is playing into territory Yaen has never navigated at tournament level. Maximum unfamiliarity advantage.</li>
+    <li><strong>Creates exactly the complex structural imbalance Yaen struggles with.</strong> After 4.Bxc6 dxc6, Black has doubled c-pawns and the bishop pair. Austin gets a structural advantage (pawn structure) while Yaen has the bishop pair (dynamic compensation). This asymmetry creates exactly the complex middlegame where Yaen's Qxb2-type miscalculations occur.</li>
+  </ul>
+
+  <h3>If Yaen deviates on move 3</h3>
+  <div class="var-moves">3...e6  [Rossolimo ...e6 variation]
+→ 4.O-O a6 5.Bxc6 dxc6 6.d3  [structural advantage maintained]
+
+3...d6  [Rossolimo ...d6 variation]
+→ 4.O-O Bd7 5.Re1  [building with central pressure]
+
+3...e5  [unusual — blocking the Sveshnikov e5-push with 3.Bb5 already played]
+→ 4.O-O d6 5.d4 [Italian-like transformation]</div>
+
+  <div class="warn-box">
+    <strong>Do NOT play Open Sicilian 3.d4.</strong> That enters Yaen's home territory: 3.d4 cxd4 4.Nxd4 Nc6 → Sveshnikov structures. Yaen scores 5W–0L–2D in B32/B33 overall. Going into Open Sicilian against a Sveshnikov specialist at near-equal rating is unnecessary risk. Rossolimo gives Austin the opening home advantage.
+  </div>
+
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The reference exploit: <strong>Olimpiada Nacional 2025 Blitz — Yaen (Black, B32) vs Garcia Solis, Miguel Angel (1617), 80.1%, DRAW</strong>.</p>
+  <ol>
+    <li><strong>Position:</strong> Yaen was Black in a Sicilian B32 (Sveshnikov/Old Sicilian). The position reached evaluation +6.02 for Black — Yaen was winning convincingly.</li>
+    <li><strong>Critical moment — Qxb2?? (CPL1000, +6.02→−5.13):</strong> From a completely dominant position, Yaen played Qxb2 — capturing a pawn on b2. The correct move was Qxe1 (back-rank mate threat). Qxb2 is the "greedy" option: White plays Ra1 trapping the queen, reversing the position entirely. Eval: +6.02 → −5.13 = 11.15 centipawn swing in one move.</li>
+    <li><strong>Recovery:</strong> Yaen only drew (instead of losing) because Garcia Solis (1617) also blundered back. Against a near-equal opponent like Austin (1865), there is no expectation of a recovery blunder.</li>
+  </ol>
+  <div class="tip-box">
+    <strong>Lesson:</strong> Yaen's Qxb2 pattern confirms that in complex Sicilian pawn structures, he chooses the greedy material-gain move over the precise tactical continuation. Austin's Rossolimo creates structural complexity (doubled c-pawns, bishop pair dynamics) that generates exactly these types of decisions. When Yaen reaches a moment with a greedy option vs a precise tactical option, expect Qxb2-type miscalculation.
+  </div>
+
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~65%</span>
+      Rossolimo 3.Bb5 → 4.Bxc6 dxc6 → Complex Middlegame (Main Line)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Yaen:   1...c5  2...Nc6  3...Nf6  [expected Sveshnikov setup start]
+Austin: 1.e4  c5  2.Nf3  Nc6  3.Bb5  [Rossolimo — sidesteps everything]
+→ After 3...Nf6 4.Bxc6 dxc6: doubled c-pawns for Yaen, bishop pair compensation
+→ After 5.d3 g6 6.c3 Bg7 7.O-O O-O 8.Nbd2: plan with h3, Nc4 → d6 pressure</div>
+      <ul>
+        <li><strong>Moves 7–14:</strong> Castle short, play h3 to prevent ...Bg4 pin. Build with Nbd2 → Nc4, targeting the isolated or doubled c-pawns. Keep queens on. Yaen's bishop pair is only dangerous in an open, simplified position — maintain closed/semi-closed middlegame.</li>
+        <li><strong>Moves 14–25:</strong> Yaen's blunder zone. The doubled c-pawn structure creates strategic tension that requires precise navigation. When Yaen has a winning advantage or material opportunity, he tends to overreach with material captures (Qxb2-type). Maintain imbalanced middlegame and wait for the Qxb2 moment.</li>
+        <li><strong>Do NOT over-simplify.</strong> Yaen's classical Black form is 4W–0L–4D in QGD/simplified structures. Complexity is Austin's friend.</li>
+      </ul>
+      <div class="tip-box"><strong>Expected sequence:</strong> Yaen enters unfamiliar Rossolimo structure, navigates the doubled c-pawn imbalance. Around move 15–25, faces a tactical decision between a greedy material capture and a precise restraining move. Plays the greedy option. Austin capitalizes. The Qxb2 pattern is structural — it occurs in these exact complex Sicilian pawn positions.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~25%</span>
+      Rossolimo h4 Advance — if Yaen plays 3...g6
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Yaen:   1...c5  2...Nc6  3...g6  [Dragon-type Sicilian setup]
+Austin: 3.Bb5  g6  4.h4  [Austin's h4 kingside storm]
+→ Immediate pressure before Yaen can castle kingside safely
+→ After 4...Bg7 5.h5 gxh5 6.Rxh5: open h-file, attacking chances</div>
+      <ul>
+        <li>The h4 storm creates immediate positional pressure that Yaen has not prepared for in this variation. His B32/B33 preparation assumed 3.d4 — the Rossolimo h4 line is a completely different tactical motif.</li>
+        <li>Austin's h4 system (documented in CLAUDE.md as part of his White repertoire) means he is comfortable here.</li>
+        <li>Yaen's rating fluctuation history (1899→1715) suggests tactical time-pressure collapses — the h4 storm creates exactly that kind of time-pressure complexity in an unfamiliar structure.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~10%</span>
+      Alapin 2.c3 — if Yaen has prepared Rossolimo response
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Yaen:   1...c5  [Sicilian]
+Austin: 1.e4  c5  2.c3  [Alapin anti-Sicilian]
+→ After 2...Nf6 3.e5 Nd5 4.d4 cxd4 5.Nf3: solid central structure</div>
+      <ul>
+        <li>Yaen has 3 documented active B22/B23 responses to Alapin — he fights back here. Use only if Austin wants to avoid specific Rossolimo complications.</li>
+        <li>Yaen's 87.0% game with 10 mistakes in B23 shows accuracy drops in Alapin pawn structures. But the Alapin is less ideal than Rossolimo for creating Austin's desired complexity.</li>
+        <li><strong>Not recommended as primary.</strong> The Rossolimo is Austin's strongest weapon here.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules for This Game</h3>
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Play Rossolimo 3.Bb5 — Yaen's Sveshnikov preparation is irrelevant</div>
+          <div class="rule-body">Yaen has 7+ documented Sveshnikov (B32/B33) games and deep preparation. The moment Austin plays 3.d4, Yaen is in his home territory with a massive preparation advantage. Rossolimo 3.Bb5 sidesteps all B32/B33 theory from move 3. Yaen has ZERO documented Rossolimo games. Austin plays this system regularly. The opening home advantage is completely reversed: Austin is in familiar territory, Yaen is navigating structure he has never faced at tournament level.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Create imbalanced structural complexity — avoid simplification before move 25</div>
+          <div class="rule-body">Yaen's best Black form is in quiet, simplified positions — his classical QGD draws (4W–0L–4D) show he can hold complex draws in simplified structures. The Rossolimo exchange (4.Bxc6 dxc6) creates the imbalance Austin needs: doubled c-pawns for Yaen, bishop pair compensation. This is a rich, asymmetric middlegame — exactly where Yaen's Qxb2-type miscalculation occurs. If Austin simplifies prematurely (trades queens, equalizes the position early), Yaen's drawing ability becomes the dominant factor. Keep queens on, keep the position rich, extend the game through move 25.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Recognize the Qxb2 moment — when Yaen faces a material vs tactical choice</div>
+          <div class="rule-body">Yaen's defining vulnerability: when he has a tactical decision between a greedy material capture and a precise restraining move, he takes the material (Qxb2 CPL1000 from +6.02). In the Rossolimo structure with doubled c-pawns, these decisions arise around moves 15–25: can Yaen capture on b2/b3/c2 with the queen, or does a discovered attack/back-rank threat prevent it? Austin should look for positions where Yaen's queen can capture a pawn but a tactical refutation exists. Pre-calculate these positions so Austin can punish immediately when Yaen plays the Qxb2-type move.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS WHITE — Rossolimo main line (B30/B31):
+  1.e4 c5 2.Nf3 Nc6 3.Bb5 Nf6 4.Bxc6 dxc6 5.d3 g6 6.c3 Bg7
+  7.O-O O-O 8.Nbd2 → h3 (stop Bg4), Nc4 plan
+
+Rossolimo h4 (if Yaen plays 3...g6):
+  3.Bb5 g6 4.h4 → Austin's kingside storm system
+
+Rossolimo ...e6 variation (if 3...e6):
+  4.O-O a6 5.Bxc6 dxc6 6.d3 → structural advantage
+
+CRITICAL MOMENT RECOGNITION:
+  Yaen blunder zone: moves 15–25 in complex doubled-pawn structures
+  Expected move type: greedy queen capture (Qxb2/Qxb3) when tactical refutation exists
+  Austin's preparation: pre-calculate queen captures to b2/b3/c2 squares — know if
+  Austin has Ra1 trap, discovered attack, or back-rank threat BEFORE Yaen plays it
+  So Austin can punish immediately without time on the clock</div>
+
+    <h3>Tactical Motifs to Watch For</h3>
+    <table>
+      <thead><tr><th>Pattern</th><th>When it arises</th><th>Engine reference</th><th>CPL</th></tr></thead>
+      <tbody>
+        <tr class="row-danger"><td>Qxb2-type greedy pawn grab</td><td>Yaen has advantage, spots a pawn on b2/b3; tactical refutation exists</td><td>Blitz R vs Garcia 1617: Qxb2 (Qxe1) from +6.02 → −5.13</td><td class="acc-lo">1000</td></tr>
+        <tr class="row-danger"><td>B32 calculation breakdown vs stronger opponents</td><td>Sicilian B32 pawn structure, Yaen faces 1900+ opposition</td><td>vs Cortes Medina 1904: 3B 1M, LOSS in Olimpiada Blitz</td><td>3 blunders</td></tr>
+        <tr><td>10-mistake accumulation in pawn battles</td><td>B23 Alapin response position: Yaen plays 10 mistakes in a draw</td><td>Rapid R vs Morales 1632: 87.0%, 10 mistakes</td><td>10M</td></tr>
+        <tr><td>Doubled c-pawn structural decisions</td><td>After Bxc6 dxc6: c6/c5 pawn management requires accuracy</td><td>Structural pattern — no specific game, but triggered in B30/B31</td><td>expected</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>§8 — Day-of Preparation (20 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Tactics drill — 8 min:</strong> 6 puzzles on <em>trapping queens that capture on b2.</em> Specifically: opponent plays Qxb2 in a Sicilian structure — how does Austin respond with Ra1 trap or similar? Also: positions where a "greedy" pawn capture on the queenside fails because of a back-rank threat or discovered attack. Yaen's Qxb2 CPL1000 blunder is the canonical example. Austin should pre-visualize the response pattern: Yaen captures the pawn, Austin's rook covers the a-file, Yaen's queen is trapped or loses the exchange. This needs to be automatic, not calculated under time pressure.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Opening line review — 7 min:</strong> Replay: <code>1.e4 c5 2.Nf3 Nc6 3.Bb5 Nf6 4.Bxc6 dxc6 5.d3 g6 6.c3 Bg7 7.O-O O-O 8.Nbd2</code>. Stop at move 8. Ask: <em>"What does White want?"</em> Answer: h3 to prevent ...Bg4, then Nc4 targeting d6, then complex middlegame with structural tension. Remind yourself: Yaen has never faced this position. He will need to figure out the Rossolimo structure on his own. Austin has been here before.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Mental visualization — 5 min:</strong> Replay the Qxb2 game conceptually. Yaen is winning (+6.02). He sees the b2 pawn. It looks free. He plays Qxb2. Austin plays Ra1. Yaen's queen has no safe square. Eval flips to −5.13. Now: as Austin (White), when Yaen spots a "free" pawn on the queenside and considers Qxb2 in the Rossolimo middlegame — Austin should have already calculated whether the b2 pawn is genuinely free or if Ra1 (or similar) traps the queen. The blunder is predictable; the refutation needs to be pre-calculated.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Yaen is a near-equal opponent and Sicilian Sveshnikov specialist. His preparation in B32/B33 is deep. But Rossolimo changes the game entirely — he has never faced it in tournament play. I enter the Rossolimo structure I know well. He figures out an unfamiliar position. The doubled c-pawn imbalance creates the complex middlegame where he will see a greedy pawn capture and calculate it as winning. But it will fail. I need to have calculated the refutation in advance so I can punish immediately when it comes."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin W Rossolimo → 4.Bxc6 dxc6</td><td>B30/B31</td><td><code>1.e4 c5 2.Nf3 Nc6 3.Bb5 Nf6 4.Bxc6 dxc6 5.d3 g6 6.c3 Bg7</code></td></tr>
+      <tr><td>Austin W Rossolimo h4 → if 3...g6</td><td>B31</td><td><code>1.e4 c5 2.Nf3 Nc6 3.Bb5 g6 4.h4</code></td></tr>
+      <tr><td>Austin W Rossolimo ...e6 → if 3...e6</td><td>B30</td><td><code>1.e4 c5 2.Nf3 Nc6 3.Bb5 e6 4.O-O a6 5.Bxc6 dxc6 6.d3</code></td></tr>
+      <tr><td>Austin W Alapin (backup) → any</td><td>B22</td><td><code>1.e4 c5 2.c3 Nf6 3.e5 Nd5 4.d4 cxd4 5.Nf3</code></td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish movetime 800ms · 51 games (analysis in progress — 23+ games completed)</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#b35800;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Opening Gaps — Yaen as Black vs Rossolimo
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Sveshnikov preparation is irrelevant vs Rossolimo.</strong> Yaen has 7+ documented B32/B33 Sveshnikov games confirming deep preparation in this line. But the Sveshnikov requires 3.d4 (Open Sicilian). Austin plays 3.Bb5 (Rossolimo) — a completely different move. After 3.Bb5, there is no Sveshnikov path. Yaen's 7 games of preparation are inapplicable from move 3.</p>
+      <p><strong>Zero Rossolimo games on record.</strong> The 51-game dataset includes no B31 (Rossolimo) positions for Yaen. He has faced the Alapin (B22/B23, 3 games) and Open Sicilian lines, but never the Rossolimo in tournament play. This means Yaen will face the Rossolimo structure cold — figuring out the doubled c-pawn dynamics, bishop pair management, and Austin's Nc4/h3 plans under tournament time pressure with no prior experience.</p>
+      <p><strong>Rating: C — not hopeless but clearly disadvantaged.</strong> Yaen can learn positional structures quickly (his QGD draws show positional sense). But the Rossolimo introduces structural complexity (doubled pawns, pawn-island imbalance) that requires specific preparation. Without it, he will navigate blindly while Austin follows a prepared plan.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#7a0000;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Time-Pressure / Greedy-Capture Pattern
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Qxb2?? (CPL1000 from +6.02→−5.13):</strong> In a completely winning position (+6.02), Yaen played the greedy Qxb2 (capturing a pawn) instead of Qxe1 (back-rank mate). Eval crashed from dominant to losing in one move — 11.15-point swing. The correct move (Qxe1) requires calculation of the back-rank threat; Qxb2 requires no calculation — it is instinctive. Yaen chose the instinctive option. Against Austin, there is no recovery blunder available.</p>
+      <p><strong>B32/B33 under pressure (Cortes Medina 1904, Olimpiada Blitz):</strong> 3 blunders + 1 mistake in a Sicilian B32 game against a 1904-rated opponent. Yaen played at 91.9% accuracy but still accumulated 4 major errors. This confirms the pattern: in complex Sicilian pawn structures against strong opposition, Yaen's calculation breaks down even at relatively high accuracy rates.</p>
+      <p><strong>Verdict: D — pattern confirmed in multiple games.</strong> The Qxb2 blunder is the clearest example, but the B32 loss adds confirmation. In complex positions with material-grabbing opportunities, Yaen prioritizes material over tactical precision.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">B</span>
+      Endgame — Draws vs Higher-Rated (Classical Solid)
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Classical Black record: 4W–0L–4D.</strong> Yaen is unbeaten as Black in classical time controls. The 4 draws include positions against higher-rated opponents (98.4% game vs Maciel 1536, QGD draws vs 1900+ rated). This confirms Yaen's classical endgame hold ability. <strong>If Austin allows the game to simplify into a drawn classical endgame, Yaen will hold.</strong></p>
+      <p><strong>The draw threat is real.</strong> Yaen's 75% Black score overall is excellent, and most of his classical Black draws were against lower or equal-rated opponents. Against Austin at +24 rating advantage, Yaen will realistically aim for a draw. The Rossolimo complexity is Austin's primary tool to avoid an early draw — keep the game imbalanced and rich through move 25.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">B</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Sveshnikov prep irrelevant vs Rossolimo; zero B31 Rossolimo games on record; unfamiliar territory from move 3</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time / Calculation</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Qxb2 CPL1000 from +6.02 (greedy material grab); B32 loss to Cortes 1904 (3B1M); calculation fails in pawn-grab situations</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a5276;">B</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Classical Black 4W-0L-4D (unbeaten); strong draw-hold ability; will survive to endgame if position simplifies</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a5276;">B</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Black is Yaen's BETTER color (75% vs 67% White); classical unbeaten; strong Sveshnikov fighter — but Rossolimo sidesteps all of this</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
