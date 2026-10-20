@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Justin Huang — Austin as White</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #2d7d46; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #2d7d46; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #2d7d46; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #2d7d46; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #f0fff4 !important; color: #1a4731; }
+    .acc-hi { color: #1a6030; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #fafbff; }
+    .rule-number { background: #2d7d46; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #f0fff5; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #2d7d46; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #2d7d46; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #e8f5ee; color: #2d7d46; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #e8f5ee; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a4731; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Justin Huang</h1>
+    <div class="subtitle">Austin as White — Exchange French / Tarrasch to Avoid NAYCC Repeat</div>
+    <div class="meta">Justin Huang · 2023–2093 FIDE · 26 games · Stockfish movetime 800 · Black avg 93.2% (12g) · Direct record: 0W–1L (NAYCC R4 — French Advanced loss) · ⚠️ Justin now plays Sicilian (Toronto Open 2026)</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-justin.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-justin-black.html">Austin as Black →</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-justin-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="encounter-box">
+    <strong>Direct encounter: Austin 0W–1L.</strong> NAYCC 2025 R4 — Austin played French Advanced (3.e5 c5), Justin built connected d4/e5 passed pawns, sacrificed a rook, and delivered Qf2# on move 50. Justin's French Advanced is precisely the structure he executes best — Austin must not give it to him again. Engine data: 26 games across Canada Closed 2026, PAM 2026, PAM School 2026, Toronto Open 2026. Justin Black avg: <strong>93.2%</strong>. New alert: <strong>Justin played Sicilian</strong> in Toronto Open R4 (July 2026) — was French-only before this. Prepare both.
+  </div>
+
+  <!-- ═══ SECTION 1 ═══ -->
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Justin Huang</span>
+    <span class="plabel">FIDE Rating</span><span class="pval">2023–2093 (Canada Closed 2093, PAM 2023 after win)</span>
+    <span class="plabel">Style</span><span class="pval">Solid, positional, endgame specialist. French Defense is his identity — knows all variations deeply. Recently added Sicilian (Toronto Open 2026).</span>
+    <span class="plabel">Sample</span><span class="pval">26 games, 4 tournaments (Canada Closed 2026, PAM 2026, PAM School 2026, Toronto Open 2026)</span>
+    <span class="plabel">Black accuracy avg</span><span class="pval">93.2% avg (12g) — solid but with sharp critical-moment failures</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">0W–1L — NAYCC 2025 R4 (French Advanced, Justin win with Qf2#)</span>
+    <span class="plabel">Best Black game</span><span class="pval">PAM R5 vs Rodriguez (96.4%, 0 blunders, 0 mistakes) — French Advanced perfection</span>
+    <span class="plabel">Worst Black game</span><span class="pval">PAM R7 vs Galvis (87.7%) — passivity leading to loss</span>
+  </div>
+
+  <p><strong>Opening fingerprint (as Black):</strong></p>
+  <ul>
+    <li><strong>vs 1.e4 (historical):</strong> French Defense 100%. Advanced (3.e5), Exchange (3.exd5), Tarrasch (3.Nd2), Classical, Burn all documented. His French identity is deep — always ...c5 break, ...Nc6 knight routing, ...d4 pawn advance when possible.</li>
+    <li><strong>vs 1.e4 (new):</strong> Sicilian confirmed in Toronto Open R4 (July 2026). Specific variation unknown; blundered Qe1 (CPL 229) from +2.29 in that game — preparation depth uncertain.</li>
+    <li><strong>NAYCC pattern:</strong> 3.e5 c5 → d4/e4 connected pawns → rook sacrifice → Qf2# mating net. This sequence beat Austin and reflects Justin's highest-level French skill.</li>
+    <li><strong>vs 1.d4:</strong> QGD setups (d5, e6, Nf6) — French DNA in closed positions.</li>
+  </ul>
+
+  <!-- ═══ SECTION 2 ═══ -->
+  <h2>§2 — Justin's Black Repertoire (Frequency &amp; Results)</h2>
+  <table>
+    <thead>
+      <tr><th>System</th><th>G</th><th>Acc%</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>French Advanced (3.e5) — NAYCC weapon</td><td>3</td><td>96.4% / 95.9% / 87.7%</td><td>PAM R5 win (96.4%), PAM R3 win (95.9%), PAM R7 loss (87.7%). Austin LOST to this at NAYCC R4. Do NOT play 3.e5.</td>
+      </tr>
+      <tr>
+        <td>French Exchange (3.exd5)</td><td>2+</td><td>93.5% / 97.4%</td><td>CC R1 loss vs Plotkin V (93.5%), CC R5 draw vs Wu (97.4%). Justin handles Exchange well but cannot create pawn advances.</td>
+      </tr>
+      <tr>
+        <td>French Classical / Burn</td><td>2</td><td>90.7% / 89.2%</td><td>CC R8 vs Velasquez (90.7%, 5 blunders); PAM R1 vs Lau (89.2%). Weaker French results — more tactical complications.</td>
+      </tr>
+      <tr class="row-safe">
+        <td>French Tarrasch (3.Nd2)</td><td>1</td><td>96.4%</td><td>PAM R9 win (96.1%) — Justin's French Tarrasch is clean. BUT he lost in Toronto Open R5 (Tarrasch-adjacent) vs stronger opposition.</td>
+      </tr>
+      <tr class="row-danger">
+        <td>Sicilian (NEW — Toronto Open R4)</td><td>1</td><td>92.4%</td><td>vs Achyuth; Qe1 (Kg8 CPL 229, +2.29→+0.00) — threw away winning advantage in debut. Unknown preparation depth.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="warn-box">
+    <strong>Do NOT play Advanced French 3.e5.</strong> This is the exact line Justin beat Austin with (NAYCC R4). Justin scores PAM R3 (95.9% win), PAM R5 (96.4% win), and beat Austin. It is his home territory — the d4/e4 pawn avalanche is his highest-caliber weapon. Switch to Exchange (3.exd5) or Tarrasch (3.Nd2).
+  </div>
+
+  <!-- ═══ SECTION 3 ═══ -->
+  <h2>§3 — Vulnerabilities as Black</h2>
+
+  <h3>A. Critical-Moment Calculation Failures (Confirmed Pattern)</h3>
+  <table>
+    <thead><tr><th>Game</th><th>Acc%</th><th>Critical Move</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>CC R7 vs Zaka (1826) — WORST single move</td><td>93.1%</td><td>Rxe5 (best Rf7+)</td><td class="acc-lo">641</td><td>−0.03→−6.44</td>
+      </tr>
+      <tr class="row-danger">
+        <td>CC R8 vs Velasquez (1925) — winning to losing</td><td>90.7%</td><td>Nxf3+ (best Qe3+)</td><td class="acc-lo">348</td><td>+2.16→−1.32</td>
+      </tr>
+      <tr class="row-danger">
+        <td>CC R2 vs Plotkin M (2382)</td><td>89.3%</td><td>Ba6 (best Bxa3)</td><td class="acc-lo">335</td><td>−1.32→−4.67</td>
+      </tr>
+      <tr class="row-danger">
+        <td>PAM R1 vs Lau — gave away +6</td><td>89.2%</td><td>Rb7 (best Rb3)</td><td class="acc-lo">287</td><td>+6.47→+3.60</td>
+      </tr>
+      <tr>
+        <td>Toronto Open R4 vs Achyuth (SICILIAN)</td><td>92.4%</td><td>Qe1 (best Kg8)</td><td class="acc-lo">229</td><td>+2.29→+0.00</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>The Rxe5 pattern (CC R7):</strong> Justin was at essentially equal evaluation (−0.03 — Black needs to be precise). He played Rxe5 — a rook sacrifice that backfired — dropping immediately to −6.44. This is his most egregious single-move error relative to position: from <em>equal to near-lost</em> in one shot. The pattern is a tactical "I see a forcing move" miscalculation when the position demands calm defense.</p>
+
+  <h3>B. King Navigation in Endgames</h3>
+  <p>Canada Closed R8 vs Velasquez (1925-rated, lower-rated opponent) — after the Nxf3+ blunder, Justin's position deteriorated rapidly:</p>
+  <ul>
+    <li><strong>Rxb7</strong> (best Ke7, CPL 1000, −11.57→−62.17) — rook to wrong square, deepening a losing position</li>
+    <li><strong>g4</strong> (best Kh5, CPL 726, −84.39→−91.65) — pawn instead of king, further collapse</li>
+  </ul>
+  <p>CC R1 vs Plotkin V (2260): <strong>Kb7</strong> (Ne6, CPL 1000, −17.38→−56.32) and <strong>Kxa7</strong> (CPL 514, −12.33→−17.47) — king walks in already-losing positions. Pattern: once Justin is in trouble, his king navigation deteriorates quickly.</p>
+
+  <h3>C. Sicilian Preparation Gap</h3>
+  <p>Toronto Open R4 is Justin's only documented Sicilian game. In it he blundered Qe1 (CPL 229) from +2.29 — gave away a winning position in a game he should have won. The depth of his Sicilian preparation is unknown. Compared to his French (deeply prepared across all variations), his Sicilian is nascent.</p>
+  <div class="tip-box">
+    <strong>If Justin plays Sicilian:</strong> Use Rossolimo (3.Bb5) — keeps the game out of Open Sicilian theory where Justin may have prepared specific lines. His one documented Sicilian game ended with a Qe1 blunder from a winning position, showing he cannot yet calculate precisely in Sicilian structures.
+  </div>
+
+  <!-- ═══ SECTION 4 ═══ -->
+  <h2>§4 — Austin's Recommended Weapon</h2>
+
+  <h3>Primary: Exchange French 3.exd5 — Deny the Pawn Avalanche</h3>
+  <div class="var-moves">1.e4  e6  2.d4  d5  3.exd5  exd5  [Exchange French — deny Justin's French pawn breaks]
+→ Symmetrical pawn structure: no French pawn wedge, no ...c5/...d4 avalanche
+→ Justin loses his ...c5 counterplay and connected-pawn march (his NAYCC weapon)
+→ Austin plays c4 break + bishop pair activity to create winning chances</div>
+
+  <p><strong>Why Exchange French:</strong></p>
+  <ul>
+    <li>The NAYCC loss happened because Austin gave Justin exactly the Advanced French pawn structure he executes perfectly. Exchange French eliminates this entirely — Justin cannot play ...c5/...d4 in a symmetrical IQP-free structure.</li>
+    <li>Justin's Exchange French record: CC R1 loss vs Plotkin V (2260), CC R5 draw vs Wu (1906). He is not weak in Exchange French, but he is not dominant either — the results are mixed vs all levels. Austin can create winning chances via active piece play and bishop pair.</li>
+    <li>Austin's tactical sharpness is an asset in open positions after the exchange — the symmetrical structure rewards active play, not endgame patience (Justin's strength in the French).</li>
+  </ul>
+
+  <h3>Alternative: Tarrasch 3.Nd2 — IQP Middlegame</h3>
+  <div class="var-moves">1.e4  e6  2.d4  d5  3.Nd2  Nf6  4.e5  Nfd7  5.Bd3  c5  6.c3
+→ IQP structure; entirely different from Advanced (no e5 pawn wedge)
+→ Austin comfortable in IQP positions from Nimzo background
+→ Middlegame complexity — not endgame grinding (Justin's territory)</div>
+
+  <h3>If Sicilian: Rossolimo 3.Bb5</h3>
+  <div class="var-moves">1.e4  c5  2.Nf3  Nc6  3.Bb5  [Rossolimo — sidestep Open Sicilian]
+→ Justin has only 1 Sicilian game (Qe1 blunder from +2.29)
+→ Positional play; avoids prepared Open Sicilian theory
+→ Keeps game in Austin's comfort zone</div>
+
+  <div class="warn-box">
+    <strong>Never play 3.e5 (Advanced French) against Justin.</strong> He won PAM R3 (95.9%), PAM R5 (96.4%), and beat Austin at NAYCC R4 with exactly this structure. The d4/e4 connected pawn march is his clearest winning mechanism. Remove the weapon.
+  </div>
+
+  <!-- ═══ SECTION 5 ═══ -->
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The primary reference is the direct encounter itself — <strong>NAYCC 2025 R4 — Austin Lin (White, 1968) vs Justin Huang (Black) — LOSS (French Advanced C02)</strong> — as the game plan Austin must NOT repeat.</p>
+  <ol>
+    <li><strong>What Austin played (wrong):</strong> <code>1.e4 e6 2.d4 d5 3.e5 c5</code> — Advanced French. Justin immediately got his ...c5 counterplay going.</li>
+    <li><strong>Critical phase (moves 25–45):</strong> Justin's d-pawn advanced from d5 to d3 then e3, creating connected passed pawns. Austin could not stop the march.</li>
+    <li><strong>Tactical finish:</strong> 44...e4+ 45.Qg3 Rh1+ 46.Kxh1 Qxg3 — queen won via rook sacrifice. Then 49...Qd2 50.Kf1 Qf2# — mating net.</li>
+    <li><strong>Lesson:</strong> Justin's French Advanced execution at 2093 level is near-perfect when he gets the pawn structure. Austin won NAYCC 2025 overall but lost this game specifically because he played into Justin's home territory.</li>
+  </ol>
+  <p><strong>Secondary model (positive):</strong> CC R7 — Zaka (1826) vs Justin (Black, French). Justin blundered Rxe5 (CPL 641) from −0.03 (equal) to −6.44 (near-lost). <em>This is the critical-moment failure Austin needs to provoke.</em> Justin, under pressure in a middlegame requiring precise calculation, plays a forcing but losing move from a balanced position. Keeping tension alive and not simplifying too early creates exactly this scenario.</p>
+  <div class="tip-box">
+    <strong>The goal:</strong> reach a middlegame around move 20–30 where Justin must find the non-forcing, defensive move. His Rxe5 pattern shows he will choose the aggressive option — and it will lose. Do not resolve the tension early.
+  </div>
+
+  <!-- ═══ SECTION 6 ═══ -->
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~45%</span>
+      Exchange French 3.exd5 — Main Weapon
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Justin:  1...e6  2...d5  3...exd5  [symmetrical]
+Austin:  1.e4  2.d4  3.exd5  4.Nf3  Nf6  5.Bd3  [active development]
+→ White target: c4 break, bishop pair, rook activation</div>
+      <ul>
+        <li><strong>Move 1–10:</strong> After 3.exd5 exd5, develop Nf3, Bd3, 0-0. No IQP — symmetrical pawns. Justin cannot play ...c5/...d4 in this structure.</li>
+        <li><strong>Move 10–20:</strong> Play c4 to create imbalance. If cxd5, isolate Justin's d5-pawn. If dxc4, Austin gets bishop pair. Either way, active play from Austin.</li>
+        <li><strong>Move 20–35:</strong> Keep tension. Austin's tactical sharpness > Justin's endgame technique in open symmetrical positions. Look for the tactical moment — Justin will misjudge a forcing move (Rxe5 pattern).</li>
+      </ul>
+      <div class="tip-box"><strong>Key advantage:</strong> Justin scores 0W–1L–1D in Exchange French (CC R1, CC R5). He is not immune here — he lost to Plotkin V (2260) in a clean Exchange French. Austin's tactical ability makes this a favorable battlefield.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~35%</span>
+      Tarrasch 3.Nd2 — IQP Middlegame
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Justin:  1...e6  2...d5  3...Nf6  4...Nfd7  5...c5  6...cxd4
+Austin:  1.e4  2.d4  3.Nd2  4.e5  5.Bd3  6.c3  cxd4  7.cxd4  [IQP]
+→ IQP structure; Austin develops Nc3, 0-0, Re1; middlegame chess</div>
+      <ul>
+        <li>Tarrasch leads to IQP structures Austin knows from Nimzo-Indian background. The d4-pawn is White's dynamic asset — it supports e5 space and Nd5 outpost ideas.</li>
+        <li>Justin's one Tarrasch-adjacent loss (Toronto Open R5) suggests he can be outplayed in IQP positions against precise opponents. However, his PAM R9 French Tarrasch win (96.1%) means he knows the theory.</li>
+        <li>The critical danger: Justin will want to exchange pieces to reach an endgame. Austin should maintain piece complexity and avoid premature simplification.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~20%</span>
+      Rossolimo 3.Bb5 — if Justin plays Sicilian
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Justin:  1...c5  [Sicilian — new in 2026]
+Austin:  1.e4  c5  2.Nf3  Nc6  3.Bb5  [Rossolimo]
+→ After 3...g6 4.0-0 Bg7 5.c3 → positional IQP-type play</div>
+      <ul>
+        <li>Justin has exactly 1 documented Sicilian game. In it he blundered from +2.29 (Qe1 instead of Kg8, CPL 229). His Sicilian preparation is shallow compared to his French expertise.</li>
+        <li>Rossolimo sidesteps all Open Sicilian theory. After 3.Bb5 Nc6, if 3...g6 — Rossolimo fianchetto; if 3...e6 — positional Rossolimo. Neither leads to the tactical Open Sicilian structures Justin may have studied.</li>
+        <li>This is low-probability but must be prepared since Justin played it in a rated game.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 7 ═══ -->
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules for This Game</h3>
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Do NOT play Advanced French (3.e5) — ever</div>
+          <div class="rule-body">Justin beat Austin at NAYCC R4 with French Advanced. He also won PAM R3 (95.9%) and PAM R5 (96.4%) in this structure. The d-pawn avalanche (d4 → d3 → e3) is his highest-level execution. Playing 3.e5 hands him the blueprint for another Qf2# finish. Switch to Exchange (3.exd5) or Tarrasch (3.Nd2) — these structures remove the weapon entirely.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Prepare for Sicilian — it's now in Justin's arsenal</div>
+          <div class="rule-body">Toronto Open 2026 R4 confirmed Justin plays Sicilian vs 1.e4. His depth is unknown — this is his first documented Sicilian game and he blundered Qe1 (CPL 229) from +2.29. Use Rossolimo (3.Bb5) to sidestep all Open Sicilian theory. If Austin is caught unprepared for Sicilian and panics into mainline Open Sicilian, Justin may have specific preparation ready. Rossolimo ensures Austin controls the game type.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Keep tactical tension alive — provoke the Rxe5 moment</div>
+          <div class="rule-body">Justin's Rxe5 (CPL 641 from −0.03) in CC R7 vs Zaka (1826-rated!) shows he miscalculates from EQUAL positions when a forcing move appears. He also blundered Nxf3+ (CPL 348) from +2.16 winning in CC R8 vs Velasquez (1925-rated). These are below his 2093 rating. Austin should not simplify early — keep active imbalances in the middlegame around move 20–35. Justin will find the "aggressive" move when precise defense is required, and it will lose.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS WHITE — Primary: Exchange French
+  1.e4 e6 2.d4 d5 3.exd5 exd5 4.Nf3 Nf6 5.Bd3 Be7 6.O-O O-O 7.c4
+  → White breaks with c4, creates imbalance; targets Justin's d5-pawn
+
+AS WHITE — Alternative: Tarrasch (IQP)
+  1.e4 e6 2.d4 d5 3.Nd2 Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 cxd4 7.cxd4
+
+AS WHITE — Rossolimo (if Sicilian appears):
+  1.e4 c5 2.Nf3 Nc6 3.Bb5 g6 4.O-O Bg7 5.c3
+  Justin's Sicilian: 1 game only (blundered from +2.29)
+
+NEVER: 1.e4 e6 2.d4 d5 3.e5 — this is Justin's NAYCC weapon, Qf2# blueprint</div>
+
+    <h3>Tactical Motifs to Watch For</h3>
+    <table>
+      <thead><tr><th>Pattern</th><th>When it arises</th><th>Engine reference</th><th>CPL</th></tr></thead>
+      <tbody>
+        <tr class="row-danger"><td>Rxe5 forcing-move miscalculation</td><td>Equal middlegame, Justin sees "active" rook move</td><td>CC R7 vs Zaka: Rxe5 from −0.03 → −6.44</td><td class="acc-lo">641</td></tr>
+        <tr class="row-danger"><td>Nxf3+ from winning position</td><td>Justin has advantage but chooses aggressive knight move</td><td>CC R8 vs Velasquez: +2.16 → −1.32</td><td class="acc-lo">348</td></tr>
+        <tr class="row-danger"><td>Ba6 bishop misplacement</td><td>Justin defending, chooses passive bishop square</td><td>CC R2 vs Plotkin M: −1.32 → −4.67</td><td class="acc-lo">335</td></tr>
+        <tr><td>Qe1 Sicilian blunder</td><td>Justin holds winning Sicilian position, queen goes passive</td><td>Toronto Open R4: +2.29 → +0.00</td><td class="acc-lo">229</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══ SECTION 8 ═══ -->
+  <h2>§8 — Day-of Preparation (30 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Tactics drill — 10 min:</strong> 8 puzzles on <em>Exchange French active piece play</em> — positions where White uses bishop pair and open e-file to press after 3.exd5 exd5. Specifically: c4 break patterns against isolated d5-pawns, and rook activation via e1. Also 3 puzzles on recognizing when NOT to capture (passive defense vs active piece pressure).
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Opening review — 15 min:</strong> Replay the NAYCC R4 loss mentally: <code>1.e4 e6 2.d4 d5 3.e5</code> — identify exactly where Austin deviated and what made the position difficult. Then replay the Exchange French plan: <code>1.e4 e6 2.d4 d5 3.exd5 exd5 4.Nf3 Nf6 5.Bd3</code>. Stop at move 7 after 7.c4. Ask: "What is White's plan?" Answer: break with c4, target d5-pawn, activate bishop pair. Review the Rossolimo line once (3.Bb5 if Sicilian): <code>2.Nf3 Nc6 3.Bb5 g6 4.0-0 Bg7 5.c3</code>.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Mental visualization — 5 min:</strong> Picture CC R7: Justin is at −0.03 (equal). He sees Rxe5 — "active rook, attacks the pawn". He plays it. The position drops to −6.44 in one move. Ask: "What did he miss?" Answer: Rf7+ (CPL 641 cheaper rook) — the rook sacrifice was losing because it gave White material and a connected passer. Now picture Austin in that position as White — Justin is about to play Rxe5. Austin needs to be positioned to convert. Keep the game alive to move 30.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Justin is 2093 and beat me with the French Advanced. I am not playing that again. The Exchange French removes his best weapon. He knows the endgame better than I do — that is his strength. My strength is tactical calculation in the middlegame. I keep tension alive through move 30. When Justin sees a forcing move and plays it, there is a 1-in-3 chance it loses. His Rxe5 from equal position is the game I'm waiting for."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin W Exchange French vs 1...e6</td><td>C01</td><td><code>1.e4 e6 2.d4 d5 3.exd5 exd5 4.Nf3 Nf6 5.Bd3</code></td></tr>
+      <tr><td>Austin W Tarrasch vs 1...e6</td><td>C03–C07</td><td><code>1.e4 e6 2.d4 d5 3.Nd2 Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3</code></td></tr>
+      <tr><td>Austin W Rossolimo vs 1...c5</td><td>B30</td><td><code>1.e4 c5 2.Nf3 Nc6 3.Bb5 g6 4.O-O Bg7 5.c3</code></td></tr>
+      <tr class="row-danger"><td>AVOID — French Advanced</td><td>C02</td><td><code>1.e4 e6 2.d4 d5 3.e5</code> — Justin's NAYCC weapon</td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish movetime 800ms · 26 games</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#b35800;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Opening Gaps — Justin as Black
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>French Defense — deeply prepared:</strong> All variations documented (Advanced, Exchange, Tarrasch, Classical, Burn). Justin scores PAM R3 (95.9% win), PAM R5 (96.4% win), PAM R9 (96.1% win) in French. This is his home territory and his best results come here. Austin must NOT play Advanced French — he has already proven he cannot beat Justin in that structure (NAYCC R4 loss).</p>
+      <p><strong>Sicilian — unknown depth:</strong> Only 1 documented Sicilian game (Toronto Open R4, 92.4%, blundered Qe1 from +2.29). The fact that Justin added it to his repertoire in July 2026 suggests active preparation, but the depth is genuinely unknown. First documented Sicilian game had a winning-position blunder — that is the only data point.</p>
+      <p><strong>CC R8 French Classical — worst Black game by blunder count:</strong> vs Velasquez (1925-rated), 90.7%, 5 blunders. The Classical French led to a complex tactical middlegame where Justin couldn't maintain accuracy. This is the French variation where Austin might find the critical-moment opportunities.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#7a0000;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Time-Pressure / Single-Move Collapses
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Rxe5 — the defining failure (CC R7, −0.03 → −6.44):</strong> From an essentially equal position (−0.03), Justin played Rxe5 (CPL 641) — a rook sacrifice that looked active but was immediately losing. The best move was Rf7+. Against a 1826-rated opponent. This is Justin's worst single move by position-relative evaluation in the dataset — throwing away equality with one aggressive mistake.</p>
+      <p><strong>Nxf3+ from +2.16 winning (CC R8, CPL 348):</strong> Justin had a +2.16 advantage and played Nxf3+ — an aggressive knight capture that backfired. Position dropped to −1.32 (losing). Against a 1925-rated opponent (lower than Justin's 2093). Confirms the pattern: Justin misjudges "forcing" moves from advantageous positions.</p>
+      <p><strong>Ba6 from manageable (CC R2, CPL 335):</strong> Against Plotkin M (2382), from −1.32 (manageable), Justin played Ba6 (passive bishop) instead of Bxa3 (active). Dropped to −4.67. Lower-rated opponents can also create this pressure — it is not exclusive to 2400+ play.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#b35800;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Endgame Technique
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>King navigation failures in lost positions:</strong> CC R8: Rxb7 (CPL 1000, −11.57→−62.17) and g4 (CPL 726, −84.39→−91.65) in an already-losing endgame. CC R1: Kb7 (CPL 1000, −17.38→−56.32) and Kxa7 (CPL 514, −12.33→−17.47). These are late-game king walks when Justin is defending hopeless positions — not primary weaknesses, but confirms that under maximum pressure his king navigation breaks.</p>
+      <p><strong>Endgame technique is a strength, not a weakness:</strong> Justin's PAM R2 win (77-move technical rook endgame, passed a-pawn conversion) and PAM R9 win (Bxh2+ Bf4 Rh1+ tactical finish) show his endgame quality. Austin must not allow the game to reach a technical equal endgame — Justin will convert or hold it cleanly. The weakness is specifically in critical middlegame moments (Rxe5-type), not in technical endgames.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">B</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">French deeply prepared; Sicilian gap (1 game, blundered from +2.29); Austin must avoid 3.e5</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time Pressure</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Rxe5 CPL 641 from −0.03; Nxf3+ CPL 348 from +2.16; Ba6 CPL 335 — pattern confirmed</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">King errors in lost positions; but PAM R2/R9 endgame wins show real technique — not a primary weakness</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a5276;">B</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Black 93.2% / White 93.5% — 0.3pp gap; essentially equal colors</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

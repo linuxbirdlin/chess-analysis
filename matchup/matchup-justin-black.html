@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Justin Huang — Austin as Black</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #1a5276; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #1a5276; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #1a5276; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #1a5276; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #1a5276; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #f0fff4 !important; color: #1a4731; }
+    .acc-hi { color: #1a6030; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #f0f6ff; }
+    .rule-number { background: #1a5276; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #eaf0f8; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #1a5276; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #1a5276; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #d6e4f0; color: #1a5276; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #d6e4f0; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a3a55; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Justin Huang</h1>
+    <div class="subtitle">Austin as Black — Nimzo-Indian Bxc3+ System vs 1.d4</div>
+    <div class="meta">Justin Huang · 2023–2093 FIDE · 26 games · Stockfish movetime 800 · White avg 93.5% (14g) · 4W–2L–2D as White · No direct encounter (Austin as Black) · Nimzo-Indian available: Justin plays 3.Nc3</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-justin.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-justin-white.html">← Austin as White</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-justin-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="tip-box">
+    <strong>Nimzo-Indian IS available.</strong> Justin plays 1.d4 Nf6 2.c4 e6 3.Nc3 in his QGD setups — unlike Leo (3.Nf3) and Tarun (1.c4), Justin's 3.Nc3 directly allows Austin's primary weapon: 3...Bb4 (Nimzo-Indian). This is the most important structural advantage going into this game.
+  </div>
+
+  <div class="encounter-box">
+    <strong>No direct encounter with Austin as Black.</strong> Justin (Black) beat Austin (White) at NAYCC 2025 R4 with the French Advanced — but Austin has never played Black against Justin. Engine data from 14 White games across Canada Closed 2026, PAM 2026, PAM School 2026, and Toronto Open 2026. Justin's White record: <strong>4W–2L–2D (93.5% avg)</strong>. His methodical 1.d4 is strong — but Bg1+Na4 back-to-back (Canada Closed R6, both from near-equal) confirm a single-move calculation gap when the position demands precise piece coordination.
+  </div>
+
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Justin Huang</span>
+    <span class="plabel">FIDE Rating</span><span class="pval">2023–2093 (Canada Closed 1963 → PAM 2023 → current ~2093)</span>
+    <span class="plabel">White Opening</span><span class="pval">1.d4 exclusively — QGD/Semi-Slav with Nf3+Nc3+Bd3 or Be2. Methodical positional buildup.</span>
+    <span class="plabel">Sample</span><span class="pval">26 games, 4 tournaments (Canada Closed 2026, PAM 2026, PAM School 2026, Toronto Open 2026)</span>
+    <span class="plabel">White accuracy</span><span class="pval">93.5% avg (14g) · 4W–2L–2D · Best: 100% (PAM School R8), 99.1% (PAM School R7)</span>
+    <span class="plabel">Worst White games</span><span class="pval">Canada Closed R4 (89%, Qxa4/Ng4 both CPL 1000/mate); R6 (88.6%, Bg1 CPL 355 + Na4 CPL 320 back-to-back from equal)</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">Justin (Black) beat Austin (White) at NAYCC 2025 R4. No encounter with Austin as Black.</span>
+    <span class="plabel">Key White vulnerability</span><span class="pval">Bg1+Na4 from near-equal (+0.29→−3.26→−3.47): back-to-back piece retreats from roughly level position</span>
+  </div>
+
+  <p><strong>White opening fingerprint:</strong></p>
+  <ul>
+    <li><strong>QGD/Semi-Slav:</strong> 1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.Nc3 — standard build with Bd3 or Be2, methodical space claim</li>
+    <li><strong>Benoni response:</strong> 1.d4 Nf6 2.c4 c5 3.d5 — space-gaining with Bd3/g3/f3 when Black plays Benoni</li>
+    <li><strong>Budapest Gambit:</strong> simplified to draw (1 game)</li>
+    <li><strong>PAM School dominance:</strong> 96.1% avg across 5 games, including 100% and 99.1% — his strongest White stretch in the dataset</li>
+  </ul>
+
+  <h2>§2 — Justin's White Repertoire (Frequency &amp; Results)</h2>
+  <table>
+    <thead>
+      <tr><th>System</th><th>G</th><th>W</th><th>D</th><th>L</th><th>Acc%</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-safe">
+        <td>PAM School (5 games)</td><td>5</td><td>3</td><td>1</td><td>1</td><td><span class="acc-hi">96.1%</span></td><td>Dominant stretch: R7 99.1%, R8 100%, R5 97.2% — peak Justin White performance</td>
+      </tr>
+      <tr class="row-safe">
+        <td>Toronto Open (3 games)</td><td>3</td><td>1</td><td>0</td><td>2</td><td>92.7%</td><td>R5 96.6% win (Wang); R2 91.9% loss vs FM Preotu 2473 (Rc3 CPL 390)</td>
+      </tr>
+      <tr>
+        <td>PAM 2026 (4 White games)</td><td>4</td><td>3</td><td>0</td><td>1</td><td>91.8%</td><td>R2 93.8% (Ke6 CPL 602 from +7.12 — still won 77 moves); R4 88.9% (7 blunders, king CPL-1000 ×3)</td>
+      </tr>
+      <tr class="row-danger">
+        <td>Canada Closed (4 White games)</td><td>4</td><td>1</td><td>2</td><td>1</td><td><span class="acc-lo">92.5%</span></td><td>R6 88.6%: <strong>Bg1+Na4 both CPL 350+ from +0.29</strong>; R4 89%: Qxa4/Ng4 forced-mate misses; R3 97.7%; R9 94.5%</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Justin's White is solid but not invulnerable. His worst stretch is Canada Closed where two games (R4, R6) showed systematic calculation failures from near-equal or winning positions. PAM School was exceptional — but those were lower-rated opponents (avg ~1800).</p>
+  <div class="info-box">
+    <strong>Austin's match context:</strong> In their only encounter (NAYCC 2025 R4), Justin was Black and won. When Austin is Black, Justin will be the White aggressor — and Justin's White is methodical, not tactical. Austin should steer for complex Nimzo middlegames rather than solid QGD territory where Justin is comfortable.
+  </div>
+
+  <h2>§3 — Vulnerabilities as White</h2>
+
+  <h3>A. Bg1+Na4 — Back-to-Back Collapse from Near-Equal (Canada Closed R6)</h3>
+  <p>In Canada Closed R6 vs Chabot Roland, Justin built a standard QGD position and reached near-equality. Then in consecutive moves:</p>
+  <ul>
+    <li>Move: <strong>Bg1</strong> (best g4 — active advance) — CPL 355, +0.29→−3.26. Bishop retreated passively to g1 instead of the active g4 push; one move threw away White's slight advantage.</li>
+    <li>Next move: <strong>Na4</strong> (best Rhe1 — rook centralization) — CPL 320, −0.27→−3.47. Knight leapt to the rim when rook activation was correct; second consecutive error from near-equal.</li>
+  </ul>
+  <p>This is Justin's signature White failure: playing "quiet" retreating moves from roughly equal positions. Both were active-vs-passive decisions — the correct moves required purposeful aggression (g4, Rhe1); Justin chose retreat.</p>
+  <div class="warn-box">
+    <strong>Bg1+Na4 defines the exploit pattern.</strong> From +0.29 to −3.47 in two moves. Austin should create positions where Justin must choose between active/passive piece moves around moves 20–30. Justin's tendency to retreat (Bg1 to g1, Na4 to rim) will recur.
+  </div>
+
+  <h3>B. Ke6 — Threw Away +7.12 Advantage (PAM R2)</h3>
+  <p>In PAM R2 vs Ladino Hernandez (1816), Justin had a +7.12 crushing advantage (approximately a piece up in practical terms) and played <strong>Ke6</strong> (best f3, CPL 602, +7.12→+1.10). The king walked to the wrong square and dropped 6+ pawns of advantage instantly. He still won the 77-move game, but the Ke6 blunder from a dominating position is confirmed.</p>
+  <p>Pattern: when Justin has a large winning advantage, his king placement becomes imprecise. The Ke6 mistake at +7.12 parallels the Bg1 mistake at +0.29 — both are single-move passive/wrong-direction errors.</p>
+
+  <h3>C. Qxa4/Ng4 — Forced Mate Misses (Canada Closed R4)</h3>
+  <p>In Canada Closed R4 vs Dunahee (1805), Justin reached a losing position and then missed two consecutive forced mates in his own defense:</p>
+  <ul>
+    <li><strong>Qxa4</strong> (best Qxd2, CPL 1000, −5.14→−#) — walked into forced mate on the a-file</li>
+    <li><strong>Ng4</strong> (best Nd3, CPL 1000, −8.62→−#) — second forced mate miss with the knight</li>
+  </ul>
+  <p>When losing, Justin's defensive calculation collapses. This is less directly exploitable (requires Austin to first get a winning position) but confirms the pattern seen in Bg1/Na4: calculation of piece routing is unreliable.</p>
+
+  <h3>D. Color Balance</h3>
+  <p>White avg 93.5% vs Black avg 93.2% — only 0.3pp gap. Justin is a very balanced player. Austin cannot rely on a structural color advantage here. The edge must come from Nimzo preparation and exploiting the Bg1/Na4 single-move calculation gap.</p>
+
+  <h2>§4 — Austin's Recommended Weapon</h2>
+
+  <h3>Primary: Nimzo-Indian 3...Bb4 — Austin's Main System</h3>
+  <div class="var-moves">1.d4 Nf6 2.c4 e6 3.Nc3 Bb4  [Nimzo-Indian — directly available]
+4.Qc2 0-0 5.a3 Bxc3+ 6.Qxc3 b6 7.Bg5 Bb7
+→ Austin's Bxc3+ with ...b6/...Ba6 system
+→ IQP or semi-open files; bishop on b7 bites long diagonal
+→ Target: positions around move 20-30 where piece coordination decisions arise
+   Justin will face Bg1/Na4-type choices — create activity and tension</div>
+
+  <p><strong>Why Nimzo specifically:</strong></p>
+  <ul>
+    <li>Justin plays 3.Nc3 — the move that allows Nimzo — in all documented QGD setups. The Nimzo is directly available and is Austin's most prepared system.</li>
+    <li>The Nimzo creates IQP or doubled-pawn structures for White. These positions reward active piece play (Austin's strength) rather than pure positional maneuvering (Justin's comfort zone).</li>
+    <li>After ...Bxc3+, the doubled c-pawns give Black lasting positional pressure. Austin's ...b6/...Ba6 system specifically targets the c4 pawn — exactly the type of queenside pressure that produces Bg1-type retreats from Justin.</li>
+  </ul>
+
+  <h3>If Justin Avoids 3.Nc3 (plays 3.Nf3)</h3>
+  <div class="var-moves">1.d4 Nf6 2.c4 e6 3.Nf3 b6  [Queen's Indian — if Nimzo unavailable]
+4.g3 Ba6 5.Qc2 [or 4.e3 Bb7 5.Bd3]
+→ ...Ba6 pressure on c4; ...Bb7 long diagonal
+→ Less likely vs Justin (he plays Nc3 in documented games)</div>
+
+  <div class="tip-box">
+    <strong>Nimzo IS the correct preparation — not QI.</strong> Justin plays Nc3. Austin should not prepare Queen's Indian as the primary line. Walk in with 1...Nf6 2...e6 and meet 3.Nc3 with 3...Bb4. This is Austin's prepared system and directly available.
+  </div>
+
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The reference blueprint: <strong>Canada Closed R6 — Justin White vs Chabot Roland, 88.6%, LOSS</strong> — from near-equal (+0.29), Justin played Bg1 (CPL 355) then Na4 (CPL 320) on consecutive moves, collapsing to −3.47 in two decisions.</p>
+  <ol>
+    <li><strong>Opening (moves 1–12):</strong> <code>1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.Qc2 0-0 5.a3 Bxc3+ 6.Qxc3 b6</code>. After Bxc3+, White has doubled c-pawns. Justin will develop methodically — Nf3, g3, Bg2 or Bd3. Austin should develop the Ba6 or Bb7 bishop and target c4 early.</li>
+    <li><strong>Middlegame (moves 15–25):</strong> Austin steers for active piece play — ...c5 breaks, ...d5 structure, knight to d4/e4 outposts. Do NOT simplify to a symmetrical endgame where Justin can grind. Create tension around the c4 pawn. Justin's Bg1/Na4 pattern occurs when he must choose between active and passive piece moves — Austin's pressure creates exactly those decisions.</li>
+    <li><strong>Around move 20–30:</strong> Watch for Justin playing quiet passive moves (bishop retreating, knight to rim). If Justin plays a bishop retreat or knight to a4/h4, the position is shifting in Austin's favor — increase pressure immediately.</li>
+    <li><strong>Endgame:</strong> If the game reaches an endgame, remember Justin's Ke6 (CPL 602 from +7.12). His king placement can be imprecise even when winning. Austin should keep rooks active and create passed pawn threats that require accurate king routing from Justin.</li>
+  </ol>
+  <div class="info-box">
+    <strong>Key difference from Justin's other games:</strong> PAM School (96.1%, 99.1%, 100%) was against ~1800-rated players. Canada Closed R6 (88.6%) was against Chabot — a more experienced opponent. At Austin's level (~1968), Justin will not play at 99%; he will be tested, and the Bg1/Na4 calculation gap will surface.
+  </div>
+
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~65%</span>
+      Nimzo-Indian 3...Bb4 — Austin's Main Line
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Justin:  1.d4 Nf6 2.c4 e6 3.Nc3  [documented — Nimzo available]
+Austin:  3...Bb4  [Nimzo-Indian]
+4.Qc2 0-0 5.a3 Bxc3+ 6.Qxc3 b6 7.Bg5 Bb7
+→ Austin's Bxc3+ with ...b6/...Bb7 or ...Ba6 plan
+→ Target: IQP or doubled c-pawn structure; active Black pieces</div>
+      <ul>
+        <li><strong>Plan after Bxc3+:</strong> ...b6 → ...Ba6 (pressure on c4) or ...Bb7 (long diagonal). If White plays d5 to close the center, Austin has ...c6 or ...Ne4 to contest. Do NOT allow Justin to play e4 easily — keep the center fluid.</li>
+        <li><strong>Piece activation:</strong> Route the knight to d4 or e4 via c6-d4 or f6-e4. The doubled c-pawns on c3/c4 are targets — attack c4 with ...Ba6 and ...Nc6-Na5 or ...Rc8.</li>
+        <li><strong>Avoid:</strong> Early queen exchanges that simplify to Justin's technical endgame strength. Keep queens on and maintain complexity through move 30.</li>
+      </ul>
+      <div class="tip-box"><strong>This is the battle:</strong> Austin's Nimzo preparation vs Justin's QGD methodology. Justin's best White games (PAM School 96–100%) were in similar structures — but vs much weaker opponents. Austin at ~1968 is Justin's rating equal, and the Bg1/Na4 pattern shows Justin's White calculation is vulnerable at this level.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~25%</span>
+      Nimzo 4.e3 Classical — if Justin plays Rubinstein
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Justin:  4.e3  [Rubinstein Nimzo — solid choice]
+Austin:  4...0-0 5.Bd3 d5 6.Nf3 c5  [Classical Nimzo with ...c5 break]
+→ IQP structure: Black ...cxd4, White exd4 → White IQP
+→ Austin active: ...Nc6, ...Re8, ...e5 break plans</div>
+      <ul>
+        <li>The 4.e3 Rubinstein leads to IQP structures after ...c5 dxc5 ...Bxc5. Austin's IQP training translates — he should be comfortable in these structures.</li>
+        <li>Target: the d4 pawn. After Black plays ...Re8 and ...Nc6-Nb4, pressure on d4 forces Justin to defend actively — creating Bg1/Na4-type decisions.</li>
+        <li>Do NOT play ...Bxc3+ early in the 4.e3 variation unless the timing is clearly favorable — preserve bishop pair for maximum pressure on Justin's queenside.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~10%</span>
+      Queen's Indian 3...b6 — if Justin plays 3.Nf3
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Justin:  3.Nf3  [rare for Justin — avoids Nimzo]
+Austin:  3...b6  [Queen's Indian]
+4.g3 Ba6 5.Qc2 Bb7 6.Bg2 d5
+→ ...Ba6 pressure on c4; ...Bb7 long diagonal
+→ Similar strategic themes to Nimzo — active bishops vs Justin's solid center</div>
+      <ul>
+        <li>This variance is low probability — Justin almost always plays 3.Nc3. But if he avoids Nimzo with 3.Nf3, the QI gives Austin active play with the bishop pair and similar exploitation of Justin's piece-placement patterns.</li>
+        <li>The Ba6 idea (targeting c4) is the QI analog of the Nimzo ...Ba6 system Austin already knows. Transition smoothly.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules for This Game</h3>
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Play Nimzo-Indian — it is directly available</div>
+          <div class="rule-body">Justin plays 3.Nc3, making the Nimzo available immediately. This is Austin's primary weapon and most prepared system. Play 1...Nf6 2...e6 3...Bb4 without hesitation. Unlike Leo (3.Nf3) or Tarun (1.c4), Justin does NOT block the Nimzo. Austin's Bxc3+ with ...b6/...Ba6 system is the correct preparation and should be deployed as the primary weapon.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Create positions that require active piece routing by move 25</div>
+          <div class="rule-body">Canada Closed R6 confirmed: from +0.29 (near-equal), Justin played Bg1 (bishop retreat) then Na4 (knight to rim) — both passive moves when active aggression was required. Austin should build positions where Justin must choose between multiple active continuations around moves 20–30. When piece coordination decisions arise, Justin retreats instead of advances. Maintain imbalance and pressure; do NOT simplify to technical equality.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Do not fear Justin's technical endgame — watch for Ke6 pattern</div>
+          <div class="rule-body">Justin's PAM School 96–100% games show excellence in long technical endgames against weaker opposition. But Ke6 (CPL 602 from +7.12) in PAM R2 shows his king placement can fail even from large advantages. If the game enters an endgame, keep rooks active and create passed pawn threats that require accurate king routing. Justin's king may go to the wrong square from a winning position — stay alert late in the game.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS BLACK vs 1.d4 — Nimzo-Indian (Austin's primary weapon):
+  1.d4 Nf6 2.c4 e6 3.Nc3 Bb4  [Nimzo — Nc3 confirms availability]
+  4.Qc2: 4...0-0 5.a3 Bxc3+ 6.Qxc3 b6 7.Bg5 Bb7 → ...Ba6/...Nc6 plan
+  4.e3:  4...0-0 5.Bd3 d5 6.Nf3 c5 → IQP structure, active ...Nc6/...Re8
+  4.f3:  4...d5 5.a3 Bxc3+ 6.bxc3 c5 → attack doubled c-pawns
+
+If Justin plays 3.Nf3 (avoiding Nimzo):
+  3...b6 [Queen's Indian] → 4.g3 Ba6 5.Qc2 Bb7
+  → Same strategic ideas, similar bishop activity
+
+EXPLOIT PATTERN — Bg1/Na4 warning signal:
+  If Justin plays passive piece retreats around moves 20–30
+  (bishop going backward, knight to a4/h4/rim square)
+  → Position is shifting to Austin; increase pressure immediately</div>
+
+    <h3>Tactical Motifs to Watch For</h3>
+    <table>
+      <thead><tr><th>Pattern</th><th>When it arises</th><th>Engine reference</th><th>CPL</th></tr></thead>
+      <tbody>
+        <tr class="row-danger"><td>Bg1 passive bishop retreat</td><td>Near-equal middlegame ~move 20, active g4 was correct</td><td>Canada Closed R6: Bg1 CPL 355, +0.29→−3.26</td><td class="acc-lo">355</td></tr>
+        <tr class="row-danger"><td>Na4 knight to rim</td><td>Consecutive with Bg1; Rhe1 centralization was correct</td><td>Canada Closed R6: Na4 CPL 320, −0.27→−3.47</td><td class="acc-lo">320</td></tr>
+        <tr class="row-danger"><td>Ke6 king to wrong square</td><td>Winning endgame (+7.12); f3 was correct king activation</td><td>PAM R2: Ke6 CPL 602, +7.12→+1.10</td><td class="acc-lo">602</td></tr>
+        <tr><td>Qxa4/Ng4 forced mate misses</td><td>Losing position — defensive calculation breaks down</td><td>Canada Closed R4: Qxa4 CPL 1000/mate, Ng4 CPL 1000/mate</td><td class="acc-lo">1000</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>§8 — Day-of Preparation (30 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Tactics drill — 15 min:</strong> 10 puzzles focused on <em>Nimzo-Indian IQP middlegame activity</em> — positions where Black has active pieces against White's doubled c-pawns or IQP. Practice the ...Ba6 bishop + ...Nc6-Na5 knight pattern targeting the c4 pawn. Also 3 puzzles on <em>recognizing passive piece retreats</em> — White has a bishop on g1 or knight on a4; what is Black's strongest response? Answer: increase pressure on the queenside, open files, prevent White from regrouping. This trains Austin to immediately recognize the Bg1/Na4 signal.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Opening line review — 10 min:</strong> Replay mentally: <code>1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.Qc2 0-0 5.a3 Bxc3+ 6.Qxc3 b6</code>. Stop at move 6. Ask: <em>"What is Austin's plan after ...b6?"</em> Answer: ...Ba6 to pressure c4, or ...Bb7 to contest the long diagonal. Know that Justin will play Nf3/g3/Bg2 or Nf3/Bd3 — both lead to IQP or doubled-pawn structures. Austin should be ready for both.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Mental visualization — 5 min:</strong> Picture Justin's Canada Closed R6 game: Justin has +0.29 (slight advantage), the position is roughly equal, and he must choose between playing g4 (active) or Bg1 (passive). He plays Bg1. Then Na4 instead of Rhe1. Two retreats from equal. The position collapses to −3.47. Ask: <em>"What happens when I keep pressure on Justin's pieces around move 25?"</em> Answer: the Bg1/Na4 pattern emerges. Austin should maintain piece activity and tension through move 30 — the retreat pattern will surface.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Justin is a 93.5% White player who beat me with his French Defense. But I've never played Black against him — and the Nimzo is directly available. His methodical 1.d4 hides a Bg1+Na4 calculation gap that dropped +0.29 to −3.47 in two moves at Canada Closed. I play Nimzo, I pressure his queenside, and I keep the game complex past move 25. The passive retreat pattern is documented. When I see Bg1 or Na4, I attack immediately."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin B Nimzo vs 4.Qc2</td><td>E38</td><td><code>1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.Qc2 0-0 5.a3 Bxc3+ 6.Qxc3 b6</code></td></tr>
+      <tr><td>Austin B Nimzo vs 4.e3</td><td>E41</td><td><code>1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.e3 0-0 5.Bd3 d5 6.Nf3 c5</code></td></tr>
+      <tr><td>Austin B Nimzo vs 4.f3</td><td>E26</td><td><code>1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.f3 d5 5.a3 Bxc3+ 6.bxc3 c5</code></td></tr>
+      <tr><td>Austin B QI (if 3.Nf3)</td><td>E15</td><td><code>1.d4 Nf6 2.c4 e6 3.Nf3 b6 4.g3 Ba6 5.Qc2 Bb7</code></td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish movetime 800ms · 14 White games</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">A</span>
+      Opening Gaps — Justin as White
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Canada Closed R4 vs Dunahee 1805 (89%, two forced-mate misses):</strong> <code>Qxa4</code> (Qxd2 CPL 1000, −5.14→−#) — queen moved to a4 walking into forced mate; then <code>Ng4</code> (Nd3 CPL 1000, −8.62→−#) — knight moved to g4 into a second forced mate. When under pressure in a QGD position, Justin's defensive piece routing completely breaks down. Both errors occurred in an already-losing position, but the pattern confirms: Justin cannot calculate defensive piece moves under pressure.</p>
+      <p><strong>Toronto Open R2 vs FM Preotu 2473 (91.9%, Rc3 blunder):</strong> <code>Rc3</code> (Rc8 CPL 390, −2.24→−6.14) — rook went to c3 instead of active c8 square. Against significantly stronger opposition, the same pattern: rook to passive/wrong square when the active move was required. Preotu outrated Justin by 380 points and exploited the misplacement.</p>
+      <p><strong>Canada Closed R6 vs Chabot (88.6%, Bg1+Na4):</strong> Two consecutive passive retreats from +0.29. The opening structure was fine — the calculation failure occurred at the transition from opening to middlegame (~moves 18–22). This is exactly where Nimzo positions become complex and require active piece routing decisions.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">B</span>
+      Time-Pressure / Calculation Failures
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Bg1+Na4 (both CPL 320–355, both from near-equal):</strong> Canada Closed R6 — the defining White weakness. Not a time-pressure collapse in the classical sense, but a calculation failure: Justin assessed passive retreats as sufficient when the position demanded active aggression. Both moves from roughly equal (+0.29 and −0.27) positions. The "trigger" for this pattern appears to be: position is ostensibly fine, opponent has created queenside pressure, Justin retreats instead of counters.</p>
+      <p><strong>Ke6 from +7.12 (CPL 602, PAM R2):</strong> Justin had a +7.12 crushing advantage and moved the king to e6 instead of the correct f3. Eval dropped from +7.12 to +1.10 instantly. He still won (77 moves), but losing 6 pawns of advantage in one king move from a near-winning position shows the king navigation under winning-endgame conditions is unreliable.</p>
+      <p><strong>PAM R4 vs Sen (88.9%, 7 blunders):</strong> Three CPL-1000 king moves in an already-losing position (Kb5, Qb1, Ka4 all CPL 1000). Position was objectively lost, but the king/queen confusion under losing pressure mirrors the Bg1/Na4 retreat pattern. Same underlying issue: piece routing calculation breaks down.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Endgame Technique as White
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>PAM R2 — Ke6 from +7.12 (the "winning-king" failure):</strong> Justin had +7.12 (material advantage equivalent to a piece) and moved the king to e6 instead of f3 (correct king activation). The eval dropped from +7.12 to +1.10 in one move. This is the inverse of the Bg1 retreat: instead of retreating passively, the king advanced to the WRONG active square. Both errors are piece-routing calculation failures — passive when active is needed, or active to the wrong square.</p>
+      <p><strong>PAM School R7/R8 (99.1%, 100%):</strong> Justin's best endgame performances were against weaker opposition (Yu ~1800, Nunez ~1750). These games show his technique is excellent when the opposition is clearly weaker. Against Austin at ~1968, the calculation will be harder and the Ke6/Bg1 patterns more likely.</p>
+      <p><strong>Verdict:</strong> Justin's endgame technique is strong in long technical struggles against weaker opposition. Against equal opponents, king navigation and piece routing fail at critical moments (Ke6 from +7.12, Bg1 from +0.29). Austin should steer toward positions that require precise piece routing decisions past move 30.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf0f8;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a5276;">B</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">1.d4 QGD deeply prepared; Nc3 allows Nimzo; R4/R6 show middlegame transition failures</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time Pressure</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Bg1+Na4 back-to-back from equal; Ke6 from +7.12; not as severe as D-grade opponents</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Ke6 from +7.12 (king routing failure); PAM R4 king CPL-1000 cascade; but also 99.1%/100% wins</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a5276;">B</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">White 93.5% / Black 93.2% — 0.3pp gap; very balanced player; no color-based structural advantage</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

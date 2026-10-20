@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Austin vs Justin Huang — Engine Analysis (Deep)</title>
+<style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 680px) {
+      .page { padding: 24px 20px 40px; }
+    }
+
+    .doc-header {
+      border-bottom: 3px solid #2d7d46;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 {
+      margin: 0 0 8px;
+      font-size: 1.85rem;
+      color: #1f2328;
+    }
+    .doc-header .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.9rem;
+      color: #57606a;
+    }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 0.875rem;
+      color: #2d7d46;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 {
+      font-size: 1.3rem;
+      color: #1f2328;
+      margin: 40px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #d0d7de;
+    }
+    h3 {
+      font-size: 1.05rem;
+      color: #2d7d46;
+      margin: 24px 0 8px;
+    }
+    h4 {
+      font-size: 0.95rem;
+      color: #1f2328;
+      margin: 18px 0 6px;
+      font-weight: 600;
+    }
+
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+
+    ul, ol {
+      margin: 8px 0 14px;
+      padding-left: 1.5em;
+    }
+    li { margin-bottom: 4px; }
+
+    .encounter {
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 0.93rem;
+      margin-bottom: 28px;
+    }
+
+    .encounter-direct {
+      background: #fff8e6;
+      border: 2px solid #d4a017;
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-size: 0.93rem;
+      margin-bottom: 24px;
+    }
+    .encounter-direct strong { color: #7a4f00; }
+
+    .part-card {
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      margin: 24px 0;
+      overflow: hidden;
+    }
+    .part-card .part-title {
+      background: #2d7d46;
+      color: #fff;
+      padding: 12px 20px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    .part-card .part-title.engine { background: #7a4f00; }
+    .part-card .part-title.pattern { background: #1a3a5c; }
+    .part-card .part-body { padding: 20px 24px; }
+    .part-card h3 { margin-top: 20px; }
+    .part-card h3:first-child { margin-top: 0; }
+
+    .warn-box {
+      background: #fff5f5;
+      border-left: 4px solid #cf2222;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 12px 0;
+      font-size: 0.93rem;
+      color: #7a0000;
+    }
+    .tip-box {
+      background: #dafbe1;
+      border-left: 4px solid #2d7d46;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 12px 0;
+      font-size: 0.93rem;
+      color: #1a4731;
+    }
+    .info-box {
+      background: #eaf0f8;
+      border-left: 4px solid #1a5276;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 12px 0;
+      font-size: 0.93rem;
+      color: #1a3a55;
+    }
+    .gold-box {
+      background: #fff8e6;
+      border-left: 4px solid #d4a017;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 16px;
+      margin: 12px 0;
+      font-size: 0.93rem;
+      color: #7a4f00;
+    }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: #f0f4f8;
+      border: 1px solid #d0d7de;
+      border-radius: 4px;
+      padding: 1px 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin: 16px 0 24px;
+    }
+    thead th {
+      background: #2d7d46;
+      color: #ffffff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+    }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #ffffff; }
+    tbody td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #d0d7de;
+      vertical-align: top;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+
+    .im-analysis { margin-top: 14px; border-top: 1px dashed #d0d7de; padding-top: 12px; }
+    .im-section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #57606a;
+      margin: 10px 0 4px;
+    }
+    .im-moment {
+      font-size: 0.84rem;
+      padding: 6px 10px;
+      margin: 4px 0;
+      border-radius: 4px;
+      border-left: 3px solid #d4750a;
+      background: #fff8f0;
+    }
+    .im-moment.blunder     { border-left-color: #cf2222; background: #fff5f5; }
+    .im-moment.good-find   { border-left-color: #2d7d46; background: #dafbe1; }
+    .im-tags { margin: 8px 0 4px; }
+    .im-tag {
+      display: inline-block;
+      background: #f0f4f8;
+      border: 1px solid #d0d7de;
+      border-radius: 12px;
+      padding: 2px 10px;
+      font-size: 0.77rem;
+      margin: 2px 3px;
+      color: #444;
+    }
+    .im-tag.time-pressure  { background: #fff5f5; border-color: #cf2222; color: #7a0000; }
+    .im-tag.endgame        { background: #fff8e6; border-color: #d4a017; color: #7a4f00; }
+    .im-tag.tactical-miss  { background: #fdf2f8; border-color: #9b59b6; color: #5b2c6f; }
+    .im-tag.opening-prep   { background: #eaf5fb; border-color: #1a5276; color: #1a3a5c; }
+    .im-prep {
+      font-size: 0.86rem;
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: #fff8e6;
+      border-left: 3px solid #d4a017;
+      border-radius: 0 4px 4px 0;
+      color: #7a4f00;
+    }
+
+    .game-row {
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+    .game-row-header {
+      background: #f6f8fa;
+      border-bottom: 1px solid #d0d7de;
+      padding: 9px 14px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .badge-color { font-size: 0.74rem; font-weight: 700; border-radius: 3px; padding: 1px 6px; background: #fff; color: #1f2328; border: 1px solid #aaa; }
+    .badge-result-win  { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #dafbe1; color: #1a4731; }
+    .badge-result-loss { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #fff5f5; color: #7a0000; }
+    .badge-result-draw { font-size: 0.8rem; font-weight: 700; border-radius: 4px; padding: 2px 8px; background: #fff8e6; color: #7a4f00; }
+    .badge-acc         { font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; background: #eaf0f8; color: #1a3a5c; }
+    .badge-acc-hi      { font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; background: #dafbe1; color: #1a4731; font-weight: 700; }
+    .badge-acc-lo      { font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; background: #fff5f5; color: #7a0000; font-weight: 700; }
+    .badge-sicilian    { font-size: 0.74rem; font-weight: 700; border-radius: 3px; padding: 1px 6px; background: #fff8e6; color: #7a4f00; border: 1px solid #d4a017; }
+    .game-row-body { padding: 12px 16px; }
+
+    em { font-style: italic; color: #57606a; }
+    strong { font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="doc-header">
+  <h1>Austin vs Justin Huang — Engine Analysis (Deep)</h1>
+  <div class="meta">
+    <span><strong>Justin rating:</strong> 1963→2093 FIDE</span>
+    <span><strong>Engine:</strong> Stockfish movetime-800 · 26 games</span>
+    <span><strong>Overall:</strong> 93.4% avg · White 93.5% (14g) · Black 93.2% (12g)</span>
+    <span><strong>Direct encounter:</strong> NAYCC 2025 R4 — Justin (Black) beat Austin (White)</span>
+  </div>
+  <a class="back-link" href="../austin-prep.html">← Back to Prep Index</a>
+  &nbsp;&nbsp;
+  <a class="back-link" href="matchup-justin.html">← Matchup Overview</a>
+  &nbsp;&nbsp;
+  <a class="back-link" href="matchup-justin-white.html">Austin as White →</a>
+  &nbsp;&nbsp;
+  <a class="back-link" href="matchup-justin-black.html">Austin as Black →</a>
+</div>
+
+<div class="encounter-direct">
+  <strong>⚔ DIRECT ENCOUNTER — NAYCC 2025 R4:</strong> Austin Lin (White, 1968) vs Justin Huang (Black, 2093) — <strong>Justin WON.</strong> Justin played French Advanced C02. His connected d4/e5 pawns created a decisive mating net: <code>44...e4+ 45.Qg3 Rh1+ 46.Kxh1 Qxg3</code>, then <code>49...Qd2 50.Kf1 Qf2#</code>. Justin's French pawn avalanche was decisive. Austin must either prepare an improvement in the French Advanced or switch to Exchange/Tarrasch to deny Justin this structure.
+</div>
+
+<div class="encounter">
+  <strong>Engine summary:</strong> 26 games analyzed (Stockfish movetime-800). Overall avg <strong>93.4%</strong> — nearly identical by color (White 93.5%, Black 93.2%). By tournament: Canada Closed 92.6%, PAM 2026 92.5%, PAM School 96.1%, Toronto Open 93.6%. Justin is a consistent player with few accuracy collapses but a clear weakness: <strong>single-move blunders from near-equal or winning positions</strong> (Bg1 CPL 355 from +0.29; Rxe5 CPL 641 from −0.03; Ke6 CPL 602 from +7.12). <strong>⚠️ Sicilian sighting: Toronto Open R4 — Justin now plays Sicilian as Black vs 1.e4. His French monopoly is broken.</strong>
+</div>
+
+<div class="part-card">
+<p class="part-title engine">Accuracy by Tournament</p>
+<div class="part-body">
+<table>
+<thead><tr><th>Tournament</th><th>Games</th><th>Avg Accuracy</th><th>Best Game</th><th>Worst Game</th></tr></thead>
+<tbody>
+<tr>
+  <td>Canada Closed 2026</td><td>9g</td><td><strong>92.6%</strong></td>
+  <td>R5 vs Wu 97.4% (Black draw)</td>
+  <td>R6 vs Chabot 88.6% (White loss)</td>
+</tr>
+<tr>
+  <td>PAM 2026</td><td>9g</td><td><strong>92.5%</strong></td>
+  <td>R5 vs Rodriguez 96.4% (Black)</td>
+  <td>R4 vs Sen 88.9% (White, 7 blunders)</td>
+</tr>
+<tr>
+  <td>PAM School 2026</td><td>5g</td><td><strong>96.1%</strong></td>
+  <td>R8 vs Nunez 100% (White win)</td>
+  <td>R4 vs Tobar 92.1% (White win)</td>
+</tr>
+<tr>
+  <td>Toronto Open 2026</td><td>3g</td><td><strong>93.6%</strong></td>
+  <td>R5 vs Wang 96.6% (White win)</td>
+  <td>R2 vs Preotu (FM) 91.9% (White loss)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<h2>Canada Closed 2026 — 9 Games (avg 92.6%)</h2>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin Black</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R1 · vs Plotkin Victor (2260) · French Exchange</span>
+  <span class="badge-result-loss">LOSS</span>
+  <span class="badge-acc">93.5%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:55 · B:2 · M:3</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment blunder"><strong>Kb7</strong> (best: Ne6) — CPL 1000 · −17.38→−56.32. King stepped to wrong square, deepening a lost position.</div>
+    <div class="im-moment blunder"><strong>Kxa7</strong> (best: Kxa7 — same move but deeper eval collapse) — CPL 514 · −12.33→−17.47.</div>
+    <div class="im-moment"><strong>Nb4</strong> (best: Ne7) — CPL 250 mistake · −5.14→−7.64.</div>
+    <div class="im-tags"><span class="im-tag">2260-rated</span><span class="im-tag endgame">king navigation</span></div>
+    <div class="im-prep">Justin was already losing; errors deepened it. The 93.5% accuracy shows he played well — simply outclassed by a 2260-rated player. Kb7 king error pattern appears here and in multiple games.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin Black</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R2 · vs Plotkin Mark (2382) · Catalan/QGD</span>
+  <span class="badge-result-loss">LOSS</span>
+  <span class="badge-acc-lo">89.3%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:39 · B:1 · M:2</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment blunder"><strong>Ba6</strong> (best: Bxa3) — CPL 335 · −1.32→−4.67. From a manageable position, one bishop move turned it losing in a single move.</div>
+    <div class="im-moment"><strong>Qd7</strong> (best: g5) — CPL 282 mistake · −4.72→−7.54.</div>
+    <div class="im-tags"><span class="im-tag">2382-rated</span><span class="im-tag tactical-miss">single-move collapse from manageable</span></div>
+    <div class="im-prep">Lost to 2382 in 30 moves. Ba6 (CPL 335 from −1.32) is the first documented instance of Justin's "bishop to wrong square" pattern — one passive move from a tenable position. Against Austin, this pattern in endgames means opportunities.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin White</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R3 · vs Taylor Ashton · 1.d4 QGD</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc-hi">97.7%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:8 · B:0 · M:0</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Assessment</div>
+    <div class="im-moment good-find">Near-perfect game. No blunders, no mistakes. Justin's best technical White win — clean QGD positional play converted efficiently.</div>
+    <div class="im-tags"><span class="im-tag">best White game (Canada Closed)</span></div>
+    <div class="im-prep">At 97.7%, this is what Justin looks like when his QGD preparation is fully working. Expect this level of precision if Austin enters main-line QGD/Semi-Slav territory.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin White</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R4 · vs Dunahee Titan · QGD → queenside expansion</span>
+  <span class="badge-result-loss">LOSS</span>
+  <span class="badge-acc-lo">89.0%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:74 · B:2 · M:3</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment blunder"><strong>Qxa4</strong> (best: Qxd2) — CPL 1000 · −5.14→forced mate. Walked into a forced mating line.</div>
+    <div class="im-moment blunder"><strong>Ng4</strong> (best: Nd3) — CPL 1000 · −8.62→forced mate. Second forced-mate miss in the same game.</div>
+    <div class="im-moment"><strong>Ne5</strong> (best: Kg2) — CPL 268 mistake · −2.36→−5.04.</div>
+    <div class="im-tags"><span class="im-tag time-pressure">two forced-mate misses</span><span class="im-tag">queenside b-pawn advance</span></div>
+    <div class="im-prep">Justin allowed Black's b5-b4-b3 queenside pawn chain to go unchallenged. Once the b-pawn advanced, his pieces became passive and he missed two forced-mate lines. Key insight for Austin as Black with Nimzo: if Austin gets queenside pawn mobility (b5-b4), Justin's coordination breaks down. The two CPL-1000 forced-mate misses show he lost track of threats entirely.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin Black</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R5 · vs Wu Ting En Ryan (1906) · French Exchange</span>
+  <span class="badge-result-draw">DRAW</span>
+  <span class="badge-acc-hi">97.4%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:6 · B:0 · M:0</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Assessment</div>
+    <div class="im-moment good-find">Best Black accuracy in Canada Closed. No blunders or mistakes. Justin held a solid French endgame draw at near-perfect accuracy.</div>
+    <div class="im-tags"><span class="im-tag">solid French technique</span></div>
+    <div class="im-prep">97.4% accuracy in a draw — Justin played perfectly and settled for equality. Shows his French Defense is deeply prepared and reliable when he wants a draw.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin White</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R6 · vs Chabot Roland · 1.d4 QGD</span>
+  <span class="badge-result-loss">LOSS</span>
+  <span class="badge-acc-lo">88.6%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:37 · B:2 · M:1</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Critical Moments — Justin's #1 White Weakness</div>
+    <div class="im-moment blunder"><strong>Bg1</strong> (best: g4) — CPL 355 · <strong>+0.29→−3.26</strong>. From a WINNING position to losing in a single passive bishop move. This is Justin's most alarming pattern: blundering from equal or slightly positive positions.</div>
+    <div class="im-moment blunder"><strong>Na4</strong> (best: Rhe1) — CPL 320 · −0.27→−3.47. Second consecutive blunder from near-equal — the game was immediately lost after these two moves.</div>
+    <div class="im-tags"><span class="im-tag time-pressure">back-to-back from equal</span><span class="im-tag tactical-miss">passive piece moves from winning</span></div>
+    <div class="im-prep"><strong>Most important White weakness confirmed here.</strong> Bg1 (CPL 355) and Na4 (CPL 320) — both from near-equal/slightly positive positions — two consecutive passive moves that immediately lost the game. This is Austin's primary exploit as Black: generate complex positions where Justin must choose between active and passive moves. He will sometimes pick the wrong one from perfectly equal positions.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin Black</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R7 · vs Zaka Mohid (1826) · QGD as Black · 137 moves</span>
+  <span class="badge-result-loss">LOSS</span>
+  <span class="badge-acc">93.1%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:29 · B:2 · M:0</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Critical Moments — Justin's #1 Black Weakness</div>
+    <div class="im-moment blunder"><strong>Rxe5</strong> (best: Rf7+) — CPL 641 · <strong>−0.03→−6.44</strong>. From a <em>completely equal position</em> (−0.03 = essentially 0.00), Justin played a rook move that immediately lost. This is his single most dangerous single-move collapse.</div>
+    <div class="im-moment blunder"><strong>Kf6</strong> (best: Kf6 — same move, deeper collapse) — CPL 499 · −7.20→−12.19.</div>
+    <div class="im-tags"><span class="im-tag time-pressure">from equal to losing in ONE move</span><span class="im-tag endgame">137-move endgame</span></div>
+    <div class="im-prep"><strong>Rxe5 from −0.03 is Justin's most alarming Black blunder.</strong> The game was essentially drawn, and a single rook misplacement ended it. Lost to a 1826-rated opponent in 137 moves. Austin as White should steer for rook endgames where Justin must choose the correct rook square — this pattern shows his rook calculation under endgame time pressure breaks completely.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin Black</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R8 · vs Velasquez Noah (1925) · French Classical (4.e5)</span>
+  <span class="badge-result-loss">LOSS</span>
+  <span class="badge-acc">90.7%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:68 · B:5 · M:3</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment blunder"><strong>Rxb7</strong> (best: Ke7) — CPL 1000 · −11.57→−62.17. In a losing position; king blunder cascade.</div>
+    <div class="im-moment blunder"><strong>g4</strong> (best: Kh5) — CPL 726 · −84.39→−91.65. Second king-related blunder.</div>
+    <div class="im-moment blunder"><strong>Nxf3+</strong> (best: Qe3+) — CPL 348 · <strong>+2.16→−1.32</strong>. From a WINNING position (+2.16) to losing — blundered when ahead against a 1925-rated player.</div>
+    <div class="im-tags"><span class="im-tag">5 blunders</span><span class="im-tag time-pressure">blundered from +2.16 winning</span></div>
+    <div class="im-prep">Nxf3+ (CPL 348 from +2.16) confirms Justin also blunders from winning positions as Black, not just White. 5 blunders in one game vs a 1925-rated player. The French Classical (4.e5) structure created tactical complications Justin couldn't handle. For Austin: if the position is sharp and tactical (rather than positional), Justin's French accuracy drops significantly.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin White</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R9 · vs Jiang Barron Jiyu · 1.d4 technical game</span>
+  <span class="badge-result-draw">DRAW</span>
+  <span class="badge-acc">94.5%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:14 · B:0 · M:0</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Assessment</div>
+    <div class="im-moment good-find">Clean technical draw. 94.5% accuracy, 0 blunders, 0 mistakes. Justin settled for equality efficiently.</div>
+    <div class="im-prep">Solid endgame technique. Unforced draw at high accuracy — shows Justin's QGD White play is fundamentally sound when he avoids the Bg1/Na4 passive-move traps.</div>
+  </div>
+</div>
+</div>
+
+<h2>PAM 2026 — 9 Games (avg 92.5%)</h2>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin Black</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R1 · vs Lau Jacek · French</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc-lo">89.2%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:47 · B:1 · M:2</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment blunder"><strong>Rxh3#</strong> (Rxh3#) — CPL 1000 · † Engine artifact: this IS checkmate. The CPL-1000 flag is a false positive from the forced mate calculation. Justin played the mating move correctly.</div>
+    <div class="im-moment"><strong>Rb7</strong> (best: Rb3) — CPL 287 mistake · +6.47→+3.60. Suboptimal when clearly winning.</div>
+    <div class="im-tags"><span class="im-tag">† mate artifact</span></div>
+    <div class="im-prep">Justin won; the blunder flag is a false positive on the checkmate move. Real error was Rb7 from a +6 position — suboptimal but trivially winning. 89.2% accuracy reflects the engine artifact, not a quality collapse.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin White</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R2 · vs Ladino Hernandez Angel Joel (1816) · 1.d4 technical win · 77 moves</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc">93.8%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:24 · B:1 · M:1</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment blunder"><strong>Ke6</strong> (best: f3) — CPL 602 · <strong>+7.12→+1.10</strong>. Threw away a +7.12 winning advantage in a single king move. This is Justin's key White endgame weakness: king to wrong square when winning.</div>
+    <div class="im-tags"><span class="im-tag endgame">king to wrong square from +7.12</span></div>
+    <div class="im-prep">Justin still won in 77 moves with rook endgame technique (passed a-pawn promotion). But Ke6 from +7.12 → +1.10 is one of the most significant eval drops in the dataset. Model White game for endgame technique — but Ke6 confirms Justin's king navigation fails at critical moments even from clearly winning positions. If Austin reaches an endgame with Justin, keep pressing even when "objectively equal" — a single king error can decide it.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin Black</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R3 · vs Salazar Rodriguez Benito (1928) · French Burn (4.Bg5 dxe4)</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc">95.9%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:15 · B:0 · M:1</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Assessment</div>
+    <div class="im-moment good-find">High-quality win. French Burn variation — Justin showed active piece play and converted cleanly. Only one mistake (f6 CPL 212 from +5.01).</div>
+    <div class="im-tags"><span class="im-tag opening-prep">French Burn</span></div>
+    <div class="im-prep">Justin is comfortable in the French Burn variation. Against Austin's 4.Bg5: Justin plays ...dxe4 actively. Austin should not enter Burn territory — the data shows Justin handles this variation well.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin White</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R4 · vs Sen Samant Robert · 1.d4 endgame collapse</span>
+  <span class="badge-result-loss">LOSS</span>
+  <span class="badge-acc-lo">88.9%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:130 · B:7 · M:1</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Critical Moments — 7 Blunders</div>
+    <div class="im-moment blunder"><strong>Kb5</strong> (best: Kb5) — CPL 1000 · −13.24→−32.45. King walk in already-losing position.</div>
+    <div class="im-moment blunder"><strong>Qb1</strong> (best: Qb1) — CPL 1000 · −50.84→−79.87. Continuation of king endgame collapse.</div>
+    <div class="im-moment blunder"><strong>Ka4</strong> (best: Ka4) — CPL 1000 · −11.53→−54.03. Third CPL-1000 king move.</div>
+    <div class="im-tags"><span class="im-tag endgame">7 blunders — endgame king collapse</span></div>
+    <div class="im-prep">Justin was already losing when these king moves occurred. The Kb5/Qb1/Ka4 CPL-1000 cascade reflects a hopeless position, not tactical errors from equality. Most informative: 88.9% accuracy + 7 blunders is the worst White game by blunder count, confirming that when Justin is losing in endgames, his calculation completely breaks down.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin Black</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R5 · vs Rodriguez Barradas Jose Antonio (1847) · French Advanced (3.e5)</span>
+  <span class="badge-result-loss">LOSS</span>
+  <span class="badge-acc">96.4%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:9 · B:0 · M:0</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Assessment</div>
+    <div class="im-moment blunder">96.4% accuracy but LOST — Justin played nearly perfectly in the French Advanced structure and still lost. The Advanced French outplayed Justin positionally even at 96.4% accuracy level — opponent found the thematic pawn break and Justin's counterplay never materialized.</div>
+    <div class="im-tags"><span class="im-tag opening-prep">French Advanced — worst structure for Justin</span></div>
+    <div class="im-prep"><strong>Critical for Austin as White:</strong> The French Advanced (3.e5) is Justin's hardest Black structure. He lost at 96.4% accuracy — near-perfect play wasn't enough. If Austin plays Advanced French and knows the thematic plans (c4 break, Nf3-d2-b3, Nc3 pressure), Justin's counterplay can be neutralized even when he plays accurately. This is the recommended system for Austin.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin White</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R6 · vs Piza Vera Andres · 1.d4 technical win</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc">93.5%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:24 · B:0 · M:1</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment"><strong>Rfc1</strong> (best: Rc8) — CPL 277 mistake · +7.78→+5.01. Suboptimal rook placement from a winning position.</div>
+    <div class="im-prep">Clean win; one suboptimal rook move when clearly winning. 93.5% White accuracy in a comfortable conversion game.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin Black</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R7 · vs Galvis Cala Miguel Angel · French</span>
+  <span class="badge-result-draw">DRAW</span>
+  <span class="badge-acc-lo">87.7%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:32 · B:0 · M:0</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Assessment</div>
+    <div class="im-moment">Worst Black game by accuracy (87.7%) — but 0 blunders, 0 mistakes. The low accuracy comes from accumulated inaccuracies rather than critical errors. Drew the game. Suggests Justin had structural difficulties but avoided catastrophic mistakes.</div>
+    <div class="im-prep">87.7% without a single blunder/mistake = many small inaccuracies. Possibly a long technical struggle where Justin played imprecisely throughout. Still drew — confirms his defensive solidity even when not playing accurately.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin White</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R8 · vs Cabrera Alvarado Hugo Carlos Josue · 1.d4 endgame conversion</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc">91.2%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:27 · B:0 · M:3</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment"><strong>Kg2</strong> (best: Rb6) — CPL 252 mistake · +5.16→+2.64. King move suboptimal when winning.</div>
+    <div class="im-moment"><strong>Nxe5</strong> (best: d5) — CPL 239 mistake · +3.49→+1.10. Second endgame imprecision.</div>
+    <div class="im-prep">Won despite two endgame mistakes. 91.2% reflects imprecise but sufficient play. Justin's White endgame technique carries wins even with imperfect moves.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin Black</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R9 · vs Delgado Gutierrez Mateo (1833) · French Tarrasch — tactical finish</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc">96.1%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:12 · B:0 · M:0</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Assessment</div>
+    <div class="im-moment good-find">Best Black game in PAM. Tactical finish: <code>30...Bxh2+ 31.Kf1 Bf4! 32.Re1 Rh1+! 33.Ke2 Qe5+</code> — forcing winning sequence. French Tarrasch (3.Nd2) structure converted with precise tactics.</div>
+    <div class="im-tags"><span class="im-tag">bishop sacrifice combination</span></div>
+    <div class="im-prep">Justin CAN execute sharp tactical combinations when ahead in the French. The Bxh2+ sacrifice shows his tactical preparation in French structures. Against Austin: if Austin gives Justin a clean position with a tactical Bxh2+ motif available, expect Justin to find it.</div>
+  </div>
+</div>
+</div>
+
+<h2>PAM School 2026 — 5 Games (avg 96.1%)</h2>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin White</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R4 · vs Tobar Beltran Miguel Angel · 1.d4</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc">92.1%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:30 · B:0 · M:5</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment"><strong>e4</strong> (best: Rf1) — CPL 207 mistake · +4.49→+2.42. Suboptimal when winning.</div>
+    <div class="im-prep">Won with 5 mistakes — opponent was weaker. Not informative for Austin prep.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin Black</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R5 · vs Bernal Martinez Elias Isidro · French</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc-hi">97.2%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:7 · B:0 · M:0</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Assessment</div>
+    <div class="im-moment good-find">Near-perfect Black game. 97.2% accuracy, 0 blunders, 0 mistakes. Justin's best Black result in PAM School — clean French win.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin White</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R6 · vs Vuyyuru Shriyan · 1.d4 endgame collapse</span>
+  <span class="badge-result-loss">LOSS</span>
+  <span class="badge-acc">91.9%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:107 · B:11 · M:2</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Critical Moments — 11 Blunders</div>
+    <div class="im-moment blunder"><strong>h3</strong> (best: Ke3) — CPL 1000 · −15.05→−39.82. King walk in losing position.</div>
+    <div class="im-moment blunder"><strong>Kg1</strong> (best: Ke3) — CPL 1000 · −47.63→−74.78. Continued king retreat.</div>
+    <div class="im-moment blunder"><strong>Rg2+</strong> (best: Rc2) — CPL 1000 · −15.91→−38.07. Rook to wrong square.</div>
+    <div class="im-tags"><span class="im-tag endgame">11 blunders — losing endgame cascade</span></div>
+    <div class="im-prep">Justin was already losing; all 11 blunders occur in a hopeless position. The king walk pattern (h3/Kg1/Rg2+) mirrors the PAM R4 Kb5/Qb1/Ka4 cascade. When Justin is losing in endgames, his king navigation completely fails — multiple CPL-1000 moves in sequence. This confirms endgame king pathfinding is his #1 structural weakness.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin White</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R7 · vs Yu Vincent Zhiwen · 1.d4 clean win</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc-hi">99.1%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:2 · B:0 · M:0</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Assessment</div>
+    <div class="im-moment good-find">99.1% accuracy — second-highest in dataset. Near-perfect QGD technical win. Justin at peak form plays at elite level.</div>
+    <div class="im-prep">Justin's peak White performance: 99.1% when everything clicks. Austin cannot expect imprecision if Justin is well-prepared and composed. The goal is to create positions where this composure breaks down.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin White</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R8 · vs Nunez Castaneda Joaquin Alonso · PERFECT GAME</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc-hi">100%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:0 · B:0 · M:0</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Assessment</div>
+    <div class="im-moment good-find"><strong>Perfect game — 100% accuracy, CPL:0.</strong> Justin played every move optimally according to Stockfish. His best single game in the entire dataset.</div>
+    <div class="im-prep">100% is statistically rare. Justin is capable of perfect play in comfortable positions. Against weaker opposition with his prepared lines, expect high-quality chess from him.</div>
+  </div>
+</div>
+</div>
+
+<h2>Toronto Open 2026 — 3 Games (avg 93.6%)</h2>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin White</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R2 · vs Preotu Razvan (FM ~2473) · 1.d4 vs FM</span>
+  <span class="badge-result-loss">LOSS</span>
+  <span class="badge-acc">91.9%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:25 · B:1 · M:0</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment blunder"><strong>Rc3</strong> (best: Rc8) — CPL 390 · −2.24→−6.14. Rook to wrong file when already slightly worse — deepened the loss vs FM-level opponent.</div>
+    <div class="im-tags"><span class="im-tag">2473 FM-rated opponent</span><span class="im-tag tactical-miss">rook misplacement</span></div>
+    <div class="im-prep">Justin was already slightly worse; Rc3 deepened it. At FM level, small inaccuracies are punished immediately. Shows Justin's ceiling: against 2300+ he struggles to hold even small deficits. Against Austin (~1968), this level of defense is not required.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin Black</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R4 · vs Achyuth Akshaj · ⚠️ SICILIAN — first documented Sicilian game</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-sicilian">⚠ SICILIAN</span>
+  <span class="badge-acc">92.4%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:20 · B:0 · M:1</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment"><strong>Qe1</strong> (best: Kg8) — CPL 229 mistake · <strong>+2.29→+0.00</strong>. Justin was WINNING (+2.29) and played Qe1, immediately equalizing. Missed the win.</div>
+    <div class="im-section-label">SICILIAN ALERT</div>
+    <div class="im-tags"><span class="im-tag time-pressure">threw away +2.29 winning advantage</span><span class="im-tag opening-prep">⚠️ NEW WEAPON</span></div>
+    <div class="im-prep"><strong>Justin played Sicilian as Black for the first time in this dataset.</strong> He was winning (+2.29) and threw it to equal with Qe1. Two conclusions: (1) Justin's French monopoly is broken — Austin must now prepare for Sicilian as well; (2) his Sicilian endgame execution is untested — the Qe1 miss shows uncertainty in converting Sicilian positions. Unknown preparation depth; treat as a threat but Austin's Rossolimo preparation is the answer.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin White</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R5 · vs Wang Nathan Zian · 1.d4 clean win</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc-hi">96.6%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:13 · B:0 · M:1</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Assessment</div>
+    <div class="im-moment good-find">96.6% accuracy, clean win, only one minor mistake. Justin's White game at Toronto Open was excellent overall.</div>
+  </div>
+</div>
+</div>
+
+<hr>
+
+<div class="part-card">
+<p class="part-title pattern">Key Patterns — Austin's Exploitation Guide</p>
+<div class="part-body">
+
+<h3>White Weakness #1 — Bg1/Na4 from Near-Equal (Canada Closed R6)</h3>
+<div class="warn-box">
+  <strong>Bg1</strong> (CPL 355, +0.29→−3.26) + <strong>Na4</strong> (CPL 320, −0.27→−3.47) — two consecutive passive moves from near-equal or slightly positive positions immediately lost the game. This is Justin's single most dangerous White pattern: choosing a passive piece move when active play is required. Austin as Black should generate complex positions where Justin must choose between passive and active continuations around moves 15–30.
+</div>
+
+<h3>White Weakness #2 — Ke6 from +7.12 (PAM R2)</h3>
+<div class="warn-box">
+  <strong>Ke6</strong> (CPL 602, +7.12→+1.10) — king to wrong square from a clearly winning position. Justin won anyway, but the +6 eval drop in one move confirms his king navigation fails even when winning. In any endgame reaching king activation decisions, Justin may step the wrong direction.
+</div>
+
+<h3>Black Weakness #1 — Rxe5 from Equal (Canada Closed R7)</h3>
+<div class="warn-box">
+  <strong>Rxe5</strong> (CPL 641, −0.03→−6.44) — from a <em>completely equal position</em>, one rook misplacement immediately lost. This is Justin's most alarming single-move collapse: he blundered from essentially 0.00 eval to −6.44 in one move against a 1826-rated player in a 137-move endgame. Austin should steer for rook endgames where Justin must choose rook squares precisely.
+</div>
+
+<h3>Black Weakness #2 — Nxf3+ from Winning (Canada Closed R8)</h3>
+<div class="warn-box">
+  <strong>Nxf3+</strong> (CPL 348, +2.16→−1.32) — blundered from winning to losing against a 1925-rated player. The French Classical (4.e5) sharp structure produced this collapse. For Austin: sharp, tactical French positions (not solid exchange structures) are where Justin's accuracy drops.
+</div>
+
+<h3>Sicilian Alert — Toronto Open R4</h3>
+<div class="info-box">
+  Justin played Sicilian as Black for the first time in this dataset (Toronto Open R4 vs Achyuth). His Qe1 (CPL 229 from +2.29) threw away a winning advantage. Unknown preparation depth in Sicilian structures. Austin's Rossolimo (3.Bb5) is the recommended answer — it sidesteps deep Sicilian theory regardless of Justin's preparation level.
+</div>
+
+<h3>Direct Encounter — NAYCC 2025 R4</h3>
+<div class="gold-box">
+  Justin (Black, French Advanced C02) beat Austin (White, 1968). The d4/e5 pawn avalanche and <code>49...Qd2 50.Kf1 Qf2#</code> finish. <strong>Austin's preparation note:</strong> If playing Advanced French again, find an improvement between moves 30–44 where the pawn structure crystallized. Alternatively, switch to Exchange French (3.exd5) or Tarrasch (3.Nd2) — PAM R5 confirms Justin LOST at 96.4% accuracy in the French Advanced as Black, suggesting the structure itself is harder for him than the outcome suggests.
+</div>
+
+<h3>Summary Table — Key Numbers</h3>
+<table>
+<thead><tr><th>Pattern</th><th>Game</th><th>CPL</th><th>Eval swing</th><th>Context</th></tr></thead>
+<tbody>
+<tr><td>Rxe5 rook misplace</td><td>Canada Closed R7 (Black)</td><td>641</td><td>−0.03→−6.44</td><td>From EQUAL position</td></tr>
+<tr><td>Ke6 king wrong direction</td><td>PAM R2 (White)</td><td>602</td><td>+7.12→+1.10</td><td>From WINNING position</td></tr>
+<tr><td>Bg1 passive bishop</td><td>Canada Closed R6 (White)</td><td>355</td><td>+0.29→−3.26</td><td>From WINNING</td></tr>
+<tr><td>Na4 passive knight</td><td>Canada Closed R6 (White)</td><td>320</td><td>−0.27→−3.47</td><td>Back-to-back with Bg1</td></tr>
+<tr><td>Nxf3+ piece blunder</td><td>Canada Closed R8 (Black)</td><td>348</td><td>+2.16→−1.32</td><td>From WINNING vs 1925</td></tr>
+<tr><td>Ba6 bishop wrong square</td><td>Canada Closed R2 (Black)</td><td>335</td><td>−1.32→−4.67</td><td>From manageable</td></tr>
+<tr><td>Qe1 queen passive</td><td>Toronto Open R4 (Black)</td><td>229</td><td>+2.29→+0.00</td><td>Sicilian — threw win</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>
