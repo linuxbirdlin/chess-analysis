@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Fernando Cortes Medina — Austin as White</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #2d7d46; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #2d7d46; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #2d7d46; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #2d7d46; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #f0fff4 !important; color: #1a4731; }
+    .acc-hi { color: #1a6030; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #fafbff; }
+    .rule-number { background: #2d7d46; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #f0fff5; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #2d7d46; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #2d7d46; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #e8f5ee; color: #2d7d46; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #e8f5ee; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a4731; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Fernando Cortes Medina</h1>
+    <div class="subtitle">Austin as White — Advanced/Tarrasch French vs Fernando's French Defense</div>
+    <div class="meta">CM Fernando Cortes Medina · 2026–2133 FIDE · 26 games, depth-18 Stockfish · Overall 92.8% avg · White 91.9% · Black 93.7% · No direct encounter</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-fernando.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-fernando-black.html">Austin as Black →</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-fernando-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="encounter-box">
+    <strong>No direct encounter yet.</strong> Engine analysis (26 games, depth-18 Stockfish): Fernando's Black accuracy averages <strong>93.7%</strong> — higher than his White (91.9%). He plays French Defense in 5+ confirmed classical games — Advance (C02), Exchange (C01), Winawer (C15/C17). His French Advance game beat FM Martinez Flores 1904 at only 90.3% accuracy — below his Winawer level (95.7%). <strong>Key weakness:</strong> time-pressure collapses — lost to a 1765-rated player from a winning position (Olympia R6, queen misplacements Bg5 CPL 269, Qa1 CPL 261, Qe4+ CPL 236). Austin's edge: force complications and create positions where Fernando must calculate with clock pressure.
+  </div>
+
+  <!-- ═══ SECTION 1 ═══ -->
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Fernando Cortes Medina (CM — Candidate Master)</span>
+    <span class="plabel">FIDE Rating</span><span class="pval">2026–2133 · peak 2133 MEX-ch U17 Jul 2026</span>
+    <span class="plabel">Nationality</span><span class="pval">Mexican</span>
+    <span class="plabel">Overall accuracy</span><span class="pval">92.8% avg (White 91.9% / Black 93.7%) · 26 games</span>
+    <span class="plabel">Black repertoire</span><span class="pval">French Defense (C01/C02/C15/C17) primary vs 1.e4; KID/Grünfeld vs 1.d4</span>
+    <span class="plabel">French accuracy</span><span class="pval">93.5% avg (5 games: 2W-0L-3D) — comfortable in all French lines</span>
+    <span class="plabel">Time pressure record</span><span class="pval">2 confirmed losses from winning/equal positions under clock pressure</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">No encounter</span>
+  </div>
+
+  <p><strong>Opening fingerprint:</strong></p>
+  <ul>
+    <li><strong>As Black vs 1.e4:</strong> French Defense — Winawer (C15/C17) most accurate (95.7%), Advance (C02) known but more error-prone (90.3%), Exchange (C01) patient endgame style</li>
+    <li><strong>As Black vs 1.d4:</strong> King's Indian (E60), Grünfeld (D85) — mixed but reasonable results</li>
+    <li><strong>Secondary vs 1.e4:</strong> Sicilian O'Kelly (<code>2...a6</code>) — less reliable, lost to 1765 under time pressure</li>
+    <li><strong>Passive QI-type (A46/A05):</strong> 0W-0D-2L — does not suit his style at all</li>
+  </ul>
+
+  <!-- ═══ SECTION 2 ═══ -->
+  <h2>§2 — Fernando's Black Repertoire (Frequency &amp; Results)</h2>
+  <table>
+    <thead>
+      <tr><th>ECO</th><th>System</th><th>G</th><th>W</th><th>D</th><th>L</th><th>Acc%</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-safe">
+        <td>C15/C17</td><td>French Winawer</td><td>2</td><td>0</td><td>2</td><td>0</td><td><span class="acc-hi">95.7%</span></td><td>Best Black system — PAM R7 draw vs Xu 1978; PAM R8 draw vs Suresh 1893. Very solid, patient play.</td>
+      </tr>
+      <tr>
+        <td>E60</td><td>King's Indian</td><td>1</td><td>1</td><td>0</td><td>0</td><td><span class="acc-hi">95.9%</span></td><td>PAM R5 win vs Takahashi 1975 · CPL 18</td>
+      </tr>
+      <tr>
+        <td>C01</td><td>French Exchange</td><td>1</td><td>1</td><td>0</td><td>0</td><td>94.9%</td><td>PAM R3 win vs Alba Ruiz 1919 — 72-move knight maneuver endgame · CPL 14</td>
+      </tr>
+      <tr>
+        <td>D85</td><td>Grünfeld</td><td>1</td><td>0</td><td>1</td><td>0</td><td>94.5%</td><td>Olympia R2 draw vs Valdez 1684 — grabbed a pawn and held</td>
+      </tr>
+      <tr>
+        <td>B32</td><td>Sicilian O'Kelly (<code>2...a6</code>)</td><td>1</td><td>0</td><td>0</td><td>1</td><td>93.7%</td><td>Olympia R6 LOSS to Leal Escamilla 1765 — time pressure: Bg5 CPL 269, Qa1 CPL 261, Qe4+ CPL 236</td>
+      </tr>
+      <tr>
+        <td>C02</td><td>French Advance</td><td>1</td><td>1</td><td>0</td><td>0</td><td>90.3%</td><td>Olympia R4 WIN vs FM Martinez 1904 — knows the Advance, but CPL 47 (below his Winawer level)</td>
+      </tr>
+      <tr class="row-danger">
+        <td>A46/A05</td><td>QI-like passive setup</td><td>2</td><td>0</td><td>0</td><td>2</td><td><span class="acc-lo">88.2%</span></td><td>Lost both — vs GM Cori 2586 (86.6%) and Paredes 2137 (89.7%). Passive structures don't fit his style.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="warn-box">
+    <strong>Austin plays 1.e4 — Fernando will play 1...e6 (French).</strong> His Winawer is his most accurate system (95.7%). The recommended plan: play 3.Nd2 (Tarrasch) to sidestep it entirely. Fernando has zero confirmed Tarrasch games in the dataset.
+  </div>
+
+  <!-- ═══ SECTION 3 ═══ -->
+  <h2>§3 — Vulnerabilities as Black</h2>
+
+  <h3>A. Time Pressure Queen Collapse</h3>
+  <p>Olympia R6 (vs Leal Escamilla 1765, Sicilian B32): Fernando had a <strong>winning position</strong> but was under 1 minute when he played three consecutive queen misplacements:</p>
+  <ul>
+    <li><strong>Bg5</strong> (best e4, CPL 269, +6.34→+3.65)</li>
+    <li><strong>Qa1</strong> (best Rd3, CPL 261, +7.92→+5.31)</li>
+    <li><strong>Qe4+</strong> (best Bg5, CPL 236, +6.72→+4.36)</li>
+  </ul>
+  <p>He lost to a player rated 71 points below him. The pattern: Fernando's queen becomes erratic when the clock is short — she maneuvers to the wrong square repeatedly. Austin should spend time deliberately in the middlegame (moves 20–35) to force Fernando into the endgame transition under 20 minutes.</p>
+  <div class="warn-box">
+    <strong>Time pressure is Fernando's Achilles heel.</strong> His second confirmed time-pressure loss came at ED Nacional R9 (vs Paredes 2137) — Bxe5?? (best Rc8, CPL 305, −3.94→−6.99) from a defensible position. Two losses from winning/equal positions in a 26-game sample is a significant pattern.
+  </div>
+
+  <h3>B. Passive Structures Are Fatal</h3>
+  <p>In A46/A05 Queen's Indian-like positions (<code>...Nf6/...e6/...b6/...Bb7</code>), Fernando scored <strong>0W-0D-2L (avg 88.2%)</strong>. He is not comfortable when he cannot use French Defense patterns — the passive piece arrangement allows White to dominate key squares. Austin's 1.e4 forces the French, but if Fernando ever plays 1...Nf6 instead, push him into passive QI territory.</p>
+
+  <h3>C. French Advance More Error-Prone Than Winawer</h3>
+  <p>Despite winning vs FM Martinez 1904, Fernando's French Advance accuracy was only <strong>90.3% CPL:47</strong> — substantially below his Winawer (95.7%). He plays the Advance and can win in it, but makes more mistakes. The Advance 3.e5 is a legitimate weapon for Austin; Fernando's preparation is real but imperfect.</p>
+
+  <h3>D. Color Asymmetry</h3>
+  <p>Fernando's Black accuracy (93.7%) exceeds his White (91.9%) — unusual. He is a genuinely better player as Black than White, driven by his deep French preparation. However, this makes the quality of Austin's anti-French preparation especially important: a well-prepared Austin should be favored despite the rating gap.</p>
+
+  <!-- ═══ SECTION 4 ═══ -->
+  <h2>§4 — Austin's Recommended Weapon</h2>
+
+  <h3>Primary: French Tarrasch 3.Nd2 — sidestep the Winawer</h3>
+  <div class="var-moves">1.e4  e6  2.d4  d5  3.Nd2  [Tarrasch — avoids 3.Nc3 Bb4 Winawer]
+Nf6  4.e5  Nfd7  5.Bd3  c5  6.c3  Nc6  7.Ne2</div>
+
+  <p><strong>Why 3.Nd2:</strong> Fernando's Winawer (C15/C17) is his strongest Black line at 95.7% accuracy. Playing 3.Nc3 walks straight into it. The Tarrasch (3.Nd2) sidesteps the <code>...Bb4</code> pin entirely. Fernando has <strong>zero confirmed Tarrasch games</strong> in the 26-game dataset — this is preparation-free territory for him.</p>
+  <ul>
+    <li><strong>After 5...c5 6.c3:</strong> White's plan is f4, Ndf3/Ngf3, g4-g5 kingside attack. Black must play ...cxd4 and ...f6 — positions where Fernando has less experience.</li>
+    <li><strong>Critical junction at move 7–9:</strong> If <code>7...Qb6</code>, play <code>8.Nf1 f6 9.exf6 Nxf6</code> — White gets the e5 square as an outpost. If <code>7...cxd4 8.cxd4</code> — IQP position, Austin's forte (Nimzo-Indian training).</li>
+    <li><strong>Alternative 3...c5 4.exd5 exd5 5.Ngf3</strong> — Tarrasch with IQP, very playable for White.</li>
+  </ul>
+
+  <h3>Backup: Advanced French 3.e5 — if Tarrasch unfamiliar</h3>
+  <div class="var-moves">1.e4  e6  2.d4  d5  3.e5  c5  4.c3  Nc6  5.Nf3  Qb6  6.a3</div>
+  <p>Austin's standard French Advance system. Fernando's 3...c5 Advance game was <strong>90.3% accuracy</strong> — the White player (Fernando) won because of Fernando's opponent errors, not because Fernando played perfectly. In this structure, White should play queenside expansion with <code>a3/b4</code> to counter the <code>...Qb6</code> pressure and undermine Black's queenside counterplay.</p>
+
+  <div class="warn-box">
+    <strong>AVOID French Exchange 3.exd5:</strong> Fernando won a patient 72-move Exchange endgame at 94.9% accuracy with superb knight maneuvers. His patience in technical Exchange positions is a documented strength — do not gift him this structure.
+  </div>
+
+  <!-- ═══ SECTION 5 ═══ -->
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The key reference pattern is Fernando's <strong>Olympia R6 time-pressure collapse</strong> (vs Leal Escamilla 1765, B32 Sicilian, 93.7% acc): Fernando had a winning position of +6.34 but played three consecutive queen misplacements (Bg5/Qa1/Qe4+) losing all advantage. Though this was Sicilian not French, the underlying pattern — Fernando's queen loses coordination when calculating under time pressure — applies to any opening.</p>
+  <ol>
+    <li><strong>Opening (moves 1–10):</strong> Play 3.Nd2 (Tarrasch). Establish central pawns on d4/e5. Fernando will likely try <code>...c5</code> to break the center.</li>
+    <li><strong>Middlegame (moves 10–25):</strong> Build the kingside attack with f4-f5 or g4-g5. Spend time on every move — force Fernando into time pressure by move 25–30.</li>
+    <li><strong>Key zone (moves 25–35):</strong> This is where Fernando's queen has collapsed twice from winning positions. Create complexity. Make him calculate queen maneuvers under clock pressure.</li>
+    <li><strong>Conversion:</strong> Fernando's Exchange endgame patience is strong — avoid heavy-piece endgames with equal material. Keep a slight imbalance that requires precise calculation.</li>
+  </ol>
+  <div class="tip-box">
+    <strong>Tarrasch = preparation gap.</strong> Fernando's 26-game dataset includes zero Tarrasch games as Black. Even if his French instincts help him find good moves, he cannot rely on specific theory after move 8. Austin should know the Tarrasch main lines to move 15 — Fernando likely does not.
+  </div>
+
+  <!-- ═══ SECTION 6 ═══ -->
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~60%</span>
+      French Tarrasch 3.Nd2 — sidestep the Winawer
+    </div>
+    <div class="var-body">
+      <div class="var-moves">1.e4  e6  2.d4  d5  3.Nd2  Nf6  4.e5  Nfd7  5.Bd3  c5  6.c3  Nc6  7.Ne2
+→ f4/Ngf3/g4-g5 kingside attack plan
+→ Fernando has ZERO confirmed Tarrasch games — preparation gap</div>
+      <ul>
+        <li><strong>Moves 7–12:</strong> After <code>7...Qb6 8.Nf1</code> — knight routes to g3 or e3. Black's typical plan <code>...f6 exf6 Nxf6</code> gives White the e5 outpost square. Hold the center with c3/d4.</li>
+        <li><strong>Moves 12–20:</strong> Advance g4-g5 if Black has castled kingside. If queenside castled, play b4-b5 to open files. Both plans exploit Fernando's unfamiliarity with Tarrasch positions.</li>
+        <li><strong>Endgame alert:</strong> If Fernando trades down to a pawn endgame, beware his patience. Keep at least one pair of rooks on the board in complex positions.</li>
+      </ul>
+      <div class="tip-box"><strong>The Tarrasch is Austin's advantage.</strong> Fernando's French preparation is deep in the Winawer and Advance — but the Tarrasch is a different structural animal. His training almost certainly focused on the most popular lines. Use this gap.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~30%</span>
+      Advanced French 3.e5 — if Tarrasch insufficiently prepared
+    </div>
+    <div class="var-body">
+      <div class="var-moves">1.e4  e6  2.d4  d5  3.e5  c5  4.c3  Nc6  5.Nf3  Qb6  6.a3!
+→ White counters ...Qb6 pressure with queenside expansion a3/b4
+→ Fernando: 1W (vs FM 1904) at 90.3% — more error-prone for him than Winawer</div>
+      <ul>
+        <li><strong>Moves 6–12:</strong> After <code>6.a3 c4 7.Nbd2</code> — White clamps the queenside. Black's <code>...Qb6</code> has no good target. Plan: Be2, O-O, then b4 break or f4 kingside push.</li>
+        <li><strong>Moves 12–20:</strong> Standard Advance play — h4 if Black's knight goes to f5, or Ng5 threats. Fernando's FM-beating game showed he knows the main ideas, but his 90.3% accuracy means he also makes errors.</li>
+        <li><strong>Key plan:</strong> After <code>...cxd4 cxd4</code>, White has an IQP but open c-file pressure. Austin knows IQP positions from the Nimzo-Indian.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~10%</span>
+      Fernando deviates — plays 1...c5 Sicilian or 1...Nf6
+    </div>
+    <div class="var-body">
+      <div class="var-moves">If Fernando plays 1...c5: standard Sicilian (Austin's home territory as White)
+→ Rossolimo 3.Bb5 or Open Sicilian 2.Nf3 d6 3.d4
+If Fernando plays 1...Nf6: 2.e5! Nd5 3.d4 — Alekhine Defense</div>
+      <ul>
+        <li>Fernando's Sicilian O'Kelly (B32) already showed weakness — he lost to a player rated 71 points below him with time pressure in that structure.</li>
+        <li>If Fernando plays <code>1...d5</code> (unlikely): 2.exd5 Qxd5 3.Nc3 — standard Scandinavian.</li>
+        <li>Fernando's KID/Grünfeld vs 1.d4 are solid but unconfirmed vs 1.e4. He almost certainly sticks to French after 1.e4.</li>
+      </ul>
+      <div class="tip-box"><strong>Fernando will play 1...e6.</strong> The Sicilian is his secondary weapon (only against 1.e4 occasionally) and his Sicilian record shows a loss to 1765. Expect the French in 90%+ of games.</div>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 7 ═══ -->
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules for This Game</h3>
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Clock — Force time pressure, Fernando's queen collapses</div>
+          <div class="rule-body">Fernando lost a winning position to a 1765-rated player with three queen misplacements in under 1 minute (Bg5 CPL 269, Qa1 CPL 261, Qe4+ CPL 236). Take your time on every move in the middlegame (moves 20–35) to drain his clock. His pattern is clear: given enough time, he finds the correct queen moves; under pressure, the queen wanders to losing squares.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Opening — Play 3.Nd2 Tarrasch, avoid the Winawer</div>
+          <div class="rule-body">Fernando's Winawer (C15/C17) averages 95.7% — his best Black system. Playing 3.Nc3 hands him his most prepared structure. The Tarrasch (3.Nd2) has zero games in Fernando's 26-game dataset — he cannot rely on specific theory past move 8. The preparation gap is real and exploitable.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Endgame — Avoid the French Exchange structure</div>
+          <div class="rule-body">Fernando won a patient 72-move French Exchange endgame at 94.9% accuracy with superb knight maneuvers (Nb6→Na4→Nb2→Nc4→Nd6→Ne4 over 15 moves). In equal technical endgames with d5/e6 IQP structures, Fernando is patient and accurate. Keep imbalances on the board. Do not play 3.exd5.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS WHITE vs Fernando's French:
+  PRIMARY (Tarrasch): 1.e4 e6 2.d4 d5 3.Nd2 Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 7.Ne2
+  → After 7...Qb6: 8.Nf1 f6 9.exf6 Nxf6 [White gets e5 outpost]
+  → After 7...cxd4: 8.cxd4 [IQP — Austin's Nimzo territory]
+
+  BACKUP (Advance): 1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 Qb6 6.a3!
+  → c4 7.Nbd2 — queenside clamp; then Be2 O-O b4 or f4
+
+NEVER: 3.Nc3 (Winawer — his best weapon)
+NEVER: 3.exd5 (Exchange — his patient endgame strength)
+CLOCK: Take full time moves 20–35; force Fernando into time pressure</div>
+
+    <h3>Tactical Motifs to Watch For</h3>
+    <table>
+      <thead><tr><th>Tactic</th><th>When it arises</th><th>CPL reference</th></tr></thead>
+      <tbody>
+        <tr><td>Queen misplacements under time pressure</td><td>Fernando's queen in complex middlegame/endgame transition under 1 minute</td><td class="acc-lo">Olympia R6: Bg5 269, Qa1 261, Qe4+ 236</td></tr>
+        <tr><td>Passive ...Bb7/...Rc6 punishment</td><td>If Fernando ever plays non-French (QI-type structure)</td><td class="acc-lo">A46/A05: 0W-2L, avg 88.2%</td></tr>
+        <tr><td>Advance a3/b4 queenside counter</td><td>After 3.e5 c5 4.c3 Nc6 5.Nf3 Qb6 — White must have concrete queenside plan</td><td>Advance CPL:47 — Fernando's worst French line</td></tr>
+        <tr><td>Tarrasch f4/g4 kingside storm</td><td>After 3.Nd2 e5 e5 c5 — White's standard attacking plan</td><td>Fernando has zero Tarrasch games</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══ SECTION 8 ═══ -->
+  <h2>§8 — Day-of Preparation (30 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Opening review — 15 min:</strong> Play through the Tarrasch main line: <code>1.e4 e6 2.d4 d5 3.Nd2 Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 7.Ne2</code>. Practice the two branches: (a) after <code>7...Qb6 8.Nf1 f6 9.exf6 Nxf6</code> — where is White's best piece placement? (b) after <code>7...cxd4 8.cxd4</code> — IQP positions. Study the Advance backup <code>6.a3!</code> plan vs <code>...Qb6</code> for 5 minutes.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Reference game — 10 min:</strong> Find and replay Olympia R6: Fernando (Black) vs Leal Escamilla 1765, B32 Sicilian. Play through the critical zone where Fernando had a +6 position and collapsed with Bg5/Qa1/Qe4+. Understand <em>why</em> each move was wrong — this reinforces the tactical pattern Austin should create: complex positions where Fernando's queen must make precise calculations under time pressure.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Mindset check — 5 min:</strong> Fernando's overall record is 92.8% accuracy. He is a CM rated 160–270 points above Austin. A draw is a good result; a win is possible. The engine shows Fernando's Black is actually stronger than his White — he'll play confidently. Match his confidence with preparation precision.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Fernando is better as Black than White — this is his comfort zone. But I have two weapons: the Tarrasch he hasn't studied, and the clock. He lost to a 1765-rated player from a winning position because his queen couldn't find the right square in time. I take my time every move from 20–35. I play 3.Nd2, I build the kingside attack, I make him calculate."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin W Tarrasch vs French</td><td>C03–C09</td><td><code>1.e4 e6 2.d4 d5 3.Nd2 Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 7.Ne2</code></td></tr>
+      <tr><td>Austin W Advance vs French</td><td>C02</td><td><code>1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 Qb6 6.a3</code></td></tr>
+      <tr><td>Austin W vs Sicilian (if Fernando deviates)</td><td>B23</td><td><code>1.e4 c5 2.Nc3 e6 3.g3</code> or Rossolimo <code>2.Nf3 Nc6 3.Bb5</code></td></tr>
+    </tbody>
+  </table>
+
+</div>
+</body>
+</html>

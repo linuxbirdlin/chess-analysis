@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Fernando Cortes Medina — Austin as Black</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #1a5276; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #1a5276; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #1a5276; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #1a5276; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #1a5276; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #eaf4fb !important; color: #1a3a55; }
+    .acc-hi { color: #1a5276; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #eaf4fb; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #e8f0f8; border: 1px solid #1a5276; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #1a3a55; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #fafbff; }
+    .rule-number { background: #1a5276; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #eaf4fb; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #1a5276; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #1a5276; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #dce8f5; color: #1a5276; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #dce8f5; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a3a55; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Fernando Cortes Medina</h1>
+    <div class="subtitle">Austin as Black — Sicilian / Italian endgame plan vs Fernando's flexible White</div>
+    <div class="meta">CM Fernando Cortes Medina · 2026–2133 FIDE · 26 games, depth-18 Stockfish · White avg 91.9% · Italian (C54) collapse: 13 blunders · vs 2300+: 0W-1D-2L avg 88.0%</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-fernando.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-fernando-white.html">← Austin as White</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-fernando-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="encounter-box">
+    <strong>No direct encounter.</strong> Engine data (26 games, depth-18): Fernando's White accuracy averages <strong>91.9%</strong> — lower than his Black (93.7%). He plays flexible <strong>1.e4 or 1.c4/1.Nf3</strong>. His Italian (C54) as White is a documented trap — Olympia R5 loss: 92.6% accuracy overall but the endgame produced <strong>13 blunders</strong> (Rd2 CPL 1000, Rd1 CPL 1000, Kg1 CPL 1000). His record vs 2300+ as White: <strong>0W-1D-2L (avg 88.0%)</strong>. Austin at 1865+ should apply 2000+ level pressure — Fernando's White consistently breaks down against strong opposition.
+  </div>
+
+  <!-- ═══ SECTION 1 ═══ -->
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Fernando Cortes Medina (CM — Candidate Master)</span>
+    <span class="plabel">FIDE Rating</span><span class="pval">2026–2133 · peak 2133 MEX-ch U17 Jul 2026</span>
+    <span class="plabel">Nationality</span><span class="pval">Mexican</span>
+    <span class="plabel">White accuracy</span><span class="pval">91.9% avg (13 games) — lower than his Black (93.7%)</span>
+    <span class="plabel">White openings</span><span class="pval">English (A04/A16/A29) primary; 1.e4 Italian/Sicilian Yugoslav secondary</span>
+    <span class="plabel">Italian (C54) as White</span><span class="pval">0W-1L — 13 blunders in endgame collapse (CPL 157 avg)</span>
+    <span class="plabel">vs 2300+ as White</span><span class="pval">0W-1D-2L avg 88.0% — consistently outplayed by strong opposition</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">No encounter</span>
+  </div>
+  <div class="info-box">
+    Fernando is <strong>unusual: he plays better as Black (93.7%) than as White (91.9%)</strong>. His White play is technically solid in some systems but collapses under pressure from strong opponents — especially in endgames. His Italian is his most dangerous opening on paper (Bc4/d3/c3 structure) but his only documented game produced 13 blunders. Austin faces Fernando's <em>weaker color</em> — this is the advantage to exploit.
+  </div>
+
+  <!-- ═══ SECTION 2 ═══ -->
+  <h2>§2 — Fernando's White Repertoire (Frequency &amp; Results)</h2>
+  <table>
+    <thead>
+      <tr><th>ECO</th><th>System</th><th>G</th><th>W</th><th>D</th><th>L</th><th>Acc%</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-safe">
+        <td>C01</td><td>French Exchange (as White)</td><td>1</td><td>0</td><td>1</td><td>0</td><td><span class="acc-hi">97.4%</span></td><td>Best White game — draw vs Li Aiden 2021 · CPL 6. Rarely plays this vs non-French opponents.</td>
+      </tr>
+      <tr class="row-safe">
+        <td>A04</td><td>KIA/English 1.Nf3 → 1.c4</td><td>1</td><td>1</td><td>0</td><td>0</td><td><span class="acc-hi">96.5%</span></td><td>PAM R9 win vs Wang Rocky 2079 — rook 7th rank plan · CPL 12. Strategic execution.</td>
+      </tr>
+      <tr>
+        <td>A29</td><td>English Four Knights</td><td>1</td><td>1</td><td>0</td><td>0</td><td>92.1%</td><td>PAM R2 win vs Wang Darren 1842 — Nd5 outpost domination. Beaten opponent was weaker.</td>
+      </tr>
+      <tr>
+        <td>B56/B14</td><td>Sicilian Yugoslav / Panov (as White)</td><td>2</td><td>2</td><td>0</td><td>0</td><td>90.1%</td><td>Both wins only vs 1640–1726 opponents. Low-strength sample — not reliable gauge vs Austin.</td>
+      </tr>
+      <tr class="row-danger">
+        <td>C54</td><td>Italian Giuoco Pianissimo (Bc4/d3/c3)</td><td>1</td><td>0</td><td>0</td><td>1</td><td>92.6%</td><td>LOSS Olympia R5 — <strong>13 blunders</strong> (Rd2 CPL 1000, Rd1 CPL 1000, Kg1 CPL 1000). Endgame implosion. </td>
+      </tr>
+      <tr class="row-danger">
+        <td>A16</td><td>English (1.c4 Nf3 e4)</td><td>1</td><td>0</td><td>0</td><td>1</td><td><span class="acc-lo">89.7%</span></td><td>PAM R6 LOSS — Kf1?? (best Bxc3, CPL 542, −0.79→−6.21), Bxd4?? (best Ba7, CPL 371, −0.95→−4.66). Collapsed under pressure.</td>
+      </tr>
+      <tr class="row-danger">
+        <td>MEX Open (various)</td><td>vs 2302–2395 as White</td><td>3</td><td>0</td><td>1</td><td>2</td><td><span class="acc-lo">88.0%</span></td><td>gxh4?? CPL 1000 vs Perez 2395; Rd7?? CPL 458 vs Valdes 2325. Consistent collapse vs strong players.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="tip-box">
+    <strong>Fernando's best White systems are C01 and A04</strong> — but these rarely come up in practice vs Austin's 1...c5 or 1...e5 responses. His most likely systems vs Austin: Italian (Bc4/d3) if he plays 1.e4, or English/KIA if he plays 1.c4/1.Nf3. Both have documented collapses.
+  </div>
+
+  <!-- ═══ SECTION 3 ═══ -->
+  <h2>§3 — Vulnerabilities as White</h2>
+
+  <h3>A. Italian (C54) Endgame Catastrophe</h3>
+  <p>Olympia R5 vs Alba Ruiz 1924 (C54 Italian): Fernando played <strong>92.6% accuracy overall</strong> — reasonable for a middlegame — but when the endgame arrived, he produced <strong>13 blunders in sequence</strong>:</p>
+  <ul>
+    <li><strong>Rd2</strong> (best Re7, CPL 1000, −10.76→−80.28) — rook to wrong file</li>
+    <li><strong>Rd1</strong> (best Kg1, CPL 1000, −69.53→−#) — doubling down on wrong rook</li>
+    <li><strong>Kg1</strong> (CPL 1000, −59.03→−#) — king one square too late</li>
+  </ul>
+  <p>The first rook misplacement triggered a cascade of irretrievable errors. Fernando cannot navigate complex rook + pawn endgames under pressure. If Austin reaches an Italian middlegame with Fernando, the strategic goal is clear: steer toward the endgame. Fernando will self-destruct.</p>
+  <div class="warn-box">
+    <strong>This is the blueprint.</strong> Fernando's Italian endgame is catastrophically bad. Austin does not need to win the middlegame brilliantly — just reach a rook+pawn endgame and let Fernando make his 13 blunders.
+  </div>
+
+  <h3>B. vs 2300+ as White: 0W-1D-2L (avg 88.0%)</h3>
+  <p>MEX Open G5 vs Perez Rodriguez 2395: <strong>gxh4??</strong> (best Be3, CPL 1000, −9.77→−#) — took a pawn with the g-pawn in an unclear position, instantly entering a mating net. Then <strong>cxb6</strong> (CPL 240) and <strong>hxg5</strong> (CPL 195) compounded the damage.</p>
+  <p>MEX Open G3 vs Valdes Romero 2325: <strong>Rd7??</strong> (best Nd5, CPL 458, +4.58→+0.00) — Fernando had a +4.58 advantage and threw it away with one rook lunge. Drew instead of winning from a clearly superior position.</p>
+  <p>Austin at 1865+ is not 2300+, but the pattern is clear: Fernando gets outplayed strategically by strong opponents and panics tactically. Playing at full strength and precision is the correct approach.</p>
+
+  <h3>C. English (A16) Collapse Under Pressure</h3>
+  <p>PAM R6 (vs Loayza Rivera 1936): Fernando's English game produced <strong>Kf1??</strong> (best Bxc3, CPL 542, −0.79→−6.21) — king moved away from a necessary defensive square, followed by <strong>Bxd4??</strong> (best Ba7, CPL 371, −0.95→−4.66) recapturing the wrong way. His English is not reliable under pressure from players near his rating either.</p>
+
+  <!-- ═══ SECTION 4 ═══ -->
+  <h2>§4 — Austin's Recommended Weapon</h2>
+
+  <h3>Primary: Sicilian Defense vs 1.e4</h3>
+  <div class="var-moves">1.e4  c5  2.Nf3  d6  3.d4  cxd4  4.Nxd4  Nf6  5.Nc3  a6  [Najdorf]
+or
+1.e4  c5  2.Nf3  d6  3.d4  cxd4  4.Nxd4  Nf6  5.Nc3  g6  [Dragon]
+→ Forces Fernando to commit to Yugoslav Attack or English Attack
+→ His Yugoslav wins came only vs 1640–1726 opponents</div>
+
+  <p><strong>Why Sicilian:</strong> Austin's primary Black response vs 1.e4. Fernando's Yugoslav Attack (B56/B78 with Qd2/O-O-O/g4) scored wins only against opponents rated 1640 and 1726 — significantly below Austin. Against Austin's Sicilian preparation, Fernando's attack will face sharper defense than he has encountered. The Najdorf is ideal: Fernando has never faced it at tournament level (0 documented Najdorf games as White).</p>
+
+  <h3>Italian endgame target — if Fernando plays Bc4/d3</h3>
+  <div class="var-moves">1.e4  e5  2.Nf3  Nc6  3.Bc4  Bc5  (or Nf6)  4.c3  Nf6  5.d3  d6
+→ Reach a symmetric Italian with equal pawns
+→ Then trade pieces and steer for R+P endgame — Fernando collapses here</div>
+
+  <p>Fernando played the Italian Bc4/d3/c3 structure in Olympia R5 and produced 13 blunders when the endgame arrived. If Fernando transposes into the Italian via 1.e4 e5 2.Nf3 Nc6 3.Bc4, Austin should play for a solid position, trade into an endgame, and trust the process. Fernando's rook technique in Italian endgames is documented as catastrophically poor (Rd2/Rd1/Kg1 sequence).</p>
+
+  <h3>vs 1.c4 English — play ...e5 setup</h3>
+  <div class="var-moves">1.c4  e5  2.Nf3  Nc6  3.g3  g6  [King's Indian type]
+or  1.c4  e5  2.Nc3  Nf6  3.g3  Bc5  [Reversed Ruy structure]</div>
+  <p>Fernando's English A16 collapsed with Kf1?? and Bxd4?? — the English is his weakest documented White system (89.7%, loss). Play ...e5 to take space and use the classical structure Austin knows from the Nimzo-Indian.</p>
+
+  <!-- ═══ SECTION 5 ═══ -->
+  <h2>§5 — Model Game / Reference Plan</h2>
+  <p>The key reference is <strong>Olympia R5</strong> — Fernando (White, 1836 rapid) vs Alba Ruiz Kenneth 1924, C54 Italian. Fernando played an adequate middlegame at ~92% accuracy but the moment he entered the endgame, the position immediately produced Rd2?? (CPL 1000), Rd1?? (CPL 1000), Kg1?? (CPL 1000) — three consecutive losing moves. The root cause: Fernando misplaced his rook on move 1 of the endgame, and every subsequent move compounded the first error. He could not recover.</p>
+  <p>The additional reference is <strong>MEX Open G5</strong> vs Perez Rodriguez 2395 — Fernando played gxh4?? from a complex middlegame position, instantly entering a lost game. Under pressure with strong opposition, Fernando panics and makes captures that look active but walk into traps. Austin should create sharp, complex positions where a single wrong capture is fatal.</p>
+  <div class="tip-box">
+    <strong>Two-step plan:</strong> (1) Reach a position where Fernando must make rook decisions in an endgame — he will likely misplace his rook on the first move. (2) In complex middlegames, create double-edged positions with material imbalances — Fernando's gxh4?? pattern shows he sometimes grabs material recklessly under time/pressure.
+  </div>
+
+  <!-- ═══ SECTION 6 ═══ -->
+  <h2>§6 — Top 3 Variance Plans</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE A ~55%</span>
+      Sicilian vs 1.e4 — force Fernando's Yugoslav Attack
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Austin Black:  1...c5  2...d6  3...cxd4  4...Nf6  5...a6  [Najdorf]
+Fernando White: English Attack 6.Be3 or Yugoslav 6.f3 Be3 Qd2 O-O-O
+→ Fernando's Yugoslav wins came vs 1640 and 1726 — Austin at 1865+ is different</div>
+      <ul>
+        <li><strong>Najdorf English Attack (6.Be3 e5 7.Nb3 Be6):</strong> Black's standard plan — ...Be6, ...Nbd7, ...Be7/...Rc8, queenside counterplay. Fernando has zero Najdorf games documented — he cannot rely on specific theory.</li>
+        <li><strong>Dragon (5...g6 6.Be3 Bg7):</strong> If Fernando plays Sicilian Dragon Yugoslav (B75, which he has played), Austin can meet it with precise Dragon theory. Fernando's B75 win came vs a 1726-rated player; Austin's Dragon defense should be more accurate.</li>
+        <li><strong>Avoid passive Black setups:</strong> Don't play the Scheveningen or Classical where Fernando gets a standard Yugoslav setup he's seen. Play Najdorf or Dragon — both push Fernando into less-prepared territory.</li>
+      </ul>
+      <div class="warn-box"><strong>Fernando's Yugoslav Attack won both its documented games</strong> — but those were vs 1640 and 1726. His accuracy was only 90.1% in those games. A strong Black defense will challenge him. Be alert for Qe6 (CPL 1000, missed checkmate) — Fernando has a pattern of missing winning moves in attacking positions.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE B ~35%</span>
+      Italian endgame target — if Fernando plays Bc4/d3
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Fernando: 1.e4 e5 2.Nf3 Nc6 3.Bc4 → Italian/Giuoco
+Austin:   3...Bc5 4.c3 Nf6 5.d3 d6 [symmetric setup]
+→ Trade pieces methodically → reach R+P endgame → Fernando collapses</div>
+      <ul>
+        <li><strong>Opening (moves 5–12):</strong> Play solid, symmetric Italian. Trade minor pieces when possible. Avoid sharp combinations in the middlegame — Fernando's middlegame Italian accuracy was 92.6% (adequate). The endgame is the target.</li>
+        <li><strong>Middlegame (moves 12–25):</strong> Simplify the position. Trade queens if possible. Reach a rook endgame with slight imbalance (one passed pawn is ideal). Fernando's Rd2?? shows he immediately misplaces his rook when entering the endgame.</li>
+        <li><strong>Endgame:</strong> Keep your rook active and behind passed pawns. Fernando's pattern is king/rook misplacement on the first endgame move. Play Ra8/Rb8/rook to the 7th rank before he stabilizes.</li>
+      </ul>
+      <div class="tip-box"><strong>This plan has a 100% documented success rate.</strong> Fernando's only C54 Italian game as White produced a loss with 13 blunders. Replicate the conditions: Italian structure → endgame → Fernando self-destructs.</div>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">VARIANCE C ~10%</span>
+      English setup vs 1.c4 — exploit A16 pattern
+    </div>
+    <div class="var-body">
+      <div class="var-moves">Fernando: 1.c4 [English]
+Austin:   1...e5 2...Nf6 3...Nc6  [classical setup]
+→ Fernando's A16 English lost with Kf1?? (CPL 542) and Bxd4?? (CPL 371)
+→ Target the same bishop/king coordination errors</div>
+      <ul>
+        <li>Fernando's English PAM R6 loss showed his king walked to the wrong square (Kf1) and his bishop recaptured incorrectly (Bxd4). These are coordination errors in equal positions — not time pressure blunders, but positional misjudgments.</li>
+        <li>Play ...Bc5 or ...d5 to challenge the center. Fernando's A16/A29 English wins came vs 1615 and 1842 — his English is inconsistent against stronger players.</li>
+        <li>If Fernando plays the KIA (1.Nf3 or 1.g3), respond with ...d5/...c5/...Nc6 — standard KIA counterplay. His best KIA game (A04) was 96.5% but that was a queenside rook infiltration that required specific opponent passivity — Austin will play actively.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 7 ═══ -->
+  <h2>§7 — Cheat Sheet</h2>
+
+  <div class="cheat-card">
+    <h3>Three Golden Rules for This Game</h3>
+    <div class="rules-section">
+      <div class="rule-card">
+        <div class="rule-number">1</div>
+        <div class="rule-content">
+          <div class="rule-label">Target — If it becomes Italian, steer for the endgame</div>
+          <div class="rule-body">Fernando's only C54 Italian game as White produced 13 blunders (Rd2 CPL 1000, Rd1 CPL 1000, Kg1 CPL 1000) — the moment the endgame arrived, the position collapsed completely. If Fernando plays Bc4/d3, trade pieces and enter the endgame phase actively. This is not a risky plan — it is documented to work against Fernando in this exact structure.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">2</div>
+        <div class="rule-content">
+          <div class="rule-label">Pressure — Play at 2000+ level precision</div>
+          <div class="rule-body">Fernando's White accuracy drops to 88.0% avg vs 2300+ opponents (0W-1D-2L). Austin at 1865+ is not 2300, but the lesson is clear: Fernando's White degrades under pressure from strong, precise play. Do not give Fernando comfortable, routine positions — create problems on every move. His gxh4?? (CPL 1000) panic capture shows he makes catastrophic mistakes when the position feels unclear.</div>
+        </div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-number">3</div>
+        <div class="rule-content">
+          <div class="rule-label">Confidence — Fernando is in his weaker color</div>
+          <div class="rule-body">Fernando is 160–270 Elo above Austin, but he is playing his worse side (White 91.9% vs Black 93.7%). His Black preparation (French Defense) is deep; his White is inconsistent. Austin faces the Fernando who collapses in Italian endgames and loses to 1765-rated opponents from winning positions. Approach the game as a technical exercise, not a rating battle.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Opening Reference Card</h3>
+    <div class="cheat-moves">AS BLACK vs Fernando's White:
+  vs 1.e4:  1...c5 2...d6 3...cxd4 4...Nf6 5...a6 [Najdorf] → English Attack or Yugoslav
+  vs 1.e4 Italian: 1...e5 2...Nc6 3...Bc5 4...Nf6 5...d6 → steer for endgame
+  vs 1.c4:  1...e5 2...Nf6 3...Nc6 → classical counterplay
+
+IF Fernando plays Italian (Bc4/d3): STEER FOR ENDGAME — his 13 blunders confirm it
+IF Fernando plays Yugoslav Attack: Najdorf defense — he has never played it vs Najdorf
+
+WATCH: gxh4?? panic capture in complex positions (Fernando CPL 1000 vs Perez 2395)
+WATCH: Rd7?? rook aggression when he has +4.58 advantage (threw it away vs Valdes 2325)</div>
+
+    <h3>Tactical Motifs to Watch For</h3>
+    <table>
+      <thead><tr><th>Tactic</th><th>When it arises</th><th>CPL reference</th></tr></thead>
+      <tbody>
+        <tr><td>Italian endgame collapse (Rd2??/Rd1??/Kg1??)</td><td>First rook move entering the endgame after Italian middlegame</td><td class="acc-lo">Olympia R5: Rd2 CPL 1000, Rd1 CPL 1000, Kg1 CPL 1000</td></tr>
+        <tr><td>gxh4?? panic pawn capture</td><td>Complex position, unclear material count, Fernando sees a pawn</td><td class="acc-lo">MEX Open G5: gxh4?? CPL 1000 vs Perez 2395</td></tr>
+        <tr><td>Rd7?? rook over-aggression</td><td>Fernando has a clearly winning advantage and tries to accelerate</td><td class="acc-lo">MEX Open G3: Rd7?? CPL 458 (+4.58→+0.00)</td></tr>
+        <tr><td>Kf1?? + Bxd4?? coordination error</td><td>English middlegame, equal position, Fernando misplaces king/bishop</td><td class="acc-lo">PAM R6 A16: Kf1 CPL 542, Bxd4 CPL 371</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══ SECTION 8 ═══ -->
+  <h2>§8 — Day-of Preparation (30 minutes)</h2>
+  <div class="dayof-card">
+    <h3>Warm-Up Routine</h3>
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Endgame drill — 15 min:</strong> Solve 3 rook-and-pawn endgame puzzles focusing on rook activation and the principle of placing the rook behind passed pawns. The goal: be confident in the exact endgame technique Fernando cannot handle (Rd2-Rd1 misplacement pattern). Also review the general Italian middlegame-to-endgame transition: when to trade minor pieces, when to trade queens, how to activate the king early.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Opening line review — 10 min:</strong> Run through the Najdorf English Attack main line: <code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.Be3 e5 7.Nb3 Be6</code>. Practice the positions arising from 6.Be3. Also confirm the Italian path: <code>1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.c3 Nf6 5.d3 d6</code> — the symmetric setup that leads to endgames.
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Reference game — 5 min:</strong> Replay Olympia R5: Fernando (White) vs Alba Ruiz 1924, C54 Italian. Find the moment Fernando played Rd2?? — understand the correct rook placement (Re7) and why Rd2 loses immediately. This exact position type is what Austin should be steering toward.
+      </div>
+    </div>
+
+    <div class="mental-frame">
+      "Fernando is a stronger player as Black than White. Today he's playing his worse color. He beat an FM as Black with the French, but his Italian endgame produced 13 blunders. I play solid Sicilian or symmetric Italian, I reach the endgame, I play my rook correctly. If Fernando plays gxh4?? or Rd7?? trying to be aggressive, I take the material and convert. Stay technical, trust the prep."
+    </div>
+  </div>
+
+  <hr />
+  <h2>ECO Quick Reference</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
+    <tbody>
+      <tr><td>Austin B Najdorf vs Fernando's 1.e4</td><td>B90</td><td><code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.Be3 e5 7.Nb3 Be6</code></td></tr>
+      <tr><td>Austin B Italian endgame plan</td><td>C54</td><td><code>1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.c3 Nf6 5.d3 d6</code> → trade into endgame</td></tr>
+      <tr><td>Austin B vs Fernando's English</td><td>A28</td><td><code>1.c4 e5 2.Nc3 Nf6 3.g3 Bc5 4.Bg2 Nc6 5.e3</code> — classical counterplay</td></tr>
+    </tbody>
+  </table>
+
+</div>
+</body>
+</html>
