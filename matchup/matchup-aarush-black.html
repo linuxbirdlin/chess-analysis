@@ -353,6 +353,75 @@ NEVER: ...Bxc3+ delay — take it the first time you can</div>
     </tbody>
   </table>
 
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish depth 18 · movetime 800ms</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf5ff;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">A</span>
+      Opening Gaps — Aarush as White
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>E04 Catalan Open (0W-2L, avg 86.8%):</strong> Worst White ECO. Canada R4 vs Yin Zeming 2098: <code>Rfe1</code> (best <code>Bxf6</code>, CPL 536, −1.22→−6.58) and <code>Bh4</code> (best <code>Bf6</code>, CPL 445) — two consecutive rook/bishop misplacements. PAM R5 vs Heye 2065: <code>Nd5</code> (CPL 214), <code>h4</code> (CPL 192, wrong side!), <code>Nd2</code> (CPL 181) — 4 mistakes in a row.</p>
+      <p><strong>E08 Catalan Closed (92.1%, loss):</strong> Lost to Zachary 2051 — <code>Nc4</code> (best <code>Bxd5</code>, CPL 368). Aarush's Catalan is positionally ambitious but tactically fragile — he misses forced recaptures.</p>
+      <p><strong>D11 Slav (93.3%, still lost to 1824):</strong> Played excellent accuracy but lost on king blunders in the endgame. This is Aarush's paradox: he can lose games where he plays well, because the endgame is a separate failure mode.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf5ff;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">B</span>
+      Time-Pressure / Single-Move Collapses
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>PAM R6 vs Delgado 1833 (87.9%, 5 blunders):</strong> <code>Re2</code> (CPL 1000/mate) — walked a rook into a mating net against a 1833-rated player. Followed by <code>Bf4</code> (CPL 924). Five total blunders in a game where Aarush outrated his opponent by 108 points. Complete meltdown under time pressure in a complex position.</p>
+      <p><strong>Paradox — 93.3% accuracy, still lost (D11):</strong> Aarush's collapses aren't only in bad games. He can play well for 90 moves then self-destruct in the endgame. This means Austin cannot relax just because the midgame position looks fine — Aarush can fall apart at any moment once kings are centralized.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf5ff;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Endgame Technique
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>K+P endgame: SYSTEMATICALLY broken (confirmed 2 games):</strong> Canada R7 — <code>Kd6</code>, <code>Kf3</code>, <code>Ke3</code> all CPL 1000, lost to Yin Aiden 1824. PAM R8 — <code>Kxb4</code>, <code>Kd5</code>, <code>Kg6</code> all CPL 1000, lost to Fernandez 2137. The pattern is identical across separate games: king navigates to the wrong square repeatedly.</p>
+      <p><strong>Implication for Austin as Black:</strong> If Austin can steer Aarush's Catalan into a technical endgame (which the Nimzo-Indian Bxc3+ pawn structure naturally does), Aarush is extremely likely to self-destruct.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf5ff;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Catalan 86.8% avg; E04 0W-2L; collapses vs 2000+</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time Pressure</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">5 blunders vs 1833; Re2 CPL 1000/mate; Bf4 CPL 924</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">CPL-1000 king blunders in 2 games; lost to 1824 from 93.3%</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">91.4% W / 89.1% B — 2.3pp gap; White slightly stronger</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 </body>
 </html>

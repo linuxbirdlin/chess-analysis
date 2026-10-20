@@ -351,6 +351,77 @@ WATCH: Rd7?? rook aggression when he has +4.58 advantage (threw it away vs Valde
     </tbody>
   </table>
 
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish depth 18 · movetime 800ms</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf5ff;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">A</span>
+      Opening Gaps — Fernando as White
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>C54 Italian (92.6% but 13 blunders — only White loss in this ECO):</strong> Olympia R5 vs Alba Ruiz 1924 — the position looked fine through the middlegame, then the endgame produced <code>Rd2</code> (best <code>Re7</code>, CPL 1000, −10.76→−80.28), <code>Rd1</code> (CPL 1000), <code>Kg1</code> (CPL 1000). Three consecutive rook/king misplacements into a completely lost position.</p>
+      <p><strong>A16 English (89.7%, loss):</strong> PAM R6 vs Loayza 1936 — <code>Kf1</code> (best <code>Bxc3</code>, CPL 542, −0.79→−6.21) and <code>Bxd4</code> (best <code>Ba7</code>, CPL 371). King and bishop both went to wrong squares in a complex position.</p>
+      <p><strong>vs 2300+ as White (0W-1D-2L, avg 88.0%):</strong> MEX Open G5 vs Perez 2395: <code>gxh4</code> (CPL 1000/mate). MEX Open G3 vs Valdes 2325: <code>Rd7</code> (CPL 458, +4.58→+0.00). Fernando consistently gets outplayed above 2300 — Austin at 1865+ should apply that level of positional pressure.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf5ff;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">B</span>
+      Time-Pressure / Single-Move Collapses
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>gxh4?? vs Perez 2395 (CPL 1000/mate):</strong> MEX Open G5 — Fernando played <code>gxh4</code> in an unclear position, immediately walking into a mating sequence. The same "recapture into mate" error type that appears in his Italian endgame collapse.</p>
+      <p><strong>Rd7?? from +4.58 (CPL 458):</strong> MEX Open G3 vs Valdes 2325 — completely gave away a +4.58 winning advantage with one rook move. Valdes had been losing for 30 moves and Fernando let him escape.</p>
+      <p><strong>Kf1?? (CPL 542) in PAM R6:</strong> King moved to a square that immediately worsened the position by −5.42 pawns. Fernando's king placement as White can be tactically unsound in complex positions.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf5ff;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Endgame Technique
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>C54 Italian endgame: catastrophic failure (13 blunders):</strong> Rd2 (CPL 1000) → Rd1 (CPL 1000) → Kg1 (CPL 1000). All three were rook or king moves in a technical endgame that required precise coordination. Fernando's tactical vision completely collapsed once the position simplified.</p>
+      <p><strong>A04 English win (96.5%) shows Fernando CAN execute endgames:</strong> PAM R9 win vs Wang Rocky 2079 — clean rook 7th rank technique. The Italian collapse is NOT general endgame incompetence; it's specifically the Italian middlegame-to-endgame transition that breaks down. When Fernando is well-prepared in the structure, he converts cleanly.</p>
+      <p><strong>Exploit: reach an Italian-type endgame position.</strong> Austin should steer for technical R+P or B+P endgames where Fernando must navigate without tactical shortcuts. His Italian endgame failure was position-specific but confirmed.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf5ff;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Italian C54 White: 13-blunder collapse; A16 loss; 0W-1D-2L vs 2300+</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time Pressure</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">gxh4 CPL 1000 vs 2395; Rd7 CPL 458 from +4.58; Kf1 CPL 542</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">C54 Italian: Rd2/Rd1/Kg1 all CPL 1000 — catastrophic</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">White 91.9% / Black 93.7% — Fernando is BETTER as Black; Austin has color edge</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 </body>
 </html>

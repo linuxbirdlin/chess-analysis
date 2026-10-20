@@ -431,6 +431,75 @@ Austin:     2...fxe4 3.Ng5 Nf6! [best] (not 3...e5? 4.Nxh7)</div>
     </tbody>
   </table>
 
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish depth 18 · movetime 800ms</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf5ff;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">A</span>
+      Opening Gaps — Zachary as White
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>B75 Sicilian Yugoslav (83.4%, 4 blunders):</strong> PAM 2026 R4 vs Piza Vera 1766 — Zachary's Yugoslav Attack produced 4 blunders in a single game against a 1766-rated player. His worst White ECO in the dataset. The Yugoslav works when he's better prepared; against unfamiliar setups it collapses.</p>
+      <p><strong>A06 Reti (89%, 2 blunders):</strong> Won despite the errors, but the Reti can break down under pressure. Zachary's 93.9% White average is pulled up by his best English/Reti prep games — when he deviates from familiar lines, accuracy drops sharply.</p>
+      <p><strong>Best White ECOs:</strong> A14 Catalan/English (93.2%), A37 Symmetrical (solid). His English system is genuinely strong — Austin's goal is to pull him outside it.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf5ff;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">B</span>
+      Time-Pressure / Single-Move Collapses
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>B75 meltdown (4 blunders, 83.4%):</strong> PAM 2026 R4 — complete positional squeeze by a 1766-rated player. When Zachary's English Attack structure goes wrong, errors cascade rapidly rather than occurring in isolation.</p>
+      <p><strong>Bxh7+ as attacker:</strong> The same tactical pattern that Zachary misses as a defender (failing to see the sacrifice coming) also affects his own attacking play — his calculation doesn't naturally reach piece sacrifices on h7. This creates a mutual blind spot that Austin can exploit on either side.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf5ff;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Endgame Technique
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Generally solid in English/Reti endgames:</strong> Zachary's 93.9% White average reflects clean technical play in his prepared structures. No systemic endgame collapse confirmed in the White dataset.</p>
+      <p><strong>Yugoslav Attack endgame unknown:</strong> The B75 game (83.4%) ended in middlegame chaos, not a technical endgame. If Austin can steer a Yugoslav/Dragon structure into a technical endgame, Zachary is in unfamiliar territory where data suggests he may struggle.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf5ff;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a5276;">B</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Strong English/Reti 93%+; Yugoslav Attack weak 83.4%</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time Pressure</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">4 blunders in B75; Bxh7+ execution blind spot</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a5276;">B</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Solid in prep structures; weak outside comfort zone</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a6030;">A</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">93.9% W / 93.3% B — 0.6pp gap, well-balanced</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 </body>
 </html>

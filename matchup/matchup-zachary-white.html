@@ -399,6 +399,75 @@ CRITICAL MOVE 14: if bishop on d3 + Black castled kingside → look for Bxh7+!</
     </tbody>
   </table>
 
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish depth 18 · movetime 800ms</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#2d7d46;color:#fff;padding:2px 10px;border-radius:12px;">A</span>
+      Opening Gaps — Zachary as Black
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>B46 Sicilian (avg 86.6%, worst Black ECO):</strong> Canada Closed loss vs Tseng 1907: <code>Rc7??</code> (best <code>Rxg2</code>, CPL 830, +11.65→+3.35) — missed a winning rook capture from a clearly won position. Followed by <code>f3</code> (CPL 699) and <code>Rc5</code> (CPL 569). 79.4% accuracy, 4 blunders — catastrophic from a +11 advantage.</p>
+      <p><strong>B47/B32 Sicilian also weak:</strong> 88.7% and 89.6% — all B4x Sicilian structures fall below Zachary's 93.6% average. His 1.d4 defense setups are notably more reliable.</p>
+      <p><strong>Bxh7+ Greek Gift blind spot:</strong> Confirmed missed in 4 personal study games when Bd3 is on the board and opponent has kingside-castled. This is a structural pattern in Zachary's Sicilian play — he doesn't calculate Bxh7+ before moving.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#2d7d46;color:#fff;padding:2px 10px;border-radius:12px;">B</span>
+      Time-Pressure / Single-Move Collapses
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Rc7?? from +11.65 (CPL 830):</strong> Canada Closed B46 vs Tseng 1907 — Zachary had a completely winning position and played <code>Rc7??</code> instead of the obvious <code>Rxg2</code>. One move gave away an +11 pawn advantage. Classic "won game, one blink" collapse.</p>
+      <p><strong>Bxh7+ missed 4× (CPL 200–400+):</strong> Across personal study games, Zachary has consistently failed to calculate the Greek Gift when it was available. The trigger: Bd3 on the board, opponent king castled kingside, Ng5 available. His calculation never reaches Bxh7+.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#2d7d46;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Endgame Technique
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>King navigation errors in R+P endgames:</strong> Greater Vancouver B35 loss — <code>Kb7</code> (CPL 337) walked the king to a losing square in a rook+pawn endgame. Not a systemic pattern (only 1 confirmed instance), but confirms endgame precision can break down.</p>
+      <p><strong>Color balance is strong:</strong> Zachary's White/Black gap is only 0.6pp (93.9% vs 93.3%) — he's consistent across colors. His weakness is ECO-specific (Sicilian B4x), not color-based. No general endgame technique collapse confirmed.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#2d7d46;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">B46 Sicilian 79.4%; B4x avg 87.7%</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time Pressure</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Rc7?? CPL 830 from +11.65; Bxh7+ missed 4×</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">King navigation lapse (Kb7 CPL 337); not systemic</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a6030;">A</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">93.9% W / 93.3% B — 0.6pp gap, well-balanced</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 </body>
 </html>

@@ -360,6 +360,76 @@ CLOCK: Take full time moves 20–35; force Fernando into time pressure</div>
     </tbody>
   </table>
 
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish depth 18 · movetime 800ms</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#2d7d46;color:#fff;padding:2px 10px;border-radius:12px;">A</span>
+      Opening Gaps — Fernando as Black
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>A46/A05 QI-like passive setups (avg 88.2%, 2 losses):</strong> When Fernando cannot use French Defense patterns, his Black accuracy drops sharply. Lost to GM Cori 2586 (86.6%) and Paredes 2137 (89.7%) in passive ...Bb7/...Rc6 structures. His best French lines (Winawer 95.7%) are far above these passive alternatives.</p>
+      <p><strong>B32 Sicilian O'Kelly (93.7%, still lost):</strong> Olympia R6 — Fernando had a winning position but played <code>Bg5</code> (CPL 269), <code>Qa1</code> (CPL 261), <code>Qe4+</code> (CPL 236) in rapid succession under 1 minute. All three collapses were queen moves. Lost to a player rated 71 points below him.</p>
+      <p><strong>C02 French Advance (only 90.3% despite winning):</strong> Fernando's lowest French accuracy. He won vs FM Martinez 1904 but made multiple mistakes en route. Austin's Advance French plan is correct — Fernando is more vulnerable here than in the Winawer.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#2d7d46;color:#fff;padding:2px 10px;border-radius:12px;">B</span>
+      Time-Pressure / Single-Move Collapses
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Olympia R6 triple queen collapse (while WINNING):</strong> Fernando had +6.34 and +7.92 evals — a completely won position — when he played <code>Bg5</code> (CPL 269), <code>Qa1</code> (CPL 261, +7.92→+5.31), <code>Qe4+</code> (CPL 236, +6.72→+4.36). All under 1 minute on the clock. Lost to a 1765-rated player from a won position.</p>
+      <p><strong>Pattern: Fernando's queen becomes erratic under time pressure.</strong> All three collapse moves in Olympia R6 were queen moves. When he cannot think slowly about queen placement, his queen goes to the wrong square. Austin should create positions where Fernando must calculate queen moves quickly.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#2d7d46;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Endgame Technique
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>French endgames are a STRENGTH:</strong> PAM R3 French Exchange win — patient 72-move knight maneuver (<code>...Na4–Nb2–Nc4–Nd6–Ne4</code>), 94.9% accuracy. Fernando's endgame in French structures is reliable and patient. This is not a weakness to exploit.</p>
+      <p><strong>Olympia R6 collapse was pre-endgame:</strong> The queen misplacements happened in the middlegame under time pressure, not in a technical endgame. Fernando's endgame play in French positions is disciplined — the failure mode is time-pressure tactics, not endgame technique.</p>
+      <p><strong>Exploit: create time pressure before the endgame.</strong> Force complications in the middlegame where Fernando must make queen decisions quickly. His French endgame patience won't save him if he burns too much time calculating in complex positions.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#2d7d46;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a5276;">B</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">French Winawer/Exchange strong 95.7%; Advance 90.3%; passive 88.2%</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time Pressure</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">3 queen collapses while winning; lost to 71-pt lower rated</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a5276;">B</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">French endgames strong (94.9%); weakness is pre-endgame time-pressure</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a6030;">A</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Black 93.7% &gt; White 91.9% — Fernando is BETTER as Black</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 </body>
 </html>

@@ -362,6 +362,75 @@ Tactical alert: Watch for Kf1 + h2 unguarded → Bxh2!</div>
     </tbody>
   </table>
 
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish depth 18 · movetime 800ms</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf5ff;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">A</span>
+      Opening Gaps — Heye as White
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>C16 French h4 Attack (88.2%, only non-C54 White loss):</strong> Loss vs Razin 2329 — <code>Nf4</code> (best <code>Nf3</code>, CPL 320, −1.47→−4.67), <code>cxb4</code> (CPL 1000/mate), <code>O-O-O</code> (CPL 194). Heye walked into a mating sequence in the French h4 Attack. His French handling as White is fragile.</p>
+      <p><strong>B58 Other Sicilian (87.5%, CPL 59):</strong> Loss vs Yin Zeming 2098 — <code>Bf1</code> (best <code>Be2</code>, CPL 1000/mate) — another move into mate. The same "walk into mate" pattern appears in both his White losses outside the Italian.</p>
+      <p><strong>C55 Italian Two Knights (91.6%, Bxh2 game):</strong> Loss vs Dukic 2230 — <code>Qd2</code> (best <code>Qg4</code>, CPL 347, −2.24→−5.71), <code>Qh3</code> (best <code>Ne7+</code>, CPL 270), <code>Rd1</code> (CPL 212). Three consecutive queen/rook misplacements. His C54 Italian (96.1%, never lost) is very different from C55 — Austin should avoid C54 lines.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf5ff;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">B</span>
+      Time-Pressure / Single-Move Collapses
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>C16 French: cxb4 (CPL 1000/mate):</strong> Moved into a mating sequence while handling the French h4 Attack — likely miscalculated a forced line under pressure. The complication arose from unfamiliar French territory.</p>
+      <p><strong>B58 Sicilian: Bf1 (CPL 1000/mate):</strong> Same "move into mate" pattern in a Sicilian line. When Heye faces a Sicilian structure he hasn't specifically prepared, he can walk into mates. Pattern: both CPL-1000 White blunders were in non-Italian openings.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf5ff;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Endgame Technique
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>C55 Bxh2 game — queen misplacement chain:</strong> <code>Qd2</code> (CPL 347) → <code>Qh3</code> (CPL 270) → <code>Rd1</code> (CPL 212). Three consecutive piece misplacements in the middlegame/endgame transition. Heye couldn't find the correct attacking moves once the position became tactical.</p>
+      <p><strong>C54 Italian endgame is strong (96.1%):</strong> Heye's best system never loses. Austin should specifically avoid C54 Italian structures and steer toward Sicilian or French territory where Heye's White play has documented holes.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#eaf5ff;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#1a5276;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a5276;">B</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">C54 Italian 96.1% (never lost); C16 French &amp; B58 Sicilian are clear holes</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time Pressure</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">cxb4 CPL 1000/mate in French; Bf1 CPL 1000/mate in Sicilian</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a5276;">B</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">C54 Italian endgame excellent; C55 queen misplay pattern</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#1a5276;">B</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">94.5% W / 93.2% B — 1.3pp gap; performs better as White</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 </body>
 </html>

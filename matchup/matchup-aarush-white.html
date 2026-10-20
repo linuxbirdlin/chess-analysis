@@ -374,6 +374,77 @@ If Aarush plays h4 response incorrectly → h5 is coming regardless</div>
     </tbody>
   </table>
 
+  <hr>
+  <h2>§9 — Opponent Weakness Deep-Dive</h2>
+  <p style="color:#57606a;font-size:0.9rem;margin:-6px 0 18px;">Engine-backed vulnerability profile · Stockfish depth 18 · movetime 800ms</p>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#2d7d46;color:#fff;padding:2px 10px;border-radius:12px;">A</span>
+      Opening Gaps — Aarush as Black
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>E60 KID h4 (80.6%, worst game in dataset):</strong> Canada R1 loss vs Iordanescu 2108 — <code>Rxa7</code> (CPL 563, +3.77→−1.86) — tactical oversight giving away a piece. Then <code>Rd7</code> (CPL 327) and <code>Bd7</code> (CPL 319). Three blunders in response to a direct h4 kingside attack.</p>
+      <p><strong>A00 Saragossa h4 (84%, 4 blunders):</strong> Toronto R6 vs Raymond Gao CM 2086 — <code>Qb4??</code> (CPL 1000, +7.31→−6.05) from a WINNING +7 position. Aarush converted the worst kind of collapse: had the game completely won, then lost it in time pressure with a queen blunder. Also: <code>Kg7</code> and <code>Ke7</code> (both CPL 1000) walking into mates.</p>
+      <p><strong>h4 record: 0W–3L across KID, Najdorf, Saragossa:</strong> The pattern is consistent regardless of structure — Aarush's calculation fails completely when h4 kingside attacks are on the board.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#2d7d46;color:#fff;padding:2px 10px;border-radius:12px;">B</span>
+      Time-Pressure / Single-Move Collapses
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Qb4?? from +7.31 (CPL 1000):</strong> Toronto R6 — Aarush had a +7.31 winning advantage and played <code>Qb4??</code> instead of <code>Qxg5</code>, immediately reversing the position to −6.05. The ultimate "won game" blunder. Pattern: Aarush cannot convert winning positions under time pressure.</p>
+      <p><strong>Rd7?? from +0.00 (CPL 579):</strong> Canada R6 vs Zhu 1936 — completely equal position, one move destroyed it. <code>Rd7</code> instead of <code>Qc2</code>.</p>
+      <p><strong>Bh6+?? from +0.78 (CPL 771):</strong> PAM R4 — unnecessary check that lost material instantly. Aarush played an "attacking" move in a slightly good position that immediately backfired.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#2d7d46;color:#fff;padding:2px 10px;border-radius:12px;">C</span>
+      Endgame Technique
+    </div>
+    <div style="padding:14px 18px;">
+      <p><strong>Canada R7 — Lost to 1824-rated player despite 93.3% accuracy:</strong> Three consecutive CPL-1000 king blunders (<code>Kd6</code>, <code>Kf3</code>, <code>Ke3</code>) in a K+P endgame. Played excellent chess for 90 moves then self-destructed in the king endgame. Lost to a player 84 rating points below him.</p>
+      <p><strong>PAM R8 — Same pattern vs Fernandez 2137:</strong> <code>Kxb4</code>, <code>Kd5</code>, <code>Kg6</code> — all CPL 1000. Four consecutive endgame blunders. The king navigation failure is SYSTEMATIC — confirmed across two completely separate tournaments and games.</p>
+      <p><strong>Verdict:</strong> Aarush's K+P endgame technique is fundamentally broken. He plays at 93%+ through the middlegame then loses on king moves that any trained player should find.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid #d0d7de;border-radius:8px;margin:14px 0;overflow:hidden;">
+    <div style="background:#f0fff5;padding:10px 18px;font-weight:600;font-size:0.95rem;border-bottom:1px solid #d0d7de;display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.78rem;background:#2d7d46;color:#fff;padding:2px 10px;border-radius:12px;">D</span>
+      Weakness Scorecard
+    </div>
+    <div style="padding:14px 18px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Opening</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">h4 attack: 0W–3L; E60 80.6%; A00 84% with Qb4?? from +7</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Time Pressure</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">Qb4 CPL 1000 from +7.31; Rd7 CPL 579 from +0.00; Bh6 CPL 771</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#7a0000;">D</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Endgame</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">CPL-1000 king blunders in 2 separate games; lost to 1824 from 93.3%</div>
+        </div>
+        <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;text-align:center;">
+          <div style="font-size:1.4rem;font-weight:700;color:#b35800;">C</div>
+          <div style="font-size:0.82rem;font-weight:600;color:#57606a;margin-top:2px;">Color Balance</div>
+          <div style="font-size:0.8rem;color:#57606a;margin-top:4px;">91.4% W / 89.1% B — 2.3pp gap; Black notably weaker</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 </body>
 </html>
