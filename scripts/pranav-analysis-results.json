@@ -903,6 +903,220 @@
           "evalAfter": "+3.17"
         }
       ]
+    },
+    "worldyouth2026-converted": {
+      "skipped": "no-pranav"
+    }
+  },
+  "Blue Ridge 2026": {
+    "R3": {
+      "prColor": "white",
+      "opponent": "Moorhouse, Will",
+      "oppElo": 2149,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 96,
+      "oppAccuracy": 88.7,
+      "avgCPL": 10,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 1,
+      "movesAnalyzed": 28,
+      "criticalMoments": [
+        {
+          "moveNum": 15,
+          "san": "f3",
+          "bestMove": "c5",
+          "cpl": 101,
+          "classification": "inaccuracy",
+          "evalBefore": "+1.67",
+          "evalAfter": "+0.66"
+        }
+      ]
+    },
+    "R5": {
+      "prColor": "white",
+      "opponent": "Liu, Steven",
+      "oppElo": 2160,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 85.9,
+      "oppAccuracy": 85,
+      "avgCPL": 50,
+      "blunders": 3,
+      "mistakes": 3,
+      "inaccuracies": 13,
+      "movesAnalyzed": 76,
+      "criticalMoments": [
+        {
+          "moveNum": 63,
+          "san": "Rxh7",
+          "bestMove": "Kf6",
+          "cpl": 702,
+          "classification": "blunder",
+          "evalBefore": "+0.00",
+          "evalAfter": "-7.02"
+        },
+        {
+          "moveNum": 58,
+          "san": "Ke5",
+          "bestMove": "Rh2",
+          "cpl": 515,
+          "classification": "blunder",
+          "evalBefore": "-0.10",
+          "evalAfter": "-5.25"
+        },
+        {
+          "moveNum": 41,
+          "san": "Raf1",
+          "bestMove": "a5",
+          "cpl": 357,
+          "classification": "blunder",
+          "evalBefore": "-0.24",
+          "evalAfter": "-3.81"
+        }
+      ]
+    }
+  },
+  "SW Open 2026": {
+    "R2": {
+      "prColor": "white",
+      "opponent": "Ni, Alan",
+      "oppElo": 1869,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 90.3,
+      "oppAccuracy": 90.4,
+      "avgCPL": 47,
+      "blunders": 3,
+      "mistakes": 1,
+      "inaccuracies": 4,
+      "movesAnalyzed": 80,
+      "criticalMoments": [
+        {
+          "moveNum": 69,
+          "san": "Be2",
+          "bestMove": "f7",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "#",
+          "evalAfter": "+12.41"
+        },
+        {
+          "moveNum": 70,
+          "san": "Bf3",
+          "bestMove": "f7",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "#",
+          "evalAfter": "+0.00"
+        },
+        {
+          "moveNum": 60,
+          "san": "Bc6",
+          "bestMove": "Bf3",
+          "cpl": 588,
+          "classification": "blunder",
+          "evalBefore": "+7.21",
+          "evalAfter": "+1.33"
+        }
+      ]
+    },
+    "R4": {
+      "prColor": "white",
+      "opponent": "Samples, Lincoln",
+      "oppElo": 1965,
+      "result": "0-1",
+      "prResult": "loss",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 83.5,
+      "oppAccuracy": 87.8,
+      "avgCPL": 68,
+      "blunders": 3,
+      "mistakes": 3,
+      "inaccuracies": 11,
+      "movesAnalyzed": 55,
+      "criticalMoments": [
+        {
+          "moveNum": 54,
+          "san": "Qxc7",
+          "bestMove": "Qxf7+",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "+0.00",
+          "evalAfter": "-#"
+        },
+        {
+          "moveNum": 53,
+          "san": "Rf6",
+          "bestMove": "Rg2",
+          "cpl": 433,
+          "classification": "blunder",
+          "evalBefore": "+4.33",
+          "evalAfter": "+0.00"
+        },
+        {
+          "moveNum": 44,
+          "san": "Bxb6",
+          "bestMove": "Raf1",
+          "cpl": 357,
+          "classification": "blunder",
+          "evalBefore": "+9.43",
+          "evalAfter": "+5.86"
+        }
+      ]
+    },
+    "R6": {
+      "prColor": "white",
+      "opponent": "Vinayagaram, Nethra",
+      "oppElo": 1963,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 96.2,
+      "oppAccuracy": 93.8,
+      "avgCPL": 34,
+      "blunders": 2,
+      "mistakes": 5,
+      "inaccuracies": 4,
+      "movesAnalyzed": 69,
+      "criticalMoments": [
+        {
+          "moveNum": 58,
+          "san": "g6",
+          "bestMove": "h6",
+          "cpl": 389,
+          "classification": "blunder",
+          "evalBefore": "+15.07",
+          "evalAfter": "+11.18"
+        },
+        {
+          "moveNum": 33,
+          "san": "Rxd8+",
+          "bestMove": "Bxd8",
+          "cpl": 324,
+          "classification": "blunder",
+          "evalBefore": "+10.97",
+          "evalAfter": "+7.73"
+        },
+        {
+          "moveNum": 25,
+          "san": "Qf4",
+          "bestMove": "Bh6",
+          "cpl": 289,
+          "classification": "mistake",
+          "evalBefore": "+5.57",
+          "evalAfter": "+2.68"
+        }
+      ]
     }
   }
 }

@@ -12,11 +12,13 @@ const SF_DEPTH = parseInt(process.env.SF_DEPTH || '18', 10);
 const SF_THREADS = parseInt(process.env.SF_THREADS || '16', 10);
 const INACCURACY_CPL = 50, MISTAKE_CPL = 150, BLUNDER_CPL = 300;
 
-// World Youth uses non-standard format; AGCA uses standard PGN
+// World Youth uses non-standard format; all others use standard PGN
 const TOURNAMENTS = [
   { dir: 'agcafall2026',   name: 'AGCA Fall 2026',    format: 'pgn' },
   { dir: 'agcasummer2026', name: 'AGCA Summer 2026',  format: 'pgn' },
   { dir: 'worldyouth2026', name: 'World Youth 2026',  format: 'nonstandard' },
+  { dir: 'blueridge2026',  name: 'Blue Ridge 2026',   format: 'pgn' },
+  { dir: 'swopen2026',     name: 'SW Open 2026',      format: 'pgn' },
 ];
 
 function isPranav(name) { return /santhosh|pranav/i.test(name); }
