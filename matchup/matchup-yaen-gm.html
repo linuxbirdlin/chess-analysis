@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle Plan: Austin vs Saenz Cabrera, Yaen (GM Prep)</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Georgia', serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg);
+}
+h1 { font-size: 1.6em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.15em; margin: 28px 0 10px; padding-left: 10px; }
+h2.white-section { border-left: 5px solid var(--blue); }
+h2.black-section { border-left: 5px solid var(--red); }
+h2.analysis   { border-left: 5px solid var(--gold); }
+h2.reference  { border-left: 5px solid #666; }
+h3 { font-size: 1em; margin: 14px 0 6px; color: #333; }
+.subtitle { font-size: 0.85em; color: #666; margin-bottom: 22px; }
+.subtitle span { margin-right: 16px; }
+
+.rating-note { background: #efffef; border: 2px solid #2d7d46; border-radius: 5px;
+               padding: 10px 14px; margin-bottom: 18px; font-size: 0.9em; }
+
+.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.intel-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.intel-card h3 { margin-top: 0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }
+.intel-card ul { padding-left: 16px; margin-top: 4px; }
+.intel-card li { margin-bottom: 3px; }
+
+.callout { border-radius: 4px; padding: 10px 14px; margin: 10px 0; font-size: 0.9em; }
+.callout-gold   { background: #fffbe0; border-left: 4px solid var(--gold); }
+.callout-blue   { background: #eef4ff; border-left: 4px solid var(--blue); }
+.callout-green  { background: #efffef; border-left: 4px solid var(--green); }
+.callout-danger { background: #fff0f0; border-left: 4px solid var(--red); }
+
+.move-line { background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+             padding: 8px 12px; margin: 6px 0; font-size: 0.92em; line-height: 1.9; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: #eef4ff; border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.bad-move { background: #ffe0e0; border: 1px solid #cc8888; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; color: #8b1a1a; }
+.note { color: #555; font-style: italic; font-size: 0.88em; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
+th { background: #333; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+.row-danger td { background: #fff0f0 !important; }
+
+hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20px; }
+
+.acc-toggle { display: none; }
+.acc-label {
+  display: block; cursor: pointer; padding: 8px 12px; margin: 4px 0;
+  background: #eee; border: 1px solid #ccc; border-radius: 4px;
+  font-weight: bold; font-size: 0.9em; user-select: none;
+}
+.acc-label::before { content: '▶ '; font-size: 0.75em; color: #666; }
+.acc-toggle:checked ~ .acc-label::before { content: '▼ '; }
+.acc-content { display: none; padding: 10px 14px; background: #fafaf6;
+               border: 1px solid #ddd; border-top: none; border-radius: 0 0 4px 4px; margin-bottom: 6px; }
+.acc-toggle:checked ~ .acc-content { display: block; }
+
+@media print {
+  .acc-content { display: block !important; }
+  .acc-label::before { content: '' !important; }
+  body { font-size: 12px; padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<h1>Battle Plan: Austin (White &amp; Black) vs Saenz Cabrera, Yaen</h1>
+<div class="subtitle">
+  <span><strong>GM Prep</strong></span>
+  <span>Yaen rating: ~1841 FIDE (peaked 1899 in 2024)</span>
+  <span>Direct record: No encounter</span>
+  <span>OTB games analyzed: 50 · avg <strong>90.9%</strong></span>
+</div>
+
+<div class="rating-note">
+  <strong>Rating context:</strong> Austin (~1865–1968) holds a modest <strong>+24–127 point advantage</strong>. Yaen has beaten players rated up to 2140 and drew a 1947-rated opponent in 2026 — this is a serious matchup requiring full preparation. However, Yaen's collapse pattern — <strong>1000-CPL blunders inside his own prepared openings (Scotch, French Advance, Sveshnikov)</strong> — is the most extreme of all 12 opponents in this prep set. The opportunity is real.
+</div>
+
+<div class="intel-grid">
+  <div class="intel-card">
+    <h3>Yaen as White</h3>
+    <ul>
+      <li><strong>1.e4</strong> primary</li>
+      <li><strong>Scotch Game C45</strong> (7 games) — primary weapon: 1.e4 e5 2.Nf3 Nc6 3.d4</li>
+      <li><strong>B90 English Attack</strong> (4 games) — vs Sicilian: f3/Be3/Qd2/g4 setup</li>
+      <li><strong>C02 French Advance</strong> (3 games) — same 3.e5 system Austin plays</li>
+      <li>C25 Vienna (2); D00/London (2, recent 2026)</li>
+      <li><em>Note: Scotch only arises vs 1...e5. Austin plays 1...c5 → Yaen uses B90 English Attack</em></li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Yaen as Black</h3>
+    <ul>
+      <li>vs 1.e4: <strong>Sicilian Sveshnikov B32/B33</strong> (7 games) — 1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 <strong>e5!</strong></li>
+      <li>vs 1.e4 Alapin: active Sicilian (B22) — 3 games</li>
+      <li>vs 1.d4: QGD/Semi-Slav (D35/D43/D55/D30) — solid, defensive</li>
+      <li>Classical Black record: 4W–0L–4D (100% no losses in classical)</li>
+      <li>Rapid/blitz: 4L in rapid vs only 2L in classical — weaker under fast time</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Critical weaknesses</h3>
+    <ul>
+      <li><strong>Own-weapon collapses:</strong> Blunders 1000 CPL in his <em>own</em> Scotch (17.f3?? vs Davis 1566), French Advance (32.Bxe6?? vs Jalomo 1704), and Sveshnikov as Black (Qc8?? + Rb7?? + axb5?? — three consecutive)</li>
+      <li><strong>Worst game 77.9%</strong> (French Advance) — lost a winning White position in one chain</li>
+      <li><strong>Rating volatility:</strong> Peaked 1899 → fell to 1715/1659 in 2025 → back to 1841 in 2026</li>
+      <li><strong>Olimpiada Nacional classical: 81.3% avg</strong> — multi-game collapse at national level</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Key game facts</h3>
+    <ul>
+      <li>Overall: <strong>90.9%</strong> avg across 50 games</li>
+      <li>Worst: <strong>77.1%</strong> (Olimpiada rapid, B32) and <strong>77.9%</strong> (Olimpiada classical, C02)</li>
+      <li>Best: <strong>98.4%</strong> (Liga Interestelar Black) and <strong>98.2%</strong> (Unknown draw)</li>
+      <li>Classical strongest: 74% score (10W–2L–5D)</li>
+      <li>Notable: Drew Fernando Cortes Medina (1805) at Olimpiada Nacional Rapid</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="white-section">Part 1 — Austin as White: Rossolimo Sidesteps Sveshnikov</h2>
+
+<div class="callout callout-blue">
+  <strong>Primary weapon: Rossolimo (3.Bb5!).</strong> Yaen's Black weapon is the <strong>Sveshnikov (B32/B33)</strong> — requiring 3.d4 → 4.Nxd4 → 4...e5. By playing <strong>3.Bb5</strong> instead of 3.d4, Austin bypasses every line Yaen has prepared. Yaen has <em>zero</em> documented games as Black against the Rossolimo. He must improvise from move 3.
+</div>
+
+<h3>Rossolimo — Austin's main line</h3>
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">c5</span>
+  2.Nf3 <span class="mv-z">Nc6</span>
+  <span class="key-move">3.Bb5!</span>
+  <span class="note"> — The Sveshnikov requires 3.d4 cxd4 4.Nxd4 e5. 3.Bb5 cuts the entire Sveshnikov tree dead. Yaen is in unfamiliar territory from move 3.</span>
+</div>
+
+<input class="acc-toggle" id="w1" type="checkbox" checked>
+<label class="acc-label" for="w1">Branch A — 3...g6 (most likely — Yaen's fianchetto instinct)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 3.Bb5 <span class="mv-z">g6</span>
+    <span class="key-move">4.Bxc6!</span> <span class="mv-z">dxc6</span>
+    5.d3 <span class="mv-z">Bg7</span>
+    6.h3 <span class="mv-z">Nf6</span>
+    <span class="key-move">7.Nc3!</span> <span class="mv-z">O-O</span>
+    8.Be3 <span class="mv-z">b6</span>
+    <span class="key-move">9.Qd2!</span>
+    <span class="note"> — Exchange Rossolimo. After 4.Bxc6 dxc6, Yaen has doubled c-pawns and a structural deficit. White builds a kingside pawn center. 9.Qd2 prepares Bh6 to trade Black's fianchettoed bishop, killing the long diagonal.</span>
+  </div>
+  <p style="margin-top:8px">Key plan: Bh6 to remove the Bg7, then f4–f5 kingside expansion. Yaen's doubled c-pawns are a permanent structural weakness — target c5 in all endgames.</p>
+</div>
+
+<input class="acc-toggle" id="w2" type="checkbox" checked>
+<label class="acc-label" for="w2">Branch B — 3...e6 (Rossolimo mainline)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 3.Bb5 <span class="mv-z">e6</span>
+    4.O-O <span class="mv-z">Nge7</span>
+    <span class="key-move">5.c3!</span> <span class="mv-z">a6</span>
+    6.Ba4 <span class="mv-z">b5</span>
+    7.Bc2 <span class="mv-z">d5</span>
+    <span class="key-move">8.d4!</span>
+    <span class="note"> — Classical Rossolimo with c3/Ba4. The 8.d4! central break creates immediate tension. Yaen has never faced this from Black; he will either trade into a slightly inferior IQP structure or allow White a strong center.</span>
+  </div>
+</div>
+
+<input class="acc-toggle" id="w3" type="checkbox" checked>
+<label class="acc-label" for="w3">Branch C — 3...Nf6 (Rossolimo exchange)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 3.Bb5 <span class="mv-z">Nf6</span>
+    <span class="key-move">4.Bxc6!</span> <span class="mv-z">dxc6</span>
+    <span class="key-move">5.e5!</span> <span class="mv-z">Nd5</span>
+    6.O-O <span class="mv-z">Nb6</span>
+    <span class="key-move">7.d3!</span> <span class="mv-z">Bg4</span>
+    8.Nc3 <span class="mv-z">e6</span>
+    <span class="key-move">9.h3!</span>
+    <span class="note"> — White has the e5 pawn wedge and central space. After 5.e5 Nd5 6.O-O, White controls the entire center. 9.h3 kicks Bg4 before Black can create pressure with ...Bh5–Bg6.</span>
+  </div>
+  <p style="margin-top:8px">Austin should use this if Yaen tries to quickly develop with 3...Nf6 — the e5 pawn is a powerful space advantage White maintains throughout the game.</p>
+</div>
+
+<input class="acc-toggle" id="w4" type="checkbox">
+<label class="acc-label" for="w4">Branch D — If Yaen plays 1...e5 (unlikely but possible)</label>
+<div class="acc-content">
+  <div class="callout callout-gold" style="margin-bottom:8px">
+    Austin plays 1...c5 (Sicilian) as Black, so in a normal game <em>Austin</em> is Black and Yaen is White. However if Austin unexpectedly plays 1...e5, Yaen would use his Scotch. This branch is for reference only — it won't arise unless Austin deviates. Yaen's Scotch (C45) is his primary weapon as White, but Austin's Sicilian avoids it entirely.
+  </div>
+  <div class="move-line">
+    <span class="mv-a">If Austin plays 1...e5 (not recommended):</span> 2.Nf3 Nc6 3.d4 (Scotch) — Yaen's most prepared territory. <strong>Avoid: play 1...c5 to sidestep Scotch entirely.</strong>
+  </div>
+</div>
+
+<h3 style="margin-top:18px">Key tactical themes — Austin as White</h3>
+<table>
+  <thead><tr><th>Theme</th><th>How it plays out</th><th>Evidence</th></tr></thead>
+  <tbody>
+  <tr><td><strong>Rossolimo cuts Sveshnikov cold</strong></td><td>Yaen's 7-game Sveshnikov prep is useless; he must improvise from move 3 in an unfamiliar structure with structural disadvantages (doubled c-pawns)</td><td>All 7 Yaen Black games vs 1.e4 are B32/B33 Sveshnikov; zero Rossolimo games on record</td></tr>
+  <tr><td><strong>Exploit the doubled c-pawns</strong></td><td>After 4.Bxc6 dxc6, target c5 pawn in all endings; use Nd4/a4-a5 to probe the weakness systematically</td><td>Standard Rossolimo exploitation plan; Yaen has no experience defending this</td></tr>
+  <tr><td><strong>Don't let Yaen stabilize</strong></td><td>Yaen's best results come in positionally stable games; his collapses happen in dynamic positions under pressure — keep the position complex</td><td>Scotch and French collapses both happened in complex tactical middlegames</td></tr>
+  <tr><td><strong>Wait for the own-weapon blunder</strong></td><td>Yaen blunders 1000-CPL moves in positions he supposedly knows (Scotch, French Advance). In unfamiliar Rossolimo territory, his calculation pressure is even higher.</td><td>17.f3?? (1000CPL) in Scotch; 32.Bxe6?? (953CPL) in French Advance</td></tr>
+  </tbody>
+</table>
+
+<hr class="section-divider">
+
+<h2 class="black-section">Part 2 — Austin as Black: Taimanov/Kan vs B90 English Attack</h2>
+
+<div class="callout callout-green">
+  <strong>Core fact:</strong> Austin plays <strong>1...c5</strong>. The Scotch Game (Yaen's primary White weapon) requires <strong>1...e5</strong>. Since Austin plays Sicilian, Yaen switches to his <strong>B90 English Attack</strong> system (f3/Be3/Qd2/g4). Austin should use the Taimanov/Kan (4...e6 5.Nc3 a6) — familiar ground from Austin's Pranav, Heye, and Emerson prep — where he has a preparation advantage.
+</div>
+
+<h3>Austin's Taimanov/Kan — main line</h3>
+<div class="move-line">
+  <span class="mv-z">Yaen:</span> 1.e4 <span class="mv-a">c5</span>
+  2.Nf3 <span class="mv-a">Nc6</span>
+  3.d4 <span class="mv-a">cxd4</span>
+  4.Nxd4 <span class="mv-a">e6</span>
+  5.Nc3 <span class="mv-a">a6</span>
+  6.Be3 <span class="mv-a">Nge7</span>
+  7.f3 <span class="mv-a">d6</span>
+  <span class="key-move">8...Nxd4!</span>
+  <span class="note"> — Taimanov/Kan B48 structure. Austin plays ...e6+...a6 and develops the knight to e7 (not f6) to keep flexibility. 8...Nxd4 and recapturing 9.Bxd4 avoids the English Attack's sharpest lines. Austin knows this structure deeply.</span>
+</div>
+
+<input class="acc-toggle" id="b1" type="checkbox" checked>
+<label class="acc-label" for="b1">Branch A — vs English Attack (6.Be3 7.f3) — standard Taimanov</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 4...e6 5.Nc3 a6 6.Be3 <span class="mv-a">Nge7</span>
+    7.f3 <span class="mv-a">d6</span>
+    8.Qd2 <span class="mv-a">Nxd4!</span>
+    9.Bxd4 <span class="mv-a">Nc6</span>
+    <span class="key-move">10...Be7!</span>
+    <span class="note"> — Taimanov B48. 8...Nxd4! reduces tension before Yaen can launch the g4-g5 attack. After 9.Bxd4 Nc6 10.Be3 Be7, Black has a solid position. Yaen's English Attack preparation (g4/h4 attack) is blunted before it starts.</span>
+  </div>
+  <p style="margin-top:8px">This is well-trodden territory for Austin (familiar from Pranav, Heye, Emerson analysis). The key is trading the Nd4 before Yaen can play 9.g4! — once White plays g4, the attack is on.</p>
+</div>
+
+<input class="acc-toggle" id="b2" type="checkbox" checked>
+<label class="acc-label" for="b2">Branch B — Kalashnikov counter: 4...e5!? (exploit Yaen's anti-Sveshnikov gap)</label>
+<div class="acc-content">
+  <div class="callout callout-gold" style="margin-bottom:8px">
+    <strong>Surprise option:</strong> Play <strong>4...e5</strong> (Kalashnikov/Sveshnikov from the Black side). Yaen knows this structure deeply as Black — but as White, he has <strong>zero documented anti-Sveshnikov/anti-Kalashnikov games</strong>. He will be in his own territory but on the wrong side of the board.
+  </div>
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 4.Nxd4 <span class="key-move">e5!</span>
+    <span class="mv-z">5.Nb5</span> <span class="mv-a">d6</span>
+    6.N1c3 <span class="mv-a">a6</span>
+    7.Na3 <span class="mv-a">b5</span>
+    <span class="key-move">8.Nd5!</span> <span class="mv-a">Nce7!</span>
+    <span class="note"> — Kalashnikov B32/Sveshnikov B33. Yaen plays this EXACT structure as Black — his B32/B33 games show deep knowledge. As White, he has never faced it. Austin plays his own opening back at him with the roles reversed.</span>
+  </div>
+  <p style="margin-top:8px">Risk: Austin needs to know the Sveshnikov/Kalashnikov from the Black side (which he should now study, since it mirrors his prep). Reward: Yaen will be in unfamiliar territory as White in his own opening — the same territory where he made three consecutive blunders as Black (Olimpiada Rapid R5).</p>
+</div>
+
+<input class="acc-toggle" id="b3" type="checkbox">
+<label class="acc-label" for="b3">Branch C — If Yaen plays 1.d4 (secondary weapon)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">Yaen:</span> 1.d4 <span class="mv-a">Nf6</span>
+    2.c4 <span class="mv-a">e6</span>
+    3.Nc3 <span class="key-move">Bb4!</span>
+    4.Qc2 <span class="mv-a">O-O</span>
+    5.a3 <span class="mv-a">Bxc3+!</span>
+    6.Qxc3 <span class="mv-a">b6</span>
+    <span class="note"> — Nimzo-Indian Classical. Austin's standard Bxc3+ ...b6/...Ba6 system. Yaen has played D00/London and QGD as Black vs 1.d4 — he has not been observed handling Nimzo-Indian as White. Austin has deep Nimzo preparation.</span>
+  </div>
+  <p style="margin-top:8px">If Yaen plays 1.d4 London (D00 — his recent 2026 games), Austin plays Nimzo-Indian and outprepares him in a system Yaen hasn't faced much as White.</p>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="analysis">Part 3 — Accuracy Profile and Error Patterns</h2>
+
+<h3>Yaen's accuracy by tournament type</h3>
+<table>
+  <thead><tr><th>Tournament</th><th>Format</th><th>Games</th><th>Avg Acc</th><th>Notes</th></tr></thead>
+  <tbody>
+  <tr><td>XIII Torneo CDMX 2026</td><td>Classical</td><td>3</td><td><strong>93.7%</strong></td><td>Strong — wins vs sub-1600; no blunders vs weak players</td></tr>
+  <tr><td>Unknown events (various)</td><td>Rapid</td><td>4</td><td><strong>94.8%</strong></td><td>High vs lower-rated; includes 98.2% Black draw</td></tr>
+  <tr><td>Querétaro 2025</td><td>Classical</td><td>5</td><td><strong>91.4%</strong></td><td>Solid overall; one bad B46 game (79.5%)</td></tr>
+  <tr><td>Liga Interestelar/Intergaláctica</td><td>Standard/Rapid</td><td>~15</td><td><strong>89.3%</strong></td><td>Mixed; collapses in long rapid games; best 98.4% Black</td></tr>
+  <tr><td>Macro Regional Durango 2024</td><td>Rapid</td><td>3</td><td><strong>89.9%</strong></td><td>Data note: two identical C25 Vienna games recorded</td></tr>
+  <tr class="row-danger"><td>Olimpiada Nacional 2025 (Classical)</td><td>Classical</td><td>4</td><td><strong>81.3%</strong></td><td>WORST classical tournament — two sub-85% games including 77.9%</td></tr>
+  <tr style="background:#f5f0e8"><td><strong>Overall (50 games)</strong></td><td><strong>Mixed</strong></td><td><strong>50</strong></td><td><strong>90.9%</strong></td><td>Classical/standard stronger; rapid/blitz weaker</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-danger" style="margin-top:12px">
+  <strong>The defining pattern — 1000-CPL blunders inside own prepared openings:</strong> Yaen doesn't just blunder in unfamiliar positions. He blunders in the openings he plays most — Scotch (f3?? in C45), French Advance (Bxe6?? in C02), and Sveshnikov (three consecutive as Black in B32). This is a systematic calculation failure under pressure, not simply weak preparation. Facing Yaen in the Rossolimo (an unfamiliar structure) increases this pressure further.
+</div>
+
+<h3 style="margin-top:14px">Known error patterns</h3>
+<table>
+  <thead><tr><th>Pattern</th><th>Critical example</th><th>How to exploit</th></tr></thead>
+  <tbody>
+  <tr><td><strong>Collapses in own prepared lines</strong></td><td>Olimpiada Nacional C45: 17.f3?? (1000CPL) in Scotch — from a won position (+4.5) to equal in one move; Olimpiada Nacional C02: 32.Bxe6?? (953CPL) + Nd4?? (683CPL) chain</td><td>Create complex tactical positions in any opening — Yaen's calculation breaks down regardless of how well he knows the line theoretically</td></tr>
+  <tr><td><strong>Back-to-back blunders</strong></td><td>C02 Olimpiada: Bxe6?? (953CPL) → Rxf8+?? (294CPL) → Nd4?? (683CPL) — three consecutive; B46 Queretaro: fxe5?? (1000CPL) → Kg1?? (1000CPL)</td><td>After Yaen makes one blunder, the position often continues to deteriorate — maintain pressure and don't let him recover</td></tr>
+  <tr><td><strong>Consecutive Sveshnikov blunders as Black</strong></td><td>Olimpiada Rapid R5 B32: Qc8?? (560CPL) → Rb7?? (332CPL) → axb5?? (478CPL) — three consecutive in his primary Black opening</td><td>4...e5 (Kalashnikov) puts Yaen in his own opening as White — he may make the same type of errors from the other side</td></tr>
+  <tr><td><strong>Queen over material</strong></td><td>Macroregional A R3: Qc4?? (706CPL) instead of Rxa4 — chose queen maneuver over winning rook capture</td><td>Same pattern as Daniel H (piece move over material); watch for when Yaen can capture but instead plays a queen move</td></tr>
+  </tbody>
+</table>
+
+<h3 style="margin-top:14px">Psychological notes</h3>
+<ul style="padding-left:20px; margin-top:6px;">
+  <li><strong>Near-equal opponent</strong> — Both players ~1841–1968. This is Austin's most evenly-matched classical game in the prep set. No rating cushion to fall back on.</li>
+  <li><strong>Yaen has upset potential.</strong> Beat Rubio 2140, beat 1947-rated, drew Cortes Medina 2026 FIDE (another Austin opponent). Austin must treat this as a full-effort game.</li>
+  <li><strong>Yaen's rating is recovering.</strong> 1899 → 1715 → 1841 — the recovery from the 2025 slump suggests he's improving again. His 2026 form (4W–3L–2D vs mixed field) is solid.</li>
+  <li><strong>Rapid form is weaker.</strong> If this tournament has classical time controls, Yaen is stronger. If rapid, Austin has an edge — Yaen's 6 rapid losses vs 2 classical losses shows a clear format gap.</li>
+  <li><strong>Preparation imbalance:</strong> Austin knows Yaen's Sveshnikov from the White side; Yaen has zero Rossolimo games. This prep edge could be decisive at equal rating.</li>
+</ul>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 4 — If / Then Quick Reference</h2>
+
+<input class="acc-toggle" id="q1" type="checkbox" checked>
+<label class="acc-label" for="q1">Austin as White — opening decisions</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Yaen plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
+    <tbody>
+    <tr><td>1…c5 2…Nc6 (standard Sicilian)</td><td>2.Nf3 Nc6 <strong>3.Bb5!</strong> (Rossolimo)</td><td>Sidesteps all Sveshnikov theory; Yaen has zero Rossolimo games as Black</td></tr>
+    <tr><td>3…g6 (fianchetto attempt)</td><td><strong>4.Bxc6! dxc6</strong> 5.d3 Bg7 6.h3 Nf6 <strong>7.Nc3! → 9.Qd2! → Bh6!</strong></td><td>Exchange bishop, remove fianchetto, dominate structurally with doubled c-pawn target</td></tr>
+    <tr><td>3…e6 (mainline Rossolimo)</td><td>4.O-O Nge7 <strong>5.c3!</strong> a6 6.Ba4 b5 7.Bc2 d5 <strong>8.d4!</strong></td><td>Central break creates immediate tension; Yaen improvising unfamiliar IQP structure</td></tr>
+    <tr><td>3…Nf6 (exchange option)</td><td><strong>4.Bxc6! dxc6 5.e5!</strong> Nd5 6.O-O Nb6 7.d3 Bg4 <strong>8.Nc3! 9.h3!</strong></td><td>e5 pawn wedge + structural space; kick Bg4 before it creates pressure</td></tr>
+    <tr><td>1…e5 (unlikely deviation)</td><td>2.Nf3 Nc6 → avoid Scotch (Yaen's territory); play <strong>3.Bc4 (Italian)</strong></td><td>Italian avoids all Scotch theory Yaen has prepared</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<input class="acc-toggle" id="q2" type="checkbox" checked>
+<label class="acc-label" for="q2">Austin as Black — opening decisions</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Yaen plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
+    <tbody>
+    <tr><td>1.e4 (primary)</td><td>1…c5 → Taimanov (4…e6 5.Nc3 <strong>6…Nge7 8…Nxd4!</strong>)</td><td>Blunts English Attack before g4 launch; Austin's most-prepared structure</td></tr>
+    <tr><td>6.Be3 7.f3 English Attack</td><td><strong>7…d6 8…Nxd4!</strong> trade before 9.g4</td><td>Trading the Nd4 kills the g4-g5 attack before it starts</td></tr>
+    <tr><td>1.e4 (surprise option)</td><td>4.Nxd4 <strong>e5!</strong> (Kalashnikov)</td><td>Puts Yaen in his own opening as White — his worst game (77.1%) was in this structure as Black</td></tr>
+    <tr><td>1.d4 (secondary)</td><td>1…Nf6 2…e6 <strong>3…Bb4!</strong> (Nimzo-Indian Bxc3+)</td><td>Austin's standard Nimzo prep; Yaen has rarely faced Nimzo as White</td></tr>
+    <tr><td>1.d4 2.Nf3 (London-type)</td><td>1…Nf6 2…e6 <strong>3…d5</strong> or <strong>3…Bb4+</strong> (Bogo-Indian)</td><td>Solid play against London; Yaen's D00 games are recent and potentially shallow</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<input class="acc-toggle" id="q3" type="checkbox">
+<label class="acc-label" for="q3">Key principles for this matchup</label>
+<div class="acc-content">
+  <ul style="padding-left:18px;">
+    <li><strong>Play for the win.</strong> Near-equal rating — draws are suboptimal. Austin's preparation advantage (Rossolimo vs Sveshnikov, Taimanov prep) is significant. Cash it in.</li>
+    <li><strong>Keep the position dynamic.</strong> Yaen collapses in complex tactical positions — exactly in his own openings. More complexity = more chance for Yaen's systematic calculation failures.</li>
+    <li><strong>Don't simplify after a blunder.</strong> When Yaen makes one error, the dataset shows he often makes more (back-to-back 1000-CPL chains). Maintain pressure.</li>
+    <li><strong>Preparation depth as White.</strong> Know the Rossolimo to move 15+, especially after 4.Bxc6 dxc6. Yaen is improvising from move 3 — Austin's preparation depth directly translates to advantage.</li>
+    <li><strong>If classical time control</strong> (not rapid), treat this as Austin's hardest matchup other than Zachary/Daniel Lee. Yaen's classical record (74%) is strong.</li>
+    <li><strong>If rapid time control</strong>, Austin has a larger edge — Yaen loses 3x more often in rapid.</li>
+  </ul>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 5 — Critical Moments Reference</h2>
+
+<div class="callout callout-danger">
+  <strong>The "own weapon" collapse (Olimpiada Nacional Classical, C45 Scotch, White, 82.8%):</strong>
+  This is Yaen's primary prepared opening. Eval was approximately +4.5 for White after 16 moves — a dominant winning position. Move 17: <span class="bad-move">17.f3??</span> (1000 CPL, best Rad1). The rook was available for the center; instead Yaen played f3 (presumably to support the center) and walked into a tactical shot. The game instantly swung to Black's advantage. <strong>Pattern: Yaen can lose winning positions in his best-prepared openings in a single move.</strong>
+</div>
+
+<h3>Pattern: French Advance collapse chain (Olimpiada Nacional Classical, C02, White, 77.9%)</h3>
+<div class="move-line">
+  <span class="note">Yaen as White vs Jalomo (1704), French Advance:</span><br>
+  Move 32: <span class="bad-move">Bxe6??</span> (953 CPL, best Qd6!) — grabbed the e6-pawn but walked into a tactical continuation; best move was the queen centralization<br>
+  Move 35: <span class="bad-move">Rxf8+??</span> (294 CPL) — wrong rook check<br>
+  Move 38: <span class="bad-move">Nd4??</span> (683 CPL, best Ra8) — knight went to active square but missed the winning rook move<br>
+  Result: Dominant White position dissolved into a loss
+</div>
+<p style="margin:6px 0 10px; font-size:0.9em; color:#444">
+  Note: Yaen plays French Advance (C02) as White — same system as Austin. Austin knows this structure inside out. If Yaen tries French Advance variations (which he has against Yaen's opponents playing 1...e6), Austin will be on familiar ground and Yaen won't be.
+</p>
+
+<h3>Pattern: Three consecutive Sveshnikov blunders as Black (Olimpiada Rapid R5, B32, 77.1%)</h3>
+<div class="move-line">
+  <span class="note">Yaen as Black vs Guzman (1885), Sicilian B32:</span><br>
+  Move 26: <span class="bad-move">Qc8??</span> (560 CPL, best Nc3) — queen retreated passively instead of the knight centralizing<br>
+  Move 30: <span class="bad-move">Rb7??</span> (332 CPL, best Ng4) — rook moved passively instead of the knight attacking<br>
+  Move 32: <span class="bad-move">axb5??</span> (478 CPL, best Ng4) — pawn capture instead of the knight attack (again!)<br>
+  Pattern: In all three cases, best move was Ng4 (an aggressive knight attack). Yaen played passive moves (queen retreat, rook retreat, pawn capture) each time. <strong>Same piece-over-pawn pattern as Daniel H Gamboa — but here it's passive piece moves over the attacking knight.</strong>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 6 — Engine Accuracy Reference (All 50 Games)</h2>
+
+<table>
+  <thead><tr><th>Tournament</th><th>Rnd</th><th>Color</th><th>Opponent</th><th>Elo</th><th>Result</th><th>Acc</th><th>ECO</th><th>B/M</th></tr></thead>
+  <tbody>
+  <tr><td>Liga Interestelar (Std)</td><td>R6</td><td>Black</td><td>Maciel Martinez, Sebastian</td><td>1536</td><td>Loss</td><td><strong>98.4%</strong></td><td>D30</td><td>0/0</td></tr>
+  <tr><td>Unknown</td><td>R2</td><td>Black</td><td>cortez, madera fidel</td><td>0</td><td>Loss</td><td><strong>98.2%</strong></td><td>D12</td><td>0/0</td></tr>
+  <tr><td>XIII Torneo CDMX</td><td>R1</td><td>White</td><td>Sanchez Gomez, Santiago</td><td>1530</td><td>Win</td><td><strong>97.9%</strong></td><td>C01</td><td>2/0</td></tr>
+  <tr><td>Querétaro 2025</td><td>R6</td><td>Black</td><td>Urbina Ballina, Christopher</td><td>1507</td><td>Loss</td><td><strong>97.5%</strong></td><td>B33</td><td>0/0</td></tr>
+  <tr><td>XIII Torneo CDMX</td><td>R6</td><td>White</td><td>Montoya Perez, Zirel</td><td>1569</td><td>Win</td><td><strong>97.3%</strong></td><td>C50</td><td>0/1</td></tr>
+  <tr><td>Olimpiada Nac (Rapid 25+5)</td><td>R4</td><td>White</td><td>Cortes Medina, Fernando</td><td>1805</td><td>Draw</td><td>96.4%</td><td>B28</td><td>0/0</td></tr>
+  <tr><td>Olimpiada Nac (Rapid 10+5)</td><td>R2</td><td>Black</td><td>Montoya Medina, Santiago</td><td>1480</td><td>Loss</td><td>95.3%</td><td>B22</td><td>0/1</td></tr>
+  <tr><td>Querétaro 2025</td><td>R5</td><td>White</td><td>Vera Morales, Matheus</td><td>1529</td><td>Win</td><td>96.6%</td><td>C45</td><td>3/0</td></tr>
+  <tr><td>Olimpiada Nac (Rapid 10+5)</td><td>R1</td><td>White</td><td>Olvera Salinas, Violeta</td><td>1432</td><td>Win</td><td>89.4%</td><td>B90</td><td>0/2</td></tr>
+  <tr><td>Olimpiada Nac (Rapid 10+5)</td><td>R4</td><td>Black</td><td>Campillo Soto, Emilio</td><td>2140</td><td>Loss</td><td>93.9%</td><td>A23</td><td>0/0</td></tr>
+  <tr><td>Olimpiada Nac (Rapid 10+5)</td><td>R5</td><td>White</td><td>Jackson, Leo Daniel</td><td>1882</td><td>Win</td><td>93.3%</td><td>C02</td><td>0/1</td></tr>
+  <tr><td>Olimpiada Nac (Rapid 10+5)</td><td>R7</td><td>White</td><td>Alba, Ruiz Kenneth</td><td>1933</td><td>Loss</td><td>89.1%</td><td>C45</td><td>7/4</td></tr>
+  <tr><td>Olimpiada Nac (Rapid 25+5)</td><td>R7</td><td>White</td><td>Jackson, Leo Daniel</td><td>1882</td><td>Win</td><td>92.1%</td><td>C02</td><td>0/2</td></tr>
+  <tr><td>Olimpiada Nac (Rapid 25+5)</td><td>R3</td><td>Black</td><td>Alba, Ruiz Kenneth</td><td>1933</td><td>Loss</td><td>96.2%</td><td>B32</td><td>0/0</td></tr>
+  <tr><td>Olimpiada Nac (Rapid 25+5)</td><td>R6</td><td>White</td><td>Rosales Flores, Nayla</td><td>1410</td><td>Win</td><td>96.8%</td><td>B12</td><td>0/0</td></tr>
+  <tr><td>Olimpiada Nac (Blitz)</td><td>R2</td><td>White</td><td>Inzunza Becerra, Alexa</td><td>1555</td><td>Win</td><td>91.4%</td><td>C45</td><td>1/1</td></tr>
+  <tr><td>Olimpiada Nac (Blitz)</td><td>R3</td><td>Black</td><td>Cortes Medina, Fernando</td><td>1904</td><td>Win</td><td>91.9%</td><td>B32</td><td>3/1</td></tr>
+  <tr><td>Olimpiada Nac (Blitz)</td><td>R4</td><td>White</td><td>Olvera Salinas, Violeta</td><td>1493</td><td>Win</td><td>95.2%</td><td>B90</td><td>0/0</td></tr>
+  <tr><td>Olimpiada Nac (Blitz)</td><td>R5</td><td>Black</td><td>Garcia Solis, Miguel Angel</td><td>1617</td><td>Draw</td><td>80.1%</td><td>B32</td><td>1/3</td></tr>
+  <tr><td>Olimpiada Nac (Blitz)</td><td>R6</td><td>White</td><td>Cardenas Uribe, Mateo</td><td>1709</td><td>Draw</td><td>95.7%</td><td>B90</td><td>0/0</td></tr>
+  <tr><td>Unknown</td><td>R1</td><td>Black</td><td>Montoya Medina, Ana Sofia</td><td>1478</td><td>Loss</td><td>84.4%</td><td>B22</td><td>2/2</td></tr>
+  <tr><td>Unknown</td><td>R3</td><td>White</td><td>Baruque Hernandez, Juan Carlos</td><td>0</td><td>Win</td><td>90.1%</td><td>C44</td><td>3/1</td></tr>
+  <tr><td>Olimpiada Nac (Rapid 10+5)</td><td>R6</td><td>Black</td><td>Cortes Medina, Fernando</td><td>1805</td><td>Loss</td><td>91.6%</td><td>A29</td><td>0/1</td></tr>
+  <tr><td>Unknown</td><td>R2</td><td>White</td><td>Carrasco Zanini, Diego</td><td>0</td><td>Win</td><td>95.0%</td><td>C42</td><td>0/1</td></tr>
+  <tr><td>Querétaro 2025</td><td>R3</td><td>White</td><td>Perez Bruno, Victor</td><td>1527</td><td>Win</td><td>92.4%</td><td>C41</td><td>3/0</td></tr>
+  <tr><td>Querétaro 2025</td><td>R4</td><td>Black</td><td>Soto Resendiz, Miguel Angel</td><td>1647</td><td>Loss</td><td>91.2%</td><td>D04</td><td>2/1</td></tr>
+  <tr class="row-danger"><td>Querétaro 2025</td><td>R7</td><td>White</td><td>Sevilla Ramirez, Brandon</td><td>1709</td><td>Loss</td><td><strong>79.5%</strong></td><td>B46</td><td>2/6</td></tr>
+  <tr><td>Macroregional A 2025</td><td>R1</td><td>White</td><td>Ortiz Padilla, Santiago</td><td>1531</td><td>Win</td><td>86.3%</td><td>B40</td><td>2/4</td></tr>
+  <tr><td>Macroregional A 2025</td><td>R2</td><td>Black</td><td>Cabrera Estrada, Angel</td><td>1628</td><td>Loss</td><td>91.5%</td><td>B50</td><td>2/5</td></tr>
+  <tr><td>Macroregional A 2025</td><td>R3</td><td>White</td><td>Alba, Ruiz Kenneth</td><td>1811</td><td>Loss</td><td>88.7%</td><td>C45</td><td>1/3</td></tr>
+  <tr><td>Liga Interestelar (Std)</td><td>R1</td><td>White</td><td>Morales De Leon, Sara</td><td>1510</td><td>Win</td><td>91.6%</td><td>C45</td><td>3/3</td></tr>
+  <tr><td>Liga Interestelar (Std)</td><td>R2</td><td>Black</td><td>Quevedo Ponce, Juan</td><td>1538</td><td>Loss</td><td>93.3%</td><td>D00</td><td>1/1</td></tr>
+  <tr><td>Liga Interestelar (Std)</td><td>R3</td><td>Black</td><td>Contreras Cardona, Alfredo</td><td>1947</td><td>Loss</td><td>91.2%</td><td>D35</td><td>4/0</td></tr>
+  <tr><td>Liga Interestelar (Std)</td><td>R4</td><td>White</td><td>Estrada Nieto, Julian</td><td>2151</td><td>Loss</td><td>93.7%</td><td>C47</td><td>4/0</td></tr>
+  <tr><td>Liga Intergaláctica Rapid 2</td><td>R1</td><td>Black</td><td>Camargo Ortega, Ricardo</td><td>1568</td><td>Draw</td><td>83.5%</td><td>D55</td><td>4/2</td></tr>
+  <tr><td>Liga Intergaláctica Rapid 2</td><td>R2</td><td>White</td><td>Leon Albisoru, Iulius</td><td>1473</td><td>Win</td><td>96.9%</td><td>C45</td><td>1/0</td></tr>
+  <tr><td>Liga Intergaláctica Rapid 2</td><td>R3</td><td>Black</td><td>Romero Martinez, Ian</td><td>1662</td><td>Loss</td><td>93.6%</td><td>B33</td><td>0/3</td></tr>
+  <tr><td>Liga Intergaláctica Rapid 2</td><td>R4</td><td>White</td><td>Contreras Cardona, Alfredo</td><td>1947</td><td>Loss</td><td>90.1%</td><td>B90</td><td>1/4</td></tr>
+  <tr><td>Liga Intergaláctica Rapid 2</td><td>R5</td><td>Black</td><td>Morales De Leon, Ana Lucia</td><td>1632</td><td>Draw</td><td>87.0%</td><td>B23</td><td>0/10</td></tr>
+  <tr><td>Liga Intergaláctica Rapid 2</td><td>R6</td><td>White</td><td>Martin Del Campo, Naomi</td><td>1599</td><td>Win</td><td>88.8%</td><td>D00</td><td>2/2</td></tr>
+  <tr><td>Liga Intergaláctica Rapid 3</td><td>R1</td><td>Black</td><td>Camargo Ortega, Ricardo</td><td>1586</td><td>Loss</td><td>95.4%</td><td>D43</td><td>1/1</td></tr>
+  <tr><td>XIII Torneo CDMX</td><td>R2</td><td>Black</td><td>Suarez Orozco, Santiago</td><td>1583</td><td>Draw</td><td>85.9%</td><td>C45</td><td>1/1</td></tr>
+  <tr><td>Macroregional Durango 2024</td><td>R2</td><td>White</td><td>Kenneth Damian Alba, Ruiz</td><td>0</td><td>Loss</td><td>88.6%</td><td>C25</td><td>2/2</td></tr>
+  <tr><td>Macroregional Durango 2024</td><td>R1</td><td>White</td><td>Alba Ruiz, Kenneth</td><td>1819</td><td>Loss</td><td>88.6%</td><td>C25</td><td>2/2</td></tr>
+  <tr><td>Macroregional Durango 2024</td><td>R5</td><td>Black</td><td>Rascon Peralta, Bolivar</td><td>1689</td><td>Draw</td><td>92.4%</td><td>B25</td><td>0/1</td></tr>
+  <tr class="row-danger"><td>Olimpiada Nac (Classical)</td><td>R1</td><td>White</td><td>Jalomo Toribio, Jose Luis</td><td>1704</td><td>Loss</td><td><strong>77.9%</strong></td><td>C02</td><td>2/3</td></tr>
+  <tr><td>Olimpiada Nac (Classical)</td><td>R2</td><td>Black</td><td>Sevilla Ramirez, Brandon</td><td>1753</td><td>Win</td><td>87.8%</td><td>B33</td><td>1/1</td></tr>
+  <tr><td>Olimpiada Nac (Classical)</td><td>R5</td><td>White</td><td>Davis, Villarreal Miguel</td><td>1566</td><td>Win</td><td>82.8%</td><td>C45</td><td>1/1</td></tr>
+  <tr><td>Olimpiada Nac (Classical)</td><td>R6</td><td>Black</td><td>Macosay Lopez, Julio</td><td>1762</td><td>Draw</td><td>86.6%</td><td>B30</td><td>3/1</td></tr>
+  <tr class="row-danger"><td>Olimpiada Nac (Rapid 10+5)</td><td>R5</td><td>Black</td><td>Guzman Garcia, Mia</td><td>1885</td><td>Loss</td><td><strong>77.1%</strong></td><td>B32</td><td>3/3</td></tr>
+  <tr style="background:#f5f0e8"><td colspan="5"><strong>Overall</strong></td><td><strong>32W–11L–8D (71%)</strong></td><td><strong>90.9%</strong></td><td></td><td></td></tr>
+  </tbody>
+</table>
+<p style="font-size:0.82em; color:#666; margin-top:4px">50 games total across classical, rapid, and blitz formats. Red rows = worst accuracy games. Classical/standard accuracy is higher than rapid/blitz. Data note: two Macroregional Durango R1/R2 games appear nearly identical (possible duplicate entry).</p>
+
+<p style="margin-top:20px; font-size:0.85em; color:#555; text-align:center">
+  <a href="../austin-prep.html">← Back to Austin Lin Prep Index</a>
+</p>
+
+</body>
+</html>

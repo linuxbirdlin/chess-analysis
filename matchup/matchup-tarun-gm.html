@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle Plan: Austin vs Sankar, Tarun (GM Prep)</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Georgia', serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg);
+}
+h1 { font-size: 1.6em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.15em; margin: 28px 0 10px; padding-left: 10px; }
+h2.white-section { border-left: 5px solid var(--blue); }
+h2.black-section { border-left: 5px solid var(--red); }
+h2.analysis   { border-left: 5px solid var(--gold); }
+h2.reference  { border-left: 5px solid #666; }
+h3 { font-size: 1em; margin: 14px 0 6px; color: #333; }
+.subtitle { font-size: 0.85em; color: #666; margin-bottom: 22px; }
+.subtitle span { margin-right: 16px; }
+
+.rating-note { background: #fff8e0; border: 2px solid #b8860b; border-radius: 5px;
+               padding: 10px 14px; margin-bottom: 18px; font-size: 0.9em; }
+
+.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.intel-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.intel-card h3 { margin-top: 0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }
+.intel-card ul { padding-left: 16px; margin-top: 4px; }
+.intel-card li { margin-bottom: 3px; }
+
+.callout { border-radius: 4px; padding: 10px 14px; margin: 10px 0; font-size: 0.9em; }
+.callout-gold   { background: #fffbe0; border-left: 4px solid var(--gold); }
+.callout-blue   { background: #eef4ff; border-left: 4px solid var(--blue); }
+.callout-green  { background: #efffef; border-left: 4px solid var(--green); }
+.callout-danger { background: #fff0f0; border-left: 4px solid var(--red); }
+
+.move-line { background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+             padding: 8px 12px; margin: 6px 0; font-size: 0.92em; line-height: 1.9; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: #eef4ff; border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.bad-move { background: #ffe0e0; border: 1px solid #cc8888; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; color: #8b1a1a; }
+.note { color: #555; font-style: italic; font-size: 0.88em; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
+th { background: #333; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+.row-danger td { background: #fff0f0 !important; }
+
+hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20px; }
+
+.acc-toggle { display: none; }
+.acc-label {
+  display: block; cursor: pointer; padding: 8px 12px; margin: 4px 0;
+  background: #eee; border: 1px solid #ccc; border-radius: 4px;
+  font-weight: bold; font-size: 0.9em; user-select: none;
+}
+.acc-label::before { content: '▶ '; font-size: 0.75em; color: #666; }
+.acc-toggle:checked ~ .acc-label::before { content: '▼ '; }
+.acc-content { display: none; padding: 10px 14px; background: #fafaf6;
+               border: 1px solid #ddd; border-top: none; border-radius: 0 0 4px 4px; margin-bottom: 6px; }
+.acc-toggle:checked ~ .acc-content { display: block; }
+
+@media print {
+  .acc-content { display: block !important; }
+  .acc-label::before { content: '' !important; }
+  body { font-size: 12px; padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<h1>Battle Plan: Austin (White &amp; Black) vs Sankar, Tarun</h1>
+<div class="subtitle">
+  <span><strong>GM Prep</strong></span>
+  <span>Tarun rating: ~1965 FIDE (peak 2002 Mar 2026)</span>
+  <span>Direct record: No encounter</span>
+  <span>OTB games analyzed: 16 · avg <strong>90.1%</strong></span>
+</div>
+
+<div class="rating-note">
+  <strong>Rating context:</strong> Austin (~1865–1968) vs Tarun (~1965) — <strong>near-equal matchup</strong>. This is NOT an easy win. Tarun improved +600 FIDE points in 2.5 years (1406 → 2002), recently declined to 1965. He plays up regularly and beats 1800–2100 rated opponents. Full preparation is required — treat this as a fight for every half-point.
+</div>
+
+<div class="intel-grid">
+  <div class="intel-card">
+    <h3>Tarun as White</h3>
+    <ul>
+      <li><strong>1.c4 English — 100%</strong> of recorded White games</li>
+      <li>Catalan-English: 1.c4 e6 2.g3 d5 3.Bg2 Nf6 (3 games, main line)</li>
+      <li>Mikenas Attack: 1.c4 e6 2.Nc3 Nf6 3.e4 — sharpest weapon, used vs IM Fus (2419)</li>
+      <li>English→Maróczy: 1.c4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 (Sicilian structure)</li>
+      <li>No 1.e4 or 1.d4 observed as White — pure English player</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Tarun as Black</h3>
+    <ul>
+      <li>vs 1.e4: <strong>Sicilian 1...c5 → 2...Nc6</strong> — 100% consistent</li>
+      <li>After Rossolimo 3.Bb5: <strong>3...Nf6 4.Bxc6 dxc6</strong> — accepts doubled pawns</li>
+      <li>Then: 5...g6 6...Bg7 fianchetto + ...b6, ...Ng4, ...h6 (seen vs Lin 2099)</li>
+      <li>ECO B40 (2...e6) vs unusual 3.b3 at Texas Grand Circuit — standard Sicilian response</li>
+      <li>Black record in dataset: <strong>22% score</strong> — weaker side</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Critical weaknesses</h3>
+    <ul>
+      <li><strong>"Winning → self-destruct":</strong> Was −2.0 (Black winning), played e4?? (309CPL) → +1.65 for White — self-inflicted loss from winning position</li>
+      <li><strong>King navigation:</strong> Kh4?? (1000CPL), Kf2 (270CPL), Kg3 (205CPL) — repeatedly walks king into losing squares in endgame</li>
+      <li><strong>Piece-to-wrong-square:</strong> Ne7?? 1000CPL (Nd6), Nf4?? 978CPL (Re5), Qb7 628CPL (Qc5) — consecutive max-CPL blunders</li>
+      <li><strong>Black endgame unreliable</strong> — lost to 1564-rated as Black (Madurai R4)</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Key game facts</h3>
+    <ul>
+      <li>Overall: <strong>90.1%</strong> avg — 4W–9L–3D in PGN (strong-opponent sample)</li>
+      <li>Best: <strong>95.1%</strong> Dulles R3 draw vs He Justin (1845)</li>
+      <li>Worst: <strong>82.9%</strong> Madurai R4 loss to 1564-rated as Black</li>
+      <li>Lost to Liu Zachary (2153) as Black — Austin's other potential opponent</li>
+      <li>Beat Cayden Jackson (1876) with White English Maróczy at 1706 rating — tactical strength</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="white-section">Part 1 — Austin as White: Rossolimo + h4! Before the Fianchetto</h2>
+
+<div class="callout callout-blue">
+  <strong>Primary weapon: Rossolimo (3.Bb5).</strong> Tarun plays Sicilian 1...c5 → 2...Nc6 in every game vs 1.e4. After Rossolimo 3.Bb5, he responds <strong>3...Nf6 4.Bxc6 dxc6</strong> (accepting doubled c-pawns) and then fianchettoes with 5...g6 6...Bg7. The critical countermeasure: play <strong>6.h4!</strong> immediately — before Black completes the fianchetto. Austin's h4 system is well-prepared from other matchups. This disrupts Tarun's entire plan.
+</div>
+
+<h3>Main line — Rossolimo Exchange + h4!</h3>
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">c5</span>
+  2.Nf3 <span class="mv-z">Nc6</span>
+  <span class="key-move">3.Bb5!</span> <span class="mv-z">Nf6</span>
+  <span class="key-move">4.Bxc6!</span> <span class="mv-z">dxc6</span>
+  5.d3 <span class="mv-z">g6</span>
+  <span class="key-move">6.h4!</span>
+  <span class="note"> — Tarun wants ...Bg7, ...b6, ...Ng4. h4! attacks the kingside immediately before the bishop lands on g7. Observed position: Skyline R4 vs Lin Benjamin 2099 went 5.d3 g6 6.c3 Bg7 — c3 allowed Black to fianchetto. Austin should avoid c3 and play h4 instead.</span>
+</div>
+
+<input class="acc-toggle" id="w1" type="checkbox" checked>
+<label class="acc-label" for="w1">Branch A — After 4.Bxc6 dxc6 5.d3 g6 6.h4! (main battle)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 5.d3 <span class="mv-z">g6</span>
+    <span class="key-move">6.h4!</span> <span class="mv-z">Bg7</span>
+    <span class="key-move">7.h5!</span> <span class="mv-z">gxh5</span>
+    8.Rxh5 <span class="mv-z">O-O</span>
+    <span class="key-move">9.Nc3!</span>
+    <span class="note"> — h5 forces a concession. If 6...h6 instead (blocking), Austin plays 7.Nc3 Bg7 8.Be3 b6 9.Qd2 with long castling and f4 attack. If 6...h5 (supporting), Austin plays 7.g4! to break open the kingside anyway.</span>
+  </div>
+  <div class="move-line">
+    <span class="mv-a">If 6...h6 (blocking h5):</span> <span class="key-move">7.Nc3!</span> <span class="mv-z">Bg7</span>
+    8.Be3 <span class="mv-z">b6</span>
+    <span class="key-move">9.Qd2!</span> <span class="mv-z">O-O</span>
+    10.O-O-O <span class="note"> — castle queenside and unleash the f-pawn (f4-f5). Tarun's doubled c-pawns on c5/c6 are long-term endgame weakness. Austin targets c5 via d4-d5 pawn push.</span>
+  </div>
+  <p style="margin-top:8px">After the h4 exchange, White gets open h-file and targets Black's compromised kingside structure. The doubled c-pawns (c5 backward, c6 isolated) become targets in the ending. Tarun's plan was built around fianchettoing smoothly — h4 denies him that.</p>
+</div>
+
+<input class="acc-toggle" id="w2" type="checkbox" checked>
+<label class="acc-label" for="w2">Branch B — If Tarun plays 3...e5 (alternative to 3...Nf6)</label>
+<div class="acc-content">
+  <div class="callout callout-gold">
+    Tarun has not been observed playing 3...e5. If he does: Austin plays 4.c3 → positional Rossolimo, keeping the bishop and maintaining the c3-d4 pawn break option.
+  </div>
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 3.Bb5 <span class="mv-z">e5</span>
+    <span class="key-move">4.c3!</span> <span class="mv-z">a6</span>
+    5.Ba4 <span class="mv-z">b5</span>
+    6.Bc2 <span class="mv-z">Nf6</span>
+    <span class="key-move">7.d4!</span>
+    <span class="note"> — Lopez-type structure; d4 immediately creates central tension before Black's setup consolidates. The bishop retreated to c2 supports d4 push. Standard Rossolimo handling.</span>
+  </div>
+</div>
+
+<input class="acc-toggle" id="w3" type="checkbox">
+<label class="acc-label" for="w3">Branch C — If Tarun plays 2...e6 (Kan-type)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">c5</span>
+    2.Nf3 <span class="mv-z">e6</span>
+    <span class="key-move">3.d4!</span> <span class="mv-z">cxd4</span>
+    4.Nxd4 <span class="mv-z">a6</span>
+    5.Nc3 <span class="mv-z">Qc7</span>
+    <span class="key-move">6.Bd3!</span>
+    <span class="note"> — Open Sicilian vs Kan/Taimanov. Tarun played 2...e6 once (Texas Grand Circuit R4 vs Pyrig 2395) responding to an unusual 3.b3. Against Austin's main 3.d4, Tarun will face an Open Sicilian rather than Rossolimo. Austin handles Taimanov structures from other prep (vs Yaen, vs Daniel Lee).</span>
+  </div>
+</div>
+
+<h3 style="margin-top:18px">Key tactical themes — Austin as White</h3>
+<table>
+  <thead><tr><th>Theme</th><th>Rationale</th><th>Evidence</th></tr></thead>
+  <tbody>
+  <tr><td><strong>h4! before Bg7 lands</strong></td><td>Tarun's Rossolimo Black plan depends on ...g6 ...Bg7 fianchetto. h4 disrupts this before it completes. Once Bg7 is on the board, Black has kingside control — prevent it</td><td>Skyline R4 vs Lin 2099: Tarun successfully fianchettoed and reached −2.0 before blundering</td></tr>
+  <tr><td><strong>NEVER simplify</strong></td><td>Tarun's worst blunders come when the position is maximally complex and he must find precise moves under pressure. A drawish equal position is exactly what Tarun can hold. Keep the position imbalanced at all costs</td><td>Tarun played e4?? from −2.0 — a winning position — due to pressure. He cannot handle complexity</td></tr>
+  <tr><td><strong>Target doubled c-pawns in endgame</strong></td><td>After 4.Bxc6 dxc6, Black has c5+c6 doubled pawns. Both are weak: c5 is backward, c6 is isolated. Attack via d4-d5 advance and knight on d4 square</td><td>Structural damage is permanent; Tarun accepted it voluntarily</td></tr>
+  <tr><td><strong>King safety check in endgame</strong></td><td>Tarun repeatedly walks his king to losing squares. In any endgame, verify the king position — Tarun will make Kh4/Kf2/Kg3-type errors if Austin keeps pressure on</td><td>Kh4?? 1000CPL (NA Open R8); Kf2 270CPL, Kg3 205CPL (Skyline R6)</td></tr>
+  </tbody>
+</table>
+
+<hr class="section-divider">
+
+<h2 class="black-section">Part 2 — Austin as Black: Navigating the English + Mikenas Danger</h2>
+
+<div class="callout callout-green">
+  <strong>Core fact:</strong> Tarun plays <strong>1.c4 English</strong> exclusively as White. Austin does not normally play vs 1.c4 — this requires specific preparation. The <strong>Mikenas Attack (2.Nc3 Nf6 3.e4)</strong> is Tarun's sharpest weapon, reserved for strong opponents. Austin must know the Mikenas response cold. The Catalan-English (2.g3) is manageable — it resembles 1.d4 Catalan structures Austin knows from Nimzo prep.
+</div>
+
+<h3>Austin's recommended Black move order</h3>
+<div class="move-line">
+  <span class="mv-z">Tarun:</span> 1.c4 <span class="mv-a">Nf6</span>
+  2.Nc3 <span class="mv-a">e6</span>
+  <span class="note"> — This move order lets Tarun choose: Mikenas (3.e4) or Catalan-English (3.g3) or other. Austin's response is prepared for all three. Do NOT play 1...e5 early — that plays into Tarun's English structure as reversed Sicilian-type which he knows well.</span>
+</div>
+
+<input class="acc-toggle" id="b1" type="checkbox" checked>
+<label class="acc-label" for="b1">Branch A — DANGER: Mikenas Attack (2.Nc3 Nf6 3.e4!) — MUST KNOW THIS</label>
+<div class="acc-content">
+  <div class="callout callout-danger">
+    <strong>Mikenas is Tarun's most dangerous line.</strong> He used it against IM Fus (2419) at Texas Grand Circuit — his most ambitious White weapon. Austin must know the Black response cold or face an unfamiliar pawn structure with Tarun fully prepared.
+  </div>
+  <div class="move-line">
+    <span class="mv-z">Tarun:</span> 1.c4 <span class="mv-a">Nf6</span>
+    2.Nc3 <span class="mv-a">e6</span>
+    3.e4 <span class="mv-a">c5!</span>
+    4.e5 <span class="mv-a">Ng8!</span>
+    5.Nf3 <span class="mv-a">Nc6</span>
+    <span class="key-move">6...d6!</span>
+    <span class="note"> — Classic Mikenas Black response: 3...c5! challenges the center immediately; 4.e5 Ng8 retreats the knight but threatens ...d6 to undermine the e5 wedge. 6...d6! is the principled break: challenge e5 at once before White consolidates with d4.</span>
+  </div>
+  <div class="move-line">
+    <span class="mv-a">After 6...d6! 7.d4 cxd4:</span>
+    8.Nxd4 <span class="mv-a">Nxe5!</span>
+    9.Nxe5 <span class="mv-a">dxe5</span>
+    <span class="key-move">10.Ndb5!</span>
+    <span class="note"> — Black wins the e5 pawn back after 7.d4 cxd4 8.Nxd4 Nxe5 — positional compensation for the knight retreat. After 10.Ndb5 White targets d6; Austin plays 10...Bb4! pinning the knight. Complex position with mutual counterplay — exactly what Austin needs vs Tarun.</span>
+  </div>
+  <p style="margin-top:8px"><strong>Alternative response:</strong> 3...d5!? (central challenge) — 3.e4 d5!? 4.cxd5 exd5 5.exd5 Nxd5 6.Nxd5 Qxd5 — simplifies immediately but leads to equal endgame positions Tarun can handle. Prefer 3...c5! for maximum complexity.</p>
+</div>
+
+<input class="acc-toggle" id="b2" type="checkbox" checked>
+<label class="acc-label" for="b2">Branch B — Catalan-English (2.g3 or 2.Nc3 3.g3)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">Tarun:</span> 1.c4 <span class="mv-a">Nf6</span>
+    2.g3 <span class="mv-a">e6</span>
+    3.Bg2 <span class="mv-a">d5!</span>
+    4.Nf3 <span class="mv-a">Be7</span>
+    5.O-O <span class="mv-a">O-O</span>
+    <span class="key-move">6...Ne4!</span>
+    <span class="note"> — Queen's Indian themes translate here: ...d5 occupies the center, ...Ne4 centralizes powerfully and threatens ...Nxc3. After 7.d3 Nxg3 8.hxg3 dxc4 9.dxc4 Austin has traded off the knight pair and opened the position. Or 7.d4 — Austin plays standard Nimzo-Indian ...Bd7/...Ba4 type plans.</span>
+  </div>
+  <div class="move-line">
+    <span class="mv-a">Alternative (Bogo-Indian type):</span> 1.c4 Nf6 2.g3 e6 3.Bg2
+    <span class="key-move">Bb4+!</span>
+    4.Nd2 <span class="mv-a">O-O</span>
+    5.Nf3 <span class="mv-a">d5</span>
+    <span class="note"> — Bogo-Indian check disrupts White's smooth development. If 4.Bd2 Bxd2+ 5.Qxd2, Austin plays ...d5 and gets the same structure. Tarun has 0 Bogo-Indian experience in the dataset.</span>
+  </div>
+</div>
+
+<input class="acc-toggle" id="b3" type="checkbox">
+<label class="acc-label" for="b3">Branch C — Reversed Sicilian option (1...e5)</label>
+<div class="acc-content">
+  <div class="callout callout-gold">
+    Tarun played 1...e5 then ...c6 as Black vs Liu (2153) in the English. This gives a reversed Sicilian King structure. Austin can try this as a surprise but should note that Tarun has experience on both sides of this structure.
+  </div>
+  <div class="move-line">
+    <span class="mv-z">Tarun:</span> 1.c4 <span class="mv-a">e5</span>
+    2.g3 <span class="mv-a">Nf6</span>
+    3.Bg2 <span class="mv-a">d5!</span>
+    4.cxd5 <span class="mv-a">Nxd5</span>
+    <span class="note"> — Reversed Sicilian with early ...d5 break. This equalizes immediately and leads to sharp symmetrical positions. Use only if Austin wants to surprise Tarun — it's a secondary option, not the main recommendation.</span>
+  </div>
+  <p style="margin-top:8px">Recommendation: Default to Branch A (1...Nf6 2.Nc3 e6 → Mikenas-ready) or Branch B (Queen's Indian/Bogo). The Reversed Sicilian is a low-prep surprise option.</p>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="analysis">Part 3 — Accuracy Profile and Error Patterns</h2>
+
+<h3>Tarun's accuracy by tournament</h3>
+<table>
+  <thead><tr><th>Tournament</th><th>Date</th><th>Rating</th><th>Record</th><th>Avg Acc</th><th>Notes</th></tr></thead>
+  <tbody>
+  <tr><td>Dulles Skyline 2024</td><td>Oct 2024</td><td>1706</td><td>3W–3L–1D</td><td><strong>91.9%</strong></td><td>Best tournament — beat 1876, drew 1845, won vs 1829</td></tr>
+  <tr><td>NA Championship 2024</td><td>Dec 2024</td><td>1750</td><td>0W–1L</td><td><strong>91.3%</strong></td><td>91.3% but lost to Liu Zachary 2153</td></tr>
+  <tr><td>Texas Grand Circuit 2026</td><td>Mar 2026</td><td>2002</td><td>0W–2L</td><td><strong>89.7%</strong></td><td>Both losses to titled/near-titled (2419, 2395) — respectable</td></tr>
+  <tr><td>NA Open 2025</td><td>Dec 2025</td><td>1871</td><td>0W–1L</td><td><strong>89.1%</strong></td><td>Kh4?? 1000CPL endgame error vs Bynum 2131</td></tr>
+  <tr><td>5th Skyline Open 2026</td><td>Oct 2026</td><td>1965</td><td>0W–1L–1D</td><td><strong>89.6%</strong></td><td>e4?? self-destruct from winning position</td></tr>
+  <tr class="row-danger"><td>Madurai Athens 2023</td><td>Dec 2023</td><td>1406</td><td>2W–1L</td><td><strong>86.6%</strong></td><td>Early games; lost to 1564-rated as Black</td></tr>
+  <tr style="background:#f5f0e8"><td><strong>Overall</strong></td><td></td><td></td><td><strong>4W–9L–3D</strong></td><td><strong>90.1%</strong></td><td>White 50% score · Black 22% score (weaker side)</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-gold" style="margin-top:12px">
+  <strong>Context note:</strong> The 4W–9L–3D record reflects a "playing up" sample — these games are against opponents rated 100–400 points above Tarun's level at the time. The +600 Elo rise proves he beats similarly-rated opponents consistently; this data captures only his hardest games.
+</div>
+
+<h3 style="margin-top:14px">Tarun's known error patterns</h3>
+<table>
+  <thead><tr><th>Pattern</th><th>Critical example</th><th>How to exploit</th></tr></thead>
+  <tbody>
+  <tr><td><strong>"Winning → self-destruct"</strong></td><td>Skyline R4 vs Lin 2099 (89.4%): Eval −2.0 (Black winning) → 15...e4?? 309CPL → +1.65 for White. Then king walked: Ke7?? 1000CPL, Kf6?? 401CPL. Lost a won game in 3 moves</td><td>Create maximally complex positions and maintain tension — Tarun will crack at the critical moment. Never offer simplification</td></tr>
+  <tr><td><strong>King navigation in endgames</strong></td><td>NA Open R8: Kh4?? 1000CPL (king walked into mate). Skyline R6: Kf2 270CPL, Kg3 205CPL (passive king navigation in a won ending — lost). Pattern: king misplacement across multiple events</td><td>In any ending, keep pressure active — Tarun's king will go to the wrong square. Make him choose king moves under time pressure</td></tr>
+  <tr><td><strong>Consecutive max-CPL blunders</strong></td><td>Skyline R4 (86.5%): Ne7?? 1000CPL → Nf4?? 978CPL (back-to-back blunders from tactic density). Similar pattern: Qb7 628CPL → Nb2 599CPL (Madurai R4)</td><td>After one blunder, Tarun often blunders again immediately. Don't relax after opponent's first error — press harder</td></tr>
+  <tr><td><strong>Piece-to-wrong-square in calculation</strong></td><td>Skyline R4: Qf6 447CPL (best Be7) on move 14 — defensive piece went to wrong square. Multiple instances of piece misplacement under pressure</td><td>Create tactical threats that require precise piece placement. Tarun's calculation of defensive options is unreliable</td></tr>
+  </tbody>
+</table>
+
+<h3 style="margin-top:14px">Style comparison</h3>
+<ul style="padding-left:20px; margin-top:6px;">
+  <li><strong>Both players are tactical/aggressive.</strong> Austin creates complexity with 1.e4 systems (Rossolimo h4, Advance French); Tarun creates complexity with English Mikenas and Sicilian Black. Expect a sharp game — this is unlikely to be positional.</li>
+  <li><strong>Tarun is a fast improver</strong> — opening preparation may be shallow relative to his tactical skill. Austin's advantage of knowing lines deeply to move 15+ could be significant.</li>
+  <li><strong>Rating is effectively even.</strong> Do not underestimate Tarun. His Texas Grand Circuit games vs IM Fus (2419) and Pyrig (2395) show he can hold his own against much stronger players before endgame technique decides.</li>
+</ul>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 4 — If / Then Quick Reference</h2>
+
+<input class="acc-toggle" id="q1" type="checkbox" checked>
+<label class="acc-label" for="q1">Austin as White — opening decisions</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Tarun plays…</th><th>Austin plays…</th><th>Key idea</th></tr></thead>
+    <tbody>
+    <tr><td>1…c5 (documented response)</td><td>2.Nf3 Nc6 <strong>3.Bb5!</strong> (Rossolimo)</td><td>Primary weapon — sidesteps all Sicilian mainline theory</td></tr>
+    <tr><td>3…Nf6 (Tarun's documented response)</td><td><strong>4.Bxc6! dxc6 5.d3 g6 6.h4!</strong></td><td>h4 BEFORE Bg7 — disrupts Tarun's fianchetto plan</td></tr>
+    <tr><td>After 6.h4: h6 (blocks h5)</td><td>7.Nc3! Bg7 8.Be3 b6 <strong>9.Qd2! → O-O-O</strong></td><td>Castle queenside, launch f4-f5 attack; c-pawns are long-term targets</td></tr>
+    <tr><td>After 6.h4: h5 (supporting)</td><td><strong>7.g4!</strong> (break open kingside regardless)</td><td>g4 fights for h5-square; keeps attack alive</td></tr>
+    <tr><td>3…e5 (Lopez-type)</td><td>4.c3! Ba4 plan → <strong>7.d4!</strong></td><td>Standard Rossolimo positional handling</td></tr>
+    <tr><td>2…e6 (Kan)</td><td>3.d4! cxd4 4.Nxd4 a6 <strong>5.Nc3 Qc7 6.Bd3!</strong></td><td>Open Sicilian Taimanov-type — Austin's prepared territory</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<input class="acc-toggle" id="q2" type="checkbox" checked>
+<label class="acc-label" for="q2">Austin as Black — opening decisions</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Tarun plays…</th><th>Austin plays…</th><th>Key idea</th></tr></thead>
+    <tbody>
+    <tr><td>1.c4 (all games)</td><td>1…Nf6 <strong>2…e6</strong> (Mikenas-ready)</td><td>Flexible move order — responds to both Mikenas and Catalan</td></tr>
+    <tr><td>2.Nc3 Nf6 <strong>3.e4! (Mikenas)</strong></td><td>3…c5! 4.e5 Ng8! 5.Nf3 Nc6 <strong>6…d6!</strong></td><td>Must know cold — Tarun's most dangerous prepared line</td></tr>
+    <tr><td>2.g3 or 3.g3 (Catalan-English)</td><td>…d5! + …<strong>Ne4!</strong> (QI themes)</td><td>Bogo-Indian or QI: ...d5 center, ...Ne4 fork threat</td></tr>
+    <tr><td>1.c4 c5 Maróczy (1.c4 c5 2.Nf3 Nc6 3.d4)</td><td>3…cxd4 4.Nxd4 <strong>e5! (Sveshnikov-type)</strong></td><td>Challenge the Maróczy center immediately; familiar territory from vs Daniel Lee prep</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<input class="acc-toggle" id="q3" type="checkbox">
+<label class="acc-label" for="q3">Key in-game principles</label>
+<div class="acc-content">
+  <ul style="padding-left:18px;">
+    <li><strong>After opponent blunder — don't relax.</strong> Tarun blunders consecutively (Ne7→Nf4 both 1000CPL). When Tarun makes a mistake, press harder immediately rather than consolidating.</li>
+    <li><strong>Keep queens on.</strong> Tarun's endgame king navigation is unreliable. In queen endgames, active queen creates king safety problems for Tarun that he can't solve.</li>
+    <li><strong>Never offer a draw.</strong> This is a fight. Even in difficult positions, Tarun can crack. Maintain maximum tension.</li>
+    <li><strong>Know the Mikenas.</strong> If Austin faces 1.c4 Nf6 2.Nc3 e6 3.e4, this is the pre-studied line. Respond with 3...c5! and know the first 10 moves cold. Preparation here is the single most valuable thing Austin can do before this game.</li>
+    <li><strong>Endgame warning:</strong> Tarun has beaten strong opponents (1876, 1845) in technical positions. He's not a pure tactician — his endgame is inconsistent but not non-existent. Don't assume endgames win automatically.</li>
+  </ul>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 5 — Critical Moments Reference</h2>
+
+<div class="callout callout-danger">
+  <strong>The defining pattern (5th Skyline R4 vs Lin Benjamin 2099, 89.4%):</strong>
+  Position after move 14 — eval <strong>−2.0 (Black is winning!)</strong>. Tarun had a full pawn advantage and active pieces. Then: <span class="bad-move">15...e4??</span> (309CPL) — pawn push that gave White a strong passed pawn and activity. Eval swung from −2.0 → +1.65 in White's favor. Game eventually lost. <strong>Core pattern: Tarun self-destructs in winning positions when he needs to find precise consolidating moves.</strong> He plays an aggressive pawn push or piece leap instead of the calm defensive/consolidating move.
+</div>
+
+<h3>Pattern: Consecutive blunders (Dulles Skyline R4 vs Sridhar 1838, 86.5%)</h3>
+<div class="move-line">
+  <span class="note">Tarun as Black, complex middlegame:</span><br>
+  Move 14: <span class="bad-move">Qf6??</span> (447CPL, best Be7) — queen went to active but wrong square, pinning issues ensued<br>
+  Move 34: <span class="bad-move">Ne7??</span> (1000CPL, best Nd6) — knight misplacement; and then immediately<br>
+  Move 36: <span class="bad-move">Nf4??</span> (978CPL, best Re5) — second consecutive near-max blunder
+</div>
+<p style="margin:6px 0 10px; font-size:0.9em; color:#444">Once Tarun starts blundering in a complex position, he often blunders again on the next move. The correct response is not to trade pieces and simplify — that gives Tarun a chance to recover. Instead, <em>increase pressure</em> and find the move that creates a new threat.</p>
+
+<h3>Pattern: King navigation failure (multiple games)</h3>
+<div class="move-line">
+  <span class="note">NA Open R8 vs Bynum 2131 (89.1%):</span><br>
+  Move 52: <span class="bad-move">Kh4??</span> (1000CPL, best Kg2) — king walked into a mating net in what was a complex but not obviously lost endgame<br><br>
+  <span class="note">Dulles Skyline R6 vs Peed 1837 (92.7%):</span><br>
+  Move 46: <span class="bad-move">Kg3</span> (205CPL, best Rc7) — passive king move instead of winning rook move<br>
+  Move 49: <span class="bad-move">Kf2</span> (270CPL, best Nd7+) — king stepped back passively instead of activating knight with check
+</div>
+<p style="margin:6px 0 10px; font-size:0.9em; color:#444">In endgames, Tarun misplaces his king in 3 separate events. Austin should steer toward king-active endgames where precision is required — Tarun will mis-navigate the king and give away the win.</p>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 6 — Engine Accuracy Reference (All 16 Games)</h2>
+
+<table>
+  <thead><tr><th>Tournament</th><th>Rnd</th><th>Color</th><th>Opponent</th><th>Elo</th><th>Result</th><th>Acc</th><th>B/M</th></tr></thead>
+  <tbody>
+  <tr><td>Dulles Skyline 2024</td><td>R3</td><td>White</td><td>He, Justin Shandong</td><td>1845</td><td>Draw</td><td><strong>95.1%</strong></td><td>0/0</td></tr>
+  <tr><td>Dulles Skyline 2024</td><td>R5</td><td>White</td><td>Murugan Ayyappan, Adhiraiyan</td><td>1829</td><td>Win</td><td>94.7%</td><td>0/0</td></tr>
+  <tr><td>Dulles Skyline 2024</td><td>R1</td><td>White</td><td>Jackson, Cayden</td><td>1876</td><td>Win</td><td>94.0%</td><td>1/1</td></tr>
+  <tr><td>Texas Grand Circuit 2026</td><td>R4</td><td>Black</td><td>Pyrig, Roman</td><td>2395</td><td>Loss</td><td>93.1%</td><td>0/1</td></tr>
+  <tr><td>Dulles Skyline 2024</td><td>R6</td><td>White</td><td>Peed, Grant</td><td>1837</td><td>Loss</td><td>92.7%</td><td>0/2</td></tr>
+  <tr><td>NA Championship 2024</td><td>R1</td><td>Black</td><td>Liu, Zachary Hankun</td><td>2153</td><td>Loss</td><td>91.3%</td><td>0/1</td></tr>
+  <tr><td>Dulles Skyline 2024</td><td>R7</td><td>Black</td><td>Debmisra, Ariv</td><td>1861</td><td>Win</td><td>90.2%</td><td>3/2</td></tr>
+  <tr><td>5th Skyline Open 2026</td><td>R6</td><td>Black</td><td>Le-Tran, Leo</td><td>1908</td><td>Draw</td><td>89.8%</td><td>1/2</td></tr>
+  <tr><td>NA Open 2025</td><td>R8</td><td>White</td><td>Bynum, Jacorey</td><td>2131</td><td>Loss</td><td>89.1%</td><td>1/2</td></tr>
+  <tr><td>Dulles Skyline 2024</td><td>R2</td><td>Black</td><td>Hebbar, Eshaan</td><td>2130</td><td>Win</td><td>89.1%</td><td>2/1</td></tr>
+  <tr><td>Madurai Athens 2023</td><td>R5</td><td>White</td><td>Shashveen, AK.</td><td>1500</td><td>Win</td><td>88.7%</td><td>0/1</td></tr>
+  <tr><td>Madurai Athens 2023</td><td>R6</td><td>Black</td><td>Kavishvaran, P.</td><td>1547</td><td>Win</td><td>88.3%</td><td>2/2</td></tr>
+  <tr><td>Texas Grand Circuit 2026</td><td>R5</td><td>White</td><td>Fus, Jakub (IM)</td><td>2419</td><td>Loss</td><td><strong>86.2%</strong></td><td>0/5</td></tr>
+  <tr class="row-danger"><td>Dulles Skyline 2024</td><td>R4</td><td>Black</td><td>Sridhar, Yehamandram</td><td>1838</td><td>Win*</td><td><strong>86.5%</strong></td><td>3/4</td></tr>
+  <tr><td>5th Skyline Open 2026</td><td>R4</td><td>Black</td><td>Lin, Benjamin</td><td>2099</td><td>Loss</td><td>89.4%</td><td>3/1</td></tr>
+  <tr class="row-danger"><td>Madurai Athens 2023</td><td>R4</td><td>Black</td><td>Dhanasekaran Suresh, R.</td><td>1564</td><td>Loss</td><td><strong>82.9%</strong></td><td>2/1</td></tr>
+  <tr style="background:#f5f0e8"><td colspan="5"><strong>Overall</strong></td><td><strong>4W–9L–3D</strong></td><td><strong>90.1%</strong></td><td></td></tr>
+  </tbody>
+</table>
+<p style="font-size:0.82em; color:#666; margin-top:4px">Red rows = lowest accuracy or worst-result games. Most losses were against opponents 100–650 points above Tarun's rating at the time — PGN sample is heavily "playing up." *Dulles R4 was a win despite 86.5% accuracy — opponent blundered worse. ECO codes not captured in PGN files for most tournaments.</p>
+
+<p style="margin-top:20px; font-size:0.85em; color:#555; text-align:center">
+  <a href="../austin-prep.html">← Back to Austin Lin Prep Index</a>
+</p>
+
+</body>
+</html>
