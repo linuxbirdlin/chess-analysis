@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle Plan: Austin vs Huang, Justin (GM Prep)</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Georgia', serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg);
+}
+h1 { font-size: 1.6em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.15em; margin: 28px 0 10px; padding-left: 10px; }
+h2.white-section { border-left: 5px solid var(--blue); }
+h2.black-section { border-left: 5px solid var(--red); }
+h2.rematch    { border-left: 5px solid #b8350b; }
+h2.analysis   { border-left: 5px solid var(--gold); }
+h2.reference  { border-left: 5px solid #666; }
+h3 { font-size: 1em; margin: 14px 0 6px; color: #333; }
+.subtitle { font-size: 0.85em; color: #666; margin-bottom: 22px; }
+.subtitle span { margin-right: 16px; }
+
+.direct-loss-banner {
+  background: #fff0e8; border: 2px solid #b8350b; border-radius: 5px;
+  padding: 10px 14px; margin-bottom: 18px; font-size: 0.9em;
+}
+.direct-loss-banner strong { color: #b8350b; }
+
+.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.intel-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.intel-card h3 { margin-top: 0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }
+.intel-card ul { padding-left: 16px; margin-top: 4px; }
+.intel-card li { margin-bottom: 3px; }
+
+.callout { border-radius: 4px; padding: 10px 14px; margin: 10px 0; font-size: 0.9em; }
+.callout-gold   { background: #fffbe0; border-left: 4px solid var(--gold); }
+.callout-blue   { background: #eef4ff; border-left: 4px solid var(--blue); }
+.callout-green  { background: #efffef; border-left: 4px solid var(--green); }
+.callout-danger { background: #fff0f0; border-left: 4px solid var(--red); }
+.callout-orange { background: #fff4ee; border-left: 4px solid #b8350b; }
+
+.move-line { background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+             padding: 8px 12px; margin: 6px 0; font-size: 0.92em; line-height: 1.9; }
+.move-line.critical { border-color: #b8350b; background: #fff4ee; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: #eef4ff; border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.bad-move { background: #ffe0e0; border: 1px solid #cc8888; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; color: #8b1a1a; }
+.note { color: #555; font-style: italic; font-size: 0.88em; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
+th { background: #333; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+.row-highlight td { background: #fff8e0 !important; }
+.row-danger td { background: #fff0f0 !important; }
+.row-direct td { background: #fff4ee !important; font-weight: bold; }
+
+hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20px; }
+
+.acc-toggle { display: none; }
+.acc-label {
+  display: block; cursor: pointer; padding: 8px 12px; margin: 4px 0;
+  background: #eee; border: 1px solid #ccc; border-radius: 4px;
+  font-weight: bold; font-size: 0.9em; user-select: none;
+}
+.acc-label::before { content: '▶ '; font-size: 0.75em; color: #666; }
+.acc-toggle:checked ~ .acc-label::before { content: '▼ '; }
+.acc-content { display: none; padding: 10px 14px; background: #fafaf6;
+               border: 1px solid #ddd; border-top: none; border-radius: 0 0 4px 4px; margin-bottom: 6px; }
+.acc-toggle:checked ~ .acc-content { display: block; }
+
+@media print {
+  .acc-content { display: block !important; }
+  .acc-label::before { content: '' !important; }
+  body { font-size: 12px; padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<h1>Battle Plan: Austin (White &amp; Black) vs Huang, Justin</h1>
+<div class="subtitle">
+  <span><strong>GM Prep</strong></span>
+  <span>Justin rating: ~2093 FIDE (highest-rated opponent Austin has faced)</span>
+  <span>Direct record: <strong style="color:#b8350b">0W–1L (NAYCC R4, Aug 2025)</strong></span>
+  <span>OTB games analyzed: 26 · avg 93.4%</span>
+</div>
+
+<div class="direct-loss-banner">
+  <strong>Direct encounter: NAYCC R4 (Aug 2025) — Austin 0-1 Justin.</strong>
+  French Advanced C02. Austin played <strong>6.dxc5?!</strong> — captured the gambit pawn too early,
+  giving Justin immediate piece activity (Ng6-Ngxe5). Austin had resource at move 28–30 but collapsed after Justin's
+  passed d-pawn march (d4-d3). Final: Justin queened e-pawn, Austin mated on move 50. <strong>This plan fixes the rematch.</strong>
+</div>
+
+<div class="intel-grid">
+  <div class="intel-card">
+    <h3>Justin as White</h3>
+    <ul>
+      <li><strong>1.d4 always</strong> — 100% in all OTB games</li>
+      <li>Setups: QGD/Semi-Slav (D43), Ragozin (D38), KID (E61), Grünfeld (D85)</li>
+      <li>Style: <strong>slow positional buildup</strong> — d4-c4-Nf3-Nc3 + Bd3/Be2</li>
+      <li>King navigation errors in endgames (Kb5?? 1000CPL in PAM R4)</li>
+      <li>PAM School peak: 100% accuracy and 99.1% in consecutive games</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Justin as Black</h3>
+    <ul>
+      <li><strong>French Defense 100%</strong> vs 1.e4 in OTB/classical games</li>
+      <li>Exchange French (C01): <strong>0W-1D-1L</strong> — his worst variation</li>
+      <li>Classical French (C11): <strong>0W-0D-1L</strong> (lost to 1925-rated)</li>
+      <li>Advanced (C02): 1W-1L — beat Austin; lost to 1847-rated</li>
+      <li>On Lichess (2020–2023): played Sicilian (c5, Nc6, e5) — old repertoire</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Critical weaknesses</h3>
+    <ul>
+      <li><strong>King navigation:</strong> Kb5?? 1000CPL (PAM R4), Qxa4?? 1000CPL (CC R4)</li>
+      <li><strong>Consecutive mistakes:</strong> CC R7 (Rxe5?? 641CPL then Kf6??); PAM R7 (d4?? 144CPL then Ba6??)</li>
+      <li><strong>Rook endgame miscalculation:</strong> Ke6?? 602CPL from winning position (PAM R2)</li>
+      <li><strong>Queenside pressure vulnerability:</strong> worst games come after sustained queenside activity</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Key game facts</h3>
+    <ul>
+      <li>Overall: 26 games — <strong>93.4%</strong> avg (White 93.5%, Black 93.2%)</li>
+      <li>Worst: <strong>87.7%</strong> PAM R7 (Black, consecutive errors)</li>
+      <li>Best: <strong>100%</strong> PAM School R8 (perfect game!)</li>
+      <li>PAM School 2026: <strong>96.1%</strong> avg — outstanding recent form</li>
+      <li>Toronto Open 2026: <strong>93.6%</strong> avg (3 games, Sep 2026)</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="rematch">Part 1 — Rematch Fix: What Went Wrong at NAYCC R4</h2>
+
+<div class="callout callout-orange">
+  <strong>The mistake:</strong> After 1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 Nge7, Austin played <span class="bad-move">6.dxc5?!</span> — taking the gambit pawn immediately. This gave Justin free piece development: 6…Ng6 7.Be3 Ngxe5! — his knight sat powerfully on e5 and Austin never recovered central control. The game became a passed-pawn race where Justin's d-pawn (d4-d3) decided it.
+</div>
+
+<h3>The exact move-order that failed</h3>
+<div class="move-line critical">
+  <span class="mv-a">Austin:</span> 1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3
+  <span class="mv-z">Nge7</span> <span class="bad-move">6.dxc5?!</span>
+  <span class="mv-z">Ng6</span> 7.Be3 <span class="mv-z">Ngxe5!</span>
+  <span class="note"> — Justin gets active piece immediately. The c5 pawn was not worth the activity given to Black.</span>
+</div>
+
+<h3>Fix A — Switch to Exchange French (recommended)</h3>
+<div class="callout callout-blue">
+  The cleanest fix is to change opening entirely: play <strong>3.exd5 exd5</strong> (Exchange French, C01). Justin's record in this variation is <strong>0W-1D-1L</strong> (lost to Plotkin V 2260, drew with Wu 1906). The Exchange French immediately changes the character of the game — symmetrical pawn structure, open e-file, no pawn chain tension. Justin cannot use his NAYCC Advanced French preparation.
+</div>
+
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">e6</span> 2.d4 <span class="mv-z">d5</span>
+  <span class="key-move">3.exd5!</span> <span class="mv-z">exd5</span> 4.Nf3 <span class="mv-z">Nf6</span>
+  5.Bd3 <span class="mv-z">Bd6</span> 6.O-O <span class="mv-z">O-O</span>
+  <span class="key-move">7.Bg5!</span>
+  <span class="note"> — pin the f6 knight; target d5 pawn. Austin develops with pressure from move 1.</span>
+</div>
+
+<h3>Fix B — Stay in Advance but correct move 6 (alternative)</h3>
+<div class="callout callout-gold">
+  If Austin prefers the Advanced French: after 5.Nf3 Nge7, play <span class="key-move">6.a3!</span> (same system as Fernando prep) — NOT 6.dxc5. The 6.a3 system prepares b4 and avoids handing Justin piece activity. Justin has never faced 6.a3 in this dataset.
+</div>
+
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3
+  <span class="mv-z">Nge7</span> <span class="key-move">6.a3!</span>
+  <span class="mv-z">c4</span> 7.Nbd2 Na5 8.g3
+  <span class="note"> — same 6.a3 Spielmann system. Queenside locked; b4 always available. Do NOT take on c5.</span>
+</div>
+
+<div class="callout callout-danger" style="margin-top:8px">
+  <strong>NEVER play 6.dxc5 again.</strong> Against Justin specifically, if you're in the Advance French after 5…Nge7, play 6.a3! If you're in 5…Qb6, play 6.a3! Capture on c5 hands Justin the game.
+</div>
+
+<hr class="section-divider">
+
+<h2 class="white-section">Part 2 — Austin as White: Exchange French</h2>
+
+<div class="callout callout-blue">
+  <strong>Primary weapon: Exchange French 3.exd5.</strong> Justin has <strong>0W-1D-1L</strong> with this as Black — his worst French variation. His loss was to a 2260-rated opponent, and his draw was vs 1906. The Exchange leads to symmetrical pawn structures (IQP-free, both sides d-pawns), which is NOT Justin's comfort zone — his strength is in closed, maneuvering positions with pawn chains.
+</div>
+
+<h3>Exchange French — main line</h3>
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">e6</span> 2.d4 <span class="mv-z">d5</span>
+  <span class="key-move">3.exd5!</span> <span class="mv-z">exd5</span>
+  <span class="key-move">4.Nf3</span> <span class="mv-z">Nf6</span>
+  5.Bd3 <span class="mv-z">Bd6</span> 6.O-O <span class="mv-z">O-O</span>
+  <span class="key-move">7.Bg5!</span> <span class="mv-z">h6</span>
+  <span class="key-move">8.Bh4</span> <span class="mv-z">Bg4</span>
+  9.Nc3 <span class="mv-z">Nc6</span> 10.Re1
+  <span class="note"> — White has active play on the e-file; Bg5 puts pressure on the f6-knight over the d5 weakness.</span>
+</div>
+
+<input class="acc-toggle" id="w1" type="checkbox" checked>
+<label class="acc-label" for="w1">Branch A — Justin plays 4…Nc6 (tries to fight for d5)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 3.exd5 exd5 4.Nf3 <span class="mv-z">Nc6</span>
+    5.Bb5 <span class="mv-z">Bd6</span> 6.O-O <span class="mv-z">Nge7</span>
+    7.Re1 <span class="mv-z">O-O</span> <span class="key-move">8.Nc3!</span>
+    <span class="note"> — pressure on d5; Nc3 threatens to win the d5 pawn after Nxd5 or via Bg5/Ne5.</span>
+  </div>
+  <p style="margin-top:8px">After 8.Nc3: Justin must defend d5 actively. Austin's plan is <strong>Bg5! h6 Bh4</strong> (pin the knight) or <strong>Ne5 Nxe5 dxe5</strong> (IQP structure where Austin has good knight outpost). Justin's positional play in closed positions is strong — keep the position open and tactical.</p>
+</div>
+
+<input class="acc-toggle" id="w2" type="checkbox">
+<label class="acc-label" for="w2">Branch B — Justin plays 5…c6 (fortifying d5)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 3.exd5 exd5 4.Nf3 Nf6 5.Bd3 <span class="mv-z">c6</span>
+    6.O-O <span class="mv-z">Bd6</span> <span class="key-move">7.Re1+!</span> <span class="mv-z">Be7</span>
+    <span class="key-move">8.Nc3</span> <span class="mv-z">O-O</span> 9.Bg5
+    <span class="note"> — the Re1+ deflects the bishop from the ideal d6 square; Austin gains a tempo.</span>
+  </div>
+  <p style="margin-top:8px">After 9.Bg5: Justin has a solid but passive structure. Austin's plan is <strong>Qd2</strong> followed by kingside play. Justin's positional style suits equal endgames — Austin should keep the position imbalanced.</p>
+</div>
+
+<input class="acc-toggle" id="w3" type="checkbox">
+<label class="acc-label" for="w3">Branch C — Justin plays 3…Qxd5 (takes back with queen)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 3.exd5 <span class="mv-z">Qxd5</span>
+    4.Nf3 <span class="mv-z">Nf6</span> <span class="key-move">5.Nc3!</span> <span class="mv-z">Qa5</span>
+    6.Bd2 <span class="mv-z">Bb4</span> 7.Be2 <span class="mv-z">Bxc3</span> 8.Bxc3 <span class="mv-z">Qd8</span>
+    9.O-O <span class="mv-z">O-O</span> 10.d5!
+    <span class="note"> — White's d5 pawn is powerful; the position is open and favors Austin's tactical style.</span>
+  </div>
+</div>
+
+<h3 style="margin-top:18px">Key tactical themes — Austin as White</h3>
+<table>
+  <thead><tr><th>Theme</th><th>Target</th><th>Evidence</th></tr></thead>
+  <tbody>
+  <tr><td><strong>Bg5/Bh4 pin on Nf6</strong></td><td>Justin's d5 pawn becomes isolated; pressure via Re1</td><td>Main Exchange French plan; Bh4 avoids …Bxg5 exchange</td></tr>
+  <tr><td><strong>Re1+ deflection</strong></td><td>After 5.Bd3 c6 6.O-O Bd6: 7.Re1+! forces Be7 (passive square)</td><td>Branch B</td></tr>
+  <tr><td><strong>d5 pawn push</strong></td><td>After Qxd5 recapture: 10.d5! — strong passed pawn</td><td>Branch C</td></tr>
+  <tr><td><strong>Endgame king navigation traps</strong></td><td>Justin has Kb5?? and Ke6?? patterns; in any rook/pawn ending, find the precise king move he'll miss</td><td>PAM R4, PAM R2</td></tr>
+  </tbody>
+</table>
+
+<hr class="section-divider">
+
+<h2 class="black-section">Part 3 — Austin as Black vs Justin's 1.d4</h2>
+
+<div class="callout callout-green">
+  <strong>Core fact:</strong> Justin plays 1.d4 with the QGD/Semi-Slav setup — d4-c4-Nf3-Nc3-Bd3/Be2. Austin plays <strong>Nimzo-Indian (1.d4 Nf6 2.c4 e6 3.Nc3 Bb4!)</strong> — his main Black weapon. Justin plays Nc3 (Ragozin, Semi-Slav, QGD), so the Nimzo arises naturally. Austin's Bxc3+ with …b6/…Ba6 structure gives concrete imbalances that Justin's positional style finds difficult.
+</div>
+
+<h3>Justin's 1.d4 setup (confirmed OTB)</h3>
+<ul style="padding-left:20px; margin:8px 0 12px;">
+  <li><strong>Always 1.d4</strong> — no exceptions in 10+ White games</li>
+  <li>Typical: d4-c4-Nf3-Nc3 → Bd3 (QGD) or Be2 (Rubinstein-style)</li>
+  <li>Against KID: 1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 (classical KID)</li>
+  <li>Against Grünfeld: D85 Exchange Variation (Justin plays 4.cxd5 Nxd5 5.e4)</li>
+  <li>Has lost to QGD-type positions (D30, D38) — endgame misnavigation</li>
+</ul>
+
+<h3>Austin's weapon: Nimzo-Indian Bxc3+ with …b6/…Ba6</h3>
+<div class="move-line">
+  <span class="mv-z">Justin:</span> 1.d4 <span class="mv-a">Nf6</span> 2.c4 <span class="mv-a">e6</span>
+  3.Nc3 <span class="mv-a">Bb4!</span> (Nimzo)
+  4.e3 <span class="mv-a">O-O</span> 5.Bd3 <span class="mv-a">c5!</span>
+  6.Nf3 <span class="mv-a">d5</span> 7.O-O <span class="mv-a">Bxc3!</span>
+  8.bxc3 <span class="mv-a">dxc4!</span> 9.Bxc4 <span class="mv-a">Qc7</span>
+  10.Qe2 <span class="mv-a">b6!</span>
+  <span class="note"> — Austin's signature Nimzo: Bxc3+ then ...b6/...Ba6 to exploit doubled c-pawns. IQP structure where Justin's queenside majority is neutralized.</span>
+</div>
+
+<input class="acc-toggle" id="b1" type="checkbox" checked>
+<label class="acc-label" for="b1">Branch A — Justin plays 4.e3 (Rubinstein, most common)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">Justin:</span> 4.e3 O-O 5.Bd3 c5 6.Nf3 d5 7.O-O Bxc3!
+    8.bxc3 dxc4! 9.Bxc4 Qc7 <span class="key-move">10.Qe2 b6!</span>
+    11.e4 <span class="mv-a">cxd4</span> 12.cxd4 <span class="mv-a">Ba6!</span>
+    <span class="note"> — Ba6 pins the d3 bishop (or targets the c4 bishop); White's doubled c-pawns are chronic weaknesses.</span>
+  </div>
+  <p style="margin-top:8px">After 12…Ba6: Austin's bishop on a6 stares at Justin's queenside pawns. White's isolated d-pawn and doubled c-pawns give Austin long-term pressure in the endgame. Justin's strength is in closed positions; this IQP structure forces him to be active tactically — his weakness.</p>
+</div>
+
+<input class="acc-toggle" id="b2" type="checkbox">
+<label class="acc-label" for="b2">Branch B — Justin plays 4.Qc2 (Classical Nimzo, avoids doubled pawns)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">Justin:</span> 4.Qc2 O-O 5.a3 <span class="mv-a">Bxc3+!</span>
+    6.Qxc3 <span class="mv-a">b6</span> 7.Bg5 <span class="mv-a">Bb7</span>
+    8.e3 <span class="mv-a">d6!</span> 9.Bd3 <span class="mv-a">Nbd7</span>
+    10.Ne2 <span class="mv-a">c5!</span>
+    <span class="note"> — Black equalizes with the …b6/…Bb7/…c5 queenside majority. Justin gets no bishops pair advantage since Austin has traded proactively.</span>
+  </div>
+  <p style="margin-top:8px">Key: After 4.Qc2, Austin should still play Bxc3+ on move 5 (after a3 forces it), not retreat. The Qc2 system avoids doubled pawns but Black gets a solid position with ...d6 /...c5 queenside play. Austin's tactical style suits the resulting asymmetric middlegame.</p>
+</div>
+
+<input class="acc-toggle" id="b3" type="checkbox">
+<label class="acc-label" for="b3">Branch C — Justin plays 4.f3 (Sämisch — aggressive, anti-Nimzo)</label>
+<div class="acc-content">
+  <p>The Sämisch (4.f3) is the most aggressive anti-Nimzo. Justin hasn't played it in the dataset, but if he does:</p>
+  <div class="move-line">
+    <span class="mv-z">Justin:</span> 4.f3 d5 5.a3 <span class="mv-a">Bxc3+!</span>
+    6.bxc3 c5 7.cxd5 <span class="mv-a">Nxd5!</span> 8.dxc5 <span class="mv-a">Qa5</span>
+    9.e4 <span class="mv-a">Nf4!</span>
+    <span class="note"> — Nf4 targets d3 and creates immediate tactical complications. Austin's tactical style thrives in Sämisch positions.</span>
+  </div>
+</div>
+
+<h3 style="margin-top:18px">Key themes as Austin Black</h3>
+<table>
+  <thead><tr><th>Theme</th><th>Details</th></tr></thead>
+  <tbody>
+  <tr><td><strong>Bxc3+ forced imbalance</strong></td><td>Give up the bishop pair for doubled c-pawns — Justin's positional strength is neutralized when his pawns are targets</td></tr>
+  <tr><td><strong>…b6/…Ba6 pattern</strong></td><td>Austin's signature Nimzo follow-up: Ba6 targets Justin's bishop or queenside pawns immediately</td></tr>
+  <tr><td><strong>IQP via …dxc4</strong></td><td>Capture on c4 to create IQP structure; Austin's strength is the IQP (same as Nimzo vs Fernando/Pranav)</td></tr>
+  <tr><td><strong>Force queenside endgame</strong></td><td>Justin's endgame king navigation is unreliable (Kb5?? 1000CPL, Ke6?? 602CPL); trade into R/Q+pawn endings and find the precise king move he'll miss</td></tr>
+  </tbody>
+</table>
+
+<hr class="section-divider">
+
+<h2 class="analysis">Part 4 — Accuracy Profile and Psychological Strategy</h2>
+
+<h3>Justin's accuracy by tournament</h3>
+<table>
+  <thead><tr><th>Tournament</th><th>Games</th><th>Record</th><th>Avg Acc</th><th>Context</th></tr></thead>
+  <tbody>
+  <tr><td>PAM School 2026</td><td>5</td><td>4W–1L–0D</td><td><strong>96.1%</strong></td><td>Peak form: 100% + 99.1% consecutive; strong opposition</td></tr>
+  <tr><td>Toronto Open 2026</td><td>3</td><td>2W–1L–0D</td><td><strong>93.6%</strong></td><td>Sep 2026; recent form</td></tr>
+  <tr><td>Canada Closed 2026</td><td>9</td><td>1W–5L–3D</td><td><strong>92.6%</strong></td><td>Tough field; losses all vs 2100+</td></tr>
+  <tr><td>PAM 2026</td><td>9</td><td>6W–2L–1D</td><td><strong>92.5%</strong></td><td>Strong perf; 6/9 score. Worst game 87.7%</td></tr>
+  <tr style="background:#f5f0e8"><td><strong>Overall</strong></td><td><strong>26</strong></td><td><strong>13W–8L–5D</strong></td><td><strong>93.4%</strong></td><td>White 93.5% · Black 93.2%</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-gold" style="margin-top:12px">
+  <strong>Key insight:</strong> Justin's 93.4% average is the <em>highest of any opponent analyzed so far</em> (Fernando 92.8%, Zachary 92.9%, Aarush ~91%). He is genuinely the strongest opponent Austin will face. There is no "bad tournament" to point to — both of Justin's tournaments where he plays 90%+ show a consistently strong player. Austin must prepare concretely and precisely.
+</div>
+
+<h3 style="margin-top:14px">Justin's known error patterns</h3>
+<table>
+  <thead><tr><th>Pattern</th><th>Example</th><th>How to exploit</th></tr></thead>
+  <tbody>
+  <tr><td><strong>King navigation in endgame</strong></td><td>PAM R4: Kb5?? (1000 CPL, best Kb5 — but wrong direction); CC R7: Kf6?? (499 CPL)</td><td>Force king-and-pawn endings; find the precise king path Justin will likely misjudge</td></tr>
+  <tr><td><strong>Queen placement errors</strong></td><td>CC R4: Qxa4?? (1000 CPL, best Qxd2) — overlooked a tactic; PAM R7: Ba6?? (126 CPL) after d4??</td><td>Create queen activity puzzles; Justin sometimes overlooks queen centralizing moves</td></tr>
+  <tr><td><strong>Consecutive mistakes</strong></td><td>CC R7: Rxe5?? then Kf6??; PAM R7: d4?? then Ba6?? — double-error pattern</td><td>After finding Justin's first mistake, don't ease up — he is prone to follow-up errors</td></tr>
+  <tr><td><strong>Rook ending from winning positions</strong></td><td>PAM R2: Ke6?? (602 CPL) dropped a won rook ending to drawn</td><td>In rook endings where Austin is equal or slightly worse, Justin may inaccurately convert</td></tr>
+  </tbody>
+</table>
+
+<h3 style="margin-top:14px">Psychological notes</h3>
+<ul style="padding-left:20px; margin-top:6px;">
+  <li>Justin is <strong>rated 2093 — Austin's highest-rated opponent in this prep cycle.</strong> Approach with full preparation, not optimism about rating gap.</li>
+  <li>Justin scored <strong>100% accuracy in PAM School R8</strong> — the only perfect game in the entire dataset. He can play at IM level in a single game.</li>
+  <li>The <strong>Canada Closed was a tough field</strong> (Justin went 1W-5L-3D). At PAM 2026 vs weaker opposition he went 6W-2L-1D. Austin will play somewhere in between — don't assume Justin is in Canada Closed mode.</li>
+  <li>Justin's French Defense is a deeply prepared, tournament-tested weapon. <strong>The Exchange French is the path of least theory for Austin</strong> — Justin cannot use his advanced preparation against 3.exd5.</li>
+</ul>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 5 — If / Then Quick Reference</h2>
+
+<input class="acc-toggle" id="q1" type="checkbox" checked>
+<label class="acc-label" for="q1">Austin as White — opening decisions</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Justin plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
+    <tbody>
+    <tr><td>1…e6 (French, always)</td><td>2.d4 d5 <strong>3.exd5!</strong> (Exchange)</td><td>Justin 0W-1D-1L in Exchange; neutralizes his NAYCC prep</td></tr>
+    <tr><td>3…exd5 (takes back with pawn)</td><td>4.Nf3 Nf6 5.Bd3 Bd6 6.O-O O-O <strong>7.Bg5!</strong></td><td>Pin f6-knight; target d5 pawn</td></tr>
+    <tr><td>3…Qxd5 (takes back with queen)</td><td>4.Nf3 Nf6 5.Nc3! Qa5 6.Bd2</td><td>Develop with tempo against the queen</td></tr>
+    <tr><td>4…Nc6 (in exd5 exd5 line)</td><td>5.Bb5 Bd6 6.O-O Nge7 7.Re1 O-O <strong>8.Nc3!</strong></td><td>Central pressure; threat to win d5</td></tr>
+    </tbody>
+  </table>
+  <div class="callout callout-danger" style="margin-top:10px">
+    <strong>NEVER play 3.e5 (Advance).</strong> If you somehow end up in the Advance after 3.e5: <strong>NEVER play 6.dxc5</strong> — play 6.a3! instead. But the Exchange French avoids this entirely.
+  </div>
+</div>
+
+<input class="acc-toggle" id="q2" type="checkbox" checked>
+<label class="acc-label" for="q2">Austin as Black — opening decisions</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Justin plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
+    <tbody>
+    <tr><td>1.d4 (always)</td><td>1…Nf6 2…e6 3…Bb4! (Nimzo-Indian)</td><td>Austin's main weapon vs 1.d4</td></tr>
+    <tr><td>4.e3 (Rubinstein)</td><td>…O-O …c5 …d5 <strong>…Bxc3!</strong> …dxc4 …b6 …Ba6</td><td>Force IQP + doubled pawns; Austin's best structure</td></tr>
+    <tr><td>4.Qc2 (Classical)</td><td>…O-O …a3? Bxc3+! …b6 …Bb7 …d6 …c5</td><td>Still trade the bishop; prevent bishop pair advantage</td></tr>
+    <tr><td>4.f3 (Sämisch)</td><td>…d5 …Bxc3+! …c5 …Nxd5 …Nf4!</td><td>Tactical Nf4 hits d3; Austin's tactical strength</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<input class="acc-toggle" id="q3" type="checkbox">
+<label class="acc-label" for="q3">Middlegame and endgame decisions</label>
+<div class="acc-content">
+  <ul style="padding-left:18px;">
+    <li><strong>DO</strong> force king-and-pawn endings — Justin has Kb5?? and Kf6?? errors; find the king path he'll misjudge</li>
+    <li><strong>DO</strong> enter rook endings from slightly worse positions — Justin dropped a won ending with Ke6?? 602CPL (PAM R2)</li>
+    <li><strong>DO NOT</strong> simplify the position when winning — after Justin's first mistake, he makes follow-up errors; stay active and keep pieces on</li>
+    <li><strong>DO NOT</strong> trade all the pawns in endgames — Justin's positional endgame technique in closed positions is excellent; keep asymmetric pawn structures</li>
+    <li>In the Exchange French middlegame: keep the d5 pawn under indirect pressure with Re1/Bg5 — don't capture on d5 prematurely</li>
+  </ul>
+</div>
+
+<input class="acc-toggle" id="q4" type="checkbox">
+<label class="acc-label" for="q4">Opening drills — Exchange French core moves</label>
+<div class="acc-content">
+  <h3>Memorize: Austin's Exchange French to move 10</h3>
+  <div class="move-line">
+    <span class="mv-a">1.e4</span> <span class="mv-z">e6</span>
+    <span class="mv-a">2.d4</span> <span class="mv-z">d5</span>
+    <span class="key-move">3.exd5!</span> <span class="mv-z">exd5</span>
+    <span class="key-move">4.Nf3</span> <span class="mv-z">Nf6</span>
+    <span class="key-move">5.Bd3</span> <span class="mv-z">Bd6</span>
+    <span class="key-move">6.O-O</span> <span class="mv-z">O-O</span>
+    <span class="key-move">7.Bg5!</span> <span class="mv-z">h6</span>
+    <span class="key-move">8.Bh4</span> <span class="mv-z">Bg4</span>
+    <span class="key-move">9.Nc3</span> <span class="mv-z">Nc6</span>
+    <span class="key-move">10.Re1</span>
+  </div>
+  <p style="margin-top:8px"><strong>Key rules:</strong> (1) 7.Bg5! — always the first active move after castling. (2) 8.Bh4 NOT 8.Bxf6 — keep the tension; exchanging on f6 helps Justin's knight recapture. (3) 10.Re1 centralizes and supports e5 eventually. Then plan Qd2, Ne5 or Nxd5.</p>
+  <p style="margin-top:6px"><strong>Quick test:</strong> Without looking: what are Austin's first 10 moves in the Exchange French?</p>
+  <p>Answer: <strong>1.e4 2.d4 3.exd5! 4.Nf3 5.Bd3 6.O-O 7.Bg5! 8.Bh4 9.Nc3 10.Re1</strong></p>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 6 — Engine Accuracy Reference (26 OTB Games)</h2>
+
+<table>
+  <thead><tr><th>Tournament</th><th>Rnd</th><th>Color</th><th>Opponent</th><th>Elo</th><th>Result</th><th>Acc</th><th>B/M</th></tr></thead>
+  <tbody>
+  <tr><td>PAM School 2026</td><td>R7</td><td>White</td><td>Yu, Vincent Zhiwen</td><td>—</td><td>Win</td><td><strong>99.1%</strong></td><td>0/0</td></tr>
+  <tr><td>PAM School 2026</td><td>R8</td><td>White</td><td>Nunez Castaneda, Joaquin</td><td>—</td><td>Win</td><td><strong>100%</strong></td><td>0/0</td></tr>
+  <tr><td>PAM School 2026</td><td>R5</td><td>Black</td><td>Bernal Martinez, Elias</td><td>—</td><td>Win</td><td>97.2%</td><td>0/1</td></tr>
+  <tr><td>PAM School 2026</td><td>R4</td><td>White</td><td>Tobar Beltran, Miguel</td><td>—</td><td>Win</td><td>92.1%</td><td>1/2</td></tr>
+  <tr class="row-danger"><td>PAM School 2026</td><td>R6</td><td>White</td><td>Vuyyuru, Shriyan</td><td>—</td><td>Loss</td><td>91.9%</td><td>2/0</td></tr>
+  <tr><td>Canada Closed 2026</td><td>R5</td><td>Black</td><td>Wu, Ting En Ryan</td><td>1906</td><td>Draw</td><td>97.4%</td><td>0/0</td></tr>
+  <tr><td>Canada Closed 2026</td><td>R9</td><td>White</td><td>Jiang, Barron Jiyu</td><td>—</td><td>Win?</td><td>94.5%</td><td>0/1</td></tr>
+  <tr><td>Canada Closed 2026</td><td>R7</td><td>Black</td><td>Zaka, Mohid</td><td>—</td><td>Win?</td><td>93.1%</td><td>2/0</td></tr>
+  <tr><td>Canada Closed 2026</td><td>R3</td><td>White</td><td>Taylor, Ashton</td><td>—</td><td>Win?</td><td>97.7%</td><td>0/0</td></tr>
+  <tr><td>Canada Closed 2026</td><td>R1</td><td>Black</td><td>Plotkin, Victor</td><td>2260</td><td>Loss?</td><td>93.5%</td><td>2/0</td></tr>
+  <tr><td>Canada Closed 2026</td><td>R2</td><td>Black</td><td>Plotkin, Mark</td><td>—</td><td>Draw?</td><td>89.3%</td><td>1/2</td></tr>
+  <tr class="row-danger"><td>Canada Closed 2026</td><td>R4</td><td>White</td><td>Dunahee, Titan</td><td>—</td><td>Loss?</td><td>89.0%</td><td>2/0</td></tr>
+  <tr class="row-danger"><td>Canada Closed 2026</td><td>R6</td><td>White</td><td>Chabot, Roland</td><td>—</td><td>Win?</td><td>88.6%</td><td>1/1</td></tr>
+  <tr><td>Canada Closed 2026</td><td>R8</td><td>Black</td><td>Velasquez, Noah</td><td>1925</td><td>Loss</td><td>90.7%</td><td>2/0</td></tr>
+  <tr><td>PAM 2026</td><td>R3</td><td>Black</td><td>Salazar Rodriguez, Benito</td><td>1928</td><td>Win</td><td>95.9%</td><td>0/1</td></tr>
+  <tr><td>PAM 2026</td><td>R5</td><td>Black</td><td>Rodriguez Barradas, J.A.</td><td>1847</td><td>Win</td><td>96.4%</td><td>0/0</td></tr>
+  <tr><td>PAM 2026</td><td>R9</td><td>Black</td><td>Delgado Gutierrez, Mateo</td><td>1833</td><td>Win</td><td>96.1%</td><td>0/1</td></tr>
+  <tr><td>PAM 2026</td><td>R6</td><td>White</td><td>Piza Vera, Andres</td><td>—</td><td>Win</td><td>93.5%</td><td>1/1</td></tr>
+  <tr><td>PAM 2026</td><td>R2</td><td>White</td><td>Ladino Hernandez, A.J.</td><td>—</td><td>Win</td><td>93.8%</td><td>1/2</td></tr>
+  <tr><td>PAM 2026</td><td>R1</td><td>Black</td><td>Lau, Jacek</td><td>—</td><td>Loss</td><td>89.2%</td><td>2/1</td></tr>
+  <tr class="row-danger"><td>PAM 2026</td><td>R4</td><td>White</td><td>Sen, Samant Robert</td><td>—</td><td>Win</td><td>88.9%</td><td>2/0</td></tr>
+  <tr><td>PAM 2026</td><td>R8</td><td>White</td><td>Cabrera Alvarado, Hugo</td><td>—</td><td>Win</td><td>91.2%</td><td>1/2</td></tr>
+  <tr class="row-danger"><td>PAM 2026</td><td>R7</td><td>Black</td><td>Galvis Cala, Miguel</td><td>—</td><td>Draw</td><td>87.7%</td><td>2/1</td></tr>
+  <tr><td>Toronto Open 2026</td><td>R2</td><td>White</td><td>Preotu, Razvan</td><td>—</td><td>Win</td><td>91.9%</td><td>1/1</td></tr>
+  <tr><td>Toronto Open 2026</td><td>R4</td><td>Black</td><td>Achyuth, Akshaj</td><td>—</td><td>Loss</td><td>92.4%</td><td>1/2</td></tr>
+  <tr><td>Toronto Open 2026</td><td>R5</td><td>White</td><td>Wang, Nathan Zian</td><td>—</td><td>Win</td><td>96.6%</td><td>1/1</td></tr>
+  <tr style="background:#f5f0e8"><td colspan="5"><strong>Overall</strong></td><td><strong>13W–8L–5D*</strong></td><td><strong>93.4%</strong></td><td></td></tr>
+  </tbody>
+</table>
+<p style="font-size:0.82em; color:#666; margin-top:4px">* Some Canada Closed results marked "?" in raw data (live-broadcast captures). Red rows = lowest accuracy games. Justin's Lichess games (unknowndemon, 2020–2023) show Sicilian repertoire — irrelevant for current classical prep.</p>
+
+<p style="margin-top:20px; font-size:0.85em; color:#555; text-align:center">
+  <a href="../austin-prep.html">← Back to Austin Lin Prep Index</a>
+</p>
+
+</body>
+</html>

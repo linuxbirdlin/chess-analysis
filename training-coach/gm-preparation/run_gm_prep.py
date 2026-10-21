@@ -66,6 +66,15 @@ OPPONENTS = {
         "austin_weapon_white": "Advanced French 6.a3 — Fernando's French Advance not tested vs 6.a3 system in dataset",
         "austin_weapon_black": "Sicilian Taimanov/Kan — Fernando plays English Attack but accuracy dips under pressure",
     },
+    "justin": {
+        "legal_name": "Huang, Justin",
+        "lichess_username": "unknowndemon",  # inactive since late 2023 — reference only
+        "pgn_player_name": "unknowndemon",   # Lichess PGNs use username; local PGNs use "Huang, Justin"
+        "known_white": "1.d4 QGD/Semi-Slav — d4-c4-Nf3-Nc3-Bd3/Be2; slow positional buildup",
+        "known_weakness": "King navigation errors in endgames (Kb5?? 1000CPL in PAM R4; Qxa4?? 1000CPL in Canada Closed R4); consecutive mistakes when under queenside pressure",
+        "austin_weapon_white": "Exchange French (3.exd5) or Classical French (3.Nc3 Nf6 4.Bg5) — Justin 0W-1D-1L in Exchange/Classical vs 1W-1L in Advance; Austin already lost with Advance at NAYCC R4",
+        "austin_weapon_black": "Nimzo-Indian Bxc3+ with ...b6/...Ba6 — Austin's main 1.d4 answer; Justin plays QGD-type setups without deep Anti-Nimzo prep in dataset",
+    },
     "pranav": {
         "legal_name": "Santhosh, Pranav",
         "lichess_username": None,  # no Lichess account found (FIDE ID 39951596)
