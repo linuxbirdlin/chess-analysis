@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle Plan: Austin vs Santhosh, Pranav (GM Prep)</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Georgia', serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg);
+}
+h1 { font-size: 1.6em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.15em; margin: 28px 0 10px; border-left: 5px solid var(--blue); padding-left: 10px; }
+h3 { font-size: 1em; margin: 14px 0 6px; color: #333; }
+.subtitle { font-size: 0.85em; color: #666; margin-bottom: 22px; }
+.subtitle span { margin-right: 16px; }
+
+.sources { background: #f0f4ff; border: 1px solid #aac; border-radius: 5px; padding: 10px 14px; margin-bottom: 18px; font-size: 0.85em; }
+.sources strong { display: block; margin-bottom: 4px; }
+
+.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.intel-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.intel-card h3 { margin-top: 0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }
+.intel-card ul { padding-left: 16px; margin-top: 4px; }
+.intel-card li { margin-bottom: 3px; }
+
+.callout { border-radius: 4px; padding: 10px 14px; margin: 10px 0; font-size: 0.9em; }
+.callout-gold  { background: #fffbe0; border-left: 4px solid var(--gold); }
+.callout-blue  { background: #eef4ff; border-left: 4px solid var(--blue); }
+.callout-green { background: #efffef; border-left: 4px solid var(--green); }
+.callout-danger { background: #fff0f0; border-left: 4px solid var(--red); }
+.callout-note  { background: #f7f7f0; border-left: 4px solid #999; }
+
+.move-line { background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+             padding: 8px 12px; margin: 6px 0; font-size: 0.92em; line-height: 1.9; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: #eef4ff; border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.note { color: #555; font-style: italic; font-size: 0.88em; }
+
+.badge { display: inline-block; border-radius: 3px; padding: 1px 7px;
+         font-size: 0.78em; font-weight: bold; margin-left: 4px; vertical-align: middle; }
+.b-green { background: #dff0df; color: #1a5c1a; border: 1px solid #88bb88; }
+.b-gold  { background: #fff3cc; color: #7a5c00; border: 1px solid #ccaa44; }
+.b-red   { background: #ffe0e0; color: #8b1a1a; border: 1px solid #cc8888; }
+.b-blue  { background: #dde8ff; color: #1a4a8b; border: 1px solid #8899cc; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
+th { background: #333; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+.row-unreliable td { color: #999; font-style: italic; }
+.row-highlight td { background: #fff8e0 !important; }
+
+hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20px; }
+
+.acc-toggle { display: none; }
+.acc-label {
+  display: block; cursor: pointer; padding: 8px 12px; margin: 4px 0;
+  background: #eee; border: 1px solid #ccc; border-radius: 4px;
+  font-weight: bold; font-size: 0.9em; user-select: none;
+}
+.acc-label::before { content: '▶ '; font-size: 0.75em; color: #666; }
+.acc-toggle:checked ~ .acc-label::before { content: '▼ '; }
+.acc-content { display: none; padding: 10px 14px; background: #fafaf6;
+               border: 1px solid #ddd; border-top: none; border-radius: 0 0 4px 4px; margin-bottom: 6px; }
+.acc-toggle:checked ~ .acc-content { display: block; }
+
+@media print {
+  .acc-content { display: block !important; }
+  .acc-label::before { content: '' !important; }
+  body { font-size: 12px; padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<h1>Battle Plan: Austin (White &amp; Black) vs Santhosh, Pranav</h1>
+<div class="subtitle">
+  <span><strong>GM Prep</strong></span>
+  <span>Pranav rating: ~1979 FIDE classical (peaked 2003 Blue Ridge Sep 2026)</span>
+  <span>Direct record: no encounter</span>
+  <span>Reliable classical games: 16 (WY + Blue Ridge + SW Open)</span>
+</div>
+
+<div class="sources">
+  <strong>Data sources &amp; quality note</strong>
+  25 games analyzed across 5 tournaments. <strong>AGCA Fall/Summer games are unreliable</strong> — most have <code>Result "*"</code> (live-broadcast mid-stream captures) and missing opponent ELO. The AGCA data shows 67–76% avg accuracy with 13-blunder games — these are incomplete records from a club event, not classical OTB games. <strong>Primary dataset: 16 classical OTB games</strong> (World Youth 2026, Blue Ridge 2026, SW Open 2026) showing consistent 90–93% accuracy — this is the real Pranav. Also note: Texas Grand Circuit Dallas (March 2026) found on FIDE profile — PGN not yet in database.
+</div>
+
+<div class="intel-grid">
+  <div class="intel-card">
+    <h3>Pranav as White</h3>
+    <ul>
+      <li><strong>1.e4 always</strong> — no exceptions in all 14 White games</li>
+      <li><strong>Italian (Bc4 → d3/c3)</strong>: 3 games — <strong>3W-0L-0D (100% wins!)</strong></li>
+      <li><strong>English Attack (Nc3/Be3/f3/Qd2)</strong>: 3g, 1W-1D-1L (33% wins)</li>
+      <li><strong>Maróczy Bind (5.c4)</strong> vs Accelerated Dragon/Kan: 4g, 2W-1D-1L</li>
+      <li>Italian is his <em>most successful</em> White system — used vs 1…e5</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Pranav as Black</h3>
+    <ul>
+      <li><strong>1…e5 always</strong> (6/6 Black games vs 1.e4 in tree)</li>
+      <li>Giuoco Piano (<strong>3…Bc5</strong> after 3.Bc4): 3 games — <strong>0W-2D-1L</strong></li>
+      <li>Ruy Lopez (<strong>3…a6</strong> after 3.Bb5): 3 games — 1W-0D-2L</li>
+      <li>vs 1.d4/1.Nf3: QGD structure (…d5/…e6/…Bf5)</li>
+      <li><strong>Black is Pranav's weaker color</strong> overall (1W-2D-3L in Open Game)</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Critical weaknesses</h3>
+    <ul>
+      <li><strong>Back-rank blunder:</strong> SW Open R4 — Qxc7?? (best Qxf7+!) squandered +9.43 advantage, then lost</li>
+      <li><strong>Giuoco Piano as Black:</strong> 0W-2D-1L in dataset — his weakest opening position</li>
+      <li><strong>Endgame collapse:</strong> multiple World Youth losses came from defended-but-equal → blunder in time pressure</li>
+      <li><strong>Open Game vs 2100+:</strong> 0W-3L as Black against 2100–2366 rated opponents at World Youth</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Key game facts (reliable games)</h3>
+    <ul>
+      <li>World Youth: <strong>93.4%</strong> avg (6W-5L, all vs 2100–2366)</li>
+      <li>Blue Ridge: <strong>91.0%</strong> avg (2g, 1W-0L-1D, ELO 2003)</li>
+      <li>SW Open: <strong>90.0%</strong> avg (3g, 1W-1L-1D)</li>
+      <li>Best reliable game: 95.7% (WY R9, won vs Ivancic 2166 as Black!)</li>
+      <li>Worst reliable game: 83.5% (SW Open R4 — the Qxc7?? back-rank disaster)</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2>Part 1 — Austin as White vs Pranav</h2>
+
+<div class="callout callout-gold">
+  <strong>The core fact:</strong> Pranav plays <strong>1…e5 in 100% of games</strong> vs 1.e4. His Giuoco Piano record as Black (3…Bc5 after 3.Bc4) is <strong>0W-2D-1L</strong> — his weakest opening. Austin plays the <strong>Italian with 4.c3! 5.d4</strong> — a sharp center-opening attack targeting exactly this weakness. This is also Austin's most natural style: central pawn play, IQP positions, knight outposts.
+</div>
+
+<h3>Pranav's Black repertoire vs 1.e4 (confirmed)</h3>
+<ul style="padding-left:20px; margin:8px 0 12px;">
+  <li><strong>1…e5 → 2…Nc6 always</strong> — confirmed in all 6 Black vs 1.e4 games</li>
+  <li>vs 3.Bc4: Giuoco Piano — 3…Bc5 (then …Nf6, …d6, …O-O)</li>
+  <li>vs 3.Bb5: Classical Lopez — 3…a6 4…Nf6 5…b5 6…Bc5 (not Berlin, not Marshall)</li>
+  <li>vs 3.d4 (Scotch): 3…exd4 → Mieses variation (WY R9 vs Ivancic — his only Black win vs 2100+)</li>
+</ul>
+
+<h3>Austin's weapon: Italian with 4.c3! 5.d4</h3>
+
+<div class="callout callout-blue">
+  The <strong>Evans Attack / Aggressive Italian</strong>: after 1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.c3!, Austin prepares the d4 center break. Pranav plays …Nf6 or …Qe7 in this structure. After 5.d4 exd4 6.cxd4 Bb6 (his usual retreat), White has a powerful IQP + development advantage. Austin's IQP expertise from the Nimzo-Indian as Black transfers directly here.
+</div>
+
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">e5</span> 2.Nf3 <span class="mv-z">Nc6</span>
+  3.Bc4 <span class="mv-z">Bc5</span> <span class="key-move">4.c3!</span> <span class="mv-z">Nf6</span>
+  <span class="key-move">5.d4!</span> <span class="mv-z">exd4</span> <span class="key-move">6.cxd4</span>
+  <span class="mv-z">Bb6</span> 7.Nc3 d6 8.O-O O-O 9.h3!
+  <span class="note"> — h3 prevents …Bg4 pin; White has ideal IQP structure.</span>
+</div>
+
+<input class="acc-toggle" id="w1" type="checkbox" checked>
+<label class="acc-label" for="w1">Branch A — 4…Nf6 (main line, Pranav's typical response)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 4.c3 <span class="mv-z">Nf6</span> 5.d4 <span class="mv-z">exd4</span>
+    6.cxd4 <span class="mv-z">Bb6</span> 7.Nc3 d6 8.O-O O-O 9.h3 <span class="mv-z">h6</span>
+    10.Re1 Re8 11.d5!
+    <span class="note"> — closing the center with d5 gives White a permanent kingside bind. The IQP becomes a passed pawn on d5.</span>
+  </div>
+  <p style="margin-top:8px"><strong>After 11.d5 Ne7 12.Nd4:</strong> White's knight dominates on d4. Plan is Bf4 + Qd2 + Rad1, doubling on the d-file. Pranav's bishop on b6 is completely passive.</p>
+  <p style="margin-top:6px"><strong>If 8…Na5?! (chasing the bishop):</strong> 9.Bd3! — let him trade, keep the IQP structure. After 9…Nxd3? 10.Qxd3 d6 11.O-O Re8, White still has the central bind.</p>
+</div>
+
+<input class="acc-toggle" id="w2" type="checkbox">
+<label class="acc-label" for="w2">Branch B — 4…Qe7 (prevents 5.d4, tries to maintain center)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 4.c3 <span class="mv-z">Qe7</span>
+    <span class="key-move">5.O-O!</span> <span class="mv-z">Nf6</span> 6.d4 <span class="mv-z">exd4</span>
+    7.cxd4 <span class="mv-z">Nxe4</span> 8.d5! <span class="mv-z">Nd6</span> 9.Re1 <span class="mv-z">Qf8</span>
+    10.Nc3
+    <span class="note"> — Black's queen is misplaced on f8; White has strong central play and the d5 outpost.</span>
+  </div>
+  <p style="margin-top:8px">After 10.Nc3: White has a pleasant advantage. Pranav's Nd6 is awkward, and the f7 square becomes a target after Ng5 ideas.</p>
+</div>
+
+<input class="acc-toggle" id="w3" type="checkbox">
+<label class="acc-label" for="w3">Branch C — Pranav plays 1…e5 but responds with 2…Nc6 → Ruy Lopez (if Austin plays 3.Bb5)</label>
+<div class="acc-content">
+  <div class="callout callout-note">
+    <strong>DO NOT play 3.Bb5</strong> — steer toward 3.Bc4 Italian. Pranav has better results in Lopez (1W-0D-2L is still only 1 win, but it's his more familiar territory). Stay in the Italian where he's 0W-2D-1L.
+  </div>
+  <div class="move-line">
+    <span class="mv-a">Austin recommendation:</span> Always play 3.Bc4 (not 3.Bb5) to reach Italian. If Pranav plays 3…Bc5 → Branch A/B. If Pranav plays 3…Nf6?! (Two Knights) → Austin plays 4.Ng5! targeting f7.
+  </div>
+</div>
+
+<input class="acc-toggle" id="w4" type="checkbox">
+<label class="acc-label" for="w4">Branch D — Pranav tries 3…Bc5 but deviates early (3…d6, 3…Nf6 Two Knights)</label>
+<div class="acc-content">
+  <p><strong>If 3…d6:</strong> This is the Philidor-adjacent Italian. 4.c3 Nf6 5.d4 exd4 6.cxd4 — same IQP structure; Pranav's bishop on e7/f8 area will be passive.</p>
+  <p style="margin-top:6px"><strong>If 3…Nf6 (Two Knights):</strong> 4.Ng5! — the Italian Two Knights Attack. After 4.Ng5 d5 5.exd5 Na5 6.Bb5+ c6 7.dxc6 bxc6 8.Be2 h6 9.Nf3 e4, Austin has a sharp tactical position that suits his style.</p>
+</div>
+
+<h3 style="margin-top:18px">Key tactical themes — Austin as White</h3>
+<table>
+  <thead><tr><th>Theme</th><th>How to create it</th><th>Pranav's weakness</th></tr></thead>
+  <tbody>
+  <tr><td><strong>IQP + d5 advance</strong></td><td>After 4.c3 5.d4 6.cxd4 — maintain IQP with d5 push</td><td>Pranav's Bb6 becomes passive; knight on c6 misplaced</td></tr>
+  <tr><td><strong>Back-rank threats</strong></td><td>Keep queen active; target back rank — Qxf7+ pattern from SW Open R4 (Pranav missed it as him, now Austin must find it)</td><td>SW Open R4: +9.43 squandered to Qxc7?? instead of Qxf7+</td></tr>
+  <tr><td><strong>h3 prophylaxis</strong></td><td>After 9.h3 — stops …Bg4 pin on the Italian knight</td><td>Pranav plays d6 setups where …Bg4 is his main activity; h3 stops it cold</td></tr>
+  <tr><td><strong>Ng5 tactical shot</strong></td><td>If Pranav plays Two Knights (3…Nf6) → 4.Ng5! targets f7</td><td>4.Ng5 is unexpected vs Two Knights — Pranav may be unprepared</td></tr>
+  </tbody>
+</table>
+
+<hr class="section-divider">
+
+<h2>Part 2 — Austin as Black vs Pranav</h2>
+
+<div class="callout callout-green">
+  <strong>Core fact:</strong> Pranav plays 1.e4 → English Attack (Be3/f3/Qd2/O-O-O) vs Sicilian. Austin plays 1.e4 himself and runs the English Attack as White — he knows this system from <em>both sides</em>. Austin plays <strong>Sicilian Kan (1…c5, 2…e6, 3…a6)</strong>. Pranav's English Attack record in the reliable dataset is only 1W-1D-1L (3 games). Austin should be MORE comfortable in this structure than Pranav.
+</div>
+
+<h3>Pranav's White repertoire vs Sicilian (confirmed)</h3>
+<ul style="padding-left:20px; margin:8px 0 12px;">
+  <li><strong>vs Najdorf/Scheveningen (…d6+Nf6)</strong>: English Attack — 6.Be3 then f3, Qd2, O-O-O, g4/h4</li>
+  <li><strong>vs Accelerated Dragon (…Nc6+g6)</strong>: Maróczy Bind — 5.c4 (better results: 2W-1D-1L)</li>
+  <li><strong>vs Kan (…e6+a6)</strong>: likely English Attack (same as Najdorf); possible Maróczy</li>
+  <li>Pranav is more dangerous with the Maróczy; steer him toward English Attack by playing Kan (not …g6)</li>
+</ul>
+
+<h3>Austin's weapon: Sicilian Kan → English Attack mirror</h3>
+<div class="callout callout-blue">
+  Austin plays the Kan and forces Pranav into the English Attack — a system Austin has used himself (he knows the ideas, the pawn breaks, the king-hunting patterns). Pranav has <em>fewer prepared novelties</em> in the English Attack than the Maróczy, and his English Attack record is only 1W-1D-1L.
+</div>
+
+<div class="move-line">
+  <span class="mv-z">Pranav:</span> 1.e4 <span class="mv-a">c5!</span> 2.Nf3 <span class="mv-a">e6</span>
+  3.d4 <span class="mv-a">cxd4</span> 4.Nxd4 <span class="mv-a">a6</span> (Kan)
+  5.Nc3 <span class="mv-a">Qc7</span> 6.Be3 <span class="mv-a">Nf6</span> 7.f3 <span class="mv-a">b5!</span>
+  8.g4 <span class="mv-a">h6!</span> 9.Qd2 <span class="mv-a">Bb7</span> 10.O-O-O <span class="mv-a">Nbd7</span>
+  <span class="note"> — standard Kan English Attack. …b5! launches queenside counterplay before g5 arrives.</span>
+</div>
+
+<input class="acc-toggle" id="b1" type="checkbox" checked>
+<label class="acc-label" for="b1">Main English Attack — Pranav plays 6.Be3 + f3 + g4</label>
+<div class="acc-content">
+  <div class="move-line">
+    After 10…Nbd7: Play <span class="mv-a">11…Rc8!</span> — rook activates queenside.
+    Then <span class="mv-a">12…b4!</span> pushing queenside before g5 arrives.
+    After 13.Na4: <span class="mv-a">Qb8!</span> (defends b4, keeps …Nc5 option) 14.Nb6 <span class="mv-a">Nxb6</span> 15.Qxb4 <span class="mv-a">Nc4!</span>
+    <span class="note"> — knight outpost on c4 is powerful; Austin wins the queenside race.</span>
+  </div>
+  <p style="margin-top:8px"><strong>Critical rule:</strong> Do NOT play …d5?! — this gives Pranav the IQP structure he's comfortable with from his White games. Keep position dynamic with …b4 and …Nc5 queenside pressure.</p>
+  <p><strong>When Pranav plays g5 (kingside storm):</strong> counter with …Ng8-e7-f5! rerouting the knight before the storm lands.</p>
+</div>
+
+<input class="acc-toggle" id="b2" type="checkbox">
+<label class="acc-label" for="b2">If Pranav plays 5.c4 Maróczy Bind (less likely vs Kan)</label>
+<div class="acc-content">
+  <p>If 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6 <strong>5.c4</strong> (Maróczy): Pranav has 2W-1D-1L with this system — more dangerous for Austin.</p>
+  <div class="move-line">
+    <span class="mv-z">Pranav:</span> 5.c4 <span class="mv-a">Nf6</span> 6.Nc3 <span class="mv-a">Bb4!</span>
+    (Taimanov/Nimzo transposition) 7.Nxc6 <span class="mv-a">bxc6!</span> 8.Bd3 <span class="mv-a">e5!</span>
+    <span class="note"> — Black grabs the center immediately. The bishops become powerful on the long diagonal.</span>
+  </div>
+  <p style="margin-top:8px">After 8…e5: White cannot play d5 without pawn structure damage. Black gets a solid hold on the center with …d6 and …Be6. This is analogous to Austin's Nimzo-Indian repertoire — he knows this type of position.</p>
+</div>
+
+<input class="acc-toggle" id="b3" type="checkbox">
+<label class="acc-label" for="b3">If Pranav plays 1.d4 (possible) or 1.Nf3</label>
+<div class="acc-content">
+  <p>Pranav plays 1.e4 in 100% of White games in the dataset — 1.d4 is very unlikely. But if he does:</p>
+  <div class="move-line">
+    <span class="mv-z">Pranav:</span> 1.d4 <span class="mv-a">Nf6</span> 2.c4 <span class="mv-a">e6</span>
+    3.Nc3 <span class="mv-a">Bb4</span>
+    <span class="note"> — Austin's Nimzo-Indian (his main Black weapon vs 1.d4). Pranav has no 1.d4 preparation in the dataset.</span>
+  </div>
+</div>
+
+<h3 style="margin-top:18px">Key themes as Austin Black</h3>
+<table>
+  <thead><tr><th>Theme</th><th>Details</th></tr></thead>
+  <tbody>
+  <tr><td><strong>…b5/…b4 queenside race</strong></td><td>In English Attack: launch …b5-b4 before Pranav's g5 arrives (5–6 moves window)</td></tr>
+  <tr><td><strong>…Rc8 rook activation</strong></td><td>Rook on c8 supports …b4 and creates c-file pressure against Pranav's O-O-O king</td></tr>
+  <tr><td><strong>…Nc4 knight outpost</strong></td><td>After …b4 and White plays Na4/Nb6 exchanges: …Nc4! is a dominant outpost</td></tr>
+  <tr><td><strong>Mirror knowledge</strong></td><td>Austin has played the English Attack as White (vs Heye, Zachary, Aarush) — he knows the mating patterns and blunders that happen on the kingside better than Pranav does</td></tr>
+  </tbody>
+</table>
+
+<hr class="section-divider">
+
+<h2>Part 3 — Accuracy Profile and Psychological Strategy</h2>
+
+<div class="callout callout-note">
+  <strong>Data quality warning:</strong> The AGCA Fall and most AGCA Summer games are <em>incomplete Lichess broadcast captures</em> — games stopped mid-stream, showing <code>*</code> results. The 67–76% AGCA accuracy figures are NOT representative of Pranav's actual strength. His true classical level is the World Youth + Blue Ridge + SW Open data below.
+</div>
+
+<h3>Reliable accuracy by tournament (classical OTB only)</h3>
+<table>
+  <thead><tr><th>Tournament</th><th>Games</th><th>Record</th><th>Avg Acc</th><th>Notes</th></tr></thead>
+  <tbody>
+  <tr><td>World Youth 2026</td><td>11</td><td>6W–5L–0D</td><td><strong>93.4%</strong></td><td>vs 1644–2366; 5 losses all vs 2100+; Pranav rated 1940</td></tr>
+  <tr><td>Blue Ridge Open 2026</td><td>2</td><td>1W–0L–1D</td><td><strong>91.0%</strong></td><td>vs 2149 (win!) and 2160 (draw); Pranav rated 2003</td></tr>
+  <tr><td>SW Open 2026</td><td>3</td><td>1W–1L–1D</td><td><strong>90.0%</strong></td><td>R4: 83.5% — Qxc7?? back-rank disaster from +9.43</td></tr>
+  <tr style="background:#f5f0e8"><td><strong>Reliable total</strong></td><td><strong>16</strong></td><td><strong>8W–6L–1D</strong></td><td><strong>92.1%</strong></td><td>Against avg opponent ~2050</td></tr>
+  </tbody>
+</table>
+
+<h3 style="margin-top:14px">Pranav's known blunder patterns (reliable games)</h3>
+<table>
+  <thead><tr><th>Pattern</th><th>Example</th><th>Exploit</th></tr></thead>
+  <tbody>
+  <tr><td><strong>Back-rank queen misplay</strong></td><td>SW Open R4: Qxc7?? (best Qxf7+!) — squandered +9.43, lost from winning position in 3 moves</td><td>In winning positions, find the <em>exact</em> back-rank shot; don't simplify prematurely</td></tr>
+  <tr><td><strong>Endgame cascade</strong></td><td>WY R1 vs NEGREAN (2366): hxg3??, g4??, g3?? — 3 consecutive 1000-CPL moves (all in king+pawn endgame after resigning was obvious)</td><td>Don't let up in endgames; Pranav can collapse completely under pressure</td></tr>
+  <tr><td><strong>Blue Ridge R5 rook ending</strong></td><td>vs Liu (2160): Rxh7?? Ke5?? Raf1?? — 3 blunders in rook ending; drew from winning position</td><td>Exploit rook ending inaccuracies; Pranav has demonstrated difficulty converting technical positions</td></tr>
+  <tr><td><strong>Tactical miscalculation under pressure</strong></td><td>WY R4 vs GABADADZE (2147): Bxb2?? (best Ke6) dropped a won king-pawn endgame</td><td>Create time pressure in complex middlegames; Pranav's calculation fails under time stress</td></tr>
+  </tbody>
+</table>
+
+<h3 style="margin-top:14px">Psychological notes</h3>
+<ul style="padding-left:20px; margin-top:6px;">
+  <li>Pranav <strong>scored 6/11 at World Youth 2026</strong> (Montesilvano ITA) against opponents rated 1644–2366 — a strong result for a 1940-rated player. He is a competitive, improving player, not a beatable lower-rated opponent.</li>
+  <li>His <strong>White record is better than Black</strong> (5W-3L as White vs 3W-5L as Black in reliable games). He will be more comfortable if Austin lets him dictate as White.</li>
+  <li><strong>Recent rating jump</strong>: 1940 → 2003 (Blue Ridge Sep 2026) → 1979 FIDE current. He is on an upward trajectory. Do not underestimate.</li>
+  <li>Against 2100+ rated opponents, Pranav loses more often — Austin at ~1940–1968 is just below this threshold. <strong>Austin must play like a 2100 to reliably beat Pranav.</strong></li>
+</ul>
+
+<hr class="section-divider">
+
+<h2>Part 4 — If / Then Quick Reference</h2>
+
+<input class="acc-toggle" id="q1" type="checkbox" checked>
+<label class="acc-label" for="q1">Austin as White — opening decisions</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Pranav plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
+    <tbody>
+    <tr><td>1…e5 (always)</td><td>2.Nf3 Nc6 3.Bc4 Bc5 <strong>4.c3!</strong></td><td>Italian — Pranav 0W-2D-1L with Giuoco Piano as Black</td></tr>
+    <tr><td>4…Nf6 (main)</td><td>5.d4! exd4 6.cxd4 Bb6 7.Nc3 d6 8.O-O O-O 9.h3!</td><td>IQP structure; h3 stops …Bg4 pin</td></tr>
+    <tr><td>4…Qe7 (holds back Nf6)</td><td>5.O-O! Nf6 6.d4 exd4 7.cxd4 Nxe4 8.d5!</td><td>d5 outpost; misplaced Black queen on f8</td></tr>
+    <tr><td>3…Nf6 (Two Knights)</td><td>4.Ng5! targeting f7</td><td>Sharp tactical line Pranav probably doesn't know deeply</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<input class="acc-toggle" id="q2" type="checkbox" checked>
+<label class="acc-label" for="q2">Austin as Black — opening decisions</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Pranav plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
+    <tbody>
+    <tr><td>1.e4</td><td>1…c5 (Sicilian Kan: 2…e6, 3…a6)</td><td>Force English Attack, not Maróczy</td></tr>
+    <tr><td>6.Be3 f3 (English Attack)</td><td>6…Nf6 7.f3 <strong>b5!</strong> 8.g4 h6! 9.Qd2 Bb7</td><td>Queenside counterplay before g5 storm; Austin knows this system</td></tr>
+    <tr><td>5.c4 (Maróczy)</td><td>5…Nf6 6…Bb4! 7…bxc6 8…e5!</td><td>Grab the center immediately; Taimanov/Nimzo transposition</td></tr>
+    <tr><td>1.d4 (unlikely)</td><td>1…Nf6 2…e6 3…Bb4 (Nimzo-Indian)</td><td>Austin's main 1.d4 answer</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<input class="acc-toggle" id="q3" type="checkbox">
+<label class="acc-label" for="q3">Middlegame and endgame decisions</label>
+<div class="acc-content">
+  <ul style="padding-left:18px;">
+    <li><strong>DO</strong> enter rook endings when ahead — Pranav has documented rook ending blunders (Blue Ridge R5: Rxh7?? Ke5?? Raf1??)</li>
+    <li><strong>DO</strong> create back-rank pressure — Pranav missed Qxf7+ (best) and played Qxc7?? in SW Open R4 when he was White; he may miss back-rank threats as Black too</li>
+    <li><strong>DO NOT</strong> play …d5?! as Black in English Attack positions — this hands Pranav the IQP structure he's comfortable attacking with</li>
+    <li><strong>DO</strong> maintain the queenside counterplay (…b4/…Nc4) in the Kan English Attack — don't trade too many pieces before landing the knight on c4</li>
+    <li>If endgame enters king+pawn territory: Pranav cascade-blundered multiple 1000-CPL moves in WY R1 (hxg3?? g4?? g3??) — his king endgame calculation is unreliable</li>
+  </ul>
+</div>
+
+<input class="acc-toggle" id="q4" type="checkbox">
+<label class="acc-label" for="q4">Warnings — traps to avoid</label>
+<div class="acc-content">
+  <ul style="padding-left:18px;">
+    <li><strong>DO NOT</strong> play 3.Bb5 (Ruy Lopez) as White — steer to 3.Bc4 Italian instead</li>
+    <li><strong>DO NOT</strong> underestimate Pranav's tactical strength as White — Italian 3/3 wins, Maróczy 2W-1D-1L; he can play very precisely in familiar positions</li>
+    <li><strong>DO NOT</strong> allow Maróczy Bind as Black (avoid …g6 setup) — Pranav has 2W-1D-1L there, his best White system</li>
+    <li><strong>DO NOT</strong> trade down to a simple endgame when ahead — stay in complex positions; Pranav's endgame conversion is actually unreliable (SW Open R4 disaster from +9.43)</li>
+    <li>Pranav's 2003 Blue Ridge rating (beating 2149-rated Moorhouse!) confirms he can perform at IM strength in individual games. Approach this seriously.</li>
+  </ul>
+</div>
+
+<hr class="section-divider">
+
+<h2>Part 5 — Italian d4 Attack Opening Drill (Austin as White)</h2>
+
+<h3>Core sequence — memorize to move 9</h3>
+<div class="move-line">
+  <span class="mv-a">1.e4</span> <span class="mv-z">e5</span>
+  <span class="mv-a">2.Nf3</span> <span class="mv-z">Nc6</span>
+  <span class="mv-a">3.Bc4</span> <span class="mv-z">Bc5</span>
+  <span class="key-move">4.c3!</span> <span class="mv-z">Nf6</span>
+  <span class="key-move">5.d4!</span> <span class="mv-z">exd4</span>
+  <span class="key-move">6.cxd4</span> <span class="mv-z">Bb6</span>
+  <span class="mv-a">7.Nc3</span> <span class="mv-z">d6</span>
+  <span class="mv-a">8.O-O</span> <span class="mv-z">O-O</span>
+  <span class="key-move">9.h3!</span>
+  <span class="note"> — then d5! plan to close center, or keep IQP with Re1/Bf4/Qd2.</span>
+</div>
+
+<table style="margin-top:12px">
+  <thead><tr><th>Rule</th><th>Reason</th></tr></thead>
+  <tbody>
+  <tr><td>Always <strong>4.c3!</strong> (not 4.b4 Evans or 4.d3)</td><td>Pranav knows the Italian well (he plays it as White) — c3 is more principled and sets up the d4 pawn break</td></tr>
+  <tr><td><strong>5.d4!</strong> (don't delay)</td><td>The point of 4.c3; if Austin delays with 5.O-O, Pranav plays …O-O …d6 and equalizes easily</td></tr>
+  <tr><td><strong>9.h3!</strong> (after castling)</td><td>Prevents …Bg4 pinning the f3-knight — Pranav's main counterplay in the d6 structure</td></tr>
+  <tr><td><strong>Then d5!</strong> (when possible)</td><td>Closing the center turns the IQP into a passed pawn; Pranav's Bb6 and Nc6 become passive</td></tr>
+  <tr><td><strong>If 8…Na5 (chases Bc4)</strong></td><td>9.Bd3! — retreat bishop, keep structure; the IQP advantage persists regardless</td></tr>
+  </tbody>
+</table>
+
+<input class="acc-toggle" id="d1" type="checkbox">
+<label class="acc-label" for="d1">Drill 1 — Recite Austin's moves 1–9 (reveal to check)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <strong>Answer:</strong> 1.e4, 2.Nf3, 3.Bc4, <span class="key-move">4.c3!</span>, <span class="key-move">5.d4!</span>, 6.cxd4, 7.Nc3, 8.O-O, <span class="key-move">9.h3!</span> — then d5! or Re1+Bf4.
+  </div>
+  <p style="margin-top:8px"><strong>Key checks:</strong> Did you play c3 at move 4 (not b4 or d3)? Did you play d4 immediately at move 5 (not O-O first)? Did you remember h3 at move 9?</p>
+</div>
+
+<input class="acc-toggle" id="d2" type="checkbox">
+<label class="acc-label" for="d2">Drill 2 — Pranav plays 4…Qe7 instead of 4…Nf6. What does Austin do?</label>
+<div class="acc-content">
+  <div class="move-line">
+    <strong>Answer:</strong> <span class="key-move">5.O-O!</span> (not 5.d4 immediately — after 4…Qe7, 5.d4 exd4 6.cxd4 Nxe4 7.d5 gives White a positional advantage but is complex)
+    <span class="note">5.O-O Nf6 6.d4 exd4 7.cxd4 Nxe4 <span class="key-move">8.d5!</span> — central push; Pranav's queen on e7 becomes awkward.</span>
+  </div>
+</div>
+
+<input class="acc-toggle" id="d3" type="checkbox">
+<label class="acc-label" for="d3">Drill 3 — Pranav plays 3…Nf6 (Two Knights). What is Austin's response?</label>
+<div class="acc-content">
+  <div class="move-line">
+    <strong>Answer:</strong> <span class="key-move">4.Ng5!</span> (Two Knights Attack) — targeting f7.
+    After 4…d5 5.exd5 Na5 6.Bb5+ c6 7.dxc6 bxc6 8.Be2 h6 9.Nf3:
+    <span class="note">White returns the material with development advantage; Pranav's c6/a5 pawn structure is weak.</span>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2>Part 6 — Engine Accuracy Reference (Reliable Classical Games)</h2>
+
+<table>
+  <thead><tr><th>Tournament</th><th>Rnd</th><th>Color</th><th>Opponent</th><th>Elo</th><th>Result</th><th>Acc</th><th>B/M</th></tr></thead>
+  <tbody>
+  <tr><td>World Youth 2026</td><td>R1</td><td>White</td><td>NEGREAN, Andrei</td><td>2366</td><td>Loss</td><td>94.2%</td><td>3/2</td></tr>
+  <tr><td>World Youth 2026</td><td>R2</td><td>Black</td><td>KITAEV, Nicholas</td><td>1644</td><td>Win</td><td>92.0%</td><td>1/2</td></tr>
+  <tr><td>World Youth 2026</td><td>R3</td><td>White</td><td>PHILLIPS, Maximus</td><td>1617</td><td>Win</td><td>93.2%</td><td>0/2</td></tr>
+  <tr><td>World Youth 2026</td><td>R4</td><td>Black</td><td>GABADADZE, Gabriel</td><td>2147</td><td>Loss</td><td>93.3%</td><td>2/3</td></tr>
+  <tr><td>World Youth 2026</td><td>R5</td><td>Black</td><td>RUSU, Lucas</td><td>2191</td><td>Loss</td><td>93.7%</td><td>11/1</td></tr>
+  <tr><td>World Youth 2026</td><td>R6</td><td>White</td><td>TAY, Mason</td><td>~1800</td><td>Win</td><td>91.8%</td><td>0/4</td></tr>
+  <tr><td>World Youth 2026</td><td>R7</td><td>Black</td><td>DIAZ GUERRERO, J.D.</td><td>2102</td><td>Loss</td><td>95.7%</td><td>3/1</td></tr>
+  <tr><td>World Youth 2026</td><td>R8</td><td>White</td><td>NAIMOV, David</td><td>1767</td><td>Win</td><td>89.8%</td><td>1/2</td></tr>
+  <tr><td>World Youth 2026</td><td>R9</td><td>Black</td><td>IVANCIC, Ivan</td><td>2166</td><td>Win</td><td>95.1%</td><td>3/1</td></tr>
+  <tr><td>World Youth 2026</td><td>R10</td><td>White</td><td>RAGAVAN, Samarth</td><td>2148</td><td>Loss</td><td>93.8%</td><td>7/1</td></tr>
+  <tr><td>World Youth 2026</td><td>R11</td><td>White</td><td>FADEEV, Justin</td><td>2127</td><td>Win</td><td>94.8%</td><td>1/3</td></tr>
+  <tr><td>Blue Ridge 2026</td><td>R3</td><td>White</td><td>Moorhouse, Will</td><td>2149</td><td>Win</td><td>96.0%</td><td>0/0</td></tr>
+  <tr style="background:#fff0f0"><td>Blue Ridge 2026</td><td>R5</td><td>White</td><td>Liu, Steven</td><td>2160</td><td>Draw</td><td>85.9%</td><td>3/3</td></tr>
+  <tr><td>SW Open 2026</td><td>R2</td><td>White</td><td>Ni, Alan</td><td>~1900</td><td>Draw</td><td>90.3%</td><td>3/1</td></tr>
+  <tr style="background:#fff0f0"><td>SW Open 2026</td><td>R4</td><td>White</td><td>Samples, Lincoln</td><td>~1900</td><td>Loss</td><td>83.5%</td><td>3/3</td></tr>
+  <tr><td>SW Open 2026</td><td>R6</td><td>White</td><td>Vinayagaram, Nethra</td><td>~1600</td><td>Win</td><td>96.2%</td><td>2/5</td></tr>
+  <tr style="background:#f5f0e8"><td colspan="5"><strong>Reliable 16-game total</strong></td><td><strong>8W–6L–2D</strong></td><td><strong>92.1%</strong></td><td></td></tr>
+  </tbody>
+</table>
+<p style="font-size:0.82em; color:#666; margin-top:4px">Red rows = worst games (Qxc7?? in SW Open R4; rook ending blunders in Blue Ridge R5).</p>
+
+<table style="margin-top:20px">
+  <thead><tr><th>AGCA games (unreliable — for reference only)</th><th>Avg Acc</th><th>Warning</th></tr></thead>
+  <tbody>
+  <tr class="row-unreliable"><td>AGCA Summer 2026 (7 games, most Result "*")</td><td>76.4%</td><td>Incomplete Lichess captures — not classical OTB</td></tr>
+  <tr class="row-unreliable"><td>AGCA Fall 2026 (2 games, no ELO)</td><td>67.6%</td><td>Club event, likely rapid/blitz format</td></tr>
+  </tbody>
+</table>
+
+<p style="margin-top:20px; font-size:0.85em; color:#555; text-align:center">
+  <a href="../austin-prep.html">← Back to Austin Lin Prep Index</a>
+</p>
+
+</body>
+</html>

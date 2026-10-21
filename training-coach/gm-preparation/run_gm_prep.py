@@ -66,6 +66,15 @@ OPPONENTS = {
         "austin_weapon_white": "Advanced French 6.a3 — Fernando's French Advance not tested vs 6.a3 system in dataset",
         "austin_weapon_black": "Sicilian Taimanov/Kan — Fernando plays English Attack but accuracy dips under pressure",
     },
+    "pranav": {
+        "legal_name": "Santhosh, Pranav",
+        "lichess_username": None,  # no Lichess account found (FIDE ID 39951596)
+        "pgn_player_name": "santhosh",  # substring matches both 'Santhosh, Pranav' and 'Pranav Santhosh'
+        "known_white": "1.e4 always — English Attack (Be3/f3/Qd2/O-O-O) vs Sicilian; Maróczy Bind (5.c4) vs Accelerated Dragon; quiet Italian (d3/c3) vs 1...e5",
+        "known_weakness": "Back-rank blunder pattern (Qxc7?? squandered +9.43 in SW Open R4); 0W-3L as Black vs 2100+ in Open Game; endgame squander from dominant positions",
+        "austin_weapon_white": "Italian d4 attack — Pranav plays Giuoco Piano ...Bc5 as Black; target endgame conversion weakness",
+        "austin_weapon_black": "Sicilian Kan (5...a6) — Pranav's English Attack is Austin's home territory from both sides",
+    },
 }
 
 

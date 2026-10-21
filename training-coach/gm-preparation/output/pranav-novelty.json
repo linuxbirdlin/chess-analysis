@@ -1,0 +1,136 @@
+[
+  {
+    "ply": 1,
+    "path": [
+      "e5"
+    ],
+    "opponent_expected_move": "Nc6",
+    "frequency": 1.0,
+    "opponent_fast": true,
+    "avg_clock_s": 0.0,
+    "games_here": 6,
+    "fen_before": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+    "score": 1.0,
+    "engine_eval": 0.22,
+    "alternative_moves": [
+      {
+        "san": "Nf3",
+        "eval_pawns": 0.22,
+        "pv": [
+          "Nf3",
+          "Nc6",
+          "Bc4",
+          "Bc5",
+          "c3",
+          "Nf6",
+          "d3",
+          "O-O",
+          "O-O",
+          "Bb6"
+        ],
+        "opp_replies": [
+          {
+            "opp_response": "Nc6",
+            "austin_reply": "Bc4",
+            "eval_cp": 24.0
+          },
+          {
+            "opp_response": "Nf6",
+            "austin_reply": "Nxe5",
+            "eval_cp": 36.0
+          },
+          {
+            "opp_response": "d6",
+            "austin_reply": "d4",
+            "eval_cp": 65.0
+          }
+        ]
+      },
+      {
+        "san": "Nc3",
+        "eval_pawns": 0.07,
+        "pv": [
+          "Nc3",
+          "Nf6",
+          "Nf3",
+          "Nc6",
+          "d4",
+          "exd4",
+          "Nxd4",
+          "Bb4",
+          "Nxc6",
+          "bxc6"
+        ],
+        "opp_replies": [
+          {
+            "opp_response": "Nc6",
+            "austin_reply": "Nf3",
+            "eval_cp": 8.0
+          },
+          {
+            "opp_response": "Nf6",
+            "austin_reply": "Nf3",
+            "eval_cp": 11.0
+          },
+          {
+            "opp_response": "Bc5",
+            "austin_reply": "Nf3",
+            "eval_cp": 25.0
+          }
+        ]
+      },
+      {
+        "san": "Bc4",
+        "eval_pawns": 0.02,
+        "pv": [
+          "Bc4",
+          "Nf6",
+          "Nc3",
+          "Bc5",
+          "Nf3",
+          "d6",
+          "d4",
+          "exd4",
+          "Nxd4",
+          "O-O"
+        ],
+        "opp_replies": [
+          {
+            "opp_response": "Nf6",
+            "austin_reply": "Nc3",
+            "eval_cp": -3.0
+          },
+          {
+            "opp_response": "Bc5",
+            "austin_reply": "Nf3",
+            "eval_cp": 22.0
+          },
+          {
+            "opp_response": "Nc6",
+            "austin_reply": "Nf3",
+            "eval_cp": 22.0
+          }
+        ]
+      }
+    ],
+    "top_engine_moves": [
+      "Nf3",
+      "Nc3",
+      "Bc4"
+    ],
+    "is_sound": true
+  },
+  {
+    "ply": 0,
+    "path": [],
+    "opponent_expected_move": "e5",
+    "frequency": 1.0,
+    "opponent_fast": false,
+    "avg_clock_s": null,
+    "games_here": 6,
+    "fen_before": "",
+    "score": 0.5,
+    "engine_eval": null,
+    "alternative_moves": []
+  }
+]
