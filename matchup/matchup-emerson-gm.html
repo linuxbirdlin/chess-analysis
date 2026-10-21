@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle Plan: Austin vs Johnson, Emerson (GM Prep)</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Georgia', serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg);
+}
+h1 { font-size: 1.6em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.15em; margin: 28px 0 10px; padding-left: 10px; }
+h2.white-section { border-left: 5px solid var(--blue); }
+h2.black-section { border-left: 5px solid var(--red); }
+h2.analysis   { border-left: 5px solid var(--gold); }
+h2.reference  { border-left: 5px solid #666; }
+h3 { font-size: 1em; margin: 14px 0 6px; color: #333; }
+.subtitle { font-size: 0.85em; color: #666; margin-bottom: 22px; }
+.subtitle span { margin-right: 16px; }
+
+.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.intel-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.intel-card h3 { margin-top: 0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }
+.intel-card ul { padding-left: 16px; margin-top: 4px; }
+.intel-card li { margin-bottom: 3px; }
+
+.callout { border-radius: 4px; padding: 10px 14px; margin: 10px 0; font-size: 0.9em; }
+.callout-gold   { background: #fffbe0; border-left: 4px solid var(--gold); }
+.callout-blue   { background: #eef4ff; border-left: 4px solid var(--blue); }
+.callout-green  { background: #efffef; border-left: 4px solid var(--green); }
+.callout-danger { background: #fff0f0; border-left: 4px solid var(--red); }
+
+.move-line { background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+             padding: 8px 12px; margin: 6px 0; font-size: 0.92em; line-height: 1.9; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: #eef4ff; border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.bad-move { background: #ffe0e0; border: 1px solid #cc8888; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; color: #8b1a1a; }
+.note { color: #555; font-style: italic; font-size: 0.88em; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
+th { background: #333; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+.row-danger td { background: #fff0f0 !important; }
+.row-highlight td { background: #fff8e0 !important; }
+
+hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20px; }
+
+.acc-toggle { display: none; }
+.acc-label {
+  display: block; cursor: pointer; padding: 8px 12px; margin: 4px 0;
+  background: #eee; border: 1px solid #ccc; border-radius: 4px;
+  font-weight: bold; font-size: 0.9em; user-select: none;
+}
+.acc-label::before { content: '▶ '; font-size: 0.75em; color: #666; }
+.acc-toggle:checked ~ .acc-label::before { content: '▼ '; }
+.acc-content { display: none; padding: 10px 14px; background: #fafaf6;
+               border: 1px solid #ddd; border-top: none; border-radius: 0 0 4px 4px; margin-bottom: 6px; }
+.acc-toggle:checked ~ .acc-content { display: block; }
+
+@media print {
+  .acc-content { display: block !important; }
+  .acc-label::before { content: '' !important; }
+  body { font-size: 12px; padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<h1>Battle Plan: Austin (White &amp; Black) vs Johnson, Emerson</h1>
+<div class="subtitle">
+  <span><strong>GM Prep</strong></span>
+  <span>Emerson rating: ~1925 FIDE / ~2078 US Chess</span>
+  <span>Direct record: No encounter</span>
+  <span>OTB games analyzed: 38 · avg 92.2%</span>
+</div>
+
+<div class="intel-grid">
+  <div class="intel-card">
+    <h3>Emerson as White</h3>
+    <ul>
+      <li><strong>1.e4</strong> — Rossolimo Sicilian (B51/B52) as primary anti-Sicilian</li>
+      <li>B52: 3.Bb5+ Bd7 4.Bxd7+ Qxd7 — <strong>his best White line</strong> (won vs WIM 2358)</li>
+      <li>B31: 3.Bb5 Nc6 g6 — second Rossolimo shape</li>
+      <li>Ruy Lopez (C77) vs 1...e5 — multiple games</li>
+      <li>Exchange Caro-Kann (B13) — knows the structure from both sides</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Emerson as Black</h3>
+    <ul>
+      <li><strong>Caro-Kann (B11/B12)</strong> vs 1.e4 — primary defense</li>
+      <li>Black Caro-Kann record: <strong>1W–6L–2D — his worst line</strong></li>
+      <li>Worst game: 83.8% in B12 vs WGM 2269 (6B+6M)</li>
+      <li>QGA (D25/D20/D11) — secondary; Queen's Gambit Accepted</li>
+      <li>Reti as Black (A07) — occasional; decent results</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Critical weaknesses</h3>
+    <ul>
+      <li><strong>Check preference over material:</strong> Qf4+ 455CPL (best Qxh3!) from drawn position — prefers forcing-looking checks</li>
+      <li><strong>King navigation:</strong> Kxg5 355CPL (best a6) from +0.00 — king walked into opposition</li>
+      <li><strong>Rook/knight misplacement:</strong> Nd4 310CPL (best a3); Rec1 324CPL (best Qb2) — piece moved to wrong square</li>
+      <li><strong>Winning-position squander:</strong> Be7 615CPL (best Rc8) from +6.15 → 0.00 drew a won game</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Key game facts</h3>
+    <ul>
+      <li>Overall: <strong>92.2%</strong> avg (White 92.9%, Black 91.6%)</li>
+      <li>Worst: <strong>83.8%</strong> SW Open 2025 R6 (B12 Caro-Kann, 6B+6M)</li>
+      <li>Best: <strong>98.3%</strong> Unk. Tournament R2 (vs 2044-rated, 193-move draw!)</li>
+      <li>SW Open 2025: faced GMs (2521, 2529, 2568) — highest field</li>
+      <li>Caro-Kann as Black: <strong>1W–6L–2D</strong> — avoid at all costs</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="white-section">Part 1 — Austin as White: Exchange Caro-Kann</h2>
+
+<div class="callout callout-green">
+  <strong>Core fact:</strong> Emerson plays Caro-Kann (B11/B12) as Black vs 1.e4 — and his record there is <strong>1W–6L–2D</strong>. This is by far his worst opening as Black. Austin already plays <strong>Exchange Caro-Kann (4.Bd3)</strong> as his standard weapon. There are <strong>zero recorded Exchange Caro-Kann games for Emerson as Black</strong> in the dataset — he has never played B13 as Black. Austin enters familiar territory; Emerson does not.
+</div>
+
+<h3>Exchange Caro-Kann — Austin's main line</h3>
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">c6</span> 2.d4 <span class="mv-z">d5</span>
+  3.exd5 <span class="mv-z">cxd5</span> <span class="key-move">4.Bd3!</span>
+  <span class="mv-z">Nc6</span> 5.c3 <span class="mv-z">Nf6</span>
+  <span class="key-move">6.Nf3</span> <span class="mv-z">Bg4</span>
+  <span class="key-move">7.h3!</span> <span class="mv-z">Bh5</span>
+  <span class="key-move">8.Qb3!</span>
+  <span class="note"> — Qb3 attacks b7 and d5 simultaneously; forces Emerson to make a concession. Austin knows this position deeply.</span>
+</div>
+
+<input class="acc-toggle" id="w1" type="checkbox" checked>
+<label class="acc-label" for="w1">Branch A — Emerson plays 4...Nc6 5.c3 Nf6 6.Nf3 Bg4 (Classical)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 4.Bd3 Nc6 5.c3 Nf6 6.Nf3 Bg4 7.h3! Bh5
+    <span class="key-move">8.Qb3!</span> <span class="mv-z">Qd7</span>
+    9.O-O <span class="mv-z">e6</span>
+    <span class="key-move">10.Re1!</span> <span class="mv-z">Be7</span>
+    <span class="key-move">11.Nbd2</span> <span class="mv-z">O-O</span>
+    <span class="key-move">12.Ne5!</span>
+    <span class="note"> — Ne5 is Austin's key maneuver. Centralize the knight; threaten Nxc6 and then attack the h7 square. Emerson's light-squared bishop on h5 is a liability here (cannot defend h7).</span>
+  </div>
+  <p style="margin-top:8px"><strong>Key plan:</strong> After 12.Ne5, Austin threatens to trade on c6 (doubling Emerson's b/c pawns) and then push h4-h5 for a kingside attack. Emerson's Bh5 bishop is stuck on the rim. Keep all major pieces — Austin must not trade the queens early.</p>
+</div>
+
+<input class="acc-toggle" id="w2" type="checkbox">
+<label class="acc-label" for="w2">Branch B — Emerson plays 4...Bf5 (develops bishop before Nc6)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 4.Bd3 <span class="mv-z">Bf5!</span>
+    <span class="key-move">5.Bxf5!</span> <span class="mv-z">exf5</span>
+    6.Nf3 <span class="mv-z">Nf6</span> 7.O-O <span class="mv-z">Bd6</span>
+    <span class="key-move">8.c3</span> <span class="mv-z">O-O</span> 9.Re1 <span class="mv-z">Qd7</span>
+    <span class="key-move">10.Qb3!</span>
+    <span class="note"> — After Bxf5, Black's f5 pawn is isolated and weak. Qb3 attacks f5 and b7. Emerson must defend passively.</span>
+  </div>
+  <p style="margin-top:8px">The Bxf5 exchange leaves Emerson with a permanently weak f5 pawn. Austin's plan is Qb3 pressure + Re1/Bc2-e4 piece activity. This is a positional squeeze that Emerson cannot defend easily.</p>
+</div>
+
+<input class="acc-toggle" id="w3" type="checkbox">
+<label class="acc-label" for="w3">Branch C — Emerson plays 4...e6 (blocking the bishop)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 4.Bd3 <span class="mv-z">e6</span>
+    5.Nf3 <span class="mv-z">Bd6</span> 6.O-O <span class="mv-z">Ne7</span>
+    7.Re1 <span class="mv-z">O-O</span>
+    <span class="key-move">8.Bg5!</span> <span class="mv-z">Nbc6</span>
+    <span class="key-move">9.Nbd2</span> <span class="mv-z">h6</span>
+    <span class="key-move">10.Bh4!</span>
+    <span class="note"> — Bg5-Bh4 maintains the pin on Ne7; Emerson cannot play …Nf5 comfortably. Austin's Bd3 stares at h7.</span>
+  </div>
+</div>
+
+<h3 style="margin-top:18px">Key tactical themes — Austin as White</h3>
+<table>
+  <thead><tr><th>Theme</th><th>Target</th><th>Evidence</th></tr></thead>
+  <tbody>
+  <tr><td><strong>Never trade queens early</strong></td><td>Emerson's style is technical endgame; Austin's advantage is in tactical middlegames where Emerson blunders (83–89% in complex positions)</td><td>Emerson beat WIM in 127-move R+B ending; Austin must not let it reach endgame</td></tr>
+  <tr><td><strong>Keep Bd3 on the h7 diagonal</strong></td><td>Bd3 + Ne5 combination threatens Nxh7 or e6/e7 discoveries</td><td>Austin's standard Exchange CK attacking plan</td></tr>
+  <tr><td><strong>h4-h5 kingside push after Ne5</strong></td><td>Emerson's Bh5 (rim bishop) cannot defend h7; h4-h5-g4 pawn storm creates threats</td><td>Emerson's B12 losses often come from kingside attacks</td></tr>
+  <tr><td><strong>Punish Emerson's check instinct</strong></td><td>Emerson played Qf4+ (check, 455CPL) instead of Qxh3 (material). In tactical positions, he picks checks over winning material — calculate deeper</td><td>SW Open 2025 R6 B12 blunder</td></tr>
+  </tbody>
+</table>
+
+<hr class="section-divider">
+
+<h2 class="black-section">Part 2 — Austin as Black: Avoiding the Rossolimo Endgame</h2>
+
+<div class="callout callout-gold">
+  <strong>Core fact:</strong> Emerson plays <strong>Rossolimo Sicilian (3.Bb5+/3.Bb5)</strong> as his primary anti-Sicilian. His B52 (3.Bb5+ Bd7 4.Bxd7+ Qxd7) line is specifically strong — he won a 127-move ending against WIM Chumpitaz (2358) with it. Austin must avoid the B52 endgame structure and instead force a complex middlegame.
+</div>
+
+<div class="callout callout-danger">
+  <strong>Key choice:</strong> After 3.Bb5+ Bd7 4.Bxd7+, Austin should play <span class="key-move">4...Nxd7!</span> (NOT 4...Qxd7). The knight recapture keeps the queen on the board, maintains piece complexity, and avoids Emerson's prepared technical endgame structure.
+</div>
+
+<h3>Austin's Sicilian approach vs Rossolimo</h3>
+<div class="move-line">
+  <span class="mv-z">Emerson:</span> 1.e4 <span class="mv-a">c5</span>
+  2.Nf3 <span class="mv-a">d6</span> 3.Bb5+ <span class="mv-a">Bd7</span>
+  4.Bxd7+ <span class="key-move">Nxd7!</span>
+  5.O-O <span class="mv-a">Ngf6</span>
+  <span class="key-move">6.Re1!</span> <span class="mv-a">e6</span>
+  7.c3 <span class="mv-a">Be7</span>
+  <span class="key-move">8...O-O</span> 9.d4 <span class="mv-a">cxd4!</span>
+  <span class="note"> — Nxd7 keeps complexity. After cxd4, Austin gets open c-file counterplay; the queen is still on d8 and will activate via Qc7 or Qb6.</span>
+</div>
+
+<input class="acc-toggle" id="b1" type="checkbox" checked>
+<label class="acc-label" for="b1">Branch A — After 4...Nxd7: Nf6 + active queen plan</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 3.Bb5+ Bd7 4.Bxd7+ <span class="mv-a">Nxd7!</span>
+    5.O-O Ngf6 6.Re1 e6 7.c3 Be7 8.d4 <span class="mv-a">cxd4!</span>
+    9.cxd4 <span class="mv-a">d5!</span>
+    10.e5 <span class="mv-a">Ne4!</span>
+    <span class="note"> — d5! fights back in the center; Ne4 centralizes actively. Black has full equality and counterplay. No boring endgame.</span>
+  </div>
+  <p style="margin-top:8px">After 10…Ne4, Austin threatens …Nb6 (attacking d4) and …f6 (breaking White's center). The position is tactical — exactly where Emerson drops accuracy (83–89% in complex positions).</p>
+</div>
+
+<input class="acc-toggle" id="b2" type="checkbox">
+<label class="acc-label" for="b2">Branch B — If Emerson plays 3.Bb5 Nc6 (B31 — no early exchange)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">Emerson:</span> 1.e4 c5 2.Nf3 Nc6 3.Bb5 <span class="mv-a">g6!</span>
+    4.O-O <span class="mv-a">Bg7</span> 5.Re1 <span class="mv-a">e5!</span>
+    6.c3 <span class="mv-a">Nge7</span> 7.d4 <span class="mv-a">cxd4!</span>
+    8.cxd4 <span class="mv-a">d5!</span>
+    <span class="note"> — Sicilian Dragon/Rossolimo hybrid: Black fights back in the center with e5 and d5. The ...Bg7 bishop controls the long diagonal. Active middlegame ahead.</span>
+  </div>
+  <p style="margin-top:8px">The ...e5 and ...d5 pawn break creates immediate central tension. Emerson's B31 games (B31 vs Attaluri, SW Open R1) show he plays slowly in this structure — Austin should find counterplay before Emerson consolidates.</p>
+</div>
+
+<input class="acc-toggle" id="b3" type="checkbox">
+<label class="acc-label" for="b3">Branch C — If Emerson plays 3.Bb5+ Nc6 4.O-O (B51)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">Emerson:</span> 1.e4 c5 2.Nf3 Nc6 3.Bb5+ <span class="mv-a">Nc6</span>
+    4.O-O <span class="mv-a">e5!</span> 5.c3 <span class="mv-a">Nge7</span>
+    6.d4 <span class="mv-a">cxd4</span> 7.cxd4 <span class="mv-a">exd4!</span>
+    8.Nxd4 <span class="mv-a">Nxd4</span> 9.Qxd4 <span class="mv-a">d6</span>
+    <span class="note"> — After 4...e5, Black has a strong center. Emerson's B51 drew vs Chodniewicz (1902) — not a winning line for White. Austin gets a playable middlegame.</span>
+  </div>
+</div>
+
+<h3 style="margin-top:18px">Key themes as Austin Black</h3>
+<table>
+  <thead><tr><th>Theme</th><th>Details</th></tr></thead>
+  <tbody>
+  <tr><td><strong>4...Nxd7 not 4...Qxd7</strong></td><td>Knight recapture keeps queen on board; avoids Emerson's B52 technical endgame specialty (127-move win vs WIM)</td></tr>
+  <tr><td><strong>...d5 counter immediately</strong></td><td>After ...cxd4, play ...d5 to fight for the center; prevents Emerson from consolidating with e5-space advantage</td></tr>
+  <tr><td><strong>Create complexity by move 20</strong></td><td>Emerson's worst games are in complex positions (83–89%). Force tactical complications before Emerson reaches an endgame</td></tr>
+  <tr><td><strong>Exploit queen placement errors</strong></td><td>Emerson played Be7 615CPL (best Rc8) from +6.15 in QGA; and Qf4+ instead of Qxh3 in Caro-Kann. His queen goes to passive squares under pressure</td></tr>
+  </tbody>
+</table>
+
+<hr class="section-divider">
+
+<h2 class="analysis">Part 3 — Accuracy Profile and Psychological Strategy</h2>
+
+<h3>Emerson's accuracy by tournament</h3>
+<table>
+  <thead><tr><th>Tournament</th><th>Games</th><th>Record</th><th>Avg Acc</th><th>Context</th></tr></thead>
+  <tbody>
+  <tr><td>TX Scholastic 2026</td><td>7</td><td>4W–2L–1D</td><td><strong>93.1%</strong></td><td>Best recent form; 97.5% and 97.7% in wins</td></tr>
+  <tr><td>SW Open 2026</td><td>7</td><td>2W–1L–4D</td><td><strong>92.5%</strong></td><td>Many draws; including draw vs 2003-rated in D25</td></tr>
+  <tr><td>TX State Amateur 2026</td><td>6</td><td>3W–3L</td><td><strong>92.5%</strong></td><td>Lost to 2119, 2158; won 97.4% vs 2092</td></tr>
+  <tr><td>Unknown Tournament 2025</td><td>8</td><td>2W–4L–2D</td><td><strong>92.4%</strong></td><td>Includes 98.3% draw vs 2044 (193 moves!)</td></tr>
+  <tr><td>SW Open 2025</td><td>8</td><td>1W–5L–2D</td><td><strong>91.2%</strong></td><td>Toughest field: GMs 2521, 2529, 2568; drew both draws</td></tr>
+  <tr><td>Natl K-12 2025</td><td>1</td><td>0W–1L</td><td><strong>88.0%</strong></td><td>B12 Caro-Kann loss to 2295-rated (3 blunders)</td></tr>
+  <tr style="background:#f5f0e8"><td><strong>Overall</strong></td><td><strong>38</strong></td><td><strong>13W–15L–10D</strong></td><td><strong>92.2%</strong></td><td>White 92.9% · Black 91.6%</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-gold" style="margin-top:12px">
+  <strong>Key insight:</strong> Emerson's Black accuracy (91.6%) is lower than his White (92.9%), and his Caro-Kann specifically is catastrophic (1W-6L-2D). As Austin plays Exchange Caro-Kann as White, Emerson will be in his worst opening on record. Emerson's best results are all technical endgames — Austin must avoid these entirely.
+</div>
+
+<h3 style="margin-top:14px">Emerson's known error patterns</h3>
+<table>
+  <thead><tr><th>Pattern</th><th>Critical example</th><th>How to exploit</th></tr></thead>
+  <tbody>
+  <tr><td><strong>Queen checks over material</strong></td><td>SW Open 2025 R6: Qf4+ (455CPL) from drawn position (+0.00 → -4.55) — chose a check instead of winning the h3 pawn with Qxh3</td><td>In tactical positions where Austin must calculate: assume Emerson will prefer checks; find the response to the check and the game-deciding material gain he'll miss</td></tr>
+  <tr><td><strong>King walks into endgame opposition</strong></td><td>TX State R4 C77: Kg5 202CPL → Kxg5 355CPL — king walked to g5 (wrong!) from a balanced position; lost from there</td><td>Force king-and-pawn endings; Emerson's king navigation is unreliable in K+P structures</td></tr>
+  <tr><td><strong>Winning squander via passive piece</strong></td><td>SW Open 2026 R2 D25: Be7 615CPL from +6.15 → drew — bishop retreat instead of Rc8 (active rook); lost winning advantage</td><td>In any position where Emerson is material or positionally ahead, keep the game alive — his conversion technique fails with passive piece moves</td></tr>
+  <tr><td><strong>Rook/knight to wrong square</strong></td><td>SW Open 2025 R4 B51: Nd4 310CPL (best a3 pawn move!); Rec1 324CPL (best Qb2). Chooses piece moves over critical pawn advances</td><td>In closed positions: whenever Austin needs to find the pawn move, play it; Emerson likely missed it too</td></tr>
+  </tbody>
+</table>
+
+<h3 style="margin-top:14px">Psychological notes</h3>
+<ul style="padding-left:20px; margin-top:6px;">
+  <li>Emerson is <strong>1925 FIDE / 2078 US Chess</strong> — a meaningful gap, but not insurmountable. His 92.2% average is comparable to Austin's level.</li>
+  <li>Emerson <strong>drew a 193-move game</strong> (SW Open 2025 R2, 98.3%) — in technical endgames he has elite patience. <strong>Austin must not enter endgames.</strong></li>
+  <li>Emerson <strong>lost to 1597-rated Vinayagaram</strong> (SW Open 2026 R3, C77 as White) — his upsets happen in complex middlegames where tactical blindspots emerge. Austin's combinational style creates exactly these moments.</li>
+  <li>Emerson's Caro-Kann as Black is <strong>1W-6L-2D against all opposition</strong>. Against Austin's Exchange Caro-Kann (Emerson's unknown territory as Black), the odds favor Austin significantly.</li>
+</ul>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 4 — If / Then Quick Reference</h2>
+
+<input class="acc-toggle" id="q1" type="checkbox" checked>
+<label class="acc-label" for="q1">Austin as White — opening decisions</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Emerson plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
+    <tbody>
+    <tr><td>1…c6 (Caro-Kann, his line)</td><td>2.d4 d5 <strong>3.exd5!</strong> cxd5 4.Bd3 (Exchange)</td><td>Emerson 1W-6L-2D as Black in Caro-Kann; 0 games in B13</td></tr>
+    <tr><td>4...Nc6 5.c3 Nf6 Bg4</td><td>7.h3! Bh5 <strong>8.Qb3!</strong></td><td>Qb3 attacks b7+d5; Emerson cannot develop normally</td></tr>
+    <tr><td>4...Bf5 (bishop first)</td><td><strong>5.Bxf5!</strong> exf5 — isolated f5 pawn</td><td>f5 pawn is permanent weakness; Qb3 follows</td></tr>
+    <tr><td>4...e6 (blocking bishop)</td><td>5.Nf3 Bd6 6.O-O Ne7 <strong>7.Re1</strong> → 8.Bg5!</td><td>Bg5 targets Ne7; Bd3-h7 diagonal kept open</td></tr>
+    </tbody>
+  </table>
+  <div class="callout callout-danger" style="margin-top:10px">
+    <strong>NEVER trade queens early.</strong> Emerson is an endgame specialist who drew a 193-move game at 98.3%. Keep the queens on board at all costs in the Exchange Caro-Kann.
+  </div>
+</div>
+
+<input class="acc-toggle" id="q2" type="checkbox" checked>
+<label class="acc-label" for="q2">Austin as Black — opening decisions</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Emerson plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
+    <tbody>
+    <tr><td>1.e4 (always)</td><td>1…c5 2…d6 (Sicilian)</td><td>Austin's main Black weapon</td></tr>
+    <tr><td>3.Bb5+ Bd7 4.Bxd7+ (B52)</td><td><strong>4…Nxd7!</strong> (NOT Qxd7)</td><td>Keep queen; avoid Emerson's technical endgame specialty</td></tr>
+    <tr><td>After Nxd7: 5.O-O Ngf6 6.Re1 e6 7.c3 Be7 8.d4</td><td><strong>8...cxd4!</strong> then <strong>9...d5!</strong></td><td>Fight in center; d5 gives full equality and counterplay</td></tr>
+    <tr><td>3.Bb5 Nc6 (B31)</td><td>3…g6! 4.O-O Bg7 5.Re1 <strong>e5!</strong></td><td>Fight for e5 center; Bg7 long diagonal pressure</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<input class="acc-toggle" id="q3" type="checkbox">
+<label class="acc-label" for="q3">Middlegame and endgame decisions</label>
+<div class="acc-content">
+  <ul style="padding-left:18px;">
+    <li><strong>DO NOT</strong> simplify into R+B or R+P endgames — Emerson's specialty is exactly these (127-move win vs WIM)</li>
+    <li><strong>DO</strong> create tactical complications before move 25 — Emerson's accuracy drops to 83–89% in complex middlegames</li>
+    <li><strong>DO</strong> look for the pawn move Emerson missed — his error pattern is piece moves (Nd4, Rec1) over critical pawn advances (a3, Qb2)</li>
+    <li><strong>DO NOT</strong> ease off after Emerson's first mistake — he is prone to follow-up errors from the same tactical blindspot</li>
+    <li>When calculating: assume Emerson will prefer checks over material captures; find what happens after his check and what material win he missed</li>
+  </ul>
+</div>
+
+<input class="acc-toggle" id="q4" type="checkbox">
+<label class="acc-label" for="q4">Opening drill — Exchange Caro-Kann core moves</label>
+<div class="acc-content">
+  <h3>Memorize: Austin's Exchange CK to move 12</h3>
+  <div class="move-line">
+    <span class="mv-a">1.e4</span> c6
+    <span class="mv-a">2.d4</span> d5
+    <span class="key-move">3.exd5!</span> cxd5
+    <span class="key-move">4.Bd3!</span> Nc6
+    <span class="key-move">5.c3</span> Nf6
+    <span class="key-move">6.Nf3</span> Bg4
+    <span class="key-move">7.h3!</span> Bh5
+    <span class="key-move">8.Qb3!</span> Qd7
+    <span class="key-move">9.O-O</span> e6
+    <span class="key-move">10.Re1!</span> Be7
+    <span class="key-move">11.Nbd2</span> O-O
+    <span class="key-move">12.Ne5!</span>
+  </div>
+  <p style="margin-top:8px"><strong>Key rules:</strong> (1) 4.Bd3 always — Bd3 targets h7 and enables Ne5-Nxh7 sacrifices. (2) 7.h3! prevents ...Bxf3 trade. (3) 8.Qb3! is the critical move — double attack on b7 and d5. (4) 12.Ne5! centralizes; prepare Ne5-Nxh7 sacrifice if Bh5 bishop is on the rim.</p>
+  <p style="margin-top:6px"><strong>Quick test:</strong> What are Austin's first 12 moves in the Exchange Caro-Kann?</p>
+  <p>Answer: <strong>1.e4 2.d4 3.exd5! 4.Bd3! 5.c3 6.Nf3 7.h3! 8.Qb3! 9.O-O 10.Re1! 11.Nbd2 12.Ne5!</strong></p>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 5 — Critical Moments Reference</h2>
+
+<div class="callout callout-danger">
+  <strong>Queen check pattern (SW Open 2025 R6, B12 Caro-Kann):</strong> Emerson played <span class="bad-move">Qf4+</span> (455CPL) from a drawn position (+0.00 → -4.55). Best was <strong>Qxh3</strong> — simply capturing the pawn. Emerson chose a forcing check that looked active but lost the game, over a quiet material gain. <strong>Pattern: Emerson rates "forcing" over "winning" — his tactical calculation fails under pressure.</strong>
+</div>
+
+<h3>Pattern: King navigation error (TX State 2026 R4, C77 Ruy Lopez)</h3>
+<div class="move-line">
+  <span class="note">Emerson as White, balanced position (+0.00):</span><br>
+  Move 46: <span class="bad-move">Kg5</span> (best Kg3, 202CPL) — king walked to wrong square<br>
+  Move 53: <span class="bad-move">Kxg5</span> (best a6, 355CPL) — captured wrong pawn; lost the endgame
+</div>
+<p style="margin:6px 0 10px; font-size:0.9em; color:#444">
+  Pattern: In king-and-pawn endings, Emerson's king goes to the active-looking square rather than the correct square. From dead balance (+0.00), two king moves lost the game. Austin should force K+P endings and find the precise king move Emerson will misjudge.
+</p>
+
+<h3>Pattern: Winning squander via passive retreat (SW Open 2026 R2, D25 QGA)</h3>
+<div class="move-line">
+  <span class="note">Emerson as Black, dominating position (+6.15 = won):</span><br>
+  Move 36: <span class="bad-move">Be7</span> (best Rc8, 615CPL!) — bishop retreated passively; active rook was the winning move<br>
+  Result: position went from +6.15 to +0.00 (draw) in a single move
+</div>
+<p style="margin:6px 0 10px; font-size:0.9em; color:#444">
+  Pattern: Emerson places pieces passively in winning positions — he retreats a bishop instead of activating a rook. From +6.15 to drawn in one move. If Austin is under pressure, sit tight — Emerson may convert his advantage incorrectly.
+</p>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 6 — Engine Accuracy Reference (38 OTB Games)</h2>
+
+<table>
+  <thead><tr><th>Tournament</th><th>Rnd</th><th>Color</th><th>Opponent</th><th>Elo</th><th>Result</th><th>Acc</th><th>ECO</th><th>B/M</th></tr></thead>
+  <tbody>
+  <tr><td>Unknown Tourn. 2025</td><td>R2</td><td>Black</td><td>Albert, Colin</td><td>2044</td><td>Draw</td><td><strong>98.3%</strong></td><td>D11</td><td>0/0</td></tr>
+  <tr><td>SW Open 2026</td><td>R5</td><td>White</td><td>Vadher, Devaj M</td><td>1779</td><td>Win</td><td>96.9%</td><td>B13</td><td>0/0</td></tr>
+  <tr><td>TX Scholastic 2026</td><td>R7</td><td>White</td><td>Li, Alan</td><td>1816</td><td>Win</td><td>97.5%</td><td>B40</td><td>0/0</td></tr>
+  <tr><td>TX Scholastic 2026</td><td>R3</td><td>Black</td><td>Aguayo Carreno, Sofia</td><td>1299</td><td>Win</td><td>97.7%</td><td>B11</td><td>1/0</td></tr>
+  <tr><td>SW Open 2026</td><td>R1</td><td>White</td><td>Attaluri, Rishi</td><td>1593</td><td>Draw</td><td>95.8%</td><td>B31</td><td>0/0</td></tr>
+  <tr><td>SW Open 2025</td><td>R2</td><td>White</td><td>Chumpitaz, Ann (WIM)</td><td>2358</td><td>Win</td><td>95.9%</td><td>B52</td><td>1/1</td></tr>
+  <tr><td>SW Open 2025</td><td>R1</td><td>Black</td><td>Fus, Jakub</td><td>2514</td><td>Draw</td><td>95.5%</td><td>A07</td><td>0/0</td></tr>
+  <tr><td>TX State 2026</td><td>R2</td><td>White</td><td>Johnson, Chuck</td><td>1997</td><td>Win</td><td>94.9%</td><td>C77</td><td>0/0</td></tr>
+  <tr><td>Unknown Tourn. 2025</td><td>R3</td><td>White</td><td>Bates, Evan</td><td>1953</td><td>Draw</td><td>94.0%</td><td>B13</td><td>1/0</td></tr>
+  <tr><td>Unknown Tourn. 2025</td><td>R5</td><td>White</td><td>Lan, Kai Zhou</td><td>1682</td><td>Win</td><td>93.9%</td><td>B22</td><td>4/0</td></tr>
+  <tr><td>TX Scholastic 2026</td><td>R5</td><td>Black</td><td>Joseph, Julian</td><td>1830</td><td>Draw</td><td>93.8%</td><td>A07</td><td>0/1</td></tr>
+  <tr><td>TX State 2026</td><td>R1</td><td>Black</td><td>Vivekananthan, Anish</td><td>2407</td><td>Loss</td><td>93.5%</td><td>D00</td><td>3/2</td></tr>
+  <tr><td>SW Open 2025</td><td>R5</td><td>White</td><td>Lares Flores, Manuel</td><td>2303</td><td>Draw</td><td>93.4%</td><td>B30</td><td>0/1</td></tr>
+  <tr><td>SW Open 2026</td><td>R4</td><td>Black</td><td>Balaji, Tanav</td><td>1624</td><td>Win</td><td>92.5%</td><td>D25</td><td>3/0</td></tr>
+  <tr><td>TX Scholastic 2026</td><td>R2</td><td>White</td><td>Karry, Tapasya</td><td>1716</td><td>Win</td><td>92.4%</td><td>B13</td><td>1/0</td></tr>
+  <tr><td>SW Open 2025</td><td>R3</td><td>Black</td><td>Rodrigue-Lemieux, Shawn (GM)</td><td>2529</td><td>Loss</td><td>92.6%</td><td>B10</td><td>0/3</td></tr>
+  <tr><td>TX State 2026</td><td>R5</td><td>Black</td><td>Gani, Neil</td><td>1837</td><td>Win</td><td>90.7%</td><td>D25</td><td>4/1</td></tr>
+  <tr><td>Unknown Tourn. 2025</td><td>R1</td><td>White</td><td>Chodniewicz, Asher</td><td>1850</td><td>Loss</td><td>90.8%</td><td>C04</td><td>1/3</td></tr>
+  <tr><td>Natl Elem 2024</td><td>R2</td><td>White</td><td>Goodrich, Elliott</td><td>1921</td><td>Loss</td><td>92.7%</td><td>E61</td><td>2/3</td></tr>
+  <tr><td>SW Open 2025</td><td>R9</td><td>Black</td><td>Samant Aditya (GM)</td><td>2621</td><td>Loss</td><td>90.1%</td><td>B12</td><td>2/1</td></tr>
+  <tr><td>SW Open 2026</td><td>R7</td><td>White</td><td>Chodniewicz, Asher</td><td>1902</td><td>Draw</td><td>90.9%</td><td>B51</td><td>0/2</td></tr>
+  <tr><td>SW Open 2025</td><td>R7</td><td>White</td><td>Daggupati, Balaji</td><td>2521</td><td>Loss</td><td>91.1%</td><td>B30</td><td>1/1</td></tr>
+  <tr><td>Unknown Tourn. 2025</td><td>R4</td><td>Black</td><td>Joseph, Julian</td><td>1790</td><td>Loss</td><td>89.9%</td><td>B10</td><td>1/7</td></tr>
+  <tr><td>TX Scholastic 2026</td><td>R7</td><td>Black</td><td>Vyas, Miransh Purven</td><td>2003</td><td>Loss</td><td>91.4%</td><td>D02</td><td>0/1</td></tr>
+  <tr><td>SW Open 2026</td><td>R6</td><td>Black</td><td>Bupeshnath, Arjun</td><td>1861</td><td>Draw</td><td>91.6%</td><td>B11</td><td>0/0</td></tr>
+  <tr><td>Unknown Tourn. 2025</td><td>R7</td><td>White</td><td>Gundam, Rohit</td><td>2071</td><td>Draw</td><td>90.3%</td><td>C07</td><td>0/1</td></tr>
+  <tr class="row-danger"><td>TX State 2026</td><td>R7</td><td>Black</td><td>Meng, Joshua</td><td>2119</td><td>Loss</td><td>89.4%</td><td>A01</td><td>2/4</td></tr>
+  <tr class="row-danger"><td>TX State 2026</td><td>R4</td><td>White</td><td>Anandh, Vijay Srinivas</td><td>2158</td><td>Loss</td><td>89.3%</td><td>C77</td><td>1/4</td></tr>
+  <tr class="row-danger"><td>TX Scholastic 2026</td><td>R4</td><td>White</td><td>Wang, Yixi</td><td>1869</td><td>Win</td><td>89.5%</td><td>C77</td><td>1/2</td></tr>
+  <tr class="row-danger"><td>SW Open 2026</td><td>R2</td><td>Black</td><td>Hyltin, John Paul</td><td>2003</td><td>Draw</td><td>89.5%</td><td>D25</td><td>1/1</td></tr>
+  <tr class="row-danger"><td>TX Scholastic 2026</td><td>R1</td><td>Black</td><td>Caridad, Juan</td><td>1498</td><td>Win</td><td>89.6%</td><td>D20</td><td>4/3</td></tr>
+  <tr class="row-danger"><td>Unknown Tourn. 2025</td><td>R8</td><td>Black</td><td>Kaul, Krrish</td><td>1729</td><td>Draw</td><td>91.7%</td><td>B12</td><td>0/1</td></tr>
+  <tr class="row-danger"><td>SW Open 2025</td><td>R4</td><td>White</td><td>Cardoso Cardoso, J.G. (GM)</td><td>2568</td><td>Loss</td><td>86.9%</td><td>B51</td><td>2/2</td></tr>
+  <tr class="row-danger"><td>Natl K-12 2025</td><td>R4</td><td>Black</td><td>Gu, Ethan</td><td>2295</td><td>Loss</td><td>88.0%</td><td>B12</td><td>3/0</td></tr>
+  <tr><td>SW Open 2026</td><td>R3</td><td>White</td><td>Vinayagaram, Nethra</td><td>1597</td><td>Loss</td><td>90.6%</td><td>C77</td><td>2/1</td></tr>
+  <tr class="row-danger"><td>SW Open 2025</td><td>R6</td><td>Black</td><td>Paramzina, Anastasya (WGM)</td><td>2269</td><td>Loss</td><td><strong>83.8%</strong></td><td>B12</td><td>6/6</td></tr>
+  <tr style="background:#f5f0e8"><td colspan="6"><strong>Overall</strong></td><td><strong>92.2%</strong></td><td></td><td></td></tr>
+  </tbody>
+</table>
+<p style="font-size:0.82em; color:#666; margin-top:4px">Red rows = games ≤89.5% accuracy or high-error games. B12 Caro-Kann as Black (83.8%, 88.0%) is Emerson's most exploitable line — Austin plays directly into it with Exchange Caro-Kann (B13).</p>
+
+<p style="margin-top:20px; font-size:0.85em; color:#555; text-align:center">
+  <a href="../austin-prep.html">← Back to Austin Lin Prep Index</a>
+</p>
+
+</body>
+</html>
