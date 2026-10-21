@@ -48,6 +48,15 @@ OPPONENTS = {
         "austin_weapon_white": "English Attack vs Sicilian Kan (B43) — Heye's confirmed Black system vs Austin",
         "austin_weapon_black": "Sicilian Najdorf (5...a6) — avoids Heye's deep Italian White preparation",
     },
+    "aarush": {
+        "legal_name": "Ajith, Aarush",
+        "lichess_username": "makoshark12",
+        "pgn_player_name": "makoshark12",
+        "known_white": "1.d4 Catalan/fianchetto (E04/E08/D10/D11/E68) — exclusively g3/Bg2",
+        "known_weakness": "h4 kingside attack as Black (0W-3L); king-endgame navigation (1000 CPL blunders); time pressure cascade",
+        "austin_weapon_white": "h4 English Attack vs Najdorf — Aarush 0W-3L, blundered from +7.31 in Toronto",
+        "austin_weapon_black": "Catalan Open (4...dxc4) — forces concrete imbalance vs his positional setup",
+    },
 }
 
 

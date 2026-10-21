@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle Plan: Austin vs Ajith, Aarush (GM Prep)</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Georgia', serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg);
+}
+h1 { font-size: 1.6em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.15em; margin: 28px 0 10px; border-left: 5px solid var(--blue); padding-left: 10px; }
+h3 { font-size: 1em; margin: 14px 0 6px; color: #333; }
+.subtitle { font-size: 0.85em; color: #666; margin-bottom: 22px; }
+.subtitle span { margin-right: 16px; }
+
+.sources { background: #f0f4ff; border: 1px solid #aac; border-radius: 5px; padding: 10px 14px; margin-bottom: 18px; font-size: 0.85em; }
+.sources strong { display: block; margin-bottom: 4px; }
+.src-classical { color: var(--blue); font-weight: bold; }
+.src-lichess { color: #666; }
+
+.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.intel-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.intel-card h3 { margin-top: 0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }
+.intel-card ul { padding-left: 16px; margin-top: 4px; }
+.intel-card li { margin-bottom: 3px; }
+
+.callout { border-radius: 4px; padding: 10px 14px; margin: 10px 0; font-size: 0.9em; }
+.callout-gold  { background: #fffbe0; border-left: 4px solid var(--gold); }
+.callout-blue  { background: #eef4ff; border-left: 4px solid var(--blue); }
+.callout-green { background: #efffef; border-left: 4px solid var(--green); }
+.callout-danger { background: #fff0f0; border-left: 4px solid var(--red); }
+
+.move-line { background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+             padding: 8px 12px; margin: 6px 0; font-size: 0.92em; line-height: 1.9; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: #eef4ff; border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.note { color: #555; font-style: italic; font-size: 0.88em; }
+
+.badge { display: inline-block; border-radius: 3px; padding: 1px 7px;
+         font-size: 0.78em; font-weight: bold; margin-left: 4px; vertical-align: middle; }
+.b-green { background: #dff0df; color: #1a5c1a; border: 1px solid #88bb88; }
+.b-gold  { background: #fff3cc; color: #7a5c00; border: 1px solid #ccaa44; }
+.b-red   { background: #ffe0e0; color: #8b1a1a; border: 1px solid #cc8888; }
+.b-blue  { background: #dde8ff; color: #1a4a8b; border: 1px solid #8899cc; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
+th { background: #333; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+
+hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20px; }
+
+.acc-toggle { display: none; }
+.acc-label {
+  display: block; cursor: pointer; padding: 8px 12px; margin: 4px 0;
+  background: #eee; border: 1px solid #ccc; border-radius: 4px;
+  font-weight: bold; font-size: 0.9em; user-select: none;
+}
+.acc-label::before { content: '▶ '; font-size: 0.75em; color: #666; }
+.acc-toggle:checked ~ .acc-label::before { content: '▼ '; }
+.acc-content { display: none; padding: 10px 14px; background: #fafaf6;
+               border: 1px solid #ddd; border-top: none; border-radius: 0 0 4px 4px; margin-bottom: 6px; }
+.acc-toggle:checked ~ .acc-content { display: block; }
+
+@media print {
+  .acc-content { display: block !important; }
+  .acc-label::before { content: '' !important; }
+  body { font-size: 12px; padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<h1>Battle Plan: Austin (White &amp; Black) vs Ajith, Aarush</h1>
+<div class="subtitle">
+  <span><strong>GM Prep</strong></span>
+  <span>Aarush rating: ~1895–1941 (fluctuating)</span>
+  <span>Direct record: no encounter</span>
+  <span>Classical games analyzed: 17</span>
+</div>
+
+<div class="sources">
+  <strong>Data sources</strong>
+  <span class="src-classical">Primary: 17 classical games (Canada Closed, PAM School, PAM 2026, Toronto Open 2026) — engine-analyzed at movetime-800.</span>
+  <span class="src-lichess">Supplementary: Lichess games (makoshark12, rapid/blitz) — opening line frequency only.</span>
+</div>
+
+<div class="intel-grid">
+  <div class="intel-card">
+    <h3>Aarush as White</h3>
+    <ul>
+      <li><strong>1.d4 exclusively</strong> — Catalan/fianchetto in all structures</li>
+      <li>Slav: g3/Bg2/Nf3/O-O (D10/D11)</li>
+      <li>Catalan Open/Closed (E04/E08)</li>
+      <li>KID Fianchetto (E68)</li>
+      <li>White avg accuracy: ~91.3%</li>
+      <li>Best: 98.2% vs ~1925 (clean Catalan win)</li>
+      <li>Worst: 85.7%–87.9% vs 2000+</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Aarush as Black</h3>
+    <ul>
+      <li>vs 1.e4: <strong>Sicilian Najdorf (B90)</strong> primary</li>
+      <li>Secondary: KID-like g6/Bg7 (E60/A48)</li>
+      <li>Black avg accuracy: ~89.5%</li>
+      <li><strong>h4 kingside attack: 0W–3L</strong></li>
+      <li>Worst: 80.6% (CC R1, 3 blunders vs h4)</li>
+      <li>Toronto R6: blundered from +7.31 (winning!) to 0-1 under time pressure</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Critical weaknesses</h3>
+    <ul>
+      <li><strong>#1: h4 attack as Black</strong> — 0W–3L, record worst accuracy</li>
+      <li><strong>#2: King endgame</strong> — 3+ king blunders/game (CC R7, PAM R8)</li>
+      <li><strong>#3: Time pressure cascade</strong> — CPL skyrockets past 60 moves</li>
+      <li><strong>#4: Single-move collapse</strong> from winning/equal positions</li>
+      <li>Catalan collapses vs 2000+ (85–88% vs strong players)</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Key game facts</h3>
+    <ul>
+      <li>Toronto R6: +7.31 advantage → 22...Qb4?? (1000 CPL) → 0-1 in time pressure</li>
+      <li>CC R7: Lost to 1824-rated in 128 moves via king endgame errors (93.3% but 3×1000 CPL)</li>
+      <li>PAM R6: 5 blunders vs 1833-rated (100 CPL avg in 100-move game)</li>
+      <li>CC R9: 98.2% best game — Catalan vs ~1925, near-perfect</li>
+      <li>Overall blunder rate: ~1.8/game</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ═══════════════ PART 1 — AUSTIN WHITE ═══════════════ -->
+<h2>Part 1 — Austin as White vs Aarush</h2>
+
+<div class="callout callout-danger">
+  <strong>Austin's weapon: h4 English Attack vs Najdorf</strong>
+  Aarush is 0W–3L against direct h4 kingside attacks. His three h4 losses:
+  CC R1 (80.6%, 3 blunders), CC R2 (91.5%, h4 Najdorf Heye), Toronto R6 (84%, 4 blunders —
+  including blundering from a won +7.31 position). The h4 system doesn't need to be
+  objectively winning — it creates complexity that eats Aarush's clock and induces catastrophic
+  single-move collapses even from winning positions.
+</div>
+
+<h3>The Opening — h4 English Attack</h3>
+<div class="move-line">
+  <span class="mv-a">1.e4</span>
+  <span class="mv-z">c5</span>
+  <span class="mv-a">2.Nf3</span>
+  <span class="mv-z">d6</span>
+  <span class="mv-a">3.d4</span>
+  <span class="mv-z">cxd4</span>
+  <span class="mv-a">4.Nxd4</span>
+  <span class="mv-z">Nf6</span>
+  <span class="mv-a">5.Nc3</span>
+  <span class="mv-z">a6</span>
+  <span class="mv-a"><span class="key-move">6.h4!</span></span>
+  <span class="note">— Aarush's nightmare. He is 0–3 against this exact setup.</span>
+</div>
+
+<div class="callout callout-gold">
+  <strong>Why 6.h4! works specifically vs Aarush</strong>
+  The h4 attack creates a long, complex middlegame that consumes clock time.
+  Aarush's worst games happen when he must calculate under time pressure — in Toronto R6
+  he was objectively winning (+7.31) and still found a way to lose with Qb4?? in time pressure.
+  The h4 system doesn't require Austin to have the best position; it requires Aarush to
+  maintain calculation accuracy for 40+ moves under the clock, which the data shows he cannot do.
+</div>
+
+<input class="acc-toggle" type="checkbox" id="w1" checked>
+<label class="acc-label" for="w1">After 6.h4 — main line setup</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">6.h4!</span>
+    <span class="mv-z">e6</span>
+    <span class="note">(standard defensive move)</span>
+    <span class="mv-a"><span class="key-move">7.Bg5</span></span>
+    <span class="note">— pin the Nf6, pressure d6</span><br>
+    <span class="mv-z">7...Be7</span>
+    <span class="mv-a"><span class="key-move">8.Qd2</span></span>
+    <span class="mv-a">9.O-O-O</span>
+    <span class="note">— castle long, prepare h5</span><br>
+    <span class="mv-z">9...h6</span>
+    <span class="mv-a"><span class="key-move">10.Bxf6!</span></span>
+    <span class="note">— trade the bishop before h5, keep the attack alive</span><br>
+    <span class="mv-z">10...Bxf6</span>
+    <span class="mv-a"><span class="key-move">11.h5!</span></span>
+    <span class="note">— advance. Threatens h6 creating a permanent weakness.</span>
+    <span class="badge b-red">Attack mode</span>
+  </div>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="w2" checked>
+<label class="acc-label" for="w2">After 6.h4 — if Aarush plays 6...g6 (KID secondary)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">6...g6</span>
+    <span class="note">(KID-like setup — Aarush's secondary)</span><br>
+    <span class="mv-a"><span class="key-move">7.h5!</span></span>
+    <span class="note">— immediate advance. The h5 pawn cramps the g6 structure immediately.</span><br>
+    <span class="mv-z">7...Bg7</span>
+    <span class="mv-a"><span class="key-move">8.Be3</span></span>
+    <span class="mv-z">8...O-O</span>
+    <span class="mv-a"><span class="key-move">9.Qd2 Nc6 10.O-O-O</span></span>
+    <span class="note">— complete the setup; g5 advance next.</span>
+    <span class="badge b-red">Space advantage, attack incoming</span>
+  </div>
+  <div class="callout callout-blue" style="margin-top:8px">
+    Canada Closed R1 (80.6%): Aarush played KID g6/Bg7 and got hit with exactly this h4/h5 plan.
+    Committed 3 blunders including Rxa7 (+3.77 → −1.86 in one move).
+  </div>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="w3" checked>
+<label class="acc-label" for="w3">If Aarush plays 2...Nc6 (tries to avoid Najdorf) — Rossolimo</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">2...Nc6</span>
+    <span class="mv-a"><span class="key-move">3.Bb5!</span></span>
+    <span class="note">— Rossolimo. Forces Aarush out of Najdorf preparation entirely.</span><br>
+    <span class="mv-z">3...g6</span>
+    <span class="mv-a"><span class="key-move">4.Bxc6 dxc6 5.O-O</span></span>
+    <span class="note">— Exchange Rossolimo with structural edge</span><br>
+    <span class="mv-z">3...e6</span>
+    <span class="mv-a"><span class="key-move">4.O-O Nge7 5.c3</span></span>
+    <span class="note">— solid White setup; Black's doubled pawn after Bxc6</span>
+    <span class="badge b-blue">=+</span>
+  </div>
+</div>
+
+<h3 style="margin-top:18px">Key Tactical Themes — Austin White</h3>
+<table>
+  <tr><th>Theme</th><th>When</th><th>How</th></tr>
+  <tr>
+    <td><strong>h4-h5 pawn storm</strong></td>
+    <td>Always — it's the plan vs Aarush</td>
+    <td>Advance h5, restrict kingside, then open h-file with hxg6 or g4-g5</td>
+  </tr>
+  <tr>
+    <td><strong>Long castle → kingside attack</strong></td>
+    <td>After Bg5/Be3 + Qd2</td>
+    <td>O-O-O completes setup. Then push h-pawn, prepare Nf5/Nd5 outpost</td>
+  </tr>
+  <tr>
+    <td><strong>Keep the game complex past move 40</strong></td>
+    <td>Always</td>
+    <td>Aarush's error rate explodes under time pressure. Don't simplify before move 40.</td>
+  </tr>
+  <tr>
+    <td><strong>Trade into king endgame</strong></td>
+    <td>When material is equal</td>
+    <td>Aarush's king navigation is catastrophically bad — 3+ king blunders/game confirmed in CC R7, PAM R8</td>
+  </tr>
+  <tr>
+    <td><strong>Never simplify early</strong></td>
+    <td>Always</td>
+    <td>Aarush plays best in simple positions (CC R9: 98.2% in a clean Catalan). Complexity is Austin's friend.</td>
+  </tr>
+</table>
+
+<hr class="section-divider">
+
+<!-- ═══════════════ PART 2 — AUSTIN BLACK ═══════════════ -->
+<h2>Part 2 — Austin as Black vs Aarush</h2>
+
+<div class="callout callout-blue">
+  <strong>What Aarush will play:</strong> 1.d4 exclusively, Catalan/fianchetto in all structures.
+  He never plays main lines (no Nimzo Bxc3+, no Grunfeld, no Classical QGD). Austin's
+  Nimzo-Indian (1.d4 Nf6 2.c4 e6 3.Nc3 Bb4) may not apply — Aarush often delays Nc3
+  by playing Nf3 first.
+</div>
+
+<h3>Austin's weapon: Catalan Open (4...dxc4!)</h3>
+<div class="move-line">
+  <span class="mv-z">1.d4</span>
+  <span class="mv-a"><span class="key-move">Nf6</span></span>
+  <span class="mv-z">2.c4</span>
+  <span class="mv-a"><span class="key-move">e6</span></span>
+  <span class="mv-z">3.Nf3</span>
+  <span class="mv-a"><span class="key-move">d5</span></span>
+  <span class="mv-z">4.g3</span>
+  <span class="mv-a"><span class="key-move">dxc4!</span></span>
+  <span class="note">— Catalan Open. Grab the pawn and force concrete play.</span>
+</div>
+
+<div class="callout callout-gold">
+  <strong>Why Catalan Open vs Aarush?</strong>
+  Aarush's best White games are technical Catalan positions against ~1900 opponents (98.2%
+  in CC R9). But against the Catalan Open — where Black holds the extra pawn and forces
+  concrete play — he collapses: 87.9% vs Heye (PAM R5), 85.7% vs Yin Zeming (CC R4, 2 blunders).
+  He missed the key e5 break in multiple games. The Catalan Open turns his quiet positional
+  system into an imbalanced, concrete fight he cannot handle at 2000+ level.
+</div>
+
+<input class="acc-toggle" type="checkbox" id="b1" checked>
+<label class="acc-label" for="b1">Main Catalan Open — hold the extra pawn</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">4.g3</span>
+    <span class="mv-a"><span class="key-move">dxc4!</span></span>
+    <span class="mv-z">5.Bg2</span>
+    <span class="mv-a"><span class="key-move">a6!</span></span>
+    <span class="note">— hold the pawn. Prevents Aarush's Ne5 pawn recovery immediately.</span><br>
+    <span class="mv-z">6.O-O</span>
+    <span class="mv-a"><span class="key-move">b5</span></span>
+    <span class="note">— further support the c4 pawn with queenside expansion</span><br>
+    <span class="mv-z">7.Ne5</span>
+    <span class="mv-a"><span class="key-move">Nd5!</span></span>
+    <span class="note">— central knight, defends c4, targets e3/c3</span><br>
+    <span class="mv-z">8.Nc3</span>
+    <span class="mv-a"><span class="key-move">Bb7</span></span>
+    <span class="note">— fianchetto bishop supports c4 and attacks the center</span>
+    <span class="badge b-green">Extra pawn, active pieces</span>
+  </div>
+  <div class="callout callout-blue" style="margin-top:8px">
+    PAM R5: Heye played this exact pawn-holding setup vs Aarush's Catalan. Aarush
+    missed the e5 break twice and lost in 31 moves. Austin should replicate this pressure.
+  </div>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="b2" checked>
+<label class="acc-label" for="b2">If Aarush plays 3.Nc3 (delays fianchetto) — Nimzo-Indian</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">3.Nc3</span>
+    <span class="mv-a"><span class="key-move">Bb4!</span></span>
+    <span class="note">— Austin's primary weapon. Nimzo applies if Nc3 appears before g3.</span><br>
+    <span class="mv-z">4.g3</span>
+    <span class="mv-a"><span class="key-move">Bxc3+!</span></span>
+    <span class="note">— Austin's standard Nimzo plan: Bxc3+ ...b6/...Ba6 structure</span><br>
+    <span class="mv-z">5.bxc3</span>
+    <span class="mv-a"><span class="key-move">c5</span></span>
+    <span class="note">— attack the center. Aarush has doubled c-pawns, Black is well.</span>
+    <span class="badge b-green">Austin's home territory</span>
+  </div>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="b3" checked>
+<label class="acc-label" for="b3">If Aarush plays 2.Nf3 Nf6 3.g3 (early fianchetto) — same plan</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">2.Nf3</span>
+    <span class="mv-a"><span class="key-move">Nf6</span></span>
+    <span class="mv-z">3.g3</span>
+    <span class="mv-a"><span class="key-move">d5 4.Bg2</span></span>
+    <span class="mv-a"><span class="key-move">dxc4!</span></span>
+    <span class="note">— same Catalan Open. Pawn grab on c4 is always correct.</span>
+    <span class="badge b-green">=+</span>
+  </div>
+</div>
+
+<h3 style="margin-top:18px">Key Themes as Austin Black</h3>
+<table>
+  <tr><th>Theme</th><th>How</th></tr>
+  <tr>
+    <td><strong>Hold the c4 pawn</strong></td>
+    <td>4...dxc4 5.Bg2 a6! 6.O-O b5 — don't return it voluntarily</td>
+  </tr>
+  <tr>
+    <td><strong>Force the e5 break</strong></td>
+    <td>Aarush missed e5 in both losses (PAM R5, CC R4). Austin should prevent this and wait for Aarush to miss it again</td>
+  </tr>
+  <tr>
+    <td><strong>Reach a technical endgame</strong></td>
+    <td>Aarush's endgame king navigation is broken — trade into a rook+pawn ending and watch for his king blunders</td>
+  </tr>
+  <tr>
+    <td><strong>Play past move 40</strong></td>
+    <td>Aarush's time pressure cascade means the longer the game, the more he collapses. PAM R6: 5 blunders in a 100-move game vs a 1833-rated opponent</td>
+  </tr>
+</table>
+
+<div class="callout callout-danger">
+  <strong>Warning: don't play the Nimzo if Aarush delays Nc3.</strong>
+  Aarush always plays 1.d4/2.c4/3.Nf3 — he uses the Catalan move order specifically to avoid
+  the Nimzo-Indian (which requires Nc3 on move 3). Austin should default to Catalan Open
+  (4...dxc4) and only play the Nimzo if Nc3 appears before g3.
+</div>
+
+<hr class="section-divider">
+
+<!-- ═══════════════ PART 3 — CLOCK STRATEGY ═══════════════ -->
+<h2>Part 3 — Clock and Psychological Strategy</h2>
+
+<div class="callout callout-gold">
+  <strong>Aarush's most dangerous opponent is the clock.</strong>
+  He blundered from +7.31 (a winning position by any measure) to 0-1 in time pressure.
+  He blundered against a 1824-rated opponent (93.3% accuracy game) via king endgame errors.
+  Austin's goal: make the game long, complex, and clock-intensive.
+</div>
+
+<table>
+  <tr><th>Situation</th><th>Austin's action</th><th>Evidence</th></tr>
+  <tr>
+    <td>Opening (moves 1–15)</td>
+    <td>Play instantly — demonstrate prep confidence</td>
+    <td>Makes Aarush think even in his home territory</td>
+  </tr>
+  <tr>
+    <td>Aarush under 30 minutes</td>
+    <td>Create complications — don't simplify</td>
+    <td>PAM R6: 100 CPL avg, 5 blunders in time pressure vs 1833</td>
+  </tr>
+  <tr>
+    <td>Aarush in a winning/equal position</td>
+    <td>Keep fighting — don't resign tendencies</td>
+    <td>Toronto R6: Aarush had +7.31 and still lost via Qb4??</td>
+  </tr>
+  <tr>
+    <td>Any endgame reached</td>
+    <td>Trade into rook+pawn or king+pawn endgame</td>
+    <td>CC R7: lost to 1824 with 3×1000 CPL king blunders in 128-move game</td>
+  </tr>
+  <tr>
+    <td>Aarush plays fast confidently</td>
+    <td>Take time — don't match his tempo</td>
+    <td>His best games (CC R9: 98.2%) happen when he plays comfortably. Slow the game down.</td>
+  </tr>
+</table>
+
+<h3 style="margin-top:14px">Aarush's accuracy profile</h3>
+<table>
+  <tr><th>Context</th><th>Accuracy</th><th>Blunders</th></tr>
+  <tr><td>Catalan vs ~1900 (clean game)</td><td>93.4%–98.2%</td><td>0</td></tr>
+  <tr><td>Najdorf endgame as Black (comfortable)</td><td>92.8%–93.4%</td><td>0</td></tr>
+  <tr><td>Catalan vs 2000+ (pressure)</td><td>85.7%–87.9%</td><td>2–3</td></tr>
+  <tr><td><strong>h4 attack as Black</strong></td><td><strong>80.6%–91.5%</strong></td><td><strong>1–3</strong></td></tr>
+  <tr><td><strong>Time pressure (60+ move games)</strong></td><td><strong>84%–87.9%</strong></td><td><strong>4–5</strong></td></tr>
+  <tr><td><strong>King endgame</strong></td><td><strong>King blunders 1000 CPL each</strong></td><td><strong>3+/game</strong></td></tr>
+</table>
+
+<hr class="section-divider">
+
+<!-- ═══════════════ PART 4 — IF/THEN ═══════════════ -->
+<h2>Part 4 — If / Then Quick Reference</h2>
+
+<input class="acc-toggle" type="checkbox" id="q1" checked>
+<label class="acc-label" for="q1">Austin as White — opening decisions</label>
+<div class="acc-content">
+  <table>
+    <tr><th>If Aarush plays...</th><th>Austin plays...</th></tr>
+    <tr><td>1...c5 Sicilian</td><td>2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 → 6.h4!</td></tr>
+    <tr><td>6...e6 (main)</td><td>7.Bg5 Be7 8.Qd2 9.O-O-O → h5 advance</td></tr>
+    <tr><td>6...g6 (KID secondary)</td><td>7.h5! immediately → cramp the structure</td></tr>
+    <tr><td>2...Nc6 (skip d6)</td><td>3.Bb5! Rossolimo → force out of Najdorf</td></tr>
+    <tr><td>1...e6 (French)</td><td>3.e5 (Advanced) + h4 attacking plan</td></tr>
+    <tr><td>1...e5</td><td>2.Nf3 → Rossolimo/Italian — standard play</td></tr>
+  </table>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="q2" checked>
+<label class="acc-label" for="q2">Austin as Black — opening decisions</label>
+<div class="acc-content">
+  <table>
+    <tr><th>If Aarush plays...</th><th>Austin plays...</th></tr>
+    <tr><td>1.d4 Nf6 2.c4 e6 3.Nf3</td><td>3...d5 4.g3 dxc4! — Catalan Open</td></tr>
+    <tr><td>4.g3 dxc4</td><td>5...a6! — hold the pawn</td></tr>
+    <tr><td>6.O-O</td><td>6...b5 — further support c4</td></tr>
+    <tr><td>7.Ne5</td><td>7...Nd5! — central knight defense</td></tr>
+    <tr><td>3.Nc3 (before g3)</td><td>3...Bb4! — Nimzo-Indian, Austin's home territory</td></tr>
+    <tr><td>3.Nc3 4.g3</td><td>4...Bxc3+! → standard Nimzo ...b6/...Ba6</td></tr>
+  </table>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="q3" checked>
+<label class="acc-label" for="q3">Middlegame and endgame decisions</label>
+<div class="acc-content">
+  <table>
+    <tr><th>Situation</th><th>Action</th></tr>
+    <tr><td>Any simplification available (Austin White)</td><td>DECLINE before move 40 — keep complexity</td></tr>
+    <tr><td>King+pawn endgame available</td><td>ENTER IT — Aarush's king navigation fails</td></tr>
+    <tr><td>Aarush has under 30 minutes</td><td>CREATE complications — he collapses under clock</td></tr>
+    <tr><td>Aarush reaches a "winning" position</td><td>KEEP FIGHTING — he blundered from +7.31 in Toronto</td></tr>
+    <tr><td>Aarush plays fast in the Catalan (his home)</td><td>SLOW DOWN — force him to calculate deviations</td></tr>
+    <tr><td>h5 pawn storm advancing</td><td>Never stop the h-pawn — it is the attack</td></tr>
+  </table>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="q4" checked>
+<label class="acc-label" for="q4">Warnings — traps to avoid</label>
+<div class="acc-content">
+  <table>
+    <tr><th>Trap</th><th>Why</th></tr>
+    <tr><td>Playing 6.Be3 English Attack instead of 6.h4</td><td>h4 is the specific weapon confirmed against Aarush. English Attack via Be3/f3/Qd2 is valid but doesn't exploit his documented h4 weakness.</td></tr>
+    <tr><td>Simplifying into a drawish endgame (Austin White)</td><td>Aarush's best Catalan games are technical endgames he converts cleanly against ~1900. Don't make the game technical too early.</td></tr>
+    <tr><td>Playing Nimzo if Aarush plays 3.Nf3 first</td><td>The Nimzo requires Nc3 before g3. If Aarush plays Nf3 → g3 → Bg2, the Bb4+ doesn't apply. Default to Catalan Open (dxc4).</td></tr>
+    <tr><td>Returning the c4 pawn early (Austin Black)</td><td>The extra pawn creates the imbalance. Aarush wants it back to reach his comfortable positional Catalan.</td></tr>
+  </table>
+</div>
+
+<hr class="section-divider">
+
+<!-- ═══════════════ PART 5 — h4 ATTACK DRILL ═══════════════ -->
+<h2>Part 5 — h4 English Attack Opening Drill (Austin as White)</h2>
+
+<div class="callout callout-blue">
+  <strong>The single most important preparation:</strong> Know the h4 system to move 15 cold.
+  Aarush has never found a reliable antidote. The goal is to reach the middlegame with
+  the h-pawn at h5 and the queenside castled — from there, the attack runs itself.
+</div>
+
+<h3>Main setup — e6 variation</h3>
+<div class="move-line">
+  <span class="mv-a">1.e4</span>
+  <span class="mv-z">c5</span>
+  <span class="mv-a">2.Nf3</span>
+  <span class="mv-z">d6</span>
+  <span class="mv-a">3.d4</span>
+  <span class="mv-z">cxd4</span>
+  <span class="mv-a">4.Nxd4</span>
+  <span class="mv-z">Nf6</span>
+  <span class="mv-a">5.Nc3</span>
+  <span class="mv-z">a6</span>
+  <span class="mv-a"><span class="key-move">6.h4!</span></span>
+  <span class="mv-z">e6</span>
+  <span class="mv-a"><span class="key-move">7.Bg5</span></span>
+  <span class="mv-z">Be7</span>
+  <span class="mv-a"><span class="key-move">8.Qd2</span></span>
+  <span class="mv-z">Nc6</span>
+  <span class="mv-a"><span class="key-move">9.O-O-O</span></span>
+  <span class="mv-z">h6</span>
+  <span class="mv-a"><span class="key-move">10.Bxf6!</span></span>
+  <span class="mv-z">Bxf6</span>
+  <span class="mv-a"><span class="key-move">11.h5!</span></span>
+  <span class="note">— h5 is the key positional gain. Now 12.Rh3 followed by g4-g5.</span>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="d1" checked>
+<label class="acc-label" for="d1">Branch A — after h5, Aarush plays ...Bd7 (typical defensive)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">11...Bd7</span>
+    <span class="mv-a"><span class="key-move">12.Rh3!</span></span>
+    <span class="note">— rook to h3, preparing Rg3 or Rhg3</span><br>
+    <span class="mv-z">12...O-O-O</span>
+    <span class="mv-a"><span class="key-move">13.g4!</span></span>
+    <span class="note">— queenside castling walks into the g4-g5 pawn storm</span><br>
+    <span class="mv-z">13...Nxd4</span>
+    <span class="mv-a"><span class="key-move">14.Qxd4</span></span>
+    <span class="note">— queen centralized, attacks d6 and f6</span>
+    <span class="badge b-red">Austin attacking hard</span>
+  </div>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="d2" checked>
+<label class="acc-label" for="d2">Branch B — Aarush castles kingside ...O-O</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">9...O-O</span>
+    <span class="mv-a"><span class="key-move">10.h5!</span></span>
+    <span class="note">— h-pawn pushes now that Black has castled kingside</span><br>
+    <span class="mv-z">10...h6</span>
+    <span class="mv-a"><span class="key-move">11.Bh4!</span></span>
+    <span class="note">— keep bishop instead of exchanging; it stays on the h4-e7 diagonal</span><br>
+    <span class="mv-z">11...Nc6</span>
+    <span class="mv-a"><span class="key-move">12.Nxc6 bxc6 13.g4</span></span>
+    <span class="note">— g4-g5 advance. Aarush's kingside is cracking.</span>
+    <span class="badge b-red">Kingside assault</span>
+  </div>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="d3" checked>
+<label class="acc-label" for="d3">Branch C — Aarush plays 6...g6 (KID secondary)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">6...g6</span>
+    <span class="mv-a"><span class="key-move">7.h5!</span></span>
+    <span class="note">— immediate push. Cramp before Black can develop Bg7.</span><br>
+    <span class="mv-z">7...Bg7</span>
+    <span class="mv-a"><span class="key-move">8.Be3</span></span>
+    <span class="mv-z">8...O-O</span>
+    <span class="mv-a"><span class="key-move">9.Qd2</span></span>
+    <span class="mv-z">9...Nc6</span>
+    <span class="mv-a"><span class="key-move">10.O-O-O</span></span>
+    <span class="note">— castle long, then push g4-g5</span><br>
+    <span class="mv-a"><span class="key-move">11.g4!</span></span>
+    <span class="note">— same plan: g4-g5, rook battery, Nf5 outpost</span>
+    <span class="badge b-red">Attack</span>
+  </div>
+  <div class="callout callout-danger" style="margin-top:8px">
+    This is the exact structure from Canada Closed R1 where Aarush scored 80.6% and committed
+    3 blunders including Rxa7 (+3.77 → −1.86).
+  </div>
+</div>
+
+<h3 style="margin-top:18px">h4 system — key rules</h3>
+<table>
+  <tr><th>Rule</th><th>Detail</th></tr>
+  <tr><td><strong>6.h4 is always the plan</strong></td><td>No matter what Black plays on move 6, the h-pawn has committed. Follow through.</td></tr>
+  <tr><td><strong>Long castle (O-O-O) after Qd2</strong></td><td>Always castle long in the h4 English Attack. The king is safe on c1; the rooks can join the attack.</td></tr>
+  <tr><td><strong>After h5: Rh3 is the battery builder</strong></td><td>Rh3 can swing to g3 or stay on h3 for the h-file. It's the key rook development move.</td></tr>
+  <tr><td><strong>Never exchange queens early</strong></td><td>The attack requires queens. If Aarush offers Qxd4 or queen trade, decline.</td></tr>
+</table>
+
+<h3 style="margin-top:18px">10-Move Drill</h3>
+<input class="acc-toggle" type="checkbox" id="dr1">
+<label class="acc-label" for="dr1">Drill — recite Austin's moves through move 11 before revealing</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6</span><br>
+    <span class="mv-a"><span class="key-move">6.h4!</span></span>
+    <span class="mv-z">e6</span>
+    <span class="mv-a"><span class="key-move">7.Bg5</span></span>
+    <span class="mv-z">Be7</span>
+    <span class="mv-a"><span class="key-move">8.Qd2</span></span>
+    <span class="mv-z">Nc6</span>
+    <span class="mv-a"><span class="key-move">9.O-O-O</span></span>
+    <span class="mv-z">h6</span>
+    <span class="mv-a"><span class="key-move">10.Bxf6!</span></span>
+    <span class="mv-z">Bxf6</span>
+    <span class="mv-a"><span class="key-move">11.h5!</span></span>
+    <span class="note">— h5 planted. Attack position complete.</span>
+    <br><br>
+    <span class="badge b-red">Aarush is 0–3 against this. Austin owns this position.</span>
+  </div>
+</div>
+
+<input class="acc-toggle" type="checkbox" id="dr2">
+<label class="acc-label" for="dr2">Drill — Aarush plays 6...g6. What does Austin do immediately?</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">6...g6</span>
+    <span class="note">← What is Austin's 7th move?</span><br><br>
+    <span class="mv-a"><span class="key-move">7.h5!</span></span>
+    <span class="note">— immediate advance, NOT 7.Be3 first. Cramp the g6 structure now.</span><br>
+    <span class="note">CC R1: Aarush got this exact structure and scored 80.6% (3 blunders).</span>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ═══════════════ PART 6 — ACCURACY TABLE ═══════════════ -->
+<h2>Part 6 — Engine Accuracy Reference (17 Classical Games)</h2>
+
+<table>
+  <tr><th>Tournament / Game</th><th>Color</th><th>Opponent</th><th>Result</th><th>ECO</th><th>Accuracy</th><th>Bl/Mi</th></tr>
+  <tr style="background:#ffe0e0"><td><strong>CC R1</strong></td><td>Black</td><td>Iordanescu (2108)</td><td><strong>Loss</strong></td><td>E60 h4</td><td><strong>80.6%</strong></td><td>3/2</td></tr>
+  <tr style="background:#fff0e0"><td>CC R2</td><td>Black</td><td>Gao, Heye (2028)</td><td>Loss</td><td>B92 h4</td><td>91.5%</td><td>1/3</td></tr>
+  <tr><td>CC R3</td><td>White</td><td>Laughlin (1947)</td><td>Win</td><td>D10</td><td>93.4%</td><td>0/1</td></tr>
+  <tr style="background:#fff0e0"><td>CC R4</td><td>White</td><td>Yin, Zeming (2098)</td><td>Loss</td><td>E04 Catalan</td><td>85.7%</td><td>2/2</td></tr>
+  <tr><td>CC R5</td><td>Black</td><td>Hartner (2013)</td><td>Loss</td><td>B51</td><td>89.3%</td><td>0/2</td></tr>
+  <tr><td>CC R6</td><td>Black</td><td>Zhu, Elber (1936)</td><td>Loss</td><td>A48</td><td>90.3%</td><td>2/1</td></tr>
+  <tr style="background:#fff0e0"><td><strong>CC R7</strong></td><td>White</td><td>Yin, Aiden (1824)</td><td><strong>Loss</strong></td><td>D11</td><td>93.3%</td><td>3/3</td></tr>
+  <tr><td>CC R8</td><td>Black</td><td>Wu, Ting En Ryan (1906)</td><td>Draw</td><td>B90</td><td>93.4%</td><td>1/4</td></tr>
+  <tr><td><strong>CC R9</strong></td><td>White</td><td>Velasquez (1925)</td><td><strong>Win</strong></td><td>E68</td><td><strong>98.2%</strong></td><td>0/0</td></tr>
+  <tr><td>PAM School R2</td><td>White</td><td>Liu, Zachary (2051)</td><td>Loss</td><td>E08 Catalan</td><td>92.1%</td><td>1/1</td></tr>
+  <tr><td>PAM R3</td><td>Black</td><td>Otalvaro (1825)</td><td>Win</td><td>B90</td><td>92.8%</td><td>0/2</td></tr>
+  <tr><td>PAM R4</td><td>Black</td><td>Ayala Delgado (2097)</td><td>Win</td><td>A45</td><td>87.7%</td><td>2/3</td></tr>
+  <tr style="background:#fff0e0"><td><strong>PAM R5</strong></td><td>White</td><td>Gao, Heye (2065)</td><td><strong>Loss</strong></td><td>E04 Catalan</td><td>87.9%</td><td>0/4</td></tr>
+  <tr style="background:#ffe0e0"><td><strong>PAM R6</strong></td><td>White</td><td>Delgado (1833)</td><td><strong>Loss</strong></td><td>E68</td><td><strong>87.9%</strong></td><td>5/5</td></tr>
+  <tr><td>PAM R8</td><td>White</td><td>Fernandez Herrera (2137)</td><td>Loss</td><td>D30</td><td>93.0%</td><td>4/2</td></tr>
+  <tr style="background:#ffe0e0"><td><strong>Toronto R6</strong></td><td>Black</td><td>Gao, Raymond CM (2086)</td><td><strong>Loss</strong></td><td>A00 h4</td><td><strong>84.0%</strong></td><td>4/1</td></tr>
+</table>
+<p style="font-size:0.8em; color:#666; margin-top:6px">
+  Dark red = worst losses. Orange = Catalan collapses vs 2000+. Note: CC R7 is 93.3% accuracy
+  but 3 king blunders — all 1000 CPL. High accuracy does not protect against endgame king errors.
+</p>
+
+<hr class="section-divider">
+
+<!-- ═══════════════ LICHESS SUPPLEMENTARY ═══════════════ -->
+<h2>Lichess Supplementary Data (makoshark12 — rapid/blitz)</h2>
+
+<div class="callout callout-blue">
+  Rapid/blitz games only. Clock data meaningless for classical prep. Useful for: repertoire
+  confirmation and one major surprise finding.
+</div>
+
+<div class="callout callout-danger">
+  <strong>Major finding: Aarush plays London System as White in rapid/blitz — NOT Catalan.</strong>
+  Lichess tree (111 White games): 1.d4 Bf4 (82g, 55%) — London Structure (Bf4/e3/Bd3).
+  In classical 90+30 tournaments he plays Catalan (g3/Bg2) consistently.
+  This means the Catalan is his specifically-prepared classical weapon. Against Austin's Catalan
+  Open (4...dxc4), he will not have the benefit of Lichess rapid experience — those games
+  are all London.
+</div>
+
+<table>
+  <tr><th>Repertoire element</th><th>Classical (90+30)</th><th>Lichess (rapid/blitz)</th><th>Impact</th></tr>
+  <tr>
+    <td>White opening</td>
+    <td>Catalan (g3/Bg2) — 100%</td>
+    <td>London (Bf4/e3/Bd3) — 74%; some Catalan</td>
+    <td>Catalan is serious-game prep; London is casual. Austin's dxc4 plan hits his prepared system.</td>
+  </tr>
+  <tr>
+    <td>Black vs 1.e4</td>
+    <td>Sicilian Najdorf (B90)</td>
+    <td>c5/d6/Najdorf — 55 games (42% win rate)</td>
+    <td>Confirms Najdorf. Austin's h4 English Attack is the right weapon.</td>
+  </tr>
+  <tr>
+    <td>Black vs 1.d4 (Lichess)</td>
+    <td>Not observed (Austin plays 1.e4)</td>
+    <td>1...f5 Dutch Stonewall — 24 games (54% win)</td>
+    <td>Not applicable vs Austin (1.e4 player), but noted.</td>
+  </tr>
+  <tr>
+    <td>h4 attack vulnerability</td>
+    <td>0W–3L (confirmed)</td>
+    <td>Not enough Lichess data to cross-reference</td>
+    <td>Classical data is authoritative here.</td>
+  </tr>
+</table>
+
+<div style="margin-top:24px; font-size:0.78em; color:#888; border-top:1px solid #ddd; padding-top:10px; line-height:1.6">
+  <strong>Sources:</strong>
+  Classical: 17 games engine-analyzed (movetime-800, 4 tournaments, 2026). Supplementary: Lichess games
+  (makoshark12, rapid/blitz) — opening line frequency only. Engine: Stockfish. Accuracy formula: Lichess win-probability method.
+  No direct encounter between Austin and Aarush in the dataset.
+</div>
+
+</body>
+</html>
