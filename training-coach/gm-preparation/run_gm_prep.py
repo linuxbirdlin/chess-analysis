@@ -57,6 +57,15 @@ OPPONENTS = {
         "austin_weapon_white": "h4 English Attack vs Najdorf — Aarush 0W-3L, blundered from +7.31 in Toronto",
         "austin_weapon_black": "Catalan Open (4...dxc4) — forces concrete imbalance vs his positional setup",
     },
+    "fernando": {
+        "legal_name": "Cortes Medina, Fernando",
+        "lichess_username": None,  # no Lichess account — pipeline uses local pgnlib
+        "pgn_player_name": "Cortes Medina, Fernando",
+        "known_white": "1.e4 English/Yugoslav Attack vs Sicilian (f3/Be3/Qd2/O-O-O); 1.c4 English",
+        "known_weakness": "Collapses vs 2300+ rated opponents (86–88% worst games, 6 blunders vs Cori 2586); back-to-back blunder pattern from winning positions",
+        "austin_weapon_white": "Advanced French 6.a3 — Fernando's French Advance not tested vs 6.a3 system in dataset",
+        "austin_weapon_black": "Sicilian Taimanov/Kan — Fernando plays English Attack but accuracy dips under pressure",
+    },
 }
 
 
@@ -267,9 +276,9 @@ def main():
     args = parser.parse_args()
 
     opp_config = OPPONENTS.get(args.opponent, {})
-    lichess_username = args.lichess_username or opp_config.get("lichess_username")
-    if not lichess_username:
-        print(f"Error: --lichess-username required (or add '{args.opponent}' to OPPONENTS config)")
+    lichess_username = args.lichess_username or opp_config.get("lichess_username") or "N/A"
+    if lichess_username == "N/A" and not args.skip_fetch:
+        print(f"Error: no Lichess username for '{args.opponent}' — use --skip-fetch with a pre-placed PGN")
         sys.exit(1)
 
     run(

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle Plan: Austin (White) vs Gao, Heye</title>
+<style>
+:root {
+  --green: #2d6a2d; --yellow: #b8860b; --red: #8b1a1a;
+  --gold: #d4a017; --blue: #1a4a8b; --gray: #555;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Georgia', serif;
+  font-size: 14px;
+  color: #222;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  background: #fafafa;
+}
+h1 { font-size: 1.5em; border-bottom: 2px solid #333; padding-bottom: 8px; margin-bottom: 16px; }
+h2 { font-size: 1.1em; margin: 20px 0 8px; color: #333; border-left: 4px solid var(--blue); padding-left: 8px; }
+h3 { font-size: 1em; margin: 12px 0 4px; color: #444; }
+.meta { font-size: 0.85em; color: #666; margin-bottom: 20px; }
+.meta span { margin-right: 16px; }
+
+/* Key positions */
+.key-positions { background: #fff8e7; border: 1px solid #e8c84a; border-radius: 6px; padding: 12px 16px; margin-bottom: 20px; }
+.key-position { display: flex; gap: 12px; align-items: flex-start; margin: 8px 0; }
+.kp-num { font-weight: bold; color: var(--gold); font-size: 1.1em; min-width: 20px; }
+.kp-text { flex: 1; }
+
+/* Decision tree */
+.tree { font-family: 'Courier New', monospace; font-size: 13px; }
+.tree-node { margin: 2px 0; }
+
+/* CSS accordion — uses hidden checkboxes */
+.branch-toggle { display: none; }
+.branch-label {
+  display: inline-flex; align-items: center; gap: 6px;
+  cursor: pointer; user-select: none; padding: 3px 6px;
+  border-radius: 4px; transition: background 0.1s;
+}
+.branch-label:hover { background: #eee; }
+.branch-content { display: none; margin-left: 20px; border-left: 2px solid #ddd; padding-left: 8px; }
+.branch-toggle:checked + .branch-label + .branch-content { display: block; }
+.branch-toggle:checked + .branch-label::before { content: '▾ '; }
+.branch-label::before { content: '▸ '; color: #666; font-size: 0.9em; }
+
+/* Move badges */
+.move { font-weight: bold; }
+.freq { font-size: 0.8em; color: #888; }
+.eval-badge {
+  font-size: 0.75em; padding: 1px 4px; border-radius: 3px;
+  font-family: monospace; font-weight: bold;
+}
+.eval-pos { background: #d4edda; color: #155724; }
+.eval-neg { background: #f8d7da; color: #721c24; }
+.eval-even { background: #d1ecf1; color: #0c5460; }
+.clock-fast { color: #e67e00; font-size: 0.85em; }
+.clock-slow { color: #6c3483; font-size: 0.85em; }
+.novelty { background: var(--gold); color: #000; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
+.prep-line { color: var(--green); }
+.improvise { color: var(--red); }
+
+/* Print */
+@media print {
+  body { max-width: 100%; font-size: 11px; padding: 8px; }
+  .branch-content { display: block !important; }
+  .branch-label::before { content: '' !important; }
+  .branch-toggle, .branch-label { cursor: default; }
+  h1 { font-size: 1.2em; }
+}
+</style>
+</head>
+<body>
+<h1>Battle Plan: Austin (White) vs Gao, Heye</h1>
+<div class="meta">
+  <span>Tournament: Next Tournament</span>
+  <span>Time control: 90+30</span>
+</div>
+<div class="key-positions"><h3>Key Positions to Memorize</h3><div class="key-position"><span class="kp-num">★1</span><span class="kp-text">After <code>d5 c6 Nf6 e6 Nbd7</code> — opponent expected <b>Bd6</b>, play <span class="novelty">Nf3</span></span></div><div class="key-position"><span class="kp-num">★2</span><span class="kp-text">After <code>d5 c6 Nf6 e6 Be7</code> — opponent expected <b>Nbd7</b>, play <span class="novelty">Qc2</span></span></div><div class="key-position"><span class="kp-num">★3</span><span class="kp-text">After <code>d5 c5</code> — opponent expected <b>Nc6</b>, play <span class="novelty">e3</span></span></div></div>
+<h2>Decision Tree</h2>
+<div class="tree">
+<div class="tree-node" style="margin-left:0px"><input class="branch-toggle" type="checkbox" id="n0" checked><label class="branch-label" for="n0"><span class="move">e5</span> <span class="freq">(65%)</span></label><div class="branch-content"><div class="tree-node" style="margin-left:0px"><input class="branch-toggle" type="checkbox" id="n0_0" checked><label class="branch-label" for="n0_0"><span class="move">Nc6</span> <span class="freq">(80%)</span> <span class="clock-fast">⚡ fast (1s)</span></label><div class="branch-content"><div class="tree-node" style="margin-left:0px"><input class="branch-toggle" type="checkbox" id="n0_0_0" checked><label class="branch-label" for="n0_0_0"><span class="move">Bc5</span> <span class="freq">(46%)</span> <span class="clock-fast">⚡ fast (1s)</span></label><div class="branch-content"><div class="tree-node" style="margin-left:0px"><input class="branch-toggle" type="checkbox" id="n0_0_0_0" checked><label class="branch-label" for="n0_0_0_0"><span class="move">Nf6</span> <span class="freq">(57%)</span> <span class="clock-fast">⚡ fast (1s)</span></label><div class="branch-content"><div class="tree-node" style="margin-left:0px"><input class="branch-toggle" type="checkbox" id="n0_0_0_0_0" checked><label class="branch-label" for="n0_0_0_0_0"><span class="move">exd4</span> <span class="freq">(47%)</span> <span class="clock-fast">⚡ fast (2s)</span></label><div class="branch-content"><div class="tree-node" style="margin-left:0px"><input class="branch-toggle" type="checkbox" id="n0_0_0_0_0_0" checked><label class="branch-label" for="n0_0_0_0_0_0"><span class="move">Bb4+</span> <span class="freq">(100%)</span> <span class="clock-fast">⚡ fast (0s)</span></label><div class="branch-content"><div class="tree-node" style="margin-left:0px"><input class="branch-toggle" type="checkbox" id="n0_0_0_0_0_0_0" checked><label class="branch-label" for="n0_0_0_0_0_0_0"><span class="move">Bxd2+</span> <span class="freq">(75%)</span> <span class="clock-fast">⚡ fast (0s)</span></label><div class="branch-content"><div class="tree-node" style="margin-left:0px"><input class="branch-toggle" type="checkbox" id="n0_0_0_0_0_0_0_0" checked><label class="branch-label" for="n0_0_0_0_0_0_0_0"><span class="move">d5</span> <span class="freq">(100%)</span> <span class="clock-fast">⚡</span></label><div class="branch-content"><div class="tree-node" style="margin-left:0px"><input class="branch-toggle" type="checkbox" id="n0_0_0_0_0_0_0_0_0" checked><label class="branch-label" for="n0_0_0_0_0_0_0_0_0"><span class="move">Nxd5</span> <span class="freq">(100%)</span> <span class="clock-fast">⚡ fast (1s)</span></label><div class="branch-content"><div class="tree-node" style="margin-left:0px"><input class="branch-toggle" type="checkbox" id="n0_0_0_0_0_0_0_0_0_0" checked><label class="branch-label" for="n0_0_0_0_0_0_0_0_0_0"><span class="move">O-O</span> <span class="freq">(100%)</span> <span class="clock-fast">⚡ fast (3s)</span></label><div class="branch-content"><div class="tree-node" style="margin-left:0px"><input class="branch-toggle" type="checkbox" id="n0_0_0_0_0_0_0_0_0_0_0" checked><label class="branch-label" for="n0_0_0_0_0_0_0_0_0_0_0"><span class="move">Bg4</span> <span class="freq">(100%)</span> <span class="clock-fast">⚡ fast (1s)</span></label><div class="branch-content"><div class="tree-node" style="margin-left:0px"><span class="move">Bh5</span> <span class="freq">(100%)</span> <span class="clock-fast">⚡ fast (3s)</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="tree-node" style="margin-left:0px"><input class="branch-toggle" type="checkbox" id="n0_0_1" checked><label class="branch-label" for="n0_0_1"><span class="move">a6</span> <span class="freq">(35%)</span> <span class="clock-fast">⚡ fast (0s)</span></label><div class="branch-content"><div class="tree-node" style="margin-left:0px"><input class="branch-toggle" type="checkbox" id="n0_0_1_0" checked><label class="branch-label" for="n0_0_1_0"><span class="move">Nf6</span> <span class="freq">(83%)</span> <span class="clock-fast">⚡ fast (0s)</span></label><div class="branch-content"><div class="tree-node" style="margin-left:0px"><input class="branch-toggle" type="checkbox" id="n0_0_1_0_0" checked><label class="branch-label" for="n0_0_1_0_0"><span class="move">b5</span> <span class="freq">(100%)</span> <span class="clock-fast">⚡ fast (1s)</span></label><div class="branch-content"><div class="tree-node" style="margin-left:0px"><input class="branch-toggle" type="checkbox" id="n0_0_1_0_0_0" checked><label class="branch-label" for="n0_0_1_0_0_0"><span class="move">Be7</span> <span class="freq">(44%)</span> <span class="clock-fast">⚡ fast (1s)</span></label><div class="branch-content"><div class="tree-node" style="margin-left:0px"><input class="branch-toggle" type="checkbox" id="n0_0_1_0_0_0_0" checked><label class="branch-label" for="n0_0_1_0_0_0_0"><span class="move">d6</span> <span class="freq">(100%)</span> <span class="clock-fast">⚡ fast (0s)</span></label><div class="branch-content"><div class="tree-node" style="margin-left:0px"><input class="branch-toggle" type="checkbox" id="n0_0_1_0_0_0_0_0" checked><label class="branch-label" for="n0_0_1_0_0_0_0_0"><span class="move">O-O</span> <span class="freq">(62%)</span> <span class="clock-fast">⚡ fast (0s)</span></label><div class="branch-content"><div class="tree-node" style="margin-left:0px"><input class="branch-toggle" type="checkbox" id="n0_0_1_0_0_0_0_0_0" checked><label class="branch-label" for="n0_0_1_0_0_0_0_0_0"><span class="move">Na5</span> <span class="freq">(100%)</span> <span class="clock-fast">⚡ fast (8s)</span></label><div class="branch-content"><div class="tree-node" style="margin-left:0px"><span class="move">c5</span> <span class="freq">(100%)</span> <span class="clock-fast">⚡</span></div></div></div></div></div><div class="tree-node" style="margin-left:0px"><input class="branch-toggle" type="checkbox" id="n0_0_1_0_0_0_0_1" checked><label class="branch-label" for="n0_0_1_0_0_0_0_1"><span class="move">Bg4</span> <span class="freq">(38%)</span> <span class="clock-fast">⚡ fast (0s)</span></label><div class="branch-content"><div class="tree-node" style="margin-left:0px"><span class="move">O-O</span> <span class="freq">(100%)</span> <span class="clock-fast">⚡</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+</div>
+<div class="meta" style="margin-top:12px">⚡ = opponent plays fast (preparation) &nbsp;⏳ = opponent thinks (uncertainty) &nbsp;<span class="novelty" style="font-size:0.8em">★ NOVELTY</span> = surprise weapon</div>
+</body>
+</html>

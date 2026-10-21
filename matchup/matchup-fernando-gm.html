@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle Plan: Austin vs Cortes Medina, Fernando (GM Prep)</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Georgia', serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg);
+}
+h1 { font-size: 1.6em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.15em; margin: 28px 0 10px; border-left: 5px solid var(--blue); padding-left: 10px; }
+h3 { font-size: 1em; margin: 14px 0 6px; color: #333; }
+.subtitle { font-size: 0.85em; color: #666; margin-bottom: 22px; }
+.subtitle span { margin-right: 16px; }
+
+.sources { background: #f0f4ff; border: 1px solid #aac; border-radius: 5px; padding: 10px 14px; margin-bottom: 18px; font-size: 0.85em; }
+.sources strong { display: block; margin-bottom: 4px; }
+.src-classical { color: var(--blue); font-weight: bold; }
+.src-note { color: #666; }
+
+.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.intel-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.intel-card h3 { margin-top: 0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }
+.intel-card ul { padding-left: 16px; margin-top: 4px; }
+.intel-card li { margin-bottom: 3px; }
+
+.callout { border-radius: 4px; padding: 10px 14px; margin: 10px 0; font-size: 0.9em; }
+.callout-gold  { background: #fffbe0; border-left: 4px solid var(--gold); }
+.callout-blue  { background: #eef4ff; border-left: 4px solid var(--blue); }
+.callout-green { background: #efffef; border-left: 4px solid var(--green); }
+.callout-danger { background: #fff0f0; border-left: 4px solid var(--red); }
+
+.move-line { background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+             padding: 8px 12px; margin: 6px 0; font-size: 0.92em; line-height: 1.9; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: #eef4ff; border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.note { color: #555; font-style: italic; font-size: 0.88em; }
+
+.badge { display: inline-block; border-radius: 3px; padding: 1px 7px;
+         font-size: 0.78em; font-weight: bold; margin-left: 4px; vertical-align: middle; }
+.b-green { background: #dff0df; color: #1a5c1a; border: 1px solid #88bb88; }
+.b-gold  { background: #fff3cc; color: #7a5c00; border: 1px solid #ccaa44; }
+.b-red   { background: #ffe0e0; color: #8b1a1a; border: 1px solid #cc8888; }
+.b-blue  { background: #dde8ff; color: #1a4a8b; border: 1px solid #8899cc; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
+th { background: #333; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+
+hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20px; }
+
+.acc-toggle { display: none; }
+.acc-label {
+  display: block; cursor: pointer; padding: 8px 12px; margin: 4px 0;
+  background: #eee; border: 1px solid #ccc; border-radius: 4px;
+  font-weight: bold; font-size: 0.9em; user-select: none;
+}
+.acc-label::before { content: '▶ '; font-size: 0.75em; color: #666; }
+.acc-toggle:checked ~ .acc-label::before { content: '▼ '; }
+.acc-content { display: none; padding: 10px 14px; background: #fafaf6;
+               border: 1px solid #ddd; border-top: none; border-radius: 0 0 4px 4px; margin-bottom: 6px; }
+.acc-toggle:checked ~ .acc-content { display: block; }
+
+@media print {
+  .acc-content { display: block !important; }
+  .acc-label::before { content: '' !important; }
+  body { font-size: 12px; padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<h1>Battle Plan: Austin (White &amp; Black) vs Cortes Medina, Fernando</h1>
+<div class="subtitle">
+  <span><strong>GM Prep</strong></span>
+  <span>Fernando rating: CM ~2072 FIDE (2130 at World Schools 2026)</span>
+  <span>Direct record: no encounter</span>
+  <span>Classical games analyzed: 37</span>
+</div>
+
+<div class="sources">
+  <strong>Data sources</strong>
+  <span class="src-classical">Primary: 37 classical games across 7 tournaments (PAM School, Olympia Nacional, ED Nacional, MEX-ch 16th, MEX Open 71st, World Schools 2026, Queretaro 2026) — engine-analyzed at movetime-800.</span>
+  <span class="src-note">No Lichess account found — classical OTB data only. Opening tree built from 29 games with identifiable player headers.</span>
+</div>
+
+<div class="intel-grid">
+  <div class="intel-card">
+    <h3>Fernando as White</h3>
+    <ul>
+      <li><strong>1.e4</strong> in 8/11 games (73%) — English/Yugoslav Attack vs Sicilian</li>
+      <li>Setup: <strong>f3 / Be3 / Qd2 / O-O-O</strong> — standard English Attack</li>
+      <li><strong>1.c4</strong> in 3 games (English) — better results as White (66% wins)</li>
+      <li>1.e4 White win rate: <strong>only 25%</strong> (2W–4L–2D in 8 games)</li>
+      <li>Weakest as White: king navigation errors (Kb1??, Kf1?? in PAM R6)</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Fernando as Black</h3>
+    <ul>
+      <li><strong>French Defense (1…e6)</strong> — 100% vs 1.e4 (7/7 games)</li>
+      <li>Winawer (3…Bb4) vs 3.Nc3; Advance response vs 3.e5</li>
+      <li>Standard plan: <strong>…c5 / …Qb6 / …Nc6 / …Bd7</strong></li>
+      <li>Has faced 6.Be2 and 6.Bd3 Advance lines — <strong>NOT 6.a3</strong></li>
+      <li>93.6% avg as Black — his more consistent color</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Critical weaknesses</h3>
+    <ul>
+      <li>Drops to <strong>85–89%</strong> vs 2300+ rated opponents</li>
+      <li><strong>Rook/endgame conversion</strong>: Rd7?? (best Nd5, dropped +4.58→0) in MEX Open</li>
+      <li><strong>King navigation</strong>: Kb1?? Kf1?? in PAM R6 (1000 CPL blunder)</li>
+      <li>Back-to-back blunders from dominant positions (6 blunders vs Cori 2586)</li>
+      <li>Misses queen reactivation: Qe6?? Qg4?? (best Qxf3/Qe2) at Queretaro</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Key game facts</h3>
+    <ul>
+      <li>Overall: 37 games — <strong>92.8%</strong> avg accuracy</li>
+      <li>As White: <strong>91.8%</strong> (17g) · As Black: <strong>93.6%</strong> (20g)</li>
+      <li>Best: 97.6% (World Schools R5, win vs 1478)</li>
+      <li>Worst: 85.4% (MEX Open G5, loss to 2395-rated)</li>
+      <li>Queretaro 2026: 1W–4L–3D vs 2104–2463 (avg opp 2306)</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2>Part 1 — Austin as White vs Fernando</h2>
+
+<div class="callout callout-gold">
+  <strong>The core fact:</strong> Fernando plays the French Defense in <strong>100% of games</strong> vs 1.e4 (7/7 confirmed games). Austin's Advanced French with <strong>6.a3</strong> is Fernando's least-tested Advance line — he has faced 6.Be2 and 6.Bd3/h4 approaches but not 6.a3 in the analyzed dataset. This is the preparation target.
+</div>
+
+<h3>Fernando's French repertoire (confirmed)</h3>
+<ul style="padding-left:20px; margin:8px 0 12px;">
+  <li><strong>vs 3.Nc3</strong>: Winawer — 3…Bb4 (PAM School R7, R8; Olympia R4)</li>
+  <li><strong>vs 3.e5</strong>: Advance — …c5/…Qb6/…Nc6/…Bd7/…Nge7 (Olympia R4 beat FM Martinez; PAM R3)</li>
+  <li><strong>vs Exchange (3.exd5 exd5)</strong>: C01 — played 2 times (PAM School R3, R8)</li>
+  <li>Austin uses <strong>3.e5 Advance</strong> — Fernando knows and has beaten FM-level opposition with this as Black</li>
+</ul>
+
+<h3>Austin's weapon: Advanced French 6.a3</h3>
+
+<div class="callout callout-blue">
+  <strong>Why 6.a3?</strong> Fernando has faced the 6.Be2 and 6.Bd3/h4 approaches (Olympia R4 as Black: he beat the Bd3/h4 line against an FM). The 6.a3 Spielmann-style Advance locks the queenside with b4 and prepares g3/Bg2 kingside buildup. Fernando has <em>not</em> been tested in this exact system in the analyzed dataset — his book knowledge here is likely shallower.
+</div>
+
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 Qb6 <span class="key-move">6.a3!</span>
+  <span class="note"> — the novelty zone. Fernando expects 6.Be2 or 6.Bd3.</span>
+</div>
+
+<input class="acc-toggle" id="w1" type="checkbox" checked>
+<label class="acc-label" for="w1">Branch A — Fernando plays 6…c4 (space-claiming, most principled)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 6.a3 <span class="mv-z">c4</span> <span class="key-move">7.Nbd2</span> Na5 <span class="key-move">8.g3!</span> f6 9.exf6 Nxf6 10.Bg2 Be7 11.O-O O-O 12.Re1
+    <span class="note"> — White has solid kingside setup, queenside space advantage, and the a3-b4 break always available.</span>
+  </div>
+  <p style="margin-top:8px">After 12.Re1: White's plan is <strong>b4! cxb3 13.Nxb3 Nc4 14.Nfd2!</strong> — exchanging the blockading knight and opening the position. Fernando's queenside knight on a5 is misplaced and will need to retreat.</p>
+  <p style="margin-top:6px"><strong>Rule:</strong> Do NOT rush b4 before Re1 is played. The rook belongs on e1 before opening files.</p>
+</div>
+
+<input class="acc-toggle" id="w2" type="checkbox">
+<label class="acc-label" for="w2">Branch B — Fernando plays 6…Bd7 (flexible, keeps tension)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 6.a3 <span class="mv-z">Bd7</span> <span class="key-move">7.b4!</span> cxb4 8.axb4 Nxb4 9.Bb5!
+    <span class="note"> — White regains the pawn with initiative. The Bb5 pin is powerful.</span>
+  </div>
+  <p style="margin-top:8px">After 9.Bb5: <strong>9…Bxb5 10.Nbd2!</strong> — developing with tempo. The knight heads for c4 or b3. Fernando's queenside pawns are weak on dark squares (a7 and b7 exposed after …Bxb5).</p>
+  <p style="margin-top:6px">If instead <strong>9…a6 10.Bxd7+ Kxd7</strong> (forced, can't castle): White has long-term king safety advantage.</p>
+</div>
+
+<input class="acc-toggle" id="w3" type="checkbox">
+<label class="acc-label" for="w3">Branch C — Fernando plays 3…Bb4 Winawer (tries 3.Nc3)</label>
+<div class="acc-content">
+  <p>If Austin plays 3.Nc3 (not the Advance), Fernando goes Winawer: <strong>3…Bb4 4.e5 c5 5.a3 Bxc3+ 6.bxc3 Ne7</strong>.</p>
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 e6 2.d4 d5 3.e5 <span class="note">(stick with Advance — do NOT play 3.Nc3 and face the Winawer)</span>
+  </div>
+  <div class="callout callout-danger" style="margin-top:8px">
+    <strong>Do NOT play 3.Nc3.</strong> Fernando is prepared in the Winawer (3…Bb4 system). Stay on 3.e5 Advance and use 6.a3.
+  </div>
+</div>
+
+<h3 style="margin-top:18px">Key tactical themes — Austin as White</h3>
+<table>
+  <thead><tr><th>Theme</th><th>How to create it</th><th>Evidence</th></tr></thead>
+  <tbody>
+  <tr><td><strong>a3-b4 queenside break</strong></td><td>After …c4: play b4! cxb3 Nxb3 Nc4 Nfd2 — exchange the blockader</td><td>Core of 6.a3 system</td></tr>
+  <tr><td><strong>Kingside g3-Bg2 fortress</strong></td><td>After 7.Nbd2 g3 Bg2 — prevents Fernando's …f6 pawn storm</td><td>Branch A main line</td></tr>
+  <tr><td><strong>Bb5 pin after b4!</strong></td><td>If …Bd7 cxb4 axb4 Nxb4 Bb5! — win initiative for pawn</td><td>Branch B</td></tr>
+  <tr><td><strong>Endgame conversion pressure</strong></td><td>Target Fernando's rook endings — he dropped +4.58 to 0 with Rd7?? (best: Nd5) in MEX Open G3</td><td>MEX Open G3</td></tr>
+  </tbody>
+</table>
+
+<hr class="section-divider">
+
+<h2>Part 2 — Austin as Black vs Fernando</h2>
+
+<div class="callout callout-green">
+  <strong>Core fact:</strong> Fernando plays 1.e4 in 73% of White games with the English/Yugoslav Attack (f3/Be3/Qd2/O-O-O). But his 1.e4 White win rate is only <strong>25%</strong> (2W–4L–2D). He is a <em>stronger Black than White</em>. Austin plays <strong>Sicilian Taimanov/Kan</strong> to reach his familiar territory.
+</div>
+
+<h3>Fernando as White — confirmed systems</h3>
+<ul style="padding-left:20px; margin:8px 0 12px;">
+  <li><strong>vs Sicilian</strong>: English/Yugoslav Attack — f3, Be3, Qd2, O-O-O, g4/h4 (standard)</li>
+  <li><strong>vs 1…e5</strong>: Italian/Lopez — confirmed in PAM School games (Bc4/d3 setup)</li>
+  <li><strong>1.c4 English</strong> appears in 3 games — he has better results here (66% wins)</li>
+  <li>PAM School R6: King navigation disaster as White (Kf1?? Kb1?? → lost from equal)</li>
+</ul>
+
+<h3>Austin's weapon: Sicilian Kan (5…a6)</h3>
+<div class="callout callout-blue">
+  Austin plays <strong>Sicilian Kan</strong>: 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6. This avoids the Najdorf (where Fernando may have preparation) and steers into the flexible Kan structure. Austin knows the English Attack from his own White repertoire — he should be MORE comfortable in these positions than Fernando.
+</div>
+
+<div class="move-line">
+  <span class="mv-z">Fernando:</span> 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 <span class="mv-a">a6!</span> (Kan)
+  5.Nc3 Qc7 6.Be3 Nf6 7.f3 (English Attack) <span class="mv-a">b5!</span> 8.g4 h6! 9.Qd2 Bb7
+  <span class="note"> — Black has active counterplay on the queenside before White's kingside storm lands.</span>
+</div>
+
+<input class="acc-toggle" id="b1" type="checkbox" checked>
+<label class="acc-label" for="b1">Main English Attack — Fernando plays 6.Be3 f3 g4</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">Fernando:</span> 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6 5.Nc3 Qc7 6.Be3 Nf6 7.f3 b5 8.g4 h6 9.Qd2 Bb7 10.O-O-O Nbd7
+    <span class="mv-a">11…Rc8!</span> — Austin's key move: rook to c8 activates queenside and prepares …b4.
+  </div>
+  <p style="margin-top:8px"><strong>Plan:</strong> After 11…Rc8, play …b4, …Nc5/Na5 targeting d3/c4. Fernando's kingside storm takes 5–7 moves to arrive. Austin wins the queenside race.</p>
+  <p><strong>Critical rule:</strong> Do NOT play …d5?! (IQP) — Fernando's best results come when he can exploit a fixed central weakness. Keep the position dynamic with …b4 queenside play.</p>
+</div>
+
+<input class="acc-toggle" id="b2" type="checkbox">
+<label class="acc-label" for="b2">If Fernando plays 1.c4 (English — better results for him)</label>
+<div class="acc-content">
+  <p>Fernando wins 66% with 1.c4 (3 games). This is his more comfortable White.</p>
+  <div class="move-line">
+    <span class="mv-z">Fernando:</span> 1.c4 <span class="mv-a">e5!</span> (Reversed Sicilian) 2.Nc3 Nf6 3.Nf3 Nc6 4.g3 d5! 5.cxd5 Nxd5
+    <span class="note"> — Austin takes space in the center immediately. Avoids Catalan/QGD where Fernando may be more prepared.</span>
+  </div>
+  <p style="margin-top:8px">After 5…Nxd5: Black has comfortable equality with active pieces. The reversed Sicilian structure favors Black when they seize the center early.</p>
+</div>
+
+<input class="acc-toggle" id="b3" type="checkbox">
+<label class="acc-label" for="b3">If Fernando plays 1.e4 + Italian (vs 1…e5)</label>
+<div class="acc-content">
+  <div class="callout callout-danger">
+    <strong>DO NOT play 1…e5</strong> against Fernando. He plays Italian/Lopez as White with good results. Austin should answer 1.e4 with 1…c5 (Sicilian) every time.
+  </div>
+</div>
+
+<h3 style="margin-top:18px">Key themes as Austin Black</h3>
+<table>
+  <thead><tr><th>Theme</th><th>Details</th></tr></thead>
+  <tbody>
+  <tr><td><strong>…b4 queenside race</strong></td><td>In English Attack, launch …b5-b4 before Fernando's g5 arrives</td></tr>
+  <tr><td><strong>…Rc8 activation</strong></td><td>Rook belongs on c8 to support …b4 and …Nc5 pressure on c2/d3</td></tr>
+  <tr><td><strong>King safety after O-O-O</strong></td><td>After Fernando castles queenside, watch for …b4 prying open the a/b-file immediately</td></tr>
+  <tr><td><strong>Avoid …d5 IQP</strong></td><td>Fernando's best positions involve stable center + kingside attack; keep pawns dynamic</td></tr>
+  </tbody>
+</table>
+
+<hr class="section-divider">
+
+<h2>Part 3 — Accuracy Profile and Psychological Strategy</h2>
+
+<h3>Accuracy by opponent strength</h3>
+<table>
+  <thead><tr><th>Opponent rating range</th><th>Fernando's avg accuracy</th><th>Result</th><th>What this means for Austin</th></tr></thead>
+  <tbody>
+  <tr><td>1400–1800</td><td><strong>95.6%</strong></td><td>Routine wins</td><td>Expect very clean, accurate play</td></tr>
+  <tr><td>1800–2100</td><td><strong>92.4%</strong></td><td>Strong performance</td><td>Still strong — must prepare concretely</td></tr>
+  <tr><td>2100–2400</td><td><strong>90.8%</strong></td><td>Mixed (wins, draws, losses)</td><td>Austin's range — Fernando can be outplayed here</td></tr>
+  <tr><td>2400+</td><td><strong>88.9%</strong></td><td>Mostly losses</td><td>Under real pressure, accuracy falls sharply</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-gold" style="margin-top:12px">
+  <strong>Key insight:</strong> Austin (~1940) is at the boundary where Fernando's accuracy starts to slip. If Austin creates <em>unfamiliar, concrete positions</em> (6.a3 French, …b4 Kan counterplay), Fernando may play at his 2100–2400 range (90–91%) rather than his comfortable 94–96% level against weaker opponents. That 3–4% drop is significant — it means 1–2 more mistakes per game.
+</div>
+
+<h3 style="margin-top:14px">Fernando's known blunder patterns</h3>
+<table>
+  <thead><tr><th>Pattern</th><th>Example</th><th>Exploit</th></tr></thead>
+  <tbody>
+  <tr><td><strong>King navigation</strong></td><td>PAM R6: Kf1?? (1000 CPL, best Bxc3), Kb1?? (1000 CPL) — lost from equal position</td><td>Force king into open files; create back-rank threats</td></tr>
+  <tr><td><strong>Rook misplacement</strong></td><td>MEX G3: Rd7?? (best Nd5) — dropped +4.58 to 0 in one move</td><td>In rook endings, maintain pressure; Fernando misjudges rook activity</td></tr>
+  <tr><td><strong>Queen reactivation</strong></td><td>Queretaro R2: Qe6?? (best Qxf3) and Qg4?? (best Qe2) — multiple moves threw away +2</td><td>Don't allow queen exchanges prematurely; make him find the right square</td></tr>
+  <tr><td><strong>Mass blundering under pressure</strong></td><td>ED Nacional R1 vs Cori (2586): 6 blunders in one game</td><td>Maintain pressure without simplifying; cascading errors are possible</td></tr>
+  <tr><td><strong>Queretaro 1.e4 White collapse</strong></td><td>Queretaro R6 vs Ramos (2357): 86.8% White, Rh2?? (best Bd4)</td><td>As Austin Black, hold until Fernando's time trouble or endgame mistakes</td></tr>
+  </tbody>
+</table>
+
+<h3 style="margin-top:14px">Psychological notes</h3>
+<ul style="padding-left:20px; margin-top:6px;">
+  <li>Fernando plays significantly <strong>better as Black (93.6%) than as White (91.8%)</strong> — opposite of most players at this level. This is unusual and suggests his White openings are less deeply prepared.</li>
+  <li>His 1.e4 White record at Queretaro (1W–3L vs 2104–2357) shows he is <strong>not comfortable with 1.e4 against strong opposition.</strong></li>
+  <li>Against 2300+ opponents, his accuracy drops to 85–93% — wide variance, more blunders. <strong>Austin creates pressure; Fernando may do the rest.</strong></li>
+</ul>
+
+<hr class="section-divider">
+
+<h2>Part 4 — If / Then Quick Reference</h2>
+
+<input class="acc-toggle" id="q1" type="checkbox" checked>
+<label class="acc-label" for="q1">Austin as White — opening decisions</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Fernando plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
+    <tbody>
+    <tr><td>1…e6 (French)</td><td>2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 Qb6 <strong>6.a3!</strong></td><td>Novelty zone — Fernando not tested here</td></tr>
+    <tr><td>6…c4</td><td>7.Nbd2 Na5 8.g3! f6 9.exf6 Nxf6 10.Bg2</td><td>Solid setup; b4 break always available</td></tr>
+    <tr><td>6…Bd7</td><td>7.b4! cxb4 8.axb4 Nxb4 9.Bb5!</td><td>Initiative for pawn, Bb5 pin</td></tr>
+    <tr><td>1…c5 or 1…d5 (tries to avoid French)</td><td>Standard Austin repertoire (Rossolimo vs Sicilian)</td><td>Unlikely — Fernando is a French specialist</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<input class="acc-toggle" id="q2" type="checkbox" checked>
+<label class="acc-label" for="q2">Austin as Black — opening decisions</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Fernando plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
+    <tbody>
+    <tr><td>1.e4</td><td>1…c5 (Sicilian, always)</td><td>Never 1…e5 — Fernando plays Italian/Lopez as White</td></tr>
+    <tr><td>2.Nf3 + 3.d4 (Open Sicilian)</td><td>2…e6 3.d4 cxd4 4.Nxd4 a6 (Kan)</td><td>Familiar English Attack territory for Austin</td></tr>
+    <tr><td>6.Be3 f3 (English Attack)</td><td>6…Nf6 7.f3 b5! 8.g4 h6 9.Qd2 Bb7</td><td>Launch queenside counterplay before g5</td></tr>
+    <tr><td>1.c4 (English)</td><td>1…e5! (Reversed Sicilian)</td><td>Seize center; Fernando's English wins 66% but Austin avoids main lines</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<input class="acc-toggle" id="q3" type="checkbox">
+<label class="acc-label" for="q3">Middlegame and endgame decisions</label>
+<div class="acc-content">
+  <ul style="padding-left:18px;">
+    <li><strong>DO</strong> enter rook endings when Austin is slightly ahead — Fernando has a documented Rd7?? pattern (dropped +4.58 to 0 in one move)</li>
+    <li><strong>DO</strong> create positions where Fernando's king is exposed — he has Kb1?? and Kf1?? errors in king navigation</li>
+    <li><strong>DO NOT</strong> simplify into queen endings where both sides have roughly equal pawns — Fernando draws well in technical positions</li>
+    <li><strong>DO</strong> maintain queenside pressure as Black — Fernando's 1.e4 White record is 25% wins; the position usually favors Black if they survive the opening</li>
+    <li>If the game reaches a double-rook ending with an active queen still on — Fernando has misplaced queens (Qe6??, Qg4??) under time pressure</li>
+  </ul>
+</div>
+
+<input class="acc-toggle" id="q4" type="checkbox">
+<label class="acc-label" for="q4">Warnings — traps to avoid</label>
+<div class="acc-content">
+  <ul style="padding-left:18px;">
+    <li><strong>DO NOT</strong> play 3.Nc3 vs Fernando's French — he is prepared in the Winawer</li>
+    <li><strong>DO NOT</strong> play 1…e5 vs Fernando's 1.e4 — Italian/Lopez is his most comfortable White</li>
+    <li><strong>DO NOT</strong> rush b4 in the French 6.a3 Branch A before Re1 — the rook must be on e1 first</li>
+    <li><strong>DO NOT</strong> allow …f6 in the French before capturing exf6 — Fernando's counterplay in the Advance depends on this pawn break</li>
+    <li>Fernando is a CM at 2072 — do not underestimate even in "winning" positions; his 6-blunder game vs Cori was vs a 2586-rated GM, not a 1940-rated player</li>
+  </ul>
+</div>
+
+<hr class="section-divider">
+
+<h2>Part 5 — Advanced French 6.a3 Opening Drill (Austin as White)</h2>
+
+<h3>Core sequence — memorize to move 12</h3>
+<div class="move-line">
+  <span class="mv-a">1.e4</span> <span class="mv-z">e6</span> <span class="mv-a">2.d4</span> <span class="mv-z">d5</span>
+  <span class="mv-a">3.e5</span> <span class="mv-z">c5</span> <span class="mv-a">4.c3</span> <span class="mv-z">Nc6</span>
+  <span class="mv-a">5.Nf3</span> <span class="mv-z">Qb6</span> <span class="key-move">6.a3!</span> <span class="mv-z">c4</span>
+  <span class="key-move">7.Nbd2</span> <span class="mv-z">Na5</span> <span class="key-move">8.g3!</span> <span class="mv-z">f6</span>
+  <span class="mv-a">9.exf6</span> <span class="mv-z">Nxf6</span> <span class="key-move">10.Bg2</span> <span class="mv-z">Be7</span>
+  <span class="mv-a">11.O-O</span> <span class="mv-z">O-O</span> <span class="key-move">12.Re1</span>
+  <span class="note"> — then plan b4! cxb3 Nxb3 to exchange the Na5 blockader.</span>
+</div>
+
+<table style="margin-top:12px">
+  <thead><tr><th>Rule</th><th>Reason</th></tr></thead>
+  <tbody>
+  <tr><td>Always <strong>6.a3!</strong> (not 6.Be2 or 6.Bd3)</td><td>Fernando has faced 6.Be2 and 6.Bd3/h4 — 6.a3 is the preparation gap</td></tr>
+  <tr><td><strong>8.g3!</strong> (not 8.Nbd2 immediately)</td><td>Stop …f5-f4 advance; fianchetto controls e5 square permanently</td></tr>
+  <tr><td><strong>Play 12.Re1 before b4</strong></td><td>Rook must cover e5 before opening files with b4</td></tr>
+  <tr><td><strong>After b4: Nxb3 Nc4 Nfd2!</strong></td><td>Exchange the blockading Na5; knight goes to d2 then f1-e3 outpost</td></tr>
+  <tr><td><strong>Never rush h4 or g4</strong></td><td>Fernando beat an FM who played h4 prematurely in Olympia R4 — respect his French Advance knowledge</td></tr>
+  </tbody>
+</table>
+
+<input class="acc-toggle" id="d1" type="checkbox">
+<label class="acc-label" for="d1">Drill 1 — Recite Austin's first 12 moves (reveal to check)</label>
+<div class="acc-content">
+  <p><em>Without looking at the moves above, say Austin's moves 1–12 aloud. Then reveal:</em></p>
+  <div class="move-line">
+    <strong>Answer:</strong> 1.e4, 2.d4, 3.e5, 4.c3, 5.Nf3, <span class="key-move">6.a3!</span>, 7.Nbd2, <span class="key-move">8.g3!</span>, 9.exf6, <span class="key-move">10.Bg2</span>, 11.O-O, <span class="key-move">12.Re1</span> — then b4! plan.
+  </div>
+  <p style="margin-top:8px"><strong>Key checks:</strong> Did you remember a3 at move 6 (not Be2 or Bd3)? Did you remember g3 at move 8 (not immediate castling)? Did you play Re1 <em>before</em> b4?</p>
+</div>
+
+<input class="acc-toggle" id="d2" type="checkbox">
+<label class="acc-label" for="d2">Drill 2 — Fernando plays 6…Bd7 instead of 6…c4. What does Austin do?</label>
+<div class="acc-content">
+  <div class="move-line">
+    <strong>Answer:</strong> <span class="key-move">7.b4!</span> cxb4 8.axb4 Nxb4 <span class="key-move">9.Bb5!</span>
+    <span class="note"> — win initiative, pin, regain pawn with advantage.</span>
+  </div>
+  <p style="margin-top:6px">The b4! lunge is immediately correct here because Fernando has not locked the queenside with …c4. The Bb5 pin is a free tempo and forces coordination problems.</p>
+</div>
+
+<input class="acc-toggle" id="d3" type="checkbox">
+<label class="acc-label" for="d3">Drill 3 — Fernando plays 6…Nc6-e7 (Advance-only structure, no …c4). What is Austin's plan?</label>
+<div class="acc-content">
+  <div class="move-line">
+    <strong>Answer:</strong> 7.b4! — immediately, because there is no …c4 blocker. After 7…cxb4 8.axb4 Nxb4 9.Bb5!, same initiative as Branch B. Or if 7…c4: return to Branch A plan with 8.Nbd2.
+  </div>
+  <p style="margin-top:6px"><strong>Rule:</strong> If Fernando has not played …c4 by move 6–7, play b4! immediately. The window closes once he plays …c4.</p>
+</div>
+
+<hr class="section-divider">
+
+<h2>Part 6 — Engine Accuracy Reference (37 Classical Games)</h2>
+
+<table>
+  <thead><tr><th>Tournament</th><th>Games</th><th>Record</th><th>Avg Acc</th><th>Notes</th></tr></thead>
+  <tbody>
+  <tr><td>World Schools 2026</td><td>3</td><td>1W–0L–2D</td><td><strong>96.4%</strong></td><td>Best recent form; Aug 2026</td></tr>
+  <tr><td>MEX-ch 16th</td><td>5</td><td>4W–1L–0D</td><td><strong>95.0%</strong></td><td>Mostly vs 1400–1800; not informative for Austin</td></tr>
+  <tr><td>PAM School 2026</td><td>9</td><td>5W–1L–3D</td><td><strong>94.7%</strong></td><td>R6 loss: Kb1?? Kf1?? (king navigation disaster)</td></tr>
+  <tr><td>Olympia Nacional 2026</td><td>6</td><td>3W–2L–1D</td><td><strong>91.9%</strong></td><td>Beat FM Martinez as Black (French Advance)</td></tr>
+  <tr><td>Queretaro 2026</td><td>8</td><td>1W–4L–3D</td><td><strong>91.3%</strong></td><td>Faced 2104–2463; accuracy 86.8–95.7%; Oct 2026</td></tr>
+  <tr><td>MEX Open 71st</td><td>4</td><td>1W–2L–1D</td><td><strong>89.8%</strong></td><td>Rd7?? (+4.58→0) in G3; gxh4?? in G5</td></tr>
+  <tr><td>ED Nacional 2026</td><td>2</td><td>0W–2L–0D</td><td><strong>88.2%</strong></td><td>6 blunders vs Cori (2586) in R1</td></tr>
+  <tr style="background:#f5f0e8"><td><strong>Overall</strong></td><td><strong>37</strong></td><td><strong>15W–10L–12D</strong></td><td><strong>92.8%</strong></td><td>White 91.8% · Black 93.6%</td></tr>
+  </tbody>
+</table>
+
+<h3 style="margin-top:16px">Per-game accuracy (all 37 games)</h3>
+<table>
+  <thead><tr><th>Tournament</th><th>Rnd</th><th>Color</th><th>Opponent</th><th>Elo</th><th>Result</th><th>Acc</th><th>B/M</th></tr></thead>
+  <tbody>
+  <tr><td>World Schools 2026</td><td>R5</td><td>White</td><td>Quiroz Tarazona, T.</td><td>1478</td><td>Win</td><td><strong>97.6%</strong></td><td>1/1</td></tr>
+  <tr><td>World Schools 2026</td><td>R6</td><td>White</td><td>Castillo Romero, J.</td><td>1929</td><td>Draw</td><td><strong>95.5%</strong></td><td>0/0</td></tr>
+  <tr><td>World Schools 2026</td><td>R7</td><td>Black</td><td>Yao, Lucas M.</td><td>2037</td><td>Draw</td><td><strong>96.2%</strong></td><td>0/0</td></tr>
+  <tr><td>MEX-ch 16th</td><td>G1</td><td>White</td><td>Lopez Salazar, F.</td><td>1522</td><td>Win</td><td><strong>97.2%</strong></td><td>0/0</td></tr>
+  <tr><td>MEX-ch 16th</td><td>G2</td><td>White</td><td>Ortiz Padilla, S.</td><td>1615</td><td>Win</td><td>92.7%</td><td>3/3</td></tr>
+  <tr><td>MEX-ch 16th</td><td>G3</td><td>Black</td><td>Pille Cruz, J.</td><td>1774</td><td>Win</td><td><strong>96.8%</strong></td><td>0/0</td></tr>
+  <tr><td>MEX-ch 16th</td><td>G4</td><td>Black</td><td>Urbina Ballina, C.</td><td>1585</td><td>Win</td><td><strong>95.7%</strong></td><td>2/1</td></tr>
+  <tr><td>MEX-ch 16th</td><td>G5</td><td>Black</td><td>Vargas Arana, M.</td><td>—</td><td>Loss</td><td>92.8%</td><td>3/2</td></tr>
+  <tr><td>PAM School 2026</td><td>R1</td><td>Black</td><td>Farley, J.</td><td>1759</td><td>Win</td><td>94.1%</td><td>0/1</td></tr>
+  <tr><td>PAM School 2026</td><td>R2</td><td>White</td><td>Wang, Darren</td><td>1842</td><td>Win</td><td>92.1%</td><td>1/0</td></tr>
+  <tr><td>PAM School 2026</td><td>R3</td><td>Black</td><td>Alba Ruiz, K.</td><td>1919</td><td>Win</td><td>94.9%</td><td>0/1</td></tr>
+  <tr><td>PAM School 2026</td><td>R4</td><td>White</td><td>Li, Aiden L.</td><td>2021</td><td>Draw</td><td><strong>97.4%</strong></td><td>0/0</td></tr>
+  <tr><td>PAM School 2026</td><td>R5</td><td>Black</td><td>Takahashi G., J.</td><td>1975</td><td>Win</td><td>95.9%</td><td>0/1</td></tr>
+  <tr style="background:#fff0f0"><td>PAM School 2026</td><td>R6</td><td>White</td><td>Loayza Rivera, B.</td><td>1936</td><td>Loss</td><td>89.7%</td><td>3/1</td></tr>
+  <tr><td>PAM School 2026</td><td>R7</td><td>Black</td><td>Xu, Zhihan (S.)</td><td>1978</td><td>Draw</td><td>95.9%</td><td>0/0</td></tr>
+  <tr><td>PAM School 2026</td><td>R8</td><td>Black</td><td>Suresh, Barath S.</td><td>1893</td><td>Draw</td><td>95.4%</td><td>0/2</td></tr>
+  <tr><td>PAM School 2026</td><td>R9</td><td>White</td><td>Wang, Rocky</td><td>2079</td><td>Win</td><td><strong>96.5%</strong></td><td>0/0</td></tr>
+  <tr><td>Olympia Nacional 2026</td><td>R1</td><td>White</td><td>Silva Valdes, L.</td><td>1726</td><td>Win</td><td>90.1%</td><td>2/0</td></tr>
+  <tr><td>Olympia Nacional 2026</td><td>R2</td><td>Black</td><td>Valdez Lomeli, N.</td><td>1684</td><td>Draw</td><td>94.5%</td><td>0/0</td></tr>
+  <tr><td>Olympia Nacional 2026</td><td>R3</td><td>White</td><td>Roque Aranda, J.</td><td>1640</td><td>Win</td><td>90.1%</td><td>1/3</td></tr>
+  <tr><td>Olympia Nacional 2026</td><td>R4</td><td>Black</td><td>Martinez Flores, M.</td><td>1904</td><td>Win</td><td>90.3%</td><td>2/2</td></tr>
+  <tr><td>Olympia Nacional 2026</td><td>R5</td><td>White</td><td>Alba Ruiz, K.</td><td>1924</td><td>Loss</td><td>92.6%</td><td>13/2</td></tr>
+  <tr><td>Olympia Nacional 2026</td><td>R6</td><td>Black</td><td>Leal Escamilla, D.</td><td>1765</td><td>Loss</td><td>93.7%</td><td>0/3</td></tr>
+  <tr style="background:#fff0f0"><td>Queretaro 2026</td><td>R1</td><td>Black</td><td>Lopez Garcia, M.</td><td>2150</td><td>Draw</td><td>95.1%</td><td>0/0</td></tr>
+  <tr style="background:#fff0f0"><td>Queretaro 2026</td><td>R2</td><td>White</td><td>Perez Rodriguez, C.</td><td>2399</td><td>Draw</td><td>89.5%</td><td>0/3</td></tr>
+  <tr style="background:#fff0f0"><td>Queretaro 2026</td><td>R3</td><td>Black</td><td>Obregon Rivero, J.</td><td>2463</td><td>Loss</td><td>92.2%</td><td>2/3</td></tr>
+  <tr style="background:#fff0f0"><td>Queretaro 2026</td><td>R4</td><td>White</td><td>Montano Vicente, G.</td><td>2122</td><td>Draw</td><td>89.4%</td><td>0/3</td></tr>
+  <tr style="background:#fff0f0"><td>Queretaro 2026</td><td>R5</td><td>Black</td><td>Gonzalez Zamora, J.</td><td>2447</td><td>Loss</td><td>88.8%</td><td>3/3</td></tr>
+  <tr style="background:#fff0f0"><td>Queretaro 2026</td><td>R6</td><td>White</td><td>Ramos Silvera, R.</td><td>2357</td><td>Loss</td><td>86.8%</td><td>1/3</td></tr>
+  <tr style="background:#fff0f0"><td>Queretaro 2026</td><td>R7</td><td>Black</td><td>Angulo Perez, S.</td><td>2104</td><td>Win</td><td>95.7%</td><td>2/2</td></tr>
+  <tr style="background:#fff0f0"><td>Queretaro 2026</td><td>R9</td><td>Black</td><td>Miranda Mesa, E.</td><td>2461</td><td>Loss</td><td>93.2%</td><td>0/2</td></tr>
+  <tr><td>MEX Open 71st</td><td>G2</td><td>White</td><td>Torres Rosas, L.</td><td>2302</td><td>Loss</td><td>90.5%</td><td>0/1</td></tr>
+  <tr><td>MEX Open 71st</td><td>G3</td><td>White</td><td>Valdes Romero, L.</td><td>2325</td><td>Draw</td><td>88.1%</td><td>1/1</td></tr>
+  <tr><td>MEX Open 71st</td><td>G4</td><td>Black</td><td>Magana Morales, D.</td><td>1892</td><td>Win</td><td>95.3%</td><td>0/1</td></tr>
+  <tr><td>MEX Open 71st</td><td>G5</td><td>White</td><td>Perez Rodriguez, C.</td><td>2395</td><td>Loss</td><td>85.4%</td><td>1/2</td></tr>
+  <tr><td>ED Nacional 2026</td><td>R1</td><td>Black</td><td>Cori, Jorge</td><td>2586</td><td>Loss</td><td>86.6%</td><td>6/3</td></tr>
+  <tr><td>ED Nacional 2026</td><td>R9</td><td>Black</td><td>Paredes Guzman, F.</td><td>2137</td><td>Loss</td><td>89.7%</td><td>1/2</td></tr>
+  </tbody>
+</table>
+<p style="font-size:0.82em; color:#666; margin-top:6px">Queretaro 2026 rows highlighted — most recent and most relevant data (Oct 2026, avg opponent 2306).</p>
+
+<p style="margin-top:20px; font-size:0.85em; color:#555; text-align:center">
+  <a href="../austin-prep.html">← Back to Austin Lin Prep Index</a>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,517 @@
+[
+  {
+    "ply": 5,
+    "path": [
+      "d5",
+      "c6",
+      "Nf6",
+      "e6",
+      "Nbd7"
+    ],
+    "opponent_expected_move": "Bd6",
+    "frequency": 1.0,
+    "opponent_fast": true,
+    "avg_clock_s": 0.8,
+    "games_here": 6,
+    "fen_before": "r1bqkb1r/pp1n1ppp/2p1pn2/3p4/2PP4/2NBP3/PP3PPP/R1BQK1NR w KQkq -",
+    "score": 1.0,
+    "engine_eval": 0.18,
+    "alternative_moves": [
+      {
+        "san": "Nf3",
+        "eval_pawns": 0.18,
+        "pv": [
+          "Nf3",
+          "dxc4",
+          "Bxc4",
+          "b5",
+          "Bd3",
+          "Bb7",
+          "a3",
+          "b4",
+          "axb4",
+          "Bxb4"
+        ],
+        "opp_replies": [
+          {
+            "opp_response": "dxc4",
+            "austin_reply": "Bxc4",
+            "eval_cp": 17.0
+          },
+          {
+            "opp_response": "Be7",
+            "austin_reply": "b3",
+            "eval_cp": 34.0
+          },
+          {
+            "opp_response": "b6",
+            "austin_reply": "O-O",
+            "eval_cp": 34.0
+          }
+        ]
+      },
+      {
+        "san": "a3",
+        "eval_pawns": 0.06,
+        "pv": [
+          "a3",
+          "a6",
+          "b3",
+          "e5",
+          "cxd5",
+          "cxd5",
+          "dxe5",
+          "Nxe5",
+          "Nge2",
+          "Bd6"
+        ],
+        "opp_replies": [
+          {
+            "opp_response": "a6",
+            "austin_reply": "b3",
+            "eval_cp": 9.0
+          },
+          {
+            "opp_response": "dxc4",
+            "austin_reply": "Bxc4",
+            "eval_cp": 10.0
+          },
+          {
+            "opp_response": "Bd6",
+            "austin_reply": "c5",
+            "eval_cp": 13.0
+          }
+        ]
+      },
+      {
+        "san": "a4",
+        "eval_pawns": 0.05,
+        "pv": [
+          "a4",
+          "Bd6",
+          "Nge2",
+          "O-O",
+          "O-O",
+          "dxc4",
+          "Bxc4",
+          "c5",
+          "Ng3",
+          "a6"
+        ],
+        "opp_replies": [
+          {
+            "opp_response": "Bd6",
+            "austin_reply": "Nge2",
+            "eval_cp": 5.0
+          },
+          {
+            "opp_response": "Bb4",
+            "austin_reply": "cxd5",
+            "eval_cp": 13.0
+          },
+          {
+            "opp_response": "b6",
+            "austin_reply": "Nf3",
+            "eval_cp": 14.0
+          }
+        ]
+      }
+    ],
+    "top_engine_moves": [
+      "Nf3",
+      "a3",
+      "a4"
+    ],
+    "is_sound": true
+  },
+  {
+    "ply": 5,
+    "path": [
+      "d5",
+      "c6",
+      "Nf6",
+      "e6",
+      "Be7"
+    ],
+    "opponent_expected_move": "Nbd7",
+    "frequency": 1.0,
+    "opponent_fast": true,
+    "avg_clock_s": 0.2,
+    "games_here": 6,
+    "fen_before": "rnbqk2r/pp2bppp/2p1pn2/3p4/2PP1B2/2N1P3/PP3PPP/R2QKBNR w KQkq -",
+    "score": 1.0,
+    "engine_eval": 0.42,
+    "alternative_moves": [
+      {
+        "san": "Qc2",
+        "eval_pawns": 0.42,
+        "pv": [
+          "Qc2",
+          "O-O",
+          "Nf3",
+          "Nbd7",
+          "Rd1",
+          "b6",
+          "cxd5",
+          "cxd5",
+          "Bd3",
+          "Bb7"
+        ],
+        "opp_replies": [
+          {
+            "opp_response": "Nh5",
+            "austin_reply": "Be5",
+            "eval_cp": 39.0
+          },
+          {
+            "opp_response": "Nbd7",
+            "austin_reply": "Nf3",
+            "eval_cp": 40.0
+          },
+          {
+            "opp_response": "O-O",
+            "austin_reply": "Nf3",
+            "eval_cp": 40.0
+          }
+        ]
+      },
+      {
+        "san": "Bd3",
+        "eval_pawns": 0.4,
+        "pv": [
+          "Bd3",
+          "dxc4",
+          "Bxc4",
+          "O-O",
+          "Nf3",
+          "b5",
+          "Bd3",
+          "Nbd7",
+          "O-O",
+          "Bb7"
+        ],
+        "opp_replies": [
+          {
+            "opp_response": "dxc4",
+            "austin_reply": "Bxc4",
+            "eval_cp": 34.0
+          },
+          {
+            "opp_response": "Nbd7",
+            "austin_reply": "Nf3",
+            "eval_cp": 41.0
+          },
+          {
+            "opp_response": "O-O",
+            "austin_reply": "Nf3",
+            "eval_cp": 44.0
+          }
+        ]
+      },
+      {
+        "san": "Nf3",
+        "eval_pawns": 0.37,
+        "pv": [
+          "Nf3",
+          "Nbd7",
+          "Qc2",
+          "O-O",
+          "Rd1",
+          "b6",
+          "Bd3",
+          "Bb7",
+          "cxd5",
+          "cxd5"
+        ],
+        "opp_replies": [
+          {
+            "opp_response": "Nbd7",
+            "austin_reply": "Qc2",
+            "eval_cp": 42.0
+          },
+          {
+            "opp_response": "Nh5",
+            "austin_reply": "Be5",
+            "eval_cp": 43.0
+          },
+          {
+            "opp_response": "O-O",
+            "austin_reply": "Qc2",
+            "eval_cp": 44.0
+          }
+        ]
+      }
+    ],
+    "top_engine_moves": [
+      "Qc2",
+      "Bd3",
+      "Nf3"
+    ],
+    "is_sound": true
+  },
+  {
+    "ply": 2,
+    "path": [
+      "d5",
+      "c5"
+    ],
+    "opponent_expected_move": "Nc6",
+    "frequency": 1.0,
+    "opponent_fast": true,
+    "avg_clock_s": 2.7,
+    "games_here": 14,
+    "fen_before": "rnbqkbnr/pp2pppp/8/2pp2B1/3P4/8/PPP1PPPP/RN1QKBNR w KQkq -",
+    "score": 1.0,
+    "engine_eval": -0.1,
+    "alternative_moves": [
+      {
+        "san": "e3",
+        "eval_pawns": -0.1,
+        "pv": [
+          "e3",
+          "f6",
+          "Bf4",
+          "Nc6",
+          "Nf3",
+          "Bg4",
+          "Bb5",
+          "e6",
+          "h3",
+          "Bh5"
+        ],
+        "opp_replies": [
+          {
+            "opp_response": "Nc6",
+            "austin_reply": "c4",
+            "eval_cp": -5.0
+          },
+          {
+            "opp_response": "h6",
+            "austin_reply": "Bh4",
+            "eval_cp": -4.0
+          },
+          {
+            "opp_response": "f6",
+            "austin_reply": "Bf4",
+            "eval_cp": -3.0
+          }
+        ]
+      },
+      {
+        "san": "Nc3",
+        "eval_pawns": -0.25,
+        "pv": [
+          "Nc3",
+          "Nc6",
+          "e3",
+          "f6",
+          "Bh4",
+          "cxd4",
+          "exd4",
+          "Bf5",
+          "Bg3",
+          "e6"
+        ],
+        "opp_replies": [
+          {
+            "opp_response": "Nc6",
+            "austin_reply": "e3",
+            "eval_cp": -25.0
+          },
+          {
+            "opp_response": "f6",
+            "austin_reply": "Bc1",
+            "eval_cp": -18.0
+          },
+          {
+            "opp_response": "h6",
+            "austin_reply": "Bf4",
+            "eval_cp": -5.0
+          }
+        ]
+      },
+      {
+        "san": "c3",
+        "eval_pawns": -0.28,
+        "pv": [
+          "c3",
+          "Qb6",
+          "Nd2",
+          "cxd4",
+          "cxd4",
+          "Nc6",
+          "e4",
+          "e6",
+          "Ngf3",
+          "Be7"
+        ],
+        "opp_replies": [
+          {
+            "opp_response": "Qb6",
+            "austin_reply": "Nd2",
+            "eval_cp": -27.0
+          },
+          {
+            "opp_response": "Nc6",
+            "austin_reply": "dxc5",
+            "eval_cp": -13.0
+          },
+          {
+            "opp_response": "h6",
+            "austin_reply": "Bf4",
+            "eval_cp": -12.0
+          }
+        ]
+      }
+    ],
+    "top_engine_moves": [
+      "e3",
+      "Nc3",
+      "c3"
+    ],
+    "is_sound": true
+  },
+  {
+    "ply": 3,
+    "path": [
+      "d5",
+      "c5",
+      "Nc6"
+    ],
+    "opponent_expected_move": "Nf6",
+    "frequency": 1.0,
+    "opponent_fast": true,
+    "avg_clock_s": 1.1,
+    "games_here": 11,
+    "fen_before": "r1bqkbnr/pp2pppp/2n5/2pp2B1/3P4/4P3/PPP2PPP/RN1QKBNR w KQkq -",
+    "score": 1.0,
+    "engine_eval": null,
+    "alternative_moves": []
+  },
+  {
+    "ply": 3,
+    "path": [
+      "d5",
+      "Nf6",
+      "c5"
+    ],
+    "opponent_expected_move": "Nc6",
+    "frequency": 1.0,
+    "opponent_fast": true,
+    "avg_clock_s": 10.0,
+    "games_here": 5,
+    "fen_before": "rnbqkb1r/pp2pppp/5n2/2pp4/3P1B2/5N2/PPP1PPPP/RN1QKB1R w KQkq -",
+    "score": 1.0,
+    "engine_eval": null,
+    "alternative_moves": []
+  },
+  {
+    "ply": 5,
+    "path": [
+      "e5",
+      "Nc6",
+      "Bc5",
+      "Nf6",
+      "exd4"
+    ],
+    "opponent_expected_move": "Bb4+",
+    "frequency": 1.0,
+    "opponent_fast": true,
+    "avg_clock_s": 0.2,
+    "games_here": 12,
+    "fen_before": "r1bqk2r/pppp1ppp/2n2n2/2b5/2BpP3/2P2N2/PP3PPP/RNBQK2R w KQkq -",
+    "score": 1.0,
+    "engine_eval": null,
+    "alternative_moves": []
+  },
+  {
+    "ply": 7,
+    "path": [
+      "e5",
+      "Nc6",
+      "Bc5",
+      "Nf6",
+      "exd4",
+      "Bb4+",
+      "Bxd2+"
+    ],
+    "opponent_expected_move": "d5",
+    "frequency": 1.0,
+    "opponent_fast": true,
+    "avg_clock_s": 0.0,
+    "games_here": 9,
+    "fen_before": "r1bqk2r/pppp1ppp/2n2n2/8/2BPP3/5N2/PP1b1PPP/RN1QK2R w KQkq -",
+    "score": 1.0,
+    "engine_eval": null,
+    "alternative_moves": []
+  },
+  {
+    "ply": 8,
+    "path": [
+      "e5",
+      "Nc6",
+      "Bc5",
+      "Nf6",
+      "exd4",
+      "Bb4+",
+      "Bxd2+",
+      "d5"
+    ],
+    "opponent_expected_move": "Nxd5",
+    "frequency": 1.0,
+    "opponent_fast": true,
+    "avg_clock_s": 0.9,
+    "games_here": 9,
+    "fen_before": "r1bqk2r/ppp2ppp/2n2n2/3p4/2BPP3/5N2/PP1N1PPP/R2QK2R w KQkq -",
+    "score": 1.0,
+    "engine_eval": null,
+    "alternative_moves": []
+  },
+  {
+    "ply": 9,
+    "path": [
+      "e5",
+      "Nc6",
+      "Bc5",
+      "Nf6",
+      "exd4",
+      "Bb4+",
+      "Bxd2+",
+      "d5",
+      "Nxd5"
+    ],
+    "opponent_expected_move": "O-O",
+    "frequency": 1.0,
+    "opponent_fast": true,
+    "avg_clock_s": 2.9,
+    "games_here": 7,
+    "fen_before": "r1bqk2r/ppp2ppp/2n5/3n4/2BP4/5N2/PP1N1PPP/R2QK2R w KQkq -",
+    "score": 1.0,
+    "engine_eval": null,
+    "alternative_moves": []
+  },
+  {
+    "ply": 10,
+    "path": [
+      "e5",
+      "Nc6",
+      "Bc5",
+      "Nf6",
+      "exd4",
+      "Bb4+",
+      "Bxd2+",
+      "d5",
+      "Nxd5",
+      "O-O"
+    ],
+    "opponent_expected_move": "Bg4",
+    "frequency": 1.0,
+    "opponent_fast": true,
+    "avg_clock_s": 1.2,
+    "games_here": 5,
+    "fen_before": "r1bq1rk1/ppp2ppp/2n5/3n4/2BP4/5N2/PP1N1PPP/R2Q1RK1 w - -",
+    "score": 1.0,
+    "engine_eval": null,
+    "alternative_moves": []
+  }
+]

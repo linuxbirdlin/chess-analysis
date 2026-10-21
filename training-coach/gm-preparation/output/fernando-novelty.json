@@ -1,0 +1,123 @@
+[
+  {
+    "ply": 1,
+    "path": [
+      "e6"
+    ],
+    "opponent_expected_move": "d5",
+    "frequency": 1.0,
+    "opponent_fast": true,
+    "avg_clock_s": 0.0,
+    "games_here": 7,
+    "fen_before": "rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -",
+    "score": 1.0,
+    "engine_eval": 0.31,
+    "alternative_moves": [
+      {
+        "san": "Nc3",
+        "eval_pawns": 0.31,
+        "pv": [
+          "Nc3",
+          "d5",
+          "d4",
+          "Nf6",
+          "e5",
+          "Nfd7",
+          "f4",
+          "c5",
+          "Nf3",
+          "Nc6"
+        ],
+        "opp_replies": [
+          {
+            "opp_response": "Nf6",
+            "austin_reply": "d4",
+            "eval_cp": 26.0
+          },
+          {
+            "opp_response": "d5",
+            "austin_reply": "d4",
+            "eval_cp": 32.0
+          },
+          {
+            "opp_response": "c5",
+            "austin_reply": "Nf3",
+            "eval_cp": 38.0
+          }
+        ]
+      },
+      {
+        "san": "d4",
+        "eval_pawns": 0.31,
+        "pv": [
+          "d4",
+          "d5",
+          "Nc3",
+          "Nf6",
+          "e5",
+          "Nfd7",
+          "f4",
+          "c5",
+          "Nf3",
+          "Nc6"
+        ],
+        "opp_replies": [
+          {
+            "opp_response": "d5",
+            "austin_reply": "Nc3",
+            "eval_cp": 31.0
+          },
+          {
+            "opp_response": "a6",
+            "austin_reply": "Be3",
+            "eval_cp": 52.0
+          },
+          {
+            "opp_response": "c5",
+            "austin_reply": "d5",
+            "eval_cp": 59.0
+          }
+        ]
+      },
+      {
+        "san": "Nf3",
+        "eval_pawns": 0.18,
+        "pv": [
+          "Nf3",
+          "d5",
+          "exd5",
+          "exd5",
+          "d4",
+          "Nf6",
+          "Bd3",
+          "c5",
+          "O-O",
+          "c4"
+        ],
+        "opp_replies": [
+          {
+            "opp_response": "d5",
+            "austin_reply": "exd5",
+            "eval_cp": 17.0
+          },
+          {
+            "opp_response": "c5",
+            "austin_reply": "d4",
+            "eval_cp": 39.0
+          },
+          {
+            "opp_response": "a6",
+            "austin_reply": "d4",
+            "eval_cp": 47.0
+          }
+        ]
+      }
+    ],
+    "top_engine_moves": [
+      "Nc3",
+      "d4",
+      "Nf3"
+    ],
+    "is_sound": true
+  }
+]

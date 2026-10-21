@@ -1,0 +1,512 @@
+{
+  "r1bqk1nr/pppp1ppp/8/2b5/3BP3/8/PPP2PPP/RN1QKB1R b KQkq -": [
+    {
+      "rank": 1,
+      "san": "Bxd4",
+      "uci": "c5d4",
+      "eval_cp": 95.0,
+      "eval_pawns": 0.95,
+      "depth": 40,
+      "pv": [
+        "Bxd4",
+        "Qxd4",
+        "Qf6",
+        "e5",
+        "Qb6",
+        "Qxb6",
+        "axb6",
+        "f4",
+        "f6",
+        "Nd2"
+      ]
+    },
+    {
+      "rank": 2,
+      "san": "Bf8",
+      "uci": "c5f8",
+      "eval_cp": 320.0,
+      "eval_pawns": 3.2,
+      "depth": 40,
+      "pv": [
+        "Bf8",
+        "Bc4",
+        "d5",
+        "exd5",
+        "Nf6",
+        "O-O",
+        "Be7",
+        "Bb5+",
+        "Bd7",
+        "Bxd7+"
+      ]
+    },
+    {
+      "rank": 3,
+      "san": "Bb4+",
+      "uci": "c5b4",
+      "eval_cp": 343.0,
+      "eval_pawns": 3.43,
+      "depth": 40,
+      "pv": [
+        "Bb4+",
+        "c3",
+        "Bf8",
+        "Bc4",
+        "Nf6",
+        "O-O",
+        "d5",
+        "exd5",
+        "Be7",
+        "Qf3"
+      ]
+    },
+    {
+      "rank": 4,
+      "san": "Qg5",
+      "uci": "d8g5",
+      "eval_cp": 615.0,
+      "eval_pawns": 6.15,
+      "depth": 40,
+      "pv": [
+        "Qg5",
+        "f4",
+        "Qxf4",
+        "Bxc5",
+        "Qxe4+",
+        "Qe2",
+        "Qxe2+",
+        "Bxe2",
+        "d6",
+        "Bf2"
+      ]
+    },
+    {
+      "rank": 5,
+      "san": "Be7",
+      "uci": "c5e7",
+      "eval_cp": 650.0,
+      "eval_pawns": 6.5,
+      "depth": 40,
+      "pv": [
+        "Be7",
+        "Bxg7",
+        "Bf6",
+        "Bxh8",
+        "Bxh8",
+        "Nc3",
+        "d6",
+        "Qd2",
+        "Be6",
+        "O-O-O"
+      ]
+    }
+  ],
+  "r1bqk1nr/pppp1ppp/8/8/3QP3/8/PPP2PPP/RN2KB1R b KQkq -": [
+    {
+      "rank": 1,
+      "san": "Qf6",
+      "uci": "d8f6",
+      "eval_cp": 56.0,
+      "eval_pawns": 0.56,
+      "depth": 40,
+      "pv": [
+        "Qf6",
+        "e5",
+        "Qb6",
+        "Qxb6",
+        "axb6",
+        "f4",
+        "f6",
+        "Nd2",
+        "Ra4",
+        "g3"
+      ]
+    },
+    {
+      "rank": 2,
+      "san": "Qg5",
+      "uci": "d8g5",
+      "eval_cp": 207.0,
+      "eval_pawns": 2.07,
+      "depth": 40,
+      "pv": [
+        "Qg5",
+        "Nc3",
+        "Ne7",
+        "h4",
+        "Qf6",
+        "Qxf6",
+        "gxf6",
+        "Rh3",
+        "d6",
+        "Rf3"
+      ]
+    },
+    {
+      "rank": 3,
+      "san": "Kf8",
+      "uci": "e8f8",
+      "eval_cp": 264.0,
+      "eval_pawns": 2.64,
+      "depth": 40,
+      "pv": [
+        "Kf8",
+        "Nc3",
+        "h5",
+        "O-O-O",
+        "d6",
+        "e5",
+        "Rh6",
+        "Qf4",
+        "a6",
+        "Bc4"
+      ]
+    },
+    {
+      "rank": 4,
+      "san": "d6",
+      "uci": "d7d6",
+      "eval_cp": 267.0,
+      "eval_pawns": 2.67,
+      "depth": 40,
+      "pv": [
+        "d6",
+        "Qxg7",
+        "Qf6",
+        "Qxf6",
+        "Nxf6",
+        "Nc3",
+        "h5",
+        "Rd1",
+        "Be6",
+        "f3"
+      ]
+    },
+    {
+      "rank": 5,
+      "san": "f6",
+      "uci": "f7f6",
+      "eval_cp": 269.0,
+      "eval_pawns": 2.69,
+      "depth": 40,
+      "pv": [
+        "f6",
+        "Nc3",
+        "Ne7",
+        "Bc4",
+        "Nc6",
+        "Qd2",
+        "d6",
+        "O-O-O",
+        "Na5",
+        "Be2"
+      ]
+    }
+  ],
+  "rnbqk2r/pp2ppbp/3p1np1/8/3NP3/2N1BP2/PPP3PP/R2QKB1R b KQkq -": [
+    {
+      "rank": 1,
+      "san": "O-O",
+      "uci": "e8g8",
+      "eval_cp": 38.0,
+      "eval_pawns": 0.38,
+      "depth": 40,
+      "pv": [
+        "O-O",
+        "Qd2",
+        "Nc6",
+        "O-O-O",
+        "d5",
+        "exd5",
+        "Nxd5",
+        "Nxc6",
+        "bxc6",
+        "Bd4"
+      ]
+    },
+    {
+      "rank": 2,
+      "san": "Nc6",
+      "uci": "b8c6",
+      "eval_cp": 44.0,
+      "eval_pawns": 0.44,
+      "depth": 40,
+      "pv": [
+        "Nc6",
+        "Qd2",
+        "O-O",
+        "O-O-O",
+        "d5",
+        "exd5",
+        "Nxd5",
+        "Nxc6",
+        "bxc6",
+        "Bd4"
+      ]
+    },
+    {
+      "rank": 3,
+      "san": "a6",
+      "uci": "a7a6",
+      "eval_cp": 70.0,
+      "eval_pawns": 0.7,
+      "depth": 40,
+      "pv": [
+        "a6",
+        "Qd2",
+        "h5",
+        "h3",
+        "Nbd7",
+        "Be2",
+        "b6",
+        "O-O-O",
+        "Bb7",
+        "g4"
+      ]
+    },
+    {
+      "rank": 4,
+      "san": "h5",
+      "uci": "h7h5",
+      "eval_cp": 81.0,
+      "eval_pawns": 0.81,
+      "depth": 40,
+      "pv": [
+        "h5",
+        "Qd2",
+        "a6",
+        "h3",
+        "Nbd7",
+        "Be2",
+        "b6",
+        "O-O-O",
+        "Bb7",
+        "g4"
+      ]
+    },
+    {
+      "rank": 5,
+      "san": "Bd7",
+      "uci": "c8d7",
+      "eval_cp": 118.0,
+      "eval_pawns": 1.18,
+      "depth": 40,
+      "pv": [
+        "Bd7",
+        "g4",
+        "Nc6",
+        "Qd2",
+        "h5",
+        "g5",
+        "Nh7",
+        "O-O-O",
+        "Qa5",
+        "f4"
+      ]
+    }
+  ],
+  "r1bqk2r/pp2ppbp/2np1np1/8/2BNP3/2N1BP2/PPP3PP/R2QK2R b KQkq -": [
+    {
+      "rank": 1,
+      "san": "Qa5",
+      "uci": "d8a5",
+      "eval_cp": 30.0,
+      "eval_pawns": 0.3,
+      "depth": 40,
+      "pv": [
+        "Qa5",
+        "Qd2",
+        "O-O",
+        "O-O-O",
+        "Nxd4",
+        "Bxd4",
+        "Be6",
+        "Bxe6",
+        "fxe6",
+        "Rhe1"
+      ]
+    },
+    {
+      "rank": 2,
+      "san": "O-O",
+      "uci": "e8g8",
+      "eval_cp": 31.0,
+      "eval_pawns": 0.31,
+      "depth": 40,
+      "pv": [
+        "O-O",
+        "Qd2",
+        "Nxd4",
+        "Bxd4",
+        "Qa5",
+        "O-O-O",
+        "Be6",
+        "Bxe6",
+        "fxe6",
+        "Rhe1"
+      ]
+    },
+    {
+      "rank": 3,
+      "san": "Qb6",
+      "uci": "d8b6",
+      "eval_cp": 31.0,
+      "eval_pawns": 0.31,
+      "depth": 40,
+      "pv": [
+        "Qb6",
+        "Nf5",
+        "Qxb2",
+        "Nxg7+",
+        "Kf8",
+        "Nd5",
+        "Nxd5",
+        "Bxd5",
+        "Kxg7",
+        "O-O"
+      ]
+    },
+    {
+      "rank": 4,
+      "san": "Bd7",
+      "uci": "c8d7",
+      "eval_cp": 38.0,
+      "eval_pawns": 0.38,
+      "depth": 40,
+      "pv": [
+        "Bd7",
+        "Qd2",
+        "O-O",
+        "O-O-O",
+        "Rb8",
+        "Kb1",
+        "Nxd4",
+        "Bxd4",
+        "b5",
+        "Bf1"
+      ]
+    },
+    {
+      "rank": 5,
+      "san": "Na5",
+      "uci": "c6a5",
+      "eval_cp": 57.0,
+      "eval_pawns": 0.57,
+      "depth": 40,
+      "pv": [
+        "Na5",
+        "Be2",
+        "a6",
+        "Qd2",
+        "Qc7",
+        "O-O-O",
+        "b5",
+        "Bh6",
+        "Bxh6",
+        "Qxh6"
+      ]
+    }
+  ],
+  "r1bqkbnr/pp3ppp/2np4/1N2p3/4P3/2N5/PPP2PPP/R1BQKB1R b KQkq -": [
+    {
+      "rank": 1,
+      "san": "Nf6",
+      "uci": "g8f6",
+      "eval_cp": 26.0,
+      "eval_pawns": 0.26,
+      "depth": 40,
+      "pv": [
+        "Nf6",
+        "Bg5",
+        "a6",
+        "Na3",
+        "b5",
+        "Nd5",
+        "Be7",
+        "Bxf6",
+        "Bxf6",
+        "c3"
+      ]
+    },
+    {
+      "rank": 2,
+      "san": "a6",
+      "uci": "a7a6",
+      "eval_cp": 32.0,
+      "eval_pawns": 0.32,
+      "depth": 40,
+      "pv": [
+        "a6",
+        "Na3",
+        "Nf6",
+        "Nc4",
+        "b5",
+        "Ne3",
+        "Be7",
+        "Bd3",
+        "Nb4",
+        "Be2"
+      ]
+    },
+    {
+      "rank": 3,
+      "san": "Be6",
+      "uci": "c8e6",
+      "eval_cp": 104.0,
+      "eval_pawns": 1.04,
+      "depth": 40,
+      "pv": [
+        "Be6",
+        "Nd5",
+        "Rc8",
+        "Be3",
+        "Nf6",
+        "f3",
+        "Nd7",
+        "Qd2",
+        "a6",
+        "Nbc3"
+      ]
+    },
+    {
+      "rank": 4,
+      "san": "Rb8",
+      "uci": "a8b8",
+      "eval_cp": 269.0,
+      "eval_pawns": 2.69,
+      "depth": 40,
+      "pv": [
+        "Rb8",
+        "Nd5",
+        "Be6",
+        "c3",
+        "Nf6",
+        "Nbc7+",
+        "Kd7",
+        "Nxf6+",
+        "gxf6",
+        "Nd5"
+      ]
+    },
+    {
+      "rank": 5,
+      "san": "Be7",
+      "uci": "f8e7",
+      "eval_cp": 283.0,
+      "eval_pawns": 2.83,
+      "depth": 40,
+      "pv": [
+        "Be7",
+        "Nd5",
+        "Kf8",
+        "Be3",
+        "Be6",
+        "Qd2",
+        "Nf6",
+        "Nxf6",
+        "gxf6",
+        "O-O-O"
+      ]
+    }
+  ]
+}
