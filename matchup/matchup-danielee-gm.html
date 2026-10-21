@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle Plan: Austin vs Lee, Daniel Joshua (GM Prep)</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Georgia', serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg);
+}
+h1 { font-size: 1.6em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.15em; margin: 28px 0 10px; padding-left: 10px; }
+h2.white-section { border-left: 5px solid var(--blue); }
+h2.black-section { border-left: 5px solid var(--red); }
+h2.analysis   { border-left: 5px solid var(--gold); }
+h2.reference  { border-left: 5px solid #666; }
+h3 { font-size: 1em; margin: 14px 0 6px; color: #333; }
+.subtitle { font-size: 0.85em; color: #666; margin-bottom: 22px; }
+.subtitle span { margin-right: 16px; }
+
+.rating-surge-banner {
+  background: #fff4ee; border: 2px solid #b8350b; border-radius: 5px;
+  padding: 10px 14px; margin-bottom: 18px; font-size: 0.9em;
+}
+.rating-surge-banner strong { color: #b8350b; }
+
+.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.intel-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.intel-card h3 { margin-top: 0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }
+.intel-card ul { padding-left: 16px; margin-top: 4px; }
+.intel-card li { margin-bottom: 3px; }
+
+.callout { border-radius: 4px; padding: 10px 14px; margin: 10px 0; font-size: 0.9em; }
+.callout-gold   { background: #fffbe0; border-left: 4px solid var(--gold); }
+.callout-blue   { background: #eef4ff; border-left: 4px solid var(--blue); }
+.callout-green  { background: #efffef; border-left: 4px solid var(--green); }
+.callout-danger { background: #fff0f0; border-left: 4px solid var(--red); }
+
+.move-line { background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+             padding: 8px 12px; margin: 6px 0; font-size: 0.92em; line-height: 1.9; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: #eef4ff; border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.bad-move { background: #ffe0e0; border: 1px solid #cc8888; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; color: #8b1a1a; }
+.note { color: #555; font-style: italic; font-size: 0.88em; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
+th { background: #333; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+.row-danger td { background: #fff0f0 !important; }
+.row-highlight td { background: #fff8e0 !important; }
+
+hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20px; }
+
+.acc-toggle { display: none; }
+.acc-label {
+  display: block; cursor: pointer; padding: 8px 12px; margin: 4px 0;
+  background: #eee; border: 1px solid #ccc; border-radius: 4px;
+  font-weight: bold; font-size: 0.9em; user-select: none;
+}
+.acc-label::before { content: '▶ '; font-size: 0.75em; color: #666; }
+.acc-toggle:checked ~ .acc-label::before { content: '▼ '; }
+.acc-content { display: none; padding: 10px 14px; background: #fafaf6;
+               border: 1px solid #ddd; border-top: none; border-radius: 0 0 4px 4px; margin-bottom: 6px; }
+.acc-toggle:checked ~ .acc-content { display: block; }
+
+@media print {
+  .acc-content { display: block !important; }
+  .acc-label::before { content: '' !important; }
+  body { font-size: 12px; padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<h1>Battle Plan: Austin (White &amp; Black) vs Lee, Daniel Joshua</h1>
+<div class="subtitle">
+  <span><strong>GM Prep</strong></span>
+  <span>Daniel rating: <strong>2191 FIDE</strong> (Sep 2026) — was 1942 in Apr 2026 (+249 in 5 months)</span>
+  <span>Direct record: No encounter</span>
+  <span>OTB games analyzed: 24 · avg 93.4%</span>
+</div>
+
+<div class="rating-surge-banner">
+  <strong>Rating surge alert:</strong> Daniel Joshua Lee jumped from <strong>1942 → 2191 FIDE</strong> in 5 months (Apr–Sep 2026). He is currently Austin's highest-rated opponent by FIDE rating. His Canada Closed (Apr 2026, ~1942) and later tournaments show a player who has genuinely improved — not a rating fluke. <strong>Treat this as an FM-level matchup.</strong>
+</div>
+
+<div class="intel-grid">
+  <div class="intel-card">
+    <h3>Daniel as White</h3>
+    <ul>
+      <li><strong>1.e4 always</strong></li>
+      <li>vs 1...e5: <strong>Italian / Giuoco Piano (C54/C55)</strong> — 4 White games, his deepest prep</li>
+      <li>vs Sicilian: <strong>Maróczy Bind (B36/B38)</strong> and <strong>Taimanov (B45/B47)</strong></li>
+      <li>vs French: Tarrasch C07 — <strong>his weakest White line (5 blunders, lost to 2137)</strong></li>
+      <li>1.Nf3 A04 once (PAM R2) — unusual, not his standard</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Daniel as Black</h3>
+    <ul>
+      <li>vs 1.e4: <strong>1...e5 → Italian/Giuoco Piano (C54)</strong> — 7 total games, his signature</li>
+      <li>Also plays Ruy Lopez (C88/C99 Spanish Breyer) — 2 games</li>
+      <li>vs 1.d4: <strong>QGA (D20/D27)</strong> — takes the pawn, fights for initiative</li>
+      <li>C47 Four Knights: <strong>0W-0D-1L, 84.0% — worst game in dataset</strong></li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Critical weaknesses</h3>
+    <ul>
+      <li><strong>C07 French Tarrasch collapse:</strong> 5 blunders in 1 game (CC R9); f4?? 605CPL at +0.01 (balanced!)</li>
+      <li><strong>Missed central captures:</strong> O-O instead of Nf6 (343CPL), Bf8 instead of Nxd4 (438CPL) in Four Knights</li>
+      <li><strong>Queen misplacement from winning:</strong> Qc6?? 730CPL from +7.30 (drew instead of won)</li>
+      <li><strong>Kingside attack blindspot:</strong> Rb1 instead of h4 from +3.65 (missed decisive attack)</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Key game facts</h3>
+    <ul>
+      <li>Overall: <strong>93.4%</strong> avg (White 93.4%, Black 93.4%)</li>
+      <li>Worst: <strong>84.0%</strong> PAM R5 (C47 Four Knights as Black, lost to 1915)</li>
+      <li>Best: <strong>98.8%</strong> PAM School R9 · <strong>98.0%</strong> PAM R8</li>
+      <li>Canada Closed White record vs 2100+: <strong>0W-1D-3L</strong></li>
+      <li>PAM School 2026: <strong>94.8%</strong> avg — recent peak form</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="white-section">Part 1 — Austin as White: Ruy Lopez to Avoid Italian</h2>
+
+<div class="callout callout-danger">
+  <strong>Do NOT play 3.Bc4 (Italian).</strong> Daniel plays Italian/Giuoco Piano as Black in <strong>7 games</strong> — it is his most-prepared, most-played, and best-performing line (beat 2137-rated Fernandez Herrera, drew 2209-rated Diaz Guerrero). Playing Italian hands Daniel his home territory against a 326-point favorite.
+</div>
+
+<div class="callout callout-blue">
+  <strong>Primary weapon: Ruy Lopez 3.Bb5.</strong> Daniel has played Italian as Black 7 times but Ruy Lopez as Black only twice (Spanish Breyer C88/C99) — and his Spanish games include a 730CPL queen blunder (Qc6?? from +7.30). The bishop on b5 forces Daniel into Ruy Lopez territory, which is different enough from his Italian preparation to create real uncertainty.
+</div>
+
+<h3>Ruy Lopez — main line</h3>
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">e5</span> 2.Nf3 <span class="mv-z">Nc6</span>
+  <span class="key-move">3.Bb5!</span> <span class="mv-z">a6</span>
+  <span class="key-move">4.Ba4</span> <span class="mv-z">Nf6</span>
+  5.O-O <span class="mv-z">Be7</span>
+  <span class="key-move">6.Re1</span> <span class="mv-z">b5</span>
+  <span class="key-move">7.Bb3!</span> <span class="mv-z">d6</span>
+  8.c3 <span class="mv-z">O-O</span>
+  <span class="key-move">9.h3!</span>
+  <span class="note"> — Closed Ruy Lopez. h3 prevents …Bg4 and keeps the position tense. Daniel's Italian prep is entirely irrelevant here.</span>
+</div>
+
+<input class="acc-toggle" id="w1" type="checkbox" checked>
+<label class="acc-label" for="w1">Branch A — Exchange Spanish (surprise option, simpler)</label>
+<div class="acc-content">
+  <div class="callout callout-gold" style="margin-bottom:8px">
+    The Exchange Spanish (4.Bxc6) is Austin's secondary weapon — it creates an immediate structural imbalance similar to Exchange Caro-Kann, which Austin plays well. Daniel has never faced Exchange Spanish in this dataset.
+  </div>
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 e5 2.Nf3 Nc6 3.Bb5 a6
+    <span class="key-move">4.Bxc6!</span> <span class="mv-z">dxc6</span>
+    5.O-O <span class="mv-z">f6</span> 6.d4 <span class="mv-z">exd4</span>
+    7.Nxd4 <span class="mv-z">c5</span> 8.Nb3 <span class="mv-z">Qxd1</span>
+    9.Rxd1 <span class="mv-z">Bg4</span> <span class="key-move">10.f3!</span>
+    <span class="note"> — Austin gets bishop pair + structural compensation; endgame slightly favors White's unified pawns vs Black's doubled c-pawns. Same "Exchange" philosophy as Exchange Caro-Kann.</span>
+  </div>
+  <p style="margin-top:8px"><strong>Why Exchange Spanish works:</strong> After 4.Bxc6, the game simplifies — Daniel's Italian long-game preparation is useless in a symmetrical pawn structure. Austin's Exchange-style instincts (Exchange CK, Exchange French vs Justin) apply directly.</p>
+</div>
+
+<input class="acc-toggle" id="w2" type="checkbox" checked>
+<label class="acc-label" for="w2">Branch B — Closed Ruy Lopez main line (more complex)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Ba4 Nf6 5.O-O Be7 6.Re1 b5 7.Bb3 d6 8.c3 O-O 9.h3
+    <span class="mv-z">Nb8</span> <span class="key-move">10.d4!</span> <span class="mv-z">Nbd7</span>
+    11.Nbd2 <span class="mv-z">Bb7</span> <span class="key-move">12.Bc2!</span>
+    <span class="note"> — Spanish Closed with d4. Bc2 prepares d4-push and keeps the bishop active on the c2-g6 diagonal. Daniel's Italian-only preparation doesn't help in this structure.</span>
+  </div>
+  <p style="margin-top:8px"><strong>Key tactical theme:</strong> In Daniel's only Spanish game as Black (C88 PAM R7), he blundered Qc6?? (730CPL) from a winning position — queen misplacement is his failure mode in Ruy Lopez positions specifically. Austin should steer for positions where Daniel's queen needs active play.</p>
+</div>
+
+<input class="acc-toggle" id="w3" type="checkbox">
+<label class="acc-label" for="w3">Branch C — Surprise weapon: 3.Nc3 Four Knights</label>
+<div class="acc-content">
+  <div class="callout callout-gold" style="margin-bottom:8px">
+    Daniel's absolute worst game (84.0%) was in <strong>C47 Four Knights as Black</strong>. He blundered <span class="bad-move">8.O-O</span> (best Nf6, 343CPL) and <span class="bad-move">10.Bf8</span> (best Nxd4, 438CPL) — missed central captures and played passive moves instead. If Austin opens 3.Nc3, Daniel enters his worst opening on record.
+  </div>
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">e5</span> 2.Nf3 <span class="mv-z">Nc6</span>
+    <span class="key-move">3.Nc3!</span> <span class="mv-z">Nf6</span>
+    4.d4 <span class="mv-z">exd4</span> 5.Nxd4 <span class="mv-z">Bb4</span>
+    6.Nxc6 <span class="mv-z">bxc6</span> 7.Bd3 <span class="mv-z">d5</span>
+    <span class="key-move">8.exd5!</span> <span class="mv-z">cxd5</span>
+    9.O-O <span class="mv-z">O-O</span> <span class="key-move">10.Bg5!</span>
+    <span class="note"> — Daniel played this structure as Black and blundered on move 10. Bg5 pins and creates immediate tension — exactly the position Daniel failed in.</span>
+  </div>
+  <p style="margin-top:8px">The Four Knights is the highest-risk/highest-reward option. Daniel's 84.0% game shows he is not prepared in this line. However, Austin should know this opening well before using it — learn to move 15 minimum.</p>
+</div>
+
+<h3 style="margin-top:18px">Key tactical themes — Austin as White</h3>
+<table>
+  <thead><tr><th>Theme</th><th>Target</th><th>Evidence</th></tr></thead>
+  <tbody>
+  <tr><td><strong>Avoid Italian (3.Bc4)</strong></td><td>Daniel has 7 Italian prep games; drew 2209, beat 2137 in C54</td><td>Only line where Daniel is fully prepared</td></tr>
+  <tr><td><strong>Queen activity in Lopez positions</strong></td><td>Daniel blundered Qc6?? 730CPL from +7.30 in Spanish (C88)</td><td>PAM R7, queen misplacement squandered won game</td></tr>
+  <tr><td><strong>Force central captures</strong></td><td>In Four Knights: Daniel played passive O-O/Bf8 instead of Nf6/Nxd4 — decisive errors</td><td>PAM R5, C47, 84.0%</td></tr>
+  <tr><td><strong>h4/h3 preparation</strong></td><td>Daniel missed h4 decision in C54 (played Rb1 instead from +3.65)</td><td>CC R7; Austin should be alert to h4 attacking chances</td></tr>
+  </tbody>
+</table>
+
+<hr class="section-divider">
+
+<h2 class="black-section">Part 2 — Austin as Black: Sveshnikov Kills the Maróczy</h2>
+
+<div class="callout callout-green">
+  <strong>Core fact:</strong> Daniel plays the <strong>Maróczy Bind (B36/B38)</strong> and <strong>Taimanov English Attack (B45/B47)</strong> as his Sicilian systems. Austin plays Sicilian (1...c5). The <strong>Sveshnikov (4...e5)</strong> is the precise antidote — after 1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 <strong>e5!</strong>, White cannot play 5.c4 (Maróczy Bind) because the e5 pawn controls that structure. Daniel has <strong>zero Sveshnikov games</strong> in his entire dataset.
+</div>
+
+<h3>Why Sveshnikov is the weapon</h3>
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">c5</span> 2.Nf3 <span class="mv-a">Nc6</span>
+  3.d4 <span class="mv-a">cxd4</span> 4.Nxd4 <span class="key-move">e5!</span>
+  <span class="note"> — Sveshnikov/Kalashnikov. 4...e5 prevents 5.c4 (Maróczy) entirely. The e5 pawn commits immediately; the position becomes sharp and tactical. Daniel must respond in Sveshnikov theory he has never played.</span>
+</div>
+
+<div class="callout callout-gold">
+  <strong>Compare:</strong> If Austin plays 1...c5 2.Nf3 Nc6 (standard), Daniel plays <strong>3.d4 4.Nxd4 g6 5.c4</strong> (Maróczy Bind — his B36/B38 expertise) or <strong>5.Nc3 e6</strong> (Taimanov English Attack — his B45/B47 expertise). The Sveshnikov sidesteps both systems with a single pawn move.
+</div>
+
+<input class="acc-toggle" id="b1" type="checkbox" checked>
+<label class="acc-label" for="b1">Branch A — After 4...e5: Sveshnikov mainline (Ndb5)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 <span class="mv-a">e5!</span>
+    5.Nb5 <span class="mv-a">d6</span> 6.N1c3 <span class="mv-a">a6</span>
+    7.Na3 <span class="mv-a">b5!</span> 8.Nd5 <span class="mv-a">Nce7</span>
+    9.Nxe7 <span class="mv-a">Bxe7</span> 10.c4 <span class="mv-a">b4!</span>
+    <span class="note"> — Sveshnikov main line. Black gets active b-pawn (b4) and counterplay on the queenside. White's d5 outpost vs Black's e5 pawn — typical Sveshnikov tension.</span>
+  </div>
+  <p style="margin-top:8px"><strong>Sveshnikov structure:</strong> Black has e5 pawn, Na3 is misplaced, queenside (b4/a5) counterplay is fast. This is rich tactical play — Austin's combinational style thrives here. Daniel's classical positional strengths (Maróczy squeeze, Italian technique) don't apply.</p>
+</div>
+
+<input class="acc-toggle" id="b2" type="checkbox">
+<label class="acc-label" for="b2">Branch B — After 4...e5: Kalashnikov (if 5.Nb5 d6 6.c4)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 e5
+    5.Nb5 <span class="mv-a">d6</span> 6.c4 <span class="mv-a">Be7!</span>
+    7.N1c3 <span class="mv-a">a6</span> 8.Na3 <span class="mv-a">Be6!</span>
+    9.Be2 <span class="mv-a">Nf6</span>
+    <span class="note"> — Kalashnikov variation with 6.c4. Be7 and Be6 set up queenside counterplay via ...Nd4. Active piece play is Austin's forte.</span>
+  </div>
+</div>
+
+<input class="acc-toggle" id="b3" type="checkbox">
+<label class="acc-label" for="b3">Branch C — If Daniel avoids Sveshnikov: 5.Nf3 (retreat)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 e5
+    5.Nf3 <span class="mv-a">Nf6!</span> 6.Nc3 <span class="mv-a">Bb4!</span>
+    7.Bg5 <span class="mv-a">h6</span> 8.Bxf6 <span class="mv-a">Qxf6</span>
+    9.Nd5 <span class="mv-a">Qd6!</span>
+    <span class="note"> — After Nf3 retreat, Austin's ...Bb4 pin is very strong. Nd5 is met by ...Qd6 holding everything. Active piece play continues.</span>
+  </div>
+</div>
+
+<h3 style="margin-top:18px">Key themes as Austin Black</h3>
+<table>
+  <thead><tr><th>Theme</th><th>Details</th></tr></thead>
+  <tbody>
+  <tr><td><strong>4...e5! kills Maróczy</strong></td><td>Daniel's B36/B38 preparation becomes instantly irrelevant; he's never played Sveshnikov on record</td></tr>
+  <tr><td><strong>b5/b4 queenside thrust</strong></td><td>Sveshnikov structure: ...b5-b4 creates queenside counterplay and tactical complexity before Daniel's long-game technique can activate</td></tr>
+  <tr><td><strong>Create complications by move 20</strong></td><td>Daniel is strongest in long classical games (C54 PAM R8: 98.0%). Austin must create tactics before the endgame</td></tr>
+  <tr><td><strong>Time pressure as a weapon</strong></td><td>Daniel's worst games come in time pressure situations; Sveshnikov's rich complexity burns clock time in unfamiliar territory</td></tr>
+  </tbody>
+</table>
+
+<hr class="section-divider">
+
+<h2 class="analysis">Part 3 — Accuracy Profile and Psychological Strategy</h2>
+
+<h3>Daniel's accuracy by tournament</h3>
+<table>
+  <thead><tr><th>Tournament</th><th>Games</th><th>Record</th><th>Avg Acc</th><th>Context</th></tr></thead>
+  <tbody>
+  <tr><td>PAM School 2026</td><td>5</td><td>3W–1L–1D</td><td><strong>94.8%</strong></td><td>Peak form; 98.8% best game; vs avg 2000+</td></tr>
+  <tr><td>PAM 2026</td><td>9</td><td>6W–2L–1D</td><td><strong>93.9%</strong></td><td>Solid; drew 2209, beat 2137</td></tr>
+  <tr><td>5th Skyline Open</td><td>1</td><td>1W</td><td><strong>97.7%</strong></td><td>Dominant win (B47 Taimanov)</td></tr>
+  <tr><td>Canada Closed 2026</td><td>8</td><td>2W–4L–2D</td><td><strong>91.8%</strong></td><td>Apr 2026 (1942-rated); worst record; 5-blunder collapse in C07</td></tr>
+  <tr><td>Toronto Open 2026</td><td>1</td><td>0W–1L</td><td><strong>90.0%</strong></td><td>Recent form check</td></tr>
+  <tr style="background:#f5f0e8"><td><strong>Overall</strong></td><td><strong>24</strong></td><td><strong>12W–7L–5D</strong></td><td><strong>93.4%</strong></td><td>White 93.4% · Black 93.4%</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-gold" style="margin-top:12px">
+  <strong>Key insight:</strong> Canada Closed (Apr 2026) was Daniel's weakest performance: <strong>0W-1D-3L as White</strong> vs 2060+ opposition. His White game specifically breaks down against strong players. PAM School (5 games, 94.8%) is his recent peak. Austin should note Daniel is a stronger player now than in April — but also that his White record vs strong opponents remains a weak spot.
+</div>
+
+<h3 style="margin-top:14px">Daniel's known error patterns</h3>
+<table>
+  <thead><tr><th>Pattern</th><th>Critical example</th><th>How to exploit</th></tr></thead>
+  <tbody>
+  <tr><td><strong>5-blunder endgame chain (CC R9)</strong></td><td>C07 French Tarrasch as White: f4?? 605CPL (±0.01 → -6.04!) then a6?? → Kxf5?? 1000CPL — chain collapse when one error triggers panic</td><td>Keep positions live until move 30+; a single mistake from Daniel can cascade</td></tr>
+  <tr><td><strong>Passive defense instead of central captures</strong></td><td>C47 Four Knights: O-O (best Nf6) 343CPL; Bf8 (best Nxd4) 438CPL — played safe moves instead of tactical ones</td><td>Create positions requiring concrete pawn captures; Daniel's instinct under pressure is passivity, not activity</td></tr>
+  <tr><td><strong>Queen misplacement from winning positions</strong></td><td>C88 PAM R7: Qc6?? 730CPL (from +7.30 → 0.00!) — misplaced queen squandered a won game</td><td>In positions where Daniel is ahead, keep the position complex; he may misplace the queen</td></tr>
+  <tr><td><strong>Missed kingside attack</strong></td><td>CC R7 C54: Rb1 (best h4) 207CPL from +3.65 — missed decisive kingside attack; allowed opponent counterplay</td><td>When Austin is under attack, Daniel may not find the sharpest continuation</td></tr>
+  </tbody>
+</table>
+
+<h3 style="margin-top:14px">Psychological notes</h3>
+<ul style="padding-left:20px; margin-top:6px;">
+  <li><strong>Daniel's rating surge (1942→2191) means he is "in form" — do not be misled by the April 2026 Canada Closed results.</strong> His recent PAM School at 94.8% shows genuine strength.</li>
+  <li>Daniel is a <strong>long-game specialist</strong> — C54 Italian games average higher depth than other openings. Austin must avoid endgames and create tactics before move 25.</li>
+  <li>Daniel's <strong>White game vs 2100+ is specifically weak</strong> (CC: 0W-1D-3L). When Austin is Black, he is facing Daniel's least reliable side.</li>
+  <li>The <strong>chain-blunder pattern</strong> (CC R9: one error → 5 consecutive blunders) suggests psychological fragility after the first mistake — if Austin finds Daniel's first error, don't ease the pressure.</li>
+</ul>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 4 — If / Then Quick Reference</h2>
+
+<input class="acc-toggle" id="q1" type="checkbox" checked>
+<label class="acc-label" for="q1">Austin as White — opening decisions</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Daniel plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
+    <tbody>
+    <tr><td>1…e5 (always vs 1.e4)</td><td>2.Nf3 Nc6 <strong>3.Bb5!</strong> (Ruy Lopez)</td><td>Avoids Italian where Daniel has 7-game prep</td></tr>
+    <tr><td>3…a6 (Morphy, standard)</td><td><strong>4.Bxc6!</strong> (Exchange) <em>or</em> 4.Ba4 (Closed)</td><td>Exchange = Austin's structural style; Closed = more complex</td></tr>
+    <tr><td>3…Nf6 (Berlin)</td><td>4.O-O Nxe4 5.Re1 Nd6 6.Nxe5 Nxe5 7.Rxe5+ Be7 8.d4</td><td>Berlin endgame — unusual for Daniel; avoids Italian</td></tr>
+    <tr><td><em>Surprise option:</em> Austin plays 3.Nc3</td><td>Four Knights! Daniel's worst game (84.0%) was in C47</td><td>Highest risk/reward; only use if Austin has studied to move 15</td></tr>
+    </tbody>
+  </table>
+  <div class="callout callout-danger" style="margin-top:10px">
+    <strong>NEVER play 3.Bc4 (Italian).</strong> Daniel has 10 Italian games and drew 2209 in C54. This is his best-prepared opening by a significant margin.
+  </div>
+</div>
+
+<input class="acc-toggle" id="q2" type="checkbox" checked>
+<label class="acc-label" for="q2">Austin as Black — opening decisions</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Daniel plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
+    <tbody>
+    <tr><td>1.e4 (always)</td><td>1…c5 2…Nc6 3…cxd4 <strong>4…e5!</strong> (Sveshnikov)</td><td>Kills Maróczy Bind; Daniel has 0 Sveshnikov games</td></tr>
+    <tr><td>5.Nb5 (Sveshnikov main)</td><td>5…d6 6.N1c3 a6 7.Na3 <strong>b5!</strong></td><td>Standard Sveshnikov queenside attack</td></tr>
+    <tr><td>5.Nb5 d6 6.c4 (Kalashnikov)</td><td>6…Be7! 7.N1c3 a6 8.Na3 <strong>Be6!</strong></td><td>Kalashnikov line; piece activity over pawn structure</td></tr>
+    <tr><td>1.d4 (unlikely but possible)</td><td>1…Nf6 2…e6 3…Bb4 (Nimzo-Indian)</td><td>No 1.d4 games in Daniel's dataset; Austin's standard weapon</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<input class="acc-toggle" id="q3" type="checkbox">
+<label class="acc-label" for="q3">Middlegame and endgame decisions</label>
+<div class="acc-content">
+  <ul style="padding-left:18px;">
+    <li><strong>DO</strong> keep pieces on the board until move 25 — Daniel's long-game technique is dangerous; avoid early simplifications</li>
+    <li><strong>DO NOT</strong> trade off into clean endgames — Daniel's Italian technique is most deadly in calm endgames (drew 2209, beat 2137 in C54 endgames)</li>
+    <li><strong>DO</strong> maintain the pressure after Daniel's first mistake — chain-blunder pattern (CC R9: 1 error → 5 blunders) suggests psychological fragility</li>
+    <li><strong>DO NOT</strong> give Daniel a long-game squeeze — his Maróczy Bind technique is specifically designed to squeeze slowly; Sveshnikov avoids this</li>
+    <li>If you reach a complex position at move 30+: Daniel's worst endgame collapse was king navigation (Kxf5?? 1000CPL). Force king-and-pawn endings and find the king move he'll misjudge.</li>
+  </ul>
+</div>
+
+<input class="acc-toggle" id="q4" type="checkbox">
+<label class="acc-label" for="q4">Opening drills — Sveshnikov core moves</label>
+<div class="acc-content">
+  <h3>Memorize: Austin's Sveshnikov to move 10</h3>
+  <div class="move-line">
+    <span class="mv-a">1…c5</span>
+    <span class="key-move">2…Nc6</span>
+    <span class="key-move">3…cxd4</span>
+    <span class="key-move">4…e5!</span>
+    <span class="key-move">5…d6</span>
+    <span class="key-move">6…a6</span>
+    <span class="key-move">7…b5!</span>
+    <span class="key-move">8…Nce7</span>
+    <span class="key-move">9…Bxe7</span>
+    <span class="key-move">10…b4!</span>
+  </div>
+  <p style="margin-top:8px"><strong>Key rules:</strong> (1) 4...e5! is the anchor move — play it every time regardless of what comes. (2) 7...b5! is the queenside counterattack — never delay this. (3) After Nd5, the knight exchange on e7 is fine — recapture with the bishop to maintain piece activity. (4) 10...b4 advances the queenside and gains space.</p>
+  <p style="margin-top:6px"><strong>Quick test:</strong> What are Austin's first 10 moves in the Sveshnikov?</p>
+  <p>Answer: <strong>1...c5 2...Nc6 3...cxd4 4...e5! 5...d6 6...a6 7...b5! 8...Nce7 9...Bxe7 10...b4</strong></p>
+</div>
+
+<input class="acc-toggle" id="q5" type="checkbox">
+<label class="acc-label" for="q5">Opening drills — Ruy Lopez core moves</label>
+<div class="acc-content">
+  <h3>Memorize: Austin's Ruy Lopez to move 9 (Closed)</h3>
+  <div class="move-line">
+    <span class="mv-a">1.e4</span> e5
+    <span class="mv-a">2.Nf3</span> Nc6
+    <span class="key-move">3.Bb5!</span> a6
+    <span class="key-move">4.Ba4</span> Nf6
+    <span class="key-move">5.O-O</span> Be7
+    <span class="key-move">6.Re1</span> b5
+    <span class="key-move">7.Bb3!</span> d6
+    <span class="key-move">8.c3</span> O-O
+    <span class="key-move">9.h3!</span>
+  </div>
+  <h3 style="margin-top:12px">Memorize: Exchange Spanish variation</h3>
+  <div class="move-line">
+    <span class="mv-a">1.e4</span> e5
+    <span class="mv-a">2.Nf3</span> Nc6
+    <span class="key-move">3.Bb5!</span> a6
+    <span class="key-move">4.Bxc6!</span> dxc6
+    <span class="key-move">5.O-O</span> f6
+    <span class="key-move">6.d4</span> exd4
+    <span class="key-move">7.Nxd4</span> c5
+    <span class="key-move">8.Nb3</span> Qxd1
+    <span class="key-move">9.Rxd1</span> Bg4
+    <span class="key-move">10.f3!</span>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 5 — Critical Moments Reference</h2>
+
+<div class="callout callout-danger">
+  <strong>C07 French Tarrasch collapse (CC R9):</strong> Daniel played <strong>27.f4??</strong> (best Kc2, 605CPL) from a balanced position (+0.01). After that single wrong move he continued with 5 blunders: a6?? (876CPL, best Ke2), Kxf5?? (1000CPL, best Kf6). Pattern: one early positional blunder triggers a cascade — Daniel's psychological resilience fails after the first significant error.
+</div>
+
+<h3>Pattern: C47 Four Knights — passive moves instead of central captures</h3>
+<div class="move-line">
+  <span class="note">Daniel as Black, PAM R5 (84.0% — worst game):</span><br>
+  Move 8: <span class="bad-move">O-O</span> (best Nf6, 343CPL — should fight in center, not castle passively)<br>
+  Move 10: <span class="bad-move">Bf8</span> (best Nxd4, 438CPL — bishop retreats instead of taking free pawn!)
+</div>
+<p style="margin:6px 0 10px; font-size:0.9em; color:#444">
+  This pattern — "castle instead of fight" and "retreat instead of capture" — is Daniel's instinct under pressure in Four Knights. If Austin plays 3.Nc3, these are exactly the moves to create pressure around.
+</p>
+
+<h3>Pattern: Queen misplacement from winning positions</h3>
+<div class="move-line">
+  <span class="note">Daniel as Black, PAM R7 (C88 Spanish, +7.30 winning):</span><br>
+  Move 49: <span class="bad-move">Qc6??</span> (best Rd4, 730CPL — queen placed on passive square, let opponent back in)<br>
+  Move 60: <span class="bad-move">Qxd3??</span> (best Qc6+, 462CPL — wrong capture, lost winning advantage again)
+</div>
+<p style="margin:6px 0 10px; font-size:0.9em; color:#444">
+  In Spanish/Lopez positions specifically, Daniel's queen navigation is unreliable when converting winning positions. If Austin reaches endgames in Ruy Lopez structures, Daniel may not convert cleanly.
+</p>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 6 — Engine Accuracy Reference (24 OTB Games)</h2>
+
+<table>
+  <thead><tr><th>Tournament</th><th>Rnd</th><th>Color</th><th>Opponent</th><th>Elo</th><th>Result</th><th>Acc</th><th>ECO</th><th>B/M</th></tr></thead>
+  <tbody>
+  <tr><td>PAM School 2026</td><td>R9</td><td>Black</td><td>Rojas Raraz, John Arick</td><td>1614</td><td>Win</td><td><strong>98.8%</strong></td><td>D02</td><td>0/1</td></tr>
+  <tr><td>PAM 2026</td><td>R8</td><td>White</td><td>Diaz Guerrero, Jesus Daniel</td><td>2209</td><td>Draw</td><td><strong>98.0%</strong></td><td>C54</td><td>0/0</td></tr>
+  <tr><td>5th Skyline Open</td><td>R6</td><td>White</td><td>Zhou, Alexander Zheng</td><td>1859</td><td>Win</td><td><strong>97.7%</strong></td><td>B47</td><td>0/0</td></tr>
+  <tr><td>PAM 2026</td><td>R9</td><td>Black</td><td>Fernandez Herrera, Andres</td><td>2137</td><td>Win</td><td>97.4%</td><td>C54</td><td>0/0</td></tr>
+  <tr><td>PAM 2026</td><td>R1</td><td>Black</td><td>Logan, Liam</td><td>1605</td><td>Win</td><td>97.8%</td><td>D04</td><td>4/0</td></tr>
+  <tr><td>PAM 2026</td><td>R4</td><td>White</td><td>Rodriguez Barradas, J.A.</td><td>1847</td><td>Win</td><td>96.7%</td><td>B36</td><td>0/0</td></tr>
+  <tr><td>PAM School 2026</td><td>R3</td><td>Black</td><td>Gil Chacon, Fernando Enrique</td><td>2097</td><td>Draw</td><td>96.7%</td><td>C99</td><td>0/1</td></tr>
+  <tr><td>PAM 2026</td><td>R3</td><td>Black</td><td>Cabrera Alvarado, Hugo</td><td>1834</td><td>Win</td><td>95.9%</td><td>D20</td><td>0/1</td></tr>
+  <tr><td>PAM School 2026</td><td>R5</td><td>Black</td><td>Yin, Andrew</td><td>1970</td><td>Draw</td><td>94.3%</td><td>C54</td><td>0/1</td></tr>
+  <tr><td>Canada Closed 2026</td><td>R8</td><td>Black</td><td>Wang, Nathan Zian</td><td>2080</td><td>Win</td><td>94.9%</td><td>C54</td><td>0/1</td></tr>
+  <tr><td>Canada Closed 2026</td><td>R4</td><td>White</td><td>Wu, Ting En Ryan</td><td>1906</td><td>Draw</td><td>94.5%</td><td>B32</td><td>0/1</td></tr>
+  <tr><td>Canada Closed 2026</td><td>R3</td><td>Black</td><td>Lu, Aiden Hao-Ting</td><td>1897</td><td>Loss</td><td>94.0%</td><td>C54</td><td>0/3</td></tr>
+  <tr><td>PAM School 2026</td><td>R6</td><td>White</td><td>Ayala Delgado, Sergio Alejandro</td><td>2044</td><td>Draw</td><td>92.3%</td><td>B45</td><td>1/3</td></tr>
+  <tr><td>PAM 2026</td><td>R6</td><td>White</td><td>Rueda Ahumada, Gabriel Omar</td><td>1928</td><td>Win</td><td>93.7%</td><td>C55</td><td>1/0</td></tr>
+  <tr><td>Canada Closed 2026</td><td>R9</td><td>White</td><td>Kalinin, Dzmitry</td><td>2137</td><td>Loss</td><td>92.7%</td><td>C07</td><td>5/0</td></tr>
+  <tr><td>Canada Closed 2026</td><td>R2</td><td>Black</td><td>Qian, Eric</td><td>2076</td><td>Loss</td><td>92.5%</td><td>D27</td><td>0/2</td></tr>
+  <tr><td>PAM School 2026</td><td>R4</td><td>White</td><td>Palomino Quispe, Mateo Henry</td><td>2041</td><td>Win</td><td>92.1%</td><td>B38</td><td>1/2</td></tr>
+  <tr><td>PAM 2026</td><td>R2</td><td>White</td><td>Piza Vera, Andres</td><td>1766</td><td>Win</td><td>91.7%</td><td>A04</td><td>2/1</td></tr>
+  <tr><td>Canada Closed 2026</td><td>R1</td><td>White</td><td>Dhaliwal, Jaipreet Singh</td><td>2162</td><td>Loss</td><td>91.2%</td><td>B90</td><td>1/0</td></tr>
+  <tr><td>Toronto Open 2026</td><td>R1</td><td>Black</td><td>Xie, Irene</td><td>1969</td><td>Loss</td><td>90.0%</td><td>C54</td><td>1/1</td></tr>
+  <tr class="row-danger"><td>PAM 2026</td><td>R7</td><td>Black</td><td>Delgado Gutierrez, Mateo</td><td>1833</td><td>Win</td><td>90.2%</td><td>C88</td><td>2/2</td></tr>
+  <tr class="row-danger"><td>Canada Closed 2026</td><td>R7</td><td>White</td><td>Wiebe, Isaac</td><td>2060</td><td>Loss</td><td>87.3%</td><td>C54</td><td>2/2</td></tr>
+  <tr class="row-danger"><td>Canada Closed 2026</td><td>R6</td><td>Black</td><td>Duong, Thanh Nha</td><td>2206</td><td>Win</td><td>87.7%</td><td>D27</td><td>2/3</td></tr>
+  <tr class="row-danger"><td>PAM 2026</td><td>R5</td><td>Black</td><td>Sen, Samant Robert</td><td>1915</td><td>Loss</td><td><strong>84.0%</strong></td><td>C47</td><td>2/0</td></tr>
+  <tr style="background:#f5f0e8"><td colspan="5"><strong>Overall</strong></td><td><strong>12W–7L–5D</strong></td><td><strong>93.4%</strong></td><td></td><td></td></tr>
+  </tbody>
+</table>
+<p style="font-size:0.82em; color:#666; margin-top:4px">Red rows = lowest accuracy games. C54/C55 Italian is Daniel's most-prepared line (10+ games both colors). Never play Italian as Austin's White weapon.</p>
+
+<p style="margin-top:20px; font-size:0.85em; color:#555; text-align:center">
+  <a href="../austin-prep.html">← Back to Austin Lin Prep Index</a>
+</p>
+
+</body>
+</html>
