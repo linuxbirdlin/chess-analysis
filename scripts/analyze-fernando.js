@@ -17,6 +17,8 @@ const TOURNAMENTS = [
   { dir: 'pamschool2026',    name: 'PAM School 2026' },
   { dir: 'olypianational2026', name: 'Olympia Nacional 2026' },
   { dir: 'ed-national',      name: 'ED Nacional 2026' },
+  { dir: 'worldschools2026', name: 'World Schools 2026' },
+  { dir: 'queretaro2026',    name: 'Queretaro 2026' },
 ];
 
 // Standalone multi-game PGN files (not directories)
