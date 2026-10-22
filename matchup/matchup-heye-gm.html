@@ -87,12 +87,12 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <span><strong>GM Prep</strong></span>
   <span>Heye rating: ~2028–2065 (CM)</span>
   <span>Direct record: 1 draw (study game, Mar 2026)</span>
-  <span>Classical games analyzed: 26</span>
+  <span>Classical games analyzed: 35</span>
 </div>
 
 <div class="sources">
   <strong>Data sources</strong>
-  <span class="src-classical">Primary: 26 classical games (Canada Closed, Ontario Open, PAM 2026, Toronto Open 2026) — engine-analyzed at movetime-800.</span>
+  <span class="src-classical">Primary: 35 classical games (Royal City Masters 2025, Canada Closed 2026, Ontario Open 2026, PAM 2026, Toronto Open 2026, Hart House 2026, World Open 2026) — engine-analyzed at movetime-800.</span>
   <span class="src-lichess">Supplementary: Lichess games (Carlnosen, rapid/blitz) — opening line frequency only.</span>
 </div>
 
@@ -105,8 +105,10 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
       <li>Italian (C54/C55): Bc4/d3/c3 + b4/a4 — <strong>primary weapon</strong></li>
       <li>Yugoslav Attack vs Sicilian (B75/B80/B58)</li>
       <li>Sharp h4/Rh3 vs French (C16) — unreliable</li>
-      <li>White avg accuracy: <strong>95.0%</strong></li>
-      <li>Best games: Italian (97–99%) — deeply prepared</li>
+      <li>Also: Sveshnikov (B33) 98.4% win; Petroff (C43) 97.4% win</li>
+      <li>White avg accuracy: <strong>94.5%</strong></li>
+      <li>Best games: Italian/Petroff (97–99%) — deeply prepared</li>
+      <li>Najdorf English Attack vs GM Fedorowicz: 93.3%, 3 blunders — can fail vs elite</li>
       <li>Worst: French Winawer (88.2%, 2 blunders)</li>
     </ul>
   </div>
@@ -114,11 +116,12 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
     <h3>Heye as Black</h3>
     <ul>
       <li>vs Austin's 1.e4: <strong>Sicilian Kan (B43)</strong> — confirmed</li>
-      <li>vs 1.d4: Slav (D11/D12), Catalan Open (E04)</li>
-      <li>vs 1.e4 (others): 1...e5 Four Knights / Italian Black</li>
-      <li>Black avg accuracy: <strong>93.0%</strong> (3% below White)</li>
-      <li>Worst games: 87.8–88.7% under time pressure</li>
-      <li>Confirmed blunders: 23...Kg8?? (R9), 24...Qe7?? (R7)</li>
+      <li>vs 1.e4 (others): Ruy Lopez C84/C65 (NEW — vs Kot, Moses)</li>
+      <li>vs 1.d4: Slav (D11/D12/D15), Semi-Slav D43, Catalan Open (E04)</li>
+      <li>Black avg accuracy: <strong>92.8%</strong> (1.7% below White)</li>
+      <li>Last 6 Black games: 5 losses (RCM R2/R3/R6, Hart House R1, World Open R1)</li>
+      <li>Worst games: 87.8–88.7% under time pressure; 88.4% vs lower-rated Kot</li>
+      <li>Confirmed blunders: Nb4?? (RCM R3), Qd8?? (RCM R2), 23...Kg8?? (PAM R9), 24...Qe7?? (PAM R7)</li>
     </ul>
   </div>
   <div class="intel-card">
@@ -126,9 +129,9 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
     <ul>
       <li><strong>Strength:</strong> Italian endgame conversion (consistent)</li>
       <li><strong>Strength:</strong> Yugoslav Attack delivery (PAM R6 vs Sen)</li>
-      <li><strong>Weakness:</strong> Black calculation under time pressure</li>
+      <li><strong>Weakness:</strong> Black calculation under time pressure AND vs lower-rated</li>
       <li><strong>Weakness:</strong> French Winawer — 2 blunders, loss</li>
-      <li>Pattern: blunders in C50/D12 positions when defending late</li>
+      <li>Pattern: one-move piece-over-pawn blind spot (Nb4??, Kg8??, Qe7??) across all tournaments</li>
     </ul>
   </div>
   <div class="intel-card">
@@ -446,9 +449,12 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <table>
   <tr><th>Context</th><th>Accuracy range</th><th>Blunders</th></tr>
   <tr><td>Italian as White (C54/C55)</td><td>95.2%–99.0%</td><td>0–1 per game</td></tr>
+  <tr><td>Petroff/Sveshnikov as White (new)</td><td>97.4%–98.4%</td><td>0 per game</td></tr>
   <tr><td>Sicilian Yugoslav as White (B75/B80)</td><td>91.1%–95.9%</td><td>0–1 per game</td></tr>
-  <tr><td>Black, comfortable position</td><td>93.0%–98.2%</td><td>0</td></tr>
-  <tr><td><strong>Black, time pressure / defending</strong></td><td><strong>87.8%–88.7%</strong></td><td><strong>2–3 per game</strong></td></tr>
+  <tr><td>Najdorf English Attack as White (B90) vs GM</td><td>93.3%</td><td>3 blunders</td></tr>
+  <tr><td>Black, best games (Ruy Lopez R9, Catalan R5)</td><td>94.5%–97.8%</td><td>0</td></tr>
+  <tr><td>Black, comfortable solid defense</td><td>93.0%–95.9%</td><td>0</td></tr>
+  <tr><td><strong>Black, time pressure / defending / lower-rated opp</strong></td><td><strong>87.8%–88.7%</strong></td><td><strong>2–3 per game</strong></td></tr>
   <tr><td>Direct encounter vs Austin (Black, B43)</td><td>93.9%</td><td>0 blunders, 3 mistakes</td></tr>
 </table>
 
@@ -640,7 +646,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <hr class="section-divider">
 
 <!-- ═══════════════ PART 6 — ACCURACY TABLE ═══════════════ -->
-<h2>Part 6 — Engine Accuracy Reference (26 Classical Games)</h2>
+<h2>Part 6 — Engine Accuracy Reference (35 Classical Games)</h2>
 
 <table>
   <tr><th>Tournament / Game</th><th>Color</th><th>Opponent</th><th>Result</th><th>ECO</th><th>Accuracy</th><th>Bl/Mi</th></tr>
@@ -669,8 +675,24 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <tr style="background:#ffe0e0"><td><strong>PAM R9</strong></td><td>Black</td><td>Rodriguez</td><td><strong>Loss</strong></td><td>D12</td><td><strong>88.7%</strong></td><td>3/1</td></tr>
   <tr style="background:#ffe0e0"><td><strong>Toronto R3</strong></td><td>Black</td><td>Lu, Tony</td><td><strong>Loss</strong></td><td>C25</td><td><strong>87.8%</strong></td><td>1/3</td></tr>
   <tr style="background:#eef4ff"><td><strong>Direct (Mar 2026)</strong></td><td>Black</td><td>Lin, Austin</td><td>Study</td><td>B43</td><td>93.9%</td><td>0/3</td></tr>
+  <tr><td>RCM R7 (Aug 2025)</td><td>White</td><td>Wang, Nathan Zian</td><td>Win</td><td>B33</td><td><strong>98.4%</strong></td><td>0/2</td></tr>
+  <tr><td>RCM R8 (Aug 2025)</td><td>White</td><td>Plotkin, Victor</td><td>Win</td><td>C43</td><td><strong>97.4%</strong></td><td>0/0</td></tr>
+  <tr><td>RCM R5 (Aug 2025)</td><td>White</td><td>Windram, James</td><td>Draw</td><td>B47</td><td>89.7%</td><td>0/2</td></tr>
+  <tr><td>RCM R1 (Aug 2025)</td><td>White</td><td>Fedorowicz, John (GM)</td><td>Loss</td><td>B90</td><td>93.3%</td><td>3/1</td></tr>
+  <tr style="background:#fff0f0"><td>RCM R9 (Aug 2025)</td><td>Black</td><td>Moses, Neil</td><td>Win</td><td>C65</td><td><strong>97.8%</strong></td><td>0/0</td></tr>
+  <tr style="background:#fff0f0"><td>RCM R6 (Aug 2025)</td><td>Black</td><td>Cummings, David H.</td><td>Loss</td><td>A34</td><td>90.6%</td><td>0/4</td></tr>
+  <tr style="background:#ffe0e0"><td><strong>RCM R2 (Aug 2025)</strong></td><td>Black</td><td>Kaufman, Raymond</td><td><strong>Loss</strong></td><td>D43</td><td><strong>90.4%</strong></td><td>3/3</td></tr>
+  <tr style="background:#ffe0e0"><td><strong>RCM R3 (Aug 2025)</strong></td><td>Black</td><td>Kot, Emanuel</td><td><strong>Loss</strong></td><td>C84</td><td><strong>88.4%</strong></td><td>2/0</td></tr>
+  <tr style="background:#ffe0e0"><td><strong>Hart House R1 (Feb 2026)</strong></td><td>Black</td><td>Malakar, Saarthak</td><td><strong>Loss</strong></td><td>D02</td><td><strong>93.2%</strong></td><td>0/3</td></tr>
+  <tr style="background:#ffe0e0"><td><strong>World Open R1 (Jul 2026)</strong></td><td>Black</td><td>Park, Evan</td><td><strong>Loss</strong></td><td>D15</td><td><strong>89.7%</strong></td><td>2/3</td></tr>
 </table>
-<p style="font-size:0.8em; color:#666; margin-top:6px">Red rows = Heye's 3 worst Black results (time pressure losses). Blue row = direct encounter.</p>
+<p style="font-size:0.8em; color:#666; margin-top:6px">Dark red rows = Heye's worst Black results (losses/time pressure). Light red = Black losses. Blue row = direct encounter. RCM = Royal City Masters Aug 2025.</p>
+
+<div class="callout callout-gold" style="margin-top:18px">
+  <strong>Royal City Masters 2025 key finding (9 new games added Aug 2025):</strong>
+  White record 2W–1D–1L (avg 94.6%): near-perfect wins vs Plotkin 2282 (C43, 97.4%) and Wang 1993 (B33, 98.4%), Najdorf collapse vs GM Fedorowicz 2321 (B90, 3 blunders/93.3%).
+  Black record 1W–3L (avg 91.6%): only win was RCM R9 vs Moses 2234 (C65, 97.8%) — but three Black losses including Kot 2166 (C84, 88.4%, Nb4?? blunder from equal position). Strongly confirms the White/Black split pattern. His 5 most recent Black games (RCM R2/R3/R6, Hart House R1, World Open R1) are all losses.
+</div>
 
 <hr class="section-divider">
 
@@ -729,7 +751,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 
 <div style="margin-top:24px; font-size:0.78em; color:#888; border-top:1px solid #ddd; padding-top:10px; line-height:1.6">
   <strong>Sources:</strong>
-  Classical: 26 games engine-analyzed (movetime-800, 4 tournaments, 2026). Supplementary: 519 Lichess games
+  Classical: 35 games engine-analyzed (movetime-800, 7 tournaments, 2025–2026): Royal City Masters Aug 2025 (8g), Canada Closed Apr 2026 (9g), Ontario Open May 2026 (4g), PAM Jul 2026 (9g), Toronto Open Sep 2026 (2g), Hart House Feb 2026 (1g), World Open Jul 2026 (1g). Supplementary: 519 Lichess games
   (Carlnosen, rapid/blitz) — opening line frequency only. Engine: Stockfish. Accuracy formula: Lichess win-probability method.
   Direct encounter (Mar 2026): Austin White vs Heye Black — B43 Kan, study game (unfinished), Heye 93.9% / 3 mistakes.
 </div>

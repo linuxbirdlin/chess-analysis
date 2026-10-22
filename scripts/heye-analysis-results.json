@@ -927,5 +927,389 @@
         }
       ]
     }
+  },
+  "Royal City Masters": {
+    "R7": {
+      "heyeColor": "white",
+      "opponent": "Wang, Nathan Zian",
+      "opponentElo": 1993,
+      "result": "1-0",
+      "heyeResult": "win",
+      "eco": "?",
+      "heyeAccuracy": 98.4,
+      "oppAccuracy": 92.8,
+      "avgCPL": 21,
+      "blunders": 0,
+      "mistakes": 2,
+      "inaccuracies": 0,
+      "movesAnalyzed": 32,
+      "criticalMoments": [
+        {
+          "san": "Ne6+",
+          "bestMove": "Rd6",
+          "cpl": 285,
+          "classification": "mistake",
+          "evalBefore": "+11.74",
+          "evalAfter": "+8.89"
+        },
+        {
+          "san": "Nd8+",
+          "bestMove": "Ng5+",
+          "cpl": 278,
+          "classification": "mistake",
+          "evalBefore": "+11.45",
+          "evalAfter": "+8.67"
+        }
+      ]
+    },
+    "R8": {
+      "heyeColor": "white",
+      "opponent": "Plotkin, Victor",
+      "opponentElo": 2282,
+      "result": "1-0",
+      "heyeResult": "win",
+      "eco": "?",
+      "heyeAccuracy": 97.4,
+      "oppAccuracy": 94.1,
+      "avgCPL": 8,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 2,
+      "movesAnalyzed": 54,
+      "criticalMoments": [
+        {
+          "san": "Rxc7",
+          "bestMove": "Rh4",
+          "cpl": 78,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.79",
+          "evalAfter": "+0.01"
+        },
+        {
+          "san": "Ke3",
+          "bestMove": "Ra8",
+          "cpl": 60,
+          "classification": "inaccuracy",
+          "evalBefore": "+5.01",
+          "evalAfter": "+4.41"
+        }
+      ]
+    },
+    "R5": {
+      "heyeColor": "white",
+      "opponent": "Windram, James",
+      "opponentElo": 1984,
+      "result": "1/2-1/2",
+      "heyeResult": "draw",
+      "eco": "?",
+      "heyeAccuracy": 89.7,
+      "oppAccuracy": 91.1,
+      "avgCPL": 28,
+      "blunders": 0,
+      "mistakes": 2,
+      "inaccuracies": 5,
+      "movesAnalyzed": 39,
+      "criticalMoments": [
+        {
+          "san": "Rb4",
+          "bestMove": "Ra3",
+          "cpl": 172,
+          "classification": "mistake",
+          "evalBefore": "-0.96",
+          "evalAfter": "-2.68"
+        },
+        {
+          "san": "g4",
+          "bestMove": "Ra3",
+          "cpl": 152,
+          "classification": "mistake",
+          "evalBefore": "-1.36",
+          "evalAfter": "-2.88"
+        },
+        {
+          "san": "b4",
+          "bestMove": "Qd4",
+          "cpl": 112,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.82",
+          "evalAfter": "-0.30"
+        }
+      ]
+    },
+    "R1": {
+      "heyeColor": "white",
+      "opponent": "Fedorowicz, John",
+      "opponentElo": 2321,
+      "result": "0-1",
+      "heyeResult": "loss",
+      "eco": "?",
+      "heyeAccuracy": 93.3,
+      "oppAccuracy": 97.7,
+      "avgCPL": 63,
+      "blunders": 3,
+      "mistakes": 1,
+      "inaccuracies": 6,
+      "movesAnalyzed": 49,
+      "criticalMoments": [
+        {
+          "san": "g5",
+          "bestMove": "Kc1",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-15.92",
+          "evalAfter": "-#"
+        },
+        {
+          "san": "Nd4",
+          "bestMove": "Qe4",
+          "cpl": 631,
+          "classification": "blunder",
+          "evalBefore": "+0.39",
+          "evalAfter": "-5.92"
+        },
+        {
+          "san": "h4",
+          "bestMove": "Kc1",
+          "cpl": 415,
+          "classification": "blunder",
+          "evalBefore": "-10.91",
+          "evalAfter": "-15.06"
+        }
+      ]
+    },
+    "R9": {
+      "heyeColor": "black",
+      "opponent": "Moses, Neil",
+      "opponentElo": 2234,
+      "result": "0-1",
+      "heyeResult": "win",
+      "eco": "?",
+      "heyeAccuracy": 97.8,
+      "oppAccuracy": 94,
+      "avgCPL": 6,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 1,
+      "movesAnalyzed": 56,
+      "criticalMoments": [
+        {
+          "san": "Qf4",
+          "bestMove": "Bg4",
+          "cpl": 77,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.77",
+          "evalAfter": "+0.00"
+        }
+      ]
+    },
+    "R6": {
+      "heyeColor": "black",
+      "opponent": "Cummings, David H.",
+      "opponentElo": 2252,
+      "result": "1-0",
+      "heyeResult": "loss",
+      "eco": "?",
+      "heyeAccuracy": 90.6,
+      "oppAccuracy": 94.9,
+      "avgCPL": 37,
+      "blunders": 0,
+      "mistakes": 4,
+      "inaccuracies": 5,
+      "movesAnalyzed": 39,
+      "criticalMoments": [
+        {
+          "san": "Ne6",
+          "bestMove": "Kh8",
+          "cpl": 236,
+          "classification": "mistake",
+          "evalBefore": "-3.93",
+          "evalAfter": "-6.29"
+        },
+        {
+          "san": "f6",
+          "bestMove": "b6",
+          "cpl": 192,
+          "classification": "mistake",
+          "evalBefore": "-1.53",
+          "evalAfter": "-3.45"
+        },
+        {
+          "san": "b6",
+          "bestMove": "Kf7",
+          "cpl": 181,
+          "classification": "mistake",
+          "evalBefore": "-6.55",
+          "evalAfter": "-8.36"
+        }
+      ]
+    },
+    "R2": {
+      "heyeColor": "black",
+      "opponent": "Kaufman, Raymond",
+      "opponentElo": 2239,
+      "result": "1-0",
+      "heyeResult": "loss",
+      "eco": "?",
+      "heyeAccuracy": 90.4,
+      "oppAccuracy": 93.7,
+      "avgCPL": 58,
+      "blunders": 3,
+      "mistakes": 3,
+      "inaccuracies": 4,
+      "movesAnalyzed": 55,
+      "criticalMoments": [
+        {
+          "san": "g5+",
+          "bestMove": "Kh7",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-9.03",
+          "evalAfter": "-#"
+        },
+        {
+          "san": "Qd8",
+          "bestMove": "Bd7",
+          "cpl": 359,
+          "classification": "blunder",
+          "evalBefore": "-1.61",
+          "evalAfter": "-5.20"
+        },
+        {
+          "san": "Nf8",
+          "bestMove": "Rb7",
+          "cpl": 342,
+          "classification": "blunder",
+          "evalBefore": "-3.17",
+          "evalAfter": "-6.59"
+        }
+      ]
+    },
+    "R3": {
+      "heyeColor": "black",
+      "opponent": "Kot, Emanuel",
+      "opponentElo": 2166,
+      "result": "1-0",
+      "heyeResult": "loss",
+      "eco": "?",
+      "heyeAccuracy": 88.4,
+      "oppAccuracy": 95.8,
+      "avgCPL": 59,
+      "blunders": 2,
+      "mistakes": 0,
+      "inaccuracies": 2,
+      "movesAnalyzed": 27,
+      "criticalMoments": [
+        {
+          "san": "Nb4",
+          "bestMove": "axb5",
+          "cpl": 620,
+          "classification": "blunder",
+          "evalBefore": "-0.08",
+          "evalAfter": "-6.28"
+        },
+        {
+          "san": "Rxd6",
+          "bestMove": "g6",
+          "cpl": 603,
+          "classification": "blunder",
+          "evalBefore": "-6.74",
+          "evalAfter": "-12.77"
+        },
+        {
+          "san": "d5",
+          "bestMove": "Qe5",
+          "cpl": 112,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.09",
+          "evalAfter": "-1.21"
+        }
+      ]
+    }
+  },
+  "2026 Hart House Reading Week Open": {
+    "R1": {
+      "heyeColor": "black",
+      "opponent": "Malakar, Saarthak",
+      "opponentElo": 2206,
+      "result": "1-0",
+      "heyeResult": "loss",
+      "eco": "?",
+      "heyeAccuracy": 93.2,
+      "oppAccuracy": 97.5,
+      "avgCPL": 33,
+      "blunders": 0,
+      "mistakes": 3,
+      "inaccuracies": 3,
+      "movesAnalyzed": 39,
+      "criticalMoments": [
+        {
+          "san": "Re8",
+          "bestMove": "Rf7",
+          "cpl": 181,
+          "classification": "mistake",
+          "evalBefore": "-2.23",
+          "evalAfter": "-4.04"
+        },
+        {
+          "san": "Bf7",
+          "bestMove": "e5",
+          "cpl": 158,
+          "classification": "mistake",
+          "evalBefore": "-4.13",
+          "evalAfter": "-5.71"
+        },
+        {
+          "san": "Ra8",
+          "bestMove": "Na5",
+          "cpl": 152,
+          "classification": "mistake",
+          "evalBefore": "-7.63",
+          "evalAfter": "-9.15"
+        }
+      ]
+    }
+  },
+  "54th Annual World Open": {
+    "R1": {
+      "heyeColor": "black",
+      "opponent": "Park, Evan",
+      "opponentElo": 2434,
+      "result": "1-0",
+      "heyeResult": "loss",
+      "eco": "?",
+      "heyeAccuracy": 89.7,
+      "oppAccuracy": 94.4,
+      "avgCPL": 98,
+      "blunders": 2,
+      "mistakes": 3,
+      "inaccuracies": 6,
+      "movesAnalyzed": 34,
+      "criticalMoments": [
+        {
+          "san": "b5",
+          "bestMove": "Qe7",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-8.76",
+          "evalAfter": "-24.11"
+        },
+        {
+          "san": "bxc4",
+          "bestMove": "Qxd6",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-12.82",
+          "evalAfter": "-#"
+        },
+        {
+          "san": "Rc7",
+          "bestMove": "e5",
+          "cpl": 172,
+          "classification": "mistake",
+          "evalBefore": "-6.89",
+          "evalAfter": "-8.61"
+        }
+      ]
+    }
   }
 }

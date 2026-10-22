@@ -19,6 +19,12 @@ const TOURNAMENTS = [
   { dir: 'torontopen2026',  name: 'Toronto Open 2026' },
 ];
 
+// Single PGN files containing multiple games from multiple tournaments
+// Each game's [Event] tag is used as the tournament key
+const MULTI_GAME_FILES = [
+  path.join(ROOT, 'opponents/heye/royalmaster2025.pgn'),
+];
+
 function isHeye(name) { return /gao,?\s*heye/i.test(name) || /heye,?\s*gao/i.test(name); }
 
 function preprocessPgn(text) {
@@ -177,9 +183,9 @@ async function analyzeGame(pgnText, heyeColor, engine) {
   };
 }
 
-async function processFile(filePath, tournamentName, roundKey, results, engine, gameNum, totalGames) {
-  const rawPgn = fs.readFileSync(filePath, 'utf8');
-  const games = splitGames(rawPgn);
+async function processFile(filePath, inlinePgn, tournamentName, roundKey, results, engine, gameNum, totalGames) {
+  const rawPgn = inlinePgn != null ? inlinePgn : fs.readFileSync(filePath, 'utf8');
+  const games = inlinePgn != null ? [inlinePgn] : splitGames(rawPgn);
 
   // Find the game(s) involving Heye
   const heyeGames = games.filter(g => parseGameInfo(g) !== null);
@@ -252,20 +258,37 @@ async function main() {
   const directPath = path.join(ROOT, 'opponents/heye/direct-encounter.pgn');
   if (fs.existsSync(directPath)) allFiles.push({ file: directPath, name: 'Direct Encounter', key: 'direct' });
 
+  // Add multi-tournament single PGN files — each game stored under its [Event] tag
+  for (const mf of MULTI_GAME_FILES) {
+    if (!fs.existsSync(mf)) continue;
+    const raw = fs.readFileSync(mf, 'utf8');
+    const games = splitGames(raw);
+    for (const gamePgn of games) {
+      if (!parseGameInfo(gamePgn)) continue;
+      const evM  = gamePgn.match(/\[Event\s+"([^"]+)"\]/);
+      const rndM = gamePgn.match(/\[Round\s+"([^"]+)"\]/);
+      const evName = evM ? evM[1].trim() : 'Other';
+      const rndKey = rndM ? 'R' + rndM[1].replace(/\.\d+$/, '') : 'R?';
+      allFiles.push({ pgnText: gamePgn, name: evName, key: rndKey });
+    }
+  }
+
   console.log(`Engine ready. Depth ${SF_DEPTH}  Threads ${SF_THREADS}  Total files: ${allFiles.length}\n`);
 
   let gameNum = 0;
-  for (const { file, name, key } of allFiles) {
+  for (const { file, pgnText, name, key } of allFiles) {
     gameNum++;
     if (!results[name]) results[name] = {};
-    await processFile(file, name, key, results, engine, gameNum, allFiles.length);
+    await processFile(file, pgnText, name, key, results, engine, gameNum, allFiles.length);
   }
 
   engine.quit();
 
   console.log('\n' + '─'.repeat(60));
   let allAccs = [];
-  for (const t of [...TOURNAMENTS, { name: 'Direct Encounter' }]) {
+  const extraNames = new Set(Object.keys(results).filter(k => !TOURNAMENTS.some(t => t.name === k) && k !== 'Direct Encounter'));
+  const allTourneys = [...TOURNAMENTS, { name: 'Direct Encounter' }, ...[...extraNames].map(n => ({ name: n }))];
+  for (const t of allTourneys) {
     const entries = Object.values(results[t.name] || {});
     const accs = entries.filter(g => !g.skipped).map(g => g.heyeAccuracy).filter(a => a != null);
     if (!accs.length) continue;
