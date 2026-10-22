@@ -659,6 +659,158 @@
       "result": "0-1",
       "aarushResult": "loss",
       "eco": "D30 — Queen's Gambit Declined"
+    },
+    "R1": {
+      "aarushAccuracy": 94.4,
+      "oppAccuracy": 89,
+      "avgCPL": 45,
+      "blunders": 1,
+      "mistakes": 0,
+      "inaccuracies": 1,
+      "movesAnalyzed": 31,
+      "criticalMoments": [
+        {
+          "san": "Rf6",
+          "bestMove": "Rf5",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "#",
+          "evalAfter": "+6.82"
+        },
+        {
+          "san": "Qd7",
+          "bestMove": "Bg4",
+          "cpl": 72,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.77",
+          "evalAfter": "+0.05"
+        }
+      ],
+      "aarushColor": "black",
+      "opponent": "Santamaria Arcila, Nicolas",
+      "opponentElo": 1589,
+      "round": 1,
+      "result": "0-1",
+      "aarushResult": "win",
+      "eco": "?"
+    },
+    "R2": {
+      "aarushAccuracy": 94,
+      "oppAccuracy": 86.7,
+      "avgCPL": 17,
+      "blunders": 0,
+      "mistakes": 1,
+      "inaccuracies": 2,
+      "movesAnalyzed": 25,
+      "criticalMoments": [
+        {
+          "san": "Kh1",
+          "bestMove": "Rff2",
+          "cpl": 167,
+          "classification": "mistake",
+          "evalBefore": "+3.94",
+          "evalAfter": "+2.27"
+        },
+        {
+          "san": "Qxd2",
+          "bestMove": "Nbxd2",
+          "cpl": 75,
+          "classification": "inaccuracy",
+          "evalBefore": "+2.72",
+          "evalAfter": "+1.97"
+        },
+        {
+          "san": "Rd2",
+          "bestMove": "Nfd2",
+          "cpl": 72,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.96",
+          "evalAfter": "+0.24"
+        }
+      ],
+      "aarushColor": "white",
+      "opponent": "Naranjo Diaz, Juan Felipe",
+      "opponentElo": 1727,
+      "round": 2,
+      "result": "1-0",
+      "aarushResult": "win",
+      "eco": "?"
+    },
+    "R7": {
+      "aarushAccuracy": 97.4,
+      "oppAccuracy": 91.5,
+      "avgCPL": 15,
+      "blunders": 0,
+      "mistakes": 1,
+      "inaccuracies": 1,
+      "movesAnalyzed": 30,
+      "criticalMoments": [
+        {
+          "san": "Rab8",
+          "bestMove": "Rae8",
+          "cpl": 168,
+          "classification": "mistake",
+          "evalBefore": "+7.50",
+          "evalAfter": "+5.82"
+        },
+        {
+          "san": "Ra8",
+          "bestMove": "Rd8",
+          "cpl": 123,
+          "classification": "inaccuracy",
+          "evalBefore": "+7.92",
+          "evalAfter": "+6.69"
+        }
+      ],
+      "aarushColor": "black",
+      "opponent": "Ladino Hernandez, Angel Joel",
+      "opponentElo": 1816,
+      "round": 7,
+      "result": "0-1",
+      "aarushResult": "win",
+      "eco": "?"
+    },
+    "R9": {
+      "aarushAccuracy": 89.3,
+      "oppAccuracy": 96.1,
+      "avgCPL": 40,
+      "blunders": 1,
+      "mistakes": 1,
+      "inaccuracies": 1,
+      "movesAnalyzed": 27,
+      "criticalMoments": [
+        {
+          "san": "Bxa4",
+          "bestMove": "b6",
+          "cpl": 720,
+          "classification": "blunder",
+          "evalBefore": "-1.10",
+          "evalAfter": "-8.30"
+        },
+        {
+          "san": "Rh5",
+          "bestMove": "Rf5",
+          "cpl": 159,
+          "classification": "mistake",
+          "evalBefore": "-0.48",
+          "evalAfter": "-2.07"
+        },
+        {
+          "san": "Re5",
+          "bestMove": "b6",
+          "cpl": 70,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.29",
+          "evalAfter": "-0.99"
+        }
+      ],
+      "aarushColor": "black",
+      "opponent": "Barriga Vera, Aaron Joshua",
+      "opponentElo": 1910,
+      "round": 9,
+      "result": "1-0",
+      "aarushResult": "loss",
+      "eco": "?"
     }
   },
   "Toronto Open 2026": {

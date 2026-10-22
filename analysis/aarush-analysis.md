@@ -62,18 +62,22 @@ Avg accuracy: 84% (Opponent: 84%)
 **Score: 0W–5L–4D (2/9).** As White: 0W–2L–3D. As Black: 0W–3L–1D.  
 Avg accuracy: **90.3%** (Stockfish depth-18). Worst: R4 86.0% (1B/5M/14I vs 1959). Best: R8 97.1% (0B/0M/1I vs 1945). Key: R1 blunder Nxb4 (482 CPL) from +4.96 winning — same "from winning" collapse as Toronto R6; R3 loss confirms Catalan Open …dxc4 as Austin's weapon.
 
-### PAM 2026 (July 28–31, 2026 · Rating: 1941 · 5 games captured)
+### PAM 2026 (July 27–Aug 1, 2026 · Rating: 1941 · 9 games)
 
 | Rd | Color | Opponent | Opp. Rtg | Opening | Acc% | CPL | Result |
 |----|-------|----------|----------|---------|------|-----|--------|
+| R1 | Black | Santamaria Arcila, Nicolas | 1589 | A48 KID setup (1.d4 Nf6 g6 e3) | 94.4% | 45 | **Win** |
+| R2 | White | Naranjo Diaz, Juan Felipe | 1727 | E15 Catalan/Nimzo (1.d4 Nf6 c4 e6 g3 Bb4+) | 94.0% | 17 | **Win** |
 | R3 | Black | Otalvaro Vasquez, Camilo Andres | 1825 | B90 Sicilian Najdorf | 92.8% | 29 | **Win** |
 | R4 | Black | Ayala Delgado, Sergio Alejandro | 2097 | A45 Trompowsky | 87.7% | 59 | **Win** |
 | R5 | White | Gao, Heye | 2065 | E04 Catalan Open | 87.9% | 52 | **Loss** |
 | R6 | White | Delgado Gutierrez, Mateo | 1833 | E68 KID Fianchetto | 87.9% | 100 | **Loss** |
+| R7 | Black | Ladino Hernandez, Angel Joel | 1816 | D70 Neo-Grünfeld (1.d4 Nf6 g3 g6) | 97.4% | 15 | **Win** |
 | R8 | White | Fernandez Herrera, Andres | 2137 | D30 QGD | 93.0% | 91 | **Loss** |
+| R9 | Black | Barriga Vera, Aaron Joshua | 1910 | A48 London/Torre setup (1.d4 Nf6 g6 Nbd2) | 89.3% | 40 | **Loss** |
 
-**Score: 2W-3L.** As White: 0W-3L. As Black: 2W-0L.  
-Avg accuracy: 89.9% (Opponents: 90.1%)
+**Score: 5W-4L.** As White: 1W-3L. As Black: 4W-1L.  
+Avg accuracy: 91.6% (Opponents: 90.4%). Key: R6 worst (87.9%, 5B/5M/8I — loss to 1833); R7 best (97.4%, 0B/1M/1I — clean win vs 1816). R9 loss: Bxa4?? blunder (720 CPL from −1.10) decisive in near-equal endgame.
 
 ---
 
@@ -81,10 +85,10 @@ Avg accuracy: 89.9% (Opponents: 90.1%)
 
 | Color | W | L | D | Avg Acc% | Notes |
 |-------|---|---|---|----------|-------|
-| White | 2 | 7 | 3 | 90.5% | Wins only vs ~1925 or lower; Canada Open 0W–2L–3D |
-| Black | 4 | 8 | 2 | 90.7% | Wins in Najdorf; losses to 2000+; Canada Open 0W–3L–1D |
+| White | 3 | 10 | 3 | 91.3% | Wins only vs ~1925 or lower; PAM R2 win vs 1727; Canada Open 0W–2L–3D |
+| Black | 9 | 9 | 2 | 90.2% | Strong as Black vs ≤1900; 4W–1L in PAM; losses to 2000+; Canada Open 0W–3L–1D |
 
-*26 games analyzed (17 engine-analyzed; 9 Canada Open pending). Overall avg accuracy: ~90.4% (engine-analyzed games). Total blunders: 32. Total mistakes: 34.*
+*30 games analyzed across 5 tournaments. Overall avg accuracy: 90.7%. Total blunders: 38. Total mistakes: 52. Total inaccuracies: 153. Blunder rate: 1.27/game.*
 
 ---
 
@@ -190,6 +194,7 @@ Aarush played Black against a 2086 CM who opened with Saragossa (1.c3) and launc
 | Weakness #2 | h4 kingside attack vulnerability as Black |
 | Weakness #3 | Catalan collapses vs 2000+ under pressure |
 | Weakness #4 | Time pressure cascade (CPL skyrockets) |
-| Blunder rate | ~1.8 blunders/game overall; higher as White (2.0) |
-| Avg accuracy | 90.4% overall (range 80.6%–98.2%; 26 engine-analyzed games) |
+| Blunder rate | 1.27 blunders/game overall (38 blunders / 30 games) |
+| Avg accuracy | 90.7% overall (range 80.6%–98.2%; 30 engine-analyzed games) |
+| PAM 2026 | 5W–4L (4W–1L Black, 1W–3L White) · avg 91.6% — best R7 97.4%; worst R6 87.9% (5 blunders) |
 | Canada Open | 0W–5L–4D (2/9) avg 90.3% — "from winning" blunder R1 Nxb4 (482 CPL from +4.96) |

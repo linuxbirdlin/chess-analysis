@@ -289,7 +289,7 @@
 <a class="back-link" href="austin-prep.html">← Back to Austin Lin — Prep &amp; Index</a>
 </div>
 <div class="encounter">
-    This document gives concrete preparation for Austin playing Aarush, split by color. <strong>3 direct encounters (all draws)</strong> from <em>Study of Chess Games Pt. 4</em> — Stockfish movetime-1500ms analysis below. Main dataset: Stockfish depth-18 review of <strong>26 Aarush games</strong> across 5 tournaments (Canada Closed, PAM School, PAM, Toronto Open 2026, Canada Open 2026). Canada Open avg: <strong>90.3%</strong>. Key pattern: Aarush is <strong>0W–3L against h4 kingside attacks</strong> and blunders from winning positions — Toronto R6 (+6 pawns, Qb4??) and Canada Open R1 (+4.96, Nxb4?? 482 CPL both times).
+    This document gives concrete preparation for Austin playing Aarush, split by color. <strong>3 direct encounters (all draws)</strong> from <em>Study of Chess Games Pt. 4</em> — Stockfish movetime-1500ms analysis below. Main dataset: Stockfish depth-18 review of <strong>30 Aarush games</strong> across 5 tournaments (Canada Closed, PAM School, PAM, Toronto Open 2026, Canada Open 2026). Canada Open avg: <strong>90.3%</strong>. Key pattern: Aarush is <strong>0W–3L against h4 kingside attacks</strong> and blunders from winning positions — Toronto R6 (+6 pawns, Qb4??) and Canada Open R1 (+4.96, Nxb4?? 482 CPL both times).
   </div>
 <!-- Direct Encounters -->
 <h2>Direct Encounters</h2>
@@ -362,9 +362,9 @@
 <div style="font-size:0.82rem;color:#1a5276;font-weight:600;">View game notes →</div>
 </a>
 <a href="opponents/aarush/pam2026/review.html" style="flex:1;min-width:180px;display:block;border:2px solid #d97706;border-radius:8px;padding:16px 18px;text-decoration:none;color:inherit;background:#fffbf0;">
-<div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#d97706;margin-bottom:4px;">⚠ 0W-3L as White</div>
+<div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#d97706;margin-bottom:4px;">5W–4L · avg 91.6%</div>
 <div style="font-weight:700;font-size:0.98rem;color:#1f2328;margin-bottom:4px;">PAM 2026</div>
-<div style="font-size:0.82rem;color:#57606a;margin-bottom:8px;">Jul 2026 · Rating: 1941 · 5 games</div>
+<div style="font-size:0.82rem;color:#57606a;margin-bottom:8px;">Jul 2026 · Rating: 1941 · 9 games</div>
 <div style="font-size:0.82rem;color:#1a5276;font-weight:600;">View game notes →</div>
 </a>
 <a href="opponents/aarush/torontoopen2026/review.html" style="flex:1;min-width:180px;display:block;border:2px solid #cf2222;border-radius:8px;padding:16px 18px;text-decoration:none;color:inherit;background:#fff5f5;">
@@ -379,6 +379,32 @@
 <div style="font-size:0.82rem;color:#57606a;margin-bottom:8px;">Jul 2026 · Rating: 1941 · 9 games</div>
 <div style="font-size:0.82rem;color:#1a5276;font-weight:600;">Accuracy table below ↓</div>
 </a>
+</div>
+
+<!-- PAM 2026 Accuracy Table -->
+<h2>PAM 2026 — Engine Analysis (9 Games, Depth 18)</h2>
+<p style="font-size:0.9rem;color:#57606a;margin-bottom:12px;">Score: 5W–4L · avg accuracy <strong>91.6%</strong>. White: 1W–3L (1W–3L losses to 1833/2065/2137). Black: 4W–1L avg ~92.3%. Best: R7 97.4% (clean Neo-Grünfeld win vs 1816). Worst: R6 87.9% (5 blunders, loss to 1833).</p>
+<table>
+<thead>
+<tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Acc%</th><th>CPL</th><th>B/M/I</th><th>Result</th></tr>
+</thead>
+<tbody>
+<tr><td>R1</td><td>Black</td><td>Santamaria Arcila, Nicolas</td><td>1589</td><td>A48 KID setup</td><td>94.4%</td><td>45</td><td>1/0/1</td><td><strong>Win</strong></td></tr>
+<tr><td>R2</td><td>White</td><td>Naranjo Diaz, Juan Felipe</td><td>1727</td><td>E15 Catalan/Nimzo</td><td>94.0%</td><td>17</td><td>0/1/2</td><td><strong>Win</strong></td></tr>
+<tr><td>R3</td><td>Black</td><td>Otalvaro Vasquez, Camilo Andres</td><td>1825</td><td>B90 Sicilian Najdorf</td><td>92.8%</td><td>29</td><td>0/2/5</td><td><strong>Win</strong></td></tr>
+<tr><td>R4</td><td>Black</td><td>Ayala Delgado, Sergio Alejandro</td><td>2097</td><td>A45 Trompowsky</td><td>87.7%</td><td>59</td><td>2/3/8</td><td><strong>Win</strong></td></tr>
+<tr style="background:#fff5f5;"><td>R5</td><td>White</td><td>Gao, Heye</td><td>2065</td><td>E04 Catalan Open</td><td>87.9%</td><td>52</td><td>0/4/7</td><td><strong>Loss</strong></td></tr>
+<tr style="background:#ffe0e0;"><td>R6</td><td>White</td><td>Delgado Gutierrez, Mateo</td><td>1833</td><td>E68 KID Fianchetto</td><td><strong>87.9%</strong></td><td>100</td><td>5/5/8</td><td><strong>Loss</strong></td></tr>
+<tr><td>R7</td><td>Black</td><td>Ladino Hernandez, Angel Joel</td><td>1816</td><td>D70 Neo-Grünfeld</td><td><strong>97.4%</strong></td><td>15</td><td>0/1/1</td><td><strong>Win</strong></td></tr>
+<tr style="background:#fff5f5;"><td>R8</td><td>White</td><td>Fernandez Herrera, Andres</td><td>2137</td><td>D30 QGD</td><td>93.0%</td><td>91</td><td>4/2/5</td><td><strong>Loss</strong></td></tr>
+<tr style="background:#fff5f5;"><td>R9</td><td>Black</td><td>Barriga Vera, Aaron Joshua</td><td>1910</td><td>A48 London/Torre</td><td>89.3%</td><td>40</td><td>1/1/1</td><td><strong>Loss</strong></td></tr>
+</tbody>
+</table>
+<div class="tip-box" style="margin-bottom:8px;">
+<strong>PAM key finding — R1 missed mate, still won:</strong> R1 vs Santamaria (1589) — Aarush had a forced mate available but played <code>Rf6</code> instead (1000 CPL, # → +6.82), letting White escape but remaining +6.82 up. He still won. This is different from Toronto R6 / Canada Open R1 where he actually lost from winning — here he found a second path to victory. Best game: R7 97.4% (0 blunders/mistakes, only 1 inaccuracy in Neo-Grünfeld win).
+</div>
+<div class="warn-box" style="margin-bottom:24px;">
+<strong>R9 blunder decisive:</strong> Bxa4?? (720 CPL) in a near-equal position (−1.10 → −8.30) cost Aarush the game vs Barriga Vera 1910. Consistent with the pattern of a single catastrophic move from equality. R6 (5B/5M, 100 CPL avg vs 1833) remains Aarush's worst overall game in the dataset.
 </div>
 
 <!-- Canada Open 2026 Accuracy Table -->
@@ -481,7 +507,7 @@
 <!-- Part 4: Psychological notes -->
 <h2>Psychological and Practical Notes</h2>
 <ol>
-<li><strong>Ratings are roughly equal</strong> (~1895 Aarush vs ~1865–1968 Austin). Aarush's recent PAM 2026 score (2W-3L) shows he is beatable within this rating band — he lost to opponents rated 1833 and 1824.</li>
+<li><strong>Ratings are roughly equal</strong> (~1895 Aarush vs ~1865–1968 Austin). Aarush's PAM 2026 score (5W–4L, full 9 games) shows he is beatable — he lost to opponents rated 1833 (White) and 1910 (Black Bxa4?? blunder).</li>
 <li><strong>Aarush freezes in time pressure.</strong> PAM R6 collapse (5 blunders vs 1833-rated opponent), Toronto R6 (lost from +6 winning with under 8 minutes left) — this is not isolated. It is a systemic pattern across the full dataset. Create complex positions early to consume his clock.</li>
 <li><strong>Aarush's White game is one structure.</strong> Deep Catalan Open prep (especially the <code>...a6/...b5</code> pawn hold) will exhaust his knowledge earlier in the game. He has no backup White system.</li>
 <li><strong>Never let Aarush reach Najdorf comfort with time on the clock.</strong> If Austin plays 1.e4 and Aarush reaches his Najdorf position with time and a solid structure, he is a more dangerous opponent. h4 disrupts this before he settles.</li>

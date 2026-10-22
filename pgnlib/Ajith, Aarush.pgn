@@ -22,6 +22,30 @@
 
 1. c3 { [%eval 0.0] [%clk 1:30:49] } 1... Nf6 { [%eval 0.0] [%clk 1:30:19] } 2. d4 { [%eval 0.0] [%clk 1:29:06] } 2... g6 { [%eval 0.2] [%clk 1:29:02] } 3. h4 { [%eval -0.26] [%clk 1:29:18] } 3... Bg7 { [%eval -0.25] [%clk 1:26:47] } 4. h5 { [%eval -0.59] [%clk 1:27:43] } 4... Nxh5 { [%eval -0.56] [%clk 1:19:34] } 5. e4 { [%eval -0.67] [%clk 1:27:37] } 5... Nf6 { [%eval -0.13] [%clk 1:15:58] } 6. Bd3?! { [%eval -0.96] } { Inaccuracy. e5 was best. } { [%clk 1:27:19] } (6. e5 Nd5 7. c4 Nb6 8. c5 Nd5 9. Bc4 c6 10. Nc3 d6 11. exd6 exd6) 6... d6 { [%eval -0.79] [%clk 1:15:09] } 7. Nf3 { [%eval -1.04] [%clk 1:24:52] } 7... Bg4 { [%eval -0.8] [%clk 1:11:20] } 8. Nbd2 { [%eval -0.88] [%clk 1:23:18] } 8... O-O { [%eval -0.93] [%clk 1:01:05] } 9. Nc4 { [%eval -1.01] [%clk 1:14:27] } 9... Nc6?! { [%eval -0.35] } { Inaccuracy. Nbd7 was best. } { [%clk 0:42:02] } (9... Nbd7 10. Ne3 Bh5 11. Qc2 Bxf3 12. gxf3 e5 13. Bd2 Qe7 14. a4 Rfc8 15. Kf1) 10. Bh6? { [%eval -1.73] } { Mistake. Ne3 was best. } { [%clk 1:09:04] } (10. Ne3 Bd7 11. Nd5 Ng4 12. Ng5 h6 13. Nh3 e5 14. f3 Nf6 15. Nxf6+ Qxf6) 10... d5?? { [%eval 0.0] } { Blunder. Bxh6 was best. } { [%clk 0:27:35] } (10... Bxh6 11. Rxh6 e5 12. d5 Ne7 13. Rh4 h5 14. Ne3 c6 15. dxc6 Nxc6 16. Bc2) 11. Bxg7 { [%eval -0.23] [%clk 1:01:06] } 11... Kxg7 { [%eval -0.42] [%clk 0:26:08] } 12. Ne3?! { [%eval -1.27] } { Inaccuracy. Qd2 was best. } { [%clk 0:57:38] } (12. Qd2 h5 13. exd5 Qxd5 14. Nh4 Rh8 15. f3 Bd7 16. O-O e6 17. Rae1 Be8) 12... dxe4 { [%eval -1.24] [%clk 0:23:45] } 13. Nxg4?! { [%eval -2.17] } { Inaccuracy. Bxe4 was best. } { [%clk 0:57:57] } (13. Bxe4 h5 14. Qc1 Nxe4 15. Nxg4 Rh8 16. Ne3 e6 17. Qc2 Nf6 18. Rd1 Qd6) 13... exf3? { [%eval -0.85] } { Mistake. exd3 was best. } { [%clk 0:21:57] } (13... exd3 14. Ne3 Re8 15. Qxd3 e5 16. Qd2 exd4 17. cxd4 Ne7 18. Ne5 c5 19. dxc5) 14. Qxf3 { [%eval -0.98] [%clk 0:57:52] } 14... Nxg4 { [%eval -0.84] [%clk 0:21:33] } 15. Qxg4 { [%eval -0.89] [%clk 0:56:10] } 15... e5 { [%eval -0.91] [%clk 0:18:45] } 16. O-O-O { [%eval -1.01] [%clk 0:53:25] } 16... exd4 { [%eval -0.58] [%clk 0:17:46] } 17. f4?? { [%eval -5.03] } { Blunder. Qf4 was best. } { [%clk 0:50:14] } (17. Qf4 h5 18. g4 dxc3 19. bxc3 Qf6 20. Qxf6+ Kxf6 21. gxh5 Rad8 22. hxg6 fxg6) 17... Qf6 { [%eval -5.06] [%clk 0:15:12] } 18. Kb1 { [%eval -5.37] [%clk 0:31:56] } 18... dxc3 { [%eval -5.61] [%clk 0:13:51] } 19. Qh3 { [%eval -5.7] [%clk 0:31:51] } 19... h5 { [%eval -5.69] [%clk 0:12:01] } 20. g4 { [%eval -6.08] [%clk 0:22:31] } 20... Rh8 { [%eval -6.11] [%clk 0:10:32] } 21. g5 { [%eval -6.04] [%clk 0:22:45] } 21... Qxf4 { [%eval -6.11] [%clk 0:09:50] } 22. Rhf1 { [%eval -6.16] [%clk 0:18:35] } 22... Qb4?? { [%eval 7.76] } { Blunder. Qxg5 was best. } { [%clk 0:08:09] } (22... Qxg5 23. Rg1 Qe5 24. Rdf1 Rh6 25. Rg2 Rf8 26. Re2 Qc5 27. Qf3 Qd6 28. Bc4) 23. Rxf7+ { [%eval 7.4] [%clk 0:13:15] } 23... Kxf7? { [%eval #11] } { Checkmate is now unavoidable. Kg8 was best. } { [%clk 0:06:59] } (23... Kg8 24. Rf2 Nd4 25. Bxg6 Qb6 26. Bf7+ Kg7 27. Qxc3 Rhd8 28. Rf6 Rd6 29. Rxd6) 24. Qf1+ { [%eval #13] [%clk 0:13:26] } 24... Kg7 { [%eval #10] [%clk 0:00:36] } 25. Qf6+ { [%eval #9] [%clk 0:13:49] } 25... Kg8 { [%eval #9] [%clk 0:01:02] } 26. Qxg6+ { [%eval #8] [%clk 0:13:06] } 26... Kf8 { [%eval #8] [%clk 0:01:27] } 27. Qf6+ { [%eval #9] [%clk 0:10:47] } 27... Kg8 { [%eval #9] [%clk 0:01:43] } 28. Qg6+ { [%eval #8] [%clk 0:11:12] } 28... Kf8 { [%eval #8] [%clk 0:02:09] } 29. Rf1+ { [%eval #7] [%clk 0:11:31] } 29... Ke7 { [%eval #7] [%clk 0:02:34] } 30. Qf6+ { [%eval #6] [%clk 0:07:59] } 30... Kd7 { [%eval #5] [%clk 0:01:39] } (30... Ke8 { [%clk 0:02:46] } 31. Bf5 { [%clk 0:08:39] }) 31. Bf5+ { [%eval #4] [%clk 0:08:18] } 31... Ke8 { [%eval #4] [%clk 0:02:00] } 32. Qxh8+ { [%eval #13] [%clk 0:07:53] } 32... Ke7 { [%eval #5] [%clk 0:01:31] } 33. Qf6+ { [%eval #4] [%clk 0:07:48] } 33... Ke8 { [%eval #4] [%clk 0:01:59] } 34. Bg6+ { [%eval #5] [%clk 0:07:50] } 34... Kd7 { [%eval #5] [%clk 0:02:13] } 35. Rd1+ { [%eval #9] [%clk 0:07:57] } 35... Kc8 { [%eval #3] [%clk 0:02:15] } 36. Bf5+ { [%eval #2] [%clk 0:07:58] } 36... Kb8 { [%eval #2] [%clk 0:02:37] } 37. Qd8+ { [%eval #1] [%clk 0:08:12] } 37... Nxd8 { [%eval #1] [%clk 0:02:46] } 38. Rxd8# { [%clk 0:08:39] } 1-0
 
+[Event "XXXVI Pan-American Youth Chess Festival | O14"]
+[Site "?"]
+[Date "2026.08.01"]
+[Round "9.13"]
+[White "Barriga Vera, Aaron Joshua"]
+[Black "Ajith, Aarush"]
+[Result "1-0"]
+[WhiteElo "1910"]
+[BlackElo "1941"]
+
+1. d4 Nf6 2. Nf3 g6 3. Nbd2 d5 4. e3 Bg7 5. b4 O-O 6. c4 c6 7. a4 Nbd7 8. Bb2 e5 9. Nxe5 Nxe5 10. dxe5 Ng4 11. Nf3 Re8 12. cxd5 cxd5 13. Bb5 Re7 14. O-O Nxe5 15. Nxe5 Bxe5 16. Bxe5 Rxe5 17. Rc1 Qd6 18. Qd2 Re4 19. Rc5 Be6 20. f3 Re5 21. Rfc1 a6 22. f4 Rh5 23. Be2 Rh6 24. Bf3 g5 25. e4 gxf4 26. exd5 Bd7 27. Qd4 Bxa4 1-0
+
+[Event "XXXVI Pan-American Youth Chess Festival | O14"]
+[Site "?"]
+[Date "2026.07.31"]
+[Round "7.15"]
+[White "Ladino Hernandez, Angel Joel"]
+[Black "Ajith, Aarush"]
+[Result "0-1"]
+[WhiteElo "1816"]
+[BlackElo "1941"]
+
+1. d4 Nf6 2. Nf3 g6 3. g3 Bg7 4. Bg2 O-O 5. O-O d5 6. b3 Bf5 7. Bb2 Nbd7 8. c4 c6 9. Nc3 Nb6 10. Ne5 dxc4 11. bxc4 Nfd7 12. Nxd7 Qxd7 13. e4 Bg4 14. Qb3 Qxd4 15. Rac1 Nxc4 16. Ba1 Nd2 17. Qxb7 Nxf1 18. Nd5 Qd2 19. Nxe7+ Kh8 20. Bxg7+ Kxg7 21. Rxf1 Be2 22. Ra1 Qc3 23. Qb1 Rab8 24. Qc1 Qxc1+ 25. Rxc1 c5 26. f4 c4 27. Nc6 Rb2 28. Nxa7 Ra8 29. Nc6 Raxa2 30. Nd4 Bd3 0-1
+
 [Event "Round 8: Ajith, Aarush - Fernandez Herrera, Andres"]
 [Site "https://lichess.org/broadcast/xxxvi-pan-american-youth-chess-festival-o14/round-8/G4Y3MC3W/8G9p806B"]
 [Date "2026.07.31"]
@@ -137,6 +161,30 @@
 [GameURL "https://lichess.org/broadcast/xxxvi-pan-american-youth-chess-festival-o14/round-3/GqodBjyI/uGE9YNru"]
 
 1. e4 { [%eval 0.18] [%clk 1:26:25] } 1... c5 { [%eval 0.32] [%clk 1:30:52] } 2. Nf3 { [%eval 0.2] [%clk 1:26:09] } 2... d6 { [%eval 0.31] [%clk 1:31:13] } 3. d4 { [%eval 0.22] [%clk 1:26:05] } 3... cxd4 { [%eval 0.19] [%clk 1:31:34] } 4. Nxd4 { [%eval 0.18] [%clk 1:26:29] } 4... Nf6 { [%eval 0.31] [%clk 1:31:56] } 5. Nc3 { [%eval 0.32] [%clk 1:25:17] } 5... a6 { [%eval 0.25] [%clk 1:32:17] } 6. Be3 { [%eval 0.25] [%clk 1:25:36] } 6... e5 { [%eval 0.15] [%clk 1:32:39] } 7. Nb3 { [%eval 0.21] [%clk 1:26:01] } 7... Be7 { [%eval 0.26] [%clk 1:33:01] } 8. f3 { [%eval 0.33] [%clk 1:25:49] } 8... Be6 { [%eval 0.38] [%clk 1:33:23] } 9. Qd2 { [%eval 0.34] [%clk 1:25:26] } 9... h5 { [%eval 0.39] [%clk 1:33:46] } 10. Nd5 { [%eval 0.35] [%clk 1:23:30] } 10... Nxd5 { [%eval 0.21] [%clk 1:33:08] } 11. exd5 { [%eval 0.38] [%clk 1:23:55] } 11... Bf5 { [%eval 0.36] [%clk 1:33:26] } 12. Bd3 { [%eval -0.06] [%clk 1:22:20] } 12... Bxd3 { [%eval -0.06] [%clk 1:33:44] } 13. Qxd3 { [%eval -0.09] [%clk 1:22:35] } 13... Bh4+?! { [%eval 0.73] } { Inaccuracy. Bg5 was best. } { [%clk 1:31:33] } (13... Bg5 14. Nd2 Bxe3 15. Qxe3 Nd7 16. O-O-O Rc8 17. Kb1 O-O 18. g4 Nf6 19. gxh5) 14. g3 { [%eval 0.75] [%clk 1:21:38] } 14... Be7 { [%eval 0.72] [%clk 1:30:17] } 15. O-O-O { [%eval 0.77] [%clk 1:20:38] } 15... Nd7 { [%eval 0.75] [%clk 1:29:32] } 16. Kb1 { [%eval 0.76] [%clk 1:16:23] } 16... O-O { [%eval 0.76] [%clk 1:27:50] } 17. g4 { [%eval 0.84] [%clk 1:09:19] } 17... h4 { [%eval 0.86] [%clk 1:21:12] } 18. f4 { [%eval 0.55] [%clk 1:06:37] } 18... b5?! { [%eval 1.63] } { Inaccuracy. Re8 was best. } { [%clk 1:13:08] } (18... Re8 19. Rhf1 Bf6 20. Qd2 exf4 21. Bxf4 Be5 22. g5 Nf8 23. Qf2 Qd7 24. Bxe5) 19. Rhg1 { [%eval 1.58] [%clk 1:06:01] } 19... Rc8 { [%eval 1.54] [%clk 1:11:11] } 20. g5 { [%eval 1.43] [%clk 1:02:54] } 20... exf4 { [%eval 1.82] [%clk 1:04:47] } 21. Bxf4 { [%eval 1.81] [%clk 1:02:31] } 21... Rc4 { [%eval 2.17] [%clk 1:04:09] } 22. Nd4 { [%eval 2.21] [%clk 0:56:52] } 22... Ne5 { [%eval 1.75] [%clk 0:54:43] } 23. Bxe5 { [%eval 1.88] [%clk 0:41:57] } 23... dxe5 { [%eval 1.65] [%clk 0:54:53] } 24. Nc6 { [%eval 1.55] [%clk 0:35:19] } 24... Qd6 { [%eval 1.88] [%clk 0:54:07] } 25. Qf5?? { [%eval 0.0] } { Blunder. b3 was best. } { [%clk 0:32:54] } (25. b3 Rf4 26. Nxe7+ Qxe7 27. d6 Qe6 28. Qe3 Rd8 29. Qb6 Qd7 30. g6 e4) 25... g6 { [%eval 0.0] [%clk 0:52:02] } 26. Qd3 { [%eval -0.11] [%clk 0:31:01] } 26... Bd8 { [%eval -0.1] [%clk 0:44:10] } 27. Rg2?! { [%eval -1.15] } { Inaccuracy. Qe3 was best. } { [%clk 0:22:17] } (27. Qe3 Re8 28. a3 Rf4 29. Nxd8 Rxd8 30. Rge1 Rf5 31. Rg1 Rc8 32. Rg4 Rc5) 27... Bb6? { [%eval 0.31] } { Mistake. e4 was best. } { [%clk 0:41:46] } (27... e4 28. Qe2 Rc5 29. Nxd8 Rxd5 30. Rxd5 Qxd5 31. Nxf7 Qxf7 32. b3 e3 33. Qe1) 28. Re1 { [%eval -0.22] [%clk 0:16:19] } 28... Rc8 { [%eval 0.0] [%clk 0:36:28] } 29. Rge2?? { [%eval -4.11] } { Blunder. a3 was best. } { [%clk 0:10:27] } (29. a3 Re8 30. Re4 Rxe4 31. Qxe4 Be3 32. Rg4 Qd7 33. Nxe5 Rxe5 34. Qxe5 Qxg4) 29... R8xc6 { [%eval -4.31] [%clk 0:36:01] } 30. dxc6?! { [%eval -6.24] } { Inaccuracy. Rxe5 was best. } { [%clk 0:03:22] } (30. Rxe5 Rc7 31. c3 Rf4 32. a4 Kg7 33. axb5 axb5 34. Qxb5 Bf2 35. R1e2 Rd7) 30... Rd4 { [%eval -5.91] [%clk 0:35:59] } 31. Rxe5 { [%eval -7.25] [%clk 0:02:28] } 31... Rxd3 { [%eval -7.22] [%clk 0:36:20] } 32. cxd3 { [%eval -6.85] [%clk 0:02:52] } 32... Qxc6 { [%eval -6.91] [%clk 0:35:17] } 33. Re8+ { [%eval -7.43] [%clk 0:01:19] } 33... Kg7 { [%eval -7.39] [%clk 0:35:32] } 34. Rb8 { [%eval -8.28] [%clk 0:01:16] } 34... Qd6 { [%eval -8.18] [%clk 0:35:15] } 35. Ra8 { [%eval -8.44] [%clk 0:00:52] } 35... Qxd3+ { [%eval -8.68] [%clk 0:35:17] } 36. Ka1 { [%eval -8.65] [%clk 0:01:09] } 36... Qd2 { [%eval -8.63] [%clk 0:35:21] } 37. Rae8 { [%eval -8.57] [%clk 0:01:01] } 37... Qxg5 { [%eval -8.32] [%clk 0:35:12] } 0-1
+
+[Event "XXXVI Pan-American Youth Chess Festival | O14"]
+[Site "?"]
+[Date "2026.07.27"]
+[Round "1.18"]
+[White "Santamaria Arcila, Nicolas"]
+[Black "Ajith, Aarush"]
+[Result "0-1"]
+[WhiteElo "1589"]
+[BlackElo "1941"]
+
+1. d4 Nf6 2. Nf3 g6 3. e3 Bg7 4. Bd3 O-O 5. Nbd2 d6 6. e4 Nc6 7. c3 e5 8. O-O Nh5 9. d5 Ne7 10. Re1 Nf4 11. Bc2 f5 12. Nf1 fxe4 13. Bxe4 Kh8 14. Ng3 Bh6 15. c4 Ng8 16. b3 Nf6 17. Bb1 Qd7 18. Kh1 Ng4 19. Rf1 Qe7 20. Qe1 Bg7 21. Bb2 Bd7 22. Bc2 Rf7 23. Ne4 Bh6 24. Rd1 Raf8 25. Qb4 Nxg2 26. Nxe5 Nxe5 27. Kxg2 Rf3 28. Ng3 Qh4 29. Be4 Rxg3+ 30. hxg3 Qxe4+ 31. Kh2 Rf6 0-1
+
+[Event "XXXVI Pan-American Youth Chess Festival | O14"]
+[Site "?"]
+[Date "2026.07.27"]
+[Round "2.14"]
+[White "Ajith, Aarush"]
+[Black "Naranjo Diaz, Juan Felipe"]
+[Result "1-0"]
+[WhiteElo "1941"]
+[BlackElo "1727"]
+
+1. d4 Nf6 2. c4 e6 3. g3 Bb4+ 4. Nd2 d5 5. Nf3 O-O 6. Bg2 c5 7. dxc5 dxc4 8. Qc2 c3 9. bxc3 Bxc5 10. Nb3 Bb6 11. Ba3 Re8 12. O-O Nc6 13. Rad1 Bd7 14. Rd2 Nd5 15. e4 Ne3 16. fxe3 Bxe3+ 17. Kh1 Bxd2 18. Qxd2 Na5 19. Nxa5 Qxa5 20. Bb4 Qc7 21. Bd6 Qa5 22. Ne5 Rad8 23. Rxf7 Bc6 24. Rxg7+ Kh8 25. Qh6 1-0
 
 [Event "Canadian Open 2026"]
 [Site "?"]
@@ -293,7 +341,7 @@
 [Round "8.5"]
 [White "Espinosa Castaneda, Ronald Manuel"]
 [Black "Ajith, Aarush"]
-[Result "*"]
+[Result "0-1"]
 [WhiteElo "2087"]
 [WhiteFideId "3535088"]
 [BlackElo "1860"]

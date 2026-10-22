@@ -90,7 +90,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 
 <div class="sources">
   <strong>Data sources</strong>
-  <span class="src-classical">Primary: 26 classical games (Canada Closed, PAM School, PAM 2026, Toronto Open 2026, Canada Open 2026) — 17 engine-analyzed at movetime-800; 9 Canada Open pending.</span>
+  <span class="src-classical">Primary: 30 classical games (Canada Closed, PAM School, PAM 2026, Toronto Open 2026, Canada Open 2026) — 30 engine-analyzed at depth 18.</span>
   <span class="src-lichess">Supplementary: Lichess games (makoshark12, rapid/blitz) — opening line frequency only.</span>
 </div>
 
@@ -134,6 +134,8 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
       <li>CC R7: Lost to 1824-rated in 128 moves via king endgame errors (93.3% but 3×1000 CPL)</li>
       <li>PAM R6: 5 blunders vs 1833-rated (100 CPL avg in 100-move game)</li>
       <li>CC R9: 98.2% best game — Catalan vs ~1925, near-perfect</li>
+      <li>PAM R7: 97.4% — best Black game across all 30 games; clean technical win vs 1816</li>
+      <li>PAM R9: Bxa4?? blunder (720 CPL) from −1.10 equal position — decisive self-inflicted loss to 1910; another endgame calculation failure</li>
       <li><strong>Canada Open 2/9: 0W–5L–4D</strong> — drew vs 1912, 1839 as White</li>
     </ul>
   </div>
@@ -641,7 +643,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <hr class="section-divider">
 
 <!-- ═══════════════ PART 6 — ACCURACY TABLE ═══════════════ -->
-<h2>Part 6 — Engine Accuracy Reference (26 Games · Depth 18)</h2>
+<h2>Part 6 — Engine Accuracy Reference (30 Games · Depth 18)</h2>
 
 <table>
   <tr><th>Tournament / Game</th><th>Color</th><th>Opponent</th><th>Result</th><th>ECO</th><th>Accuracy</th><th>Bl/Mi</th></tr>
@@ -655,11 +657,15 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <tr><td>CC R8</td><td>Black</td><td>Wu, Ting En Ryan (1906)</td><td>Draw</td><td>B90</td><td>93.4%</td><td>1/4</td></tr>
   <tr><td><strong>CC R9</strong></td><td>White</td><td>Velasquez (1925)</td><td><strong>Win</strong></td><td>E68</td><td><strong>98.2%</strong></td><td>0/0</td></tr>
   <tr><td>PAM School R2</td><td>White</td><td>Liu, Zachary (2051)</td><td>Loss</td><td>E08 Catalan</td><td>92.1%</td><td>1/1</td></tr>
+  <tr><td>PAM R1</td><td>Black</td><td>Santamaria Arcila (1589)</td><td>Win</td><td>A48 KID setup</td><td>94.4%</td><td>1/0</td></tr>
+  <tr><td>PAM R2</td><td>White</td><td>Naranjo Diaz (1727)</td><td>Win</td><td>E15 Catalan/Nimzo</td><td>94.0%</td><td>0/1</td></tr>
   <tr><td>PAM R3</td><td>Black</td><td>Otalvaro (1825)</td><td>Win</td><td>B90</td><td>92.8%</td><td>0/2</td></tr>
   <tr><td>PAM R4</td><td>Black</td><td>Ayala Delgado (2097)</td><td>Win</td><td>A45</td><td>87.7%</td><td>2/3</td></tr>
   <tr style="background:#fff0e0"><td><strong>PAM R5</strong></td><td>White</td><td>Gao, Heye (2065)</td><td><strong>Loss</strong></td><td>E04 Catalan</td><td>87.9%</td><td>0/4</td></tr>
   <tr style="background:#ffe0e0"><td><strong>PAM R6</strong></td><td>White</td><td>Delgado (1833)</td><td><strong>Loss</strong></td><td>E68</td><td><strong>87.9%</strong></td><td>5/5</td></tr>
+  <tr><td><strong>PAM R7</strong></td><td>Black</td><td>Ladino Hernandez (1816)</td><td><strong>Win</strong></td><td>D70 Neo-Grünfeld</td><td><strong>97.4%</strong></td><td>0/1</td></tr>
   <tr><td>PAM R8</td><td>White</td><td>Fernandez Herrera (2137)</td><td>Loss</td><td>D30</td><td>93.0%</td><td>4/2</td></tr>
+  <tr style="background:#ffe0e0"><td><strong>PAM R9</strong></td><td>Black</td><td>Barriga Vera (1910)</td><td><strong>Loss</strong></td><td>A48 London/Torre</td><td>89.3%</td><td>1/1</td></tr>
   <tr style="background:#ffe0e0"><td><strong>Toronto R6</strong></td><td>Black</td><td>Gao, Raymond CM (2086)</td><td><strong>Loss</strong></td><td>A00 h4</td><td><strong>84.0%</strong></td><td>4/1</td></tr>
 </table>
 <p style="font-size:0.8em; color:#666; margin-top:6px">
