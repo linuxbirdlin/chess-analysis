@@ -3,7 +3,7 @@
 **Tournaments analyzed:** BC Chess Cup 2026 · Greater Vancouver 2026 · Canada Closed 2026 · PAM 2026 · PAM School 2026 · Canada Open 2026  
 **Title:** Candidate Master (CM)  
 **Approximate rating:** 2050–2250 (based on opponent ratings defeated/drawn)  
-**Total games reviewed:** 46 (34 fully analyzed, 3 skipped for technical reasons, 9 Canada Open pending engine analysis)
+**Total games reviewed:** 46 (43 fully analyzed, 3 skipped for technical reasons)
 
 ---
 
@@ -30,8 +30,8 @@
 | Canada Closed 2026 | 92.4% | 8 |
 | PAM 2026 | 92.6% | 6 |
 | PAM School 2026 | 94.2% | 8 |
-| Canada Open 2026 | — (pending) | 9 |
-| **Overall** | **93.6%** | **34** |
+| Canada Open 2026 | 94.3% | 9 |
+| **Overall** | **93.8%** | **43** |
 
 ---
 

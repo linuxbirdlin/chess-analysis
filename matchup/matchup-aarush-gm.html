@@ -100,8 +100,8 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
     <ul>
       <li><strong>1.d4 exclusively</strong> — Catalan/fianchetto in all structures</li>
       <li>Slav: g3/Bg2/Nf3/O-O (D10/D11); Catalan Open/Closed (E04/E08/E12)</li>
-      <li><strong>Canada Open: 0W–2L–3D</strong> — cannot beat 1912 or 1839 as White</li>
-      <li>Lost R3 to Catalan Open …dxc4 — confirms Austin's weapon</li>
+      <li><strong>Canada Open: 0W–2L–3D</strong> avg 90.3% — cannot beat 1912/1839 as White</li>
+      <li>Lost R3 to Catalan Open …dxc4 (90.2%, CPL:50, 0B/3M) — Austin's weapon confirmed</li>
       <li>Best: 98.2% vs ~1925 (CC R9). Worst: 85.7%–87.9% vs 2000+</li>
     </ul>
   </div>
@@ -641,7 +641,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <hr class="section-divider">
 
 <!-- ═══════════════ PART 6 — ACCURACY TABLE ═══════════════ -->
-<h2>Part 6 — Engine Accuracy Reference (17 Engine-Analyzed Games + Canada Open 2026)</h2>
+<h2>Part 6 — Engine Accuracy Reference (26 Games · Depth 18)</h2>
 
 <table>
   <tr><th>Tournament / Game</th><th>Color</th><th>Opponent</th><th>Result</th><th>ECO</th><th>Accuracy</th><th>Bl/Mi</th></tr>
@@ -667,21 +667,21 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   but 3 king blunders — all 1000 CPL. High accuracy does not protect against endgame king errors.
 </p>
 
-<h3 style="margin-top:18px">Canada Open 2026 — Game Log (engine analysis pending)</h3>
+<h3 style="margin-top:18px">Canada Open 2026 — Engine Results (Depth 18 · avg 90.3%)</h3>
 <table>
-  <tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Result</th><th>Notes</th></tr>
-  <tr><td>R1</td><td>White</td><td>Malakar</td><td>2302</td><td>D12 Anti-Slav Qb3</td><td>Draw</td><td>Held draw vs 2302 — best Canada Open result</td></tr>
-  <tr style="background:#ffe0e0"><td>R2</td><td>Black</td><td>Stevens</td><td>2201</td><td>B78 Dragon/Maróczy</td><td><strong>Loss</strong></td><td>New structure as Black; lost vs 2200</td></tr>
-  <tr style="background:#ffe0e0"><td>R3</td><td>White</td><td>Xin</td><td>2007</td><td>E07 Catalan Open …dxc4</td><td><strong>Loss</strong></td><td>Black grabbed c4 pawn — Austin's weapon confirmed</td></tr>
-  <tr style="background:#ffe0e0"><td>R4</td><td>Black</td><td>Lu, Aiden</td><td>1959</td><td>B90 Sicilian Qd3</td><td><strong>Loss</strong></td><td>Lost vs ~1959 with Black</td></tr>
-  <tr style="background:#fff0e0"><td>R5</td><td>White</td><td>Achyuth</td><td>1912</td><td>E10 Bogo Bb4+</td><td>Draw</td><td>Only drew vs 1912 as White</td></tr>
-  <tr style="background:#ffe0e0"><td>R6</td><td>Black</td><td>Hoekman</td><td>1983</td><td>E70 KID</td><td><strong>Loss</strong></td><td>KID as Black vs d5 push — lost</td></tr>
-  <tr style="background:#fff0e0"><td>R7</td><td>White</td><td>Chen</td><td>1839</td><td>E12 Catalan Closed</td><td>Draw</td><td>Only drew vs 1839 as White</td></tr>
-  <tr><td>R8</td><td>Black</td><td>Nassar</td><td>1945</td><td>B60 Sicilian c3</td><td>Draw</td><td>Held draw</td></tr>
-  <tr style="background:#ffe0e0"><td>R9</td><td>White</td><td>Yang</td><td>2012</td><td>A67 Benoni</td><td><strong>Loss</strong></td><td>Benoni structure — lost</td></tr>
+  <tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Result</th><th>Acc%</th><th>Opp%</th><th>CPL</th><th>B/M/I</th><th>Key note</th></tr>
+  <tr><td>R1</td><td>White</td><td>Malakar</td><td>2302</td><td>Draw</td><td>92.7%</td><td>92.6%</td><td>21</td><td>1/0/1</td><td>Nxb4?? 482 CPL from +4.96 — "from winning" pattern</td></tr>
+  <tr style="background:#ffe0e0"><td>R2</td><td>Black</td><td>Stevens</td><td>2201</td><td><strong>Loss</strong></td><td>90.6%</td><td>96.6%</td><td>42</td><td>1/0/5</td><td>Dragon structure; outplayed by 2201</td></tr>
+  <tr style="background:#ffe0e0"><td>R3</td><td>White</td><td>Xin</td><td>2007</td><td><strong>Loss</strong></td><td>90.2%</td><td>95.6%</td><td>50</td><td>0/3/9</td><td>Lost vs Catalan Open …dxc4 — Austin's weapon confirmed</td></tr>
+  <tr style="background:#ffe0e0"><td>R4</td><td>Black</td><td>Lu, Aiden</td><td>1959</td><td><strong>Loss</strong></td><td><strong>86.0%</strong></td><td>89.1%</td><td>56</td><td>1/5/14</td><td>Worst game — 14 inaccuracies vs ~1959</td></tr>
+  <tr style="background:#fff0e0"><td>R5</td><td>White</td><td>Achyuth</td><td>1912</td><td>Draw</td><td>91.2%</td><td>92.3%</td><td>22</td><td>0/0/3</td><td>Only drew vs 1912 as White</td></tr>
+  <tr style="background:#ffe0e0"><td>R6</td><td>Black</td><td>Hoekman</td><td>1983</td><td><strong>Loss</strong></td><td>86.1%</td><td>89.8%</td><td>52</td><td>2/3/6</td><td>KID as Black — lost</td></tr>
+  <tr style="background:#fff0e0"><td>R7</td><td>White</td><td>Chen</td><td>1839</td><td>Draw</td><td>90.8%</td><td>91.4%</td><td>25</td><td>0/0/6</td><td>Only drew vs 1839 — conversion failure</td></tr>
+  <tr><td>R8</td><td>Black</td><td>Nassar</td><td>1945</td><td>Draw</td><td><strong>97.1%</strong></td><td>96.9%</td><td>7</td><td>0/0/1</td><td>Best game — near-perfect but only drew</td></tr>
+  <tr style="background:#ffe0e0"><td>R9</td><td>White</td><td>Yang</td><td>2012</td><td><strong>Loss</strong></td><td>87.8%</td><td>93.1%</td><td>70</td><td>3/1/9</td><td>3 blunders — Benoni, worst White game</td></tr>
 </table>
 <p style="font-size:0.8em; color:#666; margin-top:6px">
-  Canada Open total: 0W–5L–4D (2/9). White: 0W–2L–3D. Black: 0W–3L–1D. Core strategy unchanged and reinforced.
+  Canada Open: avg 90.3% · 0W–5L–4D. R1 critical moment: Nxb4 (482 CPL) from +4.96 — "from winning" collapse mirrors Toronto R6. R4/R6 (86%) confirm Black vulnerability vs lower-rated opponents.
 </p>
 
 <hr class="section-divider">

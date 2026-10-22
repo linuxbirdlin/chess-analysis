@@ -289,7 +289,7 @@
 <a class="back-link" href="austin-prep.html">← Back to Austin Lin — Prep &amp; Index</a>
 </div>
 <div class="encounter">
-    This document gives concrete preparation for Austin playing Aarush, split by color. <strong>3 direct encounters (all draws)</strong> from <em>Study of Chess Games Pt. 4</em> — Stockfish movetime-1500ms analysis below. Main dataset: Stockfish depth-18 review of 17 Aarush games across 4 tournaments (Canada Closed, PAM School, PAM, Toronto Open 2026). Key pattern: Aarush is <strong>0W–3L against h4 kingside attacks</strong> and blunders systematically under time pressure — including from winning positions (+6 pawns in Toronto Open R6, still lost after Qb4??).
+    This document gives concrete preparation for Austin playing Aarush, split by color. <strong>3 direct encounters (all draws)</strong> from <em>Study of Chess Games Pt. 4</em> — Stockfish movetime-1500ms analysis below. Main dataset: Stockfish depth-18 review of <strong>26 Aarush games</strong> across 5 tournaments (Canada Closed, PAM School, PAM, Toronto Open 2026, Canada Open 2026). Canada Open avg: <strong>90.3%</strong>. Key pattern: Aarush is <strong>0W–3L against h4 kingside attacks</strong> and blunders from winning positions — Toronto R6 (+6 pawns, Qb4??) and Canada Open R1 (+4.96, Nxb4?? 482 CPL both times).
   </div>
 <!-- Direct Encounters -->
 <h2>Direct Encounters</h2>
@@ -373,6 +373,38 @@
 <div style="font-size:0.82rem;color:#57606a;margin-bottom:8px;">Sep 2026 · Rating: 1895 · 1 game</div>
 <div style="font-size:0.82rem;color:#1a5276;font-weight:600;">View game notes →</div>
 </a>
+<a href="opponents/aarush/canadaopen2026/round1.pgn" style="flex:1;min-width:180px;display:block;border:2px solid #8b1a1a;border-radius:8px;padding:16px 18px;text-decoration:none;color:inherit;background:#fff5f5;">
+<div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#8b1a1a;margin-bottom:4px;">⚠ 0W–5L–4D · avg 90.3%</div>
+<div style="font-weight:700;font-size:0.98rem;color:#1f2328;margin-bottom:4px;">Canada Open 2026</div>
+<div style="font-size:0.82rem;color:#57606a;margin-bottom:8px;">Jul 2026 · Rating: 1941 · 9 games</div>
+<div style="font-size:0.82rem;color:#1a5276;font-weight:600;">Accuracy table below ↓</div>
+</a>
+</div>
+
+<!-- Canada Open 2026 Accuracy Table -->
+<h2>Canada Open 2026 — Engine Analysis (9 Games, Depth 18)</h2>
+<p style="font-size:0.9rem;color:#57606a;margin-bottom:12px;">Avg accuracy: <strong>90.3%</strong> (vs overall career avg ~90.5%). White: 0W–2L–3D · Black: 0W–3L–1D. Worst game: R4 86.0% (14 inaccuracies, 5 mistakes). Best game: R8 97.1% (1 inaccuracy only).</p>
+<table>
+<thead>
+<tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Result</th><th>Acc%</th><th>Opp%</th><th>CPL</th><th>B/M/I</th></tr>
+</thead>
+<tbody>
+<tr><td>R1</td><td>White</td><td>Malakar, Saarthak</td><td>2302</td><td>½–½</td><td><strong>92.7%</strong></td><td>92.6%</td><td>21</td><td>1/0/1</td></tr>
+<tr style="background:#fff5f5;"><td>R2</td><td>Black</td><td>Stevens, Christian</td><td>2201</td><td><strong>Loss</strong></td><td>90.6%</td><td>96.6%</td><td>42</td><td>1/0/5</td></tr>
+<tr style="background:#fff5f5;"><td>R3</td><td>White</td><td>Xin, Stella</td><td>2007</td><td><strong>Loss</strong></td><td>90.2%</td><td>95.6%</td><td>50</td><td>0/3/9</td></tr>
+<tr style="background:#ffe0e0;"><td>R4</td><td>Black</td><td>Lu, Aiden</td><td>1959</td><td><strong>Loss</strong></td><td><strong>86.0%</strong></td><td>89.1%</td><td>56</td><td>1/5/14</td></tr>
+<tr><td>R5</td><td>White</td><td>Achyuth, Akshaj</td><td>1912</td><td>½–½</td><td>91.2%</td><td>92.3%</td><td>22</td><td>0/0/3</td></tr>
+<tr style="background:#fff5f5;"><td>R6</td><td>Black</td><td>Hoekman, Samuel</td><td>1983</td><td><strong>Loss</strong></td><td>86.1%</td><td>89.8%</td><td>52</td><td>2/3/6</td></tr>
+<tr><td>R7</td><td>White</td><td>Chen, Ray</td><td>1839</td><td>½–½</td><td>90.8%</td><td>91.4%</td><td>25</td><td>0/0/6</td></tr>
+<tr><td>R8</td><td>Black</td><td>Nassar, Marc</td><td>1945</td><td>½–½</td><td><strong>97.1%</strong></td><td>96.9%</td><td>7</td><td>0/0/1</td></tr>
+<tr style="background:#ffe0e0;"><td>R9</td><td>White</td><td>Yang, Bohan</td><td>2012</td><td><strong>Loss</strong></td><td>87.8%</td><td>93.1%</td><td>70</td><td>3/1/9</td></tr>
+</tbody>
+</table>
+<div class="tip-box" style="margin-bottom:8px;">
+<strong>Canada Open key finding — R1 blunder pattern repeats:</strong> R1 vs Malakar (2302) — Aarush had <strong>+4.96 as White</strong> (clearly winning) but played <code>Nxb4</code> (482 CPL blunder, best <code>Rh1</code>), collapsing to +0.14. This is the identical "blunder from winning" pattern as Toronto R6 (Qb4?? from +7.31). The R9 loss (87.8%, 3 blunders) follows: <code>Bg5??</code> pattern — piece move instead of decisive central pawn advance. These aren't random errors — they are systematic.
+</div>
+<div class="warn-box" style="margin-bottom:24px;">
+<strong>R7 (White vs Chen 1839) and R5 (White vs Achyuth 1912) were draws.</strong> Aarush played 90.8% and 91.2% respectively but could not convert against lower-rated opponents. His Catalan as White has consistent difficulty converting advantages against anyone below 2000. Austin should not be intimidated by Aarush's White — the data shows it is exploitable.
 </div>
 <!-- Part 1: Austin as White -->
 <div class="part-card">

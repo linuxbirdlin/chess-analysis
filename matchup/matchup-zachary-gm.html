@@ -92,7 +92,7 @@ tr:nth-child(even) td { background: #f9f9f9; }
 
 <div class="sources">
   <strong>Data sources — how they are weighted</strong>
-  <span class="src-classical">PRIMARY: Classical tournament PGNs</span> — 6 tournaments (BC Cup, GV Open, Canada Closed, PAM, PAM School 2026, Canada Open 2026), 34 games engine-analyzed + 9 Canada Open pending. These are the games that matter. Pattern confidence is high.
+  <span class="src-classical">PRIMARY: Classical tournament PGNs</span> — 6 tournaments (BC Cup, GV Open, Canada Closed, PAM, PAM School 2026, Canada Open 2026), 43 games engine-analyzed. These are the games that matter. Pattern confidence is high.
   <br>
   <span class="src-lichess">SUPPLEMENTARY: 423 Lichess games (leilei8514, 2020–2022)</span> — rapid/blitz. Used only for opening line frequency and variation depth. Clock times from these games are <em>not used</em> — rapid blitz timing does not transfer to classical.
 </div>
@@ -1431,7 +1431,7 @@ FEN: r1bq1rk1/pb1nbppp/p1p1p3/3pP3/3B4/2NB4/PPP1QPPP/3RR1K1 w - - 0 14<br>
 
 <div style="margin-top:24px; font-size:0.78em; color:#888; border-top:1px solid #ddd; padding-top:10px; line-height:1.6">
   <strong>Sources:</strong>
-  Classical: 34 games fully engine-analyzed (movetime-800, 5 tournaments, 2026) + 9 Canada Open 2026 (engine pending).
+  Classical: 43 games fully engine-analyzed (movetime-800, 6 tournaments, 2026). Canada Open 2026 avg accuracy: 94.3%.
   Supplementary: 423 Lichess games (leilei8514, rapid/blitz, 2020–2022) — used for opening line frequency only.
   Depth-40 engine: Stockfish, multi-PV=5, run on 5 novelty candidate positions from Zachary's White Sicilian tree.
   Direct encounter (Sep 2026): Austin 91.8% · Zachary 93.8% · Austin lost on move-14 calculation failure (missed Bxh7+! at +3.79).
@@ -1440,23 +1440,24 @@ FEN: r1bq1rk1/pb1nbppp/p1p1p3/3pP3/3B4/2NB4/PPP1QPPP/3RR1K1 w - - 0 14<br>
 
 <hr class="section-divider">
 
-<h2>Part 7 — Canada Open 2026 Game Log (engine analysis pending)</h2>
+<h2>Part 7 — Canada Open 2026 Game Log (Depth 18 · 9 Games · avg 94.3%)</h2>
 
 <table>
-  <tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Result</th><th>Notes</th></tr>
-  <tr><td>R1</td><td>Black</td><td>Chen, Ray</td><td>1839</td><td>QGD/Nimzo 1.c4 e6 Bb4</td><td><strong>Win</strong></td><td>Won with Black vs 1839</td></tr>
-  <tr style="background:#ffe0e0"><td>R2</td><td><strong>White</strong></td><td>Jaferian, Koosha</td><td>2249</td><td>Exchange Caro-Kann Bd3</td><td><strong>Loss</strong></td><td>1.e4 (secondary) — first White loss to 2249</td></tr>
-  <tr><td>R3</td><td>Black</td><td>Li, Yilin</td><td>1914</td><td>Sicilian vs 1.e4 c3</td><td><strong>Win</strong></td><td>Black Sicilian confirmed vs unusual White setups</td></tr>
-  <tr style="background:#ffe0e0"><td>R4</td><td><strong>White</strong></td><td>Marchand, Calix</td><td>2181</td><td>Reti/Catalan 1.Nf3 c4 g3</td><td><strong>Loss</strong></td><td>Primary opening — lost in Catalan structure vs 2181</td></tr>
-  <tr><td>R5</td><td>Black</td><td>Deshpande, Sarthak</td><td>1975</td><td>Benko Gambit A57</td><td><strong>Win</strong></td><td>Benko win confirms gambit repertoire</td></tr>
-  <tr><td>R6</td><td>White</td><td>Joseph Benher, Savio</td><td>2210</td><td>French Tarrasch 1.e4 e6 3.Nd2</td><td>Draw</td><td>Drew vs 2210 as White</td></tr>
-  <tr><td>R7</td><td>Black</td><td>Hergott, Deen</td><td>2391</td><td>Flexible Reti 1.Nf3</td><td>Draw</td><td>Impressive draw vs FM/IM-level 2391</td></tr>
-  <tr><td>R8</td><td>White</td><td>Dukic, Zachary</td><td>2204</td><td>Philidor opponent</td><td>Draw</td><td>Drew vs 2204 as White</td></tr>
-  <tr><td>R9</td><td>Black</td><td>Tran, Tri</td><td>2008</td><td>Benko Gambit A57</td><td>Draw</td><td>Second Benko game — drew vs 2008</td></tr>
+  <tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Acc%</th><th>CPL</th><th>B/M/I</th><th>Result</th></tr>
+  <tr><td>R1</td><td>Black</td><td>Chen, Ray</td><td>1839</td><td>A13 English/QGD 1.c4 e6 Bb4</td><td><strong>97.8%</strong></td><td>7</td><td>0/0/1</td><td><strong>Win</strong></td></tr>
+  <tr style="background:#ffe0e0"><td>R2</td><td><strong>White</strong></td><td>Jaferian, Koosha</td><td>2249</td><td>B13 Exchange Caro-Kann Bd3</td><td>90.9%</td><td>54</td><td>1/1/12</td><td><strong>Loss</strong></td></tr>
+  <tr><td>R3</td><td>Black</td><td>Li, Yilin</td><td>1914</td><td>B22 Sicilian Alapin 2.Nf3 e6 3.c3</td><td><strong>97.9%</strong></td><td>8</td><td>0/0/2</td><td><strong>Win</strong></td></tr>
+  <tr style="background:#ffe0e0"><td>R4</td><td><strong>White</strong></td><td>Marchand, Calix</td><td>2181</td><td>E06 Catalan 1.Nf3 c4 g3 d5</td><td>89.9%</td><td>62</td><td>2/4/5</td><td><strong>Loss</strong></td></tr>
+  <tr><td>R5</td><td>Black</td><td>Deshpande, Sarthak</td><td>1975</td><td>A57 Benko Gambit</td><td>90.0%</td><td>31</td><td>1/0/5</td><td><strong>Win</strong></td></tr>
+  <tr><td>R6</td><td>White</td><td>Joseph Benher, Savio</td><td>2210</td><td>C05 French Tarrasch 3.Nd2</td><td><strong>98.4%</strong></td><td>4</td><td>0/0/0</td><td>Draw</td></tr>
+  <tr><td>R7</td><td>Black</td><td>Hergott, Deen</td><td>2391</td><td>D04 QP/Colle 1.Nf3 d4 e3</td><td>94.0%</td><td>15</td><td>0/0/3</td><td>Draw</td></tr>
+  <tr><td>R8</td><td>White</td><td>Dukic, Zachary</td><td>2204</td><td>C41 Philidor 1.e4 e5 Nf3 d6</td><td>92.6%</td><td>20</td><td>0/2/2</td><td>Draw</td></tr>
+  <tr><td>R9</td><td>Black</td><td>Tran, Tri</td><td>2008</td><td>A57 Benko Gambit</td><td><strong>97.2%</strong></td><td>7</td><td>0/0/1</td><td>Draw</td></tr>
 </table>
 <p style="font-size:0.8em; color:#666; margin-top:6px">
-  Canada Open total: 3W–2L–4D. White: 0W–2L–2D (both losses to 2181+ opponents).
-  Black: 3W–0L–2D (Benko Gambit: 1W–0L–1D). Core English Attack strategy vs Taimanov unchanged.
+  Canada Open total: 3W–2L–4D · avg accuracy 94.3%. White: 0W–2L–2D (R2 Kg1?? blunder into forced mate vs 2249; R4 h5?? 620 CPL from −11 vs 2181).
+  Black: 3W–0L–2D · avg 95.4% (Benko confirmed: R5 Win + R9 Draw). Outstanding R7 draw vs Hergott 2391 (94%).
+  Core English Attack strategy vs Taimanov unchanged. First White losses in entire dataset.
 </p>
 
 </body>

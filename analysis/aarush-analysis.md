@@ -49,18 +49,18 @@ Avg accuracy: 84% (Opponent: 84%)
 
 | Rd | Color | Opponent | Opp. Rtg | Opening | Acc% | CPL | Result |
 |----|-------|----------|----------|---------|------|-----|--------|
-| R1 | White | Malakar, Saarthak | 2302 | D12 Anti-Slav Qb3 | — | — | **Draw** |
-| R2 | Black | Stevens, Christian | 2201 | B78 Dragon/Maróczy | — | — | **Loss** |
-| R3 | White | Xin, Stella | 2007 | E07 Catalan Open (…dxc4) | — | — | **Loss** |
-| R4 | Black | Lu, Aiden | 1959 | B90 Sicilian Qd3 line | — | — | **Loss** |
-| R5 | White | Achyuth, Akshaj | 1912 | E10 Bogo/Anti-Catalan | — | — | **Draw** |
-| R6 | Black | Hoekman, Samuel | 1983 | E70 KID | — | — | **Loss** |
-| R7 | White | Chen, Ray | 1839 | E12 Catalan Closed | — | — | **Draw** |
-| R8 | Black | Nassar, Marc | 1945 | B60 Sicilian c3 | — | — | **Draw** |
-| R9 | White | Yang, Bohan | 2012 | A67 Benoni | — | — | **Loss** |
+| R1 | White | Malakar, Saarthak | 2302 | D12 Anti-Slav Qb3 | 92.7% | 21 | **Draw** |
+| R2 | Black | Stevens, Christian | 2201 | B78 Dragon/Maróczy | 90.6% | 42 | **Loss** |
+| R3 | White | Xin, Stella | 2007 | E07 Catalan Open (…dxc4) | 90.2% | 50 | **Loss** |
+| R4 | Black | Lu, Aiden | 1959 | B90 Sicilian Qd3 line | 86.0% | 56 | **Loss** |
+| R5 | White | Achyuth, Akshaj | 1912 | E10 Bogo/Anti-Catalan | 91.2% | 22 | **Draw** |
+| R6 | Black | Hoekman, Samuel | 1983 | E70 KID | 86.1% | 52 | **Loss** |
+| R7 | White | Chen, Ray | 1839 | E12 Catalan Closed | 90.8% | 25 | **Draw** |
+| R8 | Black | Nassar, Marc | 1945 | B60 Sicilian c3 | 97.1% | 7 | **Draw** |
+| R9 | White | Yang, Bohan | 2012 | A67 Benoni | 87.8% | 70 | **Loss** |
 
 **Score: 0W–5L–4D (2/9).** As White: 0W–2L–3D. As Black: 0W–3L–1D.  
-Engine analysis pending. Key notes: R3 loss to Catalan Open (Black played …dxc4) confirms Austin's weapon; R1 draw vs 2302 with Anti-Slav Qb3 (deviating from pure Catalan); drew vs 1912 and 1839 as White — alarming underperformance.
+Avg accuracy: **90.3%** (Stockfish depth-18). Worst: R4 86.0% (1B/5M/14I vs 1959). Best: R8 97.1% (0B/0M/1I vs 1945). Key: R1 blunder Nxb4 (482 CPL) from +4.96 winning — same "from winning" collapse as Toronto R6; R3 loss confirms Catalan Open …dxc4 as Austin's weapon.
 
 ### PAM 2026 (July 28–31, 2026 · Rating: 1941 · 5 games captured)
 
@@ -191,5 +191,5 @@ Aarush played Black against a 2086 CM who opened with Saragossa (1.c3) and launc
 | Weakness #3 | Catalan collapses vs 2000+ under pressure |
 | Weakness #4 | Time pressure cascade (CPL skyrockets) |
 | Blunder rate | ~1.8 blunders/game overall; higher as White (2.0) |
-| Avg accuracy | 90.6% (range 80.6%–98.2%; engine-analyzed games) |
-| Canada Open | 0W–5L–4D (2/9) — worst tournament result in dataset |
+| Avg accuracy | 90.4% overall (range 80.6%–98.2%; 26 engine-analyzed games) |
+| Canada Open | 0W–5L–4D (2/9) avg 90.3% — "from winning" blunder R1 Nxb4 (482 CPL from +4.96) |
