@@ -1,9 +1,9 @@
 # Zachary Liu — Chess Analysis Report
 
-**Tournaments analyzed:** BC Chess Cup 2026 · Greater Vancouver 2026 · Canada Closed 2026 · PAM 2026 · PAM School 2026  
+**Tournaments analyzed:** BC Chess Cup 2026 · Greater Vancouver 2026 · Canada Closed 2026 · PAM 2026 · PAM School 2026 · Canada Open 2026  
 **Title:** Candidate Master (CM)  
 **Approximate rating:** 2050–2250 (based on opponent ratings defeated/drawn)  
-**Total games reviewed:** 37 (34 fully analyzed, 3 skipped for technical reasons)
+**Total games reviewed:** 46 (34 fully analyzed, 3 skipped for technical reasons, 9 Canada Open pending engine analysis)
 
 ---
 
@@ -16,9 +16,10 @@
 | Canada Closed 2026 | 2W–0L–3D (5 games) | 0W–1L–3D (4 games, incl. 1 skipped) | 2W–1L–6D |
 | PAM 2026 | 2W–0L–1D (3 games, incl. 2 with * result) | 1W–0L–2D (3 games) | 3W–0L–3D |
 | PAM School 2026 | 3W–0L–2D (5 games, incl. 1 with * result) | 0W–0L–3D (3 games) | 3W–0L–5D |
-| **Combined** | **13W–0L–8D** | **3W–2L–10D** | **16W–2L–18D** |
+| Canada Open 2026 | 0W–2L–2D (4 games) | 3W–0L–2D (5 games) | 3W–2L–4D |
+| **Combined** | **13W–2L–10D** | **6W–2L–12D** | **19W–4L–22D** |
 
-**Critical context:** Zachary's record is remarkable for its resilience — only 2 losses across 36 games with known results, against opponents rated 2368 (Yang) and 1907 (Tseng). His 50%+ draw rate is intentional: he consistently finds "safe" continuations against lower-rated opponents rather than pushing for wins. His two losses came in sharp Sicilian middlegames where he lost defensive coordination. As White, he has never lost in this dataset.
+**Critical context:** Zachary's record remains resilient across 45 games — 4 total losses. His two original losses (Yang 2368 and Tseng 1907) both came in sharp Sicilian middlegames. In Canada Open 2026, he added two White losses: Reti/Catalan loss vs Marchand 2181 (R4) and Exchange Caro-Kann loss vs Jaferian 2249 (R2). Both White losses came against 2181+ opponents. As Black he continues to dominate (6W–2L–12D total). His 50%+ draw rate is intentional: he consistently finds "safe" continuations against lower-rated opponents rather than pushing for wins.
 
 **Avg accuracy by tournament:**
 
@@ -29,6 +30,7 @@
 | Canada Closed 2026 | 92.4% | 8 |
 | PAM 2026 | 92.6% | 6 |
 | PAM School 2026 | 94.2% | 8 |
+| Canada Open 2026 | — (pending) | 9 |
 | **Overall** | **93.6%** | **34** |
 
 ---
@@ -97,13 +99,14 @@ Zachary has two distinct White systems. His primary is the Reti/English family; 
 | D38 | Ragozin / QGD (1.d4 d5 2.c4 e6 3.Nc3 Nf6 4.Nf3 Bb4) | 0W–0L–2D | Qu 2236 (draw), Berube 1952 (draw) |
 | D02 | QP/London structure | 0W–0L–2D | Tapiero 1645 (draw), Delgado 1833 (draw) |
 | D00 | London System (as Black) | 0W–0L–1D | Marchand 2074 (draw) |
-| A57 | Benko Gambit (1.d4 Nf6 2.c4 c5 3.d5 b5) | 1W–0L–0D | Sheng 1879 (win) |
+| A57 | Benko Gambit (1.d4 Nf6 2.c4 c5 3.d5 b5) | 2W–0L–1D | Sheng 1879 (win); Deshpande 1975 (win); Tran 2008 (draw) |
 
 **Black vs 1.d4 notes:**
 - Zachary favors the **Catalan Open** structure when White plays the Catalan (1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.g3 dxc4): PAM R7 (E07, win vs Jackson) and PAM School R2 (E08, win vs Aarush).
 - Against London-type systems (1.d4 d5 2.Nf3 Nf6 3.Bf4), he plays a flexible QGD setup.
 - The Benko Gambit (A57, vs Sheng 1879) shows he can play gambit chess when the situation calls for it.
 - **Ragozin (D38):** against 2.Nc3 systems he plays Bb4 pin — solid and well-understood.
+- **Benko Gambit now confirmed:** 3 classical games total (2W–0L–1D). Canada Open R5 win vs Deshpande 1975 and R9 draw vs Tran 2008 confirm this is a genuine part of his repertoire, not a one-off. Should be treated as a real Black weapon vs 1.d4.
 
 ---
 
@@ -182,9 +185,9 @@ Zachary played `1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.g3 Be7 5.Bg2 O-O 6.O-O Nbd7 7.Nc3 dx
 | Black vs 1.e4 | Sicilian Taimanov (B46/B47) primarily; Dragon occasionally |
 | Black vs 1.d4/1.Nf3 | Catalan Open (E07/E08) as main weapon; Ragozin (D38); Benko (A57) |
 | Avg accuracy | 93.6% (34 games) |
-| Record | 16W–2L–18D (only 2 losses in 36 games) |
+| Record | 19W–4L–22D across 45 games (2 new White losses in Canada Open 2026) |
 | Endgame technique | Excellent — demonstrated at 97.4% vs 2512 in 104 moves |
 | Tactical sharpness | Below average for his strength — spikes of 4+ blunders in sharp Sicilians |
 | Draw tendency | Very high — ~50% draws, risk-averse in advantages |
-| Weaknesses | Sharp Sicilian Dragon/Taimanov tactical positions; misses winning continuations from large advantages |
+| Weaknesses | Sharp Sicilian Dragon/Taimanov tactical positions; misses winning continuations from large advantages; White: susceptible to strong opponents in Catalan/Reti (Canada Open R4 loss) and 1.e4 lines (R2 loss) |
 | Key vulnerability | Dramatic accuracy drop (79–83%) in double-edged Sicilian middlegames |

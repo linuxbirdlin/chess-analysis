@@ -18,6 +18,7 @@ const TOURNAMENTS = [
   { dir: 'canadaclose2026', name: 'Canada Closed 2026' },
   { dir: 'pam2026',         name: 'PAM 2026' },
   { dir: 'pamschool2026',   name: 'PAM School 2026' },
+  { dir: 'canadaopen2026',  name: 'Canada Open 2026' },
 ];
 
 function isZachary(name) { return /liu,?\s*zachary/i.test(name); }

@@ -45,6 +45,23 @@ Avg accuracy: 92.3% (Opponents: 97.4%)
 **Score: 0W-1L.** As Black: 0W-1L.  
 Avg accuracy: 84% (Opponent: 84%)
 
+### Canada Open 2026 (July 11–17, 2026 · Rating: 1941 · 9 games)
+
+| Rd | Color | Opponent | Opp. Rtg | Opening | Acc% | CPL | Result |
+|----|-------|----------|----------|---------|------|-----|--------|
+| R1 | White | Malakar, Saarthak | 2302 | D12 Anti-Slav Qb3 | — | — | **Draw** |
+| R2 | Black | Stevens, Christian | 2201 | B78 Dragon/Maróczy | — | — | **Loss** |
+| R3 | White | Xin, Stella | 2007 | E07 Catalan Open (…dxc4) | — | — | **Loss** |
+| R4 | Black | Lu, Aiden | 1959 | B90 Sicilian Qd3 line | — | — | **Loss** |
+| R5 | White | Achyuth, Akshaj | 1912 | E10 Bogo/Anti-Catalan | — | — | **Draw** |
+| R6 | Black | Hoekman, Samuel | 1983 | E70 KID | — | — | **Loss** |
+| R7 | White | Chen, Ray | 1839 | E12 Catalan Closed | — | — | **Draw** |
+| R8 | Black | Nassar, Marc | 1945 | B60 Sicilian c3 | — | — | **Draw** |
+| R9 | White | Yang, Bohan | 2012 | A67 Benoni | — | — | **Loss** |
+
+**Score: 0W–5L–4D (2/9).** As White: 0W–2L–3D. As Black: 0W–3L–1D.  
+Engine analysis pending. Key notes: R3 loss to Catalan Open (Black played …dxc4) confirms Austin's weapon; R1 draw vs 2302 with Anti-Slav Qb3 (deviating from pure Catalan); drew vs 1912 and 1839 as White — alarming underperformance.
+
 ### PAM 2026 (July 28–31, 2026 · Rating: 1941 · 5 games captured)
 
 | Rd | Color | Opponent | Opp. Rtg | Opening | Acc% | CPL | Result |
@@ -64,10 +81,10 @@ Avg accuracy: 89.9% (Opponents: 90.1%)
 
 | Color | W | L | D | Avg Acc% | Notes |
 |-------|---|---|---|----------|-------|
-| White | 2 | 5 | 0 | 90.5% | Wins only vs ~1925 or lower |
-| Black | 4 | 5 | 1 | 90.7% | Wins in Najdorf; losses to 2000+ |
+| White | 2 | 7 | 3 | 90.5% | Wins only vs ~1925 or lower; Canada Open 0W–2L–3D |
+| Black | 4 | 8 | 2 | 90.7% | Wins in Najdorf; losses to 2000+; Canada Open 0W–3L–1D |
 
-*17 games analyzed. Overall avg accuracy: ~90.4%. Total blunders: 32. Total mistakes: 34.*
+*26 games analyzed (17 engine-analyzed; 9 Canada Open pending). Overall avg accuracy: ~90.4% (engine-analyzed games). Total blunders: 32. Total mistakes: 34.*
 
 ---
 
@@ -166,7 +183,7 @@ Aarush played Black against a 2086 CM who opened with Saragossa (1.c3) and launc
 |-----------|-----------|
 | Rating | ~1895–1941 (fluctuating; dropped at Toronto Open Sep 2026) |
 | White opening | 1.d4 Catalan/fianchetto exclusively |
-| Black opening | Sicilian Najdorf primary; KID-like g6/Bg7 secondary |
+| Black opening | Sicilian Najdorf primary; KID (E70) vs 1.d4; Dragon/Maróczy (B78) vs 1.Nf3 |
 | Style | Positional as White; tactical as Black |
 | Strength | Najdorf endgame, Catalan vs ~1900, resilience |
 | Weakness #1 | King-and-pawn endgame technique (3+ blunders/game) |
@@ -174,4 +191,5 @@ Aarush played Black against a 2086 CM who opened with Saragossa (1.c3) and launc
 | Weakness #3 | Catalan collapses vs 2000+ under pressure |
 | Weakness #4 | Time pressure cascade (CPL skyrockets) |
 | Blunder rate | ~1.8 blunders/game overall; higher as White (2.0) |
-| Avg accuracy | 90.6% (range 80.6%–98.2%) |
+| Avg accuracy | 90.6% (range 80.6%–98.2%; engine-analyzed games) |
+| Canada Open | 0W–5L–4D (2/9) — worst tournament result in dataset |

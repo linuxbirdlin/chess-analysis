@@ -85,12 +85,12 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <span><strong>GM Prep</strong></span>
   <span>Aarush rating: ~1895–1941 (fluctuating)</span>
   <span>Direct record: no encounter</span>
-  <span>Classical games analyzed: 17</span>
+  <span>Classical games analyzed: 26 (9 Canada Open pending engine analysis)</span>
 </div>
 
 <div class="sources">
   <strong>Data sources</strong>
-  <span class="src-classical">Primary: 17 classical games (Canada Closed, PAM School, PAM 2026, Toronto Open 2026) — engine-analyzed at movetime-800.</span>
+  <span class="src-classical">Primary: 26 classical games (Canada Closed, PAM School, PAM 2026, Toronto Open 2026, Canada Open 2026) — 17 engine-analyzed at movetime-800; 9 Canada Open pending.</span>
   <span class="src-lichess">Supplementary: Lichess games (makoshark12, rapid/blitz) — opening line frequency only.</span>
 </div>
 
@@ -99,19 +99,18 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
     <h3>Aarush as White</h3>
     <ul>
       <li><strong>1.d4 exclusively</strong> — Catalan/fianchetto in all structures</li>
-      <li>Slav: g3/Bg2/Nf3/O-O (D10/D11)</li>
-      <li>Catalan Open/Closed (E04/E08)</li>
-      <li>KID Fianchetto (E68)</li>
-      <li>White avg accuracy: ~91.3%</li>
-      <li>Best: 98.2% vs ~1925 (clean Catalan win)</li>
-      <li>Worst: 85.7%–87.9% vs 2000+</li>
+      <li>Slav: g3/Bg2/Nf3/O-O (D10/D11); Catalan Open/Closed (E04/E08/E12)</li>
+      <li><strong>Canada Open: 0W–2L–3D</strong> — cannot beat 1912 or 1839 as White</li>
+      <li>Lost R3 to Catalan Open …dxc4 — confirms Austin's weapon</li>
+      <li>Best: 98.2% vs ~1925 (CC R9). Worst: 85.7%–87.9% vs 2000+</li>
     </ul>
   </div>
   <div class="intel-card">
     <h3>Aarush as Black</h3>
     <ul>
       <li>vs 1.e4: <strong>Sicilian Najdorf (B90)</strong> primary</li>
-      <li>Secondary: KID-like g6/Bg7 (E60/A48)</li>
+      <li>Secondary: KID-like g6/Bg7 (E60/A48); KID (E70) vs 1.d4</li>
+      <li>NEW: Dragon/Maróczy (B78) vs 1.Nf3 (Canada Open R2)</li>
       <li>Black avg accuracy: ~89.5%</li>
       <li><strong>h4 kingside attack: 0W–3L</strong></li>
       <li>Worst: 80.6% (CC R1, 3 blunders vs h4)</li>
@@ -135,7 +134,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
       <li>CC R7: Lost to 1824-rated in 128 moves via king endgame errors (93.3% but 3×1000 CPL)</li>
       <li>PAM R6: 5 blunders vs 1833-rated (100 CPL avg in 100-move game)</li>
       <li>CC R9: 98.2% best game — Catalan vs ~1925, near-perfect</li>
-      <li>Overall blunder rate: ~1.8/game</li>
+      <li><strong>Canada Open 2/9: 0W–5L–4D</strong> — drew vs 1912, 1839 as White</li>
     </ul>
   </div>
 </div>
@@ -642,7 +641,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <hr class="section-divider">
 
 <!-- ═══════════════ PART 6 — ACCURACY TABLE ═══════════════ -->
-<h2>Part 6 — Engine Accuracy Reference (17 Classical Games)</h2>
+<h2>Part 6 — Engine Accuracy Reference (17 Engine-Analyzed Games + Canada Open 2026)</h2>
 
 <table>
   <tr><th>Tournament / Game</th><th>Color</th><th>Opponent</th><th>Result</th><th>ECO</th><th>Accuracy</th><th>Bl/Mi</th></tr>
@@ -666,6 +665,23 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <p style="font-size:0.8em; color:#666; margin-top:6px">
   Dark red = worst losses. Orange = Catalan collapses vs 2000+. Note: CC R7 is 93.3% accuracy
   but 3 king blunders — all 1000 CPL. High accuracy does not protect against endgame king errors.
+</p>
+
+<h3 style="margin-top:18px">Canada Open 2026 — Game Log (engine analysis pending)</h3>
+<table>
+  <tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Result</th><th>Notes</th></tr>
+  <tr><td>R1</td><td>White</td><td>Malakar</td><td>2302</td><td>D12 Anti-Slav Qb3</td><td>Draw</td><td>Held draw vs 2302 — best Canada Open result</td></tr>
+  <tr style="background:#ffe0e0"><td>R2</td><td>Black</td><td>Stevens</td><td>2201</td><td>B78 Dragon/Maróczy</td><td><strong>Loss</strong></td><td>New structure as Black; lost vs 2200</td></tr>
+  <tr style="background:#ffe0e0"><td>R3</td><td>White</td><td>Xin</td><td>2007</td><td>E07 Catalan Open …dxc4</td><td><strong>Loss</strong></td><td>Black grabbed c4 pawn — Austin's weapon confirmed</td></tr>
+  <tr style="background:#ffe0e0"><td>R4</td><td>Black</td><td>Lu, Aiden</td><td>1959</td><td>B90 Sicilian Qd3</td><td><strong>Loss</strong></td><td>Lost vs ~1959 with Black</td></tr>
+  <tr style="background:#fff0e0"><td>R5</td><td>White</td><td>Achyuth</td><td>1912</td><td>E10 Bogo Bb4+</td><td>Draw</td><td>Only drew vs 1912 as White</td></tr>
+  <tr style="background:#ffe0e0"><td>R6</td><td>Black</td><td>Hoekman</td><td>1983</td><td>E70 KID</td><td><strong>Loss</strong></td><td>KID as Black vs d5 push — lost</td></tr>
+  <tr style="background:#fff0e0"><td>R7</td><td>White</td><td>Chen</td><td>1839</td><td>E12 Catalan Closed</td><td>Draw</td><td>Only drew vs 1839 as White</td></tr>
+  <tr><td>R8</td><td>Black</td><td>Nassar</td><td>1945</td><td>B60 Sicilian c3</td><td>Draw</td><td>Held draw</td></tr>
+  <tr style="background:#ffe0e0"><td>R9</td><td>White</td><td>Yang</td><td>2012</td><td>A67 Benoni</td><td><strong>Loss</strong></td><td>Benoni structure — lost</td></tr>
+</table>
+<p style="font-size:0.8em; color:#666; margin-top:6px">
+  Canada Open total: 0W–5L–4D (2/9). White: 0W–2L–3D. Black: 0W–3L–1D. Core strategy unchanged and reinforced.
 </p>
 
 <hr class="section-divider">

@@ -41,6 +41,10 @@ const TOURNAMENTS = [
     key:    'PAM 2026',
     pgnDir: path.join(ROOT, 'opponents/aarush/pam2026'),
   },
+  {
+    key:    'Canada Open 2026',
+    pgnDir: path.join(ROOT, 'opponents/aarush/canadaopen2026'),
+  },
 ];
 
 // ─── Config ───────────────────────────────────────────────────────────────────

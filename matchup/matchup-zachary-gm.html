@@ -92,7 +92,7 @@ tr:nth-child(even) td { background: #f9f9f9; }
 
 <div class="sources">
   <strong>Data sources — how they are weighted</strong>
-  <span class="src-classical">PRIMARY: Classical tournament PGNs</span> — 5 tournaments (BC Cup, GV Open, Canada Closed, PAM, PAM School 2026), 34 games fully engine-analyzed at 90+30. These are the games that matter. Pattern confidence is high.
+  <span class="src-classical">PRIMARY: Classical tournament PGNs</span> — 6 tournaments (BC Cup, GV Open, Canada Closed, PAM, PAM School 2026, Canada Open 2026), 34 games engine-analyzed + 9 Canada Open pending. These are the games that matter. Pattern confidence is high.
   <br>
   <span class="src-lichess">SUPPLEMENTARY: 423 Lichess games (leilei8514, 2020–2022)</span> — rapid/blitz. Used only for opening line frequency and variation depth. Clock times from these games are <em>not used</em> — rapid blitz timing does not transfer to classical.
 </div>
@@ -100,13 +100,13 @@ tr:nth-child(even) td { background: #f9f9f9; }
 <div class="intel-grid">
   <div class="intel-card">
     <h3>Zachary as White (Austin faces this)</h3>
-    <p><strong>1.Nf3 → c4 Reti/English</strong> — primary (~60% of games). Accuracy 93–97% across all 5 tournaments. He plays on autopilot in these structures. <em>Never lost as White in this dataset.</em></p>
+    <p><strong>1.Nf3 → c4 Reti/English</strong> — primary (~60% of games). Accuracy 93–97% across 5 earlier tournaments. He plays on autopilot in these structures. <em>Canada Open 2026: 0W–2L–2D as White — lost R2 (Exchange CK vs 2249) and R4 (Reti/Catalan vs 2181).</em></p>
     <p style="margin-top:6px"><strong>1.e4</strong> — secondary. Sicilian Alapin (B22), Dragon Yugoslav (B75). Less accurate.</p>
   </div>
   <div class="intel-card">
     <h3>Zachary as Black (Austin attacks)</h3>
     <p><strong>vs 1.e4:</strong> Sicilian Taimanov (B46/B47) exclusively — 1...c5 2.Nf3 e6. <em>Confirmed weak spot:</em> CC G266854: 79.4% acc, 4 blunders, loss — in sharp Taimanov middlegame.</p>
-    <p style="margin-top:6px"><strong>vs 1.Nf3/d4:</strong> Catalan Open (E07/E08, wins at 96–97%), Ragozin (D38), Benko (A57). Well-prepared.</p>
+    <p style="margin-top:6px"><strong>vs 1.Nf3/d4:</strong> Catalan Open (E07/E08, wins at 96–97%), Ragozin (D38), Benko Gambit (A57) now 3 games (2W–0L–1D): confirmed part of his repertoire.</p>
   </div>
   <div class="intel-card">
     <h3>Confirmed strength</h3>
@@ -121,6 +121,11 @@ tr:nth-child(even) td { background: #f9f9f9; }
 </div>
 
 <hr class="section-divider">
+
+<div class="callout callout-gold">
+  <strong>Canada Open 2026 — major update</strong>
+  Zachary lost twice as White in Canada Open 2026 (R2 Exchange Caro-Kann vs Jaferian 2249; R4 Reti/Catalan vs Marchand 2181). He is no longer undefeated as White. However, as Black he was dominant: 3W–0L–2D including a draw vs Hergott 2391. The Benko Gambit (1.d4 Nf6 2.c4 c5 3.d5 b5) is now confirmed as his Black weapon vs 1.d4 (3 games). Austin will likely face 1.Nf3/c4 White — these White losses don't affect that preparation, but they show Zachary can be beaten in sharp positions.
+</div>
 
 <!-- ═══════════════ PART 1 — AUSTIN AS WHITE ═══════════════ -->
 <h2>Part 1 — Austin as White</h2>
@@ -305,6 +310,15 @@ tr:nth-child(even) td { background: #f9f9f9; }
   <strong>Avoid Najdorf (4...a6) if Zachary plays 1.e4</strong>
   The Lichess tree confirms heavy Bg5/f4/Qf3 usage in his White database against ...a6 structures.
   He is well-prepared in Najdorf attacking lines. Use Taimanov (4...e6) instead.
+</div>
+
+<h3>If Zachary plays 1.d4 (note)</h3>
+<div class="callout callout-blue">
+  <strong>Zachary's own Benko Gambit (Black weapon)</strong>
+  Zachary plays Benko Gambit (1.d4 Nf6 2.c4 c5 3.d5 b5) as Black. This is relevant because
+  if Austin ever plays 1.d4, Zachary would play Benko. But Austin plays 1.e4 exclusively —
+  so this is informational only. The Benko confirms Zachary understands gambit/imbalanced play,
+  which supports the Dutch Leningrad approach (imbalanced vs his prepared Reti structures).
 </div>
 
 <hr class="section-divider">
@@ -1417,12 +1431,33 @@ FEN: r1bq1rk1/pb1nbppp/p1p1p3/3pP3/3B4/2NB4/PPP1QPPP/3RR1K1 w - - 0 14<br>
 
 <div style="margin-top:24px; font-size:0.78em; color:#888; border-top:1px solid #ddd; padding-top:10px; line-height:1.6">
   <strong>Sources:</strong>
-  Classical: 34 games fully engine-analyzed (movetime-800, 5 tournaments, 2026).
+  Classical: 34 games fully engine-analyzed (movetime-800, 5 tournaments, 2026) + 9 Canada Open 2026 (engine pending).
   Supplementary: 423 Lichess games (leilei8514, rapid/blitz, 2020–2022) — used for opening line frequency only.
   Depth-40 engine: Stockfish, multi-PV=5, run on 5 novelty candidate positions from Zachary's White Sicilian tree.
   Direct encounter (Sep 2026): Austin 91.8% · Zachary 93.8% · Austin lost on move-14 calculation failure (missed Bxh7+! at +3.79).
   Post-mortem (Part 6) sourced from Austin's own Lichess study annotation (study poQAjleK, chapter nhA4fD2o).
 </div>
+
+<hr class="section-divider">
+
+<h2>Part 7 — Canada Open 2026 Game Log (engine analysis pending)</h2>
+
+<table>
+  <tr><th>Rd</th><th>Color</th><th>Opponent</th><th>Rtg</th><th>Opening</th><th>Result</th><th>Notes</th></tr>
+  <tr><td>R1</td><td>Black</td><td>Chen, Ray</td><td>1839</td><td>QGD/Nimzo 1.c4 e6 Bb4</td><td><strong>Win</strong></td><td>Won with Black vs 1839</td></tr>
+  <tr style="background:#ffe0e0"><td>R2</td><td><strong>White</strong></td><td>Jaferian, Koosha</td><td>2249</td><td>Exchange Caro-Kann Bd3</td><td><strong>Loss</strong></td><td>1.e4 (secondary) — first White loss to 2249</td></tr>
+  <tr><td>R3</td><td>Black</td><td>Li, Yilin</td><td>1914</td><td>Sicilian vs 1.e4 c3</td><td><strong>Win</strong></td><td>Black Sicilian confirmed vs unusual White setups</td></tr>
+  <tr style="background:#ffe0e0"><td>R4</td><td><strong>White</strong></td><td>Marchand, Calix</td><td>2181</td><td>Reti/Catalan 1.Nf3 c4 g3</td><td><strong>Loss</strong></td><td>Primary opening — lost in Catalan structure vs 2181</td></tr>
+  <tr><td>R5</td><td>Black</td><td>Deshpande, Sarthak</td><td>1975</td><td>Benko Gambit A57</td><td><strong>Win</strong></td><td>Benko win confirms gambit repertoire</td></tr>
+  <tr><td>R6</td><td>White</td><td>Joseph Benher, Savio</td><td>2210</td><td>French Tarrasch 1.e4 e6 3.Nd2</td><td>Draw</td><td>Drew vs 2210 as White</td></tr>
+  <tr><td>R7</td><td>Black</td><td>Hergott, Deen</td><td>2391</td><td>Flexible Reti 1.Nf3</td><td>Draw</td><td>Impressive draw vs FM/IM-level 2391</td></tr>
+  <tr><td>R8</td><td>White</td><td>Dukic, Zachary</td><td>2204</td><td>Philidor opponent</td><td>Draw</td><td>Drew vs 2204 as White</td></tr>
+  <tr><td>R9</td><td>Black</td><td>Tran, Tri</td><td>2008</td><td>Benko Gambit A57</td><td>Draw</td><td>Second Benko game — drew vs 2008</td></tr>
+</table>
+<p style="font-size:0.8em; color:#666; margin-top:6px">
+  Canada Open total: 3W–2L–4D. White: 0W–2L–2D (both losses to 2181+ opponents).
+  Black: 3W–0L–2D (Benko Gambit: 1W–0L–1D). Core English Attack strategy vs Taimanov unchanged.
+</p>
 
 </body>
 </html>
