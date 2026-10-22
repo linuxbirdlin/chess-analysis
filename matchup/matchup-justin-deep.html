@@ -271,8 +271,8 @@
   <h1>Austin vs Justin Huang — Engine Analysis (Deep)</h1>
   <div class="meta">
     <span><strong>Justin rating:</strong> 1963→2093 FIDE</span>
-    <span><strong>Engine:</strong> Stockfish movetime-800 · 26 games</span>
-    <span><strong>Overall:</strong> 93.4% avg · White 93.5% (14g) · Black 93.2% (12g)</span>
+    <span><strong>Engine:</strong> Stockfish movetime-800 · depth-18 · 30 games</span>
+    <span><strong>Overall:</strong> 93.4% avg · White 93.5% (17g) · Black 93.2% (13g)</span>
     <span><strong>Direct encounter:</strong> NAYCC 2025 R4 — Justin (Black) beat Austin (White)</span>
   </div>
   <a class="back-link" href="../austin-prep.html">← Back to Prep Index</a>
@@ -289,7 +289,7 @@
 </div>
 
 <div class="encounter">
-  <strong>Engine summary:</strong> 26 games analyzed (Stockfish movetime-800). Overall avg <strong>93.4%</strong> — nearly identical by color (White 93.5%, Black 93.2%). By tournament: Canada Closed 92.6%, PAM 2026 92.5%, PAM School 96.1%, Toronto Open 93.6%. Justin is a consistent player with few accuracy collapses but a clear weakness: <strong>single-move blunders from near-equal or winning positions</strong> (Bg1 CPL 355 from +0.29; Rxe5 CPL 641 from −0.03; Ke6 CPL 602 from +7.12). <strong>⚠️ Sicilian sighting: Toronto Open R4 — Justin now plays Sicilian as Black vs 1.e4. His French monopoly is broken.</strong>
+  <strong>Engine summary:</strong> 30 games analyzed (Stockfish depth-18). Overall avg <strong>93.4%</strong> — nearly identical by color (White 93.5%, Black 93.2%). By tournament: Canada Closed 92.6%, PAM 2026 92.5%, PAM School 96.1%, Toronto Open 93.9%, Canada Open 93.3%. Justin is a consistent player with few accuracy collapses but a clear weakness: <strong>single-move blunders from near-equal or winning positions</strong> (Bg1 CPL 355 from +0.29; Rxe5 CPL 641 from −0.03; Ke1 CPL 378 from 0.00). <strong>⚠️ Sicilian sighting: Toronto Open R4 — Justin now plays Sicilian as Black vs 1.e4. His French monopoly is broken.</strong>
 </div>
 
 <div class="part-card">
@@ -314,9 +314,14 @@
   <td>R4 vs Tobar 92.1% (White win)</td>
 </tr>
 <tr>
-  <td>Toronto Open 2026</td><td>3g</td><td><strong>93.6%</strong></td>
+  <td>Toronto Open 2026</td><td>4g</td><td><strong>93.9%</strong></td>
   <td>R5 vs Wang 96.6% (White win)</td>
   <td>R2 vs Preotu (FM) 91.9% (White loss)</td>
+</tr>
+<tr>
+  <td>Canada Open 2026</td><td>3g</td><td><strong>93.3%</strong></td>
+  <td>R5 vs Malakar 95.4% (White win vs 2302)</td>
+  <td>R3 vs Lu 90.1% (White win)</td>
 </tr>
 </tbody>
 </table>
@@ -749,7 +754,7 @@
 </div>
 </div>
 
-<h2>Toronto Open 2026 — 3 Games (avg 93.6%)</h2>
+<h2>Toronto Open 2026 — 4 Games (avg 93.9%)</h2>
 
 <div class="game-row">
 <div class="game-row-header">
@@ -772,8 +777,25 @@
 <div class="game-row">
 <div class="game-row-header">
   <span class="badge-color">Justin Black</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R3 · vs Russell Wesley (1994) · Reti/Catalan → French pawn structure</span>
+  <span class="badge-result-draw">DRAW</span>
+  <span class="badge-acc-hi">94.8%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:13 · B:0 · M:0</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Assessment</div>
+    <div class="im-moment good-find">Solid Black draw. 94.8% accuracy, 0 blunders, 0 mistakes. Justin simplified into an equal pawn ending and agreed a draw. Perfect technique under no pressure.</div>
+    <div class="im-prep">Justin played the draw efficiently with near-perfect accuracy. No exploitable errors in this game — his endgame reading was accurate throughout.</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin Black</span>
   <span style="font-weight:600;font-size:0.92rem;flex:1;">R4 · vs Achyuth Akshaj · ⚠️ SICILIAN — first documented Sicilian game</span>
-  <span class="badge-result-win">WIN</span>
+  <span class="badge-result-draw">DRAW</span>
   <span class="badge-sicilian">⚠ SICILIAN</span>
   <span class="badge-acc">92.4%</span>
   <span style="font-size:0.78rem;color:#57606a;">CPL:20 · B:0 · M:1</span>
@@ -784,7 +806,7 @@
     <div class="im-moment"><strong>Qe1</strong> (best: Kg8) — CPL 229 mistake · <strong>+2.29→+0.00</strong>. Justin was WINNING (+2.29) and played Qe1, immediately equalizing. Missed the win.</div>
     <div class="im-section-label">SICILIAN ALERT</div>
     <div class="im-tags"><span class="im-tag time-pressure">threw away +2.29 winning advantage</span><span class="im-tag opening-prep">⚠️ NEW WEAPON</span></div>
-    <div class="im-prep"><strong>Justin played Sicilian as Black for the first time in this dataset.</strong> He was winning (+2.29) and threw it to equal with Qe1. Two conclusions: (1) Justin's French monopoly is broken — Austin must now prepare for Sicilian as well; (2) his Sicilian endgame execution is untested — the Qe1 miss shows uncertainty in converting Sicilian positions. Unknown preparation depth; treat as a threat but Austin's Rossolimo preparation is the answer.</div>
+    <div class="im-prep"><strong>Justin played Sicilian as Black for the first time in this dataset.</strong> He was winning (+2.29) and threw it to equal with Qe1 — the game ended in a draw. Two conclusions: (1) Justin's French monopoly is broken — Austin must now prepare for Sicilian as well; (2) his Sicilian execution is untested — he couldn't convert a winning position. Unknown preparation depth; Austin's Rossolimo (3.Bb5) sidesteps deep theory regardless.</div>
   </div>
 </div>
 </div>
@@ -804,6 +826,68 @@
   </div>
 </div>
 </div>
+
+<h2>Canada Open 2026 — 3 Games (avg 93.3%, all White)</h2>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin White</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R1 · vs Plotkin Victor (2279) · D34 QGD/Tarrasch (1.d4 d5 c4 e6 Nf3 c5)</span>
+  <span class="badge-result-loss">LOSS</span>
+  <span class="badge-acc">94.4%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:16 · B:2 · M:0</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Critical Moments — "From Equal" Collapse Pattern</div>
+    <div class="im-moment blunder"><strong>Ke1</strong> — CPL 378 · <strong>+0.00→−3.78</strong>. From a perfectly equal position (0.00), one king move immediately lost. Not from a weak position — from equality.</div>
+    <div class="im-moment blunder"><strong>Rg4</strong> — CPL 373 · <strong>+0.00→−3.73</strong>. Second blunder, also from 0.00 equal. Both collapses in the same game from the same eval: equality.</div>
+    <div class="im-tags"><span class="im-tag time-pressure">BOTH blunders from 0.00 equal</span><span class="im-tag">2279-rated opponent</span></div>
+    <div class="im-prep"><strong>This is Justin's "from equal collapse" White pattern:</strong> Ke1 (378 CPL) and Rg4 (373 CPL) — two consecutive blunders from 0.00, the White equivalent of Rxe5 (Canada Closed R7). Austin should steer for sharp, balanced positions that demand precise calculation under time pressure. Justin will sometimes pick the wrong move from equality.</div>
+  </div>
+</div>
+</div>
+
+<div class="warn-box">R1 loss — Ke1 (378 CPL) and Rg4 (373 CPL) both from 0.00 equal positions. This is Justin's "from equal collapse" pattern. Not from a bad position — from equality. Austin should steer for sharp equal positions that demand precise calculation.</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin White</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R3 · vs Lu Tony (2174) · A90 Dutch Defense (1.d4 e6 c4 f5)</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc-lo">90.1%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:37 · B:1 · M:4 · I:9</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment blunder"><strong>Rxe8+</strong> — CPL 320 · <strong>+6.03→+2.83</strong>. Threw away a +6 advantage in one move — from clearly winning to merely better. Still won.</div>
+    <div class="im-tags"><span class="im-tag endgame">gave up +3 eval advantage with Rxe8+</span></div>
+    <div class="im-prep">90.1% accuracy — his lowest in a win. Opponent responded with only 87.5%, allowing Justin to recover from the Rxe8+ blunder. 1 blunder, 4 mistakes, 9 inaccuracies reflects a scrappy but ultimately successful game vs Dutch Defense (outside his usual French/QGD territory).</div>
+  </div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-color">Justin White</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R5 · vs Malakar Saarthak (2302) · D16 Slav Anti-Slav (1.d4 d5 c4 c6 Nf3 e3 Bf5 Nh4)</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc">95.4%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:33 · B:2 · M:1 · I:3</span>
+</div>
+<div class="game-row-body">
+  <div class="im-analysis">
+    <div class="im-section-label">Critical Moments</div>
+    <div class="im-moment blunder"><strong>Kc7</strong> — CPL 1000 · <strong>+24.02→+12.69</strong>. King to wrong square from +24 winning position. Halved the eval in one move but game was never in doubt.</div>
+    <div class="im-moment blunder"><strong>Qc6</strong> — CPL 301 · <strong>+19.27→+16.26</strong>. Second blunder from +19. Both blunders came from completely winning positions — Justin converted cleanly regardless.</div>
+    <div class="im-tags"><span class="im-tag endgame">both blunders from dominant positions (+24/+19)</span></div>
+    <div class="im-prep">Best White performance vs 2300+ opposition. 95.4% accuracy, dominant positional play throughout. The Nh4/f3/Bd2 Anti-Slav system gained a massive space advantage early. Both CPL-1000 blunders were from positions so winning they could not lose. Justin's 1.d4 Anti-Slav preparation appears deep and strong.</div>
+  </div>
+</div>
+</div>
+
+<div class="tip-box">R5 win vs 2302 Malakar (95.4%) — Justin's White is genuinely strong at the top level. Two blunders from +24 and +19 but converted cleanly. His 1.d4 Anti-Slav handling was dominant.</div>
 
 <hr>
 

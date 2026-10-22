@@ -46,6 +46,10 @@ const TOURNAMENTS = [
     key:    'Toronto Open 2026',
     pgnDir: path.join(ROOT, 'opponents/justin/torontoopen2026'),
   },
+  {
+    key:    'Canada Open 2026',
+    pgnDir: path.join(ROOT, 'opponents/justin/canadaopen2026'),
+  },
 ];
 
 // ─── Config ───────────────────────────────────────────────────────────────────

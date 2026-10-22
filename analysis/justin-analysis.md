@@ -1,20 +1,54 @@
 # Justin Huang — Chess Analysis Report
 
-**Tournaments analyzed:** Canada Closed 2026 (Montreal CAN) · PAM 2026
-**Ratings:** 1963 (Canada Closed 2026) → 2023 (PAM 2026)
-**Total games reviewed:** 18 (9 Canada Closed, 9 PAM)
+**Tournaments analyzed:** Canada Closed 2026 · PAM 2026 · PAM School 2026 · Toronto Open 2026 · Canada Open 2026
+**Ratings:** 1963 (Canada Closed) → 2023 (PAM) → 2093 (estimated current)
+**Total games reviewed:** 30 (engine-analyzed, depth-18)
 
 ---
 
 ## 1. Overall Results
 
-| Tournament | As White | As Black | Total |
-|---|---|---|---|
-| Canada Closed 2026 | 1W–1L–2D (4 games) | 0W–4L–1D (5 games) | 1W–5L–3D |
-| PAM 2026 | 3W–1L (4 games) | 3W–1L–1D (5 games) | 6W–2L–1D |
-| **Combined** | **4W–2L–2D** | **3W–5L–2D** | **7W–7L–4D** |
+| Tournament | As White | As Black | Total | Avg Acc% |
+|---|---|---|---|---|
+| Canada Closed 2026 | 1W–1L–2D (4g) | 0W–4L–1D (5g) | 1W–5L–3D | 92.6% |
+| PAM 2026 | 3W–1L (4g) | 3W–1L–1D (5g) | 6W–2L–1D | 92.5% |
+| PAM School 2026 | — | — | — (5g) | 96.1% |
+| Toronto Open 2026 | 1W–1L (2g) | 0W–0L–2D (2g) | 1W–1L–2D (4g) | 93.9% |
+| Canada Open 2026 | 2W–1L (3g) | — | 2W–1L (3g) | 93.3% |
+| **Combined** | | | | **93.4%** |
 
-**Critical context:** Justin's overall record looks balanced, but the two tournaments tell very different stories. In Canada Closed he underperformed badly against a strong field, while at PAM 2026 he dominated lower-rated opposition. His rating jumped from 1963 to 2023 after PAM. The Canada Closed losses were almost all as Black, which is a significant pattern.
+**Critical context:** 30 games across 5 tournaments. Justin's rating jumped from 1963 to 2023 after PAM, and current estimates put him around 2093. Canada Closed losses were almost all as Black — a persistent structural weakness. Canada Open (all White, vs 2174–2302 opponents) confirms his White 1.d4 is genuinely strong. Toronto was 1W-1L-2D; the R2 loss vs FM Preotu 2475 came from a small inaccuracy that compounded at elite level. PAM School 96.1% is his best tournament by accuracy — 5 games including a near-perfect 97.2% French win.
+
+### PAM School 2026 (5 games · avg 96.1%)
+
+| Rd | Color | Acc% | CPL | B/M/I | Result |
+|----|-------|------|-----|-------|--------|
+| Various | Mixed | 96.1% avg | low | low overall | See deep HTML |
+
+Avg 96.1% — Justin's best tournament. Notable: 97.2% near-perfect French win as Black. One game with 11 blunders (all in a hopeless endgame cascade) skews the blunder count but not accuracy.
+
+### Toronto Open 2026 (4 games · avg 93.9%)
+
+| Rd | Color | Opponent | Opp. Rtg | Acc% | CPL | Result |
+|----|-------|----------|----------|------|-----|--------|
+| R2 | White | Preotu, Razvan (FM) | 2475 | 91.9% | 25 | **Loss** |
+| R3 | Black | Russell, Wesley | 1994 | 94.8% | 13 | **Draw** |
+| R4 | Black | Achyuth, Akshaj | 1934 | 92.4% | 20 | **Draw** |
+| R5 | White | Wang, Nathan Zian | 2011 | 96.6% | 13 | **Win** |
+
+**Score: 1W–1L–2D.** R2 loss vs FM Preotu 2475: already slightly worse before Rc3 blunder (390 CPL from −2.24). R3 draw vs Russell 1994: solid French draw at 94.8%, 0 blunders. R4 — first Sicilian as Black in dataset (vs 1.e4). Justin played Qe1 (CPL 229, threw +2.29 winning advantage to 0.00) and settled for a draw. ⚠️ Sicilian preparation depth unknown.
+
+### Canada Open 2026 (3 games · avg 93.3% · all White)
+
+| Rd | Color | Opponent | Opp. Rtg | Opening | Acc% | CPL | B/M/I | Result |
+|----|-------|----------|----------|---------|------|-----|-------|--------|
+| R1 | White | Plotkin, Victor | 2279 | D34 QGD/Tarrasch (1.d4 d5 c4 e6 Nf3 c5 cxd5 Nxd5) | 94.4% | 16 | 2/0/0 | **Loss** |
+| R3 | White | Lu, Tony | 2174 | A90 Dutch Defense (1.d4 e6 c4 f5) | 90.1% | 37 | 1/4/9 | **Win** |
+| R5 | White | Malakar, Saarthak | 2302 | D16 Slav Anti-Slav (1.d4 d5 c4 c6 Nf3 Nf6 e3 Bf5 Nh4) | 95.4% | 33 | 2/1/3 | **Win** |
+
+**Score: 2W–1L (all White).** R1 loss: two blunders from 0.00 equal positions (Ke1 378 CPL, Rg4 373 CPL) — self-inflicted from equality, not from a lost position. R5 win vs 2302: two blunders from massively winning positions (+24/+19) but converted cleanly. R3: Rxe8+ blunder (320 CPL, +6.03→+2.83) but recovered to win. Avg 93.3%.
+
+**Critical context:** Justin's overall record looks balanced, but the two earliest tournaments tell very different stories. In Canada Closed he underperformed badly against a strong field, while at PAM 2026 he dominated lower-rated opposition. His rating jumped from 1963 to 2023 after PAM. The Canada Closed losses were almost all as Black, which is a significant pattern.
 
 ---
 
@@ -162,4 +196,4 @@ Since Austin will almost certainly face Justin's French, this section is critica
 | Performance vs higher-rated (2200+) | Poor — struggles to generate Black counterplay |
 | French Defense expertise | Very high — his primary identity as a player |
 
-**Overall:** Justin is a solid, positional player whose identity is built on the French Defense as Black and 1.d4 as White. His recent rating jump to 2023 reflects that PAM was played against softer opposition where his technical skills dominated. His real level against strong opposition (as seen in Canada Closed) is closer to 1963. His greatest strength is endgame technique and patience; his greatest vulnerability is facing aggressive kingside attacks in the French and passive positions when White is aggressive on the queenside.
+**Overall:** 30 games across 5 tournaments, avg 93.4% accuracy. Justin is a solid, positional player whose identity is built on the French Defense as Black and 1.d4 as White. Current rating ~2093. His greatest strength is endgame technique and patience; his greatest vulnerability is facing aggressive kingside attacks in the French and single-move collapses from equal positions (Ke1/Rg4 blunders from 0.00 in Canada Open R1). Canada Open R5 win vs 2302 Malakar shows his White is genuinely strong. PAM School 96.1% avg is his most accurate tournament.
