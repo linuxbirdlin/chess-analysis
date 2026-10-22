@@ -1039,5 +1039,116 @@
         "evalAfter": "-0.26"
       }
     ]
+  },
+  "Vs IM Nicholas Vettesse": {
+    "label": "Vs IM Nicholas Vettesse",
+    "color": "white",
+    "accuracy": 91.7,
+    "oppAccuracy": 95.9,
+    "avgCPL": 35,
+    "blunders": 1,
+    "mistakes": 1,
+    "inaccuracies": 6,
+    "movesAnalyzed": 44,
+    "criticalMoments": [
+      {
+        "san": "Qc4",
+        "bestMove": "Qd5+",
+        "cpl": 358,
+        "classification": "blunder",
+        "evalBefore": "-8.20",
+        "evalAfter": "-11.78"
+      },
+      {
+        "san": "Nxe5",
+        "bestMove": "Nb5",
+        "cpl": 293,
+        "classification": "mistake",
+        "evalBefore": "-1.64",
+        "evalAfter": "-4.57"
+      },
+      {
+        "san": "Nec4",
+        "bestMove": "Ndc4",
+        "cpl": 120,
+        "classification": "inaccuracy",
+        "evalBefore": "-0.28",
+        "evalAfter": "-1.48"
+      }
+    ]
+  },
+  "Vs Krishnamurthi Roshath Jagaav": {
+    "label": "Vs Krishnamurthi Roshath Jagaav",
+    "color": "black",
+    "accuracy": 89.6,
+    "oppAccuracy": 87.1,
+    "avgCPL": 46,
+    "blunders": 4,
+    "mistakes": 2,
+    "inaccuracies": 0,
+    "movesAnalyzed": 66,
+    "criticalMoments": [
+      {
+        "san": "f3",
+        "bestMove": "f3",
+        "cpl": 1000,
+        "classification": "blunder",
+        "evalBefore": "+76.26",
+        "evalAfter": "+53.66"
+      },
+      {
+        "san": "gxh4",
+        "bestMove": "Kg4",
+        "cpl": 440,
+        "classification": "blunder",
+        "evalBefore": "+4.40",
+        "evalAfter": "+0.00"
+      },
+      {
+        "san": "Bd4",
+        "bestMove": "c3",
+        "cpl": 421,
+        "classification": "blunder",
+        "evalBefore": "+5.02",
+        "evalAfter": "+0.81"
+      }
+    ]
+  },
+  "Vs Korosh Bolandnazar": {
+    "label": "Vs Korosh Bolandnazar",
+    "color": "white",
+    "accuracy": 93.1,
+    "oppAccuracy": 91.3,
+    "avgCPL": 18,
+    "blunders": 0,
+    "mistakes": 0,
+    "inaccuracies": 4,
+    "movesAnalyzed": 40,
+    "criticalMoments": [
+      {
+        "san": "Kh1",
+        "bestMove": "Nh1",
+        "cpl": 121,
+        "classification": "inaccuracy",
+        "evalBefore": "+2.30",
+        "evalAfter": "+1.09"
+      },
+      {
+        "san": "Ba6",
+        "bestMove": "Ne2",
+        "cpl": 93,
+        "classification": "inaccuracy",
+        "evalBefore": "+1.69",
+        "evalAfter": "+0.76"
+      },
+      {
+        "san": "Ne1",
+        "bestMove": "Nh2",
+        "cpl": 70,
+        "classification": "inaccuracy",
+        "evalBefore": "+1.07",
+        "evalAfter": "+0.37"
+      }
+    ]
   }
 }

@@ -245,15 +245,15 @@
 <div class="page">
 <div class="doc-header">
 <h1>Personal Study Games Pt.5 — Engine Review</h1>
-<p class="subtitle">Lichess study collection · 29 games · Analyzed at Stockfish depth 18 (8 threads)</p>
+<p class="subtitle">Lichess study collection · 32 games · Analyzed at Stockfish depth 18 (8 threads) · Includes Silent Storm Thanksgiving 2026 (Oct 17–18)</p>
 <a class="back-link" href="../../austin-prep.html">← Back to Austin Lin — Prep &amp; Index</a>
 </div>
 <!-- Scoreboard -->
 <div class="scoreboard">
-<div class="score-card"><div class="label">Games</div><div class="value">29</div></div>
+<div class="score-card"><div class="label">Games</div><div class="value">32</div></div>
 <div class="score-card highlight"><div class="label">Avg Accuracy</div><div class="value" id="overall-avg">—</div></div>
-<div class="score-card"><div class="label">As White (21)</div><div class="value" id="white-avg">—</div></div>
-<div class="score-card"><div class="label">As Black (8)</div><div class="value" id="black-avg">—</div></div>
+<div class="score-card"><div class="label">As White (23)</div><div class="value" id="white-avg">—</div></div>
+<div class="score-card"><div class="label">As Black (9)</div><div class="value" id="black-avg">—</div></div>
 <div class="score-card warn"><div class="label">Total Blunders</div><div class="value" id="total-blunders">—</div></div>
 <div class="score-card warn"><div class="label">Total Mistakes</div><div class="value" id="total-mistakes">—</div></div>
 </div>
@@ -261,7 +261,7 @@
 <strong>Context:</strong> These are Austin's personal study games from Lichess (Games Pt.5, collected Sep–Oct 2026). Unlike tournament games, these are practice sessions — no official results are tracked. The engine report reveals accuracy patterns across the study set and identifies recurring tactical habits.
   </div>
 <!-- Game Log Table -->
-<h2>Game Log (29 games, alphabetical)</h2>
+<h2>Game Log (32 games, alphabetical)</h2>
 <table id="game-log-table">
 <thead>
 <tr><th>#</th><th>Opponent</th><th>Color</th><th>Accuracy</th><th>Opp. Acc</th><th>CPL</th><th>B</th><th>M</th><th>I</th></tr>
@@ -296,6 +296,9 @@
 <tr><td>27</td><td>Zelus Hui</td><td>Black</td><td class="accuracy" data-color="black" data-val="90.2">—</td><td class="opp-accuracy" data-val="86.2">—</td><td>87</td><td>3</td><td>4</td><td>3</td></tr>
 <tr><td>28</td><td>Zhi Sheng Wang</td><td>Black</td><td class="accuracy" data-color="black" data-val="90.8">—</td><td class="opp-accuracy" data-val="96.6">—</td><td>48</td><td>1</td><td>0</td><td>5</td></tr>
 <tr><td>29</td><td>Zi Sheng Wang</td><td>Black</td><td class="accuracy" data-color="black" data-val="94">—</td><td class="opp-accuracy" data-val="90.8">—</td><td>26</td><td>0</td><td>2</td><td>6</td></tr>
+<tr><td>30</td><td>IM Nicholas Vettesse <em style="font-size:0.8em;color:#888">(2536 · Silent Storm)</em></td><td>White</td><td class="accuracy" data-color="white" data-val="91.7">—</td><td class="opp-accuracy" data-val="95.9">—</td><td>35</td><td>1</td><td>1</td><td>6</td></tr>
+<tr><td>31</td><td>Krishnamurthi Roshath Jagaav <em style="font-size:0.8em;color:#888">(1935 · Silent Storm)</em></td><td>Black</td><td class="accuracy" data-color="black" data-val="89.6">—</td><td class="opp-accuracy" data-val="87.1">—</td><td>46</td><td>4</td><td>2</td><td>0</td></tr>
+<tr><td>32</td><td>Korosh Bolandnazar <em style="font-size:0.8em;color:#888">(2203 · Silent Storm)</em></td><td>White</td><td class="accuracy" data-color="white" data-val="93.1">—</td><td class="opp-accuracy" data-val="91.3">—</td><td>18</td><td>0</td><td>0</td><td>4</td></tr>
 </tbody>
 </table>
 <script>
@@ -1084,6 +1087,85 @@
 </tbody>
 </table>
 <p class="game-note">Good game overall (94% accuracy). Kf6 (Kd6 was more central) and Rh1 (Rc1 was the active rook) are both examples of slightly less active piece placement in a winning endgame. Errors are minor — Austin maintained a winning advantage throughout this 110-move game.</p>
+</div>
+</div>
+<!-- #30 IM Nicholas Vettesse -->
+<div class="game-review">
+<div class="game-header">
+<span class="round-badge">#30</span>
+<span class="game-opp">IM Nicholas Vettesse <span style="font-size:0.78em;color:#888;font-weight:400">(2536 FIDE · Silent Storm Thanksgiving, Oct 17)</span></span>
+<span class="color-wh">White</span>
+<span class="acc-badge">91.7%</span>
+</div>
+<div class="engine-bar">
+<div class="eb">CPL <strong>35</strong></div>
+<div class="eb eb-b">Blunders <strong>1</strong></div>
+<div class="eb eb-m">Mistakes <strong>1</strong></div>
+<div class="eb eb-i">Inaccuracies <strong>6</strong></div>
+</div>
+<div class="game-body">
+<table class="moments-table">
+<thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+<tbody>
+<tr class="brow"><td>BLUNDER</td><td>Qc4</td><td>Qd5+</td><td>358</td><td>−8.20→−11.78</td></tr>
+<tr class="mrow"><td>MISTAKE</td><td>Nxe5</td><td>Nb5</td><td>293</td><td>−1.64→−4.57</td></tr>
+<tr class="irow"><td>INACCURACY</td><td>Nec4</td><td>Ndc4</td><td>120</td><td>−0.28→−1.48</td></tr>
+</tbody>
+</table>
+<p class="game-note">Austin (2074) vs IM Vettesse (2536) — B90 Sicilian Najdorf Adams Attack (1.e4 c5 … h3/h5 Adams). Austin played White at 462 rating points below. 91.7% accuracy against a 2536 IM is the highest-stakes game in the study set. The blunder Qc4 (Qd5+ was a fork/check winning material) deepened an already losing position; Nxe5 (Nb5 retreats the attacked knight safely) reflects calculation fatigue in a complex position. Nec4 vs Ndc4 is a pure routing choice — both moves develop the knight to c4 but via different squares. Austin's 95.9% opponent accuracy shows Vettesse played near-perfectly. Loss is expected at this rating gap; 91.7% is a commendable effort.</p>
+</div>
+</div>
+<!-- #31 Krishnamurthi Roshath Jagaav -->
+<div class="game-review">
+<div class="game-header">
+<span class="round-badge">#31</span>
+<span class="game-opp">Krishnamurthi Roshath Jagaav <span style="font-size:0.78em;color:#888;font-weight:400">(1935 · Silent Storm Thanksgiving, Oct 18)</span></span>
+<span class="color-bl">Black</span>
+<span class="acc-badge">89.6%</span>
+</div>
+<div class="engine-bar">
+<div class="eb">CPL <strong>46</strong></div>
+<div class="eb eb-b">Blunders <strong>4</strong></div>
+<div class="eb eb-m">Mistakes <strong>2</strong></div>
+<div class="eb eb-i">Inaccuracies <strong>0</strong></div>
+</div>
+<div class="game-body">
+<table class="moments-table">
+<thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+<tbody>
+<tr class="brow"><td>BLUNDER†</td><td>f3</td><td>f3</td><td>1000</td><td>+76.26→+53.66</td></tr>
+<tr class="brow"><td>BLUNDER</td><td>gxh4</td><td>Kg4</td><td>440</td><td>+4.40→+0.00</td></tr>
+<tr class="brow"><td>BLUNDER</td><td>Bd4</td><td>c3</td><td>421</td><td>+5.02→+0.81</td></tr>
+</tbody>
+</table>
+<p class="game-note">Austin played Black (won, 0-1, 132 moves) — B48 Sicilian Taimanov English Attack. † The top blunder "f3 vs f3" is an engine artifact: Austin played the exact move the engine recommends (f3), but CPL 1000 is a compression artifact in a massively winning +76 position. The two real blunders: <strong>gxh4</strong> (Kg4 was the king centralization move that kept the win) handed a +4.40 position back to equality (0.00) — the same king-navigation error pattern seen in other games. <strong>Bd4</strong> (c3 was the active pawn push) dropped +5.02 to +0.81. Austin also had a 132-move endgame which accumulated 2 additional mistakes. Despite the blunders Austin won — opponent Krishnamurthi (87.1% accuracy) made his own errors. Austin's rating of 2074 in this game is significant — showing strong development since NAYCC 2025 (~1865).</p>
+</div>
+</div>
+<!-- #32 Korosh Bolandnazar -->
+<div class="game-review">
+<div class="game-header">
+<span class="round-badge">#32</span>
+<span class="game-opp">Korosh Bolandnazar <span style="font-size:0.78em;color:#888;font-weight:400">(2203 · Silent Storm Thanksgiving, Oct 18)</span></span>
+<span class="color-wh">White</span>
+<span class="acc-badge">93.1%</span>
+</div>
+<div class="engine-bar">
+<div class="eb">CPL <strong>18</strong></div>
+<div class="eb eb-b">Blunders <strong>0</strong></div>
+<div class="eb eb-m">Mistakes <strong>0</strong></div>
+<div class="eb eb-i">Inaccuracies <strong>4</strong></div>
+</div>
+<div class="game-body">
+<p class="no-errors-msg">Clean game — 0 blunders, 0 mistakes, 4 minor inaccuracies vs a 2203-rated player.</p>
+<table class="moments-table">
+<thead><tr><th>Type</th><th>Played</th><th>Engine Best</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+<tbody>
+<tr class="irow"><td>INACCURACY</td><td>Kh1</td><td>Nh1</td><td>121</td><td>+2.30→+1.09</td></tr>
+<tr class="irow"><td>INACCURACY</td><td>Ba6</td><td>Ne2</td><td>93</td><td>+1.69→+0.76</td></tr>
+<tr class="irow"><td>INACCURACY</td><td>Ne1</td><td>Nh2</td><td>70</td><td>+1.07→+0.37</td></tr>
+</tbody>
+</table>
+<p class="game-note">Austin (2074) vs Bolandnazar (2203) — C54 Italian Classical Giuoco Pianissimo (1.e4 e5 2.Nf3 Nc6 3.Bc4 Nf6 4.d3 Bc5 5.c3). Excellent 93.1% accuracy — CPL 18 is second-lowest in the study set (after Edison Wang's 9). No blunders or mistakes. All four inaccuracies involve sub-optimal piece routing: Kh1 (Nh1 was the right knight route to g3), Ba6 (Ne2 was the more active maneuver), Ne1 (Nh2 was better for the h-file). The pattern — choosing slightly less optimal piece squares rather than the most active route — is minor and consistent with Austin's play against higher-rated opposition. Drew from a slight White advantage: strong result vs a 2203. This is the best-quality game in the Silent Storm set.</p>
 </div>
 </div>
 <hr/>
