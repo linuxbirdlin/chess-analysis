@@ -21,7 +21,7 @@ const INACCURACY_CPL = 50, MISTAKE_CPL = 150, BLUNDER_CPL = 300;
 function isDaniel(name) { return /hernandez gamboa.*daniel|daniel.*hernandez gamboa/i.test(name); }
 
 function tournamentKey(eventName, broadcastName, studyName) {
-  if (/Aguascalientes 2026/i.test(broadcastName))                    return 'Aguascalientes 2026';
+  if (/Aguascalientes 2026/i.test(broadcastName || eventName))        return 'Aguascalientes 2026';
   if (/LXXI Campeonato.*Quer/i.test(broadcastName))                  return 'Querétaro 2026';
   if (/LXX Campeonato.*Quer/i.test(broadcastName))                   return 'Querétaro 2025';
   if (/LXIX Campeonato.*Quer/i.test(broadcastName))                  return 'Querétaro 2024';
