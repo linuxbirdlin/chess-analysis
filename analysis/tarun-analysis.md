@@ -15,7 +15,7 @@ Tarun Sankar is a fast-improving junior player based in the United States (Texas
 
 That is approximately **600 Elo points gained in 2.5 years** (Dec 2023 → Mar 2026). His current active FIDE rating is ~1965 (Oct 2026), just below his peak of 2002. He is clearly still in a strong growth phase.
 
-The PGN collection contains **16 unique games** across 6 tournaments. The sample is heavily biased toward strong opposition — his Dulles Skyline 2024 games include opponents rated 1829–2130, and both Texas Grand Circuit games were against titled or near-titled players (IM Fus 2419, Pyrig 2395). His record in the PGN looks weak (4W–10L–2D) precisely because these were "playing up" events; his actual rating rise proves he won many games not captured here.
+The PGN collection contains **23 unique games** across 7 tournaments. The sample is heavily biased toward strong opposition — his Dulles Skyline 2024 games include opponents rated 1829–2130, both Texas Grand Circuit games were against titled or near-titled players (IM Fus 2419, Pyrig 2395), and the 3-0 Thursday Club 2026 games include opponents rated 1943–2265. His record in the PGN looks weak (5W–15L–3D) precisely because these were "playing up" events; his actual rating rise proves he won many games not captured here.
 
 ---
 
@@ -24,12 +24,13 @@ The PGN collection contains **16 unique games** across 6 tournaments. The sample
 | Tournament | Date | Rating | Record | Score |
 |---|---|---|---|---|
 | 5th Skyline Open 2026 | Oct 2026, Dulles | 1965 | 0W–1L–1D | 0.5/2 |
+| 3-0 Thursday Club 2026 | Jul–Oct 2026, UK/intl | ~1965 | 1W–5L–1D | 1.5/7 |
 | Texas Grand Circuit 2026 | Mar 2026, Dallas | 2002 | 0W–2L–0D | 0/2 |
 | NA Open 2025 (35th) | Dec 2025, Las Vegas | 1871 | 0W–1L–0D | 0/1 |
 | NA Championship 2024 | Dec 2024, Dulles | 1750 | 0W–1L–0D | 0/1 |
-| Dulles Skyline 2024 (3rd) | Oct 2024, Dulles | 1706 | 2W–3L–1D | 3/6 |
+| Dulles Skyline 2024 (3rd) | Oct 2024, Dulles | 1706 | 2W–4L–1D | 3/7 |
 | Madurai Athens 2023 | Dec 2023, Madurai | 1406 | 2W–1L–0D | 2/3 |
-| **Total (PGN sample)** | | | **4W–9L–3D** | 5.5/16 |
+| **Total (PGN sample)** | | | **5W–15L–3D** | 6.5/23 |
 
 *Note: PGN sample excludes the many games against similarly-rated opponents that fueled Tarun's 600-point rating gain. This is a "strong opponent sample" biased toward losses.*
 
@@ -37,10 +38,10 @@ The PGN collection contains **16 unique games** across 6 tournaments. The sample
 
 | Color | W | L | D | Score% |
 |---|---|---|---|---|
-| White | 3 | 3 | 1 | 50% |
-| Black | 1 | 6 | 2 | 22% |
+| White | 4 | 8 | 2 | 36% |
+| Black | 1 | 7 | 1 | 17% |
 
-Black results are dragged down significantly by losses to Roman Pyrig (2395), Zachary Liu (2153), and multiple 1800–2100 players at Dulles Skyline when Tarun was rated only 1706.
+Black results are dragged down significantly by losses to Dilanian (2239) and Boutikos (2144) in the Thursday Club, Roman Pyrig (2395), Zachary Liu (2153), and multiple 1800–2100 players at Dulles Skyline when Tarun was rated only 1706. Thursday Club 2026 (1W–5L–1D, avg 86.1%) is the weakest tournament in the dataset — his worst accuracy average across any event.
 
 ---
 
@@ -114,7 +115,13 @@ In 5th Skyline R4 (vs Lin Benjamin 2099): On move 14, Tarun played **14...e4??**
 
 At Dulles 2024 (1706 rating), Tarun lost all three Black games: to Debmisra (1861), Sridhar (1838), and to a player in R2. His Black record at this period was 0W–3L vs 130–150 point higher opponents. While this has likely improved with his rating, it suggests Black was (and may still be) his weaker side.
 
-**4. Stamina in long games — uncertain**
+**4. Throwing away winning positions — g4?? and Bd3?? patterns**
+
+Thursday Club R5 (vs Mirzaliyeva 1829): From an equal position (0.00), Tarun played **31.g4??** (CPL 699), swinging the eval to -6.99. Two moves later, **32.Bf3??** (1000 CPL, -#). Lost to a player ~136 points below his rating from a level position. This is the same impulse blunder pattern as the 14...e4?? (Skyline R4) — aggression at the worst moment.
+
+Thursday Club R4 (vs Boutikos 2144 as Black): **26...Bd3??** (CPL 1000, swings eval from +5.76 to -4.91) threw away a winning position that should have been won. Then two more 1000-CPL blunders before resignation. His 76.1% accuracy (9 blunders) is the worst single-game performance in the entire dataset.
+
+**5. Stamina in long games — uncertain**
 
 No long endgame games (100+ moves) appear in the dataset (unlike Leo Jackson or Emerson Johnson). Most games are medium length. Whether Tarun can hold or win long technical games is unknown — this may be an exploitable gap vs Austin's style of grinding for small advantages.
 
@@ -160,6 +167,7 @@ White win vs an opponent 170 points higher. 1.c4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4. 
 | Black vs 1.d4 | Flexible — KI or QGA; less consistent than vs 1.e4 |
 | Black vs 1.c4 | 1...e5 then ...c6 (reversed Sicilian-type) |
 | Strength | Opening complexity (Mikenas, Sicilian), tactical calculation, fast improver |
-| Weakness | Critical moment blunders (14...e4?? pattern), endgame technique vs elite, weak as Black at lower ratings |
+| Weakness | Blundering from winning/equal positions (g4??, Bd3??, e4?? pattern); endgame king misplacement; Black side unreliable vs 2000+ |
+| Worst game in dataset | Thursday Club R4 vs Boutikos — 76.1% acc, 9 blunders; threw away +5.76 winning position |
 | Direct rating gap vs Austin | ~0–100 points (Austin ~1865–1968, Tarun ~1965) — effectively even |
 | vs Zachary Liu | Lost (1750 vs 2153, 2024) |

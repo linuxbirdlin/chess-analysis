@@ -8,11 +8,12 @@ const { Chess } = require('chess.js');
 const ROOT         = path.resolve(__dirname, '..');
 const RESULTS_FILE = path.join(__dirname, 'tarun-analysis-results.json');
 
-// Three PGN source files — order matters for deduplication (first-seen wins)
+// PGN source files — order matters for deduplication (first-seen wins)
 const PGN_FILES = [
   path.join(ROOT, 'opponents/tarun/Tarun.pgn'),
   path.join(ROOT, 'opponents/tarun/grandcircuit.pgn'),
   path.join(ROOT, 'opponents/tarun/skyline2026.pgn'),
+  path.join(ROOT, 'opponents/tarun/newgames.pgn'),
 ];
 
 const SF_THREADS    = parseInt(process.env.SF_THREADS || '16', 10);
@@ -27,6 +28,7 @@ function tournamentKey(eventName) {
   if (/North American.*ch.*UNN|North American-ch UNN/i.test(eventName)) return 'NA Championship 2024';
   if (/Dulles Skyline op 3/i.test(eventName))                    return 'Dulles Skyline 2024';
   if (/Madurai Athens/i.test(eventName))                         return 'Madurai Athens 2023';
+  if (/3-0 Thu/i.test(eventName))                                return '3-0 Thursday Club 2026';
   return eventName || '?';
 }
 

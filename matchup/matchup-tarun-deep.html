@@ -115,7 +115,7 @@
   <div class="doc-header">
     <h1>Tarun Sankar — Engine Deep Analysis</h1>
     <div class="meta">
-      Stockfish analysis · movetime 800ms · 16 threads · 16 games · Lichess accuracy formula<br>
+      Stockfish analysis · movetime 800ms · 16 threads · 23 games · Lichess accuracy formula<br>
       Rating: ~1965 FIDE (Oct 2026); peak 2002 (Mar 2026) · Fast improver (+600 Elo in 2.5 years)
     </div>
     <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
@@ -179,20 +179,27 @@
         <td><span class="acc-lo">86.6%</span></td>
         <td>Rating 1406; chaotic early games, multiple large blunders</td>
       </tr>
+      <tr>
+        <td>3-0 Thursday Club 2026</td>
+        <td>7</td>
+        <td>1W–5L–1D</td>
+        <td><span class="acc-lo">86.1%</span></td>
+        <td>Worst tournament in dataset; g4?? blunder vs 1829; 76.1% (9 blunders) vs Boutikos 2144</td>
+      </tr>
     </tbody>
     <tfoot>
       <tr>
         <td><strong>OVERALL</strong></td>
-        <td><strong>16</strong></td>
-        <td><strong>4W–10L–2D</strong></td>
-        <td><strong>90.1%</strong></td>
+        <td><strong>23</strong></td>
+        <td><strong>5W–15L–3D</strong></td>
+        <td><strong>88.9%</strong></td>
         <td>Sample biased toward strong opponents</td>
       </tr>
     </tfoot>
   </table>
 
   <div class="info-box">
-    <strong>Context:</strong> The 4W–10L–2D record reflects a PGN collection dominated by games vs 1800–2400 opponents while Tarun was rated 1406–2002. His rating rise to 2002 proves he won many more games not captured here. The accuracy score of 90.1% is consistent across tournaments (86.6–91.8%) suggesting his play has been fairly uniform, with the Madurai 2023 games (rating 1406) pulling the average down.
+    <strong>Context:</strong> The 5W–15L–3D record reflects a PGN collection dominated by games vs 1800–2400 opponents while Tarun was rated 1406–2002. His rating rise to 2002 proves he won many more games not captured here. The accuracy score of 88.9% is pulled down by the 3-0 Thursday Club 2026 (86.1%) and Madurai 2023 (86.6%) samples. His strongest tournament accuracy is Dulles Skyline 2024 at 91.8% despite playing mostly 1800–2130 opposition.
   </div>
 
   <!-- ═══════════════════════════════════════════════════════ KEY GAMES -->
@@ -509,6 +516,122 @@
   </table>
 
   <p><em>Note: ECO codes available only for grandcircuit.pgn and skyline2026.pgn games (Lichess broadcast format). Other openings identified from raw PGN move sequences. Madurai 2023 games (rating 1406) excluded from this table as they reflect early play at a much lower rating.</em></p>
+
+  <!-- ═══════════════════════════════════════════════════════ THURSDAY CLUB GAMES -->
+  <hr />
+  <h2>3-0 Thursday Club 2026 — Key Games (7 Games, 86.1% avg)</h2>
+
+  <div class="info-box" style="background:#fff3cd; border-left:4px solid #c9a800;">
+    <strong>Worst tournament in dataset.</strong> The 3-0 Thursday Club 2026 produced 1W–5L–1D (86.1% avg) against opponents rated 1829–2265. Key finding: Tarun lost to a 1829-rated opponent (Mirzaliyeva) from a dead-equal position via g4?? (CPL 699), and lost to Boutikos (2144) with 76.1% accuracy (9 blunders) — the worst single-game performance across all 23 games. The g4?? pattern directly parallels the 14...e4?? and Qb7 blunders seen in earlier tournaments, confirming this is a persistent and deep-rooted weakness.
+  </div>
+
+  <!-- THU GAME 1 — Boutikos -->
+  <div class="game-block">
+    <div class="game-header">
+      <div class="gh-title">3-0 Thursday Club R4 — Boutikos, Eleftherios (2144) vs Tarun Sankar</div>
+      <div class="gh-meta">2026 · Black</div>
+      <span class="badge-result-loss">LOSS</span>
+    </div>
+    <div class="game-body">
+      <div class="game-stats">
+        <div class="stat-item"><span class="stat-label">Accuracy</span><span class="stat-value acc-lo">76.1%</span></div>
+        <div class="stat-item"><span class="stat-label">Avg CPL</span><span class="stat-value">173</span></div>
+        <div class="stat-item"><span class="stat-label">Blunders</span><span class="stat-value">9</span></div>
+        <div class="stat-item"><span class="stat-label">Mistakes</span><span class="stat-value">4</span></div>
+      </div>
+      <div class="critical-moments">
+        <h4>Critical Moments (3 worst)</h4>
+        <div class="cm-item cm-blunder">
+          <span class="cm-label">Move 26 — Bd3</span>
+          <span class="cm-cpl">CPL 1000</span>
+          <div class="cm-detail"><strong>+5.76 → −4.91</strong> · Best: Ba3 · Threw away a winning position with a single piece move — king exposure sequence followed</div>
+        </div>
+        <div class="cm-item cm-blunder">
+          <span class="cm-label">Move 42 — Rxf2+</span>
+          <span class="cm-cpl">CPL 1000</span>
+          <div class="cm-detail"><strong>−12.59 → −95.54</strong> · Best: Re8 · Consecutive 1000-CPL blunder accelerating collapse</div>
+        </div>
+        <div class="cm-item cm-blunder">
+          <span class="cm-label">Move 45 — Bf2+</span>
+          <span class="cm-cpl">CPL 1000</span>
+          <div class="cm-detail"><strong>−4.75 → −15.58</strong> · Third consecutive max-CPL blunder before resignation</div>
+        </div>
+      </div>
+      <p style="font-size:0.88em; color:#666; margin-top:8px;"><strong>Takeaway:</strong> Bd3?? on move 26 is the critical moment — eval +5.76 (Tarun winning!) collapsed to -4.91 in one move. The same "aggression at the worst moment" pattern: a decisive position required the precise quiet move (Ba3), but Tarun played an active but losing piece move. This is the worst-accuracy game in the entire 23-game dataset.</p>
+    </div>
+  </div>
+
+  <!-- THU GAME 2 — Mirzaliyeva -->
+  <div class="game-block">
+    <div class="game-header">
+      <div class="gh-title">3-0 Thursday Club R5 — Tarun Sankar vs Mirzaliyeva, Leyla (1829)</div>
+      <div class="gh-meta">2026 · White</div>
+      <span class="badge-result-loss">LOSS</span>
+    </div>
+    <div class="game-body">
+      <div class="game-stats">
+        <div class="stat-item"><span class="stat-label">Accuracy</span><span class="stat-value acc-lo">87.0%</span></div>
+        <div class="stat-item"><span class="stat-label">Avg CPL</span><span class="stat-value">69</span></div>
+        <div class="stat-item"><span class="stat-label">Blunders</span><span class="stat-value">2</span></div>
+        <div class="stat-item"><span class="stat-label">Mistakes</span><span class="stat-value">1</span></div>
+      </div>
+      <div class="critical-moments">
+        <h4>Critical Moments (3 worst)</h4>
+        <div class="cm-item cm-blunder">
+          <span class="cm-label">Move 31 — g4</span>
+          <span class="cm-cpl">CPL 699</span>
+          <div class="cm-detail"><strong>0.00 → −6.99</strong> · Best: Bc4 · Dead equal position obliterated by an aggressive pawn push — exact g4?? pattern mirrors 14...e4?? from Skyline R4</div>
+        </div>
+        <div class="cm-item cm-blunder">
+          <span class="cm-label">Move 32 — Bf3</span>
+          <span class="cm-cpl">CPL 1000</span>
+          <div class="cm-detail"><strong>−7.32 → −#</strong> · Best: Qxf7+ · Forced mate follows immediately after second blunder</div>
+        </div>
+        <div class="cm-item cm-mistake">
+          <span class="cm-label">Move 7 — Be2</span>
+          <span class="cm-cpl">CPL 180</span>
+          <div class="cm-detail"><strong>+1.76 → −0.04</strong> · Best: Nb5 · Early inaccuracy that gave up opening advantage</div>
+        </div>
+      </div>
+      <p style="font-size:0.88em; color:#666; margin-top:8px;"><strong>Takeaway:</strong> g4?? from a dead-equal position (0.00) is the definitive blunder pattern. Against a player rated 136 points below him, Tarun was equal and played g4 — same impulse as 14...e4?? and Qb7. The pattern is confirmed in three separate events (2024, 2026 Skyline, 2026 Thursday). Austin should reach equal or slightly winning positions then wait — Tarun will break the tension with a losing pawn push.</p>
+    </div>
+  </div>
+
+  <!-- THU GAME 3 — Hanein (draw) -->
+  <div class="game-block">
+    <div class="game-header">
+      <div class="gh-title">3-0 Thursday Club R4 — Tarun Sankar vs Hanein, Avri (2215)</div>
+      <div class="gh-meta">2026 · White</div>
+      <span class="badge-result-draw">DRAW</span>
+    </div>
+    <div class="game-body">
+      <div class="game-stats">
+        <div class="stat-item"><span class="stat-label">Accuracy</span><span class="stat-value acc-mid">90.7%</span></div>
+        <div class="stat-item"><span class="stat-label">Avg CPL</span><span class="stat-value">25</span></div>
+        <div class="stat-item"><span class="stat-label">Blunders</span><span class="stat-value">0</span></div>
+        <div class="stat-item"><span class="stat-label">Mistakes</span><span class="stat-value">3</span></div>
+      </div>
+      <div class="critical-moments">
+        <h4>Missed Wins (3 key moments)</h4>
+        <div class="cm-item cm-mistake">
+          <span class="cm-label">Move 6 — Nc3</span>
+          <span class="cm-cpl">CPL 214</span>
+          <div class="cm-detail"><strong>+2.38 → +0.24</strong> · Best: cxd5 · Early advantage squandered by quiet piece move instead of central break</div>
+        </div>
+        <div class="cm-item cm-mistake">
+          <span class="cm-label">Move 12 — Re1</span>
+          <span class="cm-cpl">CPL 192</span>
+          <div class="cm-detail"><strong>+2.49 → +0.57</strong> · Best: dxe7 · Another significant advantage let slip — three consecutive missed winning moments</div>
+        </div>
+        <div class="cm-item cm-mistake">
+          <span class="cm-label">Move 17 — Nb5</span>
+          <span class="cm-cpl">CPL 217</span>
+          <div class="cm-detail"><strong>+2.34 → +0.17</strong> · Best: Nxf7 · Third time failing to convert a +2 advantage — drew vs 2215 despite holding winning position for 17 moves</div>
+        </div>
+      </div>
+      <p style="font-size:0.88em; color:#666; margin-top:8px;"><strong>Takeaway:</strong> Tarun had +2.38 advantage as early as move 6 vs a 2215-rated player but missed the winning continuation three consecutive times (CPL 214, 192, 217). Zero blunders — this is not panicking, but failing to find the decisive move. The pattern: Tarun can hold positions well but misses the "punch" when the position is objectively winning.</p>
+    </div>
+  </div>
 
   <!-- ═══════════════════════════════════════════════════════ ENGINE-CONFIRMED PATTERNS -->
   <hr />
