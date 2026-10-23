@@ -3,20 +3,31 @@
 **Austin's rating:** ~1865–1968  
 **Heye's rating:** CM, ~2028–2065  
 **Rating gap:** Heye is roughly 100–200 points stronger on paper — Austin needs concrete preparation and imbalance  
-**Direct encounter:** Austin (White) vs Heye (Black), B43 Sicilian Kan, result: `*` (study game, unfinished — not a full-result game)
+**Direct record:** 3 games (Jul 2024–Jul 2026) — 0W–2L–1D (Austin)
 
 ---
 
-## Direct Encounters
+## Direct Encounters (3 games — 2024–2026)
 
-**Study Game (Mar 22 2026) — Austin (White) vs Heye (Black), B43 Sicilian Kan, result: * (unfinished)**
+Stockfish movetime-800 analysis. Austin: **0W–2L–1D**.
 
-Austin played 1.e4 and Heye responded with the **Sicilian Kan**: `1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6 5.Nc3 Qc7 6.Be2 b5 7.O-O Bb7 8.Bf3 Nc6`. The game went to move 60 without a result being recorded. This is a study game that Austin annotated — it does not tell us a competitive result, but it confirms exactly what Heye will play vs 1.e4. Austin used `a4` to challenge Black's b5 expansion.
+| Date | Austin | Opening | Result | Austin Acc | Heye Acc |
+|------|--------|---------|--------|-----------|---------|
+| Jul 18 2026 | White | C54 Italian Classical | **Loss 0-1** | 88.4% | 91.8% |
+| Oct 12 2025 | Black | B32 Sicilian Löwenthal | **Loss 0-1** | 92.5% | **97.0%** |
+| Jul 12 2024 | Black | B45 Sicilian Four Knights Cobra | **Draw** | **91.7%** | 91.6% |
 
-**What the game reveals:**
-1. Heye plays Sicilian Kan vs Austin's 1.e4 — not the French, not 1...e5. This is the opening Austin must prepare.
-2. Heye's Kan setup: `...a6/...Qc7/...b5/...Bb7/...Nc6` — the standard queenside fianchetto with central control. He delays ...Nf6 to control the tempo.
-3. Austin's `a4` challenge is the correct plan — but requires knowing the resulting positions after `...b4 Nd5 Qa5 Nxc6 Bxc6 Nxb4`.
+**Game 1 (Jul 18 2026):** Austin White, C54 Italian Classical. Heye played **1...e5/Nc6/Bc5 — Italian mirror** (NOT the Kan). Heye built a +5.09 Black advantage in the middlegame but blundered `gxf4` (best Re1, CPL 309), dropping to +2.00. He had multiple more chances to win cleanly (Nd5 CPL187, g5 CPL142) but missed them. Austin played 88.4% and couldn't capitalize on Heye's errors. Lost the 53-move rook endgame. **This changes the Part 1 preparation: Italian mirror is the confirmed Black weapon, not Kan.**
+
+**Game 2 (Oct 12 2025):** Heye White, B32 Löwenthal. Heye played **97.0%** — the most accurate game in the dataset. Austin played 1...c5 2...Nc6 and was outclassed by Heye's queenside expansion (Nd6+, c5, b5, a4). Only 2 minor inaccuracies in 30 moves from Heye. Austin's 92.5% was decent but strategically dominated. **The Löwenthal (B32) is NOT the right Black system vs Heye.**
+
+**Game 3 (Jul 12 2024):** Heye White, B45 Sicilian Four Knights Cobra. Both players at essentially equal accuracy (91.6% vs 91.7%). Heye had +1.89 early but played Nd6+ instead of a3 (CPL 138), squandering the edge. Austin defended the Cobra variation (Bxc3+, d5 break, active piece play) and drew in a 52-move rook endgame. **The Four Knights Cobra (B45) is Austin's best-performing Sicilian vs Heye.**
+
+**What the 3 games prove:**
+1. Austin's record is 0W–2L–1D — Heye is clearly the stronger player and has won both recent games.
+2. **Heye plays Italian mirror (1...e5/Bc5) vs Austin's 1.e4** — the old Kan preparation (based on a removed study game) is no longer primary. Italian mirror prep is the new priority.
+3. Austin plays Sicilian as Black vs Heye (confirmed). Four Knights Cobra (B45) drew in 2024; Löwenthal (B32) lost badly in 2025. Use Cobra, not Löwenthal.
+4. When both players are at equal accuracy (~91.7%), Austin can draw. The key is avoiding the type of positional drift that occurred in Games 1 and 2.
 
 ---
 
@@ -24,36 +35,36 @@ Austin played 1.e4 and Heye responded with the **Sicilian Kan**: `1.e4 c5 2.Nf3 
 
 ### What Heye will play
 
-Heye plays **Sicilian Kan (B43)** against 1.e4, as confirmed by the direct encounter. His setup: `1...c5 2...e6 3...a6 4...Qc7 5...b5 6...Bb7`. He delays knight development and prioritizes the b5 queenside expansion.
+**Updated (Jul 2026):** Heye plays **Italian mirror (1...e5/Nc6/Bc5)** — confirmed by the most recent competitive game (Jul 18 2026, C54 Italian Classical). The old Kan preparation was based on a study game that has been removed. Austin should now primarily prepare for the Italian structure as White.
 
-This is different from Heye's Black system against other opponents (he plays open 1...e5 games vs Italian players), so the Kan may be specifically prepared for Austin's 1.e4.
+Heye's Italian mirror setup: `1...e5 2...Nc6 3...Bc5 4...Nf6` — the same Bc5 structure Heye plays in his tournament games against other 1.e4 players. He is comfortable in these positions with both colors.
 
-### Recommended White Preparation: Rossolimo (3.Bb5) vs the Knight-First Kan
+**Backup:** If Heye reverts to the Kan (B43), the `7.Bf3!/a4/Nd5` system is still the correct plan (see below).
 
-If Heye plays `2...Nc6` before ...e6, Austin's Rossolimo `3.Bb5` applies directly and avoids the Kan entirely. However, Heye specifically plays `2...e6` first in the direct encounter — so the Rossolimo does not apply.
+### Recommended White Preparation: Italian Game (C54/C55)
 
-### Recommended White Preparation: Keres Attack or English Attack vs the Kan
+Austin plays 1.e4. When Heye plays 1...e5/Nc6/Bc5:
 
-**Primary system: English Attack / Classical Sicilian setup**
+```
+1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.c3 Nf6 5.d4 exd4 6.cxd4
+```
 
-Against the Kan `5...Qc7`, Austin can use the `Be2/f3/Be3/Qd2/O-O-O` English Attack — the same system he has drilled vs other Sicilians:
+This is exactly what was played in the Jul 2026 game. After `6...Bb4+ 7.Bd2 Bxd2+ 8.Nbxd2`, the position is an IQP Italian where Austin has central pawn control. Austin should study the resulting middlegame structures — he had a fine position early but drifted in the endgame.
+
+**Alternative: Giuoco Pianissimo (4.d3)**  
+Instead of the aggressive 4.c3/5.d4, playing 4.d3 leads to slower positions where Austin avoids giving Heye sharp complications to calculate.
+
+### Backup Preparation: English Attack vs Kan (6.Be2/7.Bf3!)
+
+If Heye plays Kan (secondary option):
 
 ```
 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6 5.Nc3 Qc7
 6.Be2 b5 7.Bf3!
 ```
 
-After `7.Bf3`, the position is from the direct encounter. Key line continues:
-- `7...Nc6 8.Re1 d6 9.a4 b4 10.Nd5 Qa5 11.Nxc6 Bxc6 12.Nxb4` — Austin picks up the pawn and enters a structural edge
-- Or `7...Nf6 8.O-O Be7 9.Re1 d6 10.a4 b4 11.Nd5` — standard Kan with White central knight on d5
-
-**Why this works specifically vs Heye:**
-1. The direct encounter game (Austin's own study) shows Austin can get a position where `a4` disrupts Heye's queenside — Austin already knows this structure
-2. Heye's Kan has not been tested at the competitive level (the encounter was a study game) — he may not have deep preparation beyond the main Kan theory
-3. Heye's Black results are mixed: his tactical blunders (PAM R9 `23...Kg8??`, PAM R7 `24...Qe7??`) suggest Black calculation failures under time pressure — creating a sharp middlegame maximizes this weakness
-
-**Alternative: Keres Attack (6.g4)**  
-The Keres Attack `1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6 5.g4!?` is extremely aggressive and well outside standard Kan theory. The idea is to expand kingside immediately before Black can organize. However, this requires specific preparation and Austin should only play it if he has drilled the resulting positions.
+Key line: `7...Nc6 8.Re1 d6 9.a4 b4 10.Nd5 Qa5 11.Nxc6 Bxc6 12.Nxb4` — Austin wins a pawn.  
+If `7...Nf6 8.O-O Be7 9.Re1 d6 10.a4 b4 11.Nd5` — standard Kan with Nd5 outpost.
 
 ### Key tactical themes Austin White should target
 
@@ -95,14 +106,14 @@ Austin's standard weapon vs 1.e4 is the **Sicilian Defense**. This is confirmed 
 
 **If Heye plays the Closed Sicilian or Anti-Sicilian:** Heye has only been observed playing `2.Nf3 3.d4` Open Sicilian against `1...c5`. If he plays `2.Nc3` or `2.c3`, Austin should be aware — but the data suggests he will enter the Open Sicilian.
 
-**Austin's Sicilian system recommendation: Najdorf or Kan as Black**
+**Austin's Sicilian system recommendation: Four Knights Cobra (B45) or Najdorf**
 
-Austin has Black Sicilian experience. The key question is which Sicilian Heye handles best as White:
-- Heye plays **Yugoslav Attack (Be3/f3/Qd2)** vs Dragon (B75) and Scheveningen (B80)
-- Heye's Italian White skills don't transfer directly to Open Sicilian
-- Heye has **no documented games** where he faced the **Najdorf** specifically
+Direct encounter data now gives us a clear answer:
+- **Löwenthal (B32) — AVOID.** Oct 2025 game showed Heye handles it at 97% accuracy. The 1...c5/2...Nc6/3...e5 structure plays right into Heye's Italian technique (queenside expansion, passed pawn creation).
+- **Four Knights Cobra (B45) — PREFERRED.** The 2024 draw shows Austin can hold with `5...Nc6 6.Ndb5 Bc5 7.Bf4 e5 8.Be3 Bb4` — early piece complications limit Heye's technique-heavy style. Both players played equal accuracy (91.7% draw).
+- **Najdorf (5...a6)** — still valid as an option. Heye has no documented Najdorf games in the dataset.
 
-Recommendation: **Austin plays the Najdorf (5...a6)** — Heye's experience vs the Najdorf is unknown, while his Italian Game preparation is deep. The Najdorf forces Heye to either enter familiar Yugoslav territory (where Austin can prepare) or venture into unfamiliar Najdorf theory.
+Recommendation: **Austin plays Four Knights Cobra (B45)** as the primary Sicilian, with Najdorf as backup.
 
 **Alternatively: Nimzo/Benko-Indian idea doesn't apply** — since Heye plays 1.e4, Austin cannot use his d4 Black weapons. The Sicilian is Austin's true weapon here.
 
@@ -136,9 +147,10 @@ Recommendation: **Austin plays the Najdorf (5...a6)** — Heye's experience vs t
 
 | Situation | Action |
 |---|---|
-| Austin as White vs Heye | Play 1.e4; prepare Kan (B43) lines with `7.Bf3/a4/Nd5` |
-| Heye plays `...b5` Kan | Respond `a4`, aim for `Nd5 Qa5 Nxc6 bxc6 Nxb4` |
-| Austin as Black vs Heye | Play Sicilian, not 1...e5; Najdorf (5...a6) avoids Heye's Italian |
+| Austin as White vs Heye | Play 1.e4; prepare Italian mirror (C54/C55) — Heye plays 1...e5/Bc5 |
+| Heye plays Italian mirror | Italian positions (4.c3/d4 or 4.d3 Pianissimo) |
+| If Heye plays Kan (backup) | 7.Bf3! then `a4 → Nd5 → Nxb4` pawn win |
+| Austin as Black vs Heye | Play Sicilian — Four Knights Cobra (B45); avoid Löwenthal (B32) |
 | Heye plays Italian as White | Execute `...d5` break when ready; watch `Bxh2/...e4` tactics |
 | Endgame situations | Keep queens + pieces; Heye converts endgames cleanly |
 | Time trouble situations | Austin manages clock; Heye blunders under 25 min |
