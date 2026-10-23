@@ -3,6 +3,25 @@
 **Austin's rating:** ~1865–1968  
 **Aarush's rating:** ~1895–1941 (fluctuating; dropped at Toronto Open Sep 2026)  
 **Rating gap:** Roughly even; Aarush slightly higher in most encounters  
+**Direct record:** 0W–1L–2D (Austin · 3 games Feb–Jun 2026)
+
+---
+
+## Direct Encounters (3 games — Study of Chess Games Pt. 4)
+
+Stockfish movetime-800 analysis. Austin: 0W–1L–2D.
+
+| Date | Austin | Opening | Result | Austin Acc | Aarush Acc |
+|------|--------|---------|--------|-----------|-----------|
+| Jun 21 2026 | Black | E00 Catalan | **Draw** | **92.1%** | 91.1% |
+| Feb 22 2026 | White | B90 Najdorf Adams Attack | **Loss 0-1** | 83.4% | 87.8% |
+| Feb 16 2026 | Black | E00 Catalan | **Draw** | 91.0% | **92.6%** |
+
+**Game 1 (Jun 21 2026):** Aarush White, E00 Catalan. Austin played the Bogo-Catalan (4...Bb4+) and outplayed Aarush in accuracy (92.1% vs 91.1%). Aarush had +1.22 advantage but played Bg2 instead of best Qf1 (CPL 123), equalizing immediately. Austin simplified and drew on move 28.
+
+**Game 2 (Feb 22 2026):** Austin White, B90 Najdorf Adams Attack (6.h3). Austin's execution was poor (83.4%). Aarush made his own mistakes — Ba6 gave Austin a +2.35 advantage — but Austin failed to convert. Aarush reached a passed c3-pawn counterplay and won with a brilliant queen sacrifice: `35.Qh8+! Kxh8 36.Bd4+ Kh7 0-1`. Key lesson: **6.h3 is NOT Austin's weapon vs Aarush's Najdorf. Use 6.h4.**
+
+**Game 3 (Feb 16 2026):** Aarush White, E00 Catalan. Aarush built a dominant +3.53 position but played Qc4 instead of winning Qb6 (CPL 220), collapsing his advantage to +1.33. Austin held and drew on move 30. Same "dominant position, failed conversion" pattern as Toronto R6 (+7.31) and Canada Open R1 (+4.96).
 
 ---
 
@@ -23,7 +42,7 @@ If Aarush plays `2...d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6` — full Najdorf, Austin 
 
 `6.h4` — this is the exact attacking setup that cost Aarush 80.6% accuracy in Canada Closed R1 and produced 3 blunders in R2. Aarush has shown a **direct exploitable weakness** against h4 in the Najdorf.
 
-**Specific recommendation:** Play the h4 English Attack against Aarush's Najdorf. Austin used h4 ideas in his own repertoire (NAYCC games) and the engine data confirms this is Aarush's worst-scoring opening as Black. Aarush is now **0W–3L** against direct h4 kingside attacks across all tournaments (Canada Closed R1, R2; Toronto Open R6). In the Toronto game, White played 3.h4 directly from a Saragossa structure — Aarush was forced out of his Sicilian setup entirely. Even more critically, Aarush reached a +6 advantage in Toronto R6 but blundered Qb4?? in time pressure — the h4 system creates practical complexity that compounds Aarush's clock management failures.
+**Specific recommendation:** Play **6.h4** (NOT 6.h3) against Aarush's Najdorf. The direct encounter (Game 2, Feb 22 2026) confirmed: Austin tried 6.h3 Adams Attack and scored only 83.4% — far below his usual level — and lost. The h3 system is not Austin's weapon here. The engine data confirms **6.h4** (the pawn storm) is Aarush's worst-scoring line — he is now **0W–3L** against direct h4 kingside attacks across all tournaments (Canada Closed R1, R2; Toronto Open R6). In the Toronto game, White played 3.h4 directly from a Saragossa structure — Aarush was forced out of his Sicilian setup entirely. Even more critically, Aarush reached a +6 advantage in Toronto R6 but blundered Qb4?? in time pressure — the h4 system creates practical complexity that compounds Aarush's clock management failures.
 
 ### Opening Move Order
 

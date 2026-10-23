@@ -57,6 +57,24 @@ const BLUNDER_CPL    = 300;
 
 // ─── PGN helpers ──────────────────────────────────────────────────────────────
 
+// Split a multi-game PGN file into individual game strings
+function splitGames(text) {
+  const games = [];
+  const lines = text.split('\n');
+  let cur = [];
+  for (const line of lines) {
+    if (line.startsWith('[Event ') && cur.length) {
+      const g = cur.join('\n').trim();
+      if (g) games.push(g);
+      cur = [line];
+    } else {
+      cur.push(line);
+    }
+  }
+  if (cur.length) { const g = cur.join('\n').trim(); if (g) games.push(g); }
+  return games;
+}
+
 // Strip all {…} annotation blocks before passing to chess.js.
 // Lichess broadcast PGNs have [%eval ...] and [%clk ...] inside braces.
 function stripComments(pgn) {
@@ -79,8 +97,9 @@ function parseRound(filename, pgn) {
 function parseAarushColor(pgn) {
   const white = pgn.match(/\[White\s+"([^"]+)"\]/);
   const black = pgn.match(/\[Black\s+"([^"]+)"\]/);
-  if (white && /Ajith,?\s*Aarush/i.test(white[1])) return 'white';
-  if (black && /Ajith,?\s*Aarush/i.test(black[1])) return 'black';
+  const isAarushName = n => /Ajith,?\s*Aarush|Aarush\s+Ajith|^Aarush$/i.test(n);
+  if (white && isAarushName(white[1])) return 'white';
+  if (black && isAarushName(black[1])) return 'black';
   return null;
 }
 
@@ -439,6 +458,48 @@ async function main() {
         eco,
       };
       fs.writeFileSync(RESULTS_FILE, JSON.stringify(results, null, 2));
+    }
+  }
+
+  // ── Direct encounter (multi-game Lichess study PGN) ─────────────────────
+  const directPath = path.join(ROOT, 'opponents/aarush/direct-encouter.pgn');
+  if (fs.existsSync(directPath)) {
+    console.log(`${'─'.repeat(60)}`);
+    console.log('  Direct Encounter (Austin vs Aarush)');
+    console.log(`${'─'.repeat(60)}\n`);
+    results['Direct Encounter'] = results['Direct Encounter'] || {};
+    const raw = fs.readFileSync(directPath, 'utf8');
+    const games = splitGames(raw);
+    let gIdx = 0;
+    for (const gamePgn of games) {
+      gIdx++;
+      const stripped = stripComments(gamePgn);
+      if (!stripped.match(/\d+\./)) { console.log(`  [SKIP] game ${gIdx} — no moves\n`); continue; }
+      const aarushColor = parseAarushColor(stripped);
+      if (!aarushColor) { console.log(`  [SKIP] game ${gIdx} — Aarush not found\n`); continue; }
+      const dateM   = gamePgn.match(/\[Date\s+"([^"]+)"\]/);
+      const dateStr = dateM ? dateM[1] : '?';
+      const key     = `G${gIdx}_${dateStr.replace(/\./g, '')}`;
+      const opponent    = parseOpponentName(stripped, aarushColor);
+      const opponentElo = parseOpponentElo(stripped, aarushColor);
+      const result      = parseResult(stripped);
+      const eco         = parseEco(stripped);
+      let aarushResult;
+      if (result === '1/2-1/2') aarushResult = 'draw';
+      else if ((result === '1-0' && aarushColor === 'white') || (result === '0-1' && aarushColor === 'black')) aarushResult = 'win';
+      else if (result === '*') aarushResult = '?';
+      else aarushResult = 'loss';
+      if (results['Direct Encounter'][key]?.aarushAccuracy != null) {
+        console.log(`  [CACHED] ${key}  ${aarushResult.toUpperCase()}  ${aarushColor}  vs ${opponent}\n`);
+        continue;
+      }
+      console.log(`  Analyzing game ${gIdx}: ${dateStr}  Aarush ${aarushColor}  ${aarushResult.toUpperCase()}  vs ${opponent}`);
+      try {
+        const stats = await analyzeGame(stripped, aarushColor, engine);
+        results['Direct Encounter'][key] = { ...stats, aarushColor, opponent, opponentElo, result, aarushResult, eco, date: dateStr };
+        fs.writeFileSync(RESULTS_FILE, JSON.stringify(results, null, 2));
+        console.log(`    acc:${stats.aarushAccuracy}%  opp:${stats.oppAccuracy}%  CPL:${stats.avgCPL}  B:${stats.blunders} M:${stats.mistakes} I:${stats.inaccuracies}\n`);
+      } catch(e) { console.error(`    Error: ${e.message}\n`); }
     }
   }
 

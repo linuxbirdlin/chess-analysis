@@ -1212,5 +1212,133 @@
       "aarushResult": "loss",
       "eco": "?"
     }
+  },
+  "Direct Encounter": {
+    "G1_20260621": {
+      "aarushAccuracy": 91.1,
+      "oppAccuracy": 92.1,
+      "avgCPL": 23,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 3,
+      "movesAnalyzed": 28,
+      "criticalMoments": [
+        {
+          "san": "Bg2",
+          "bestMove": "Qf1",
+          "cpl": 123,
+          "classification": "inaccuracy",
+          "evalBefore": "+1.22",
+          "evalAfter": "-0.01"
+        },
+        {
+          "san": "Re1",
+          "bestMove": "Qb3",
+          "cpl": 80,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.51",
+          "evalAfter": "-1.31"
+        },
+        {
+          "san": "Qd3",
+          "bestMove": "a4",
+          "cpl": 64,
+          "classification": "inaccuracy",
+          "evalBefore": "+1.20",
+          "evalAfter": "+0.56"
+        }
+      ],
+      "aarushColor": "white",
+      "opponent": "Austin Lin",
+      "opponentElo": null,
+      "result": "1/2-1/2",
+      "aarushResult": "draw",
+      "eco": "E00 — Catalan Opening",
+      "date": "2026.06.21"
+    },
+    "G2_20260222": {
+      "aarushAccuracy": 87.8,
+      "oppAccuracy": 83.4,
+      "avgCPL": 34,
+      "blunders": 0,
+      "mistakes": 3,
+      "inaccuracies": 5,
+      "movesAnalyzed": 36,
+      "criticalMoments": [
+        {
+          "san": "Kg7",
+          "bestMove": "g5",
+          "cpl": 264,
+          "classification": "mistake",
+          "evalBefore": "+2.64",
+          "evalAfter": "+0.00"
+        },
+        {
+          "san": "Ba6",
+          "bestMove": "O-O",
+          "cpl": 191,
+          "classification": "mistake",
+          "evalBefore": "-0.44",
+          "evalAfter": "-2.35"
+        },
+        {
+          "san": "Nd7",
+          "bestMove": "Qb8",
+          "cpl": 191,
+          "classification": "mistake",
+          "evalBefore": "+3.79",
+          "evalAfter": "+1.88"
+        }
+      ],
+      "aarushColor": "black",
+      "opponent": "Austin",
+      "opponentElo": null,
+      "result": "0-1",
+      "aarushResult": "win",
+      "eco": "B90 — Sicilian Defense: Najdorf Variation, Adams Attack",
+      "date": "2026.02.22"
+    },
+    "G3_20260216": {
+      "aarushAccuracy": 92.6,
+      "oppAccuracy": 91,
+      "avgCPL": 20,
+      "blunders": 0,
+      "mistakes": 1,
+      "inaccuracies": 3,
+      "movesAnalyzed": 30,
+      "criticalMoments": [
+        {
+          "san": "Qc4",
+          "bestMove": "Qb6",
+          "cpl": 220,
+          "classification": "mistake",
+          "evalBefore": "+3.53",
+          "evalAfter": "+1.33"
+        },
+        {
+          "san": "Bg2",
+          "bestMove": "Bd3",
+          "cpl": 59,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.64",
+          "evalAfter": "+0.05"
+        },
+        {
+          "san": "Qb3",
+          "bestMove": "Kf1",
+          "cpl": 54,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.54",
+          "evalAfter": "+0.00"
+        }
+      ],
+      "aarushColor": "white",
+      "opponent": "Austin Lin",
+      "opponentElo": null,
+      "result": "1/2-1/2",
+      "aarushResult": "draw",
+      "eco": "E00 — Catalan Opening",
+      "date": "2026.02.16"
+    }
   }
 }
