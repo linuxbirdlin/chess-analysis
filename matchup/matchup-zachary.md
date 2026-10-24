@@ -83,7 +83,7 @@ Key ideas to drill:
 
 1. **Queenside castle + kingside pawn storm:** Zachary's worst positions involve coordinating defense against simultaneous queenside castling and g4-g5 attacks. The `O-O-O / g4-g5-g6` motif should be Austin's primary plan.
 
-2. **Create imbalance early:** Zachary has never lost as White in this dataset, and his White record is 13W-0L-8D. But as Black in sharp Sicilians he has a clear weakness. Austin needs to keep the game double-edged and not allow Zachary to reach his preferred "strategic endgame" mode.
+2. **Create imbalance early:** Zachary's White record is now 13W-2L-10D (lost R2 Exchange CK vs Jaferian 2249 and R4 Reti/Catalan vs Marchand 2181 in Canada Open 2026 — both opponents rated 2181+). As Black in sharp Sicilians he has a clear weakness. Austin needs to keep the game double-edged and not allow Zachary to reach his preferred "strategic endgame" mode.
 
 3. **Do not simplify:** Zachary's endgame technique is elite (97.4% accuracy for 104 moves vs 2512-rated opponent). If Austin trades down to a pawn-and-rook endgame, he will be ground down. Keep queens and minor pieces on the board.
 
@@ -157,7 +157,7 @@ Zachary is approximately 100–300 Elo points stronger than Austin. A draw for A
 - He is risk-averse and draw-seeking. He will often accept a draw from a slightly better position rather than pressing.
 - He is extremely confident in Reti/English positions and will play quickly and accurately in those structures.
 - He loses focus in sharp pawn-storm Sicilian positions — confirmed across 3 separate events (CC R1, PAM R4, both coloring). The pattern is reliable.
-- He rarely blunders in technical, positional games. His record (0 losses as White) confirms he does not collapse under pressure in normal positions — only in sharp tactical chaos.
+- He rarely blunders in technical, positional games. His White losses in Canada Open 2026 (vs 2249 and 2181) both came from sharp/tactical positions, not normal positional play — consistent with the pattern.
 
 **Austin's practical strategy:**
 1. **As White:** Play for imbalance from the very first move. Do not let Zachary reach a "safe" Reti-type structure even on the Black side — the English Attack with `f3/g4` creates the tactical chaos where Zachary makes errors.
