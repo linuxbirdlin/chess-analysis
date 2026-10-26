@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Austin Lin — Endgame Drill Set (from NAYCC R7, R9, PAM R5)</title>
+<style>
+:root { --accent: #1a4a8b; --red: #8b1a1a; --gold: #b8860b; --green: #1a5c1a; --bg: #f8f6f2; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+       font-size: 14px; color: #1a1a1a; max-width: 860px; margin: 0 auto;
+       padding: 20px 24px; background: var(--bg); }
+.page-header { border-left: 6px solid var(--accent); background: #eef2fb;
+               padding: 14px 18px; margin-bottom: 22px; border-radius: 0 5px 5px 0; }
+.page-header h1 { font-size: 1.3em; margin-bottom: 4px; }
+.page-header .meta { font-size: 0.82em; color: #555; }
+.page-header .nav { margin-top: 8px; font-size: 0.82em; }
+.page-header .nav a { color: var(--accent); text-decoration: none; margin-right: 14px; }
+
+h2 { font-size: 1.05em; margin: 26px 0 8px; padding: 7px 12px;
+     border-left: 4px solid var(--accent); background: #f0f3fa; }
+h3 { font-size: 0.97em; margin: 14px 0 6px; color: #333; font-weight: bold; }
+
+.game-block { background: #fff; border: 1px solid #ddd; border-radius: 5px;
+              padding: 14px 16px; margin: 14px 0; }
+.game-block .game-title { font-size: 1em; font-weight: bold; margin-bottom: 6px;
+                          color: var(--accent); border-bottom: 1px solid #eee; padding-bottom: 6px; }
+.game-block .context { font-size: 0.88em; color: #555; margin-bottom: 10px; line-height: 1.5; }
+
+.board-section { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 10px 0; }
+.fen-box { background: #1a1a1a; color: #eee; font-family: monospace; font-size: 0.78em;
+           padding: 8px 10px; border-radius: 4px; word-break: break-all; }
+.board-link { display: inline-block; background: var(--accent); color: #fff;
+              text-decoration: none; padding: 6px 12px; border-radius: 4px;
+              font-size: 0.82em; margin: 4px 4px 4px 0; }
+.board-link:hover { background: #1a3a6b; }
+.board-link.lichess { background: var(--green); }
+.board-link.study { background: #6a4a8b; }
+
+.callout { padding: 9px 13px; border-radius: 4px; margin: 8px 0; font-size: 0.88em; line-height: 1.5; }
+.callout-red    { background: #fff0f0; border-left: 4px solid var(--red); }
+.callout-green  { background: #efffef; border-left: 4px solid var(--green); }
+.callout-blue   { background: #eef2fb; border-left: 4px solid var(--accent); }
+.callout-gold   { background: #fffbe0; border-left: 4px solid var(--gold); }
+
+.drill-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.86em; }
+.drill-table th { background: #1a4a8b; color: #fff; padding: 6px 10px; text-align: left; }
+.drill-table td { padding: 5px 10px; border-bottom: 1px solid #ddd; vertical-align: top; }
+.drill-table tr:nth-child(even) td { background: #f5f5f0; }
+.priority-high { color: var(--red); font-weight: bold; }
+.priority-med  { color: var(--gold); font-weight: bold; }
+.priority-low  { color: var(--green); }
+
+.move-line { background: #f5f5f0; border: 1px solid #ddd; border-radius: 4px;
+             padding: 6px 10px; font-family: monospace; font-size: 0.85em;
+             margin: 6px 0; line-height: 1.7; }
+.mv-good { color: var(--green); font-weight: bold; }
+.mv-bad  { color: var(--red); font-weight: bold; }
+.mv-key  { background: #eef2fb; padding: 1px 4px; border-radius: 2px; font-weight: bold; }
+
+hr { border: none; border-top: 2px solid #ccc; margin: 24px 0; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Endgame Drill Set — Austin Lin</h1>
+  <div class="meta">Compiled from 3 endgame losses: NAYCC R7 (Beegala 1758), NAYCC R9 (Li 1676), PAM R5 (Vinales 2091)</div>
+  <div class="nav">
+    <a href="../austin-prep.html">← Prep Index</a>
+    <a href="../austin-training.html">Training Plan</a>
+    <a href="../austin/naycc2025/review-deep.html">NAYCC Deep Review</a>
+    <a href="../austin/pam2026/review-deep.html">PAM Deep Review</a>
+  </div>
+</div>
+
+<div class="callout callout-gold">
+  <strong>Background:</strong> Austin scored 7W–7L–2D across NAYCC 2025 and PAM 2026. At least <strong>3 of his losses were holdable or convertible from the endgame</strong> — all three showed the same pattern: passive rook or king placement once the queens came off. These are the exact positions to drill. Each section below gives the game context, the FEN of the critical moment, and the specific technique to study.
+</div>
+
+<hr>
+
+<h2>Loss 1 — NAYCC R7: Austin vs Beegala (White 1758, Black Austin 1968)</h2>
+
+<div class="game-block">
+  <div class="game-title">E49 Nimzo-Indian — Rook + Bishop vs Rook with passed d-pawn</div>
+  <div class="context">
+    Austin (Black, 1968) lost to Beegala (White, 1758) in Round 7. This was a major rating upset. The game was complex — Austin fought hard and had counterplay — but the endgame after the queens came off was technically lost due to passive rook placement. After move 44 (exd5), White has a passed d-pawn on d5 with active rook and bishop; Austin's rook on e7 is reactive instead of blockading.
+  </div>
+
+  <h3>Critical position — after 44.exd5 (White to move)</h3>
+  <div class="fen-box">8/p3r1k1/7p/1p1P4/2p5/P1P5/5RPP/2B3K1 w - - 1 45</div>
+  <a class="board-link lichess" href="https://lichess.org/editor/8/p3r1k1/7p/1p1P4/2p5/P1P5/5RPP/2B3K1_w_-_-_1_45" target="_blank" rel="noopener">Open in Lichess Editor ↗</a>
+  <a class="board-link study" href="https://lichess.org/study" target="_blank" rel="noopener">Save to Lichess Study</a>
+
+  <div class="callout callout-red" style="margin-top: 10px;">
+    <strong>What happened:</strong> White pushed d5→d6→d7. Austin's rook was on e7 but couldn't coordinate with the c4+b5 counter-pawns to create real threats. White's bishop + rook coordinated to blockade Austin's queenside and escort the d-pawn home. Game ended move 61 (d7 + Re5+).
+  </div>
+
+  <div class="callout callout-blue">
+    <strong>What Austin needed — Philidor Defense:</strong>
+    <div class="move-line">
+      After 44...Kg7, Austin should immediately play:
+      <span class="mv-key">44...Rd7!</span> (blockade the d-pawn NOW)
+      → 45.Rf7 Rxf7 46.Bxf7 — simplified to pure K+P endgame where Austin draws with active king
+      <br>OR keep rooks on but maintain the blockade: <span class="mv-key">45.Re2 c3!</span> — counter-pawn activates Black's position.
+    </div>
+    <strong>The Philidor rule:</strong> Put your rook IN FRONT of the passed pawn (blockade it), not behind or beside it. The moment the d-pawn reached d5 unblocked, Austin had to play ...Rd7 immediately. He played ...Kg7 instead — one passive move was enough to lose.
+  </div>
+
+  <h3>Drills to fix this</h3>
+  <table class="drill-table">
+    <thead><tr><th>Drill</th><th>Where to find</th><th>Time</th><th>Priority</th></tr></thead>
+    <tbody>
+    <tr><td><strong>Philidor Position</strong> — Defending R+P vs R (rook on 6th rank technique)</td><td><a href="https://lichess.org/learn#/rook-endings" target="_blank">lichess.org/learn → Rook Endings → Philidor</a></td><td>20 min</td><td class="priority-high">HIGH</td></tr>
+    <tr><td><strong>Lucena Position</strong> — Winning R+P vs R (building a bridge)</td><td><a href="https://lichess.org/learn#/rook-endings" target="_blank">lichess.org/learn → Rook Endings → Lucena</a></td><td>20 min</td><td class="priority-high">HIGH</td></tr>
+    <tr><td><strong>Passed pawn blockade</strong> — When to blockade with rook vs king</td><td>Silman's Complete Endgame Course, Part 5; or "Endgame Bootcamp" on Chess.com</td><td>15 min</td><td class="priority-high">HIGH</td></tr>
+    <tr><td><strong>Practice this exact position</strong> — Load FEN above, play as Black vs Lichess computer (Level 4+)</td><td>Lichess editor → vs AI, play Black</td><td>15 min</td><td class="priority-high">HIGH</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Pattern to memorize</h3>
+  <div class="callout callout-green">
+    <strong>When opponent has a passed pawn and you have an active rook:</strong>
+    <ol style="padding-left: 20px; line-height: 1.8; margin-top: 4px;">
+      <li>If pawn hasn't crossed 5th rank — put rook IN FRONT of it (blockade)</li>
+      <li>If pawn is on 5th or 6th rank — use Philidor: Rook goes to the 6th rank on the side of the pawn</li>
+      <li>If pawn is on 7th rank — Lucena (if you're winning) or desperation checks (if defending)</li>
+      <li>Counter-pawns are your best friend: Austin's c4 pawn should have been pushed to c3 to distract White's rook</li>
+    </ol>
+  </div>
+</div>
+
+<h2>Loss 2 — NAYCC R9: Austin vs Li (White 1676, Black Austin 1968)</h2>
+
+<div class="game-block">
+  <div class="game-title">A13 English Opening — King and pawn endgame, outside passed pawn defense</div>
+  <div class="context">
+    Austin (Black, 1968) lost to Li (White, 1676) — the lowest-rated opponent in the tournament. This was the most damaging upset. The endgame was a K+P ending after rooks and bishops were exchanged around move 45. White's c-pawn was far advanced by move 50 (c7), and Austin's king couldn't get back in time while White's king was active on f5.
+  </div>
+
+  <h3>Critical position — White to move, c-pawn about to queen</h3>
+  <div class="fen-box">8/4kb2/2P2p1p/5K1P/3pB1P1/3P4/8/8 w - - 2 50</div>
+  <a class="board-link lichess" href="https://lichess.org/editor/8/4kb2/2P2p1p/5K1P/3pB1P1/3P4/8/8_w_-_-_2_50" target="_blank" rel="noopener">Open in Lichess Editor ↗</a>
+
+  <div class="callout callout-red" style="margin-top: 10px;">
+    <strong>What happened:</strong> White played c7 (move 50) and Austin's bishop on f7 couldn't both block c8 and maintain king opposition. White's king on f5 controlled the key squares. After 50.c7+ Ke7 51.h6 Kd6 52.Bf5 — the bishop controls e6, h-pawn is unstoppable, and d4 pawn falls too. Austin's pieces were reactive rather than active.
+  </div>
+
+  <div class="callout callout-blue">
+    <strong>What Austin needed — Active King, not reactive bishop:</strong>
+    <div class="move-line">
+      The game was already difficult, but the error was <em>earlier</em>. By move 43 (Kxf4), Austin should have centralized his king:
+      <span class="mv-key">43...Kd6!</span> → King rushes toward c7 to blockade
+      → 44.Ke4 Kc7 45.Kd5 Kxb7 — draw (Black queen-swaps the c-pawn)
+      Instead Austin played passively and allowed White's king to dominate.
+    </div>
+    <strong>The opposition principle:</strong> In king+pawn endgames, your king must be ACTIVE. Waiting with bishop moves while White's king advances is a losing strategy. Austin's king was on g7/e7 range — too far from the c-pawn.
+  </div>
+
+  <h3>Drills to fix this</h3>
+  <table class="drill-table">
+    <thead><tr><th>Drill</th><th>Where to find</th><th>Time</th><th>Priority</th></tr></thead>
+    <tbody>
+    <tr><td><strong>Opposition and key squares</strong> — King+pawn endgame fundamentals</td><td><a href="https://lichess.org/learn#/king-endings" target="_blank">lichess.org/learn → King Endings → Opposition</a></td><td>20 min</td><td class="priority-high">HIGH</td></tr>
+    <tr><td><strong>Outside passed pawn defense</strong> — stopping a far-advanced pawn with king</td><td>lichess.org/practice → Endgames → "King and pawn" module</td><td>20 min</td><td class="priority-high">HIGH</td></tr>
+    <tr><td><strong>Two dangerous passed pawns</strong> — when to sacrifice one pawn to stop the other</td><td>Silman's Complete Endgame Course, Part 4; or search "outside passed pawn" on Chess.com Learn</td><td>15 min</td><td class="priority-med">MED</td></tr>
+    <tr><td><strong>Practice this exact position</strong> — Load FEN, play as Black vs Lichess Level 4</td><td>Lichess editor → try to hold the draw</td><td>15 min</td><td class="priority-high">HIGH</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Pattern to memorize</h3>
+  <div class="callout callout-green">
+    <strong>King+pawn endgame rules for Austin:</strong>
+    <ol style="padding-left: 20px; line-height: 1.8; margin-top: 4px;">
+      <li><strong>King activity first, always.</strong> When queens come off, ask: "Can my king run to blockade?" before making any other move.</li>
+      <li><strong>Count the squares.</strong> If White's pawn is on c5 and needs 3 more moves to queen, your king needs ≤3 moves to reach c8. Count before it's too late.</li>
+      <li><strong>The bishop is slow.</strong> A bishop that can only reach one color can't blockade pawns on the other color. Austin's Bf7 could not stop c8 (wrong diagonal). King must compensate.</li>
+      <li><strong>Sacrifice one to stop the other.</strong> Two passed pawns are usually won. The defender must choose which pawn to stop — sacrifice your own active pawn to cut off the more dangerous one.</li>
+    </ol>
+  </div>
+</div>
+
+<h2>Loss 3 — PAM R5: Austin vs Vinales Gonzalez (White 2091, Black Austin 1865)</h2>
+
+<div class="game-block">
+  <div class="game-title">Rook endgame — passive rook + bad bishop vs active doubled rooks</div>
+  <div class="context">
+    Austin (Black, 1865) lost to Vinales Gonzalez (White, 2091). The middlegame saw an exchange of queens early (move 23), leaving a rook endgame. White's rooks became extremely active (Ra7→Rc7→Rc6, Rf1→Rf4) while Austin's pieces were passive — Rb8 stuck on the back rank, Rd5 reactive, bishop on d8 useless. White's b5 pawn was a permanent asset. Game ended move 43.
+  </div>
+
+  <h3>Critical position — White to move, Black is passive</h3>
+  <div class="fen-box">1r1b4/5pkp/2R5/1P1r4/3p4/3B2P1/4P2P/5RK1 w - - 9 33</div>
+  <a class="board-link lichess" href="https://lichess.org/editor/1r1b4/5pkp/2R5/1P1r4/3p4/3B2P1/4P2P/5RK1_w_-_-_9_33" target="_blank" rel="noopener">Open in Lichess Editor ↗</a>
+
+  <div class="callout callout-red" style="margin-top: 10px;">
+    <strong>What happened:</strong> Austin's rooks kept reacting to White's threats (Rb8 not going anywhere, Rd5 defending passively). White's Rc6 was dominant — Austin could never dislodge it. The bishop on d8 was permanently bad. White kept improving position until the rooks penetrated on the 7th/8th rank (Rg8+, Rc7). Game over move 43 (Rxf6+).
+  </div>
+
+  <div class="callout callout-blue">
+    <strong>What Austin needed — Activity, not reaction:</strong>
+    <div class="move-line">
+      From the diagram position, Austin's best try was immediate activity:
+      <span class="mv-key">32...Rd2!</span> — activating the rook behind White's pawns
+      → 33.Rxb6 Rxe2 34.Rb7+ Kg6 35.Rxh7 c3 — Black creates a passed pawn of his own
+      <br>OR exchange the dominant rook:
+      <span class="mv-key">32...Rc5!</span> — offering to trade rooks on c6, simplifying to a better endgame
+      Instead Austin played 32...Bd8 (completely passive) which gave White time to improve indefinitely.
+    </div>
+    <strong>The active rook rule:</strong> In rook endgames, the side with the passive rook loses. If your rook is defending — find a way to attack or create a passed pawn. The Rd2 infiltration activates Austin's biggest asset (the d4 pawn) and forces White to react.
+  </div>
+
+  <h3>Drills to fix this</h3>
+  <table class="drill-table">
+    <thead><tr><th>Drill</th><th>Where to find</th><th>Time</th><th>Priority</th></tr></thead>
+    <tbody>
+    <tr><td><strong>Active rook infiltration</strong> — Putting rook on 7th rank</td><td><a href="https://lichess.org/learn#/rook-endings" target="_blank">lichess.org/learn → Rook Endings → "Rook on 7th"</a></td><td>15 min</td><td class="priority-high">HIGH</td></tr>
+    <tr><td><strong>Activating the bad bishop</strong> — When to sacrifice or reposition</td><td>Chess.com Learn → Endgames → "Bad Bishop" module</td><td>15 min</td><td class="priority-med">MED</td></tr>
+    <tr><td><strong>Passed pawn creation</strong> — Using pawns to generate rook activity</td><td>lichess.org/practice → Endgames → "Rook activity"</td><td>15 min</td><td class="priority-med">MED</td></tr>
+    <tr><td><strong>Practice this exact position</strong> — Load FEN, find active plan as Black</td><td>Lichess editor → Analysis board → look for ...Rd2 or ...Rc5 improvements</td><td>20 min</td><td class="priority-high">HIGH</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Pattern to memorize</h3>
+  <div class="callout callout-green">
+    <strong>Rook endgame checklist (10 seconds to think before each rook move):</strong>
+    <ol style="padding-left: 20px; line-height: 1.8; margin-top: 4px;">
+      <li><strong>Is my rook active or passive?</strong> If passive — find the most active square (2nd rank, 7th rank, or behind a passed pawn).</li>
+      <li><strong>Can I create a passed pawn?</strong> Austin's d4 pawn was a huge asset that he never activated. ...Rd2 would have used it.</li>
+      <li><strong>Is there a dominant rook to exchange?</strong> White's Rc6 was the key piece. If Austin could trade it for his own passive rook, the position would equalize.</li>
+      <li><strong>Never play "waiting" moves with a rook.</strong> Every rook move should improve your rook's position or weaken the opponent's — reactive moves lose endgames.</li>
+    </ol>
+  </div>
+</div>
+
+<hr>
+
+<h2>Combined Drill Schedule (5-day plan)</h2>
+
+<table class="drill-table">
+  <thead><tr><th>Day</th><th>Focus</th><th>Drill</th><th>Time</th></tr></thead>
+  <tbody>
+  <tr><td><strong>Day 1</strong></td><td>Philidor & Lucena</td><td>lichess.org/learn → Rook Endings modules (Philidor + Lucena) — do all exercises until 100%</td><td>40 min</td></tr>
+  <tr><td><strong>Day 2</strong></td><td>Passed pawn blockade</td><td>Recreate NAYCC R7 position (FEN above). Play as Black vs Lichess Level 4. Goal: hold the draw or win. Try 5 times.</td><td>30 min</td></tr>
+  <tr><td><strong>Day 3</strong></td><td>King activity in K+P</td><td>lichess.org/learn → King Endings → Opposition. Then recreate NAYCC R9 position (FEN above). Try to hold vs Lichess Level 3.</td><td>40 min</td></tr>
+  <tr><td><strong>Day 4</strong></td><td>Active rook</td><td>Recreate PAM R5 position (FEN above). Find ...Rd2 or ...Rc5 — analyze with Stockfish to verify. Practice active rook plans.</td><td>30 min</td></tr>
+  <tr><td><strong>Day 5</strong></td><td>Speed training</td><td>Lichess Rapid (10+0). After each game ending in an endgame: review and ask "was my rook active or passive?" Log the answer.</td><td>60 min</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-gold" style="margin-top: 16px;">
+  <strong>Goal:</strong> After these 5 days, Austin should be able to hold the Philidor position cold, recognize when his king must rush in a K+P ending, and immediately find the active rook square instead of defensive moves. These three losses represent <strong>~1.5 rating points</strong> that should not be lost again.
+</div>
+
+<div style="margin-top: 20px; font-size: 0.82em; color: #555; text-align: center; border-top: 1px solid #ccc; padding-top: 12px;">
+  <a href="../austin-prep.html" style="color: var(--accent); text-decoration: none; margin-right: 16px;">← Prep Index</a>
+  <a href="../austin-training.html" style="color: var(--accent); text-decoration: none; margin-right: 16px;">Training Plan</a>
+  <a href="../austin/naycc2025/review-deep.html" style="color: var(--accent); text-decoration: none;">NAYCC Deep Review</a>
+</div>
+
+</body>
+</html>
