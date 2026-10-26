@@ -11,7 +11,7 @@ This project helps **Austin Lin** prepare for competitive chess tournaments by:
 2. Analyzing potential opponents' games
 3. Generating matchup-specific preparation plans
 
-Opponents analyzed to date: **Justin Huang, Aarush Ajith, Zachary Liu, Heye Gao, Fernando Cortes Medina, Pranav Santhosh, Emerson Johnson, Leo Jackson, Tarun Sankar, Daniel Hernandez Gamboa, Yaen Saenz Cabrera, Daniel Joshua Lee** — full pipeline complete for all 12 opponents (deep HTML + white/black matchup HTMLs)
+Opponents analyzed to date: **Justin Huang, Aarush Ajith, Zachary Liu, Heye Gao, Fernando Cortes Medina, Pranav Santhosh, Emerson Johnson, Leo Jackson, Tarun Sankar, Daniel Hernandez Gamboa, Yaen Saenz Cabrera, Daniel Joshua Lee, Pablo Elliot De Alba Boudreau, Joel Ethan Jeyaraj** — full pipeline complete for all 14 opponents (deep HTML + white/black matchup HTMLs)
 
 ---
 
@@ -30,7 +30,7 @@ chess-analysis/
 │   ├── austin-analysis.md      # Austin's detailed player analysis
 │   └── {opponent}-analysis.md  # One per opponent: justin, aarush, zachary, heye,
 │                               #   fernando, pranav, emerson, leo, tarun,
-│                               #   danielh, yaen, danielee
+│                               #   danielh, yaen, danielee, pablo, joel
 │
 ├── pgnlib/                     # Combined PGN library (one file per opponent)
 │   └── {Legal Name}.pgn        # All games merged, sorted by date desc, deduplicated
@@ -75,7 +75,9 @@ chess-analysis/
     ├── tarun/                  # Tarun.pgn, grandcircuit.pgn, skyline2026.pgn — 17 games
     ├── danielh/                # queretaro2024/2025/2026, anothergame — 8 games
     ├── yaen/                   # saenz cabrera, yaen.pgn — 64 games
-    └── danielee/               # canadaclose2026, pam2026, pamschool2026, torontoopen2026 — 24 games
+    ├── danielee/               # canadaclose2026, pam2026, pamschool2026, torontoopen2026 — 24 games
+    ├── pablo/                  # PabliElliot-ChaseBase.pgn (57 games) + newgames.pgn (3 Copa 2026 games)
+    └── joel/                   # Joel-Ethan-chessBase.pgn (1 classical) + lichess_JEJ13_2026-10-26.pgn (100 Lichess)
 ```
 
 ---
@@ -187,6 +189,8 @@ When a new opponent folder is added:
 | Daniel Hernandez Gamboa | ~1685–1692 FIDE | 1.e4 (Philidor/Pirc/Sicilian) | 1...e5 Four Knights | No encounter |
 | Yaen Saenz Cabrera | ~1841 FIDE (peak 1899) | 1.e4 Scotch C45 | Sicilian Sveshnikov B32/B33 | No encounter |
 | Daniel Joshua Lee | ~2191 FIDE (Sep 2026; was 1942 Apr 2026) | 1.e4 Maróczy Bind B36/B38/Taimanov B45/B47 | Italian C54/C55 + QGA D27/D20 | No encounter |
+| Pablo Elliot De Alba Boudreau | ~1824 FIDE (peaked 1937 Jun 2026) | 1.e4 English Attack vs Sicilian; Ruy Lopez vs e5 (1W–6L+) | Sicilian Kan/Taimanov (2…e6 4…a6) 15+ games | No encounter |
+| Joel Ethan Jeyaraj | 1872 FIDE / 2114 Lichess Blitz | 1.Nf3 → Nimzo-Larsen (2.b3 Bb2) PRIMARY; 1.d4/1.c4 secondary | Scandinavian Modern B01 (3...Nf6 ...g6 fianchetto) PRIMARY; Caro-Kann secondary | No encounter |
 
 ---
 

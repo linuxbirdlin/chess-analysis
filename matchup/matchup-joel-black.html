@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Joel Ethan Jeyaraj — Austin as Black</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #1a5276; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #1a5276; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #1a5276; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #1a5276; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #1a5276; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #f0f4ff !important; color: #1a2a6b; }
+    .acc-hi { color: #1a4060; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #e8f0ff; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #fafbff; }
+    .rule-number { background: #1a5276; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #f0f4ff; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #1a5276; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #1a5276; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #e0eaf8; color: #1a5276; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #e0eaf8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a3a55; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Joel Ethan Jeyaraj</h1>
+    <div class="subtitle">Austin as Black — QGD Solid Structure vs Nimzo-Larsen</div>
+    <div class="meta">Joel Ethan Jeyaraj · 1872 FIDE / 2114 Lichess Blitz · 49 White games (Lichess) · Stockfish in progress · White blitz 20W–9L–1D (67%) · No direct encounter · Near-equal OTB match</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-joel.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-joel-white.html">← Austin as White</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-joel-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="encounter-box">
+    <strong>No direct encounter on record.</strong> Joel's White openings documented from 100 Lichess games: 1.Nf3 (53%), 1.d4 (20%), 1.c4 (12%), 1.e4 (8%). The Nimzo-Larsen (1.Nf3 → 2.b3 Bb2) is his most dangerous system. Austin's correct antidote: <strong>1...d5 2.b3 Nf6 3.Bb2 e6 4.e3 Be7 5.d4 O-O 6.Bd3 c5!</strong> — QGD-type solidity plus the mandatory ...c5 break.
+  </div>
+
+  <h2>§1 — Joel as White — Threat Assessment</h2>
+  <div class="profile-grid">
+    <span class="plabel">Primary weapon</span><span class="pval">1.Nf3 → 2.b3 Bb2 Nimzo-Larsen (53% of White games — 26/49)</span>
+    <span class="plabel">Secondary</span><span class="pval">1.d4 London-type, 1.c4 English (12%), Reti 1.Nf3 2.c4 (transpositions)</span>
+    <span class="plabel">Rare</span><span class="pval">1.e4 (8% — 4 games only): French C11 2 games; otherwise uncommon</span>
+    <span class="plabel">White record (blitz)</span><span class="pval">20W–9L–1D (67%) — White is Joel's stronger color</span>
+    <span class="plabel">Defining White theme</span><span class="pval">Hypermodern hedgehog — delay central pawns, long diagonals (Bb2+Bg2 or just Bb2), avoid theory</span>
+    <span class="plabel">Key White weakness</span><span class="pval">No 1.e4 sharp theory (4 games only) — if Austin faces Joel White, Sicilian is uncharted water for Joel</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">No encounter on record</span>
+    <span class="plabel">Biggest White strength</span><span class="pval">Nimzo-Larsen is genuinely tricky for unprepared players; long diagonal bishops create annoying pressure</span>
+  </div>
+
+  <h2>§2 — Joel's White Repertoire (Frequency &amp; Results)</h2>
+  <table>
+    <thead>
+      <tr><th>ECO</th><th>System</th><th>G</th><th>W</th><th>D</th><th>L</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>A04/A01</td><td>Nimzo-Larsen (1.Nf3 2.b3 or 1.b3)</td><td>16</td><td>—</td><td>—</td><td>—</td><td>PRIMARY. Hypermodern hedgehog — Bb2 eyes g7, slow buildup, delayed central commitment. Most theoretically unfamiliar for Austin.</td>
+      </tr>
+      <tr>
+        <td>D02</td><td>London/Queen's Pawn (1.d4 Nf3)</td><td>4</td><td>—</td><td>—</td><td>—</td><td>Solid but passive. Austin's QGD/Nimzo-Indian applies — familiar territory.</td>
+      </tr>
+      <tr>
+        <td>A15/A35</td><td>English (1.c4)</td><td>6</td><td>—</td><td>—</td><td>—</td><td>1.c4 Nf6 (Anglo-Indian) or 1.c4 c5 symmetrical. Austin's KID-type setups apply.</td>
+      </tr>
+      <tr>
+        <td>A06/A09</td><td>Reti (1.Nf3 d5 2.c4)</td><td>6</td><td>—</td><td>—</td><td>—</td><td>Transpositions from 1.Nf3. After 2.c4, Austin plays 2...e6 → QGD/Tarrasch with ...c5 break.</td>
+      </tr>
+      <tr class="row-safe">
+        <td>C11</td><td>French (1.e4 e6)</td><td>2</td><td>—</td><td>—</td><td>—</td><td>RARE. Joel occasionally plays 1.e4. Austin plays 1...c5 Sicilian — Joel has no Open Sicilian experience.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>§3 — Austin's Defense: Solid QGD vs Nimzo-Larsen</h2>
+  <div class="rules-section">
+    <div class="rule-card">
+      <div class="rule-number">1</div>
+      <div class="rule-content">
+        <div class="rule-label">Play 1...d5 immediately — claim the center</div>
+        <div class="rule-body">After 1.Nf3, play <strong>1...d5</strong>. This controls the center immediately and stops the Nimzo-Larsen's slow buildup from gaining momentum. Never play 1...e5 — tactical tricks after 2.Nxe5 are possible.</div>
+      </div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">2</div>
+      <div class="rule-content">
+        <div class="rule-label">After 2.b3 Nf6 3.Bb2: play 3...e6 4.e3 Be7 — QGD-type solid</div>
+        <div class="rule-body">Don't react to the long diagonal. Solid development: <strong>e6, Be7, O-O</strong>. The Nimzo-Larsen is not immediately threatening with correct play — it becomes dangerous only if Black over-reacts.</div>
+      </div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">3</div>
+      <div class="rule-content">
+        <div class="rule-label">The critical break: 5.d4 O-O 6.Bd3 c5! — MANDATORY</div>
+        <div class="rule-body"><strong>...c5 must be played</strong>. Without it, Austin drifts into a passive hedgehog position where Joel's bishops gradually dominate. The ...c5 break challenges the d4 pawn and creates immediate counterplay. Austin's Nimzo-Indian background (similar pawn structures) provides the positional understanding needed here.</div>
+      </div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">4</div>
+      <div class="rule-content">
+        <div class="rule-label">After 7.O-O Nc6 8.Nbd2 b6 — queenside expansion</div>
+        <div class="rule-body">The b6 move prepares ...Ba6, fighting the long diagonal head-on or creating queenside counterplay. Nc6 supports the d5/c5 structure. Austin has solid, coordinated pieces — time is on his side.</div>
+      </div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">5</div>
+      <div class="rule-content">
+        <div class="rule-label">If Joel plays 4.g3 instead of 4.e3: play 4...c5! immediately</div>
+        <div class="rule-body">The g3 fianchetto variation means Joel is building toward a Bg2 setup. <strong>Counter immediately with 4...c5</strong> (Benoni-type) before Joel can establish the fianchettoed bishop structure. Active counterplay beats passive waiting.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>§4 — Opening Variations</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">Branch A — Main Line</span>
+      Nimzo-Larsen QGD Solid
+    </div>
+    <div class="var-body">
+      <div class="var-moves">1.Nf3 d5  2.b3 Nf6  3.Bb2 e6  4.e3 Be7  5.d4 O-O  6.Bd3 c5!
+7.O-O Nc6  8.Nbd2 b6</div>
+      <p>The ...c5 break is the engine of the position. After 7.O-O Nc6 8.Nbd2 b6, Austin controls the center and has queenside expansion. The Bb2 long diagonal is neutralized by the solid e6/Be7 structure. Austin's Nimzo-Indian preparation (Bb4/...b6/...Ba6 structures) gives direct positional understanding here.</p>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">Branch B</span>
+      Nimzo-Larsen with 4.g3 Fianchetto
+    </div>
+    <div class="var-body">
+      <div class="var-moves">1.Nf3 d5  2.b3 Nf6  3.Bb2 e6  4.g3 c5!
+5.Bg2 Nc6  6.O-O Be7  7.d4 cxd4</div>
+      <p>If Joel builds the fianchetto with 4.g3, Austin plays 4...c5! immediately rather than waiting for 4...Be7 first. This is Benoni-type counterplay — Austin creates immediate tension before Joel establishes the slow hedgehog structure. After ...cxd4 and ...Nxd4, Black has active piece play.</p>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">Branch C</span>
+      Reti (1.Nf3 d5 2.c4 transposition)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">1.Nf3 d5  2.c4 e6  3.g3 Nf6  4.Bg2 Be7  5.O-O O-O  6.d4 c5</div>
+      <p>If Joel plays 2.c4 (Reti), Austin plays 2...e6 and transposes into a QGD/Tarrasch setup. Same ...c5 break applies on move 6. Alternatively, Austin can play 2...d4 to close the position if he wants a fixed pawn structure. Either path is familiar territory.</p>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">Branch D — Rare</span>
+      1.e4 (Joel plays rarely — Austin's Sicilian)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">1.e4 c5  2.Nf3 Nc6  (or e6 Taimanov/Kan)
+3.d4 cxd4  4.Nxd4 Nc6  5.Nc3 a6 (Kan setup)</div>
+      <p>If Joel plays 1.e4 (only 8% of White games), Austin plays his normal 1...c5 Sicilian. Joel has virtually no documented experience with the Open Sicilian as White — he plays French/CK structures in his rare 1.e4 games. Austin's Taimanov/Kan preparation applies directly. This is Austin's best-case scenario.</p>
+    </div>
+  </div>
+
+  <div class="cheat-card">
+    <h3>Opening Cheat Sheet</h3>
+    <div class="cheat-moves">MAIN vs 1.Nf3 (Nimzo-Larsen):
+  1...d5  2.b3 Nf6  3.Bb2 e6  4.e3 Be7  5.d4 O-O  6.Bd3 c5!
+  → 7.O-O Nc6  8.Nbd2 b6
+
+vs 4.g3 DEVIATION:
+  4...c5!  5.Bg2 Nc6  6.O-O Be7
+
+vs 1.Nf3 d5 2.c4 (Reti):
+  2...e6  3.g3 Nf6  4.Bg2 Be7  5.O-O O-O  6.d4 c5
+
+vs RARE 1.e4:
+  1...c5  (Austin's normal Sicilian — Joel has no prep here)</div>
+  </div>
+
+  <h2>§5 — Day-of Checklist</h2>
+  <div class="dayof-card">
+    <h3>Before the game</h3>
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">Joel will play <strong>1.Nf3</strong> (53% probability) — be ready for 2.b3 immediately after the first move. This is not a surprise; it's his primary weapon.</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body"><strong>Don't over-react to Bb2.</strong> The long diagonal bishop is not immediately dangerous. Develop solidly (d5, Nf6, e6, Be7) before responding to its pressure.</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">The <strong>...c5 break is mandatory on move 6</strong> — without it, Austin risks a passive hedgehog defense. Don't delay this break past move 7.</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">If Joel plays <strong>1.e4</strong> (rare), play 1...c5 Sicilian immediately — best-case scenario for Austin.</div>
+    </div>
+    <div class="mental-frame">"Solid structure first, then c5 break — don't let Joel keep a quiet hedgehog. The ...c5 move is Austin's engine; delay it and the game drifts."</div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Austin as Black vs De Alba Boudreau, Pablo</title>
+<style>
+:root {
+  --accent: #1a5276; --accent-bg: #eaf4fb; --accent-border: #a8c8e8;
+  --accent-dark: #0d3a5c;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px; color: #1a1a1a; max-width: 900px;
+  margin: 0 auto; padding: 24px; background: #f8f7f4;
+}
+.doc-header {
+  border-left: 6px solid var(--accent); background: var(--accent-bg);
+  padding: 16px 20px; margin-bottom: 24px; border-radius: 0 6px 6px 0;
+}
+.doc-header h1 { font-size: 1.35em; margin-bottom: 4px; }
+.doc-header .meta { font-size: 0.82em; color: #555; }
+.doc-header .nav-links { margin-top: 10px; font-size: 0.82em; }
+.doc-header .nav-links a { color: var(--accent); text-decoration: none; margin-right: 16px; }
+.doc-header .nav-links a:hover { text-decoration: underline; }
+
+h2 { font-size: 1.1em; margin: 28px 0 10px; padding-left: 10px;
+     border-left: 4px solid var(--accent); }
+h3 { font-size: 0.95em; margin: 16px 0 6px; color: #333; }
+
+.profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+.profile-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.profile-card h3 { margin-top: 0; font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.04em; color: #555; }
+.profile-card p, .profile-card li { font-size: 0.88em; margin-bottom: 3px; }
+.profile-card ul { padding-left: 16px; margin-top: 4px; }
+
+.callout { padding: 10px 14px; border-radius: 4px; margin: 10px 0; font-size: 0.9em; }
+.callout-blue   { background: var(--accent-bg); border-left: 4px solid var(--accent); }
+.callout-gold   { background: #fffbe0; border-left: 4px solid #b8860b; }
+.callout-green  { background: #efffef; border-left: 4px solid #2d7d46; }
+.callout-danger { background: #fff0f0; border-left: 4px solid #8b1a1a; }
+
+.move-line {
+  background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+  padding: 8px 12px; margin: 6px 0; font-size: 0.91em; line-height: 1.9;
+  font-family: "Georgia", serif;
+}
+.mv-a { color: #1a5276; font-weight: bold; }
+.mv-z { color: #8b1a1a; font-weight: bold; }
+.key-move { background: var(--accent-bg); border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.note { color: #555; font-style: italic; font-size: 0.87em; }
+
+.var-card { margin: 8px 0; border: 1px solid var(--accent-border); border-radius: 5px; overflow: hidden; }
+.var-header { background: var(--accent-bg); padding: 7px 14px; font-weight: bold; font-size: 0.88em; display: flex; align-items: center; gap: 8px; }
+.var-label { background: var(--accent); color: #fff; border-radius: 3px; padding: 1px 7px; font-size: 0.78em; font-weight: 700; }
+.var-body { padding: 10px 14px; background: #fff; font-size: 0.88em; }
+.var-moves { display: block; font-family: "Courier New", monospace; font-size: 0.88em;
+             background: #f5f5f0; border-radius: 3px; padding: 7px 10px; margin: 6px 0; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.87em; }
+th { background: #1a5276; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+
+.rule-card { background: #fff; border: 1px solid var(--accent-border); border-radius: 5px;
+             padding: 12px 16px; margin: 8px 0; display: flex; align-items: flex-start; gap: 12px; }
+.rule-num { min-width: 28px; height: 28px; background: var(--accent); color: #fff;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.85em; font-weight: 700; }
+.rule-body { flex: 1; font-size: 0.88em; }
+.rule-body strong { display: block; margin-bottom: 3px; }
+
+.cheat-card { background: #fff; border: 2px solid #b8860b; border-radius: 6px; padding: 14px 18px; margin: 10px 0; }
+.cheat-card h3 { font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.04em; color: #b8860b; margin-bottom: 8px; margin-top: 0; }
+.cheat-moves { display: block; font-family: "Courier New", monospace; font-size: 0.9em;
+               background: #fafaf0; border: 1px solid #e0d8a0; border-radius: 4px;
+               padding: 8px 12px; margin: 6px 0; }
+
+.dayof-card { background: var(--accent-bg); border: 1px solid var(--accent-border); border-radius: 5px;
+              padding: 12px 16px; margin: 8px 0; }
+.step-item { display: flex; gap: 10px; margin-bottom: 8px; align-items: flex-start; }
+.step-num { min-width: 22px; height: 22px; background: var(--accent); color: #fff;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75em; font-weight: 700; }
+.step-body { flex: 1; font-size: 0.87em; }
+
+hr { border: none; border-top: 2px solid #ddd; margin: 28px 0; }
+
+.mental-frame { background: #f0f4fa; border: 1px solid #99aacc; border-radius: 5px;
+                padding: 12px 16px; margin: 10px 0; font-style: italic; color: #444; font-size: 0.9em; }
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <h1>Austin as Black vs De Alba Boudreau, Pablo</h1>
+  <div class="meta">Pablo rating: ~1824 FIDE (peaked ~1937 Jun 2026) · 60 games in dataset · No direct encounter</div>
+  <div class="nav-links">
+    <a href="../austin-prep.html">← Prep Index</a>
+    <a href="matchup-pablo.html">Matchup Overview</a>
+    <a href="matchup-pablo-white.html">← Austin as White</a>
+    <a href="matchup-pablo-gm.html">GM Battle Plan →</a>
+    <a href="matchup-pablo-deep.html">Deep Analysis →</a>
+  </div>
+</div>
+
+<h2>§1 — Pablo's White Repertoire</h2>
+
+<div class="profile-grid">
+  <div class="profile-card">
+    <h3>Pablo as White — Opening Systems</h3>
+    <ul>
+      <li><strong>1.e4</strong> exclusively in vast majority of games</li>
+      <li>vs 1…e5: Ruy Lopez (3.Bb5) — primary, but poor record (1W–6L+)</li>
+      <li>vs Sicilian: English Attack (Be3/f3/Qd2/g4) vs Dragon</li>
+      <li>vs Sicilian: Alapin (2.c3) as secondary weapon</li>
+      <li>vs Caro-Kann: Two Knights (2.Nc3 3.Nf3) — Copa 2026 win with it</li>
+      <li>Secondary: 1.Nf3 2.b3 (Reti/Catalan) in a few games</li>
+    </ul>
+  </div>
+  <div class="profile-card">
+    <h3>Pablo's White Strengths/Weaknesses</h3>
+    <ul>
+      <li><strong>Weakness:</strong> Ruy Lopez record 1W–6L — loses most 1.e4 e5 games</li>
+      <li><strong>Strength:</strong> English Attack vs Dragon — knows the setup</li>
+      <li><strong>Inconsistency:</strong> His White play is generally weaker than Black play</li>
+      <li>Copa Independencia 2026: Won as White vs CK (beat 1990), 85% accuracy</li>
+      <li>American Continental: 2W–3L as White in classical — subpar</li>
+    </ul>
+  </div>
+</div>
+
+<h2>§2 — Recommended Defense: Sicilian Taimanov (Mirror Play)</h2>
+
+<div class="callout callout-blue">
+  <strong>Key insight:</strong> Pablo plays the Sicilian Kan/Taimanov as Black — it's his best-prepared defense. Austin should play the <strong>SAME structure</strong> as Black vs Pablo's 1.e4. This creates mirror territory where Austin has deeply studied the structure from the White side (vs Pranav, Zachary, Emerson, Aarush) and can exploit it from the Black side.
+</div>
+
+<h3>Main Line: Taimanov B48 vs English Attack</h3>
+<div class="move-line">
+  <span class="mv-z">Pablo:</span> 1.e4 <span class="mv-a">c5</span>
+  2.Nf3 <span class="mv-a">Nc6</span>
+  3.d4 <span class="mv-a">cxd4</span>
+  4.Nxd4 <span class="mv-a">e6</span>
+  5.Nc3 <span class="mv-a">a6</span>
+  6.Be3 <span class="mv-a">Nge7</span>
+  7.f3 <span class="mv-a">d6</span>
+  8.Qd2 <span class="key-move">Nxd4!</span>
+  <span class="note">— CRITICAL defensive move. Trading the Nd4 BEFORE Pablo plays 9.g4 defuses the English Attack completely. After 9.Bxd4 Nc6, Black has a solid Taimanov position with no kingside attack coming. Austin has drilled this exact technique vs multiple opponents.</span>
+</div>
+
+<div class="var-card">
+  <div class="var-header"><span class="var-label">MAIN</span> After 8…Nxd4! — Solid Taimanov</div>
+  <div class="var-body">
+    <code class="var-moves">8.Qd2 Nxd4! 9.Bxd4 Nc6 10.Be3 Be7 11.O-O-O O-O
+→ Solid position, no kingside attack, Austin has queenside counterplay</code>
+    <p>After 9.Bxd4 Nc6 10.Be3 Be7, White has no g4 attack (no knight on d4 to support it). Austin's position is solid with …b5, …Bb7, …d5 counterplay options. Pablo is out of his prepared English Attack lines.</p>
+  </div>
+</div>
+
+<div class="callout callout-danger">
+  <strong>What NOT to do:</strong> If Austin delays …Nxd4 and Pablo plays 9.g4!, the English Attack is on and Black is in danger. The trade on move 8 is critical — don't wait until g4 is already played.
+</div>
+
+<h3>Alternative move order: Pure Kan (4…a6)</h3>
+<div class="move-line">
+  <span class="mv-z">Pablo:</span> 1.e4 <span class="mv-a">c5</span>
+  2.Nf3 <span class="mv-a">e6</span>
+  3.d4 <span class="mv-a">cxd4</span>
+  4.Nxd4 <span class="mv-a">a6</span>
+  5.Nc3 <span class="mv-a">Qc7</span>
+  (or 5…Nf6)
+  6.Be3 <span class="mv-a">Nf6</span>
+  7.f3 <span class="mv-a">d6</span>
+  8.Qd2 <span class="mv-a">Nbd7</span>
+  <span class="note">— If Austin plays 2…e6 (pure Kan move order), the ideas are the same. Trade the Nd4 with …Nxd4 when the opportunity arises. After trading, Black has solid Kan structure without White's attack.</span>
+</div>
+
+<h2>§3 — Variations: What Pablo Plays as White</h2>
+
+<div class="var-card">
+  <div class="var-header"><span class="var-label">VAR A</span> Pablo plays English Attack (6.Be3 7.f3)</div>
+  <div class="var-body">
+    <code class="var-moves">1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 e6 5.Nc3 a6
+6.Be3 Nge7 7.f3 d6 8.Qd2 → Nxd4! (Austin's defensive move)</code>
+    <p>Most likely line. After 8…Nxd4! 9.Bxd4 Nc6 10.Be3, Austin has defused the attack. Continue with 10…Be7 11.O-O-O O-O 12.Kb1 → queenside counterplay with …b5.</p>
+  </div>
+</div>
+
+<div class="var-card">
+  <div class="var-header"><span class="var-label">VAR B</span> Pablo plays Alapin (2.c3)</div>
+  <div class="var-body">
+    <code class="var-moves">1.e4 c5 2.c3 → Austin plays d5 (central break)
+2…d5 3.exd5 Qxd5 4.d4 Nf6 5.Nf3 e6 6.Bd3 Nc6
+→ Equal position, both sides know this structure</code>
+    <p>Pablo has used Alapin himself as White (North American Blitz R9). After 2…d5, the position is fine for Black. Austin knows Exchange Caro-Kann-type play where the queen goes to d5. Don't play 2…e6 (could transpose to French).</p>
+  </div>
+</div>
+
+<div class="var-card">
+  <div class="var-header"><span class="var-label">VAR C</span> Pablo plays Ruy Lopez (vs 1…e5 — only if Austin deviates)</div>
+  <div class="var-body">
+    <code class="var-moves">This only arises if Austin plays 1…e5 (not recommended).
+Austin should stay with 1…c5 Sicilian at all times.</code>
+    <p>Despite Pablo's poor White record with Ruy Lopez (1W–6L), if Austin plays 1…e5, he's in Pablo's home territory. Stay with Sicilian — Pablo's Ruy Lopez record is poor but it's his prepared terrain.</p>
+  </div>
+</div>
+
+<div class="var-card">
+  <div class="var-header"><span class="var-label">VAR D</span> Pablo plays 1.Nf3 / 1.d4 (secondary)</div>
+  <div class="var-body">
+    <code class="var-moves">1.d4 Nf6 2.c4 e6 3.Nc3 Bb4! (Nimzo-Indian)
+→ Austin's standard 2026 preparation</code>
+    <p>Pablo has played 1.d4 in a few games (American Continental Blitz R4 vs Nimzo). Austin's Nimzo-Indian (Bxc3+ …b6/…Ba6) is well-prepared and Pablo hasn't faced it much as White.</p>
+  </div>
+</div>
+
+<h2>§4 — Why Mirror Play Favors Austin</h2>
+
+<table>
+  <thead><tr><th>Advantage</th><th>Detail</th></tr></thead>
+  <tbody>
+  <tr><td><strong>Austin has studied this structure as White vs 3+ opponents</strong></td><td>Pranav, Zachary, Emerson, Aarush — all involved English Attack vs Taimanov/Kan. Austin knows where the Kan is weak from the White perspective.</td></tr>
+  <tr><td><strong>8…Nxd4! is a known antidote</strong></td><td>This defensive move is documented in Austin's prep as the answer to 8.Qd2. Pablo may not know to handle it from the White side.</td></tr>
+  <tr><td><strong>Pablo is less dangerous as White than as Black</strong></td><td>His White record (11W–17L–2D, 40%) is weaker than his Black record. He's more prepared defending than attacking.</td></tr>
+  <tr><td><strong>Pablo's Ruy Lopez collapse</strong></td><td>His record vs 1…e5 as White is 1W–6L+. He appears poorly prepared for complex 1.e4 e5 games — but Austin won't play 1…e5 so this is academic.</td></tr>
+  </tbody>
+</table>
+
+<h2>§5 — Model Games to Study</h2>
+
+<div class="callout callout-gold">
+  <strong>Copa Independencia 2026 R5:</strong> Pablo as Black vs FM Morales Garcia 2241 (D30 QGD Capablanca) — <strong>Drew as Black, 96.4% accuracy</strong>. This is Pablo at his defensive best — solid, methodical, forced a draw vs a 417-point-stronger opponent. Austin will need to be accurate to win against a prepared opponent. Study how the position dissolved into a draw.
+</div>
+
+<h2>§6 — Key Tactical Themes as Black</h2>
+
+<table>
+  <thead><tr><th>Theme</th><th>How to handle it</th><th>Evidence</th></tr></thead>
+  <tbody>
+  <tr><td><strong>Trade Nd4 before g4!</strong></td><td>8…Nxd4! is mandatory — do it before Pablo plays 9.g4; the whole defense depends on this timing</td><td>Standard English Attack antidote; Austin practiced as White vs Zachary's Taimanov</td></tr>
+  <tr><td><strong>Mirror territory — Austin knows both sides</strong></td><td>Austin has analyzed this structure from White's perspective 4+ times — he knows exactly where Black is solid and where White attacks</td><td>Pranav, Zachary, Emerson, Aarush matchup prep all involved English Attack vs Kan/Taimanov</td></tr>
+  <tr><td><strong>Don't play 1…e5</strong></td><td>Pablo's Ruy Lopez prep may be shallow but it's his home territory; stay with Sicilian</td><td>Pablo's Ruy Lopez record 1W–6L — despite poor results, he's prepared the theory</td></tr>
+  <tr><td><strong>Pablo in long games is dangerous</strong></td><td>Multiple 80–178 move games; he's converted technically difficult endgames; don't assume a material edge closes it out</td><td>Copa R4 — he blundered from winning but also played 74 moves; North American Blitz R7 — 181-move draw</td></tr>
+  </tbody>
+</table>
+
+<h2>§7 — Cheat Sheet</h2>
+
+<div class="cheat-card">
+  <h3>Austin as Black — Opening Decision Tree</h3>
+  <code class="cheat-moves">Pablo plays 1.e4:
+→ Austin: 1…c5 → Taimanov (2…Nc6 or 2…e6)
+→ vs English Attack (6.Be3 7.f3 8.Qd2): play 8…Nxd4!! (critical)
+→ After 9.Bxd4 Nc6 10.Be3 Be7 → solid Taimanov, no attack
+
+Pablo plays 2.c3 (Alapin):
+→ Austin: 2…d5 3.exd5 Qxd5 4.d4 Nf6 5.Nf3 e6 6.Bd3 Nc6 → fine
+
+Pablo plays 1.d4:
+→ Austin: 1…Nf6 2.c4 e6 3.Nc3 Bb4 (Nimzo-Indian)
+→ Austin's standard prep; Pablo hasn't faced Nimzo much as White
+
+Pablo plays 1.Nf3 → 2.b3 (Reti):
+→ Austin: 1…Nf6 2.b3 d5 3.Bb2 e6 → solid development, no surprises</code>
+
+  <table style="margin-top:12px">
+    <thead><tr><th>If Pablo plays vs Austin's Taimanov…</th><th>Austin plays…</th></tr></thead>
+    <tbody>
+    <tr><td>8.Qd2 (English Attack setup)</td><td>8…Nxd4!! — before g4!</td></tr>
+    <tr><td>9.g4 (attack launched if Austin delayed)</td><td>9…Nxd4! still works; then defend actively</td></tr>
+    <tr><td>7.Be3 without f3 (quieter)</td><td>Standard Taimanov development; play …Be7, …O-O</td></tr>
+    <tr><td>5.Bd3 (non-English Attack Kan)</td><td>Standard Kan: …Nf6, …Qc7, …d6 development</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>§8 — Day-of Prep</h2>
+
+<div class="dayof-card">
+  <div class="step-item">
+    <div class="step-num">1</div>
+    <div class="step-body"><strong>Confirm Pablo is starting with 1.e4.</strong> If he plays 1.d4 or 1.Nf3, execute Nimzo-Indian. If 1.e4 → Sicilian Taimanov plan.</div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">2</div>
+    <div class="step-body"><strong>Know the critical 8…Nxd4! move cold.</strong> When Pablo plays 8.Qd2, the answer is 8…Nxd4 — don't hesitate. This is the defensive key to the whole game.</div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">3</div>
+    <div class="step-body"><strong>After 8…Nxd4 9.Bxd4 Nc6 10.Be3 Be7</strong> — know the plan: castle queenside (O-O), then generate …b5 counterplay. White has no attack; game becomes positional.</div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">4</div>
+    <div class="step-body"><strong>Don't relax in drawn-looking positions.</strong> Pablo's Copa R4 game: he blundered multiple times in the endgame from a drawn position (both sides). Stay sharp.</div>
+  </div>
+</div>
+
+<h2>§9 — Pablo's White Accuracy Profile (Preview)</h2>
+
+<p>Based on Copa Independencia 2026 data (full Stockfish analysis in progress):</p>
+<ul>
+<li>Copa R4 as White vs Leal 1990: <strong>85.0%</strong> accuracy (5B/1M/10I — 148-ply game, won)</li>
+<li>This is in the Copa game against relatively weaker opposition — lower accuracy than his best performances</li>
+<li>Full accuracy profile will be in the <a href="matchup-pablo-deep.html">Deep Analysis page</a></li>
+</ul>
+
+<div class="mental-frame">
+  "Pablo's Kan defense is the best weapon in his arsenal. But his White play — especially as White with 1.e4 — is his weak spot. The Ruy Lopez (1W–6L) shows his White preparation isn't as deep as his Black prep. Austin's Taimanov plan is solid, well-practiced, and takes the game away from any Pablo preparation."
+</div>
+
+<hr>
+<p style="text-align:center; font-size:0.82em; color:#666;">
+  <a href="../austin-prep.html">← Prep Index</a> ·
+  <a href="matchup-pablo.html">Matchup Overview</a> ·
+  <a href="matchup-pablo-white.html">← Austin as White</a> ·
+  <a href="matchup-pablo-gm.html">GM Battle Plan →</a>
+</p>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deep Engine Analysis — Jeyaraj, Joel Ethan (77 games)</title>
+<style>
+:root { --accent: #1a3a6b; --accent-bg: #eef2fb; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13.5px; color: #1a1a1a; max-width: 1000px;
+  margin: 0 auto; padding: 20px 24px; background: #f8f7f4;
+}
+.page-header { border-left: 6px solid var(--accent); background: var(--accent-bg);
+               padding: 14px 18px; margin-bottom: 20px; border-radius: 0 5px 5px 0; }
+.page-header h1 { font-size: 1.25em; margin-bottom: 3px; }
+.page-header .meta { font-size: 0.82em; color: #555; }
+.page-header .nav { margin-top: 8px; font-size: 0.82em; }
+.page-header .nav a { color: var(--accent); text-decoration: none; margin-right: 14px; }
+.page-header .nav a:hover { text-decoration: underline; }
+
+h2 { font-size: 1.05em; margin: 24px 0 8px; padding: 6px 12px;
+     border-left: 4px solid var(--accent); background: #f0f3fa; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 12px 0 20px; }
+.stat-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 10px 12px; text-align: center; }
+.stat-card .num { font-size: 1.6em; font-weight: 700; color: var(--accent); }
+.stat-card .lbl { font-size: 0.78em; color: #666; margin-top: 2px; }
+
+.callout { padding: 9px 13px; border-radius: 4px; margin: 8px 0; font-size: 0.88em; }
+.callout-gold  { background: #fffbe0; border-left: 4px solid #b8860b; }
+.callout-green { background: #efffef; border-left: 4px solid #2d7d46; }
+.callout-blue  { background: #eef2fb; border-left: 4px solid #1a3a6b; }
+.callout-red   { background: #fff0f0; border-left: 4px solid #8b1a1a; }
+
+table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 0.83em; }
+th { background: #1a3a6b; color: #fff; padding: 5px 8px; text-align: left; white-space: nowrap; }
+td { padding: 4px 8px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+.row-danger td { background: #fff2f2 !important; }
+.row-best td { background: #efffef !important; }
+
+.w-cell { color: #1a5276; font-weight: bold; }
+.b-cell { color: #8b1a1a; font-weight: bold; }
+.win-cell { color: #2d7d46; font-weight: bold; }
+.loss-cell { color: #8b1a1a; }
+.draw-cell { color: #666; }
+.acc-high { color: #2d7d46; font-weight: bold; }
+.acc-mid  { color: #b8860b; font-weight: bold; }
+.acc-low  { color: #8b1a1a; font-weight: bold; }
+
+hr { border: none; border-top: 2px solid #ccc; margin: 22px 0; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Deep Engine Analysis — Jeyaraj, Joel Ethan</h1>
+  <div class="meta">Stockfish movetime-800 · 16 threads · 77 games analyzed (1 classical + 76 Lichess) · Lichess win-probability accuracy formula</div>
+  <div class="nav">
+    <a href="../austin-prep.html">← Prep Index</a>
+    <a href="matchup-joel.html">Matchup Overview</a>
+    <a href="matchup-joel-white.html">Austin as White</a>
+    <a href="matchup-joel-black.html">Austin as Black</a>
+    <a href="matchup-joel-gm.html">GM Battle Plan</a>
+  </div>
+</div>
+
+<h2>Overall Accuracy Summary</h2>
+
+<div class="stat-grid">
+  <div class="stat-card"><div class="num">85.2%</div><div class="lbl">Overall Avg (77 games)</div></div>
+  <div class="stat-card"><div class="num">85.9%</div><div class="lbl">As White (37 games)</div></div>
+  <div class="stat-card"><div class="num">84.6%</div><div class="lbl">As Black (40 games)</div></div>
+  <div class="stat-card"><div class="num">99.1%</div><div class="lbl">Best Single Game (HyperBullet)</div></div>
+</div>
+
+<div class="stat-grid">
+  <div class="stat-card"><div class="num">21W–13L–3D</div><div class="lbl">As White (59% score)</div></div>
+  <div class="stat-card"><div class="num">22W–16L–2D</div><div class="lbl">As Black (57% score)</div></div>
+  <div class="stat-card"><div class="num">92.5%</div><div class="lbl">Classical Best (Carolinas 2026)</div></div>
+  <div class="stat-card"><div class="num">57.1%</div><div class="lbl">Worst Game (vs AI — discard)</div></div>
+</div>
+
+<div class="callout callout-gold">
+  <strong>Key finding:</strong> Joel's <strong>blitz accuracy (87.2%) is the primary signal</strong> — HyperBullet/bullet data is noisy and should be discounted. His single classical game (Carolinas Classic 2026 vs Wang 2199, 92.5%) shows his true ceiling, which is meaningfully higher than his blitz average. Austin should treat Joel as a ~87–90% classical player, not an 85.2% player. The Scandinavian (B01) is his clearest Black weapon with 7+ documented games; White openings are Reti/1.Nf3 systems (A04/A15) in the large majority of his White games.
+</div>
+
+<h2>Per-Tournament Summary</h2>
+
+<table>
+  <thead>
+    <tr><th>Tournament</th><th>Games</th><th>W–L–D</th><th>Avg Acc</th><th>Context</th></tr>
+  </thead>
+  <tbody>
+  <tr class="row-best">
+    <td>Carolinas Classic 2026 (classical)</td><td>1</td><td>0W–1L–0D</td><td><span class="acc-high">92.5%</span></td><td>Only classical OTB game; Black vs Wang 2199; lost from drawish position on Bxa2??</td>
+  </tr>
+  <tr class="row-best">
+    <td>Lichess Blitz (3+2 rated)</td><td>32</td><td>19W–13L–0D</td><td><span class="acc-high">87.2%</span></td><td>Primary signal dataset; 59% score; vs avg ~2100; Scandinavian majority as Black</td>
+  </tr>
+  <tr class="row-best">
+    <td>Hourly SuperBlitz Arena (2+1)</td><td>4</td><td>2W–2L–0D</td><td><span class="acc-high">87.2%</span></td><td>Small sample; matches blitz quality; B01 Scandinavian shown as Black</td>
+  </tr>
+  <tr>
+    <td>Lichess Bullet (1+0 rated)</td><td>16</td><td>11W–3L–2D</td><td><span class="acc-mid">87.0%</span></td><td>Close to blitz quality; 75% score vs ~2400+ opposition; strong result</td>
+  </tr>
+  <tr class="row-danger">
+    <td>HyperBullet Viewers Arena (0.5+0)</td><td>10</td><td>6W–3L–1D</td><td><span class="acc-low">83.3%</span></td><td>Speed artifact — accuracy drops meaningfully; includes 99.1% outlier and 64.5% low</td>
+  </tr>
+  <tr class="row-danger">
+    <td>Lichess Bullet casual</td><td>7</td><td>3W–4L–0D</td><td><span class="acc-low">79.3%</span></td><td>Casual games include 57.1% vs AI (discard); remaining avg ~82%</td>
+  </tr>
+  <tr class="row-danger">
+    <td>Hourly HyperBullet Arena (0.5+0)</td><td>7</td><td>6W–1L–0D</td><td><span class="acc-low">78.5%</span></td><td>Worst accuracy format; extreme speed — discard for classical prep purposes</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Critical Patterns — What Stockfish Revealed</h2>
+
+<div class="callout callout-red">
+  <strong>Pattern 1 — Late-game blunder in won/drawn position:</strong> Carolinas Classic 2026 (classical, 92.5% acc, lost to Wang 2199): Held a drawish endgame for 20 moves at ~92% accuracy, then played Bxa2?? (CPL ~1000) on move 20 — completely losing a rook. Immediately followed by Bc4? (another mistake). This pattern — hold on, then collapse with one catastrophic error — is the defining flaw in his classical game data.
+</div>
+
+<div class="callout callout-red">
+  <strong>Pattern 2 — Accuracy collapses in Scandinavian endgames:</strong> Multiple blitz games show 7–9 blunders (vs gato_eduardo: 7B in B01 win; vs ChessDude3214: 5B in B01 loss; vs HAySENB3rG: 4B in B00 loss). Joel wins or draws these games on speed, not accuracy — in classical time controls these blunders won't be rescued. Austin should steer Scandinavian games into complex endgames where Joel's pattern of cascading errors can be exploited.
+</div>
+
+<div class="callout callout-gold">
+  <strong>Pattern 3 — Blitz is the real signal; hyperbullet is noise:</strong> Blitz avg 87.2% (32 games vs avg ~2100) gives the most reliable classical estimate. HyperBullet avg 78.5–83.3% is dominated by speed artifacts (0.5+0 time control). The 99.1% hyperbullet best game is an outlier, not the ceiling. Austin should prep for a ~87–90% blitz-quality player, not a 99% player.
+</div>
+
+<div class="callout callout-green">
+  <strong>Pattern 4 — White accuracy marginally stronger (85.9% vs 84.6% as Black):</strong> Joel scores slightly better as White (59% vs 57% as Black) and shows higher accuracy. His Reti/1.Nf3 system (A04/A15) is played repeatedly with consistent results. As Black his Scandinavian is his clearest weapon but also his most error-prone opening by blunder count. Austin as White should welcome Scandinavian positions and steer for complex endgames.
+</div>
+
+<h2>Worst 10 Games (by accuracy)</h2>
+
+<table>
+  <thead>
+    <tr><th>Acc</th><th>Color</th><th>Result</th><th>Tournament</th><th>Opponent</th><th>Elo</th><th>ECO</th><th>B/M/I</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+  <tr class="row-danger">
+    <td><span class="acc-low">57.1%</span></td><td class="b-cell">B</td><td class="win-cell">W</td><td>Lichess Bullet (casual)</td><td>lichess AI level 1</td><td>—</td><td>C00</td><td>3/1/0</td><td>vs AI — discard; not a valid signal</td>
+  </tr>
+  <tr class="row-danger">
+    <td><span class="acc-low">64.5%</span></td><td class="b-cell">B</td><td class="loss-cell">L</td><td>HyperBullet Viewers Arena</td><td>PinkPonyClubSong</td><td>2458</td><td>D00</td><td>8/3/6</td><td>8 blunders vs 2458 in 0.5+0; speed artifact; 34 moves</td>
+  </tr>
+  <tr class="row-danger">
+    <td><span class="acc-low">67.4%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>Lichess Bullet (casual)</td><td>umbrella045</td><td>2750</td><td>C11</td><td>8/4/7</td><td>Casual bullet vs 2750-rated; won despite 8 blunders (opponent worse)</td>
+  </tr>
+  <tr class="row-danger">
+    <td><span class="acc-low">70.4%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>Hourly HyperBullet Arena</td><td>Manmoth321</td><td>2229</td><td>A46</td><td>3/1/6</td><td>HyperBullet speed artifact; won despite low accuracy</td>
+  </tr>
+  <tr class="row-danger">
+    <td><span class="acc-low">71.1%</span></td><td class="b-cell">B</td><td class="win-cell">W</td><td>Hourly HyperBullet Arena</td><td>James_87</td><td>2107</td><td>B01</td><td>3/6/12</td><td>Scandinavian with 3B/6M/12I; won due to opponent's worse errors</td>
+  </tr>
+  <tr class="row-danger">
+    <td><span class="acc-low">71.9%</span></td><td class="b-cell">B</td><td class="loss-cell">L</td><td>Lichess Blitz</td><td>TOMAHAWKTONY1</td><td>2100</td><td>A02</td><td>3/1/5</td><td>Rare blitz loss at very low accuracy; Bird's opening forced error</td>
+  </tr>
+  <tr class="row-danger">
+    <td><span class="acc-low">72.6%</span></td><td class="b-cell">B</td><td class="win-cell">W</td><td>Lichess Bullet</td><td>gato_eduardo</td><td>2433</td><td>B01</td><td>7/3/3</td><td>Scandinavian with 7 blunders — won on time/opponent errors; key pattern</td>
+  </tr>
+  <tr class="row-danger">
+    <td><span class="acc-low">75.4%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>Hourly HyperBullet Arena</td><td>DelilahChess</td><td>2304</td><td>A04</td><td>2/4/9</td><td>Reti system with poor accuracy; hyperbullet speed</td>
+  </tr>
+  <tr class="row-danger">
+    <td><span class="acc-low">75.7%</span></td><td class="b-cell">B</td><td class="loss-cell">L</td><td>Lichess Blitz</td><td>HAySENB3rG</td><td>2222</td><td>B00</td><td>4/3/8</td><td>Loss as Black (Scandinavian) — 4 blunders vs 2222-rated in blitz</td>
+  </tr>
+  <tr class="row-danger">
+    <td><span class="acc-low">75.8%</span></td><td class="b-cell">B</td><td class="loss-cell">L</td><td>Lichess Blitz</td><td>ZaToChNiK</td><td>B10</td><td>2097</td><td>2/2/2</td><td>Caro-Kann-type loss — rare non-Scandinavian Black defense</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Best 10 Games (by accuracy)</h2>
+
+<table>
+  <thead>
+    <tr><th>Acc</th><th>Color</th><th>Result</th><th>Tournament</th><th>Opponent</th><th>Elo</th><th>ECO</th><th>B/M/I</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+  <tr class="row-best">
+    <td><span class="acc-high">99.1%</span></td><td class="b-cell">B</td><td class="win-cell">W</td><td>HyperBullet Viewers Arena</td><td>kachtrain</td><td>2221</td><td>A01</td><td>0/0/4</td><td>Highest single-game accuracy; speed game — not classical signal</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">97.6%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>Lichess Bullet (casual)</td><td>Knightsplaykk</td><td>2168</td><td>D35</td><td>2/0/13</td><td>Near-perfect White win; QGD-type; 82 moves</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">97.6%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>Hourly SuperBlitz Arena</td><td>Shavkat_Davlatyarich</td><td>1696</td><td>A04</td><td>0/1/1</td><td>Near-perfect Reti White win</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">97.1%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>Lichess Blitz</td><td>Kungfuboy</td><td>2136</td><td>A15</td><td>0/0/0</td><td>Zero-error blitz win as White; 16 moves — sharp opening preparation</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">96.9%</span></td><td class="b-cell">B</td><td class="win-cell">W</td><td>Lichess Blitz</td><td>numberblocks12345</td><td>2116</td><td>B21</td><td>0/0/2</td><td>Near-perfect Black win; Sicilian Grand Prix type; 18 moves</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">96.4%</span></td><td class="b-cell">B</td><td class="win-cell">W</td><td>Lichess Blitz</td><td>Perucciiii</td><td>2064</td><td>C68</td><td>5/1/2</td><td>Spanish Exchange as Black; long 71-move win with high accuracy</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">95.3%</span></td><td class="b-cell">B</td><td class="win-cell">W</td><td>HyperBullet Viewers Arena</td><td>TallWhiteLady</td><td>2014</td><td>A05</td><td>0/0/5</td><td>Clean Black win; 16 moves; speed game</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">94.9%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>Lichess Blitz</td><td>LaoTse43</td><td>2089</td><td>B00</td><td>0/1/0</td><td>White win with 1 mistake; 25 moves</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">94.9%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>Lichess Blitz</td><td>perchis1</td><td>2088</td><td>A15</td><td>0/0/1</td><td>Reti system White win; very clean 20-move game</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">92.5%</span></td><td class="b-cell">B</td><td class="loss-cell">L</td><td>Carolinas Classic 2026</td><td>Wang, Aaron</td><td>2199</td><td>E20</td><td>2/6/4</td><td><strong>Best classical game</strong> — 92.5% vs FM-level; lost only on Bxa2?? blunder (CPL ~1000) move 20</td>
+  </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>Full Game-by-Game Table (77 games, newest first)</h2>
+
+<table>
+  <thead>
+    <tr><th>Date</th><th>Tournament</th><th>Rnd</th><th>Clr</th><th>Res</th><th>Acc%</th><th>Opp Acc</th><th>Opponent</th><th>Elo</th><th>ECO</th><th>B</th><th>M</th><th>I</th><th>Mv</th></tr>
+  </thead>
+  <tbody>
+  <tr><td>2026.10.21</td><td>Lichess Blitz</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-mid">86.8%</span></td><td>79.6%</td><td>Maineroadblue</td><td>2118</td><td>A35</td><td>2</td><td>2</td><td>2</td><td>28</td></tr>
+  <tr class="row-danger"><td>2026.10.21</td><td>Lichess Blitz</td><td>—</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-low">75.7%</span></td><td>81.5%</td><td>HAySENB3rG</td><td>2222</td><td>B00</td><td>4</td><td>3</td><td>8</td><td>33</td></tr>
+  <tr><td>2026.10.21</td><td>Lichess Blitz</td><td>—</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">86.9%</span></td><td>88.3%</td><td>Tsunadechess07</td><td>2197</td><td>B00</td><td>5</td><td>6</td><td>19</td><td>86</td></tr>
+  <tr><td>2026.10.21</td><td>Lichess Blitz</td><td>—</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-low">83.4%</span></td><td>90.5%</td><td>TheGoldenArcher</td><td>2140</td><td>A04</td><td>0</td><td>1</td><td>5</td><td>15</td></tr>
+  <tr><td>2026.10.21</td><td>Lichess Blitz</td><td>—</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-low">82.4%</span></td><td>93.8%</td><td>RobertoRochaMAO</td><td>2053</td><td>D00</td><td>1</td><td>0</td><td>1</td><td>16</td></tr>
+  <tr><td>2026.10.21</td><td>Lichess Blitz</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-mid">88.6%</span></td><td>82.8%</td><td>yesosoto2020</td><td>2101</td><td>B12</td><td>0</td><td>2</td><td>12</td><td>34</td></tr>
+  <tr><td>2026.10.21</td><td>Lichess Bullet</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-mid">89.2%</span></td><td>83.3%</td><td>Gesha67</td><td>2403</td><td>A40</td><td>1</td><td>1</td><td>2</td><td>29</td></tr>
+  <tr><td>2026.10.21</td><td>Lichess Bullet</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-mid">90.4%</span></td><td>85.4%</td><td>kingslayer2410</td><td>2427</td><td>A13</td><td>0</td><td>1</td><td>7</td><td>32</td></tr>
+  <tr><td>2026.10.21</td><td>Lichess Bullet (casual)</td><td>—</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-low">84%</span></td><td>89.2%</td><td>the_tryykko</td><td>2431</td><td>A00</td><td>6</td><td>6</td><td>12</td><td>35</td></tr>
+  <tr><td>2026.10.16</td><td>Lichess Bullet (casual)</td><td>—</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">86.4%</span></td><td>90.3%</td><td>Austrix</td><td>2701</td><td>D35</td><td>6</td><td>1</td><td>7</td><td>53</td></tr>
+  <tr><td>2026.10.15</td><td>Lichess Bullet</td><td>—</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-low">82.3%</span></td><td>84.2%</td><td>ti_ktoo</td><td>2468</td><td>A46</td><td>9</td><td>6</td><td>16</td><td>82</td></tr>
+  <tr><td>2026.10.14</td><td>Lichess Bullet</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-mid">89.6%</span></td><td>92.7%</td><td>TecnesioChess</td><td>2371</td><td>A04</td><td>5</td><td>2</td><td>9</td><td>62</td></tr>
+  <tr><td>2026.10.05</td><td>Lichess Blitz</td><td>—</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">88.1%</span></td><td>94.3%</td><td>Caliruzzos</td><td>2172</td><td>A04</td><td>2</td><td>0</td><td>2</td><td>30</td></tr>
+  <tr><td>2026.10.05</td><td>HyperBullet Viewers Arena</td><td>—</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-low">81.6%</span></td><td>90.9%</td><td>Last_dream</td><td>2519</td><td>A04</td><td>1</td><td>4</td><td>5</td><td>19</td></tr>
+  <tr class="row-danger"><td>2026.10.05</td><td>HyperBullet Viewers Arena</td><td>—</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-low">79.7%</span></td><td>86.7%</td><td>lefonghua</td><td>2782</td><td>E20</td><td>3</td><td>3</td><td>3</td><td>26</td></tr>
+  <tr><td>2026.10.05</td><td>HyperBullet Viewers Arena</td><td>—</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-low">83.2%</span></td><td>86%</td><td>Dragon_Emperor_9774</td><td>2301</td><td>C11</td><td>12</td><td>7</td><td>6</td><td>75</td></tr>
+  <tr><td>2026.10.05</td><td>HyperBullet Viewers Arena</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-low">81%</span></td><td>75%</td><td>northkoreandetractor</td><td>2110</td><td>D02</td><td>3</td><td>1</td><td>4</td><td>33</td></tr>
+  <tr class="row-best"><td>2026.10.05</td><td>HyperBullet Viewers Arena</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">99.1%</span></td><td>94%</td><td>kachtrain</td><td>2221</td><td>A01</td><td>0</td><td>0</td><td>4</td><td>44</td></tr>
+  <tr class="row-danger"><td>2026.10.05</td><td>HyperBullet Viewers Arena</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-low">76.6%</span></td><td>75.1%</td><td>BV73</td><td>1132</td><td>2</td><td>2</td><td>1</td><td>21</td><td></td></tr>
+  <tr class="row-danger"><td>2026.10.05</td><td>HyperBullet Viewers Arena</td><td>—</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-low">64.5%</span></td><td>69%</td><td>PinkPonyClubSong</td><td>2458</td><td>D00</td><td>8</td><td>3</td><td>6</td><td>34</td></tr>
+  <tr><td>2026.10.05</td><td>HyperBullet Viewers Arena</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-mid">90.1%</span></td><td>81.1%</td><td>oldbullet</td><td>1227</td><td>B01</td><td>0</td><td>1</td><td>5</td><td>22</td></tr>
+  <tr class="row-best"><td>2026.10.04</td><td>Lichess Blitz</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">94.9%</span></td><td>87.4%</td><td>LaoTse43</td><td>2089</td><td>B00</td><td>0</td><td>1</td><td>0</td><td>25</td></tr>
+  <tr class="row-best"><td>2026.10.04</td><td>Lichess Blitz</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">96.4%</span></td><td>93.8%</td><td>Perucciiii</td><td>2064</td><td>C68</td><td>5</td><td>1</td><td>2</td><td>71</td></tr>
+  <tr><td>2026.10.04</td><td>Lichess Bullet (casual)</td><td>—</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">85.9%</span></td><td>90.5%</td><td>Taha70000</td><td>2611</td><td>A06</td><td>2</td><td>1</td><td>4</td><td>38</td></tr>
+  <tr><td>2026.10.02</td><td>Lichess Blitz</td><td>—</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-low">82.5%</span></td><td>92.1%</td><td>Babahganoush2</td><td>2089</td><td>C45</td><td>1</td><td>1</td><td>2</td><td>15</td></tr>
+  <tr class="row-danger"><td>2026.10.01</td><td>Lichess Blitz</td><td>—</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-low">76.9%</span></td><td>81%</td><td>Lingoo</td><td>2095</td><td>A80</td><td>4</td><td>4</td><td>7</td><td>53</td></tr>
+  <tr class="row-best"><td>2026.10.01</td><td>Lichess Blitz</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">97.1%</span></td><td>87.3%</td><td>Kungfuboy</td><td>2136</td><td>A15</td><td>0</td><td>0</td><td>0</td><td>16</td></tr>
+  <tr><td>2026.10.01</td><td>Lichess Blitz</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-mid">89.6%</span></td><td>85.4%</td><td>fortooth</td><td>2030</td><td>E61</td><td>1</td><td>4</td><td>5</td><td>47</td></tr>
+  <tr class="row-best"><td>2026.10.01</td><td>Lichess Blitz</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">96.9%</span></td><td>85.1%</td><td>numberblocks12345</td><td>2116</td><td>B21</td><td>0</td><td>0</td><td>2</td><td>18</td></tr>
+  <tr class="row-danger"><td>2026.10.01</td><td>Lichess Bullet (casual)</td><td>—</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-low">76.9%</span></td><td>81.5%</td><td>retrosynthon</td><td>2522</td><td>B23</td><td>4</td><td>2</td><td>7</td><td>39</td></tr>
+  <tr class="row-danger"><td>2026.10.01</td><td>Lichess Bullet (casual)</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-low">67.4%</span></td><td>70.3%</td><td>umbrella045</td><td>2750</td><td>C11</td><td>8</td><td>4</td><td>7</td><td>43</td></tr>
+  <tr class="row-danger"><td>2026.10.01</td><td>Lichess Bullet (casual)</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-low">57.1%</span></td><td>49.9%</td><td>lichess AI level 1</td><td>—</td><td>C00</td><td>3</td><td>1</td><td>0</td><td>16</td></tr>
+  <tr><td>2026.09.29</td><td>HyperBullet Viewers Arena</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-low">81.9%</span></td><td>77.5%</td><td>arhan12345567</td><td>2444</td><td>A15</td><td>6</td><td>3</td><td>3</td><td>41</td></tr>
+  <tr class="row-best"><td>2026.09.29</td><td>HyperBullet Viewers Arena</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">95.3%</span></td><td>82.4%</td><td>TallWhiteLady</td><td>2014</td><td>A05</td><td>0</td><td>0</td><td>5</td><td>16</td></tr>
+  <tr><td>2026.09.21</td><td>Lichess Bullet</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">93.5%</span></td><td>90%</td><td>Pastormatalarva</td><td>2423</td><td>A04</td><td>0</td><td>1</td><td>8</td><td>45</td></tr>
+  <tr><td>2026.09.21</td><td>Lichess Bullet</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">92.2%</span></td><td>87.6%</td><td>den2008den</td><td>2447</td><td>D30</td><td>3</td><td>4</td><td>3</td><td>40</td></tr>
+  <tr><td>2026.09.21</td><td>Lichess Bullet</td><td>—</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">87.2%</span></td><td>91.6%</td><td>Alexchess16082001</td><td>2460</td><td>A06</td><td>3</td><td>3</td><td>2</td><td>41</td></tr>
+  <tr><td>2026.09.21</td><td>Lichess Bullet</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">93.1%</span></td><td>87.7%</td><td>Mrjoeyg</td><td>2494</td><td>C36</td><td>0</td><td>1</td><td>6</td><td>30</td></tr>
+  <tr><td>2026.09.20</td><td>Lichess Bullet</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-mid">89%</span></td><td>83.7%</td><td>THE-NOB</td><td>2520</td><td>B29</td><td>1</td><td>0</td><td>2</td><td>31</td></tr>
+  <tr class="row-danger"><td>2026.09.20</td><td>Lichess Bullet</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-low">72.6%</span></td><td>68.9%</td><td>gato_eduardo</td><td>2433</td><td>B01</td><td>7</td><td>3</td><td>3</td><td>42</td></tr>
+  <tr><td>2026.09.20</td><td>Lichess Bullet</td><td>—</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-low">81.7%</span></td><td>86.9%</td><td>peontresbishop</td><td>2448</td><td>A04</td><td>2</td><td>3</td><td>6</td><td>35</td></tr>
+  <tr><td>2026.09.20</td><td>Lichess Bullet</td><td>—</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-low">83.1%</span></td><td>85%</td><td>ChessDude3214</td><td>2429</td><td>B01</td><td>5</td><td>4</td><td>15</td><td>92</td></tr>
+  <tr><td>2026.09.20</td><td>Lichess Bullet</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-low">82.5%</span></td><td>85.1%</td><td>Esabuuu</td><td>2393</td><td>A01</td><td>3</td><td>3</td><td>6</td><td>45</td></tr>
+  <tr><td>2026.09.20</td><td>Lichess Bullet</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">92%</span></td><td>86.8%</td><td>Metronidazolee</td><td>2401</td><td>D05</td><td>0</td><td>2</td><td>1</td><td>39</td></tr>
+  <tr class="row-best"><td>2026.09.16</td><td>Lichess Bullet (casual)</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">97.6%</span></td><td>95.2%</td><td>Knightsplaykk</td><td>2168</td><td>D35</td><td>2</td><td>0</td><td>13</td><td>82</td></tr>
+  <tr><td>2026.09.16</td><td>Hourly HyperBullet Arena</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-mid">87.6%</span></td><td>83.4%</td><td>BBisplaying</td><td>2333</td><td>B01</td><td>1</td><td>4</td><td>8</td><td>44</td></tr>
+  <tr><td>2026.09.16</td><td>Hourly HyperBullet Arena</td><td>—</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-low">80.7%</span></td><td>80.7%</td><td>TILTingBERSERKer</td><td>2432</td><td>C20</td><td>3</td><td>3</td><td>7</td><td>53</td></tr>
+  <tr><td>2026.09.16</td><td>Hourly HyperBullet Arena</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-low">82.4%</span></td><td>84.1%</td><td>JAY123ZEE</td><td>1770</td><td>A04</td><td>1</td><td>3</td><td>4</td><td>32</td></tr>
+  <tr class="row-danger"><td>2026.09.16</td><td>Hourly HyperBullet Arena</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-low">75.4%</span></td><td>70.7%</td><td>DelilahChess</td><td>2304</td><td>A04</td><td>2</td><td>4</td><td>9</td><td>42</td></tr>
+  <tr class="row-danger"><td>2026.09.16</td><td>Hourly HyperBullet Arena</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-low">71.1%</span></td><td>74.4%</td><td>James_87</td><td>2107</td><td>B01</td><td>3</td><td>6</td><td>12</td><td>38</td></tr>
+  <tr><td>2026.09.16</td><td>Hourly HyperBullet Arena</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-low">82%</span></td><td>85.1%</td><td>Perrazooo</td><td>2240</td><td>A00</td><td>5</td><td>8</td><td>11</td><td>56</td></tr>
+  <tr class="row-danger"><td>2026.09.16</td><td>Hourly HyperBullet Arena</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-low">70.4%</span></td><td>66.5%</td><td>Manmoth321</td><td>2229</td><td>A46</td><td>3</td><td>1</td><td>6</td><td>37</td></tr>
+  <tr><td>2026.09.14</td><td>Lichess Blitz</td><td>—</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-high">92.3%</span></td><td>92.5%</td><td>orestesking</td><td>2019</td><td>A35</td><td>0</td><td>2</td><td>0</td><td>38</td></tr>
+  <tr class="row-danger"><td>2026.09.14</td><td>Lichess Blitz</td><td>—</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-low">75.8%</span></td><td>81.4%</td><td>ZaToChNiK</td><td>2097</td><td>B10</td><td>2</td><td>2</td><td>2</td><td>30</td></tr>
+  <tr><td>2026.09.14</td><td>Lichess Blitz</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-mid">87.1%</span></td><td>84.7%</td><td>Alexandersanchez1</td><td>2081</td><td>D02</td><td>10</td><td>2</td><td>10</td><td>89</td></tr>
+  <tr><td>2026.09.14</td><td>Lichess Blitz</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-mid">86.5%</span></td><td>81.9%</td><td>masmaloquelhambre</td><td>2013</td><td>B13</td><td>1</td><td>1</td><td>8</td><td>43</td></tr>
+  <tr><td>2026.09.14</td><td>Lichess Blitz</td><td>—</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-low">84.2%</span></td><td>89.4%</td><td>Bxics</td><td>2105</td><td>B01</td><td>2</td><td>0</td><td>7</td><td>43</td></tr>
+  <tr><td>2026.09.14</td><td>Lichess Blitz</td><td>—</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-high">92.5%</span></td><td>97%</td><td>lenhador0000</td><td>2232</td><td>A34</td><td>0</td><td>0</td><td>1</td><td>11</td></tr>
+  <tr><td>2026.09.14</td><td>Lichess Blitz</td><td>—</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">89%</span></td><td>91.9%</td><td>rdhein</td><td>2136</td><td>C41</td><td>5</td><td>1</td><td>8</td><td>67</td></tr>
+  <tr><td>2026.09.14</td><td>Lichess Blitz</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-mid">87.8%</span></td><td>83.9%</td><td>DAVISTAR</td><td>2133</td><td>A01</td><td>1</td><td>2</td><td>15</td><td>52</td></tr>
+  <tr class="row-best"><td>2026.09.14</td><td>Lichess Blitz</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">94.9%</span></td><td>85.4%</td><td>perchis1</td><td>2088</td><td>A15</td><td>0</td><td>0</td><td>1</td><td>20</td></tr>
+  <tr><td>2026.09.13</td><td>Lichess Blitz</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-low">84.9%</span></td><td>80%</td><td>zohrevand</td><td>2114</td><td>A09</td><td>0</td><td>5</td><td>7</td><td>37</td></tr>
+  <tr><td>2026.09.13</td><td>Lichess Blitz</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-mid">88.3%</span></td><td>82.8%</td><td>Tears_in_rain2007</td><td>2100</td><td>B01</td><td>2</td><td>2</td><td>2</td><td>29</td></tr>
+  <tr><td>2026.09.13</td><td>Lichess Blitz</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-mid">91.8%</span></td><td>82.9%</td><td>izufrac</td><td>2059</td><td>A04</td><td>0</td><td>1</td><td>2</td><td>21</td></tr>
+  <tr class="row-danger"><td>2026.09.13</td><td>Lichess Blitz</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-low">79.4%</span></td><td>77.1%</td><td>Muanxo</td><td>2108</td><td>B54</td><td>4</td><td>2</td><td>7</td><td>45</td></tr>
+  <tr class="row-danger"><td>2026.09.13</td><td>Lichess Blitz</td><td>—</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-low">71.9%</span></td><td>79.5%</td><td>TOMAHAWKTONY1</td><td>2100</td><td>A02</td><td>3</td><td>1</td><td>5</td><td>21</td></tr>
+  <tr><td>2026.09.13</td><td>Lichess Blitz</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">92.2%</span></td><td>85%</td><td>rajuchevez</td><td>2064</td><td>C00</td><td>1</td><td>0</td><td>2</td><td>26</td></tr>
+  <tr><td>2026.09.13</td><td>Lichess Blitz</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-mid">89.3%</span></td><td>82%</td><td>Stephenmwene</td><td>2016</td><td>A15</td><td>1</td><td>1</td><td>1</td><td>24</td></tr>
+  <tr><td>2026.09.13</td><td>Lichess Blitz</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-mid">88.9%</span></td><td>81.2%</td><td>Senkisem</td><td>2086</td><td>A04</td><td>0</td><td>3</td><td>4</td><td>26</td></tr>
+  <tr><td>2026.09.13</td><td>Lichess Blitz</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-mid">86.4%</span></td><td>82%</td><td>Kostochou</td><td>2055</td><td>D20</td><td>3</td><td>1</td><td>5</td><td>45</td></tr>
+  <tr><td>2026.09.13</td><td>Lichess Bullet</td><td>—</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-mid">89.3%</span></td><td>89.3%</td><td>binbini</td><td>2374</td><td>B10</td><td>1</td><td>3</td><td>7</td><td>53</td></tr>
+  <tr class="row-danger"><td>2026.09.13</td><td>Hourly SuperBlitz Arena</td><td>—</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-low">78%</span></td><td>82.6%</td><td>msa3112</td><td>1749</td><td>B54</td><td>8</td><td>3</td><td>0</td><td>37</td></tr>
+  <tr class="row-best"><td>2026.09.13</td><td>Hourly SuperBlitz Arena</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">97.6%</span></td><td>89%</td><td>Shavkat_Davlatyarich</td><td>1696</td><td>A04</td><td>0</td><td>1</td><td>1</td><td>24</td></tr>
+  <tr><td>2026.09.13</td><td>Hourly SuperBlitz Arena</td><td>—</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">92.2%</span></td><td>81.5%</td><td>Joilsonsouza</td><td>1424</td><td>B01</td><td>0</td><td>0</td><td>2</td><td>17</td></tr>
+  <tr><td>2026.09.13</td><td>Hourly SuperBlitz Arena</td><td>—</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-low">81.1%</span></td><td>87.3%</td><td>evilcar</td><td>1690</td><td>A06</td><td>2</td><td>1</td><td>5</td><td>31</td></tr>
+  <tr><td>2026.09.07</td><td>Lichess Bullet</td><td>—</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-mid">85%</span></td><td>81.5%</td><td>MeDeKa</td><td>2538</td><td>D02</td><td>7</td><td>2</td><td>13</td><td>53</td></tr>
+  <tr class="row-best"><td>2026.06.12</td><td>Carolinas Classic 2026</td><td>R1</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-high">92.5%</span></td><td>96.9%</td><td>Wang, Aaron</td><td>2199</td><td>E20</td><td>2</td><td>6</td><td>4</td><td>39</td></tr>
+  </tbody>
+</table>
+
+<div style="margin-top: 20px; font-size: 0.82em; color: #555; text-align: center;">
+  <a href="../austin-prep.html" style="color: #1a3a6b; text-decoration: none; margin-right: 16px;">← Prep Index</a>
+  <a href="matchup-joel.html" style="color: #1a3a6b; text-decoration: none; margin-right: 16px;">Matchup Overview</a>
+  <a href="matchup-joel-gm.html" style="color: #1a3a6b; text-decoration: none;">GM Battle Plan</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle Plan: Austin vs De Alba Boudreau, Pablo (GM Prep)</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Georgia', serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg);
+}
+h1 { font-size: 1.6em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.15em; margin: 28px 0 10px; padding-left: 10px; }
+h2.white-section { border-left: 5px solid var(--blue); }
+h2.black-section { border-left: 5px solid var(--red); }
+h2.analysis   { border-left: 5px solid var(--gold); }
+h2.reference  { border-left: 5px solid #666; }
+h3 { font-size: 1em; margin: 14px 0 6px; color: #333; }
+.subtitle { font-size: 0.85em; color: #666; margin-bottom: 22px; }
+.subtitle span { margin-right: 16px; }
+
+.rating-note { background: #eaf4fb; border: 2px solid #1a5276; border-radius: 5px;
+               padding: 10px 14px; margin-bottom: 18px; font-size: 0.9em; }
+
+.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.intel-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.intel-card h3 { margin-top: 0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }
+.intel-card ul { padding-left: 16px; margin-top: 4px; }
+.intel-card li { margin-bottom: 3px; }
+
+.callout { border-radius: 4px; padding: 10px 14px; margin: 10px 0; font-size: 0.9em; }
+.callout-gold   { background: #fffbe0; border-left: 4px solid var(--gold); }
+.callout-blue   { background: #eef4ff; border-left: 4px solid var(--blue); }
+.callout-green  { background: #efffef; border-left: 4px solid var(--green); }
+.callout-danger { background: #fff0f0; border-left: 4px solid var(--red); }
+
+.move-line { background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+             padding: 8px 12px; margin: 6px 0; font-size: 0.92em; line-height: 1.9; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: #eef4ff; border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.bad-move { background: #ffe0e0; border: 1px solid #cc8888; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; color: #8b1a1a; }
+.note { color: #555; font-style: italic; font-size: 0.88em; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
+th { background: #333; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+.row-danger td { background: #fff0f0 !important; }
+
+hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20px; }
+
+.acc-toggle { display: none; }
+.acc-label {
+  display: block; cursor: pointer; padding: 8px 12px; margin: 4px 0;
+  background: #eee; border: 1px solid #ccc; border-radius: 4px;
+  font-weight: bold; font-size: 0.9em; user-select: none;
+}
+.acc-label::before { content: '▶ '; font-size: 0.75em; color: #666; }
+.acc-toggle:checked ~ .acc-label::before { content: '▼ '; }
+.acc-content { display: none; padding: 10px 14px; background: #fafaf6;
+               border: 1px solid #ddd; border-top: none; border-radius: 0 0 4px 4px; margin-bottom: 6px; }
+.acc-toggle:checked ~ .acc-content { display: block; }
+
+@media print {
+  .acc-content { display: block !important; }
+  .acc-label::before { content: '' !important; }
+  body { font-size: 12px; padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<h1>Battle Plan: Austin (White &amp; Black) vs De Alba Boudreau, Pablo</h1>
+<div class="subtitle">
+  <span><strong>GM Prep</strong></span>
+  <span>Pablo rating: ~1824 FIDE (peaked 1937 Jun 2026)</span>
+  <span>Direct record: No encounter</span>
+  <span>OTB games analyzed: 60</span>
+</div>
+
+<div class="rating-note">
+  <strong>Rating context:</strong> Austin (~1865 FIDE) holds a modest <strong>+41 point advantage</strong>. Pablo peaked at 1937 (Jun 2026 American Continental) and has beaten players up to 2211 (Blitz). His Copa Independencia 2026 form shows he can draw FM-level opponents. Most critically: Pablo's <strong>Sicilian Kan is his best-prepared defense</strong>, and Austin's normal Rossolimo (3.Bb5) does NOT directly sidestep it — this requires specific English Attack preparation (6.Be3 7.f3 8.g4!) as Austin's main weapon.
+</div>
+
+<div class="intel-grid">
+  <div class="intel-card">
+    <h3>Pablo as White</h3>
+    <ul>
+      <li><strong>1.e4</strong> exclusively (vast majority of games)</li>
+      <li>vs 1…e5: <strong>Ruy Lopez 3.Bb5</strong> — PRIMARY but poor record (1W–6L+)</li>
+      <li>vs Sicilian Dragon: <strong>English Attack</strong> (6.Be3 7.f3 8.g4) — knows the setup</li>
+      <li>vs Caro-Kann: <strong>Two Knights</strong> (2.Nc3 3.Nf3) — Copa R4 win</li>
+      <li>vs French: 3.Nc3 Classical</li>
+      <li>Secondary: 1.Nf3 2.b3 Reti (a few games)</li>
+      <li><em>White record: 11W–17L–2D (40%) — weaker as White overall</em></li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Pablo as Black</h3>
+    <ul>
+      <li>vs 1.e4: <strong>Sicilian Kan/Taimanov</strong> (1…c5 2…e6 4…a6) — PRIMARY</li>
+      <li>15+ documented Kan/Taimanov games — deeply prepared</li>
+      <li>Understands …b5/…Rc8 queenside play; solid in long games</li>
+      <li>vs 1.d4: Nimzo-Indian (Bb4), Ragozin (D38), QGD Capablanca — flexible</li>
+      <li><em>Copa R5: Drew FM 2241 (QGD Capablanca) with 96.4% accuracy</em></li>
+      <li><em>Copa R1: 87% accuracy vs IM 2272 — fought hard before blundering late</em></li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Critical weaknesses</h3>
+    <ul>
+      <li><strong>Ruy Lopez as White:</strong> 1W–6L+ record — consistently loses vs 1…e5 opponents</li>
+      <li><strong>Blunders under time pressure:</strong> Copa R4 — had winning position, blundered multiple times in endgame (85% accuracy, 5 blunders in 148 moves)</li>
+      <li><strong>Weaker vs strong opposition as White:</strong> All 5 losses as White in American Continental were against 1714–2349 opponents</li>
+      <li><strong>Copa R1 late collapse:</strong> 87% vs IM but blundered from drawish position at move 24</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Key game facts</h3>
+    <ul>
+      <li>Overall: ~<strong>88–90%</strong> estimated avg (full analysis in progress)</li>
+      <li>Best Copa game: <strong>96.4%</strong> (R5 draw vs FM 2241)</li>
+      <li>Copa R4 as White: <strong>85%</strong> accuracy (5B/1M/10I)</li>
+      <li>Notable win: Beat Fogo Esquivel 2211 (Blitz) — 83-move endgame technique</li>
+      <li>Beat Tran 2023 (classical, 71 moves) — English Attack vs Dragon</li>
+      <li>Rating swing: 1569 (2024) → 1937 (Jun 2026) — very rapid improvement</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="white-section">Part 1 — Austin as White: English Attack Targets Unprepared Kan</h2>
+
+<div class="callout callout-blue">
+  <strong>The core challenge:</strong> Pablo's primary Black weapon is the <strong>Sicilian Kan (2…e6 4…a6)</strong>. Austin's normal Rossolimo (3.Bb5) requires 2…Nc6 — Pablo doesn't play 2…Nc6. Austin must face the Open Sicilian. The weapon: <strong>English Attack (6.Be3 7.f3 8.g4!)</strong> — a concrete pawn storm that Pablo has <em>zero</em> documented games defending against.
+</div>
+
+<h3>English Attack — Austin's main line</h3>
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">c5</span>
+  2.Nf3 <span class="mv-z">e6</span>
+  3.d4 <span class="mv-z">cxd4</span>
+  4.Nxd4 <span class="mv-z">Nf6</span>
+  5.Nc3 <span class="mv-z">a6</span>
+  6.Be3 <span class="mv-z">d6</span>
+  7.f3 <span class="mv-z">b5</span>
+  <span class="key-move">8.g4!</span>
+  <span class="note"> — The English Attack pawn storm. 8.g4 prevents …Nf6 development, stops …b4 queenside expansion, and launches a direct kingside attack. Pablo has zero documented games defending against this — he must improvise from move 8 in unfamiliar territory.</span>
+</div>
+
+<input class="acc-toggle" id="w1" type="checkbox" checked>
+<label class="acc-label" for="w1">Branch A — 8…Nfd7 (solid retreat — most common Kan response)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 8.g4 <span class="mv-z">Nfd7</span>
+    9.Qd2 <span class="mv-z">Nc6</span>
+    10.O-O-O <span class="mv-z">b4</span>
+    <span class="key-move">11.Nxc6!</span> <span class="mv-z">bxc3</span>
+    12.bxc3 <span class="mv-z">→</span>
+    <span class="note"> — Open b-file for Austin + mobile center. After 12.bxc3, plan h4-h5-g5-h6 attack. Pablo's queenside counterplay is neutralized. Austin's mobile center (f3/g4/h4) creates decisive threats.</span>
+  </div>
+  <p style="margin-top:8px">Key plan after 12.bxc3: play 13.h4 threatening h5. If Pablo tries …Bc5 to attack the f3 pawn, answer with 14.Kb1 O-O 15.Bd3 and a4 to fix his queenside. The attack rolls naturally.</p>
+</div>
+
+<input class="acc-toggle" id="w2" type="checkbox" checked>
+<label class="acc-label" for="w2">Branch B — 8…Bb7 (common — develops queenside bishop)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 8.g4 <span class="mv-z">Bb7</span>
+    <span class="key-move">9.g5!</span> <span class="mv-z">Nfd7</span>
+    10.h4 <span class="mv-z">Nc6</span>
+    11.Qd2 <span class="mv-z">Nxd4</span>
+    12.Bxd4 <span class="mv-z">→</span>
+    <span class="note"> — 9.g5! immediately advances the pawn storm. After 10.h4, Black has no counterplay — the kingside attack is unstoppable. White plans h5-h6 or g6-h6-Qh7. Pablo's Bb7 is shut out of the game.</span>
+  </div>
+  <p style="margin-top:8px">This is the sharpest variation. Austin should know this to move 15. After 12.Bxd4, White has full center, pawn storm, and Black's position is cramped. Continue with 13.Qe3 preparing f4-f5.</p>
+</div>
+
+<input class="acc-toggle" id="w3" type="checkbox" checked>
+<label class="acc-label" for="w3">Branch C — 4…a6 Pure Kan (direct Kan move order)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 4.Nxd4 <span class="mv-z">a6</span>
+    5.Nc3 <span class="mv-z">Qc7</span>
+    <span class="key-move">6.Bd3!</span> <span class="mv-z">Nf6</span>
+    7.O-O <span class="mv-z">d6</span>
+    <span class="key-move">8.f4!</span> <span class="mv-z">Nc6</span>
+    9.Nxc6 <span class="mv-z">bxc6</span>
+    <span class="key-move">10.e5!</span>
+    <span class="note"> — vs the pure Kan (4…a6), Austin uses the f4 system. After 10.e5!, Black's position is cramped and the knight must retreat. Continue with 11.Be3, 12.Qe1 (preparing Qh4) attack.</span>
+  </div>
+  <p style="margin-top:8px">The f4 system vs pure Kan is well-theoretical. Austin's advantage: he's prepared attacking setups from other matchups. Pablo would need to know the Kan vs f4 system specifically — not his usual territory.</p>
+</div>
+
+<input class="acc-toggle" id="w4" type="checkbox">
+<label class="acc-label" for="w4">Branch D — Alapin (2.c3) — sidestep option</label>
+<div class="acc-content">
+  <div class="callout callout-gold" style="margin-bottom:8px">
+    Alternative: 1.e4 c5 2.c3 sidesteps all Kan theory. Pablo plays Alapin himself sometimes so he knows one side of it. But as Black vs Alapin, he may be less practiced. After 2…d5 3.exd5 Qxd5, the queen is a target and White builds central pressure.
+  </div>
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 2.c3 <span class="mv-z">d5</span>
+    3.exd5 <span class="mv-z">Qxd5</span>
+    4.d4 <span class="mv-z">Nf6</span>
+    5.Nf3 <span class="mv-z">e6</span>
+    <span class="key-move">6.Bd3!</span>
+    <span class="note"> — After 6.Bd3 Nc6 7.O-O Be7 8.c4! Qd8 9.Nc3, White has strong center. Austin knows d4/Bd3 from Exchange Caro-Kann. Pablo is out of Kan preparation from move 2.</span>
+  </div>
+</div>
+
+<h3 style="margin-top:18px">Key tactical themes — Austin as White</h3>
+<table>
+  <thead><tr><th>Theme</th><th>How it plays out</th><th>Evidence</th></tr></thead>
+  <tbody>
+  <tr><td><strong>English Attack 8.g4! — new territory for Pablo</strong></td><td>Pablo's 15+ Kan/Taimanov Black games are all vs different White setups — not 8.g4 English Attack. He must improvise from move 8.</td><td>Dataset shows no Pablo Black games vs g4 English Attack — all losses are vs positional/natural setups</td></tr>
+  <tr><td><strong>Stop …b4 queenside play</strong></td><td>8.g4 physically stops …Nf6 and the queenside attack; Pablo's best Black games (Copa R5 vs FM) relied on …b5/…Rc8 — this plan is cut off</td><td>Copa R5: Pablo drew FM 2241 using …Bb4/…Ba6 queenside; 8.g4 prevents this plan</td></tr>
+  <tr><td><strong>Austin's accumulated English Attack knowledge</strong></td><td>Austin has prepared English Attack vs 4 other opponents (Pranav, Zachary, Emerson, Aarush) — the ideas are well-drilled</td><td>Matchup prep vs Zachary (B46 Taimanov), Pranav, Emerson all involve English Attack; Austin knows the structure</td></tr>
+  <tr><td><strong>Don't let Pablo settle in familiar Kan territory</strong></td><td>If White plays natural development (Be2, O-O, etc.) vs Kan, Pablo knows exactly how to equalize with …b5/…Nc6/…Bb7; English Attack prevents this</td><td>Copa R5 draw vs FM 2241: Pablo's Kan defense was solid; only concrete aggression works</td></tr>
+  </tbody>
+</table>
+
+<hr class="section-divider">
+
+<h2 class="black-section">Part 2 — Austin as Black: Taimanov Mirror vs English Attack</h2>
+
+<div class="callout callout-green">
+  <strong>Core insight:</strong> Austin plays <strong>1…c5</strong>. Pablo uses the English Attack (f3/Be3/Qd2/g4) vs Dragon/Sicilian. Austin should use the <strong>Taimanov/Kan (4…e6 5.Nc3 a6)</strong> — the SAME structure Pablo plays as Black. Austin has studied this from both sides; this is his most-drilled defensive structure of 2026. The key: trade the Nd4 EARLY (8…Nxd4!) before Pablo plays 9.g4!
+</div>
+
+<h3>Austin's Taimanov — main defense</h3>
+<div class="move-line">
+  <span class="mv-z">Pablo:</span> 1.e4 <span class="mv-a">c5</span>
+  2.Nf3 <span class="mv-a">Nc6</span>
+  3.d4 <span class="mv-a">cxd4</span>
+  4.Nxd4 <span class="mv-a">e6</span>
+  5.Nc3 <span class="mv-a">a6</span>
+  6.Be3 <span class="mv-a">Nge7</span>
+  7.f3 <span class="mv-a">d6</span>
+  8.Qd2 <span class="key-move">Nxd4!</span>
+  <span class="note"> — CRITICAL defensive move. Trading the Nd4 BEFORE Pablo plays 9.g4 defuses the English Attack completely. After 9.Bxd4 Nc6 10.Be3, Austin has a solid B48 Taimanov with no kingside attack coming. This is Austin's most-practiced defensive technique of 2026.</span>
+</div>
+
+<input class="acc-toggle" id="b1" type="checkbox" checked>
+<label class="acc-label" for="b1">Branch A — Main line after 8…Nxd4! (solid Taimanov B48)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 8…Nxd4! 9.Bxd4 <span class="mv-a">Nc6</span>
+    <span class="key-move">10.Be3</span> <span class="mv-a">Be7</span>
+    11.O-O-O <span class="mv-a">O-O</span>
+    12.Kb1 <span class="mv-a">b5</span>
+    <span class="note"> — Solid Taimanov B48. White has no g4 attack (no Nd4 to support it). Austin develops normally: …Be7, …O-O, then generates queenside counterplay with …b5/…Bb7/…d5. Pablo must find a plan from an unfamiliar position where his attack has been defused.</span>
+  </div>
+  <p style="margin-top:8px">Austin has drilled this from the White side vs Zachary's Taimanov (B46). He knows exactly where Black's counterplay lies (…b4, …Rc8, …d5 breaks) and how White's piece coordination works. This is Austin's territory.</p>
+</div>
+
+<input class="acc-toggle" id="b2" type="checkbox" checked>
+<label class="acc-label" for="b2">Branch B — If Pablo skips 8.Qd2 (quieter system)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">Pablo:</span> 6.Be3 <span class="mv-a">Nge7</span>
+    7.Be2 (quieter) <span class="mv-a">d6</span>
+    8.O-O <span class="mv-a">Nxd4</span>
+    9.Bxd4 <span class="mv-a">Nc6</span>
+    <span class="note"> — If Pablo plays Be2 instead of f3+Qd2, the attack never materializes. Austin's …Nxd4 trade still works to simplify. Continue with standard Kan development. Austin is comfortable in this positional territory.</span>
+  </div>
+</div>
+
+<input class="acc-toggle" id="b3" type="checkbox" checked>
+<label class="acc-label" for="b3">Branch C — If Pablo plays Alapin (2.c3)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">Pablo:</span> 1.e4 <span class="mv-a">c5</span>
+    2.c3 <span class="mv-a">d5!</span>
+    3.exd5 <span class="mv-a">Qxd5</span>
+    4.d4 <span class="mv-a">Nf6</span>
+    5.Nf3 <span class="mv-a">e6</span>
+    6.Bd3 <span class="mv-a">Nc6</span>
+    <span class="note"> — Central break. After 2…d5!, the queen goes to d5 and gets kicked, but Austin reaches a solid position. White must develop naturally while Austin generates queenside play. Austin knows Exchange Caro-Kann-type central structures (4.Bd3 plans). Avoid 2…e6 which can transpose to French.</span>
+  </div>
+</div>
+
+<input class="acc-toggle" id="b4" type="checkbox">
+<label class="acc-label" for="b4">Branch D — If Pablo plays 1.d4 (secondary)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">Pablo:</span> 1.d4 <span class="mv-a">Nf6</span>
+    2.c4 <span class="mv-a">e6</span>
+    3.Nc3 <span class="key-move">Bb4!</span>
+    4.Qc2 <span class="mv-a">O-O</span>
+    5.a3 <span class="mv-a">Bxc3+!</span>
+    6.Qxc3 <span class="mv-a">b6</span>
+    <span class="note"> — Nimzo-Indian Classical. Austin's standard Bxc3+ …b6/…Ba6 system. Pablo has played some 1.d4 games (American Continental Blitz R4 vs Nimzo opponent) — he knows the general ideas but Austin has deeper Nimzo preparation.</span>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="analysis">Part 3 — Accuracy Profile and Error Patterns</h2>
+
+<h3>Pablo's Copa Independencia 2026 accuracy (Lichess data — ground truth)</h3>
+<table>
+  <thead><tr><th>Game</th><th>Color</th><th>Opponent Elo</th><th>Result</th><th>Acc %</th><th>B/M/I</th><th>Notes</th></tr></thead>
+  <tbody>
+  <tr><td>Copa R4 vs Leal Escamilla</td><td>White</td><td>1990</td><td>Win</td><td><strong>85.0%</strong></td><td>5/1/10</td><td>Won 148-move endgame despite accuracy issues; blundered multiple times</td></tr>
+  <tr><td>Copa R5 vs Morales Garcia</td><td>Black</td><td>2241 FM</td><td>Draw</td><td><strong>96.4%</strong></td><td>0/0/0</td><td>Best game — solid Kan defense, no errors at all</td></tr>
+  <tr><td>Copa R1 vs Otero Acosta</td><td>Black</td><td>2272 IM</td><td>Loss</td><td><strong>87.0%</strong></td><td>1/4/7</td><td>Held on until move 24 blunder (Qxa2??) vs overwhelming tactical pressure</td></tr>
+  <tr style="background:#f5f0e8"><td><strong>Copa average (3 games)</strong></td><td></td><td>avg 2168</td><td><strong>1W–1L–1D</strong></td><td><strong>89.5%</strong></td><td></td><td>Against very strong opposition</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-gold" style="margin-top:12px">
+  <strong>Pattern from Copa Independencia data:</strong> Pablo's <strong>best game is as Black (96.4% vs FM)</strong> — confirms his Kan defense is his strongest suit. As White he scored 85% accuracy with multiple blunders but still won the endgame (vs 1990). His Copa R1 loss vs IM showed late-game calculation failures after a long fight.
+</div>
+
+<h3>Full dataset accuracy profile (Stockfish analysis in progress)</h3>
+<p style="font-size:0.9em; color:#555;">Complete per-game accuracy data is being computed and will populate the <a href="matchup-pablo-deep.html">Deep Analysis page</a>. Expected range based on Copa sample: <strong>85–90% overall average</strong>, with White accuracy lower than Black.</p>
+
+<h3>Known error patterns</h3>
+<table>
+  <thead><tr><th>Pattern</th><th>Critical example</th><th>How to exploit</th></tr></thead>
+  <tbody>
+  <tr><td><strong>Late-game blunders after long fight</strong></td><td>Copa R4 as White: Had winning position after middlegame, then 5 blunders in endgame while converting (move 29 Nxd5??, move 45 Kd4??, move 50 Rd3??, move 58 Kd5??)</td><td>Create complex technical endgames — Pablo tends to blunder during conversion when position seems settled</td></tr>
+  <tr><td><strong>Blunder vs overwhelming tactical pressure</strong></td><td>Copa R1 as Black vs IM 2272: Played well until move 24 (Qxa2?? blunder from drawish position, -3.16 shift), then deteriorated quickly</td><td>Maintain initiative; when Pablo is under constant tactical pressure, his calculation degrades</td></tr>
+  <tr><td><strong>As White vs strong opposition</strong></td><td>American Continental 2026: All 5 White losses against 1714–2349 opponents; pattern of outplayed White positions</td><td>Austin's goal as Black: survive the opening, reach the middlegame in a solid position — Pablo's White play often deteriorates after 25 moves</td></tr>
+  <tr><td><strong>Ruy Lopez White collapses</strong></td><td>North American U20: Lost Ruy Lopez games as White in R1 (vs 2281), R7 (vs 1946), R8 loss; American Continental Rapid: lost R5 Ruy Lopez (vs 1858)</td><td>Austin won't play 1…e5 (Ruy Lopez territory), but this shows Pablo's White preparation depth is limited</td></tr>
+  </tbody>
+</table>
+
+<h3 style="margin-top:14px">Psychological notes</h3>
+<ul style="padding-left:20px; margin-top:6px;">
+  <li><strong>Near-equal opponent.</strong> Pablo ~1824 vs Austin ~1865. Small advantage on paper but Pablo has beaten much higher-rated players (2211). Treat as a full effort game.</li>
+  <li><strong>Pablo's rapid improvement trajectory.</strong> 1569→1937 in 2 years is exceptional growth. He's actively learning and preparing. His recent Copa performance vs FM-level opponents shows he's genuinely dangerous.</li>
+  <li><strong>Pablo fights long games.</strong> Multiple 80–181 move games. He doesn't resign early and converts technically. Be prepared for a long game and don't relax in endgames.</li>
+  <li><strong>Preparation imbalance.</strong> Austin has studied English Attack vs Kan from 4+ opponents; Pablo has no documented games against English Attack 8.g4! as Black. This is Austin's clearest preparation edge.</li>
+  <li><strong>If classical time controls:</strong> This is Pablo's best format. Treat as a serious classical game — he drew FM-level recently at 90+30. Full preparation required.</li>
+  <li><strong>If rapid/blitz:</strong> Austin has a larger edge — Pablo's blitz/rapid accuracy is lower than his classical accuracy based on dataset analysis.</li>
+</ul>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 4 — If / Then Quick Reference</h2>
+
+<input class="acc-toggle" id="q1" type="checkbox" checked>
+<label class="acc-label" for="q1">Austin as White — opening decisions</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Pablo plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
+    <tbody>
+    <tr><td>1…c5 2…e6 (Kan move order)</td><td>2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 <strong>6.Be3 7.f3 8.g4!</strong></td><td>English Attack — Pablo has zero documented Black games vs 8.g4; Austin's practiced this from 4 other matchups</td></tr>
+    <tr><td>After 8.g4: 8…Nfd7 (solid)</td><td><strong>9.Qd2 Nc6 10.O-O-O b4 11.Nxc6!</strong> bxc3 12.bxc3 → h4!</td><td>Open b-file + h4-h5 attack; neutralizes queenside while attacking kingside</td></tr>
+    <tr><td>After 8.g4: 8…Bb7 (common)</td><td><strong>9.g5! Nfd7 10.h4</strong> → h5 storm</td><td>Unstoppable pawn storm; 9.g5 immediately advances; no counterplay for Black</td></tr>
+    <tr><td>1…c5 4…a6 (pure Kan)</td><td><strong>5.Nc3 Qc7 6.Bd3 Nf6 7.O-O d6 8.f4!</strong> → f4/e5 system</td><td>f4 system vs pure Kan; central control; Pablo out of preparation</td></tr>
+    <tr><td>1…c5 — Austin wants simpler game</td><td><strong>2.c3 Alapin</strong>; after 2…d5 3.exd5 Qxd5 4.d4 → central fight</td><td>Sidesteps all Kan theory; Austin knows Exchange-CK type structures</td></tr>
+    <tr><td>1…e5 (unlikely — Pablo prefers Sicilian Black)</td><td>2.Nf3 Nc6 → <strong>3.Bc4 Italian</strong> (avoid Ruy Lopez — Pablo is less known on the Black side of Ruy)</td><td>Italian avoids Ruy Lopez complications; Pablo is less familiar as Black</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<input class="acc-toggle" id="q2" type="checkbox" checked>
+<label class="acc-label" for="q2">Austin as Black — opening decisions</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Pablo plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
+    <tbody>
+    <tr><td>1.e4 (primary)</td><td>1…c5 → Taimanov (4…e6 5.Nc3 a6 → <strong>8…Nxd4!</strong>)</td><td>Mirror territory — Austin knows this structure deeply from both sides; 8…Nxd4 defuses attack</td></tr>
+    <tr><td>6.Be3 7.f3 (English Attack setup)</td><td><strong>7…d6 8…Nxd4!</strong> trade before 9.g4</td><td>Critical: must trade before g4 launch; if delayed, White has unstoppable attack</td></tr>
+    <tr><td>2.c3 Alapin</td><td><strong>2…d5</strong> (central break); 3.exd5 Qxd5 4.d4 Nf6 5.Nf3 e6 6.Bd3</td><td>Solid central play; avoid 2…e6 (French transposition); Austin knows d4/Bd3 structures</td></tr>
+    <tr><td>1.d4 (secondary)</td><td>1…Nf6 2.c4 e6 <strong>3…Bb4!</strong> (Nimzo-Indian)</td><td>Austin's standard Bxc3+/…b6/…Ba6 system; deep preparation vs minimal Pablo 1.d4 experience</td></tr>
+    <tr><td>1.Nf3 2.b3 (Reti)</td><td>1…Nf6 2.b3 d5 3.Bb2 e6 → solid; may transpose to QGD structure</td><td>Standard solid development; Pablo's Reti games are his shallowest preparation</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<input class="acc-toggle" id="q3" type="checkbox">
+<label class="acc-label" for="q3">Key principles for this matchup</label>
+<div class="acc-content">
+  <ul style="padding-left:18px;">
+    <li><strong>Play for the win.</strong> Near-equal rating but Austin has a preparation edge (English Attack 8.g4! is new territory for Pablo). Use the preparation advantage.</li>
+    <li><strong>8.g4! as White, 8…Nxd4! as Black.</strong> These two moves are the keys to the whole matchup. Know them cold before the game.</li>
+    <li><strong>Be patient.</strong> Pablo is a long-game fighter. Endgames will occur. Stay accurate and don't assume material advantages are decisive — he's played 181-move draws.</li>
+    <li><strong>Don't deviate from Sicilian as Black.</strong> Austin's Taimanov prep is deep. Pablo's White play is his weakness. Stay in the Sicilian structure where Austin has the preparation edge.</li>
+    <li><strong>If classical time control:</strong> Treat this as Austin's most serious matchup in the dataset (besides Zachary/Daniel Lee). Full preparation depth required for classical.</li>
+    <li><strong>If rapid:</strong> Austin has a larger edge — Pablo's Copa accuracy as White was 85%, and his rapid/blitz format losses are more frequent than classical.</li>
+  </ul>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 5 — Critical Moments Reference (Copa Independencia 2026)</h2>
+
+<h3>Pattern: Late-game blunder chain (Copa R4, White, 85%, Won vs 1990)</h3>
+<div class="move-line">
+  <span class="note">Pablo as White vs Leal Escamilla (1990), CK Two Knights B10, 74-move game:</span><br>
+  Position was drawn or slightly winning throughout but Pablo made multiple endgame errors:<br>
+  Move 29: <span class="bad-move">Nxd5??</span> (losing move when Rc6 was winning)<br>
+  Move 45: <span class="bad-move">Kd4??</span> (should be Kd3; allowed Rc4+)<br>
+  Move 50: <span class="bad-move">Rd3??</span> (lost endgame advantage; Ra6 was correct)<br>
+  Move 58: <span class="bad-move">Kd5??</span> (allowed Rxd7+ — opponent then blundered back)<br>
+  Move 63: Opponent blundered, Pablo converted. Result: 1-0 (Pablo won despite multiple own blunders).
+</div>
+<p style="margin:6px 0 10px; font-size:0.9em; color:#444">
+  <strong>Pattern:</strong> Pablo wins despite blundering because his opponent also blundered. In a game vs Austin — who is more accurate — these blunders would be punished. This is Pablo's key weakness: sloppy endgame technique that gets away with it vs weaker opposition.
+</p>
+
+<h3>Pattern: Blunder under tactical pressure (Copa R1, Black, 87%, Lost vs IM 2272)</h3>
+<div class="move-line">
+  <span class="note">Pablo as Black vs IM Otero Acosta (2272), D38 Ragozin:</span><br>
+  Played solidly for 23 moves (drawish position, eval +1.5 to +2.0 range).<br>
+  Move 14: <span class="bad-move">Qc7?</span> (Mistake — should play cxd4; allowed d5 push)<br>
+  Position gradually worsened.<br>
+  Move 24: <span class="bad-move">Qxa2??</span> (Blunder -3.16 CPL; should play Bxc3 drawing)<br>
+  Grabbed a pawn but allowed Nf5! tactical continuation. Game over shortly after.
+</div>
+<p style="margin:6px 0 10px; font-size:0.9em; color:#444">
+  <strong>Pattern:</strong> Pablo plays solidly for most of the game but makes one catastrophic error when the position becomes critical and complex. In a simpler position he might have drawn; in a complicated tactical position he miscalculates fatally. Austin's goal as White: create complex tactical positions after the opening.
+</p>
+
+<h3>Best game: Copa R5 vs FM 2241 (Black, 96.4%, Draw)</h3>
+<div class="move-line">
+  <span class="note">Pablo as Black vs FM Morales Garcia (2241), D30 QGD Capablanca:</span><br>
+  25-move game, completely solid. Exchange on d8, queen trade, draw agreed. Zero errors.<br>
+  <strong>This is Pablo's defensive ceiling</strong> — when he plays the Kan-like QGD structures he knows cold, he can draw FM-level opponents with near-perfect play.
+</div>
+<p style="margin:6px 0 10px; font-size:0.9em; color:#444">
+  <strong>Implication for Austin as White:</strong> In a long positional game where Pablo is comfortable (Kan structures), he can be very solid. Austin needs concrete tactical aggression (English Attack 8.g4!) to disrupt this solidity — a passive White game will not produce results.
+</p>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 6 — Engine Accuracy Reference (Copa 2026 + estimates)</h2>
+
+<table>
+  <thead><tr><th>Tournament</th><th>Rnd</th><th>Color</th><th>Opponent</th><th>Elo</th><th>Result</th><th>Acc</th><th>ECO</th><th>B/M/I</th></tr></thead>
+  <tbody>
+  <tr><td>Copa Independencia 2026</td><td>R5</td><td>Black</td><td>Morales Garcia, Sergio</td><td>2241 FM</td><td>Draw</td><td><strong>96.4%</strong></td><td>D30</td><td>0/0/0</td></tr>
+  <tr><td>Copa Independencia 2026</td><td>R1</td><td>Black</td><td>Otero Acosta, Diasmany</td><td>2272 IM</td><td>Loss</td><td><strong>87.0%</strong></td><td>D38</td><td>1/4/7</td></tr>
+  <tr><td>Copa Independencia 2026</td><td>R4</td><td>White</td><td>Leal Escamilla, Daniel</td><td>1990</td><td>Win</td><td><strong>85.0%</strong></td><td>B10</td><td>5/1/10</td></tr>
+  <tr style="background:#f5f0e8"><td><strong>Copa average (3 games)</strong></td><td></td><td></td><td>avg 2168</td><td></td><td>1W–1L–1D</td><td><strong>89.5%</strong></td><td></td><td></td></tr>
+  <tr><td colspan="9" style="color:#777; font-style:italic; font-size:0.85em; padding:8px 10px;">Full accuracy table (all 60 games) will appear here after Stockfish analysis completes. See matchup-pablo-deep.html for complete data.</td></tr>
+  </tbody>
+</table>
+
+<p style="margin-top:20px; font-size:0.85em; color:#555; text-align:center">
+  <a href="../austin-prep.html">← Back to Austin Lin Prep Index</a>
+  · <a href="matchup-pablo-deep.html">Deep Analysis (all 60 games) →</a>
+</p>
+
+</body>
+</html>

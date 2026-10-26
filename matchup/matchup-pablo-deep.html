@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deep Engine Analysis — De Alba Boudreau, Pablo (60 games)</title>
+<style>
+:root { --accent: #1a3a6b; --accent-bg: #eef2fb; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13.5px; color: #1a1a1a; max-width: 1000px;
+  margin: 0 auto; padding: 20px 24px; background: #f8f7f4;
+}
+.page-header { border-left: 6px solid var(--accent); background: var(--accent-bg);
+               padding: 14px 18px; margin-bottom: 20px; border-radius: 0 5px 5px 0; }
+.page-header h1 { font-size: 1.25em; margin-bottom: 3px; }
+.page-header .meta { font-size: 0.82em; color: #555; }
+.page-header .nav { margin-top: 8px; font-size: 0.82em; }
+.page-header .nav a { color: var(--accent); text-decoration: none; margin-right: 14px; }
+.page-header .nav a:hover { text-decoration: underline; }
+
+h2 { font-size: 1.05em; margin: 24px 0 8px; padding: 6px 12px;
+     border-left: 4px solid var(--accent); background: #f0f3fa; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 12px 0 20px; }
+.stat-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 10px 12px; text-align: center; }
+.stat-card .num { font-size: 1.6em; font-weight: 700; color: var(--accent); }
+.stat-card .lbl { font-size: 0.78em; color: #666; margin-top: 2px; }
+
+.callout { padding: 9px 13px; border-radius: 4px; margin: 8px 0; font-size: 0.88em; }
+.callout-gold  { background: #fffbe0; border-left: 4px solid #b8860b; }
+.callout-green { background: #efffef; border-left: 4px solid #2d7d46; }
+.callout-blue  { background: #eef2fb; border-left: 4px solid #1a3a6b; }
+.callout-red   { background: #fff0f0; border-left: 4px solid #8b1a1a; }
+
+table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 0.83em; }
+th { background: #1a3a6b; color: #fff; padding: 5px 8px; text-align: left; white-space: nowrap; }
+td { padding: 4px 8px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+.row-danger td { background: #fff2f2 !important; }
+.row-best td { background: #efffef !important; }
+
+.w-cell { color: #1a5276; font-weight: bold; }
+.b-cell { color: #8b1a1a; font-weight: bold; }
+.win-cell { color: #2d7d46; font-weight: bold; }
+.loss-cell { color: #8b1a1a; }
+.draw-cell { color: #666; }
+.acc-high { color: #2d7d46; font-weight: bold; }
+.acc-mid  { color: #b8860b; font-weight: bold; }
+.acc-low  { color: #8b1a1a; font-weight: bold; }
+
+hr { border: none; border-top: 2px solid #ccc; margin: 22px 0; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Deep Engine Analysis — De Alba Boudreau, Pablo Elliot</h1>
+  <div class="meta">Stockfish movetime-800 · 16 threads · 60 games analyzed · Lichess win-probability accuracy formula</div>
+  <div class="nav">
+    <a href="../austin-prep.html">← Prep Index</a>
+    <a href="matchup-pablo.html">Matchup Overview</a>
+    <a href="matchup-pablo-white.html">Austin as White</a>
+    <a href="matchup-pablo-black.html">Austin as Black</a>
+    <a href="matchup-pablo-gm.html">GM Battle Plan</a>
+  </div>
+</div>
+
+<h2>Overall Accuracy Summary</h2>
+
+<div class="stat-grid">
+  <div class="stat-card"><div class="num">89.0%</div><div class="lbl">Overall Avg (60 games)</div></div>
+  <div class="stat-card"><div class="num">89.4%</div><div class="lbl">As White (31 games)</div></div>
+  <div class="stat-card"><div class="num">88.5%</div><div class="lbl">As Black (29 games)</div></div>
+  <div class="stat-card"><div class="num">98.3%</div><div class="lbl">Best Single Game</div></div>
+</div>
+
+<div class="stat-grid">
+  <div class="stat-card"><div class="num">9W–19L–3D</div><div class="lbl">As White (40% score)</div></div>
+  <div class="stat-card"><div class="num">11W–15L–3D</div><div class="lbl">As Black (43% score)</div></div>
+  <div class="stat-card"><div class="num">77.7%</div><div class="lbl">Worst Game</div></div>
+  <div class="stat-card"><div class="num">96.4%</div><div class="lbl">Best Black Game (vs FM 2241)</div></div>
+</div>
+
+<div class="callout callout-gold">
+  <strong>Key finding:</strong> Pablo's <strong>Black play is marginally stronger than White</strong> (88.5% vs 89.4% by accuracy, but better record as Black 43% vs 40% as White). His White record is 9W–19L–3D — only 40% — while his Black Sicilian Kan defense has drawn FM-level opponents. This asymmetry is central to Austin's preparation: play for the win as White (Pablo's weakness) and play solid as Black.
+</div>
+
+<h2>Per-Tournament Summary</h2>
+
+<table>
+  <thead>
+    <tr><th>Tournament</th><th>Games</th><th>W–L–D</th><th>Avg Acc</th><th>Context</th></tr>
+  </thead>
+  <tbody>
+  <tr class="row-best">
+    <td>MEX U17 Ch 2026</td><td>3</td><td>1W–2L–0D</td><td><span class="acc-high">95.3%</span></td><td>Near-perfect games — MEX U17 championship field</td>
+  </tr>
+  <tr class="row-best">
+    <td>Mexico City Revolucion 2024</td><td>3</td><td>1W–2L–0D</td><td><span class="acc-high">91.3%</span></td><td>Strong local tournament</td>
+  </tr>
+  <tr class="row-best">
+    <td>North American U20 Ch 2025</td><td>9</td><td>4W–5L–0D</td><td><span class="acc-high">92.3%</span></td><td>Best classical performance — beat Tran 2023, drew Ruiz Perez 2102</td>
+  </tr>
+  <tr class="row-best">
+    <td>MEX National Ch 2024</td><td>1</td><td>0W–0L–1D</td><td><span class="acc-high">91.9%</span></td><td>Single game draw vs Ruiz Perez 2063</td>
+  </tr>
+  <tr>
+    <td>Mexico City Independencia 2025</td><td>6</td><td>0W–4L–2D</td><td><span class="acc-mid">88.5%</span></td><td>0W from 6 games — worst tournament score; drew FM Avendano 1946</td>
+  </tr>
+  <tr>
+    <td>American Continental 2026</td><td>9</td><td>3W–5L–1D</td><td><span class="acc-mid">88.2%</span></td><td>vs strongest field (avg ~2050); won vs 1714/1746/1804</td>
+  </tr>
+  <tr>
+    <td>Copa Independencia 2026 (classical)</td><td>3</td><td>1W–1L–1D</td><td><span class="acc-mid">89.5%</span></td><td>vs avg 2168 opposition — beat 1990, drew FM 2241, lost IM 2272</td>
+  </tr>
+  <tr>
+    <td>American Continental Rapid 2026</td><td>9</td><td>4W–5L–0D</td><td><span class="acc-mid">87.2%</span></td><td>Rapid format — more errors; lost vs 2249, 2488, 1858, 1779</td>
+  </tr>
+  <tr class="row-danger">
+    <td>North American U20 Blitz 2025</td><td>9</td><td>4W–4L–1D</td><td><span class="acc-low">87.0%</span></td><td>Worst accuracy; 181-move draw; lost Ruy Lopez (R5 vs 1963: 77.7%)</td>
+  </tr>
+  <tr class="row-danger">
+    <td>American Continental Blitz 2026</td><td>8</td><td>2W–6L–0D</td><td><span class="acc-low">86.8%</span></td><td>Worst record (25%); R6 White 81.8% (178-move loss); R4 Black 80%</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Critical Patterns — What Stockfish Revealed</h2>
+
+<div class="callout callout-red">
+  <strong>Pattern 1 — Cascading endgame blunders:</strong> Copa R4 as White (85.0% accuracy, 74-move game): Move 29 Nxd5?? (CPL 705) → Kd4?? → Rd3?? → Kd5??. He blundered 4 times from a winning position but the opponent blundered back. Austin's edge: he won't give these back.
+</div>
+
+<div class="callout callout-red">
+  <strong>Pattern 2 — One catastrophic error from solid position:</strong> Copa R1 as Black (87% acc, lost to IM 2272): Played 23 moves at ~92% accuracy in drawish position, then Qxa2?? (CPL ~900). North American U20 Ch R4 as Black (88.3% acc, lost to Gonzalez 2087): 4B/5M in 157 moves. Pattern is same: hold on, then collapse late.
+</div>
+
+<div class="callout callout-gold">
+  <strong>Pattern 3 — Classical accuracy >> Rapid/Blitz:</strong> Classical avg ≈ 90–95% (North American U20 Ch: 92.3%, MEX U17: 95.3%). Rapid/Blitz avg ≈ 86–87% (Am Continental Rapid 87.2%, Blitz 86.8%). Austin should welcome classical time controls — Pablo is better there, but his classical weakness vs high-rated opponents remains exploitable.
+</div>
+
+<div class="callout callout-green">
+  <strong>Pattern 4 — Ruy Lopez White is his weakest opening:</strong> North American U20 Ch: Lost R1 (vs Montes 2281), R5 (vs Campos 1858, 93.8%!), R7 (vs Lerma 1946, 91.7%). He can play well tactically but repeatedly loses Ruy Lopez endgames. Mexico City Independencia: 0 wins from 6 games — consistent pattern across time.
+</div>
+
+<h2>Worst 10 Games (by accuracy)</h2>
+
+<table>
+  <thead>
+    <tr><th>Acc</th><th>Color</th><th>Result</th><th>Tournament</th><th>Round</th><th>Opponent</th><th>Elo</th><th>B/M/I</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+  <tr class="row-danger">
+    <td><span class="acc-low">77.7%</span></td><td class="w-cell">W</td><td class="loss-cell">L</td><td>N.Am U20 Blitz 2025</td><td>R5</td><td>Angeles Vera</td><td>1963</td><td>5/3/15</td><td>Worst game in dataset; Ruy Lopez collapse</td>
+  </tr>
+  <tr class="row-danger">
+    <td><span class="acc-low">80.0%</span></td><td class="b-cell">B</td><td class="win-cell">W</td><td>Am Continental Blitz</td><td>R4</td><td>Luna Monsalve</td><td>1949</td><td>3/2/2</td><td>Won despite 3 blunders (opponent blundered back)</td>
+  </tr>
+  <tr class="row-danger">
+    <td><span class="acc-low">80.6%</span></td><td class="b-cell">B</td><td class="loss-cell">L</td><td>Mex City Independencia</td><td>R3</td><td>Frey Beckman</td><td>2102</td><td>2/3/3</td><td>Lost as Black in Mex Independencia 0/6 stretch</td>
+  </tr>
+  <tr class="row-danger">
+    <td><span class="acc-low">81.1%</span></td><td class="w-cell">W</td><td class="loss-cell">L</td><td>Am Continental Rapid</td><td>R3</td><td>Luna Monsalve</td><td>1779</td><td>1/0/3</td><td>Lost as White to 1779-rated in Rapid</td>
+  </tr>
+  <tr class="row-danger">
+    <td><span class="acc-low">81.2%</span></td><td class="b-cell">B</td><td class="win-cell">W</td><td>N.Am U20 Blitz 2025</td><td>R3</td><td>Hernandez Diaz</td><td>1975</td><td>6/7/5</td><td>Won via opponent's errors (6B/7M is catastrophic on both sides)</td>
+  </tr>
+  <tr class="row-danger">
+    <td><span class="acc-low">81.8%</span></td><td class="w-cell">W</td><td class="loss-cell">L</td><td>Am Continental Blitz</td><td>R6</td><td>Angeles Vera</td><td>1952</td><td>5/3/22</td><td>178-move marathon; 22 inaccuracies; Kf4??, Kg5??, Kxh4?? at end</td>
+  </tr>
+  <tr class="row-danger">
+    <td><span class="acc-low">82.4%</span></td><td class="w-cell">W</td><td class="loss-cell">L</td><td>Am Continental Blitz</td><td>R9</td><td>Rubio Mora</td><td>0</td><td>2/1/2</td><td>Lost as White to unrated player (Rd1?? CPL 1000)</td>
+  </tr>
+  <tr>
+    <td><span class="acc-low">83.8%</span></td><td class="b-cell">B</td><td class="win-cell">W</td><td>Am Continental Rapid</td><td>R6</td><td>Luna Rodriguez</td><td>1808</td><td>1/1/10</td><td>10 inaccuracies as Black but opponent weaker</td>
+  </tr>
+  <tr>
+    <td><span class="acc-low">84.3%</span></td><td class="b-cell">B</td><td class="loss-cell">L</td><td>American Continental</td><td>R4</td><td>Miranda Rodriguez</td><td>2057</td><td>3/1/4</td><td>Qe4?? (CPL 1000) mid-game collapse</td>
+  </tr>
+  <tr>
+    <td><span class="acc-low">84.4%</span></td><td class="w-cell">W</td><td class="loss-cell">L</td><td>Am Continental Rapid</td><td>R5</td><td>Duarte Cramer</td><td>1858</td><td>9/2/7</td><td>9 blunders vs 1858-rated — worst blunder count as White</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Best 10 Games (by accuracy)</h2>
+
+<table>
+  <thead>
+    <tr><th>Acc</th><th>Color</th><th>Result</th><th>Tournament</th><th>Round</th><th>Opponent</th><th>Elo</th><th>B/M/I</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+  <tr class="row-best">
+    <td><span class="acc-high">98.3%</span></td><td class="w-cell">W</td><td class="loss-cell">L</td><td>MEX U17 Ch 2026</td><td>R2</td><td>Arenas Arreola</td><td>1588</td><td>0/0/0</td><td>Highest accuracy game — lost despite perfect play (outplayed positionally)</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">97.6%</span></td><td class="w-cell">W</td><td class="draw-cell">D</td><td>Mex City Independencia</td><td>R8</td><td>Montes De Oca</td><td>1726</td><td>0/0/0</td><td>Perfect White game ending in draw</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">97.4%</span></td><td class="b-cell">B</td><td class="win-cell">W</td><td>MEX U17 Ch 2026</td><td>R1</td><td>Torres Silva</td><td>0</td><td>0/0/1</td><td>Near-perfect win as Black</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">96.6%</span></td><td class="b-cell">B</td><td class="win-cell">W</td><td>N.Am U20 Ch 2025</td><td>R2</td><td>Estrada</td><td>1609</td><td>3/1/4</td><td>Winning comfortably as Black vs weaker field</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">96.4%</span></td><td class="b-cell">B</td><td class="draw-cell">D</td><td>Copa Independencia 2026</td><td>R5</td><td>Morales Garcia</td><td>2241 FM</td><td>0/0/0</td><td><strong>Best high-stakes game</strong> — drew FM 2241 as Black with ZERO errors (QGD Capablanca, 25 moves)</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">96.3%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>Mex City Revolucion 2024</td><td>R3</td><td>Troncoso Diaz</td><td>1714</td><td>0/0/2</td><td>Clean White win — early in career</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">95.5%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>N.Am U20 Ch 2025</td><td>R9</td><td>Cruz Vargas</td><td>1648</td><td>2/0/1</td><td>Strong White win in final round</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">94.8%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>N.Am U20 Blitz 2025</td><td>R2</td><td>Fogo Esquivel</td><td>2211</td><td>9/2/4</td><td>94.8% as White — beat IM-level player (2211); 166 moves, 9 blunders but won!</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">94.8%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>American Continental</td><td>R5</td><td>Cienfuegos Torres</td><td>1714</td><td>0/2/3</td><td>Strong White win in classical</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">94.1%</span></td><td class="w-cell">W</td><td class="loss-cell">L</td><td>Am Continental Blitz</td><td>R5</td><td>Avila Rodriguez</td><td>2125</td><td>3/3/2</td><td>94.1% but lost — outplayed by much stronger opponent</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Full Game-by-Game Table (60 games, newest first)</h2>
+
+<table>
+  <thead>
+    <tr><th>Date</th><th>Tournament</th><th>Rnd</th><th>Color</th><th>Result</th><th>Acc</th><th>Opp Acc</th><th>Opponent</th><th>Elo</th><th>ECO</th><th>B</th><th>M</th><th>I</th><th>Moves</th></tr>
+  </thead>
+  <tbody>
+  <tr><td>2026-09-13</td><td>Copa Independencia 2026</td><td>R5</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-high">96.4%</span></td><td>96.2%</td><td>Morales Garcia</td><td>2241</td><td>D30</td><td>0</td><td>0</td><td>0</td><td>25</td></tr>
+  <tr><td>2026-09-13</td><td>Copa Independencia 2026</td><td>R4</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-mid">85.0%</span></td><td>83.2%</td><td>Leal Escamilla</td><td>1990</td><td>B10</td><td>5</td><td>1</td><td>10</td><td>74</td></tr>
+  <tr><td>2026-09-11</td><td>Copa Independencia 2026</td><td>R1</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">87.0%</span></td><td>92.2%</td><td>Otero Acosta</td><td>2272</td><td>D38</td><td>1</td><td>4</td><td>7</td><td>33</td></tr>
+  <tr><td>2026-07-03</td><td>MEX U17 Ch 2026</td><td>R3</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">90.3%</span></td><td>97.8%</td><td>Castillo Rodriguez</td><td>1629</td><td>—</td><td>1</td><td>1</td><td>3</td><td>24</td></tr>
+  <tr><td>2026-07-03</td><td>MEX U17 Ch 2026</td><td>R2</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-high">98.3%</span></td><td>95.0%</td><td>Arenas Arreola</td><td>1588</td><td>—</td><td>0</td><td>0</td><td>0</td><td>8</td></tr>
+  <tr><td>2026-07-03</td><td>MEX U17 Ch 2026</td><td>R1</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">97.4%</span></td><td>88.0%</td><td>Torres Silva</td><td>0</td><td>—</td><td>0</td><td>0</td><td>1</td><td>20</td></tr>
+  <tr><td>2026-06-09</td><td>American Continental 2026</td><td>R9</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-mid">92.8%</span></td><td>92.6%</td><td>Canales Chinchilla</td><td>1804</td><td>—</td><td>0</td><td>0</td><td>3</td><td>26</td></tr>
+  <tr class="row-danger"><td>2026-06-08</td><td>Am Continental Blitz</td><td>R9</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-low">82.4%</span></td><td>91.9%</td><td>Rubio Mora</td><td>0</td><td>—</td><td>2</td><td>1</td><td>2</td><td>22</td></tr>
+  <tr><td>2026-06-08</td><td>American Continental 2026</td><td>R8</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">85.7%</span></td><td>89.8%</td><td>Ordonez Bonilla</td><td>2116</td><td>—</td><td>2</td><td>2</td><td>7</td><td>48</td></tr>
+  <tr><td>2026-06-08</td><td>Am Continental Blitz</td><td>R8</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">85.5%</span></td><td>90.9%</td><td>Mogollon Tobar</td><td>1999</td><td>—</td><td>4</td><td>1</td><td>3</td><td>35</td></tr>
+  <tr><td>2026-06-08</td><td>Am Continental Blitz</td><td>R7</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-mid">92.9%</span></td><td>87.8%</td><td>Cienfuegos Torres</td><td>1743</td><td>—</td><td>1</td><td>0</td><td>7</td><td>39</td></tr>
+  <tr class="row-danger"><td>2026-06-08</td><td>Am Continental Blitz</td><td>R6</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-low">81.8%</span></td><td>83.8%</td><td>Angeles Vera</td><td>1952</td><td>—</td><td>5</td><td>3</td><td>22</td><td>89</td></tr>
+  <tr><td>2026-06-08</td><td>Am Continental Blitz</td><td>R5</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">94.1%</span></td><td>97.9%</td><td>Avila Rodriguez</td><td>2125</td><td>—</td><td>3</td><td>3</td><td>2</td><td>52</td></tr>
+  <tr class="row-danger"><td>2026-06-08</td><td>Am Continental Blitz</td><td>R4</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-low">80.0%</span></td><td>74.5%</td><td>Luna Monsalve</td><td>1949</td><td>—</td><td>3</td><td>2</td><td>2</td><td>30</td></tr>
+  <tr><td>2026-06-08</td><td>Am Continental Blitz</td><td>R3</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">87.8%</span></td><td>89.9%</td><td>Corrales Jimenez</td><td>2074</td><td>—</td><td>4</td><td>10</td><td>10</td><td>74</td></tr>
+  <tr><td>2026-06-08</td><td>Am Continental Blitz</td><td>R2</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">89.7%</span></td><td>94.6%</td><td>Sanchez Alvarez</td><td>2315</td><td>—</td><td>1</td><td>2</td><td>7</td><td>37</td></tr>
+  <tr><td>2026-06-07</td><td>American Continental 2026</td><td>R7</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">87.7%</span></td><td>93.5%</td><td>Mogollon Tobar</td><td>2103</td><td>—</td><td>2</td><td>3</td><td>3</td><td>32</td></tr>
+  <tr><td>2026-06-06</td><td>Am Continental Rapid</td><td>R9</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">86.7%</span></td><td>97.0%</td><td>Juarez Flores</td><td>2249</td><td>—</td><td>2</td><td>1</td><td>5</td><td>20</td></tr>
+  <tr><td>2026-06-06</td><td>Am Continental Rapid</td><td>R8</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-mid">93.9%</span></td><td>88.2%</td><td>Orocio Mendoza</td><td>1726</td><td>—</td><td>0</td><td>2</td><td>5</td><td>33</td></tr>
+  <tr><td>2026-06-06</td><td>Am Continental Rapid</td><td>R7</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-mid">86.1%</span></td><td>80.5%</td><td>Diaz Gonzalez</td><td>1793</td><td>—</td><td>2</td><td>1</td><td>5</td><td>34</td></tr>
+  <tr><td>2026-06-06</td><td>American Continental 2026</td><td>R6</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-mid">84.7%</span></td><td>79.8%</td><td>Avendano Porras</td><td>2031</td><td>—</td><td>1</td><td>4</td><td>7</td><td>47</td></tr>
+  <tr class="row-danger"><td>2026-06-06</td><td>Am Continental Rapid</td><td>R6</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-low">83.8%</span></td><td>78.4%</td><td>Luna Rodriguez</td><td>1808</td><td>—</td><td>1</td><td>1</td><td>10</td><td>31</td></tr>
+  <tr><td>2026-06-05</td><td>American Continental 2026</td><td>R5</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">94.8%</span></td><td>90.8%</td><td>Cienfuegos Torres</td><td>1714</td><td>—</td><td>0</td><td>2</td><td>3</td><td>36</td></tr>
+  <tr class="row-danger"><td>2026-06-05</td><td>Am Continental Rapid</td><td>R5</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-low">84.4%</span></td><td>87.7%</td><td>Duarte Cramer</td><td>1858</td><td>—</td><td>9</td><td>2</td><td>7</td><td>64</td></tr>
+  <tr><td>2026-06-05</td><td>Am Continental Rapid</td><td>R4</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-mid">88.9%</span></td><td>83.8%</td><td>Bregita</td><td>1633</td><td>—</td><td>3</td><td>1</td><td>4</td><td>37</td></tr>
+  <tr class="row-danger"><td>2026-06-05</td><td>Am Continental Rapid</td><td>R3</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-low">81.1%</span></td><td>83.4%</td><td>Luna Monsalve</td><td>1779</td><td>—</td><td>1</td><td>0</td><td>3</td><td>21</td></tr>
+  <tr><td>2026-06-05</td><td>Am Continental Rapid</td><td>R2</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">86.5%</span></td><td>90.9%</td><td>Garcia Espinoza</td><td>1813</td><td>—</td><td>4</td><td>7</td><td>3</td><td>40</td></tr>
+  <tr><td>2026-06-05</td><td>Am Continental Rapid</td><td>R1</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">93.7%</span></td><td>97.1%</td><td>Valderrama Quiceno</td><td>2488</td><td>—</td><td>4</td><td>3</td><td>6</td><td>55</td></tr>
+  <tr class="row-danger"><td>2026-06-04</td><td>American Continental 2026</td><td>R4</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-low">84.3%</span></td><td>87.9%</td><td>Miranda Rodriguez</td><td>2057</td><td>—</td><td>3</td><td>1</td><td>4</td><td>39</td></tr>
+  <tr><td>2026-06-03</td><td>American Continental 2026</td><td>R3</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-mid">90.3%</span></td><td>82.7%</td><td>Moccero</td><td>1746</td><td>—</td><td>0</td><td>1</td><td>4</td><td>24</td></tr>
+  <tr><td>2026-06-03</td><td>American Continental 2026</td><td>R2</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">88.4%</span></td><td>93.8%</td><td>Ruiz Perez</td><td>2102</td><td>—</td><td>0</td><td>3</td><td>4</td><td>32</td></tr>
+  <tr><td>2026-06-02</td><td>American Continental 2026</td><td>R1</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">85.2%</span></td><td>93.6%</td><td>Sanchez Negreiros</td><td>2349</td><td>—</td><td>1</td><td>2</td><td>7</td><td>23</td></tr>
+  <tr class="row-best"><td>2025-12-06</td><td>N.Am U20 Ch 2025</td><td>R9</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">95.5%</span></td><td>88.9%</td><td>Cruz Vargas</td><td>1648</td><td>—</td><td>2</td><td>0</td><td>1</td><td>26</td></tr>
+  <tr><td>2025-12-06</td><td>N.Am U20 Ch 2025</td><td>R8</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">92.0%</span></td><td>94.1%</td><td>Zuniga Samano</td><td>1851</td><td>—</td><td>2</td><td>4</td><td>4</td><td>64</td></tr>
+  <tr><td>2025-12-05</td><td>N.Am U20 Blitz 2025</td><td>R9</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-mid">88.2%</span></td><td>84.1%</td><td>Nava Rangel</td><td>0</td><td>—</td><td>3</td><td>6</td><td>4</td><td>43</td></tr>
+  <tr><td>2025-12-05</td><td>N.Am U20 Blitz 2025</td><td>R8</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">88.6%</span></td><td>92.3%</td><td>Lerma Castillo</td><td>1958</td><td>—</td><td>2</td><td>2</td><td>16</td><td>54</td></tr>
+  <tr><td>2025-12-05</td><td>N.Am U20 Ch 2025</td><td>R7</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">91.7%</span></td><td>96.3%</td><td>Lerma Castillo</td><td>1946</td><td>—</td><td>1</td><td>1</td><td>4</td><td>45</td></tr>
+  <tr><td>2025-12-05</td><td>N.Am U20 Blitz 2025</td><td>R7</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-mid">86.5%</span></td><td>86.2%</td><td>Agama Hernandez</td><td>1739</td><td>—</td><td>8</td><td>4</td><td>6</td><td>91</td></tr>
+  <tr><td>2025-12-05</td><td>N.Am U20 Blitz 2025</td><td>R6</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">85.4%</span></td><td>97.8%</td><td>Campos Gorgonio</td><td>1807</td><td>—</td><td>1</td><td>0</td><td>0</td><td>16</td></tr>
+  <tr class="row-danger"><td>2025-12-05</td><td>N.Am U20 Blitz 2025</td><td>R5</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-low">77.7%</span></td><td>79.1%</td><td>Angeles Vera</td><td>1963</td><td>—</td><td>5</td><td>3</td><td>15</td><td>72</td></tr>
+  <tr><td>2025-12-05</td><td>N.Am U20 Blitz 2025</td><td>R4</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">88.4%</span></td><td>92.7%</td><td>Montes Orozco</td><td>2223</td><td>—</td><td>5</td><td>2</td><td>13</td><td>45</td></tr>
+  <tr class="row-danger"><td>2025-12-05</td><td>N.Am U20 Blitz 2025</td><td>R3</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-low">81.2%</span></td><td>79.4%</td><td>Hernandez Diaz</td><td>1975</td><td>—</td><td>6</td><td>7</td><td>5</td><td>84</td></tr>
+  <tr class="row-best"><td>2025-12-05</td><td>N.Am U20 Blitz 2025</td><td>R2</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">94.8%</span></td><td>92.5%</td><td>Fogo Esquivel</td><td>2211</td><td>—</td><td>9</td><td>2</td><td>4</td><td>83</td></tr>
+  <tr><td>2025-12-05</td><td>N.Am U20 Blitz 2025</td><td>R1</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-mid">92.6%</span></td><td>90.1%</td><td>Medina Lozada</td><td>1570</td><td>—</td><td>8</td><td>2</td><td>11</td><td>75</td></tr>
+  <tr><td>2025-12-04</td><td>N.Am U20 Ch 2025</td><td>R6</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-mid">90.0%</span></td><td>85.4%</td><td>Munoz Padilla</td><td>1580</td><td>—</td><td>0</td><td>1</td><td>5</td><td>39</td></tr>
+  <tr><td>2025-12-04</td><td>N.Am U20 Ch 2025</td><td>R5</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">93.8%</span></td><td>97.9%</td><td>Campos Gorgonio</td><td>1858</td><td>—</td><td>1</td><td>0</td><td>5</td><td>47</td></tr>
+  <tr><td>2025-12-03</td><td>N.Am U20 Ch 2025</td><td>R4</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">88.3%</span></td><td>89.9%</td><td>Gonzalez Sanchez</td><td>2087</td><td>—</td><td>4</td><td>5</td><td>15</td><td>79</td></tr>
+  <tr class="row-best"><td>2025-12-02</td><td>N.Am U20 Ch 2025</td><td>R3</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-mid">90.7%</span></td><td>87.1%</td><td>Tran</td><td>2023</td><td>—</td><td>0</td><td>1</td><td>8</td><td>36</td></tr>
+  <tr class="row-best"><td>2025-12-02</td><td>N.Am U20 Ch 2025</td><td>R2</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">96.6%</span></td><td>94.3%</td><td>Estrada</td><td>1609</td><td>—</td><td>3</td><td>1</td><td>4</td><td>68</td></tr>
+  <tr><td>2025-12-01</td><td>N.Am U20 Ch 2025</td><td>R1</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">91.8%</span></td><td>96.8%</td><td>Montes Orozco</td><td>2281</td><td>—</td><td>1</td><td>0</td><td>4</td><td>37</td></tr>
+  <tr><td>2025-09-16</td><td>Mex City Independencia</td><td>R9</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">88.0%</span></td><td>95.5%</td><td>Castillo Vallejo</td><td>1761</td><td>—</td><td>2</td><td>1</td><td>1</td><td>25</td></tr>
+  <tr class="row-best"><td>2025-09-16</td><td>Mex City Independencia</td><td>R8</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-high">97.6%</span></td><td>97.8%</td><td>Montes De Oca</td><td>1726</td><td>—</td><td>0</td><td>0</td><td>0</td><td>28</td></tr>
+  <tr><td>2025-09-14</td><td>Mex City Independencia</td><td>R6</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">87.2%</span></td><td>95.4%</td><td>Diaz Guerrero</td><td>2088</td><td>—</td><td>1</td><td>0</td><td>1</td><td>21</td></tr>
+  <tr><td>2025-09-14</td><td>Mex City Independencia</td><td>R5</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-mid">88.1%</span></td><td>88.3%</td><td>Avendano Porras</td><td>1946</td><td>—</td><td>3</td><td>2</td><td>5</td><td>69</td></tr>
+  <tr class="row-danger"><td>2025-09-13</td><td>Mex City Independencia</td><td>R3</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-low">80.6%</span></td><td>84.7%</td><td>Frey Beckman</td><td>2102</td><td>—</td><td>2</td><td>3</td><td>3</td><td>47</td></tr>
+  <tr><td>2025-09-11</td><td>Mex City Independencia</td><td>R1</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">89.8%</span></td><td>94.4%</td><td>Rodriguez Hernandez</td><td>2396</td><td>—</td><td>0</td><td>1</td><td>10</td><td>35</td></tr>
+  <tr class="row-best"><td>2024-11-14</td><td>Mex City Revolucion 2024</td><td>R3</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">96.3%</span></td><td>89.4%</td><td>Troncoso Diaz</td><td>1714</td><td>—</td><td>0</td><td>0</td><td>2</td><td>26</td></tr>
+  <tr><td>2024-11-14</td><td>Mex City Revolucion 2024</td><td>R2</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">88.3%</span></td><td>89.3%</td><td>Herrera Amador</td><td>1998</td><td>—</td><td>5</td><td>3</td><td>4</td><td>48</td></tr>
+  <tr><td>2024-11-13</td><td>Mex City Revolucion 2024</td><td>R1</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">89.2%</span></td><td>91.4%</td><td>Zacarias Rodriguez</td><td>2219</td><td>—</td><td>0</td><td>1</td><td>4</td><td>34</td></tr>
+  <tr><td>2024-05-19</td><td>MEX National Ch 2024</td><td>R9</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-mid">91.9%</span></td><td>92.9%</td><td>Ruiz Perez</td><td>2063</td><td>—</td><td>0</td><td>1</td><td>3</td><td>30</td></tr>
+  </tbody>
+</table>
+
+<p style="margin-top:20px; font-size:0.83em; color:#666; text-align:center">
+  <a href="../austin-prep.html">← Back to Austin Lin Prep Index</a> ·
+  <a href="matchup-pablo.html">Matchup Overview</a> ·
+  <a href="matchup-pablo-gm.html">GM Battle Plan</a>
+</p>
+</body>
+</html>

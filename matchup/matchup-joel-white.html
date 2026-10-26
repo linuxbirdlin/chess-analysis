@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Joel Ethan Jeyaraj — Austin as White</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #2d7d46; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #2d7d46; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #2d7d46; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #2d7d46; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .row-danger td { background: #fff0f0 !important; color: #7a0000; font-weight: 600; }
+    .row-safe td { background: #f0fff4 !important; color: #1a4731; }
+    .acc-hi { color: #1a6030; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 0.9rem; margin: 12px 0 20px; }
+    .profile-grid .plabel { color: #57606a; font-weight: 500; }
+    .profile-grid .pval { color: #1f2328; font-weight: 600; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    .encounter-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; font-size: 0.92rem; }
+    .encounter-box strong { color: #7a4f00; }
+
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+
+    .rules-section { margin: 16px 0 24px; }
+    .rule-card { display: flex; gap: 14px; align-items: flex-start; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 18px; margin: 10px 0; background: #fafbff; }
+    .rule-number { background: #2d7d46; color: #fff; border-radius: 50%; width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; }
+    .rule-content { flex: 1; }
+    .rule-label { font-weight: 700; font-size: 0.95rem; color: #1f2328; margin-bottom: 4px; }
+    .rule-body { font-size: 0.91rem; color: #3a3a3a; margin: 0; }
+
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #f0fff5; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #2d7d46; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+
+    .dayof-card { border: 1px solid #d0d7de; border-radius: 8px; padding: 18px 22px; margin: 16px 0; background: #fafafa; }
+    .dayof-card h3 { margin-top: 0; color: #2d7d46; }
+    .step-item { display: flex; gap: 12px; margin: 12px 0; }
+    .step-num { background: #e8f5ee; color: #2d7d46; border-radius: 50%; width: 26px; height: 26px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; margin-top: 2px; }
+    .step-body { flex: 1; font-size: 0.91rem; }
+    .mental-frame { background: #e8f5ee; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 14px 0; font-size: 0.91rem; color: #1a4731; font-style: italic; }
+
+    strong { font-weight: 600; }
+    em { font-style: italic; color: #57606a; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin vs Joel Ethan Jeyaraj</h1>
+    <div class="subtitle">Austin as White — Bc4/Bb3 Anti-Scandinavian vs Modern Variation</div>
+    <div class="meta">Joel Ethan Jeyaraj · 1872 FIDE / 2114 Lichess Blitz · 101 games (1 classical, 100 Lichess) · Stockfish in progress · Blitz Black avg 44% score (11W–14L–2D) · No direct encounter · Near-equal OTB match</div>
+    <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-joel.html">← Matchup Overview</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-joel-black.html">Austin as Black →</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="matchup-joel-deep.html">Engine Analysis →</a>
+  </div>
+
+  <div class="encounter-box">
+    <strong>No direct encounter on record.</strong> One classical OTB game exists (Carolinas Classic 2026, Joel Black vs Wang Aaron 2199) confirming his Nimzo-Indian style and greedy-pawn blunder tendency (Bxa2?? at move 20, CPL 317, eval +1.07 → +3.17). Austin's task: play 1.e4, face the Scandinavian Modern, use Bc4/Bb3 to hit Joel off his prepared fianchetto setup, and exploit a confirmed weakness — <strong>material greed over structural integrity in complex rook endgames</strong>.
+  </div>
+
+  <h2>§1 — Opponent Profile</h2>
+  <div class="profile-grid">
+    <span class="plabel">Name</span><span class="pval">Joel Ethan Jeyaraj</span>
+    <span class="plabel">FIDE Rating</span><span class="pval">1872 (Jun 2026 Carolinas Classic) — Lichess Blitz 2114, Bullet 2505 (~+242 online gap)</span>
+    <span class="plabel">Style</span><span class="pval">Hypermodern — Scandinavian Modern (3...Nf6) primary vs 1.e4; Bc4 targets fianchetto directly</span>
+    <span class="plabel">Sample</span><span class="pval">101 games (1 classical Carolinas 2026, 100 Lichess blitz/bullet)</span>
+    <span class="plabel">Overall Black accuracy</span><span class="pval">Stockfish analysis in progress · Blitz Black: 11W–14L–2D (44%) — significantly below average</span>
+    <span class="plabel">Black record</span><span class="pval">26W–22L–3D (53% overall) · Blitz Black only 44% — Joel's weaker color in slower formats</span>
+    <span class="plabel">Direct record vs Austin</span><span class="pval">No encounter on record</span>
+    <span class="plabel">Defining Black weakness</span><span class="pval">Bxa2?? (CPL 317, +1.07→+3.17) Carolinas Classic vs Wang 2199; followed by Bc4? (mistake); greedy pawn under pressure</span>
+  </div>
+
+  <p><strong>Opening fingerprint (as Black):</strong></p>
+  <ul>
+    <li><strong>vs 1.e4 (primary):</strong> Scandinavian Modern B01 (10 games) — <code>1.e4 d5 2.exd5 Nf6</code>. Then either ...g6/...Bg7 fianchetto (most common) or immediate ...Nxd5/...Nxc3 trade. Also Boehnke Gambit (3...e6) in 3 games — pawn sacrifice for activity.</li>
+    <li><strong>vs 1.e4 (secondary):</strong> Caro-Kann B10/B12 (4–6 games) — <code>1.e4 c6</code>. Austin's Exchange CK applies directly.</li>
+    <li><strong>vs 1.d4:</strong> Nimzo-Indian E20 (1 classical game) — Joel plays <code>1.d4 Nf6 2.c4 e6 3.Nc3 Bb4</code>. Not directly relevant since Austin plays 1.e4.</li>
+    <li><strong>Austin plays 1.e4 exclusively</strong> — the Scandinavian/Caro-Kann territory is the battleground.</li>
+  </ul>
+
+  <h2>§2 — Joel's Black Repertoire (Frequency &amp; Results)</h2>
+  <table>
+    <thead>
+      <tr><th>ECO</th><th>System</th><th>G</th><th>W</th><th>D</th><th>L</th><th>Acc%</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>B01</td><td>Scandinavian Modern (vs 1.e4)</td><td>10</td><td>—</td><td>—</td><td>—</td><td>pending</td><td>PRIMARY weapon. 3...Nf6 → fianchetto or Nxc3 trade. Boehnke Gambit (3...e6) in 3 games. Bc4/Bb3 hits this system off-script from move 5.</td>
+      </tr>
+      <tr>
+        <td>B10/B12</td><td>Caro-Kann Defense (vs 1.e4)</td><td>4–6</td><td>—</td><td>—</td><td>—</td><td>pending</td><td>Secondary vs 1.e4 in blitz. Austin's Exchange CK (3.exd5 cxd5 4.Bd3) applies directly.</td>
+      </tr>
+      <tr class="row-safe">
+        <td>E20</td><td>Nimzo-Indian Kmoch (vs 1.d4)</td><td>1</td><td>0</td><td>0</td><td>1</td><td>pending</td><td>One classical game (Carolinas R1 vs Wang 2199). Joel played 1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.f3 — the one game where his OTB classical accuracy was documented (and Bxa2?? confirmed).</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="warn-box">
+    <strong>Rossolimo (3.Bb5) does NOT apply here.</strong> Austin's Rossolimo requires 2...Nc6. Joel plays 1...d5 Scandinavian — the Rossolimo can never be reached. Austin must prepare the Bc4/Bb3 anti-Scandinavian system as his primary weapon.
+  </div>
+
+  <h2>§3 — Vulnerabilities as Black</h2>
+
+  <h3>A. Greedy Capture Blunder (Bxa2??, Confirmed OTB)</h3>
+  <table>
+    <thead><tr><th>Game</th><th>Acc%</th><th>Move Played (Best)</th><th>CPL</th><th>Eval Swing</th></tr></thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>Carolinas Classic R1 vs Wang 2199</td><td><em>pending (analysis in progress)</em></td><td>Bxa2?? (best: a6)</td><td class="acc-lo">317</td><td>+1.07→+3.17</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>From +1.07 — a solid, playable position for Black — Joel grabbed the a2 pawn (greedy capture) instead of the defensive ...a6 (which holds the structure with ...Ra5 Nc4 Rxc5). The eval jumped from +1.07 to +3.17 in one move. He followed up with Bc4? (another mistake) on the very next move. This is Joel's defining vulnerability: material greed over structural integrity under classical pressure. He can hold solid positions for 19 moves at 2199-level, then crack.</p>
+
+  <h3>B. Blitz Black Accuracy Drop</h3>
+  <div class="info-box">
+    <strong>44% blitz Black score</strong> (11W–14L–2D) is significantly below average. Joel consistently struggles as Black in slower time controls where opponents can outprepare him and create complex positions. Austin playing 1.e4 forces Joel into Scandinavian/Caro-Kann — his statistically worst scenario.
+  </div>
+
+  <h3>C. Online/OTB Accuracy Gap</h3>
+  <div class="info-box">
+    Lichess Blitz 2114 vs FIDE 1872 is a <strong>+242 gap</strong>. The one classical OTB game (Carolinas R1) confirms this — Joel collapsed under classical time control pressure with a CPL-317 blunder that wouldn't happen in bullet. Austin should play for a long, complex game rather than expecting a quick tactical refutation.
+  </div>
+
+  <h2>§4 — Austin's Weapon: Bc4/Bb3 Anti-Scandinavian</h2>
+  <div class="rules-section">
+    <div class="rule-card">
+      <div class="rule-number">1</div>
+      <div class="rule-content">
+        <div class="rule-label">Play 3.Nf3 first — maintain flexibility</div>
+        <div class="rule-body">After 1.e4 d5 2.exd5 Nf6, play <strong>3.Nf3</strong> (not 3.Nc3 or 3.c4 immediately). This develops naturally and waits for 3...Nxd5, after which 4.d4 follows.</div>
+      </div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">2</div>
+      <div class="rule-content">
+        <div class="rule-label">After 3...Nxd5: 4.d4 g6 5.Bc4 Nb6 6.Bb3 — the Bc4/Bb3 battery</div>
+        <div class="rule-body">Once Joel plays the fianchetto setup (...g6/...Bg7), the Bc4/Bb3 battery targets the Bg7 indirectly through f7 pressure. Nb6 is misplaced away from the center — the bishop pair is long-term compensation.</div>
+      </div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">3</div>
+      <div class="rule-content">
+        <div class="rule-label">After 6...Bg7 7.O-O O-O 8.Nc3 Nc6 9.Re1 — central e-file pressure</div>
+        <div class="rule-body">Re1 prepares central play; Nc3 supports the d4 pawn. The position is similar to Exchange CK structures Austin knows: White has the bishop pair, active pieces, and central pressure. Push d5 when the moment comes.</div>
+      </div>
+    </div>
+    <div class="rule-card">
+      <div class="rule-number">4</div>
+      <div class="rule-content">
+        <div class="rule-label">vs Boehnke Gambit (2...e6): 3.dxe6 Bxe6 4.d4 — hold the pawn</div>
+        <div class="rule-body">After 1.e4 d5 2.exd5 e6 (Boehnke), play 3.dxe6 Bxe6 4.d4 Nf6 5.Nf3 Nc6 6.Bc4. White has extra material. Don't over-extend trying to "refute" the gambit — just develop and hold the pawn.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>§5 — Opening Variations</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">Branch A — Main Line</span>
+      Scandinavian Modern: 3...Nf6 Fianchetto
+    </div>
+    <div class="var-body">
+      <div class="var-moves">1.e4 d5  2.exd5 Nf6  3.Nf3 Nxd5  4.d4 g6  5.Bc4 Nb6  6.Bb3 Bg7
+7.O-O O-O  8.Nc3 Nc6  9.Re1</div>
+      <p>The Bc4/Bb3 battery exerts pressure on the f7 square through the Bg7. White's plan: Re1 prepares central breaks; Nc3 supports d4; advance d5 when Black's pieces are uncoordinated. The Nb6 is Joel's structural weakness — far from the center and blocking queenside development.</p>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">Branch B</span>
+      Scandinavian: Immediate Nxd5/Nxc3 Trade
+    </div>
+    <div class="var-body">
+      <div class="var-moves">1.e4 d5  2.exd5 Nf6  3.Nf3 Nxd5  4.d4 Nb6  5.Bc4 Nc6  6.O-O e6  7.Nc3</div>
+      <p>If Joel trades the knight immediately (...Nxd5 then ...Nxc3), the position simplifies. White gets the bishop pair after bxc3 and normal development. Austin's experience with IQP/open-file structures from Exchange CK applies. Play straightforwardly: Bc4, O-O, Re1, Nc3.</p>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">Branch C — Surprise</span>
+      Boehnke Gambit (2...e6 — pawn sacrifice)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">1.e4 d5  2.exd5 e6  3.dxe6 Bxe6  4.d4 Nf6  5.Nf3 Nc6  6.Bc4</div>
+      <p>Joel has played the Boehnke Gambit 3 times — a pawn sacrifice for rapid development and activity. <strong>Don't panic</strong>: White is objectively better after 3.dxe6. After 6.Bc4, White eyes e6 and f7. If Joel plays 6...Bxc4, take back 7.exBxc4 with material advantage. Develop normally; the extra pawn is enough to win with technique.</p>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span class="var-label">Branch D — Sidestep</span>
+      Caro-Kann Exchange (if Joel plays 1...c6)
+    </div>
+    <div class="var-body">
+      <div class="var-moves">1.e4 c6  2.d4 d5  3.exd5 cxd5  4.Bd3 Nc6  5.c3 Nf6  6.Bf4 Bg4  7.Qb3</div>
+      <p>Austin's standard Exchange Caro-Kann — directly applicable if Joel plays 1...c6. Austin has extensive practice in this system. Joel has played Caro-Kann games in blitz; Austin's prepared system gives a structural edge. 7.Qb3 targets b7 and maintains central tension.</p>
+    </div>
+  </div>
+
+  <div class="cheat-card">
+    <h3>Opening Cheat Sheet</h3>
+    <div class="cheat-moves">MAIN (Scandinavian fianchetto):
+  1.e4 d5  2.exd5 Nf6  3.Nf3 Nxd5  4.d4 g6  5.Bc4 Nb6  6.Bb3 Bg7
+  7.O-O O-O  8.Nc3 Nc6  9.Re1
+
+BOEHNKE GAMBIT (2...e6):
+  3.dxe6 Bxe6  4.d4 Nf6  5.Nf3 Nc6  6.Bc4
+
+CARO-KANN (1...c6):
+  2.d4 d5  3.exd5 cxd5  4.Bd3 Nc6  5.c3 Nf6  6.Bf4</div>
+  </div>
+
+  <h2>§6 — Day-of Checklist</h2>
+  <div class="dayof-card">
+    <h3>Before the game</h3>
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">Joel will most likely play <strong>1...d5 Scandinavian</strong> (10 documented games) — watch for 2...Nf6 (Modern) vs 2...e6 (Boehnke Gambit). Both are in the prep.</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">Secondary: <strong>1...c6 Caro-Kann</strong> (4–6 games). Austin's Exchange CK is ready — no new preparation needed.</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">Play <strong>Bc4 within the first 5–6 moves</strong> in the Scandinavian — the Bc4/Bb3 battery is the entire point. Don't let the bishop sit idle on f1.</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body"><strong>Boehnke Gambit: stay calm.</strong> 2...e6 looks scary but is objectively insufficient. 3.dxe6 Bxe6 4.d4 and White is simply up material.</div>
+    </div>
+    <div class="mental-frame">"Bc4 targets f7 through the fianchetto — the bishop pair is active all game. Nb6 is Joel's weakness, not his strength."</div>
+  </div>
+
+</div>
+</body>
+</html>

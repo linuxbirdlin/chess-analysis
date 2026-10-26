@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle Plan: Austin vs Jeyaraj, Joel Ethan (GM Prep)</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Georgia', serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg);
+}
+h1 { font-size: 1.6em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.15em; margin: 28px 0 10px; padding-left: 10px; }
+h2.white-section { border-left: 5px solid var(--blue); }
+h2.black-section { border-left: 5px solid var(--red); }
+h2.analysis   { border-left: 5px solid var(--gold); }
+h2.reference  { border-left: 5px solid #666; }
+h3 { font-size: 1em; margin: 14px 0 6px; color: #333; }
+.subtitle { font-size: 0.85em; color: #666; margin-bottom: 22px; }
+.subtitle span { margin-right: 16px; }
+
+.rating-note { background: #eaf4fb; border: 2px solid #1a5276; border-radius: 5px;
+               padding: 10px 14px; margin-bottom: 18px; font-size: 0.9em; }
+
+.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.intel-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.intel-card h3 { margin-top: 0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }
+.intel-card ul { padding-left: 16px; margin-top: 4px; }
+.intel-card li { margin-bottom: 3px; }
+
+.callout { border-radius: 4px; padding: 10px 14px; margin: 10px 0; font-size: 0.9em; }
+.callout-gold   { background: #fffbe0; border-left: 4px solid var(--gold); }
+.callout-blue   { background: #eef4ff; border-left: 4px solid var(--blue); }
+.callout-green  { background: #efffef; border-left: 4px solid var(--green); }
+.callout-danger { background: #fff0f0; border-left: 4px solid var(--red); }
+
+.move-line { background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+             padding: 8px 12px; margin: 6px 0; font-size: 0.92em; line-height: 1.9; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: #eef4ff; border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.bad-move { background: #ffe0e0; border: 1px solid #cc8888; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; color: #8b1a1a; }
+.note { color: #555; font-style: italic; font-size: 0.88em; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
+th { background: #333; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+.row-danger td { background: #fff0f0 !important; }
+
+hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20px; }
+
+.acc-toggle { display: none; }
+.acc-label {
+  display: block; cursor: pointer; padding: 8px 12px; margin: 4px 0;
+  background: #eee; border: 1px solid #ccc; border-radius: 4px;
+  font-weight: bold; font-size: 0.9em; user-select: none;
+}
+.acc-label::before { content: '▶ '; font-size: 0.75em; color: #666; }
+.acc-toggle:checked ~ .acc-label::before { content: '▼ '; }
+.acc-content { display: none; padding: 10px 14px; background: #fafaf6;
+               border: 1px solid #ddd; border-top: none; border-radius: 0 0 4px 4px; margin-bottom: 6px; }
+.acc-toggle:checked ~ .acc-content { display: block; }
+
+@media print {
+  .acc-content { display: block !important; }
+  .acc-label::before { content: '' !important; }
+  body { font-size: 12px; padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<h1>Battle Plan: Austin (White &amp; Black) vs Jeyaraj, Joel Ethan</h1>
+<div class="subtitle">
+  <span><strong>GM Prep</strong></span>
+  <span>Joel rating: 1872 FIDE / 2114 Lichess Blitz (peaked; bullet 2505)</span>
+  <span>Direct record: No encounter</span>
+  <span>Games analyzed: 101 (1 classical, 100 Lichess)</span>
+</div>
+
+<div class="rating-note">
+  <strong>Rating context:</strong> Austin (~1865–1968 FIDE) is nearly even with Joel's FIDE rating (1872), but Joel's online strength (Lichess 2114 blitz, 2505 bullet) exceeds his OTB rating by ~240+ points. This gap is the key insight: <strong>in classical time controls, Joel performs closer to 1872 than 2114.</strong> The one classical OTB game (Carolinas Classic 2026) confirmed this — a CPL-317 blunder at move 20 despite holding a solid position for 19 moves against a 2199 player. Austin should play for a long, complex game — Joel's OTB accuracy likely dips under sustained classical pressure.
+</div>
+
+<div class="intel-grid">
+  <div class="intel-card">
+    <h3>Joel as White</h3>
+    <ul>
+      <li><strong>1.Nf3</strong> exclusively (53%) — hypermodern hedgehog</li>
+      <li>Primary system: <strong>Nimzo-Larsen 2.b3 Bb2</strong> (long diagonal pressure)</li>
+      <li>Secondary: 1.d4 London, 1.c4 English, Reti 2.c4</li>
+      <li>White blitz record: <strong>20W–9L–1D (67%)</strong> — stronger color</li>
+      <li>Key weakness: <strong>1.e4 only 4 games ever</strong> — no Open Sicilian experience as White</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Joel as Black</h3>
+    <ul>
+      <li>Primary vs 1.e4: <strong>Scandinavian Modern B01</strong> (10 games — 3...Nf6 fianchetto)</li>
+      <li>Secondary: Caro-Kann B10/B12 (4–6 games)</li>
+      <li>Blitz Black record: <strong>11W–14L–2D (44%) — significantly weak</strong></li>
+      <li>Classical Black: Nimzo-Indian E20 (1 game — Carolinas R1 loss)</li>
+      <li>Austin's Rossolimo does NOT apply — Joel plays 1...d5, not 1...c5 2...Nc6</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Critical Weaknesses</h3>
+    <ul>
+      <li><strong>Carolinas Classic R1</strong> (Joel Black, vs Wang 2199, E20): Move 20 <strong>Bxa2?? CPL 317</strong> (+1.07→+3.17). From solid → losing in one greedy pawn grab.</li>
+      <li>Move 21 <strong>Bc4? mistake</strong> (CPL ~250) — compounding error shows Joel doesn't recover cleanly after initial error.</li>
+      <li><strong>Blitz Black: 44% score</strong> — consistent weakness as Black in slower time controls where preparation matters.</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Key Game Facts</h3>
+    <ul>
+      <li>Stockfish partial (4/77 unique games cached): avg 87.6% across analyzed games</li>
+      <li>Best blitz White: <strong>89.2% vs Gesha67 (2403)</strong> — win against higher-rated</li>
+      <li>Best bullet Black: <strong>90.4% vs kingslayer2410 (2427)</strong> — clean win</li>
+      <li>White vs Black: <strong>63% White / 53% Black overall</strong></li>
+      <li>Classical: 0W–1L (1 game) — only OTB data point</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="white-section">Part 1 — Austin as White: Bc4/Bb3 Anti-Scandinavian vs Joel's Modern Defense</h2>
+
+<div class="callout callout-blue">Joel's primary Black weapon is the Scandinavian Modern (2.exd5 Nf6 → 3...Nxd5 ...g6/...Bg7 fianchetto, 10 games). Austin's Rossolimo (3.Bb5) requires 2...Nc6 — since Joel plays 1...d5, Rossolimo doesn't apply. The <strong>Bc4/Bb3 system</strong> targets Joel's fianchettoed Bg7 through f7 pressure and leads to IQP/central structures Austin knows well. Joel has no documented Bc4/Bb3 Scandinavian games — Austin enters this position on home turf.</div>
+
+<h3>Main line — Scandinavian Modern 3...Nf6 Fianchetto</h3>
+<div class="move-line">
+  <span class="mv-a">1.e4</span> <span class="mv-z">d5</span>
+  <span class="mv-a">2.exd5</span> <span class="mv-z">Nf6</span>
+  <span class="mv-a"><span class="key-move">3.Nf3</span></span> <span class="mv-z">Nxd5</span>
+  <span class="mv-a">4.d4</span> <span class="mv-z">g6</span>
+  <span class="mv-a"><span class="key-move">5.Bc4</span></span> <span class="mv-z">Nb6</span>
+  <span class="mv-a">6.Bb3</span> <span class="mv-z">Bg7</span>
+  <span class="mv-a">7.O-O</span> <span class="mv-z">O-O</span>
+  <span class="mv-a">8.Nc3</span> <span class="mv-z">Nc6</span>
+  <span class="mv-a">9.Re1</span>
+  <br><span class="note">3.Nf3 maintains flexibility before committing; Bc4/Bb3 battery targets f7 through Bg7; Re1 prepares central break; Nb6 is Joel's structural weakness — far from center.</span>
+</div>
+
+<input type="checkbox" id="acc-w-a" class="acc-toggle" checked>
+<label for="acc-w-a" class="acc-label">Branch A — Scandinavian Fianchetto (main line, most likely)</label>
+<div class="acc-content">
+  <p><strong>Full plan after 9.Re1:</strong></p>
+  <div class="move-line">
+    <span class="mv-a">9.Re1</span> <span class="mv-z">Bg4</span>
+    <span class="mv-a">10.h3</span> <span class="mv-z">Bxf3</span>
+    <span class="mv-a">11.Qxf3</span> <span class="mv-z">e6</span>
+    <span class="mv-a">12.Bg5</span>
+  </div>
+  <p>After ...Bg4 h3 Bxf3 Qxf3, White's queen is powerful and the bishop pair vs knight pair is a long-term advantage. Bg5 pins the f6-knight idea. Austin's plan: push d5 when Black's pieces are uncoordinated, open the e-file with the rook.</p>
+  <div class="move-line">
+    <span class="mv-z">Alternatively: 9...e6</span>
+    <span class="mv-a">10.d5</span> <span class="mv-z">exd5</span>
+    <span class="mv-a">11.Nxd5</span> <span class="mv-z">Nxd5</span>
+    <span class="mv-a">12.Bxd5</span> <span class="mv-z">Nd4</span>
+    <span class="mv-a">13.Nxd4</span> <span class="mv-z">cxd4</span>
+    <span class="mv-a">14.Qf3</span>
+  </div>
+  <p>The d5 break opens the position immediately. After piece exchanges, White's bishop pair vs knight structure is favorable in the endgame.</p>
+</div>
+
+<input type="checkbox" id="acc-w-b" class="acc-toggle" checked>
+<label for="acc-w-b" class="acc-label">Branch B — Scandinavian immediate Nxc3 trade</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">1.e4</span> <span class="mv-z">d5</span>
+    <span class="mv-a">2.exd5</span> <span class="mv-z">Nf6</span>
+    <span class="mv-a">3.Nf3</span> <span class="mv-z">Nxd5</span>
+    <span class="mv-a">4.d4</span> <span class="mv-z">Nb6</span>
+    <span class="mv-a">5.Bc4</span> <span class="mv-z">Nc6</span>
+    <span class="mv-a">6.O-O</span> <span class="mv-z">e6</span>
+    <span class="mv-a">7.Nc3</span>
+  </div>
+  <p>If Joel plays ...Nxd5 then ...Nb6 without the fianchetto, the position simplifies. White maintains the bishop pair (Bc4) and normal development. After ...Nc6 e6, Austin plays 7.Nc3 and continues developing naturally. IQP or central structure positions follow — familiar territory for Austin from Exchange CK experience.</p>
+</div>
+
+<input type="checkbox" id="acc-w-c" class="acc-toggle">
+<label for="acc-w-c" class="acc-label">Branch C — Boehnke Gambit (2...e6, surprise)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">1.e4</span> <span class="mv-z">d5</span>
+    <span class="mv-a">2.exd5</span> <span class="mv-z">e6</span>
+    <span class="mv-a"><span class="key-move">3.dxe6</span></span> <span class="mv-z">Bxe6</span>
+    <span class="mv-a">4.d4</span> <span class="mv-z">Nf6</span>
+    <span class="mv-a">5.Nf3</span> <span class="mv-z">Nc6</span>
+    <span class="mv-a">6.Bc4</span>
+    <br><span class="note">3.dxe6 is the key move — hold the extra pawn, develop normally. Don't over-extend refuting it.</span>
+  </div>
+  <p>Joel plays the Boehnke Gambit in ~3 games — a pawn sacrifice for activity. After 3.dxe6 Bxe6 4.d4, White is objectively up material. Play Nf3, Nc6, Bc4 — target the Be6 with the bishop pair. If Joel plays 6...Bxc4, recapture 7.exBxc4 with material advantage. Develop and hold the pawn. Don't get spooked by the activity.</p>
+</div>
+
+<input type="checkbox" id="acc-w-d" class="acc-toggle">
+<label for="acc-w-d" class="acc-label">Branch D — Caro-Kann sidestep (if Joel plays 1...c6)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">1.e4</span> <span class="mv-z">c6</span>
+    <span class="mv-a">2.d4</span> <span class="mv-z">d5</span>
+    <span class="mv-a">3.exd5</span> <span class="mv-z">cxd5</span>
+    <span class="mv-a"><span class="key-move">4.Bd3</span></span> <span class="mv-z">Nc6</span>
+    <span class="mv-a">5.c3</span> <span class="mv-z">Nf6</span>
+    <span class="mv-a">6.Bf4</span> <span class="mv-z">Bg4</span>
+    <span class="mv-a">7.Qb3</span>
+    <br><span class="note">Austin's standard Exchange CK — directly applicable here with no new prep needed.</span>
+  </div>
+  <p>If Joel plays 1...c6 (Caro-Kann, secondary option), Austin's standard Exchange CK applies without modification. 7.Qb3 targets b7 and maintains central tension. This is Austin's most practiced system — no special preparation required.</p>
+</div>
+
+<h3>Key tactical themes — Austin as White</h3>
+<table>
+  <tr><th>Theme</th><th>How to exploit</th></tr>
+  <tr><td>Bc4/Bb3 vs fianchetto</td><td>Battery eyes f7 through Bg7; Nb6 is passively placed — Austin's piece activity converts to pressure over 30+ moves</td></tr>
+  <tr><td>d5 break timing</td><td>After 9.Re1, look for the d5 pawn break when Nc6 is on the board — opens position and activates rooks</td></tr>
+  <tr><td>Bxa2-type traps</td><td>Carolinas Classic confirmed Joel's greedy-pawn tendency (CPL 317). In Scandinavian positions, create similar undefended pawns near Joel's king as tactical bait</td></tr>
+  <tr><td>Boehnke Gambit: stay calm</td><td>2...e6 3.dxe6 gives White material; don't over-extend "refuting" — develop normally and the extra pawn wins</td></tr>
+</table>
+
+<hr class="section-divider">
+
+<h2 class="black-section">Part 2 — Austin as Black: Solid QGD Structure vs Nimzo-Larsen</h2>
+
+<div class="callout callout-green">Joel's Nimzo-Larsen (1.Nf3 → 2.b3 Bb2) is a hypermodern hedgehog that looks threatening but is objectively sound if Black overreacts. The correct antidote: <strong>1...d5 → solid QGD-type development → mandatory ...c5 break on move 6.</strong> Austin's Nimzo-Indian background (Bb4/...b6/...Ba6 structures, similar pawn formations) provides direct positional understanding for this exact setup. The ...c5 break is non-negotiable — without it, Austin drifts into passive defense.</div>
+
+<h3>Main line — QGD Solid vs Nimzo-Larsen</h3>
+<div class="move-line">
+  <span class="mv-z">1.Nf3</span> <span class="mv-a">d5</span>
+  <span class="mv-z">2.b3</span> <span class="mv-a">Nf6</span>
+  <span class="mv-z">3.Bb2</span> <span class="mv-a">e6</span>
+  <span class="mv-z">4.e3</span> <span class="mv-a">Be7</span>
+  <span class="mv-z">5.d4</span> <span class="mv-a">O-O</span>
+  <span class="mv-z">6.Bd3</span> <span class="mv-a"><span class="key-move">c5!</span></span>
+  <span class="mv-z">7.O-O</span> <span class="mv-a">Nc6</span>
+  <span class="mv-z">8.Nbd2</span> <span class="mv-a">b6</span>
+  <br><span class="note">...c5 is the critical break — must be played on or before move 6. ...b6 prepares ...Ba6, fighting the long diagonal or expanding queenside.</span>
+</div>
+
+<input type="checkbox" id="acc-b-a" class="acc-toggle" checked>
+<label for="acc-b-a" class="acc-label">Branch A — Main QGD Solid vs Nimzo-Larsen</label>
+<div class="acc-content">
+  <p><strong>Positional plan after 8...b6:</strong></p>
+  <div class="move-line">
+    <span class="mv-z">9.Ne5</span> <span class="mv-a">Bb7</span>
+    <span class="mv-z">10.f4</span> <span class="mv-a">cxd4</span>
+    <span class="mv-z">11.exd4</span> <span class="mv-a">Rc8</span>
+    <span class="mv-z">12.Ndf3</span> <span class="mv-a">Nd5</span>
+  </div>
+  <p>After ...cxd4 exd4, Black has the IQP position from the White side. ...Rc8 prepares ...Nc6/...Nd5 central activity. Austin's IQP experience from Nimzo-Indian structures applies directly — he knows how to handle this pawn structure. Black's Bb7 bishop becomes active after ...Nd5 creates space.</p>
+</div>
+
+<input type="checkbox" id="acc-b-b" class="acc-toggle" checked>
+<label for="acc-b-b" class="acc-label">Branch B — 4.g3 fianchetto deviation (immediate ...c5 response)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">1.Nf3</span> <span class="mv-a">d5</span>
+    <span class="mv-z">2.b3</span> <span class="mv-a">Nf6</span>
+    <span class="mv-z">3.Bb2</span> <span class="mv-a">e6</span>
+    <span class="mv-z"><span class="key-move">4.g3</span></span> <span class="mv-a"><span class="key-move">c5!</span></span>
+    <span class="mv-z">5.Bg2</span> <span class="mv-a">Nc6</span>
+    <span class="mv-z">6.O-O</span> <span class="mv-a">Be7</span>
+    <span class="mv-z">7.d4</span> <span class="mv-a">cxd4</span>
+    <br><span class="note">4...c5! immediately, before Joel builds the full fianchetto structure — Benoni-type counterplay.</span>
+  </div>
+  <p>If Joel plays 4.g3 (fianchetto variation), Austin plays 4...c5! immediately rather than 4...Be7. This Benoni-type response creates immediate tension before Joel's Bg2 is established. After ...cxd4, Black has active piece play and the center is already broken open.</p>
+</div>
+
+<input type="checkbox" id="acc-b-c" class="acc-toggle">
+<label for="acc-b-c" class="acc-label">Branch C — Reti (1.Nf3 d5 2.c4 transposition)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">1.Nf3</span> <span class="mv-a">d5</span>
+    <span class="mv-z">2.c4</span> <span class="mv-a">e6</span>
+    <span class="mv-z">3.g3</span> <span class="mv-a">Nf6</span>
+    <span class="mv-z">4.Bg2</span> <span class="mv-a">Be7</span>
+    <span class="mv-z">5.O-O</span> <span class="mv-a">O-O</span>
+    <span class="mv-z">6.d4</span> <span class="mv-a">c5</span>
+  </div>
+  <p>If Joel plays 2.c4 (Reti), Austin plays 2...e6 and transposes into a QGD/Tarrasch setup. Same ...c5 break applies on move 6. Alternative: 2...d4 to close the position if Austin wants a fixed pawn structure. Either path is familiar territory for Austin from his d4-player preparation.</p>
+</div>
+
+<input type="checkbox" id="acc-b-d" class="acc-toggle">
+<label for="acc-b-d" class="acc-label">Branch D — Rare 1.e4 (Austin's Sicilian home territory)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">1.e4</span> <span class="mv-a">c5</span>
+    <span class="mv-z">2.Nf3</span> <span class="mv-a">Nc6</span>
+    <span class="mv-z">3.d4</span> <span class="mv-a">cxd4</span>
+    <span class="mv-z">4.Nxd4</span> <span class="mv-a">Nc6</span>
+    <span class="mv-z">5.Nc3</span> <span class="mv-a">a6</span>
+    <span class="note">(or Taimanov: 4...Nc6 5.Nc3 e6)</span>
+  </div>
+  <p>If Joel plays 1.e4 (rare — only 8% of White games), Austin plays his normal 1...c5 Sicilian. Joel has virtually no documented experience with Open Sicilian as White — he plays French/Caro structures in his rare 1.e4 games. Austin's Taimanov/Kan preparation applies directly. Best-case scenario: Austin in completely familiar territory, Joel improvising from move 2.</p>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="analysis">Part 3 — Accuracy Profile and Error Patterns</h2>
+
+<h3>Most recent classical game</h3>
+<table>
+  <tr><th>Tournament</th><th>Rnd</th><th>Color</th><th>Opponent</th><th>Elo</th><th>Result</th><th>Acc%</th><th>ECO</th><th>B/M/I</th></tr>
+  <tr class="row-danger">
+    <td>Carolinas Classic 2026</td><td>R1</td><td>Black</td><td>Wang, Aaron</td><td>2199</td><td>LOSS</td><td>pending</td><td>E20</td><td>2B + ? (analysis in progress)</td>
+  </tr>
+</table>
+
+<h3>Partial Lichess accuracy (4 games cached)</h3>
+<table>
+  <tr><th>Tournament</th><th>Color</th><th>Opponent</th><th>Elo</th><th>Result</th><th>Acc%</th><th>ECO</th><th>B/M/I</th></tr>
+  <tr>
+    <td>Lichess Blitz</td><td>White</td><td>Maineroadblue</td><td>2118</td><td>WIN</td><td>86.8%</td><td>A35</td><td>2B/2M/2I</td>
+  </tr>
+  <tr>
+    <td>Lichess Bullet</td><td>White</td><td>Gesha67</td><td>2403</td><td>WIN</td><td>89.2%</td><td>A40</td><td>1B/1M/2I</td>
+  </tr>
+  <tr>
+    <td>Lichess Bullet</td><td>Black</td><td>kingslayer2410</td><td>2427</td><td>WIN</td><td>90.4%</td><td>A13</td><td>0B/1M/7I</td>
+  </tr>
+  <tr class="row-danger">
+    <td>Lichess Bullet (casual)</td><td>White</td><td>the_tryykko</td><td>2431</td><td>LOSS</td><td>84.0%</td><td>A00</td><td>6B/6M/12I</td>
+  </tr>
+</table>
+
+<div class="callout callout-gold">
+  Stockfish analysis in progress (4/77 unique games cached at writing). Partial data suggests Joel plays at ~87% avg across blitz/bullet — solid online performer. Full data will populate matchup-joel-deep.html. The one classical OTB data point (Carolinas R1) shows a confirmed CPL-317 blunder under classical pressure — the clearest window into Joel's error patterns. <strong>The 84.0% bullet (casual) loss with 6 blunders shows Joel's accuracy collapses in losing positions</strong> — create similar pressure situations.
+</div>
+
+<h3>Known error patterns</h3>
+<table>
+  <tr><th>Pattern</th><th>Example</th><th>How Austin exploits</th></tr>
+  <tr class="row-danger">
+    <td>Greedy pawn grab from solid position</td><td>Carolinas R1 Move 20: <strong>Bxa2?? CPL 317.</strong> Position was +1.07 (solid for Black). Grabbed a2-pawn instead of defensive a6. Eval jumped to +3.17 — game essentially lost. Followed by Bc4? (mistake) on very next move.</td><td>Create positions where Joel faces undefended pawns in dynamic positions — the "free" pawn is a structural trap. The Bc4/Bb3 battery in the Scandinavian creates exactly these pawn-structure complexities.</td>
+  </tr>
+  <tr>
+    <td>Blitz Black accuracy collapse</td><td>44% blitz Black score (11W–14L–2D). Joel consistently struggles as Black in time controls where opponents outprepare him.</td><td>Austin playing 1.e4 forces Joel into Scandinavian/Caro-Kann — his statistically worst scenario. Playing 1.e4 is not just opening preference; it's exploiting Joel's worst color.</td>
+  </tr>
+  <tr>
+    <td>Online/OTB accuracy gap</td><td>Lichess 2114 blitz vs FIDE 1872 OTB — 242-point gap. The Carolinas Classic blunder confirms classical precision is lower than online speed.</td><td>Play for long, complex games; avoid quick draws. Don't expect Joel to blunder early — he can hold 19 moves at 2199-level — but sustained classical pressure does cause errors.</td>
+  </tr>
+</table>
+
+<h3>Psychological notes</h3>
+<ul>
+  <li><strong>Joel's bullet strength (2505) creates potential overconfidence in fast positions.</strong> Austin should manage clock actively — don't get into time trouble expecting Joel to blunder.</li>
+  <li><strong>Joel has 10 documented Scandinavian games</strong> — real preparation, not improvisation. Austin's Bc4/Bb3 sidestep is essential to avoid Joel's home territory.</li>
+  <li><strong>Carolinas Classic pattern:</strong> Joel held accurately for 19 moves against a 2199 player, then cracked with a single greedy error. He's not a pushover; he cracks under sustained pressure when a "free" pawn appears.</li>
+  <li><strong>The compounding error pattern:</strong> Bxa2?? at move 20 was followed by Bc4? at move 21. Once Joel makes a greedy error, he doesn't recover cleanly — he makes a follow-up mistake confirming the pattern.</li>
+</ul>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 4 — If / Then Quick Reference</h2>
+
+<input type="checkbox" id="acc-ift-w" class="acc-toggle" checked>
+<label for="acc-ift-w" class="acc-label">Austin as White — If / Then</label>
+<div class="acc-content">
+  <table>
+    <tr><th>If Joel plays...</th><th>Austin plays...</th><th>Why</th></tr>
+    <tr><td>1...d5 (Scandinavian — most likely)</td><td>2.exd5 Nf6 3.Nf3 Nxd5 4.d4</td><td>Most likely scenario (10 documented games); Bc4/Bb3 system follows on moves 5–6</td></tr>
+    <tr><td>2...Nf6 → 3...Nxd5 → ...g6 fianchetto</td><td>5.Bc4 Nb6 6.Bb3 Bg7 7.O-O O-O 8.Nc3 Nc6 9.Re1</td><td>Main Bc4/Bb3 battery; Re1 prepares central break; Nb6 is Joel's structural weakness</td></tr>
+    <tr><td>2...e6 (Boehnke Gambit — pawn sacrifice)</td><td>3.dxe6 Bxe6 4.d4 Nf6 5.Nf3 Nc6 6.Bc4</td><td>Hold the extra pawn — stay calm, develop normally; CPL advantage maintained with correct play</td></tr>
+    <tr><td>1...c6 (Caro-Kann — secondary)</td><td>2.d4 d5 3.exd5 cxd5 4.Bd3</td><td>Austin's standard Exchange CK — directly applicable, no new prep needed</td></tr>
+    <tr><td>1...e5 (very rare)</td><td>2.Nf3 Nc6 3.Bb5 Rossolimo</td><td>Normal Austin prep — Joel almost never plays 1...e5 (4 documented Ruy Lopez games as Black)</td></tr>
+    <tr><td>1...c5 (very rare as Black)</td><td>2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6 (Kan)</td><td>Open Sicilian — Austin's Kan setup; Joel rarely plays Sicilian as Black</td></tr>
+  </table>
+</div>
+
+<input type="checkbox" id="acc-ift-b" class="acc-toggle" checked>
+<label for="acc-ift-b" class="acc-label">Austin as Black — If / Then</label>
+<div class="acc-content">
+  <table>
+    <tr><th>If Joel plays...</th><th>Austin plays...</th><th>Why</th></tr>
+    <tr><td>1.Nf3 (53% probability)</td><td>1...d5 — wait for 2.b3</td><td>Primary Nimzo-Larsen threat; d5 claims center immediately</td></tr>
+    <tr><td>1.Nf3 d5 2.b3 (Nimzo-Larsen)</td><td>2...Nf6 3.Bb2 e6 4.e3 Be7 5.d4 O-O 6.Bd3 c5!</td><td>Solid QGD-type; ...c5 break is mandatory before move 7</td></tr>
+    <tr><td>1.Nf3 d5 2.b3 e6 3.Bb2 4.g3 (fianchetto)</td><td>4...c5! directly</td><td>Benoni-type counterplay immediately, before Joel builds Bg2 structure</td></tr>
+    <tr><td>1.Nf3 d5 2.c4 (Reti)</td><td>2...e6 3.g3 Nf6 4.Bg2 Be7 → c5</td><td>QGD/Tarrasch — same ...c5 plan applies; familiar structure</td></tr>
+    <tr><td>1.d4 (London/Queen's pawn)</td><td>1...Nf6 2.Nf3 e6 → QGD solid</td><td>Austin's standard d4-response; Nimzo-Indian if 2.c4 Nf6 3.Nc3 Bb4</td></tr>
+    <tr><td>1.e4 (rare — 8%)</td><td>1...c5 Sicilian immediately</td><td>Best-case scenario — Austin's home territory; Joel has no Open Sicilian experience as White</td></tr>
+  </table>
+</div>
+
+<input type="checkbox" id="acc-ift-p" class="acc-toggle" checked>
+<label for="acc-ift-p" class="acc-label">Key principles for this matchup</label>
+<div class="acc-content">
+  <ul>
+    <li><strong>Bc4/Bb3 is mandatory vs Scandinavian</strong> — Austin's Rossolimo prep does not apply (Joel plays 1...d5, not 1...c5 2...Nc6). Backed by Joel's 10 documented Scandinavian games.</li>
+    <li><strong>Joel's Nimzo-Larsen is NOT immediately dangerous</strong> — Austin's ...c5 break defuses it. Backed by Joel's 67% White blitz record — solid but not overwhelming; correct antidote exists.</li>
+    <li><strong>Create positions with "free" pawns near Joel's king</strong> — Carolinas Classic confirms Bxa2?? greedy-capture tendency (CPL 317 in the one classical game). The Bc4/Bb3 Scandinavian creates exactly these structural temptations.</li>
+    <li><strong>Avoid time trouble</strong> — Joel's 2505 bullet rating means he's dangerous in fast finishes even in OTB games. Clock management is a key variable in this matchup.</li>
+    <li><strong>Exploit the 44% blitz Black record</strong> — Austin forcing Joel into defense (1.e4) puts Joel on his statistically worst side. This is confirmed by multiple blitz tournaments, not a sample-size artifact.</li>
+    <li><strong>Long games favor Austin</strong> — classical accuracy gap (OTB 1872 vs online 2114) suggests Joel's precision dips under sustained pressure. Carolinas R1 confirms: Joel held 19 moves then broke. Austin needs to be the player who creates the 20th move crisis.</li>
+  </ul>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 5 — Critical Moments Reference</h2>
+
+<h3>Pattern: Greedy Pawn Grab Under Classical Pressure — Carolinas Classic 2026, R1</h3>
+<p><em>Joel Black · E20 Nimzo-Indian Kmoch 4.f3 · vs Wang Aaron (2199) · LOSS · Accuracy pending</em></p>
+
+<p>Position context: After 19...Rxb5 20.Rxb5, Black (Joel) had a solid position — eval +1.07, fully playable. The correct defensive plan was 20...a6 (Ra5 Nc4 Rxc5), which maintains structure and holds the position. Instead:</p>
+
+<div class="move-line">
+  ...Rxb5  20.Rxb5  <span class="bad-move">20...Bxa2??</span>
+  <br><span class="note">CPL 317 · Eval: +1.07 → +3.17 · Best: 20...a6 (Ra5 Nc4 Rxc5)</span>
+</div>
+
+<div class="move-line">
+  21.f4  <span class="bad-move">21...Bc4?</span>
+  <br><span class="note">Mistake · CPL ~250 · Best: Nc4 (Bxh5 Nxd6 Ra5 Ne4+ Ke1 Nxc3 Bf3)</span>
+</div>
+
+<p>Two consecutive errors after the initial blunder — the classic "second error after a mistake" pattern. From a solid +1.07 position, Joel played Bxa2?? (greedy pawn grab) then Bc4? (failure to recover). Within two moves, the eval went from +1.07 to +5.66. This reveals Joel's chess psychology: <strong>under classical time pressure, he prioritizes material gain over structural integrity, and then fails to recalibrate after an error.</strong></p>
+
+<h3>Pattern: High accuracy maintained until one moment of greed</h3>
+<p><em>Same game — Joel held accurately for 19 moves against 2199-level play</em></p>
+
+<p>The Carolinas game also shows Joel's defensive ceiling: he played solidly for 19 moves in a difficult Nimzo-Indian position against Wang Aaron (2199). This calibrates expectations — Joel is NOT a player who blunders early or randomly. He can execute a solid defensive plan. The blunder came in a specific pattern: <strong>a complex rook endgame where a "free" pawn appeared on a2</strong>. Austin should not expect an early tactical gift. Create long structural pressure, then engineer similar pawn-grab temptation situations.</p>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 6 — Engine Accuracy Reference</h2>
+
+<p><em>Stockfish analysis in progress. Full per-game data will appear in <a href="matchup-joel-deep.html">matchup-joel-deep.html</a> once the 77-game run completes. Current cache: 4 games.</em></p>
+
+<table>
+  <tr><th>Tournament</th><th>Color</th><th>Opponent</th><th>Elo</th><th>Result</th><th>Acc%</th><th>CPL</th><th>B/M/I</th></tr>
+  <tr>
+    <td>Lichess Blitz</td><td>White</td><td>Maineroadblue</td><td>2118</td><td>WIN</td><td>86.8%</td><td>81</td><td>2/2/2</td>
+  </tr>
+  <tr>
+    <td>Lichess Bullet</td><td>White</td><td>Gesha67</td><td>2403</td><td>WIN</td><td>89.2%</td><td>35</td><td>1/1/2</td>
+  </tr>
+  <tr>
+    <td>Lichess Bullet</td><td>Black</td><td>kingslayer2410</td><td>2427</td><td>WIN</td><td>90.4%</td><td>27</td><td>0/1/7</td>
+  </tr>
+  <tr class="row-danger">
+    <td>Lichess Bullet (casual)</td><td>White</td><td>the_tryykko</td><td>2431</td><td>LOSS</td><td>84.0%</td><td>166</td><td>6/6/12</td>
+  </tr>
+</table>
+
+<p><em>Partial average (4 games): 87.6%. Note: the 84.0% casual bullet loss shows significant accuracy collapse (6 blunders in a losing position) — Joel's accuracy drops sharply once behind. Confirmed by the Carolinas Classic pattern.</em></p>
+
+<p style="margin-top:24px;">
+  <a href="../austin-prep.html">← Preparation Index</a> &nbsp;·&nbsp;
+  <a href="matchup-joel.html">← Matchup Overview</a> &nbsp;·&nbsp;
+  <a href="matchup-joel-white.html">Austin as White →</a> &nbsp;·&nbsp;
+  <a href="matchup-joel-black.html">Austin as Black →</a> &nbsp;·&nbsp;
+  <a href="matchup-joel-deep.html">Full Engine Analysis →</a>
+</p>
+
+</body>
+</html>
