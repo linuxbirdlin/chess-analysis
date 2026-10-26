@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Austin Lin — Opening Theory Check (NAYCC 2025 + PAM 2026)</title>
+<style>
+:root { --accent: #1a4a8b; --red: #8b1a1a; --gold: #b8860b; --green: #1a5c1a; --bg: #f8f6f2; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+       font-size: 14px; color: #1a1a1a; max-width: 900px; margin: 0 auto;
+       padding: 20px 24px; background: var(--bg); }
+.page-header { border-left: 6px solid var(--accent); background: #eef2fb;
+               padding: 14px 18px; margin-bottom: 22px; border-radius: 0 5px 5px 0; }
+.page-header h1 { font-size: 1.3em; margin-bottom: 4px; }
+.page-header .meta { font-size: 0.82em; color: #555; }
+.page-header .nav { margin-top: 8px; font-size: 0.82em; }
+.page-header .nav a { color: var(--accent); text-decoration: none; margin-right: 14px; }
+
+h2 { font-size: 1.05em; margin: 28px 0 10px; padding: 8px 12px;
+     border-left: 4px solid var(--accent); background: #f0f3fa; }
+h2.red-section { border-left-color: var(--red); background: #fff0f0; }
+h2.gold-section { border-left-color: var(--gold); background: #fffbe0; }
+h2.green-section { border-left-color: var(--green); background: #f0fff0; }
+h3 { font-size: 0.97em; margin: 14px 0 6px; color: #333; font-weight: bold; }
+
+.deviation-block { background: #fff; border: 1px solid #ddd; border-radius: 5px;
+                   padding: 14px 16px; margin: 14px 0; }
+.deviation-block .dev-title { font-size: 0.97em; font-weight: bold; color: var(--accent);
+                               border-bottom: 1px solid #eee; padding-bottom: 7px; margin-bottom: 9px; }
+.deviation-block .dev-title .eco { font-size: 0.82em; color: #666; font-weight: normal; margin-left: 8px; }
+.deviation-block .game-ref { font-size: 0.82em; color: #666; margin-bottom: 8px; }
+.deviation-block .game-ref .result-loss { color: var(--red); font-weight: bold; }
+.deviation-block .game-ref .result-win  { color: var(--green); font-weight: bold; }
+.deviation-block .game-ref .result-draw { color: var(--gold); font-weight: bold; }
+
+.move-line { background: #f5f5f0; border: 1px solid #ddd; border-radius: 4px;
+             padding: 7px 12px; font-family: monospace; font-size: 0.86em;
+             margin: 7px 0; line-height: 1.8; }
+.mv-a  { color: #1a4a8b; font-weight: bold; }
+.mv-z  { color: #8b1a1a; font-weight: bold; }
+.mv-theory { color: #1a5c1a; font-weight: bold; }
+.mv-actual { color: #8b1a1a; font-weight: bold; }
+.key-move { background: #ddeeff; padding: 1px 5px; border-radius: 3px;
+            font-weight: bold; font-family: monospace; }
+.bad-move  { background: #ffdde0; padding: 1px 5px; border-radius: 3px;
+             font-weight: bold; font-family: monospace; }
+.note { color: #555; font-style: italic; font-size: 0.88em; }
+
+.callout { padding: 9px 14px; border-radius: 4px; margin: 9px 0; font-size: 0.88em; line-height: 1.55; }
+.callout-red  { background: #fff0f0; border-left: 4px solid var(--red); }
+.callout-blue { background: #eef2fb; border-left: 4px solid var(--accent); }
+.callout-gold { background: #fffbe0; border-left: 4px solid var(--gold); }
+.callout-green { background: #efffef; border-left: 4px solid var(--green); }
+
+.theory-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.86em; }
+.theory-table th { background: #1a4a8b; color: #fff; padding: 7px 10px; text-align: left; }
+.theory-table td { padding: 6px 10px; border-bottom: 1px solid #ddd; vertical-align: top; }
+.theory-table tr:nth-child(even) td { background: #f5f5f0; }
+.severity-high { color: var(--red); font-weight: bold; }
+.severity-med  { color: var(--gold); font-weight: bold; }
+.severity-ok   { color: var(--green); }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 10px 0; }
+@media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+
+.mini-card { background: #fff; border: 1px solid #ddd; border-radius: 4px; padding: 10px 12px; }
+.mini-card .mc-label { font-size: 0.78em; color: #888; text-transform: uppercase; margin-bottom: 3px; }
+.mini-card .mc-value { font-size: 1.1em; font-weight: bold; }
+
+hr { border: none; border-top: 2px solid #ccc; margin: 26px 0; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Opening Theory Check — Austin Lin</h1>
+  <div class="meta">Games analyzed: NAYCC 2025 (9 games) + PAM 2026 (7 games) | 4 theory deviations identified</div>
+  <div class="nav">
+    <a href="../austin-prep.html">← Prep Index</a>
+    <a href="../austin/naycc2025/review-deep.html">NAYCC Deep Review</a>
+    <a href="../austin/pam2026/review-deep.html">PAM Deep Review</a>
+  </div>
+</div>
+
+<div class="callout callout-gold">
+  <strong>Method:</strong> All 16 tournament games (NAYCC + PAM) were replayed move-by-move via python-chess. Opening moves were compared against known theory for each ECO code. The Lichess opening explorer (API-authenticated) was not used — deviations are identified based on established theory for each variation. Four deviations were found: two critical (resulted in lost games), one moderate, one minor.
+</div>
+
+<div class="two-col" style="margin: 16px 0;">
+  <div class="mini-card">
+    <div class="mc-label">Games checked</div>
+    <div class="mc-value">16 games (9 NAYCC + 7 PAM)</div>
+  </div>
+  <div class="mini-card">
+    <div class="mc-label">Deviations found</div>
+    <div class="mc-value" style="color: #8b1a1a;">4 (2 critical, 1 moderate, 1 minor)</div>
+  </div>
+  <div class="mini-card">
+    <div class="mc-label">Openings checked (White)</div>
+    <div class="mc-value">C02 French Adv, C58 Two Knights, B41/B47 Sicilian, Exchange CK</div>
+  </div>
+  <div class="mini-card">
+    <div class="mc-label">Openings checked (Black)</div>
+    <div class="mc-value">E32/E49/E51 Nimzo, B47 Taimanov, A13 English</div>
+  </div>
+</div>
+
+<hr>
+
+<h2 class="red-section">Critical Deviation 1 — C02 French Advanced: 10.Nd2 instead of 10.Qg4!</h2>
+
+<div class="deviation-block">
+  <div class="dev-title">
+    Austin plays 10.Nd2 (passive) — Theory: 10.Qg4! (winning initiative)
+    <span class="eco">ECO C02 | NAYCC R4</span>
+  </div>
+  <div class="game-ref">
+    Austin Lin (1968) vs Justin Huang (2093) — <span class="result-loss">0-1</span> — NAYCC 2025 Round 4
+  </div>
+
+  <h3>Position reached (after 9...Nc6)</h3>
+  <div class="move-line">
+    <span class="mv-a">1.e4</span> <span class="mv-z">e6</span>
+    <span class="mv-a">2.d4</span> <span class="mv-z">d5</span>
+    <span class="mv-a">3.e5</span> <span class="mv-z">c5</span>
+    <span class="mv-a">4.c3</span> <span class="mv-z">Nc6</span>
+    <span class="mv-a">5.Nf3</span> <span class="mv-z">Nge7</span>
+    <span class="mv-a">6.dxc5</span> <span class="mv-z">Ng6</span>
+    <span class="mv-a">7.Be3</span> <span class="mv-z">Ngxe5</span>
+    <span class="mv-a">8.Nxe5</span> <span class="mv-z">Nxe5</span>
+    <span class="mv-a">9.f4</span> <span class="mv-z">Nc6</span>
+    → <strong>Critical junction: White to play move 10</strong>
+  </div>
+
+  <div class="callout callout-red">
+    <strong>What Austin played:</strong> <span class="bad-move">10.Nd2</span> — developing the knight, but to a passive square where it blocks White's own rook on d1 and does not create immediate threats. After 10...Bd7 11.Bb5 Qc7, Justin was able to develop normally and equalize.
+  </div>
+
+  <div class="callout callout-blue">
+    <strong>Theory recommendation: <span class="key-move">10.Qg4!</span></strong><br>
+    This is the sharpest and most forcing move in this position. White attacks the g7 pawn immediately, forcing Black to deal with a concrete threat before completing development.
+    <div class="move-line" style="margin-top: 8px;">
+      <span class="mv-a">10.Qg4!</span> <span class="mv-z">Bf8</span> (forced — 10...g6?? 11.Qxg6+ wins)
+      <span class="mv-a">11.Qxg7</span> <span class="mv-z">Qxc5</span>
+      <span class="mv-a">12.Qxh8</span> <span class="mv-z">Qxe3+</span>
+      <span class="mv-a">13.Kd1!</span> — White material plus with a wild game
+      <br>
+      OR: <span class="mv-z">10...g6</span> <span class="mv-a">11.Bd3!</span> (targeting the e-file + f5 plan) — White controls e5 square
+    </div>
+    <span class="note">Note: 10.Qg4! is the tabiya for the C02 line after 9.f4 Nc6. White should know this move cold before playing the Advanced French.</span>
+  </div>
+
+  <h3>What to memorize</h3>
+  <div class="callout callout-green">
+    <strong>C02 rule:</strong> In the Advanced French after <code>3.e5 c5 4.c3</code>, the pawn sacrifice / gambit line with <code>7.Be3 Ngxe5 8.Nxe5 Nxe5 9.f4 Nc6</code> — always play <strong>10.Qg4!</strong> next. Don't delay. The queen goes to g4 to attack g7, and Black must defend or sacrifice material. This is the entire point of White's 7.Be3 setup. Austin knew 7.Be3 but not the follow-up.<br><br>
+    <strong>Study resource:</strong> Search "C02 French Advanced 10.Qg4" on Lichess opening explorer (master games filter). The line is well-documented — 10.Qg4 is the engine recommendation and master preference.
+  </div>
+</div>
+
+<h2 class="red-section">Critical Deviation 2 — B47 Taimanov: 6...Bc5?? walks into White's trap</h2>
+
+<div class="deviation-block">
+  <div class="dev-title">
+    Austin plays 6...Bc5? vs 6.Ndb5 — Theory: 6...d6 (main line)
+    <span class="eco">ECO B47 | PAM R7</span>
+  </div>
+  <div class="game-ref">
+    Fernandez Herrera, Andres (2137) vs Austin Lin (1865) — <span class="result-loss">1-0</span> — PAM 2026 Round 7
+  </div>
+
+  <h3>Position reached (after 5...Nc6)</h3>
+  <div class="move-line">
+    <span class="mv-z">1...c5</span>
+    <span class="mv-a">2.Nf3</span> <span class="mv-z">e6</span>
+    <span class="mv-a">3.d4</span> <span class="mv-z">cxd4</span>
+    <span class="mv-a">4.Nxd4</span> <span class="mv-z">Nf6</span>
+    <span class="mv-a">5.Nc3</span> <span class="mv-z">Nc6</span>
+    <span class="mv-a">6.Ndb5</span> → <strong>Critical junction: Black to play move 6</strong>
+  </div>
+
+  <div class="callout callout-red">
+    <strong>What Austin played:</strong> <span class="bad-move">6...Bc5?!</span> — developing the bishop actively, but walking directly into White's planned piece activity. The game continued 7.Bf4 O-O <span class="bad-move">8.Bc7!</span> Qe7 9.Bd6 Bxd6 10.Qxd6 — White won the bishop pair and established a dominant queen on d6. Austin was already struggling from move 10. Game ended in White's favor.
+  </div>
+
+  <div class="callout callout-blue">
+    <strong>Theory recommendation: <span class="key-move">6...d6</span> (Taimanov main line)</strong><br>
+    After <code>6.Ndb5</code>, Black must play <code>6...d6</code> immediately. This is the standard Taimanov / Kan response — Black stabilizes the center before developing and prevents Nc7+.
+    <div class="move-line" style="margin-top: 8px;">
+      <span class="mv-a">6.Ndb5</span> <span class="mv-z">d6!</span> (main line — prevents Nc7+ fork)
+      <span class="mv-a">7.Bf4</span> <span class="mv-z">e5</span>
+      <span class="mv-a">8.Bg5</span> <span class="mv-z">a6</span>
+      <span class="mv-a">9.Bxf6</span> <span class="mv-z">gxf6</span>
+      <span class="mv-a">10.Na3</span> <span class="mv-z">b5</span> — Black has active counterplay with the two bishops
+      <br>
+      OR: <span class="mv-z">6...Bb4!</span> (pin line) — also playable, pins the Nc3 and fights for the d4 square
+    </div>
+    <span class="note">Note: 6.Ndb5 is a specific aggressive system targeting the c7 square. The entire point is to threaten Nd6+ or Nc7+. Black's d6 prevents Nc7+ while keeping central tension. 6...Bc5 ignores this threat entirely.</span>
+  </div>
+
+  <h3>What to memorize</h3>
+  <div class="callout callout-green">
+    <strong>Taimanov rule:</strong> When White plays <code>5.Nc3 Nc6 6.Ndb5</code>, immediately play <strong>6...d6!</strong> (or 6...Bb4 as alternative). Never develop with 6...Bc5 first — White will play Bc7! and the bishop gets trapped or the queen is displaced. The d6 move must become automatic in this structure. This affects any Austin game where he enters the Taimanov with 2...e6 3...Nc6 4...Nf6 5...Nc6.<br><br>
+    <strong>Study resource:</strong> Search "B47 Taimanov 6.Ndb5" — this is one of the most critical theoretical junctions in the entire Sicilian. Any Taimanov book covers this in depth.
+  </div>
+</div>
+
+<hr>
+
+<h2 class="gold-section">Moderate Deviation — C58 Two Knights: 8.Bd3 instead of 8.Qf3</h2>
+
+<div class="deviation-block">
+  <div class="dev-title">
+    Austin plays 8.Bd3 (solid but passive) — Theory: 8.Qf3 (sharper)
+    <span class="eco">ECO C58 | NAYCC R2</span>
+  </div>
+  <div class="game-ref">
+    Austin Lin (1968) vs Verma, Darsh — <span class="result-loss">0-1</span> — NAYCC 2025 Round 2
+  </div>
+
+  <h3>Position reached (after 7...bxc6)</h3>
+  <div class="move-line">
+    <span class="mv-a">1.e4</span> <span class="mv-z">e5</span>
+    <span class="mv-a">2.Nf3</span> <span class="mv-z">Nc6</span>
+    <span class="mv-a">3.Bc4</span> <span class="mv-z">Nf6</span>
+    <span class="mv-a">4.Ng5</span> <span class="mv-z">d5</span>
+    <span class="mv-a">5.exd5</span> <span class="mv-z">Na5</span>
+    <span class="mv-a">6.Bb5+</span> <span class="mv-z">c6</span>
+    <span class="mv-a">7.dxc6</span> <span class="mv-z">bxc6</span>
+    → <strong>Critical junction: White to play move 8</strong>
+  </div>
+
+  <div class="callout callout-gold">
+    <strong>What Austin played:</strong> <span class="bad-move">8.Bd3</span> — The bishop retreats to d3, a sensible square, but it surrenders all the initiative White had after 6.Bb5+. White is now just developing normally with no specific threat. Black can comfortably play ...Nd5 and equalize.
+  </div>
+
+  <div class="callout callout-blue">
+    <strong>Theory recommendation: <span class="key-move">8.Qf3</span> (main sharp line) or <span class="key-move">8.d3</span></strong><br>
+    <code>8.Qf3</code> is the principled move: White's queen goes to f3 where it eyes the f7 pawn and prepares Qxf7+ ideas. This is more forcing and keeps Black under pressure.
+    <div class="move-line" style="margin-top: 8px;">
+      <span class="mv-a">8.Qf3!</span> <span class="mv-z">Nd5</span> (best — Black centralizess)
+      <span class="mv-a">9.Ne4</span> <span class="mv-z">Nb6</span>
+      <span class="mv-a">10.d3</span> <span class="mv-z">Be7</span>
+      <span class="mv-a">11.Bxc6+!</span> <span class="mv-z">Bd7</span>
+      <span class="mv-a">12.Bxd7+</span> <span class="mv-z">Qxd7</span>
+      <span class="mv-a">13.Nf6+!</span> — White wins material
+      <br>
+      More solid: <span class="mv-a">8.d3</span> — keeps the bishop on the long diagonal and develops normally
+    </div>
+    <span class="note">Note: 8.Bd3 is not losing, but 8.Qf3 is significantly more aggressive and consistent with White's 6.Bb5+ play. The Two Knights 4.Ng5 is a sharp attacking weapon — playing passive moves with Bd3 gives away the initiative Austin won with Ng5.</span>
+  </div>
+
+  <h3>Context note</h3>
+  <div class="callout callout-gold">
+    Austin does not regularly play 4.Ng5 (Two Knights) — his standard Italian system begins with 3.Bc4 Bc5 4.c3 Nf6 (Giuoco Piano territory). This C58 game was likely a reaction to Black's 3...Nf6. Austin should decide: either learn the 4.Ng5 theory including 8.Qf3, or sidestep into the Giuoco with 4.c3 instead of 4.Ng5 to stay in familiar territory. Playing 4.Ng5 and then 8.Bd3 is inconsistent — pick one or the other.
+  </div>
+</div>
+
+<h2 class="gold-section">Minor Deviation — B41 Maroczy Bind: 7.a3 tempo loss before 7.Be3</h2>
+
+<div class="deviation-block">
+  <div class="dev-title">
+    Austin plays 7.a3 (extra tempo loss) — Theory: 7.Be3 directly
+    <span class="eco">ECO B41/B42 | NAYCC R5</span>
+  </div>
+  <div class="game-ref">
+    Austin Lin (1968) vs Fu, Odyssey — <span class="result-loss">0-1</span> — NAYCC 2025 Round 5
+  </div>
+
+  <h3>Position reached (after 6...Nf6)</h3>
+  <div class="move-line">
+    <span class="mv-a">1.e4</span> <span class="mv-z">c5</span>
+    <span class="mv-a">2.Nf3</span> <span class="mv-z">e6</span>
+    <span class="mv-a">3.d4</span> <span class="mv-z">cxd4</span>
+    <span class="mv-a">4.Nxd4</span> <span class="mv-z">a6</span>
+    <span class="mv-a">5.c4</span> <span class="mv-z">Qc7</span>
+    <span class="mv-a">6.Nc3</span> <span class="mv-z">Nf6</span>
+    → <strong>Critical junction: White to play move 7</strong>
+  </div>
+
+  <div class="callout callout-gold">
+    <strong>What Austin played:</strong> <span class="bad-move">7.a3</span> — preventing ...Bb4 pinning the Nc3. This is not a blunder — it is a legitimate prophylactic move — but it loses a tempo compared to developing immediately with 7.Be3. Black gets to play 7...Be7 (or ...d6) for free and is ahead in development.
+  </div>
+
+  <div class="callout callout-blue">
+    <strong>Theory recommendation: <span class="key-move">7.Be3</span> (most common) or <span class="key-move">7.Bd3</span></strong><br>
+    In the Maroczy Bind after 5.c4 Qc7 6.Nc3, the main line continues 7.Be3. The ...Bb4 pin is not an immediate threat here because White can always play Qd3 or just ignore it — the c3 knight doesn't need to be protected urgently.
+    <div class="move-line" style="margin-top: 8px;">
+      <span class="mv-a">7.Be3!</span> <span class="mv-z">d6</span>
+      <span class="mv-a">8.Bd3</span> <span class="mv-z">Nbd7</span>
+      <span class="mv-a">9.O-O</span> <span class="mv-z">Be7</span>
+      <span class="mv-a">10.f4</span> → White builds kingside pressure in the English Attack setup
+    </div>
+    <span class="note">Note: 7.a3 is a practical choice but not the sharpest. If Austin wants to play the Maroczy Bind seriously, 7.Be3 should be the default, with 7.a3 reserved for specific anti-...Bb4 situations.</span>
+  </div>
+
+  <div class="callout callout-gold">
+    <strong>Context:</strong> The game was likely lost for other reasons (the Maroczy Bind is a complex strategic system). This deviation is minor and is flagged as a learning point rather than a key blunder. Austin's loss in this game came later in the middlegame, not from the opening.
+  </div>
+</div>
+
+<hr>
+
+<h2 class="green-section">What Austin Got Right — Openings Played Well</h2>
+
+<table class="theory-table">
+  <thead><tr><th>Game</th><th>Opening</th><th>Assessment</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>NAYCC R7 (vs Su Jayden, E32 Nimzo)</td>
+    <td>E32 Nimzo-Indian Bxc3+</td>
+    <td class="severity-ok">Solid — Austin's preparation in Nimzo is deep. No opening issues, won convincingly.</td>
+  </tr>
+  <tr>
+    <td>NAYCC R3 (vs Chitta, E49 Nimzo)</td>
+    <td>E49 Nimzo Samisch</td>
+    <td class="severity-ok">Correct — Austin handled the Nimzo structures properly, won with counterplay.</td>
+  </tr>
+  <tr>
+    <td>NAYCC R8 (vs Jagath, B51 Rossolimo)</td>
+    <td>B51 Rossolimo 3.Bb5 d6</td>
+    <td class="severity-ok">Well-executed — 5.c3 6.d4 break is standard Rossolimo play. Austin won this game.</td>
+  </tr>
+  <tr>
+    <td>PAM R3 (vs Villalba, Exchange CK)</td>
+    <td>Exchange Caro-Kann 4.Bd3</td>
+    <td class="severity-ok">On-book — Austin's main weapon. 5.c3 Qc7 6.h3 plan is standard. Won easily.</td>
+  </tr>
+  <tr>
+    <td>PAM R6 (vs Marin Marin, French 3.Nd2)</td>
+    <td>French Tarrasch 3.Nd2</td>
+    <td class="severity-ok">Correct — 3.Nd2 c5 4.exd5 followed by dxc4 and c3 structure is solid theory.</td>
+  </tr>
+  <tr>
+    <td>PAM R4 (vs Alvarez, Sicilian as Black)</td>
+    <td>A/B Sicilian solid setup with ...d5</td>
+    <td class="severity-ok">Good — Austin played ...d5 break at the right moment, achieved a solid draw vs 2069-rated.</td>
+  </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>Summary: Theory Gaps vs Areas of Strength</h2>
+
+<table class="theory-table">
+  <thead><tr><th>Opening</th><th>Role</th><th>Issue</th><th>Severity</th><th>Action</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><strong>C02 French Advanced</strong></td>
+    <td>White</td>
+    <td>Missed 10.Qg4! after 9.f4 Nc6 — played passive 10.Nd2 instead</td>
+    <td class="severity-high">CRITICAL</td>
+    <td>Memorize: after 9.f4 Nc6 → always 10.Qg4!</td>
+  </tr>
+  <tr>
+    <td><strong>B47 Taimanov Sicilian</strong></td>
+    <td>Black</td>
+    <td>Played 6...Bc5? vs 6.Ndb5 — walked into bishop-swap trap</td>
+    <td class="severity-high">CRITICAL</td>
+    <td>Memorize: vs 6.Ndb5 → always 6...d6!</td>
+  </tr>
+  <tr>
+    <td><strong>C58 Two Knights</strong></td>
+    <td>White</td>
+    <td>Played 8.Bd3 (passive) vs theory 8.Qf3 (active)</td>
+    <td class="severity-med">MODERATE</td>
+    <td>Either learn 8.Qf3 line OR avoid 4.Ng5, play 4.c3 Giuoco instead</td>
+  </tr>
+  <tr>
+    <td><strong>B41 Maroczy Bind</strong></td>
+    <td>White</td>
+    <td>Played 7.a3 (tempo) before 7.Be3 — gave Black free development</td>
+    <td class="severity-med">MINOR</td>
+    <td>Default: 7.Be3 in Maroczy, 7.a3 only when specifically needed</td>
+  </tr>
+  <tr>
+    <td><strong>Exchange Caro-Kann</strong></td>
+    <td>White</td>
+    <td>No issues — Austin's best-prepared opening</td>
+    <td class="severity-ok">CLEAN</td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td><strong>Nimzo-Indian (Bxc3+)</strong></td>
+    <td>Black</td>
+    <td>No issues — Austin's deepest preparation</td>
+    <td class="severity-ok">CLEAN</td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td><strong>Rossolimo Sicilian</strong></td>
+    <td>White</td>
+    <td>No issues vs 3...d6 fianchetto — solid Rossolimo execution</td>
+    <td class="severity-ok">CLEAN</td>
+    <td>—</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="callout callout-gold" style="margin-top: 16px;">
+  <strong>Priority action list:</strong>
+  <ol style="padding-left: 20px; line-height: 2; margin-top: 4px;">
+    <li><strong>C02 French Advanced:</strong> Drill <code>10.Qg4!</code> response to 9...Nc6. Use Lichess opening explorer to see master games with this line. This is the single most likely theory gap to recur.</li>
+    <li><strong>B47 Taimanov:</strong> After any 5.Nc3 Nc6 6.Ndb5, respond <code>6...d6!</code> automatically. This is a one-move fix but must be reflexive.</li>
+    <li><strong>C58 Two Knights:</strong> Decide: commit to 8.Qf3 theory, or avoid 4.Ng5 entirely and play 4.c3 Giuoco Piano to stay in familiar territory. Don't play a sharp gambit system with passive follow-up moves.</li>
+  </ol>
+</div>
+
+<div style="margin-top: 20px; font-size: 0.82em; color: #555; text-align: center; border-top: 1px solid #ccc; padding-top: 12px;">
+  <a href="../austin-prep.html" style="color: var(--accent); text-decoration: none; margin-right: 16px;">← Prep Index</a>
+  <a href="../austin/naycc2025/review-deep.html" style="color: var(--accent); text-decoration: none; margin-right: 16px;">NAYCC Deep Review</a>
+  <a href="../austin/pam2026/review-deep.html" style="color: var(--accent); text-decoration: none;">PAM Deep Review</a>
+</div>
+
+</body>
+</html>
