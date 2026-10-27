@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NAYCC 2026 — 2-Week Sprint Report (Updated)</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px; line-height: 1.75; color: #1f2328; background: #f6f8fa;
+}
+.page { max-width: 960px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+@media (max-width: 680px) { .page { padding: 24px 18px 40px; } }
+
+.doc-header { border-bottom: 3px solid #b8000f; padding-bottom: 20px; margin-bottom: 32px; }
+.doc-header h1 { margin: 0 0 6px; font-size: 1.9rem; color: #1f2328; }
+.doc-header .subtitle { font-size: 0.87rem; color: #57606a; line-height: 1.8; }
+.doc-header .subtitle strong { color: #1f2328; }
+.update-badge { display: inline-block; background: #2d7d46; color: #fff; border-radius: 3px; padding: 2px 10px; font-size: 0.78rem; font-weight: 700; margin-left: 8px; vertical-align: middle; }
+
+h2 { font-size: 1.18rem; margin: 40px 0 12px; padding: 8px 14px; border-radius: 4px; }
+h2.urgent   { background: #fff0f0; border-left: 5px solid #cf2222; color: #7a0000; }
+h2.high     { background: #fff8e6; border-left: 5px solid #d4a017; color: #7a4f00; }
+h2.medium   { background: #eaf0f8; border-left: 5px solid #1a5276; color: #1a3a55; }
+h2.done     { background: #f0fff4; border-left: 5px solid #2d7d46; color: #1a4731; }
+h2.new      { background: #f3eeff; border-left: 5px solid #6a3fa0; color: #3a1a70; }
+h3 { font-size: 1.01rem; color: #1f2328; margin: 22px 0 8px; }
+hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+p { margin: 0 0 10px; }
+ul, ol { margin: 6px 0 12px; padding-left: 1.6em; }
+li { margin-bottom: 5px; }
+strong { font-weight: 600; }
+em { color: #57606a; font-style: italic; }
+a { color: #1a5276; }
+code { font-size: 0.88em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 3px; padding: 1px 5px; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 14px 0 20px; }
+thead th { background: #1f2328; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+tbody tr:nth-child(odd) { background: #f6f8fa; }
+tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+tbody tr:last-child td { border-bottom: none; }
+
+.callout { border-radius: 5px; padding: 12px 16px; margin: 12px 0; font-size: 0.93rem; }
+.callout-red    { background: #fff0f0; border-left: 4px solid #cf2222; color: #7a0000; }
+.callout-gold   { background: #fff8e6; border-left: 4px solid #d4a017; color: #7a4f00; }
+.callout-blue   { background: #eaf0f8; border-left: 4px solid #1a5276; color: #1a3a55; }
+.callout-green  { background: #dafbe1; border-left: 4px solid #2d7d46; color: #1a4731; }
+.callout-purple { background: #f3eeff; border-left: 4px solid #6a3fa0; color: #3a1a70; }
+
+.task-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 18px 0; overflow: hidden; }
+.task-card .tc-head {
+  padding: 10px 16px; font-weight: 600; font-size: 0.95rem;
+  display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+}
+.tc-head.p1 { background: #fff0f0; border-bottom: 1px solid #f0b0b0; }
+.tc-head.p2 { background: #fff8e6; border-bottom: 1px solid #f0d080; }
+.tc-head.p3 { background: #eaf0f8; border-bottom: 1px solid #c0d4ea; }
+.tc-head.p4 { background: #f6f8fa; border-bottom: 1px solid #d0d7de; }
+.tc-head.pnew { background: #f3eeff; border-bottom: 1px solid #c8a8f0; }
+.task-card .tc-body { padding: 14px 18px; }
+.badge {
+  font-size: 0.72rem; font-weight: 700; border-radius: 3px; padding: 2px 8px; white-space: nowrap;
+}
+.b-critical { background: #cf2222; color: #fff; }
+.b-high     { background: #d4a017; color: #fff; }
+.b-medium   { background: #1a5276; color: #fff; }
+.b-done     { background: #2d7d46; color: #fff; }
+.b-new      { background: #6a3fa0; color: #fff; }
+.b-day      { background: #e0e0e0; color: #333; font-weight: 400; }
+
+.seed-1 { color: #7a0000; font-weight: 700; }
+.seed-top { color: #7a4f00; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="doc-header">
+  <h1>NAYCC 2026 — 2-Week Sprint Report <span class="update-badge">UPDATED Oct 27</span></h1>
+  <div class="subtitle">
+    <strong>Tournament:</strong> North American Youth Chess Championship 2026, U14 &nbsp;·&nbsp;
+    <strong>Dates:</strong> Nov 11–16, 2026 &nbsp;·&nbsp;
+    <strong>Location:</strong> Hotel del Prado, Ciudad de Mexico &nbsp;·&nbsp;
+    <strong>Format:</strong> Swiss, 9 rounds, G/90+30<br>
+    <strong>Field:</strong> 33 players · Avg rating 1748 &nbsp;·&nbsp;
+    <strong>Austin:</strong> Seeded #6 (AFM, 1914) &nbsp;·&nbsp;
+    <strong>FIDE Event ID:</strong> 496177
+  </div>
+</div>
+
+<div class="callout callout-green">
+  <strong>Roster confirmed.</strong> All 14 analyzed opponents are attending. Justin Huang moved to U16 — not in this field. This means 100% of Austin's prep assets are directly applicable. There are also ~19 unanalyzed players (seeds #15–33, mostly 1500–1765 rated) who Austin will face in early rounds.
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 class="done">1 — Confirmed Field (33 Players)</h2>
+
+<p>Sorted by starting rank. Austin is seeded #6. In a 9-round Swiss he can expect to face the top 5 seeds in rounds 5–9 if he keeps winning early.</p>
+
+<table>
+<thead><tr>
+  <th>#</th><th>Name</th><th>Title</th><th>Fed</th><th>Rtg</th>
+  <th>In prep set?</th><th>Direct record</th><th>Threat</th>
+</tr></thead>
+<tbody>
+<tr><td class="seed-1">1</td><td><strong>Liu, Zachary Hankun</strong></td><td>CM</td><td>CAN</td><td class="seed-1">2169</td><td>✓ Full pipeline</td><td>0W–1L</td><td><span style="background:#7a0000;color:#fff;border-radius:3px;padding:1px 8px;font-size:0.78rem;">HIGHEST</span></td></tr>
+<tr><td class="seed-top">2</td><td><strong>Lee, Daniel Joshua</strong></td><td>—</td><td>CAN</td><td class="seed-top">2111</td><td>✓ Full pipeline</td><td>0W–1L</td><td><span style="background:#7a0000;color:#fff;border-radius:3px;padding:1px 8px;font-size:0.78rem;">HIGHEST</span></td></tr>
+<tr><td class="seed-top">3</td><td><strong>Gao, Heye</strong></td><td>CM</td><td>CAN</td><td class="seed-top">2076</td><td>✓ Full pipeline</td><td>0W–2L–1D</td><td><span style="background:#cf2222;color:#fff;border-radius:3px;padding:1px 8px;font-size:0.78rem;">HIGH</span></td></tr>
+<tr><td class="seed-top">4</td><td><strong>Cortes Medina, Fernando</strong></td><td>CM</td><td>MEX</td><td class="seed-top">2072</td><td>✓ Full pipeline</td><td>No encounter</td><td><span style="background:#cf2222;color:#fff;border-radius:3px;padding:1px 8px;font-size:0.78rem;">HIGH</span></td></tr>
+<tr><td>5</td><td><strong>Santhosh, Pranav</strong></td><td>—</td><td>USA</td><td>1957</td><td>✓ Full pipeline</td><td>No encounter</td><td><span style="background:#d4a017;color:#fff;border-radius:3px;padding:1px 8px;font-size:0.78rem;">MEDIUM-HIGH</span></td></tr>
+<tr style="background:#e8f4fd;"><td><strong>6</strong></td><td><strong>Lin, Austin</strong></td><td><strong>AFM</strong></td><td><strong>CAN</strong></td><td><strong>1914</strong></td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>7</td><td><strong>Johnson, Emerson Aurelius</strong></td><td>—</td><td>USA</td><td>1905</td><td>✓ Full pipeline</td><td>No encounter</td><td><span style="background:#d4a017;color:#fff;border-radius:3px;padding:1px 8px;font-size:0.78rem;">MEDIUM</span></td></tr>
+<tr><td>8</td><td><strong>Jackson, Leo Daniel Olivera</strong></td><td>—</td><td>USA</td><td>1899</td><td>✓ Full pipeline</td><td>No encounter</td><td><span style="background:#d4a017;color:#fff;border-radius:3px;padding:1px 8px;font-size:0.78rem;">MEDIUM</span></td></tr>
+<tr><td>9</td><td><strong>Ajith, Aarush</strong></td><td>—</td><td>CAN</td><td>1891</td><td>✓ Full pipeline</td><td>No encounter</td><td><span style="background:#1a5276;color:#fff;border-radius:3px;padding:1px 8px;font-size:0.78rem;">LOW-MEDIUM</span></td></tr>
+<tr><td>10</td><td><strong>Sankar, Tarun</strong></td><td>—</td><td>USA</td><td>1888</td><td>✓ Full pipeline</td><td>No encounter</td><td><span style="background:#1a5276;color:#fff;border-radius:3px;padding:1px 8px;font-size:0.78rem;">LOW-MEDIUM</span></td></tr>
+<tr><td>11</td><td><strong>Hernandez Gamboa, Daniel</strong></td><td>—</td><td>MEX</td><td>1844 <em style="font-size:0.78rem;color:#cf2222">↑ was 1692</em></td><td>✓ Full pipeline</td><td>No encounter</td><td><span style="background:#1a5276;color:#fff;border-radius:3px;padding:1px 8px;font-size:0.78rem;">MEDIUM</span></td></tr>
+<tr><td>12</td><td><strong>Saenz Cabrera, Yaen</strong></td><td>—</td><td>MEX</td><td>1841</td><td>✓ Full pipeline</td><td>No encounter</td><td><span style="background:#2d7d46;color:#fff;border-radius:3px;padding:1px 8px;font-size:0.78rem;">LOW</span></td></tr>
+<tr><td>13</td><td><strong>De Alba Boudreau, Pablo Elliott</strong></td><td>—</td><td>MEX</td><td>1835</td><td>✓ Full pipeline</td><td>No encounter</td><td><span style="background:#2d7d46;color:#fff;border-radius:3px;padding:1px 8px;font-size:0.78rem;">LOW</span></td></tr>
+<tr><td>14</td><td><strong>Jeyaraj, Joel Ethan</strong></td><td>—</td><td>USA</td><td>1813</td><td>✓ Full pipeline</td><td>No encounter</td><td><span style="background:#2d7d46;color:#fff;border-radius:3px;padding:1px 8px;font-size:0.78rem;">LOW</span></td></tr>
+<tr><td>15</td><td>Ruiz Gastelum, Mateo</td><td>—</td><td>MEX</td><td>1765</td><td>✗ Not analyzed</td><td>—</td><td><span style="background:#888;color:#fff;border-radius:3px;padding:1px 8px;font-size:0.78rem;">UNKNOWN</span></td></tr>
+<tr><td>16</td><td>Salazar Rodriguez, Benito</td><td>AGM</td><td>MEX</td><td>1750</td><td>✗ Not analyzed</td><td>—</td><td><span style="background:#888;color:#fff;border-radius:3px;padding:1px 8px;font-size:0.78rem;">UNKNOWN</span></td></tr>
+<tr><td>17</td><td>Balaji, Tanav</td><td>—</td><td>USA</td><td>1737</td><td>✗ Not analyzed</td><td>—</td><td><span style="background:#888;color:#fff;border-radius:3px;padding:1px 8px;font-size:0.78rem;">UNKNOWN</span></td></tr>
+<tr><td>18–33</td><td><em>15 more players (1720–unrated)</em></td><td>—</td><td>—</td><td>≤1730</td><td>✗ Not analyzed</td><td>—</td><td><span style="background:#888;color:#fff;border-radius:3px;padding:1px 8px;font-size:0.78rem;">UNKNOWN</span></td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-gold">
+  <strong>Daniel H rating update:</strong> Our analysis used 1685–1692 (historical FIDE). The tournament sheet shows <strong>1844</strong> — he has improved 150+ points and is now only 70 points below Austin. Reclassify from LOW to MEDIUM risk. The pattern analysis (0W–3L–2D as Black, single-blunder collapses) still applies, but do not underestimate.
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 class="high">2 — Pairing Logic: Who Austin Will Face</h2>
+
+<p>9-round Swiss, 33 players. Austin is seed #6. Typical Swiss pairing trajectory:</p>
+
+<table>
+<thead><tr><th>Round</th><th>Expected opponent rating band</th><th>Most likely specific opponents</th></tr></thead>
+<tbody>
+<tr><td>R1</td><td>~1600–1730 (bottom half)</td><td>Seeds #28–33 (unrated/1500s)</td></tr>
+<tr><td>R2</td><td>~1730–1800</td><td>Seeds #20–27 range</td></tr>
+<tr><td>R3</td><td>~1800–1870</td><td>Joel (1813), Pablo (1835), Yaen (1841), Daniel H (1844)</td></tr>
+<tr><td>R4</td><td>~1870–1920</td><td>Aarush (1891), Leo (1899), Emerson (1905)</td></tr>
+<tr><td>R5</td><td>~1920–1960</td><td>Pranav (1957) — most likely if Austin is 4/4</td></tr>
+<tr><td>R6–R7</td><td>~1960–2080</td><td>Heye (2076), Fernando (2072), or Pranav again</td></tr>
+<tr><td>R8–R9</td><td>~2080–2170</td><td>Daniel Lee (2111), Zachary (2169)</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-blue">
+  <strong>Strategic implication:</strong> Austin needs to go 4–0 or 3.5–0.5 through rounds 1–4 to reach the top-seeded matchups. Early rounds are for being solid and efficient — not creative or risky. Save energy and calculated risk-taking for rounds 6–9.
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 class="urgent">3 — Austin's Confirmed Weaknesses (Drill These First)</h2>
+
+<div class="task-card">
+  <div class="tc-head p1">
+    <span class="badge b-critical">A · CRITICAL</span>
+    <span>White accuracy gap: ~88% vs Black ~91%</span>
+  </div>
+  <div class="tc-body">
+    <p>Confirmed across NAYCC 2025, PAM 2026, and personal study (29 games Sep–Oct 2026). Austin's White losses are almost always in the opening or early middlegame.</p>
+    <ul>
+      <li><strong>French Advanced pawn structure management</strong> — learn 10.Qg4! cold. Now primarily vs Fernando (seed #4) rather than Justin.</li>
+      <li><strong>h-file king safety prophylaxis</strong> — if Black fianchettoes kingside, play h3 one move earlier than intuition suggests.</li>
+      <li><strong>Exchange CK endgame conversion</strong> — after Bxh7+ or Exchange structure, know the bishop-vs-knight endgame in c-file structures.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="task-card">
+  <div class="tc-head p1">
+    <span class="badge b-critical">B · CRITICAL</span>
+    <span>Rook endgame passivity: lost NAYCC R7, R9 + PAM R5</span>
+  </div>
+  <div class="tc-body">
+    <p>Three rook endgame losses from holdable positions. With 9 rounds over 6 days, fatigue in round 7+ is real — this weakness compounds under time pressure and exhaustion.</p>
+    <ul>
+      <li><strong>Philidor position (defending):</strong> Recreate the NAYCC R7 position. Drill until automatic.</li>
+      <li><strong>Lucena position (winning):</strong> Bridge-building must execute without thinking.</li>
+      <li><strong>Time budget:</strong> 30 min/day. Use <a href="../austin/endgame-drills.html">endgame-drills.html</a> which has the exact positions.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="task-card">
+  <div class="tc-head p2">
+    <span class="badge b-high">C · HIGH</span>
+    <span>Nimzo-Indian blindspot vs 1.Nf3 / 1.c4 openers</span>
+  </div>
+  <div class="tc-body">
+    <p>Three confirmed opponents avoid 3.Nc3 and therefore sidestep Austin's Nimzo preparation:</p>
+    <ul>
+      <li><strong>Leo Jackson (1899, #8)</strong> — Catalan (3.Nf3 no Nc3). Response: <code>1.d4 Nf6 2.c4 e6 3.Nf3 b6</code> — Queen's Indian.</li>
+      <li><strong>Tarun Sankar (1888, #10)</strong> — 1.c4 English. See Section 5 for the specific response.</li>
+      <li><strong>Joel Jeyaraj (1813, #14)</strong> — 1.Nf3 2.b3 Nimzo-Larsen. Response: <code>1.Nf3 d5 2.b3 Nf6 3.Bb2 e6</code> — solid pawn center neutralizes the Larsen bishop. Austin already played this structure in personal study (vs Sriram Sarja) — the same approach applies.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="task-card">
+  <div class="tc-head p2">
+    <span class="badge b-high">D · HIGH</span>
+    <span>Two confirmed theory gaps from opening-theory-check.html</span>
+  </div>
+  <div class="tc-body">
+    <ul>
+      <li><strong>C02 French Advanced: 10.Nd2 instead of 10.Qg4!</strong> — Fernando (seed #4) plays French as Black. Austin must know 10.Qg4! cold.</li>
+      <li><strong>B47 Taimanov: 6...Bc5?? in PAM 2026</strong> — if Austin plays Sicilian Taimanov as Black, the correct move-6 response must be known.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 class="high">4 — Opponent-Specific Prep (Priority Order)</h2>
+
+<div class="task-card">
+  <div class="tc-head p1">
+    <span class="badge b-critical">PRIORITY 1</span>
+    <span>Zachary Liu (CM, 2169) — #1 seed, +255 pts, Reti/English</span>
+  </div>
+  <div class="tc-body">
+    <p>Highest rated player in the field, highest accuracy in dataset (93.8%), and Austin's most likely R8–R9 opponent if performing well.</p>
+    <ul>
+      <li><strong>Austin as Black vs Reti/English:</strong> Play <code>1.Nf3 Nf6 2.c4 e6</code> — wait and redirect. If Zachary plays 3.Nc3 d4 → Nimzo available. If 3.g3 → <code>3...d5</code> Catalan-type. Don't force; let the Nimzo arise naturally.</li>
+      <li><strong>Austin as White vs Zachary's Sicilian:</strong> Rossolimo (3.Bb5) — puts Zachary in unfamiliar structure.</li>
+      <li>Review: <a href="../matchup/matchup-zachary-gm.html">matchup-zachary-gm.html</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="task-card">
+  <div class="tc-head p1">
+    <span class="badge b-critical">PRIORITY 2</span>
+    <span>Daniel Joshua Lee (2111) — #2 seed, +197 pts, surging form</span>
+  </div>
+  <div class="tc-body">
+    <p>His jump from 1942 (April) to 2111 (September) — +169 in 5 months — signals a player in peak form. Do not treat the 2111 as a static ceiling.</p>
+    <ul>
+      <li><strong>Austin as White:</strong> Rossolimo (3.Bb5) sidesteps both Maróczy Bind and Taimanov — Daniel's two main Sicilian systems.</li>
+      <li><strong>Austin as Black:</strong> Daniel plays Italian (C54/C55) as White. Prepare <code>3...Bc5</code> Giuoco Piano or <code>3...Nf6</code> Two Knights response.</li>
+      <li><strong>Psychological plan:</strong> Play for sharpness and complications. Avoid technical positions.</li>
+      <li>Review: <a href="../matchup/matchup-danielee-gm.html">matchup-danielee-gm.html</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="task-card">
+  <div class="tc-head p1">
+    <span class="badge b-critical">PRIORITY 3</span>
+    <span>Heye Gao (CM, 2076) — #3 seed, direct record 0W–2L–1D</span>
+  </div>
+  <div class="tc-body">
+    <p>Austin's worst head-to-head record. Understanding exactly what went wrong in both losses is the single most valuable prep task for this matchup.</p>
+    <ul>
+      <li><strong>Action:</strong> Ask Austin about both Heye games. Was it opening, middlegame, or endgame failure? The answer determines where to focus.</li>
+      <li><strong>Heye as White:</strong> Italian — Austin should be comfortable here. Review <a href="../matchup/matchup-heye-black.html">matchup-heye-black.html</a>.</li>
+      <li><strong>Heye as Black:</strong> Slav — Austin's 1.e4 weapons don't directly apply. Review <a href="../matchup/matchup-heye-white.html">matchup-heye-white.html</a>.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="task-card">
+  <div class="tc-head p2">
+    <span class="badge b-high">PRIORITY 4</span>
+    <span>Fernando Cortes Medina (CM, 2072) — #4 seed, French as Black</span>
+  </div>
+  <div class="tc-body">
+    <p>Fernando plays French Defense as Black — the same system all of Austin's Justin Huang prep was built for. That prep now transfers directly to Fernando.</p>
+    <ul>
+      <li><strong>Austin as White vs French:</strong> Advanced French (3.e5) — apply 10.Qg4! cold.</li>
+      <li><strong>Fernando as White:</strong> 1.e4/1.c4 mix — standard Austin Sicilian preparation applies.</li>
+      <li>Review: <a href="../matchup/matchup-fernando-gm.html">matchup-fernando-gm.html</a></li>
+    </ul>
+    <div class="callout callout-blue">All Justin French prep is now Fernando prep. The work was not wasted.</div>
+  </div>
+</div>
+
+<div class="task-card">
+  <div class="tc-head p2">
+    <span class="badge b-high">PRIORITY 5</span>
+    <span>Pranav Santhosh (1957) — #5 seed, lowest accuracy in top group (86%)</span>
+  </div>
+  <div class="tc-body">
+    <p>The most beatable opponent between seeds 1–10. Pranav's 86.0% avg accuracy is significantly lower than the 92–93% of the top-4 seeds. Sharp positions are Austin's advantage here.</p>
+    <ul>
+      <li>Pranav plays English Attack / Maróczy as White, Italian/Lopez as Black.</li>
+      <li><strong>Strategy:</strong> Create complications early — Pranav's accuracy collapses in sharp positions.</li>
+      <li>Review: <a href="../matchup/matchup-pranav-gm.html">matchup-pranav-gm.html</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 class="new">5 — Q10 Answer: What to Play vs 1.c4 (Tarun Sankar, seed #10)</h2>
+
+<div class="task-card">
+  <div class="tc-head pnew">
+    <span class="badge b-new">RECOMMENDATION</span>
+    <span>1.c4 Nf6 2.Nc3 e6 — wait and redirect into Nimzo</span>
+  </div>
+  <div class="tc-body">
+    <p>This keeps Austin's Nimzo-Indian alive as a possibility while covering all of Tarun's main variations:</p>
+    <ul>
+      <li>If Tarun plays <code>3.d4</code> → Austin plays <code>3...Bb4</code> → Nimzo-Indian. Fully prepared.</li>
+      <li>If Tarun plays <code>3.e4</code> → Austin plays <code>3...Bb4</code> → Nimzo-like structure with bishop pin.</li>
+      <li>If Tarun plays <code>3.g3</code> → Austin plays <code>3...d5</code> → Catalan reversed / QGD structure. No special theory needed — solid and equal.</li>
+      <li>If Tarun plays <code>3.Nf3</code> → Austin plays <code>3...b6</code> → Queen's Indian. Same ideas as Nimzo (fianchetto bishop, central control).</li>
+    </ul>
+    <p><strong>What to avoid:</strong> Don't play <code>1.c4 c5</code> Symmetrical English — requires extensive theory outside Austin's normal game.</p>
+    <p><strong>Practice suggestion:</strong> Spend one 45-minute session playing rapid games as Black vs 1.c4, practicing the 4 branching responses. The moves are simple — one session is enough to make them feel natural.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 class="new">6 — Q15 Answer: Counter-Preparation Strategy</h2>
+
+<p><em>"Austin's PAM 2026 games are public. Opponents' coaches can find and study them. How should Austin handle being well-prepared against during the game?"</em></p>
+
+<p>This is a legitimate concern at this level. Austin's PAM games (July 2026, publicly indexed) show his exact patterns: Bxh7+ Exchange CK, Advanced French pawn choices, Rossolimo tabiya. A well-coached opponent can prepare a specific refutation 12–15 moves deep.</p>
+
+<h3>Step 1 — Detect whether you are being prepared against</h3>
+<ul>
+  <li><strong>Opponent moves very fast in the opening</strong> (first 8–10 moves in under 2 minutes total) — they are retrieving memory, not calculating.</li>
+  <li><strong>Opponent doesn't look at the board</strong> — stares at their scoresheet or their own pieces. Prepared moves come from memory, not board scanning.</li>
+  <li><strong>Sharp tactical move played instantly</strong> — if a complex-looking sacrifice or quiet move is played in 5 seconds, it was pre-studied, not calculated.</li>
+</ul>
+
+<h3>Step 2 — Exit ramps: deviate at the last safe point</h3>
+<p>Do not deviate at move 1 or 2 — that signals fear. Play normally until you sense preparation, then choose the safe second option:</p>
+
+<table>
+<thead><tr><th>Austin's Opening</th><th>Normal line</th><th>Exit ramp (vs prep)</th><th>What changes</th></tr></thead>
+<tbody>
+<tr><td>Exchange Caro-Kann</td><td>4.Bd3 → Bxh7+ sacrifice</td><td>6.Nf3 (delay the sacrifice, play solid)</td><td>Position-first instead of tactic-first</td></tr>
+<tr><td>Advanced French</td><td>3.e5 Advanced</td><td>3.Nd2 Tarrasch</td><td>Much less theory; still a good White game</td></tr>
+<tr><td>Rossolimo Sicilian</td><td>3.Bb5 Rossolimo</td><td>2.c3 Alapin</td><td>Completely different structure; prep evaporates</td></tr>
+<tr><td>Nimzo-Indian (as Black)</td><td>3...Bb4 Bxc3+ ...b6 ...Ba6</td><td>3...d5 QGD</td><td>Ultra-solid; no tactical theory needed</td></tr>
+</tbody>
+</table>
+
+<h3>Step 3 — When behind preparation: play structure, not memory</h3>
+<div class="task-card">
+  <div class="tc-head pnew">
+    <span class="badge b-new">KEY RULE</span>
+    <span>If you don't know the next move — stop trying to remember and start calculating</span>
+  </div>
+  <div class="tc-body">
+    <ul>
+      <li><strong>Ask: "What's the plan for my pieces?"</strong> — not "what move do I know here?" A clear positional plan (rook to c-file, bishop to f4, knight to d5) beats trying to recall forgotten preparation.</li>
+      <li><strong>Slow down.</strong> If the opponent is moving fast (in prep), Austin should move slowly and think deeply. Their memorized lines run out in 4–8 moves. Austin's calculation outlasts their memory.</li>
+      <li><strong>Solidify before equalizing.</strong> A slightly passive but solid position beats desperate tactical gambles to "prove" the prep doesn't work.</li>
+      <li><strong>Identify one concrete threat</strong> each turn. Even when behind on the board, Austin's ability to create tactical complexity is the equalizer. Prep is designed for quiet positions — a single tactical shot can shift the game.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="callout callout-purple">
+  <strong>Most important principle:</strong> Preparation covers positional plans and opening theory — it rarely covers the specific tactical complexities that arise from a real game's specific position. Once 8–10 moves past the prepared line, Austin's calculation ability becomes the deciding factor. Stay in the game, trust your tactics.
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 class="medium">7 — 14-Day Sprint Schedule</h2>
+
+<p><strong>Day 1 = Oct 27 (today). Tournament starts Nov 11 = Day 15. Travel Nov 9–10.</strong></p>
+
+<table>
+<thead><tr><th>Day</th><th>Date</th><th>Phase</th><th>Focus (60–90 min)</th></tr></thead>
+<tbody>
+<tr><td><strong>1</strong></td><td>Oct 27</td><td>Setup</td><td>Read this report. Review <a href="../matchup/matchup-zachary-gm.html">Zachary GM plan</a> — #1 seed, most likely final-round opponent.</td></tr>
+<tr><td><strong>2</strong></td><td>Oct 28</td><td>Opening</td><td><strong>French Advanced 10.Qg4!</strong> — vs Fernando (#4 seed). Learn cold. Run 5 rapid practice games vs French engine.</td></tr>
+<tr><td><strong>3</strong></td><td>Oct 29</td><td>Opening</td><td><strong>vs 1.c4: Nf6 + e6 setup</strong> (vs Tarun). Practice 4 branching responses. 5 rapid games as Black vs 1.c4.</td></tr>
+<tr><td><strong>4</strong></td><td>Oct 30</td><td>Opening</td><td><strong>B47 Taimanov fix</strong> — drill correct move-6 response. Memorize exit ramp table (Section 6).</td></tr>
+<tr><td><strong>5</strong></td><td>Oct 31</td><td>Opponent</td><td>Read <a href="../matchup/matchup-danielee-gm.html">Daniel Lee GM plan</a> — Italian response for Austin as Black. Mark 3 positions to know cold.</td></tr>
+<tr><td><strong>6</strong></td><td>Nov 1</td><td>Opponent</td><td>Read <a href="../matchup/matchup-fernando-gm.html">Fernando GM plan</a> — Austin as White vs French. Apply Justin's French prep here.</td></tr>
+<tr><td><strong>7</strong></td><td>Nov 2</td><td>Endgame</td><td><strong>Philidor position drill</strong> — 60 min. Recreate NAYCC R7 position. 10 Lichess rook ending practice games.</td></tr>
+<tr><td><strong>8</strong></td><td>Nov 3</td><td>Endgame</td><td><strong>Lucena position drill</strong> — 60 min. Bridge-building must be automatic. Use <a href="../austin/endgame-drills.html">endgame-drills.html</a>.</td></tr>
+<tr><td><strong>9</strong></td><td>Nov 4</td><td>Opponent</td><td>Read <a href="../matchup/matchup-heye-gm.html">Heye GM plan</a>. <strong>Ask Austin about the two prior losses</strong> — incorporate his answer into game plan.</td></tr>
+<tr><td><strong>10</strong></td><td>Nov 5</td><td>Opponent</td><td>Read <a href="../matchup/matchup-pranav-gm.html">Pranav GM plan</a> — seed #5, most likely hard opponent in R5. Force sharp positions early.</td></tr>
+<tr><td><strong>11</strong></td><td>Nov 6</td><td>Full games</td><td>2 rapid practice games targeting known weaknesses. Analyze 1 game with engine. Play for endgame deliberately.</td></tr>
+<tr><td><strong>12</strong></td><td>Nov 7</td><td>Full games</td><td>Tactics: h-file patterns + pawn promotion threats. 30 min puzzles (1800–2000) + 1 classical-time practice game.</td></tr>
+<tr><td><strong>13</strong></td><td>Nov 8</td><td>Review</td><td>Light review: Emerson, Aarush, Leo GM plans (seeds #7–9 = R3–R4 matchups). 15 min each, focus on most likely opening.</td></tr>
+<tr><td><strong>14</strong></td><td>Nov 9–10</td><td>Travel</td><td><strong>Travel to Mexico City.</strong> On plane/hotel: re-read exit-ramp table, confirm French 10.Qg4!, confirm vs 1.c4 response. No new material. Rest well.</td></tr>
+</tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 class="done">8 — What's Already Done</h2>
+
+<table>
+<thead><tr><th>Asset</th><th>Coverage</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>GM Battle Plans</td><td>All 14 confirmed opponents · White + Black lines · if/then tables</td><td><span style="background:#2d7d46;color:#fff;border-radius:3px;padding:2px 8px;font-size:0.78rem;">COMPLETE</span></td></tr>
+<tr><td>Engine analysis JSON</td><td>468+ games across 14 opponents · Stockfish movetime-800</td><td><span style="background:#2d7d46;color:#fff;border-radius:3px;padding:2px 8px;font-size:0.78rem;">COMPLETE</span></td></tr>
+<tr><td>Deep HTML reviews</td><td>14 deep analysis pages · per-game accuracy, CPL, critical moments</td><td><span style="background:#2d7d46;color:#fff;border-radius:3px;padding:2px 8px;font-size:0.78rem;">COMPLETE</span></td></tr>
+<tr><td>Per-color matchup HTMLs</td><td>matchup-{name}-white + matchup-{name}-black for all 14</td><td><span style="background:#2d7d46;color:#fff;border-radius:3px;padding:2px 8px;font-size:0.78rem;">COMPLETE</span></td></tr>
+<tr><td>Austin personal study review</td><td>29 games Sep–Oct 2026 · review.html + review-deep.html</td><td><span style="background:#2d7d46;color:#fff;border-radius:3px;padding:2px 8px;font-size:0.78rem;">COMPLETE</span></td></tr>
+<tr><td>Opening theory check</td><td>4 deviations documented with correct moves</td><td><span style="background:#2d7d46;color:#fff;border-radius:3px;padding:2px 8px;font-size:0.78rem;">COMPLETE</span></td></tr>
+<tr><td>Endgame drills reference</td><td>Lucena/Philidor with Austin's actual lost-game positions</td><td><span style="background:#2d7d46;color:#fff;border-radius:3px;padding:2px 8px;font-size:0.78rem;">COMPLETE</span></td></tr>
+<tr><td>PGN library</td><td>14 combined PGN files · sorted, deduplicated</td><td><span style="background:#2d7d46;color:#fff;border-radius:3px;padding:2px 8px;font-size:0.78rem;">COMPLETE</span></td></tr>
+<tr><td>Prep index</td><td>austin-prep.html — all links, direct records, ratings</td><td><span style="background:#2d7d46;color:#fff;border-radius:3px;padding:2px 8px;font-size:0.78rem;">COMPLETE</span></td></tr>
+<tr><td>Oct 2026 games (chess4win)</td><td>chess4win-thanksgiving2026.pgn — 6 games, not yet engine-analyzed</td><td><span style="background:#d4a017;color:#fff;border-radius:3px;padding:2px 8px;font-size:0.78rem;">PGN EXISTS</span></td></tr>
+</tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<h2 class="high">9 — Top 10 Actions (Final Priority List)</h2>
+
+<ol>
+  <li><strong>Learn French Advanced 10.Qg4! cold</strong> — Fernando (#4 seed) plays French. All Justin prep transfers here.</li>
+  <li><strong>Drill Philidor and Lucena rook endings</strong> — 3 known lost points from NAYCC 2025 + PAM 2026. Highest ROI activity in this window.</li>
+  <li><strong>Learn vs 1.c4: play 1...Nf6 2...e6 wait-and-redirect</strong> — for Tarun (#10 seed). One practice session is enough.</li>
+  <li><strong>Review Zachary Liu GM plan</strong> — #1 seed, Austin's likely R8–R9 opponent.</li>
+  <li><strong>Review Daniel Lee GM plan + Italian as Black</strong> — #2 seed, biggest rating gap, surging form.</li>
+  <li><strong>Ask Austin about the two Heye losses</strong> — 0W–2L–1D direct record. Understanding the pattern is more valuable than generic prep.</li>
+  <li><strong>Memorize the exit-ramp table (Section 6)</strong> — Austin's PAM games are public. Prepared opponents are guaranteed at this level.</li>
+  <li><strong>Fix B47 Taimanov move 6</strong> — recurring error from PAM 2026.</li>
+  <li><strong>Early rounds: be efficient, not creative</strong> — rounds 1–4 are against unanalyzed players (seeds #15–33). Win cleanly, conserve energy.</li>
+  <li><strong>Day 14: rest only, no new material</strong> — re-read 3 most likely GM plans on the plane. Sleep well.</li>
+</ol>
+
+<hr>
+<p style="font-size:0.82rem;color:#57606a;text-align:center;">Updated Oct 27, 2026 · Roster confirmed 33 players · All 14 prep opponents attending · Justin Huang moved to U16 · <a href="../austin-prep.html">← Prep Index</a></p>
+
+</div>
+</body>
+</html>
