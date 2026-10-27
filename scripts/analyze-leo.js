@@ -7,7 +7,11 @@ const { Chess } = require('chess.js');
 
 const ROOT = path.resolve(__dirname, '..');
 const RESULTS_FILE = path.join(__dirname, 'leo-analysis-results.json');
-const PGN_FILE = path.join(ROOT, 'opponents/leo/jackson,leo.pgn');
+const PGN_FILES = [
+  path.join(ROOT, 'opponents/leo/jackson,leo.pgn'),
+  path.join(ROOT, 'opponents/leo/pam2026.pgn'),
+  path.join(ROOT, 'opponents/leo/newgames.pgn'),
+];
 
 const SF_THREADS = parseInt(process.env.SF_THREADS || '16', 10);
 const INACCURACY_CPL = 50, MISTAKE_CPL = 150, BLUNDER_CPL = 300;
@@ -32,6 +36,8 @@ function tournamentKey(eventName) {
   if (/Wch U12/i.test(eventName))                       return 'World U12 2025';
   if (/Charlotte/i.test(eventName))                     return 'Charlotte Open 2025';
   if (/Pan American/i.test(eventName))                  return 'Pan Am U12 2024';
+  if (/QUERETARO 2026/i.test(eventName) || /Round \d+: .* - .*Jackson/i.test(eventName) || /Round \d+: Jackson/i.test(eventName)) return 'Queretaro 2026';
+  if (/Pan.American Youth.*O14/i.test(eventName) || /Pan.American.*Festival/i.test(eventName)) return 'PAM 2026';
   return (eventName || '?') + suffix;
 }
 
@@ -267,8 +273,10 @@ async function main() {
   let results = {};
   if (fs.existsSync(RESULTS_FILE)) results = JSON.parse(fs.readFileSync(RESULTS_FILE, 'utf8'));
 
-  const rawPgn   = fs.readFileSync(PGN_FILE, 'utf8');
-  const allGames = splitPgn(rawPgn).map(parseGame).filter(Boolean);
+  const allGames = PGN_FILES.flatMap(f => {
+    if (!fs.existsSync(f)) { console.log(`PGN not found: ${f}`); return []; }
+    return splitPgn(fs.readFileSync(f, 'utf8')).map(parseGame).filter(Boolean);
+  });
 
   // Deduplicate: same tournament + round + opponent prefix
   const seen = new Set();

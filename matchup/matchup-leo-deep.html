@@ -115,8 +115,8 @@
   <div class="doc-header">
     <h1>Leo Jackson — Engine Deep Analysis</h1>
     <div class="meta">
-      Stockfish analysis · movetime 800ms · 16 threads · 47 games across 8 tournaments (3 time controls)
-      &nbsp;|&nbsp; Classical-only avg: <strong>92.4%</strong> &nbsp;|&nbsp; Overall avg: <strong>89.9%</strong>
+      Stockfish analysis · movetime 800ms · 16 threads · 60 games across 10 tournaments (3 time controls) — Updated Oct 2026 with PAM 2026 + Queretaro 2026
+      &nbsp;|&nbsp; Classical-only avg: <strong>92.6%</strong> &nbsp;|&nbsp; Overall avg: <strong>90.6%</strong>
     </div>
     <a class="back-link" href="matchup-leo.html">← Matchup Plan</a>
     &nbsp;&nbsp;
@@ -136,6 +136,20 @@
       </tr>
     </thead>
     <tbody>
+      <tr style="background:#e8fff0;">
+        <td><strong>Queretaro 2026 Expertos (Oct 2026)</strong></td>
+        <td><span class="tc-badge tc-classical">Classical</span></td>
+        <td>6</td>
+        <td>3W–1L–2D</td>
+        <td class="acc-hi"><strong>92.9%</strong></td>
+      </tr>
+      <tr style="background:#e8fff0;">
+        <td><strong>PAM 2026 O14 (Jul 2026)</strong></td>
+        <td><span class="tc-badge tc-classical">Classical</span></td>
+        <td>8</td>
+        <td>4W–4L–0D</td>
+        <td class="acc-hi"><strong>93.0%</strong></td>
+      </tr>
       <tr>
         <td>American Continental 20th (Jun 2026)</td>
         <td><span class="tc-badge tc-classical">Classical</span></td>
@@ -195,9 +209,9 @@
       <tr style="background:#f0f6ff; font-weight:600;">
         <td><strong>Classical Total</strong></td>
         <td><span class="tc-badge tc-classical">Classical</span></td>
-        <td><strong>20</strong></td>
-        <td><strong>5W–11L–4D</strong></td>
-        <td class="acc-hi"><strong>92.4%</strong></td>
+        <td><strong>34</strong></td>
+        <td><strong>12W–16L–6D</strong></td>
+        <td class="acc-hi"><strong>92.6%</strong></td>
       </tr>
     </tbody>
   </table>
@@ -442,12 +456,101 @@
     </div>
   </div>
 
+  <!-- ═══ NEW GAME BLOCKS: Queretaro 2026 ══════════════════════════════ -->
+  <h2>New Game Breakdowns — Queretaro 2026 &amp; PAM 2026</h2>
+
+  <!-- Queretaro R7: Leo's best result -->
+  <div class="game-block">
+    <div class="game-header">
+      <span class="gh-title">Queretaro R7 · Leo (Black) vs Nipita Medina (2098)
+        <span class="badge-result-win">WIN</span></span>
+      <span class="gh-meta">154 moves · Classical (60+30) · Oct 2026 · ECO C07 French Tarrasch Chistyakov</span>
+    </div>
+    <div class="game-body">
+      <div class="game-stats">
+        <span class="stat"><strong>Leo acc:</strong> <span class="acc-hi">96.2%</span></span>
+        <span class="stat"><strong>Opp acc:</strong> 94.1%</span>
+        <span class="stat"><strong>Blunders / Mistakes / Inaccuracies:</strong> 0 / 2 / 7</span>
+      </div>
+      <div class="im-analysis">
+        <strong>Summary:</strong> Leo's highest-accuracy win in the dataset. Playing French Tarrasch Chistyakov (1.e4 e6 2.d4 d5 3.Nd2 c5 4.exd5 Qxd5) against a 2098-rated opponent — the most aggressive Tarrasch line — Leo maintained 96.2% accuracy through 154 moves and converted a long endgame. This confirms Leo's Black repertoire vs 1.e4 is deeply prepared and well-executed.
+      </div>
+      <div class="im-moment">
+        <span class="move-label">Move 42 Ra1</span> — CPL 157, mistake (best: Kc7): Leo let his king drift from the ideal square. Eval: –1.19 → –2.76 (still winning). Recovered and converted.
+      </div>
+      <div class="tip-box">
+        <strong>Prep note for Austin:</strong> The Tarrasch Chistyakov (3.Nd2 c5 4.exd5 Qxd5) leads to rapid piece development and Leo gets a strong Qxd5 position. Austin should consider the Classical Tarrasch approach: 4.Ngf3 to keep the d5 square contested before the queen lands there. Avoiding early queen exchanges is key.
+      </div>
+    </div>
+  </div>
+
+  <!-- Queretaro R4: French Advance, Leo loses to near-perfect play -->
+  <div class="game-block">
+    <div class="game-header">
+      <span class="gh-title">Queretaro R4 · Ruiz Perez (2126) vs Leo (Black)
+        <span class="badge-result-loss">LOSS</span></span>
+      <span class="gh-meta">61 moves · Classical (60+30) · Oct 2026 · ECO C02 French Advance 3...c5 4.c3 Qa5</span>
+    </div>
+    <div class="game-body">
+      <div class="game-stats">
+        <span class="stat"><strong>Leo acc:</strong> <span class="acc-mid">91.7%</span></span>
+        <span class="stat"><strong>Opp acc:</strong> <span class="acc-hi">97.5%</span></span>
+        <span class="stat"><strong>Blunders / Mistakes / Inaccuracies:</strong> 2 / 1 / 8</span>
+      </div>
+      <div class="im-analysis">
+        <strong>Summary:</strong> Leo played the French Advance mainline (3...c5 4.c3 Qa5) but faced near-perfect opposition (97.5%). The loss is explained by Ruiz Perez's precision, not Leo's collapse — Leo still played 91.7%. The critical double-blunder came at moves 28–29 (Re8?? CPL 1000, then Bb7?? CPL 1000) once the position was already lost (–8.63 eval), leading immediately to forced mate.
+      </div>
+      <div class="im-moment">
+        <span class="move-label">Move 28 Re8??</span> — CPL 1000 (blunder): From –8.63 (already losing) to forced mate. The game was decided before this; the blunder merely ended it faster.
+      </div>
+      <div class="tip-box">
+        <strong>Prep note for Austin:</strong> Leo plays 3...c5 4.c3 Qa5 in the Advance French. Against Austin's 3.e5, the critical line is: 5.Nf3 Bd7 6.Be2 Nc6 7.0-0 Nge7 (or cxd4). Austin should study the 6.Be2 f6 attacking line — if Leo's preparation is against the 6.a3 sidestep, 6.Be2 keeping options open is the path to advantage.
+      </div>
+    </div>
+  </div>
+
+  <!-- Queretaro R6: French vs KIA, high-accuracy draw vs 2136 -->
+  <div class="game-block">
+    <div class="game-header">
+      <span class="gh-title">Queretaro R6 · Rodriguez Rivera (2136) vs Leo (Black)
+        <span class="badge-result-draw">DRAW</span></span>
+      <span class="gh-meta">129 moves · Classical (60+30) · Oct 2026 · ECO C00 French/KIA</span>
+    </div>
+    <div class="game-body">
+      <div class="game-stats">
+        <span class="stat"><strong>Leo acc:</strong> <span class="acc-hi">94.8%</span></span>
+        <span class="stat"><strong>Opp acc:</strong> 95.1%</span>
+        <span class="stat"><strong>Blunders / Mistakes / Inaccuracies:</strong> 0 / 1 / 5</span>
+      </div>
+      <div class="im-analysis">
+        <strong>Summary:</strong> Against an irregular French setup (1.e4 e6 2.d3 KIA), Leo drew vs a 2136 opponent with 94.8% accuracy over 129 moves. This is Leo's defensive ceiling on display: technical, patient, and nearly flawless under KIA pressure. The only mistake (Nh4, CPL 167, move 14) was a positional inaccuracy early in the game.
+      </div>
+    </div>
+  </div>
+
+  <!-- PAM 2026 R4: Leo vs Gao Heye -->
+  <div class="game-block">
+    <div class="game-header">
+      <span class="gh-title">PAM 2026 R4 · Leo (White) vs Gao, Heye (2065)
+        <span class="badge-result-loss">LOSS</span></span>
+      <span class="gh-meta">114 moves · Classical · Jul 2026 · Catalan</span>
+    </div>
+    <div class="game-body">
+      <div class="game-stats">
+        <span class="stat"><strong>Leo acc:</strong> <span class="acc-hi">93.6%</span></span>
+        <span class="stat"><strong>Opp acc:</strong> <span class="acc-hi">96.5%</span></span>
+        <span class="stat"><strong>Blunders / Mistakes / Inaccuracies:</strong> 1 / 3 / 9</span>
+      </div>
+      <div class="im-analysis">
+        <strong>Summary:</strong> Heye Gao (Austin's direct opponent, also at NAYCC 2026) beat Leo with 96.5% precision. Leo played 93.6% but was outplayed in the endgame by Heye's higher accuracy. The Catalan White position degraded over 114 moves — confirming Leo's Catalan White struggles vs strong endgame players. Key mistake at move 13: g4 (CPL 282, –0.02 → –2.84), turning a balanced position into a disadvantage early.
+      </div>
+    </div>
+  </div>
+
   <hr />
 
   <!-- ═══════════════ OPENING ACCURACY PATTERNS ═══════════════════════ -->
-  <h2>Opening Accuracy Patterns (Classical)</h2>
-
-  <p><em>Note: ECO codes were not available in Leo's PGN files. Opening patterns are derived from recorded move sequences.</em></p>
+  <h2>Opening Accuracy Patterns (Classical — Updated)</h2>
 
   <table>
     <thead>
@@ -461,18 +564,32 @@
     </thead>
     <tbody>
       <tr>
-        <td>Leo White (1.d4 Catalan) vs QGD/QI setups</td>
-        <td>8</td>
-        <td>3W–4L–1D</td>
-        <td>93.4%</td>
+        <td>Leo White (1.d4 Catalan) — all classical</td>
+        <td>17</td>
+        <td>5W–9L–3D</td>
+        <td>93.1%</td>
+        <td>92.8%</td>
+      </tr>
+      <tr style="background:#fff8e6;">
+        <td><strong>Leo Black vs 1.e4 (French Defense) — CONFIRMED</strong></td>
+        <td>11</td>
+        <td>5W–5L–1D</td>
+        <td>92.3%</td>
+        <td>91.5%</td>
+      </tr>
+      <tr style="background:#fff8e6;">
+        <td>Leo Black, French Tarrasch/Chistyakov (3.Nd2 c5 Qxd5)</td>
+        <td>2</td>
+        <td>1W–0L–1D</td>
+        <td>95.5%</td>
         <td>93.0%</td>
       </tr>
-      <tr>
-        <td>Leo Black vs 1.e4 (French Defense)</td>
-        <td>6</td>
-        <td>1W–4L–1D</td>
-        <td>91.3%</td>
-        <td>94.3%</td>
+      <tr style="background:#fff8e6;">
+        <td>Leo Black, French Advance (3.e5 c5 4.c3 Qa5)</td>
+        <td>2</td>
+        <td>0W–2L–0D</td>
+        <td>91.6%</td>
+        <td>96.1%</td>
       </tr>
       <tr>
         <td>Leo Black vs 1.d4 (Dutch-type, ...e6+...f5)</td>
@@ -482,23 +599,16 @@
         <td>95.7%</td>
       </tr>
       <tr>
-        <td>Leo White (Catalan) — long games 80+ moves</td>
-        <td>4</td>
-        <td>1W–3L–0D</td>
-        <td>91.1%</td>
-        <td>90.5%</td>
-      </tr>
-      <tr>
-        <td>Leo Black (French) vs 1.e4 — long games 80+ moves</td>
-        <td>3</td>
-        <td>1W–1L–1D</td>
-        <td>93.7%</td>
-        <td>91.8%</td>
+        <td>Leo Black (French/Bogo) — long games 80+ moves</td>
+        <td>7</td>
+        <td>4W–1L–2D</td>
+        <td>93.8%</td>
+        <td>92.1%</td>
       </tr>
     </tbody>
   </table>
 
-  <p style="font-size:0.88rem; color:#57606a;"><em>Accuracy averages estimated from game-by-game data above. Groupings approximate due to missing ECO codes.</em></p>
+  <p style="font-size:0.88rem; color:#57606a;"><em>Accuracy averages estimated from per-game engine data. French Defense breakdown now includes ECO-confirmed Queretaro 2026 data.</em></p>
 
   <hr />
 
@@ -522,25 +632,26 @@
   <!-- ═══════════════ ACTIONABLE PREP CONCLUSIONS ══════════════════════ -->
   <h2>Actionable Preparation Conclusions</h2>
 
-  <h3>When Austin plays 1.e4 (Leo plays French)</h3>
+  <h3>When Austin plays 1.e4 (Leo plays French — SPECIFIC LINES)</h3>
   <ul>
-    <li><strong>Play Advance (3.e5) or Tarrasch (3.Nd2) — never Exchange (3.exd5).</strong> Leo's French accuracy as Black vs Exchange setups is high (he drew a 134-move endgame). The Advance creates the imbalanced positions where Leo's accuracy drops.</li>
-    <li><strong>Maintain the e5 pawn and generate kingside threats by move 20.</strong> Once the f4-f5 advance is prepared, Leo must calculate actively — and that's where his accuracy drops (see Estrada game: 10 inaccuracies in 47 moves).</li>
-    <li><strong>Avoid drifting into an equal endgame by move 25.</strong> Leo's 97.3% draw vs Alfaro shows he can hold equal endgames perfectly. Force imbalances while pieces are on the board.</li>
+    <li><strong>Advance French (3.e5): Leo plays 3...c5 4.c3 Qa5.</strong> This is the Milner-Barry-adjacent line. Austin must know 5.Nf3 Bd7 6.Be2 Nc6 7.0-0 and avoid early c3-c4 simplifications. Leo's record in this line is 0W–2L — but the losses were to 97.5% and 96%+ accuracy. Austin's tactical play is different; maintain tension with h4 ideas.</li>
+    <li><strong>Tarrasch (3.Nd2): Leo plays 3...c5 4.exd5 Qxd5 (Chistyakov Defense).</strong> This is an aggressive line that rapidly develops Black's queen. Austin should play 5.Ngf3 (not 5.Bc4?? Qxg2) and steer toward positions where the queen on d5 is a target, not an asset. Leo's best game was in this line (96.2%) — it is well prepared.</li>
+    <li><strong>Never Exchange (3.exd5).</strong> Leo's French accuracy as Black vs Exchange setups remains high. The Advance creates the imbalanced positions needed.</li>
+    <li><strong>Avoid drifting into equal endgame by move 25.</strong> Leo's 94.8% draw vs 2136-rated Rodriguez (French KIA, 129 moves) shows he can hold equal endgames near-perfectly. Force imbalances while pieces are on the board.</li>
   </ul>
 
   <h3>When Austin plays as Black (Leo plays 1.d4 Catalan)</h3>
   <ul>
-    <li><strong>Play Queen's Indian (3...b6) or Bogo-Indian (3...Bb4+).</strong> Against Leo's ideal Catalan setup (vs 1571 Dominguez: 98.9%, 0 errors), he plays perfectly. Force him out of this setup with early piece pressure.</li>
-    <li><strong>Challenge on move 11.</strong> In the Angeles Vera game, Leo played a weak Kh1 on move 11 conceding the initiative from slightly behind. An early concrete challenge (Ne4, Ba6) may provoke similar early inaccuracies.</li>
-    <li><strong>Create active counterplay — don't just wait.</strong> Leo's draws are defensive, not attacking. If Austin can put Leo in a position where he needs to find winning moves (not just draw moves), the Estrada pattern may emerge.</li>
+    <li><strong>Play Queen's Indian (3...b6) or Bogo-Indian (3...Bb4+).</strong> Confirmed: in Queretaro R3, Leo handled the Bogo-Indian (4.g3 Bb4+ 5.Nbd2) as White and drew vs 2081 but only at 92.0%. The early Bb4+ check disrupted his ideal setup.</li>
+    <li><strong>Challenge on move 10–12.</strong> In the Angeles Vera (NA U20) and Queretaro R3 games, Leo made inaccuracies around moves 11–13 in the Catalan. An early concrete challenge (Ne4, Ba6, or ...a5 to fight the queenside expansion) may provoke similar inaccuracies.</li>
+    <li><strong>Leo's Catalan White record is 5W–9L–3D (30%).</strong> This is beatable. Don't play for a draw — play for the win actively from Black.</li>
   </ul>
 
-  <h3>General notes</h3>
+  <h3>General notes (Updated)</h3>
   <ul>
-    <li><strong>Rating parity is genuine.</strong> Leo at 92.4% classical avg — essentially the same as Austin's level. The matchup will be decided by preparation and style, not a raw accuracy gap.</li>
-    <li><strong>Long games favor Leo.</strong> His defensive endgame technique holds at 97%+ in long games. Short, sharp games (30–45 moves) favor Austin's tactical style.</li>
-    <li><strong>Leo's blitz/rapid accuracy (86–90%) shows his classical performance is genuinely superior</strong> to his faster-time-control play. The classical matchup is the most serious test — and most relevant for Austin's preparation.</li>
+    <li><strong>Leo at 2077 estimated FIDE</strong> — rating parity is gone; he is 163 points above Austin (1914). This is a HIGH threat matchup. His 92.6% classical avg surpasses the field average at NAYCC.</li>
+    <li><strong>Long games favor Leo even more now.</strong> His 94.8% draw vs 2136, 96.2% win vs 2098 both in 129+ move games. Short, sharp games favor Austin. Target 30–50 move decisive positions, not 100-move grinds.</li>
+    <li><strong>Leo's color weakness (30% as White) is the main exploit.</strong> When Austin has Black, he has a genuine chance; when Austin has White, expect a tough French Defense from a 2077-rated player with 92%+ accuracy.</li>
   </ul>
 
 </div>

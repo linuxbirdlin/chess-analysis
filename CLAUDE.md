@@ -184,7 +184,7 @@ When a new opponent folder is added:
 | Fernando Cortes Medina | ~2026–2133 | 1.e4/1.c4 | French | No encounter |
 | Pranav Santhosh | 1940 | 1.e4 English Attack/Maróczy | Italian/Lopez | No encounter |
 | Emerson Johnson | 1925 FIDE / 2078 US | 1.e4 Rossolimo/Exch CK | Caro-Kann/QGA | No encounter |
-| Leo Jackson | ~1886 FIDE / ~2000 US | 1.d4 Catalan (3.Nf3, no Nc3) | French Defense | No encounter |
+| Leo Jackson | ~2077 FIDE (est. Oct 2026; was 2009 PAM) | 1.d4 Catalan (3.Nf3, no Nc3) | French Defense: Advance 3...c5 4.c3 Qa5; Tarrasch Chistyakov 3...c5 Qxd5 | No encounter |
 | Tarun Sankar | ~1965 FIDE (peak 2002) | 1.c4 English (Catalan/Mikenas) | Sicilian | No encounter |
 | Daniel Hernandez Gamboa | ~1685–1692 FIDE | 1.e4 (Philidor/Pirc/Sicilian) | 1...e5 Four Knights | No encounter |
 | Yaen Saenz Cabrera | ~1841 FIDE (peak 1899) | 1.e4 Scotch C45 | Sicilian Sveshnikov B32/B33 | No encounter |
