@@ -13,6 +13,7 @@ const PGN_FILES = [
   path.join(ROOT, 'opponents/danielh/queretaro2025.pgn'),
   path.join(ROOT, 'opponents/danielh/queretaro2026.pgn'),
   path.join(ROOT, 'opponents/danielh/anothergame.pgn'),
+  path.join(ROOT, 'opponents/danielh/othergames.pgn'),
 ];
 
 const SF_THREADS    = parseInt(process.env.SF_THREADS || '16', 10);
@@ -22,6 +23,8 @@ function isDaniel(name) { return /hernandez gamboa.*daniel|daniel.*hernandez gam
 
 function tournamentKey(eventName, broadcastName, studyName) {
   if (/Aguascalientes 2026/i.test(broadcastName || eventName))        return 'Aguascalientes 2026';
+  if (/Aguascalientes 2025/i.test(broadcastName || eventName))        return 'Aguascalientes 2025';
+  if (/Copa Revolución.*2024|Revoluc.*2024/i.test(broadcastName || eventName)) return 'Copa Revolución 2024';
   if (/LXXI Campeonato.*Quer/i.test(broadcastName))                  return 'Querétaro 2026';
   if (/LXX Campeonato.*Quer/i.test(broadcastName))                   return 'Querétaro 2025';
   if (/LXIX Campeonato.*Quer/i.test(broadcastName))                  return 'Querétaro 2024';

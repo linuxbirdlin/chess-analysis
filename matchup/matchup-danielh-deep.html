@@ -77,8 +77,8 @@
   <h1>Daniel Hernandez Gamboa — Deep Engine Analysis</h1>
   <div class="meta">
     <span><strong>Daniel rating:</strong> 1685–1692 FIDE (2026), peaked 1767 (Apr 2025)</span>
-    <span><strong>Engine:</strong> Stockfish movetime-800 · 8 games</span>
-    <span><strong>Overall:</strong> 90.4% avg · White 89.8% (5g) · Black 91.5% (3g)</span>
+    <span><strong>Engine:</strong> Stockfish movetime-800 · 12 games</span>
+    <span><strong>Overall:</strong> 90.4% avg · White 91.1% (7g) · Black 89.3% (5g)</span>
     <span><strong>Direct encounter:</strong> None on record</span>
   </div>
   <a class="back-link" href="../austin-prep.html">← Back to Prep Index</a>
@@ -91,7 +91,7 @@
 </div>
 
 <div class="encounter">
-  <strong>Engine summary:</strong> 8 games analyzed (Stockfish movetime-800, 16 threads). Overall avg <strong>90.4%</strong> — Black is slightly better (91.5%) than White (89.8%). By tournament: Querétaro 2024 avg 94.9%, Querétaro 2025 avg 85.0%, Querétaro 2026 avg 89.3%, Aguascalientes 2026 90.3%. Key pattern: <strong>Daniel's 2025 games show a dramatic accuracy drop (85.0%) with 3 blunders and 7 mistakes in a single game</strong> — confirming time-pressure collapses that are absent in his 2024 games. He drew CM Agama Hernandez (2003) at 90.3% accuracy — his best result by opponent strength.
+  <strong>Engine summary:</strong> 12 games analyzed across 6 tournaments (Stockfish movetime-800, 16 threads). Overall avg <strong>90.4%</strong> — White 91.1% (7g) vs Black 89.3% (5g). By tournament: Querétaro 2024 avg 94.9%, Copa Revolución 2024 avg 89.1%, Querétaro 2025 avg 85.0%, Aguascalientes 2025 avg 91.5%, Querétaro 2026 avg 89.3%, Aguascalientes 2026 90.3%. Key pattern: <strong>all 3 Black losses involve a single catastrophic blunder from near-equality</strong> (Qd1?? m25 CPL:827, Nxe4?? m16 CPL:519, Rab8?? m28 CPL:895). His 5W–0L–2D White record never loses. Best single game: 96.2% (Aguascalientes 2025 R4). Worst: 83.2% (Querétaro 2025 R1).
 </div>
 
 <div class="part-card">
@@ -106,9 +106,19 @@
   <td>R7 Win vs Juarez 93.1% (White)</td>
 </tr>
 <tr>
+  <td>Copa Revolución 2024</td><td>2g</td><td><strong>89.1%</strong></td>
+  <td>R5 Win vs Montoya 92.8% (White)</td>
+  <td>R6 Loss vs Gonzalez Peiro 85.4% (Black)</td>
+</tr>
+<tr>
   <td>Querétaro 2025</td><td>2g</td><td><strong>85.0%</strong></td>
   <td>R2 Loss vs Cadena 86.7% (Black)</td>
   <td>R1 Win vs Rodriguez 83.2% (White)</td>
+</tr>
+<tr>
+  <td>Aguascalientes 2025</td><td>2g</td><td><strong>91.5%</strong></td>
+  <td>R4 Win vs Salazar 96.2% (White) — dataset best</td>
+  <td>R5 Loss vs Gonzalez Cadena 86.7% (Black)</td>
 </tr>
 <tr>
   <td>Querétaro 2026</td><td>2g</td><td><strong>89.3%</strong></td>
@@ -156,8 +166,8 @@
 <div class="game-row-body">
   <div class="im-section-label">Assessment</div>
   <div class="im-moment good">Near-perfect game — 97.1% accuracy, CPL:7, zero blunders/mistakes/inaccuracies. Daniel played the English Symmetrical as Black with exceptional precision. Both sides exchanged pieces repeatedly into a drawn rook endgame.</div>
-  <div class="im-tags"><span class="im-tag">best single game in dataset</span><span class="im-tag">solid positional play</span></div>
-  <div class="im-prep">This is Daniel's ceiling: 97.1% in a quiet symmetrical position. He excels at solid, non-committal positions where there is limited tactical complexity. For Austin: avoid symmetrical, simplified positions against Daniel — he handles them well.</div>
+  <div class="im-tags"><span class="im-tag">best Black game in dataset</span><span class="im-tag">solid positional play</span></div>
+  <div class="im-prep">This is Daniel's ceiling as Black: 97.1% in a quiet symmetrical position. He excels at solid, non-committal positions where there is limited tactical complexity. For Austin: avoid symmetrical, simplified positions — he handles them well.</div>
 </div>
 </div>
 
@@ -180,6 +190,46 @@
 </div>
 </div>
 
+<h2>Copa Revolución 2024 — 2 Games (avg 89.1%)</h2>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-white">WHITE</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R5 · ~C01 Exchange French · vs Montoya Medina (unrated)</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc">92.8%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:106 · B:6 · M:2 · I:4</span>
+</div>
+<div class="game-row-body">
+  <div class="im-section-label">Note on "blunders"</div>
+  <div class="im-moment">The 6 blunders here are all <em>missed forced mates</em> (eval was "#" before each), not position-losing moves. Daniel had a completely winning position throughout and played suboptimally when finishing off, but never let the opponent back in. CPL:106 is high due to the mate-miss penalty formula.</div>
+  <div class="im-section-label">Key Moments</div>
+  <div class="im-moment"><strong>Rhc7</strong> (best: Kh4) — CPL 1000 · #→+11.50. Had a forced mate but played Rhc7 instead, reducing to a merely dominant position.</div>
+  <div class="im-moment"><strong>Rb8+</strong> (best: Kf4) — CPL 1000 · #→+8.94. Another missed forced mate, playing rook to b8 instead.</div>
+  <div class="im-moment"><strong>h5</strong> (best: Ra7+) — CPL 1000 · #→+16.47. Third missed mate but still had an overwhelming advantage.</div>
+  <div class="im-tags"><span class="im-tag">Exchange French structure (exd5)</span><span class="im-tag">53 moves</span><span class="im-tag">dominant throughout</span></div>
+  <div class="im-prep"><strong>Pattern:</strong> Daniel plays Exchange French (3.exd5 exd5 4.Bd3) as White — a solid, technical approach aiming for an equal-looking structure with the bishop pair. He converted this position in 53 moves with strong rook activity. The missed mates show endgame calculation gaps, but he never allowed counterplay.</div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-black">BLACK</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R6 · ~C55 Scotch Gambit · vs Gonzalez Peiro (unrated)</span>
+  <span class="badge-result-loss">LOSS</span>
+  <span class="badge-acc-lo">85.4%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:52 · B:1 · M:0 · I:2</span>
+</div>
+<div class="game-row-body">
+  <div class="im-section-label">Critical Moment — Catastrophic Collapse</div>
+  <div class="im-moment blunder"><strong>25...Qd1??</strong> (best: Rxe2) — CPL 827 · <strong>−0.05→−8.32</strong>. From a <em>completely equal position</em> (−0.05 ≈ 0.00), Daniel played the queen into a mating net. White immediately played <code>Rxe8#</code>. A single-move collapse from a drawable position with 24 moves of solid play before it.</div>
+  <div class="im-moment"><strong>Re8</strong> (best: c5) — CPL 67 · +0.04→−0.63. Earlier inaccuracy: passive rook placement instead of active pawn push.</div>
+  <div class="im-moment"><strong>Bd7</strong> (best: O-O) — CPL 55 · −0.49→−1.04. Delayed castling cost tempo.</div>
+  <div class="im-tags"><span class="im-tag time-pressure">Qd1?? CPL:827 — from equality to mate in 1</span><span class="im-tag">hallmark Black collapse</span></div>
+  <div class="im-prep"><strong>Most instructive Black loss in the dataset.</strong> Daniel held a near-equal position through 24 moves, then played Qd1?? — walking the queen into a mating net from a position where he had full drawing chances. This is the defining pattern of his Black play: 20+ moves of solid defense, then one move that instantly decides the game. Austin should create positions where such calculation slips are possible.</div>
+</div>
+</div>
+
 <h2>Querétaro 2025 — 2 Games (avg 85.0%)</h2>
 
 <div class="game-row">
@@ -196,7 +246,7 @@
   <div class="im-moment blunder"><strong>Rbc3</strong> (best: Rb7) — CPL 360 · +4.76→+1.16. Rook to wrong file when Rb7 was winning. Second major error in an already-won endgame.</div>
   <div class="im-moment blunder"><strong>g4</strong> (best: c7+) — CPL 322 · +5.18→+1.96. Third blunder from a winning position — pawn push instead of promoting the c-pawn immediately.</div>
   <div class="im-tags"><span class="im-tag time-pressure">3 blunders, 7 mistakes — worst game in dataset</span><span class="im-tag">mutual blunder-fest</span></div>
-  <div class="im-prep"><strong>Daniel's worst-quality game.</strong> Won vs unrated Rodriguez despite 3 blunders and 7 mistakes at 83.2%. Both players blundered repeatedly — opponent's errors allowed Daniel to win. Key insight: under time pressure or in complex endgames, Daniel's calculation breaks down completely. This is the primary weakness Austin should target.</div>
+  <div class="im-prep"><strong>Daniel's worst-quality game.</strong> Won vs unrated Rodriguez despite 3 blunders and 7 mistakes at 83.2%. Both players blundered repeatedly — opponent's errors allowed Daniel to win. Key insight: under time pressure or in complex endgames, Daniel's calculation breaks down completely. This is the primary White weakness Austin should target.</div>
 </div>
 </div>
 
@@ -209,12 +259,51 @@
   <span style="font-size:0.78rem;color:#57606a;">CPL:54 · B:1 · M:2 · I:7</span>
 </div>
 <div class="game-row-body">
-  <div class="im-section-label">Critical Moments — Rating Upset</div>
-  <div class="im-moment blunder"><strong>Nxe4</strong> (best: g5) — CPL 519 · <strong>+0.20→−4.99</strong>. From a <em>completely equal position</em> (+0.20 ≈ 0.00), Daniel sacrificed a piece with Nxe4. The position was essentially equal; g5 was the correct active move. This piece blunder immediately decided the game — a −207 rating upset loss.</div>
+  <div class="im-section-label">Critical Moments — Rating Upset (−207 pts)</div>
+  <div class="im-moment blunder"><strong>17...Nxe4??</strong> (best: g5) — CPL 519 · <strong>+0.20→−4.99</strong>. From a <em>completely equal position</em> (+0.20 ≈ 0.00), Daniel sacrificed a piece with Nxe4. The position was essentially equal; g5 was the correct active move. This piece blunder immediately decided the game.</div>
   <div class="im-moment"><strong>Qf6</strong> (best: Qf7) — CPL 194 · −5.93→−7.87. Already losing, Daniel chose the wrong queen square.</div>
   <div class="im-moment"><strong>h6</strong> (best: Ne7) — CPL 167 · −0.05→−1.72. Earlier inaccuracy from near-equal position — h6 weakened the kingside rather than activating the knight.</div>
   <div class="im-tags"><span class="im-tag time-pressure">Nxe4 blunder from equal</span><span class="im-tag">−207 rating upset</span></div>
-  <div class="im-prep"><strong>Key data point for Austin as White:</strong> Daniel plays 1...e5 as Black against 1.e4 and reaches Four Knights symmetrical structures. From a completely equal position, his Nxe4 piece blunder on move 16 immediately decided the game. This is not endgame collapse — it is a calculation failure from equality in the middlegame. Austin should reach complex middlegame positions where this calculation pattern can recur.</div>
+  <div class="im-prep"><strong>Key data point for Austin as White:</strong> Daniel plays 1...e5 as Black against 1.e4 and reaches Four Knights symmetrical structures. From a completely equal position, his Nxe4 piece blunder on move 17 immediately decided the game. This is not endgame collapse — it is a calculation failure from equality in the middlegame. Austin should reach complex middlegame positions where this calculation pattern can recur.</div>
+</div>
+</div>
+
+<h2>Aguascalientes 2025 — 2 Games (avg 91.5%)</h2>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-white">WHITE</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R4 · ~C40 King's Knight (2...Qe7 unusual) · vs Salazar Rodriguez (unrated)</span>
+  <span class="badge-result-win">WIN</span>
+  <span class="badge-acc-hi">96.2%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:25 · B:0 · M:2 · I:7</span>
+</div>
+<div class="game-row-body">
+  <div class="im-section-label">Assessment — Best Game in Dataset</div>
+  <div class="im-moment good">Daniel's highest-accuracy game (96.2%). Dominant from early on — eval reached +9 to +10 by move 25. Two mistakes (Bd2 CPL:182, d5 CPL:168) were "imprecise when winning" — eval still +8 after each. Showed strong positional understanding: e5 pawn, bishop pair, rook activity. Won by promoting on e8 with a queen, then capturing all remaining Black material.</div>
+  <div class="im-section-label">Key Moments</div>
+  <div class="im-moment"><strong>Bd2</strong> (best: Rc4) — CPL 182 · +9.67→+7.85. Imprecise when winning — Rc4 would have been more efficient, but eval remained crushing.</div>
+  <div class="im-moment"><strong>d5</strong> (best: Bb3) — CPL 168 · +8.65→+6.97. Pawn advance instead of bishop repositioning — still overwhelming.</div>
+  <div class="im-tags"><span class="im-tag">best game in dataset</span><span class="im-tag">48 moves</span><span class="im-tag">dominant e5 structure</span></div>
+  <div class="im-prep"><strong>Daniel's ceiling:</strong> 96.2% — near-flawless dominant win. Demonstrates he is capable of sustained high-accuracy play when the position suits him. The opponent's 2...Qe7 unusual response allowed Daniel to develop freely without theory. For Austin: Daniel plays well in positions he can dominate; he is dangerous when ahead and can be poor when defending.</div>
+</div>
+</div>
+
+<div class="game-row">
+<div class="game-row-header">
+  <span class="badge-black">BLACK</span>
+  <span style="font-weight:600;font-size:0.92rem;flex:1;">R5 · ~B21 Sicilian vs f4 (1.e4 c5 2.f4 d5) · vs Gonzalez Cadena (unrated)</span>
+  <span class="badge-result-loss">LOSS</span>
+  <span class="badge-acc-lo">86.7%</span>
+  <span style="font-size:0.78rem;color:#57606a;">CPL:73 · B:6 · M:1 · I:10</span>
+</div>
+<div class="game-row-body">
+  <div class="im-section-label">Critical Moments — Three Consecutive Blunders</div>
+  <div class="im-moment blunder"><strong>27...Re8??</strong> (best: Kf7) — CPL 647 · <strong>−0.05→−6.52</strong>. From <em>complete equality</em>, Daniel played Re8 instead of king safety with Kf7. Eval crashed from 0 to −6.52 in one move — the start of a catastrophic 3-blunder cascade.</div>
+  <div class="im-moment blunder"><strong>28...Rab8??</strong> (best: Rad8) — CPL 895 · <strong>+2.93→−6.02</strong>. The worst single move in the dataset by CPL. Daniel continued the wrong rook placement despite already being in trouble.</div>
+  <div class="im-moment blunder"><strong>31...Qxb6??</strong> (best: Rxb6) — CPL 767 · +1.13→−6.54. Third blunder: queen recapture instead of rook. Three consecutive blunders moved the eval from 0 to −6 three separate times.</div>
+  <div class="im-tags"><span class="im-tag time-pressure">3 consecutive blunders m27–31</span><span class="im-tag">6 total blunders</span><span class="im-tag">74 moves</span></div>
+  <div class="im-prep"><strong>Time-pressure cascade pattern confirmed.</strong> Daniel held equality through 26 moves in a sharp Sicilian vs f4 structure, then blundered three times in five moves (moves 27–31). The trigger: complexity reached a peak as White's attack became concrete. This long game (74 moves) exhausted his calculation and he never recovered. This is the most extreme example of his Black collapse pattern.</div>
 </div>
 </div>
 
@@ -271,7 +360,7 @@
   <div class="im-section-label">Result</div>
   <div class="im-moment good">Held a draw vs CM Agama Hernandez (2003) — Daniel's best result by opponent strength. The draw confirms Daniel can compete against much higher-rated players in complex Nimzo-Indian structures. Both Kf2 and Na2 mistakes (CPL 207–208) occurred from slightly unfavorable positions (−1 to −2) — not catastrophic blunders from winning.</div>
   <div class="im-tags"><span class="im-tag">drew CM Agama Hernandez (+318 pts)</span><span class="im-tag">Nimzo Classical</span></div>
-  <div class="im-prep">Daniel played the Qc2 Nimzo-Indian as White (E35) against a CM-rated player and drew. The Kf2/Na2 mistakes suggest Daniel had king safety assessment issues but held due to the CM's imprecision (Bd3?? on move 40, Rbc8?? on move 26). For Austin: the Nimzo Qc2 line is documented and Daniel knows the basic theory. Austin plays Nimzo as Black — be prepared for the Qc2 classical variation.</div>
+  <div class="im-prep">Daniel played the Qc2 Nimzo-Indian as White (E35) against a CM-rated player and drew. The Kf2/Na2 mistakes suggest Daniel had king safety assessment issues but held due to the CM's imprecision. For Austin: the Nimzo Qc2 line is documented and Daniel knows the basic theory. Austin plays Nimzo as Black — be prepared for the Qc2 classical variation.</div>
 </div>
 </div>
 
@@ -281,35 +370,37 @@
 <p class="part-title pattern">Key Patterns — Austin's Exploitation Guide</p>
 <div class="part-body">
 
-<h3>Pattern #1 — Blunders from Winning Positions (Both Colors)</h3>
+<h3>Pattern #1 — Single-Move Black Collapse from Equality</h3>
 <div class="warn-box">
-  <strong>Bg5</strong> (CPL 690, +7.04→+0.14) as White and <strong>g4</strong> (CPL 324, +2.62→−0.62) as Black — in both cases Daniel had a clear winning advantage and threw it away with an aggressive-looking move that was tactically unsound. This is his defining weakness: when he has the advantage, he overreaches rather than consolidating.
+  All 3 Black losses via one catastrophic blunder from a near-equal position: <strong>Qd1??</strong> (CPL:827, −0.05→−8.32) in Copa Rev R6; <strong>Nxe4??</strong> (CPL:519, +0.20→−4.99) in Q2025 R2; <strong>Re8??</strong> (CPL:647, −0.05→−6.52) triggering a 3-blunder cascade in Aguas2025 R5. Daniel held equality for 16–27 moves each time, then threw the game in one move. His 0W–3L–2D Black record is entirely explained by this pattern.
 </div>
 
-<h3>Pattern #2 — Piece Blunder from Equal (Nxe4 in Four Knights)</h3>
+<h3>Pattern #2 — Blunders from Winning Positions (Both Colors)</h3>
 <div class="warn-box">
-  <strong>Nxe4</strong> (CPL 519, +0.20→−4.99) — from a perfectly equal position, Daniel sacrificed a piece for no compensation. This is Austin's primary target as White: reach a complex middlegame from 1.e4 e5 territory, allow the position to be nominally equal around move 15–20, and wait for Daniel's calculation to fail. The Four Knights loss to 1560-rated Cadena Rojas confirms this pattern vs 1.e4.
+  <strong>Bg5</strong> (CPL 690, +7.04→+0.14) as White and <strong>g4</strong> (CPL 324, +2.62→−0.62) as Black — in both cases Daniel had a clear winning advantage and threw it away with an aggressive-looking move that was tactically unsound. He overreaches rather than consolidating when he has the advantage.
 </div>
 
 <h3>Pattern #3 — Dramatic Accuracy Collapse Under Time Pressure (Q2025 R1)</h3>
 <div class="warn-box">
-  83.2% accuracy with 3 blunders and 7 mistakes in a single game vs an unrated player. This is the worst-quality game in the dataset and occurred in 2025 (recent). The 10-error game shows Daniel can collapse completely under time pressure. By contrast, his 2024 games averaged 94.9% — a 10% accuracy swing between tournaments.
+  83.2% accuracy with 3 blunders and 7 mistakes in a single game vs an unrated player. This is the worst-quality White game in the dataset (2025). The 10-error game shows Daniel can collapse completely under time pressure. By contrast, his 2024 games averaged 94.9% — a 10% accuracy swing between tournaments. His best recent White accuracy (96.2%, Aguas2025 R4) confirms the variance is high.
 </div>
 
 <h3>Positive: Draws Against Higher-Rated Players</h3>
 <div class="info-box">
-  Daniel drew CM Agama Hernandez (2003, +318 pts), drew Flores Ojeda (1812, +127 pts), and drew Brito De La O (1734, +42 pts) — all in 2026. He is capable of holding draws against significantly higher-rated players through tenacity. Austin cannot expect an easy win — Daniel will fight for draws even when outmatched.
+  Daniel drew CM Agama Hernandez (2003, +318 pts), drew Flores Ojeda (1812, +127 pts), and drew Brito De La O (1734, +42 pts) — all in 2026. He is capable of holding draws against significantly higher-rated players through tenacity. Austin (1865–1937 FIDE) cannot expect an easy win — Daniel will fight for draws even when outmatched.
 </div>
 
 <h3>Summary Table — Key Numbers</h3>
 <table>
 <thead><tr><th>Pattern</th><th>Game</th><th>CPL</th><th>Eval swing</th><th>Context</th></tr></thead>
 <tbody>
+<tr><td>Rab8 — worst blunder in dataset</td><td>Aguas2025 R5 [B LOSS]</td><td>895</td><td>+2.93→−6.02</td><td>From WINNING → losing</td></tr>
+<tr><td>Qd1 — queen into mate</td><td>Copa Rev R6 [B LOSS]</td><td>827</td><td>−0.05→−8.32</td><td>From EQUAL → mated</td></tr>
+<tr><td>Re8 — first cascade blunder</td><td>Aguas2025 R5 [B LOSS]</td><td>647</td><td>−0.05→−6.52</td><td>From EQUAL → losing</td></tr>
 <tr><td>Bg5 — missed win</td><td>Q2025 R1 [W WIN]</td><td>690</td><td>+7.04→+0.14</td><td>From WINNING → equal</td></tr>
 <tr><td>Nxe4 — piece blunder</td><td>Q2025 R2 [B LOSS]</td><td>519</td><td>+0.20→−4.99</td><td>From EQUAL → losing</td></tr>
+<tr><td>Qxb6 — wrong recapture</td><td>Aguas2025 R5 [B LOSS]</td><td>767</td><td>+1.13→−6.54</td><td>From WINNING → losing</td></tr>
 <tr><td>g4 — missed win</td><td>Q2026 R6 [B DRAW]</td><td>324</td><td>+2.62→−0.62</td><td>From WINNING → equal</td></tr>
-<tr><td>Rbc3 — wrong rook file</td><td>Q2025 R1 [W WIN]</td><td>360</td><td>+4.76→+1.16</td><td>From WINNING</td></tr>
-<tr><td>g4 — wrong capture</td><td>Q2025 R1 [W WIN]</td><td>322</td><td>+5.18→+1.96</td><td>c7+ was winning</td></tr>
 <tr><td>cxd4 — wrong recapture</td><td>Q2026 R5 [W DRAW]</td><td>302</td><td>−0.57→−3.59</td><td>exd4 was correct</td></tr>
 </tbody>
 </table>
