@@ -1129,6 +1129,98 @@ tbody tr:last-child td { border-bottom: none; }
   </div>
 </div>
 
+<div class="task-card">
+  <div class="tc-head p3">
+    <span class="badge b-medium">PRIORITY 5</span>
+    <span>Tarun Sankar (1965) — #10 seed ⚠️ underseeded, 1.c4 English as White</span>
+  </div>
+  <div class="tc-body">
+    <p>Tarun jumped ~600 Elo in 2.5 years (1406 Dec 2023 → 2002 Mar 2026), currently at 1965 (+18 above Austin). Official seed #10 means Austin could face him in R5. His PGN sample is biased toward very strong opposition (many games vs 2100–2400 players) — so his 5W–15L–3D overall record understates his real strength. However, the engine JSON is honest: <strong>Black is his structurally weak side</strong> (29 blunders vs 10 as White) and positions requiring patient defense after gaining an advantage are his most exploitable failure pattern.</p>
+
+    <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Engine-Backed Weakness Analysis (23 games, 17 classical with full data)</h4>
+    <table style="font-size:0.875rem;margin:0 0 16px;">
+      <thead>
+        <tr><th>Weakness</th><th>Evidence</th><th>Austin Exploit</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Black catastrophic collapse from winning positions</strong></td>
+          <td>3-0 Thu Club R4 vs Boutikos (2144): <strong>76.1% acc, 9 blunders</strong> — <code>Bd3??</code> CPL 1000 at move 26 from eval <strong>+5.76</strong> (completely winning → -4.91). Dulles R4 vs Sridhar (1838): 86.5%, 3 blunders including <code>Qf6??</code> CPL 447 at move 14. 3-0 Thu Club R1 vs Dilanian (2239): 86.6%, 4 blunders — <code>e5??</code> CPL 462 at move 17.</td>
+          <td>Austin as White: use Rossolimo (3.Bb5) vs Tarun's 1...c5 2...Nc6 — resulting fianchetto positions are tactically sharp. Tarun's Black accuracy in such games is 76–87% with multiple blunders. Austin's attacking sharpness exploits exactly this type of imbalanced Sicilian middlegame.</td>
+        </tr>
+        <tr>
+          <td><strong>White impulse-aggression from equal positions</strong></td>
+          <td>3-0 Thu Club R5 vs Mirzaliyeva (1829): <code>g4??</code> CPL 699 at move 31 from eval <strong>0.00</strong> (→ -6.99 in one move). Thu Club R4 vs Kurpiewski (1943): <code>e5??</code> CPL 312 (move 24), <code>fxe5??</code> CPL 427 (move 25) — consecutive panic blunders, lost as White. Pattern: Tarun plays an aggressive losing move when the position requires patient defense.</td>
+          <td>Austin as Black vs Tarun's 1.c4: use Nimzo/QID plan (1...Nf6 2...e6). When the middlegame reaches equality or slight advantage, Tarun's impulse is to play g4 or e5 type moves — both losing. Austin should create this "patient defense required" situation and wait for the blunder.</td>
+        </tr>
+        <tr>
+          <td><strong>Blunder peak at moves 26–40</strong></td>
+          <td>Across all 23 games, <strong>10 blunders fall in moves 26–40</strong> — the largest cluster by phase. Includes: <code>Bd3??</code> CPL 1000 (move 26, Boutikos), <code>Kf7??</code> CPL 1000 (move 30, Debmisra), <code>g4??</code> CPL 699 (move 31, Mirzaliyeva), <code>Bf3??</code> CPL 1000 (move 32), <code>Qa5??</code> CPL 1000 (move 32, Kurpiewski). Five 1000-CPL blunders cluster in this range.</td>
+          <td>Austin must create tactical complexity that peaks in the move 26–35 window. An exchange sacrifice or ...Ne4 jump executed at move 22–25 will detonate into Tarun's danger zone. Do not simplify early — wait for the tactical shot in this window.</td>
+        </tr>
+        <tr>
+          <td><strong>Endgame king misplacement</strong></td>
+          <td>NA Open R8 vs Bynum (2131): <code>Kh4??</code> CPL 1000 at move 52 — king walked into a forced mate sequence from a theoretically drawable endgame. Dulles R6 vs Peed (1837): <code>Kg3??</code> CPL 205 (move 46), <code>Kf2??</code> CPL 270 (move 49) — lost from 0.00 position. Pattern: king misplacement in late-game positions is a recurring technical failure.</td>
+          <td>If the game reaches an endgame, Austin should actively maneuver for king activity. Tarun's king positioning in endgames is demonstrably unreliable — even from equal positions he loses to seemingly lower-rated opponents (Peed 1837, Bynum 2131).</td>
+        </tr>
+        <tr>
+          <td><strong>0W–8L–1D vs 2100+ opponents</strong></td>
+          <td>Lost to: Pyrig 2395, Fus 2419, Bynum 2131, Liu 2153, Hebbar 2130, Meirkhanuly 2265, Dilanian 2239, Boutikos 2144. Only result: draw vs Hanein 2215 (White, 90.7% acc). Austin at 1947 is well within the range where Tarun has never won — his one draw vs 2215 was as White at his peak accuracy.</td>
+          <td>Austin should adopt the mindset of the 2215-level opponent — create positions requiring sustained high-accuracy play. Tarun has never won against anyone Austin's level or above in this dataset. Play confidently.</td>
+        </tr>
+        <tr>
+          <td><strong>⚠️ DANGER: English Mikenas aggression</strong></td>
+          <td>Used vs IM Fus (2419) in Texas Grand Circuit — 1.c4 e6 2.Nc3 Nf6 3.e4 c5 4.e5 Ng8. Created sharp position even against a 2419-rated IM. His 94.7% best White game was a clean win vs Murugan (1829) with 0 blunders in Sicilian Maróczy-type structure.</td>
+          <td>If Tarun plays 3.e4 Mikenas: Austin's 3...Bb4 response pins the knight and creates Nimzo-like piece pressure. Do NOT play 3...c5 allowing a sharp pawn wedge e5 — play the pin and neutralize the aggression.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Austin Strength → Tarun Weakness Bridge</h4>
+    <table style="font-size:0.875rem;margin:0 0 16px;">
+      <thead>
+        <tr><th>Austin's Strength (documented)</th><th>Tarun's Weakness (engine-backed)</th><th>Bridge</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Rossolimo Sicilian + h4-h5 attacking schemes</strong> — Austin's primary White weapon vs Sicilian 2...Nc6; documented win in 21 moves NAYCC R8; sharp tactical attacking style</td>
+          <td>Black catastrophic collapses in fianchetto Sicilian structures — 76.1% accuracy (Boutikos), threw away +5.76 advantage with Bd3?? in similar sharp tactical middlegame</td>
+          <td>Austin's Rossolimo vs Tarun's confirmed 3...Nf6 4.Bxc6 dxc6 + ...g6/...Bg7 creates exactly the sharp imbalanced Sicilian positions where Tarun has his worst game in the dataset. Austin should push for tactical complications early — Tarun's Black accuracy in these structures ranges 76–87%.</td>
+        </tr>
+        <tr>
+          <td><strong>Ne4 centralization / exchange sac in the 22–30 window</strong> — documented in NAYCC R3 (Ne4 → N4g3+), personal study; forces opponents to find active responses</td>
+          <td>Blunder peak moves 26–40 — 10 blunders in this range including five CPL 1000 blunders; Kf7?? CPL 1000, Bd3?? CPL 1000, Bf3?? CPL 1000, Qa5?? CPL 1000 all in this window</td>
+          <td>Austin executes ...Ne4 or an exchange sacrifice at move 22–25 → the resulting complications peak right in Tarun's confirmed danger zone (26–40). The timing is exact. Do not wait until move 30 to create complications — start at move 20.</td>
+        </tr>
+        <tr>
+          <td><strong>Nimzo-Indian piece play + IQP structures</strong> — Austin's primary Black weapon; ...b6/...Ba6 active patterns, ...Ne4 centralization; comfortable in IQP positions</td>
+          <td>White impulse-aggression from equal positions — g4?? CPL 699 from 0.00 (Mirzaliyeva); e5??/fxe5?? consecutive blunders (Kurpiewski). Tarun cannot maintain patience in balanced English/Catalan structures.</td>
+          <td>Austin's 1.c4 Nf6 2.Nc3 e6 response creates balanced QID/Nimzo structures. Tarun's impulse is to play aggressive but wrong moves from equality. Austin should hold the tension and wait — Tarun will blunder to destabilize a position that doesn't need destabilizing.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ul>
+      <li><strong>Exploit #1: Rossolimo 3.Bb5 vs Tarun's Sicilian</strong> — Tarun plays 1...c5 2...Nc6 vs 1.e4. Austin plays Rossolimo: <code>3.Bb5 Nf6 4.Bxc6 dxc6</code>. Resulting tactical positions with Black's doubled pawns and bishop pair are Austin's attacking territory and Tarun's historically worst — similar to the 76.1% Boutikos game. Push for h4-h5 attack or c4 structural pressure.</li>
+      <li><strong>Exploit #2: Execute tactical shot moves 22–28</strong> — All five CPL-1000 blunders in Tarun's danger zone (26–40) follow a pattern: a position requires patient defense, but Tarun instead plays an aggressive losing move. Austin should set up an exchange sacrifice or ...Ne4 jump at moves 20–24 to force the tactical crisis in Tarun's blunder window. The shot at move 22 is better than the same shot at move 30.</li>
+      <li><strong>Exploit #3: 1...Nf6 2...e6 as Black vs 1.c4 — wait for the impulsive blunder</strong> — Austin's Nimzo/QID wait-and-redirect plan (Section 5) creates balanced structures Tarun cannot maintain. When Tarun plays g4 or e5 type aggression from equality, those are his documented losing moves. Austin should hold the tension longer than feels comfortable — Tarun will self-destruct.</li>
+    </ul>
+
+    <div class="callout callout-red"><strong>DO NOT:</strong> (1) Allow Tarun's Mikenas 3.e4 pawn wedge without 3...Bb4 neutralization — the e5 pawn creates sharp dangerous play even vs IMs. (2) Trade all pieces into a quiet endgame as White — his best endgame result was a 90.7% draw vs 2215; equal endgames are not guaranteed wins. (3) Play passive QGD-type structures as Black vs Tarun's 1.c4 — his Maróczy conversion win (94.7%) was against a player who passively allowed the bind.</div>
+
+    <div class="callout callout-green"><strong>EXECUTE BEFORE MOVE 35:</strong> Tarun's blunder peak is moves 26–40 (10 blunders, five at CPL 1000). Austin's tactical shot — exchange sacrifice, ...Ne4 centralization, or Bxh7+! — must land by move 30. Tarun's impulse-aggression pattern means he will create the crisis himself (g4??, e5?? from equality) — Austin just needs to be positioned to punish it when it comes.</div>
+
+    <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Opening Preparation</h4>
+    <ul>
+      <li><strong>Austin as White vs Tarun's Sicilian 1...c5 2...Nc6:</strong> Play <strong>Rossolimo: <code>3.Bb5 Nf6 4.Bxc6 dxc6 5.d3</code></strong>. Tarun responds with <code>...g6 ...Bg7</code> fianchetto (confirmed Skyline R4). Austin's plan: central control with <code>Nf3 0-0 Re1</code>, then <code>h4-h5</code> kingside pressure or <code>c4</code> queenside clamp. The resulting unbalanced position with Tarun's doubled c-pawns against Austin's bishop pair pressure is Austin's attacking territory and Tarun's structurally unstable zone (76–87% accuracy in similar games). NOT Two Knights (3.Bc4 Nf6) — Austin has a C58 theory gap there.</li>
+      <li><strong>Austin as Black vs Tarun's 1.c4 English:</strong> Play <code>1...Nf6 2.Nc3 e6</code> — the wait-and-redirect plan (Section 5 of this report). Branches: if <code>3.d4</code> → Nimzo <code>3...Bb4</code>; if <code>3.e4</code> Mikenas → <code>3...Bb4</code> pin (NOT 3...c5 allowing e5 wedge); if <code>3.g3</code> → <code>3...d5</code> solid Catalan structure; if <code>3.Nf3</code> → <code>3...b6</code> Queen's Indian. Austin's Nimzo piece-play ideas (...Ne4, ...Ba6) transfer to all of these. Target the middlegame tension — Tarun's impulse to play g4/e5 from equal positions will give Austin a free win.</li>
+      <li><strong>Critical tactical warning:</strong> Tarun has one very clean White win (Dulles R1 vs Jackson 1876: 94% accuracy, Maróczy structure) and one endgame draw vs 2215. His best White play comes in English/Maróczy bind structures when allowed to develop normally. Prevent the bind: challenge d4 or c4 immediately with ...c5 or ...d5, and create an asymmetrical position before move 10. An equal Catalan structure is less dangerous than a Tarun Maróczy with an established Nd5.</li>
+    </ul>
+
+    <div class="callout callout-blue"><strong>⚠️ Underseeded (#10 official, 1965 real) — treat as near-equal game, not a free point.</strong> Tarun's 600-point improvement in 2.5 years proves strong tactical calculation. But his Black side (29 blunders, 76.1% worst game) and blunder peak at moves 26–40 are documented and engine-verified. Austin's Rossolimo + h4-h5 as White and Nimzo/QID patience as Black are the correct weapons. Deep prep: <a href="../matchup/matchup-tarun-gm.html">matchup-tarun-gm.html</a></div>
+  </div>
+</div>
+
 <!-- ═══════════════════════════════════════════════════════════ -->
 <h2 class="new">5 — Q10 Answer: What to Play vs 1.c4 (Tarun Sankar, seed #10, 1965)</h2>
 
