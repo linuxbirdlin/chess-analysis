@@ -715,14 +715,58 @@ tbody tr:last-child td { border-bottom: none; }
     <span>Leo Jackson (~2077) — seed #8 ⚠️ underseeded, real rank #2 in field, French as Black</span>
   </div>
   <div class="tc-body">
-    <p>Leo jumped from 1886 (Jun 2026) → 2009 (PAM) → <strong>~2077</strong> (est. Oct 2026) — the fastest-rising player in the field. Official seed #8 means Austin could face him in rounds 5–7, not just R8–9. <strong>163-point gap over Austin.</strong></p>
+    <p>Leo jumped from 1886 (Jun 2026) → 2009 (PAM) → <strong>~2077</strong> (est. Oct 2026) — the fastest-rising player in the field. Official seed #8 means Austin could face him in rounds 5–7, not just R8–9. <strong>+130 above Austin (1947).</strong></p>
+
+    <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Engine-Backed Weakness Analysis (60-game dataset, 34 classical)</h4>
+    <table style="font-size:0.875rem;margin:0 0 16px;">
+      <thead>
+        <tr><th>Weakness</th><th>Evidence</th><th>Austin Exploit</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>White plan-finding failure</strong></td>
+          <td>30% score as White (5W–9L–3D). Lost to 1665 (Mintz, PAM R2: 92.4% acc but 4 blunders), 1609 (Estrada, NA U20 R5: 87.2% acc). Avg White CPL = 45.6 vs Black CPL = 51.1.</td>
+          <td>QID 3...b6 + ...Ne4 forces Leo to find active plans — precisely where he fails. Austin has better winning chances as Black than as White in this matchup.</td>
+        </tr>
+        <tr>
+          <td><strong>Blunder peak at moves 21–40</strong></td>
+          <td>8 of 25 classical White blunders fall in moves 21–40; PAM R4 vs Heye (2065): blundered on a balanced position → lost; Am Cont R9 vs Linares (2021): 2 blunders from equal then resigned. 43 of 45 total blunders are in moves 21+.</td>
+          <td>Austin must manufacture tactical complications in the 22–35 move window — execute shots then, not "later when the position improves." This is Leo's danger zone.</td>
+        </tr>
+        <tr>
+          <td><strong>Long-game accuracy collapse</strong></td>
+          <td>In games ≥60 moves analyzed: Am Cont R2 (88.8%, 5 blunders, 76 moves), Queretaro R2 (87.4%, 5 blunders, 74 moves) — these are worse than his short-game average. His endgame "wins" contain more errors than his defensive draws.</td>
+          <td>DO NOT allow a simplification race. Leo's endgame results look impressive (152, 149-move records) but the engine shows compounding blunders — he wins by outlasting opponents, not by precision. Austin must close the game in the middlegame.</td>
+        </tr>
+        <tr>
+          <td><strong>2100+ barrier still holds</strong></td>
+          <td>Classical vs 2100+: 1W–8L–2D. Only Queretaro R2 (87.4% vs 2125) and R6 (94.8% draw vs 2136). Austin at 1947 is not yet at that level, but his tactical attacks can create 2100-level imbalance.</td>
+          <td>Play positions Austin knows better than Leo — Tarrasch IQP, Exchange Caro-Kann Greek Gift setup. Avoid theoretical equality draws.</td>
+        </tr>
+        <tr>
+          <td><strong>Clock asymmetry</strong></td>
+          <td>Leo's best results as Black are grinds (average 80+ moves). When he uses less clock in the middlegame, he saves it for the endgame. In PAM R4 (93.6% vs Heye), R7 (91.9% vs Liu) — he played accurately early but collapsed late.</td>
+          <td>Invest the clock in moves 20–35 (the tactical window) — burn your time finding sharp breaks, not saving it for an endgame that Leo will dominate.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 style="margin:8px 0 8px;font-size:0.93rem;color:#1f2328;">Opening Preparation</h4>
     <ul>
-      <li><strong>Austin as White vs French:</strong> Leo plays French 100% vs 1.e4 — confirmed <strong>Advance 3...c5 4.c3 Qa5</strong> and <strong>Tarrasch Chistyakov (3.Nd2 c5 4.exd5 Qxd5)</strong>. Play 3.e5 or 3.Nd2, NOT 3.exd5 Exchange — that's Leo's endgame comfort zone (won 134-move game from it).</li>
-      <li><strong>Austin as Black vs Leo's Catalan:</strong> Leo plays 1.d4 3.Nf3 (never 3.Nc3) — Nimzo unavailable. Play Queen's Indian (3...b6) or Bogo-Indian (3...Bb4+). White classical record only 30% — he struggles to convert as White.</li>
-      <li><strong>Key danger:</strong> Avoid endgames — Leo has 149- and 152-move technical wins in the dataset.</li>
-      <li>Review: <a href="../matchup/matchup-leo-gm.html">matchup-leo-gm.html</a></li>
+      <li><strong>Austin as White vs French:</strong> Play <strong>Tarrasch 3.Nd2</strong> — tabiya: 3...Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 7.Ne2! Generates IQP middlegames where Austin's tactical vision matches his training. If Leo plays 3...c5 Chistyakov: 4.exd5 Qxd5 5.Ngf3 — dynamic counter-gambit forcing an unbalanced game. <strong>NOT 3.exd5 Exchange</strong> — Leo won a 134-move endgame from that structure.</li>
+      <li><strong>Austin as Black vs Leo's Catalan:</strong> Leo plays 1.d4 3.Nf3 (never 3.Nc3) — Nimzo structurally unavailable. Play <strong>Queen's Indian 3...b6</strong>: ...Ne4 and ...Ba6 pressure forces Leo to find active plans in exactly the type of balanced position where he loses to lower-rated opponents. Leo's classical White record: 30% — he is beatable on the White side.</li>
+      <li><strong>Critical endgame warning:</strong> Leo has 149- and 152-move technical wins. Enter the endgame only with +25 min on the clock. An endgame where Austin has time trouble is a Leo win.</li>
     </ul>
-    <div class="callout callout-gold">⚠️ Most underseeded player: #8 official but real rank #2. Do not underestimate because of seed — this is a top-3 matchup threat.</div>
+
+    <div class="callout callout-red" style="background:#fff0f0;border-left:4px solid #cf2222;border-radius:0 6px 6px 0;padding:10px 16px;margin:10px 0;font-size:0.93rem;color:#7a0000;">
+      <strong>DO NOT simplify into endgames.</strong> Leo's 100–152-move "grinding" wins look like endgame mastery, but the engine shows 87–89% accuracy and 5 blunders in those long games — he wins by outlasting, not precision. Trade pieces only when you have a decisive tactical advantage, not to "simplify."
+    </div>
+    <div class="callout callout-gold">
+      <strong>EXECUTE BEFORE MOVE 35.</strong> Leo's blunder peak is moves 21–40. When a tactical shot exists around move 22–35, take it immediately — don't "improve the position." Austin's strength is recognizing and executing these shots; Leo's weakness is that he doesn't see them coming in complex middlegames. Every pawn move to "improve" after move 25 is a wasted opportunity.
+    </div>
+    <div class="callout callout-blue" style="background:#eaf0f8;border-left:4px solid #1a5276;border-radius:0 6px 6px 0;padding:10px 16px;margin:10px 0;font-size:0.93rem;color:#1a3a55;">
+      ⚠️ Most underseeded player: #8 official but real rank #2. Real FIDE 2077 (+130 above Austin). Treat every clock decision in this game as if facing the #2 seed. Deep prep: <a href="../matchup/matchup-leo-gm.html">matchup-leo-gm.html</a>
+    </div>
   </div>
 </div>
 
@@ -937,8 +981,9 @@ tbody tr:last-child td { border-bottom: none; }
     <ul>
       <li><strong>Austin as White (Leo plays French Defense — 100% of recorded games):</strong> Austin's weapon is Tarrasch 3.Nd2. Leo has survived 113-move Advance French games at the FM level — Tarrasch shifts him into less-familiar IQP territory. <strong>Spend the first 20 min (moves 1–15) establishing the c3+Nd2 structure and choosing between the 7.Ne2! main line and the 4.exd5 counter-gambit.</strong> The f4–f5–f6 kingside break is the winning plan — never push it before pieces are coordinated (Re1, Bd3, Nf3 minimum). Verify the break is safe before playing it.</li>
       <li><strong>Austin as Black (Leo plays 1.d4 Catalan, always 3.Nf3 to avoid Nimzo):</strong> Queen's Indian 3...b6 is the recommended response. Leo's Catalan White record is only 30% (5W–9L–3D in classical games) — he struggles to find active plans in balanced positions. The ...Ne4 and ...Ba6 pressure forces him to make concrete decisions. <strong>Spend 10–15 min on moves 8–14 to find the right ...c5 or ...d5 break before Leo's ideal Catalan setup forms.</strong> This window is the critical inflection point.</li>
-      <li><strong>Critical endgame warning:</strong> Leo wins 100–150+ move games routinely (152, 149, 134 moves recorded). <strong>Keep at least 25 min when entering any endgame.</strong> A drawn or slightly favourable endgame will be ground down by Leo's technical precision — time pressure is his secondary weapon. Austin must be decisive in the middlegame and execute tactical shots around moves 25–35 rather than "improving" the position further.</li>
-      <li><strong>Clock asymmetry to exploit:</strong> Leo's poor White record comes from plan-finding failure, not time trouble. As Black, Austin should spend extra time creating positions where Leo must find active moves — a time-pressured Leo in a complicated middlegame is vulnerable. A comfortable Leo in a simple position is not.</li>
+      <li><strong>Critical endgame warning:</strong> Leo wins 100–150+ move games routinely (152, 149, 134 moves recorded). However, the engine shows his accuracy <em>drops</em> in those long games — 87.4% (5 blunders) in 148-move Queretaro R2 win, 88.8% (5 blunders) in 152-move Am Continental R2 win. He wins by outlasting, not precision. <strong>Keep at least 25 min when entering any endgame</strong> — if Austin enters with time pressure, Leo's grinding style wins even if the position is equal.</li>
+      <li><strong>Tactical window — moves 22–35:</strong> Engine data: 8 of Leo's 25 classical White blunders fall in moves 21–40 (the middlegame transition). When Austin has a tactical shot available around moves 22–35, he must execute it immediately. This is Leo's primary danger zone — he does not anticipate sharp complications in what looks like a strategic game. Every "waiting" move after move 25 that delays a tactical shot is a wasted opportunity.</li>
+      <li><strong>Clock asymmetry to exploit:</strong> Leo's poor White record (30%) comes from plan-finding failure, not time trouble. As Black vs Leo's Catalan, Austin should spend extra time (10–15 min on moves 8–15) manufacturing positions where Leo must find active moves in a balanced middlegame. A time-pressured Leo trying to find a plan in a complicated, balanced position is where upsets happen — he lost to 1609, 1665, and 1929 rated opponents this way.</li>
     </ul>
   </div>
 </div>
