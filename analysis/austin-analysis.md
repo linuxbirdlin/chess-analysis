@@ -276,5 +276,47 @@ Pattern: Austin's Black losses cluster around:
 | C58 Two Knights | White | Move 8 | `8.Qf3!` not `8.Bd3?!` |
 | B41 Kan / h4-h5 storm | White | Moves 11-15 | When NOT to commit h-storm; know engine alternatives |
 | B90 Najdorf Adams (White) | White | Move 17 | Ncb1 retreat vs Rf3 — piece coordination in complex center |
-| 1.Nf3 b3 Nimzo-Larsen | Black | Moves 1-5 | No preparation at all; play `...d5 ...e6 ...Bd6` |
+| 1.Nf3 b3 Nimzo-Larsen | Black | Moves 1-5 | **RESOLVED** — drew with 3...d5 vs Sriram Sarja (Oct 10); structure works |
 | A13 English/Catalan | Black | Move 10+ | Pattern recognition; vs Vetesse Austin had no counterplay by move 15 |
+
+---
+
+## 11. Chess4Win Oct 2026 Games (6 games, Oct 10–12)
+
+**Source:** Lichess study "Games Pt.5" chapters — Oct 10–12, 2026. All results `*` (study analysis mode / unfinished games).
+
+| Color | Wins | Losses | Draws | Total |
+|---|---|---|---|---|
+| As White | — | — | 1 (vs Sean Liu) | 3 games |
+| As Black | — | — | 1 (vs Sriram Sarja) | 3 games |
+| **Combined** | — | — | **2 drawn, 4 unfinished** | **6** |
+
+### Per-game summary
+
+| Opponent | Austin Color | ECO | Key Moment | Outcome |
+|---|---|---|---|---|
+| Sean Liu | White | B41 Sicilian Maróczy Bind | Missed 28.c5! (best); played 28.Qf2. 30.Bxh6! sacrifice created real pressure | Draw at move 52 (Black offered) |
+| Sriram Sarja | Black | A15 Anglo-Indian / Nimzo-Larsen | 3...d5 structure blocked Bb2 diagonal; knight reached a2 grabbing loose pawn | Draw at move 25 (White offered) |
+| Sergey Malakhovets | White | B13 Exchange CK | 10.Bxh7+! Greek Gift executed: Kxh7 Ng5+ Kg6 Qg4 f5 Qh4 Bd7 Qh7+ Kf6 | Unfinished (~32 moves) |
+| Laksshana Deepak | Black | E46 Nimzo-Indian | Correctly played 20...b4 (avoiding 20...Ne4?? 21.Nxe4 22.Qb3+ 23.Nxg6#) | Unfinished (~35 moves), active counterplay |
+| Larry Zhou Chen | White | B13 Exchange CK | 15.Bxh7+! second Greek Gift in set; active R+N vs bishop endgame | Unfinished (~41 moves) |
+| Zi Sheng Wang | Black | A13 English Agincourt | Survived 10.Nd6+ (king forced to e7); 21...Rd3!! active rook; won material | Unfinished (~38 moves), dominant position |
+
+### Positive findings for NAYCC prep
+
+**1. Greek Gift (Bxh7+) practice — Games 3 and 5:**
+Austin executed 10.Bxh7+ Kxh7 11.Ng5+ in two consecutive Exchange CK games. This is the exact sacrifice family he failed to *defend* in NAYCC R2 vs Verma (`16...Bxh2+!`). Drilling both sides of the Bxh7+ pattern — attacking with it (CK) and recognizing it coming (Verma position) — is high-quality preparation. The move order `Bxh7+ Kxh7 Ng5+ Kg6 Qg4 f5 Qh4` is now practiced.
+
+**2. Nimzo-Larsen structure validated — Game 2:**
+vs Sriram Sarja: `1.Nf3 Nf6 2.c4 e6 3.b3 d5 4.Bb2` — exactly the structure Austin will face vs Joel Jeyaraj (#14 seed). Austin played 3...d5 (the recommended preparation), blocked the Bb2 diagonal, and was NOT outplayed. White offered the draw. This removes "1.Nf3 b3 Nimzo-Larsen" from the opening gap list.
+
+**3. Resilience vs forced king walk — Game 6:**
+vs Zi Sheng Wang: After 10.Nd6+ forced Austin's king to e7, Austin stayed calm and played `11...e5 17...e4 21...Rd3!!` — rook to the 3rd rank as an active defensive-offensive piece. The sequence `22.Qe5+ Qxe5 23.Nxe5 Nc2+ 24.Ke2 Nxa1 25.Nxd3 exd3+` won back all material. Ending 38...Rb2+ shows Austin with dominant rooks and advancing a-pawn. Best game in the set.
+
+### Concerns
+
+**1. Missed 28.c5! — Game 1 (vs Sean Liu):**
+After `27...dxe5` Austin had `28.c5!` which would push the d-pawn forward and win material. Austin played `28.Qf2` instead (annotation marks 28.c5 as the better continuation). This is the same pattern — seeing the positional idea but not committing to the most forcing line. In a tournament game this matters.
+
+**2. h4-h5 Maróczy storm reappears — Game 1:**
+Austin played `12.h4 13.h5` again in the Sicilian Kan/Maróczy (B41). Black neutralized it with `12...Bd7 13.h5 h6` — the storm was blocked for the second time in this dataset (NAYCC R6 was the first). Austin adapted with Bxh6 instead, which was creative, but the h-storm opening remains a pattern that needs the commitment-rule reinforced: *only commit h4-h5 when Black cannot block with ...h6 and you have a piece to follow up with immediately.*
