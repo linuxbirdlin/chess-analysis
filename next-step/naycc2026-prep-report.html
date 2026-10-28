@@ -504,7 +504,8 @@ tbody tr:last-child td { border-bottom: none; }
       <strong>Game evidence:</strong><br>
       • NAYCC R7 vs Beegala — White advanced d-pawn to d6, creating an unstoppable passed pawn. Austin's rook stuck defending the 7th rank passively instead of cutting off the king or activating. Holdable with correct Philidor defensive technique (rook to 3rd rank).<br>
       • NAYCC R9 vs Li (English/Reti) — pieces had no active counterplay entering the endgame; rook placement was reactive throughout. Loss came from passivity, not material deficit.<br>
-      • PAM R5 vs Vinales — rook endgame loss in a third consecutive case of the same pattern. Three R+P endgame losses in 16 tournament games is statistically significant and non-coincidental.
+      • PAM R5 vs Vinales — rook endgame loss in a third consecutive case of the same pattern. Three R+P endgame losses in 16 tournament games is statistically significant and non-coincidental.<br>
+      • <strong>Personal study additions (3 more):</strong> vs Zachary Liu B46 (67 moves, k+p conversion failure), vs Shon Lazarev C04 (68 moves, pawn ending), vs Valentyn A46 (60 moves, a/c-pawn race failed). Now 6 of Austin's 15 confirmed losses are endgame-type.
     </div>
     <div class="callout callout-blue">
       <strong>Drill resources:</strong>
@@ -567,6 +568,56 @@ tbody tr:last-child td { border-bottom: none; }
         <li><a href="https://lichess.org/opening/Two_Knights_Defense" target="_blank">lichess.org/opening → Two Knights Defense</a> — navigate to C58 branch after 4.Ng5 d5 5.exd5 Na5; find the 8.Qf3 line in master games and confirm why 8.Bd3 loses the initiative</li>
         <li><a href="https://lichess.org/opening/Sicilian_Defense_Taimanov_Variation" target="_blank">lichess.org/opening → Sicilian Taimanov</a> — search the 6.Ndb5 branch; confirm 6...d6 as the universal response (master games overwhelmingly show this)</li>
         <li><a href="../austin/opening-theory-check.html" target="_blank">opening-theory-check.html</a> — project file with full move-by-move reconstruction of both deviations and the specific positions to drill</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="task-card">
+  <div class="tc-head p1">
+    <span class="badge b-critical">E · NEW</span>
+    <span>Personal study (33 games, Jul–Oct 2026): 8 additional losses confirm all patterns</span>
+  </div>
+  <div class="tc-body">
+    <p>Full review of the Games Pt.5 Lichess study extends the loss database from 7 (tournament games) to 15 confirmed losses. Three new recurring patterns identified:</p>
+    <ul>
+      <li><strong>Endgame passivity — 3 more confirmed losses:</strong> vs Zachary Liu B46 (67 moves, k+p), vs Shon Lazarev C04 (68 moves, pawn ending), vs Valentyn Trofimov A46 (60 moves, a/c-pawn race). The pattern is identical to NAYCC R7/R9/PAM R5 — equal or playable middlegame → passive endgame → material leak.</li>
+      <li><strong>Rook sacrifice miscalculation:</strong> vs Warren Feng B13 — <code>23.Nh5 gxh5 24.Rxe6 fxe6 25.Rg3 e5</code> — same h-file overextension pattern as NAYCC R6. Move 23 sacrifice was unsound; structural collapse followed.</li>
+      <li><strong>IM-level positional play exposure:</strong> vs IM Nicholas Vettesse (2536) — two games, two losses. As Black (A13 English, Sept 12): no counterplay by move 15, overrun by move 30. As White (B90 Najdorf Adams, Oct 17): Ncb1 retreat at move 17 handed center control; accumulated disadvantage through move 44. These are expected losses vs a 2536 IM, but both show Austin runs out of ideas in non-tactical positions against strong positional players.</li>
+    </ul>
+    <div class="callout callout-gold">
+      <strong>Complete loss inventory (all 15 losses, NAYCC 2026 drill reference):</strong>
+      <table style="margin-top:10px;">
+        <thead>
+          <tr><th>#</th><th>Tournament</th><th>Color</th><th>Opponent</th><th>ECO</th><th>Move</th><th>Primary Cause</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>NAYCC25 R2</td><td>White</td><td>Verma 1765</td><td>C58</td><td>26</td><td>Opening gap: 8.Bd3?! not 8.Qf3!; missed Bxh2+</td></tr>
+          <tr><td>2</td><td>NAYCC25 R4</td><td>White</td><td>Huang 1811</td><td>C02</td><td>50</td><td>Overextended French chain; passive endgame</td></tr>
+          <tr><td>3</td><td>NAYCC25 R6</td><td>White</td><td>Fu 1722</td><td>B41</td><td>33</td><td>h4-h5-h6 stalled; allowed e2 pawn promotion</td></tr>
+          <tr><td>4</td><td>NAYCC25 R7</td><td>Black</td><td>Beegala 1758</td><td>E49</td><td>61</td><td>Passive rook endgame; d-pawn to d6</td></tr>
+          <tr><td>5</td><td>NAYCC25 R9</td><td>Black</td><td>Li 1676</td><td>A13</td><td>125</td><td>K+P endgame; bishop vs c-pawn failed</td></tr>
+          <tr><td>6</td><td>PAM R5</td><td>Black</td><td>Vinales FM 2091</td><td>Sic</td><td>43</td><td>21...Bxe4?? under time pressure (&lt;8 min)</td></tr>
+          <tr><td>7</td><td>PAM R7</td><td>Black</td><td>Fernandez 2137</td><td>B45</td><td>26</td><td>6...Bc5?? (correct 6...d6!); bishop trap move 8</td></tr>
+          <tr><td>8</td><td>Study</td><td>White</td><td>Zachary Liu ~2050</td><td>B46</td><td>67</td><td>K+P endgame conversion failure</td></tr>
+          <tr><td>9</td><td>Study</td><td>White</td><td>Heye Gao ~2065</td><td>C54</td><td>53</td><td>Positional middlegame; active pieces overwhelmed</td></tr>
+          <tr><td>10</td><td>Study</td><td>White</td><td>Warren Feng ~1900</td><td>B13</td><td>26</td><td>23.Nh5?? rook sacrifice miscalculated</td></tr>
+          <tr><td>11</td><td>Study</td><td>?</td><td>Juan Fernando</td><td>B45</td><td>?</td><td>Sicilian Four Knights (insufficient detail)</td></tr>
+          <tr><td>12</td><td>Study</td><td>Black</td><td>IM Vetesse 2536</td><td>A13</td><td>30</td><td>English positional; no counterplay by move 15</td></tr>
+          <tr><td>13</td><td>Study</td><td>White</td><td>Shon Lazarev ~1900</td><td>C04</td><td>68</td><td>French Tarrasch pawn ending technique failure</td></tr>
+          <tr><td>14</td><td>Study</td><td>Black</td><td>Valentyn ~1900</td><td>A46</td><td>60</td><td>Technical endgame: a/c-pawn race failed</td></tr>
+          <tr><td>15</td><td>Study Oct17</td><td>White</td><td>IM Vettesse 2536</td><td>B90</td><td>44+</td><td>Najdorf Adams: Ncb1 retreat at move 17 lost center</td></tr>
+        </tbody>
+      </table>
+      <strong>Summary: 8 White losses, 7 Black losses. Endgame passivity accounts for 6/15 losses — the #1 priority.</strong>
+    </div>
+    <div class="callout callout-green">
+      <strong>Positives from personal study (33 games, ~16W-8L-9D):</strong>
+      <ul>
+        <li>Draw vs Korosh Bolandnazar (2203 CFC / ~1980 FIDE) in C54 Italian — solid performance against near-2000 opponent</li>
+        <li>Win vs Krishnamurthi Roshath Jagaav (1935 CFC) in B48 Taimanov English Attack — shows Taimanov endgame improving</li>
+        <li>Black record in study: 9W-3L-4D — Austin as Black is strong (confirmed Taimanov/Nimzo working)</li>
+        <li>Multiple wins vs B45 Four Knights opponents — this ECO will appear at NAYCC</li>
       </ul>
     </div>
   </div>

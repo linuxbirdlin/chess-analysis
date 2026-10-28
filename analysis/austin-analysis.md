@@ -144,3 +144,137 @@ See matchup preparation report for full analysis.
 | Endgame technique | 1750–1850 | Won a 116-move pawn ending (NAYCC R5) but lost passive rook endgames (NAYCC R7, R9, PAM R5) — inconsistent |
 
 The gap between tactical instinct (strong) and endgame/passive-defense (weak) is Austin's defining imbalance. Closing the endgame gap by 0.5 points per game would recover most of the rating lost at NAYCC.
+
+---
+
+## 7. Personal Study Games Analysis (Jul–Oct 2026)
+
+**Source:** Lichess study "Games Pt.5" — 33 games from Jul 2026 to Oct 18, 2026
+**Context:** Practice and rated games post-PAM 2026, played during NAYCC 2026 prep period.
+
+| Color | Wins | Losses | Draws | Total |
+|---|---|---|---|---|
+| As White | 7 | 5 | 5 | 17 |
+| As Black | 9 | 3 | 4 | 16 |
+| **Combined** | **16** | **8** | **9** | **33** |
+
+### Key Wins (personal study)
+
+- **vs Aaryan Kovuru (Black), E01 Catalan Closed** — Won with ...Ne4 queenside counterplay in closed Catalan; clean technique
+- **vs Zelus Hui (Black), B45 Sicilian Four Knights** — Won from complex queen-less endgame with active rook after 43 moves
+- **vs Charis Zhu (Black), B45 Sicilian** — Won with active kingside counterplay after White overextended
+- **vs Krishnamurthi Roshath Jagaav (Black, 1935), B48 Taimanov English Attack** — Won a 66-move technical endgame; demonstrates improving Taimanov endgame skill
+- **vs Korosh Bolandnazar (White, 2203), C54 Italian Pianissimo** — Draw against 2203 opponent from equal Italian structure; solid performance
+
+### Losses (personal study) — specific patterns
+
+| Opponent | Color | ECO | Move | Key Error |
+|---|---|---|---|---|
+| Zachary Liu (~2050+) | White | B46 Taimanov | 67 | k+p endgame conversion failure after equal middlegame |
+| Heye Gao (~2065) | White | C54 Italian Classical | 53 | Positional middlegame — active pieces overwhelmed Austin |
+| Warren Feng | White | B13 Caro-Kann Exch | 26 | 23.Nh5?? rook sacrifice miscalculated — `23.Nh5 gxh5 24.Rxe6 fxe6 25.Rg3 e5` |
+| Juan Fernando | ? | B45 Sicilian | ? | Endgame/tactical (insufficient data) |
+| IM Nicholas Vetesse (A13 English) | Black | A13 | 30 | Positionally overwhelmed in English Catalan; pieces overrun by move 30 |
+| Shon Lazarev | White | C04 French Tarrasch Guimard | 68 | Converted poorly despite material compensation; endgame technique failure in pawn ending |
+| Valentyn Trofimov Malyshkin | Black | A46 Indian | 60 | Technical endgame: a/c-pawn race failed despite fighting position |
+| IM Nicholas Vettesse (Oct 17, 2536) | White | B90 Najdorf Adams | 44+ | Positionally outplayed — Nc3 retreat at move 17 instead of Rf3, then accumulated disadvantage |
+
+### Opening pattern notes (personal study)
+
+**As White — new developments:**
+- Austin has been testing Caro-Kann Exchange (`4.Bd3`) more frequently — 3 games (vs Sergey, vs Larry Chen, vs Warren Feng). Won 2, lost 1. The Bxh7+ Greek gift sacrifice (vs Sergey, move 10) shows Austin playing sharper in this line.
+- French Tarrasch (3.Nd2) is now the main French weapon (vs Shon Lazarev C04, vs Edison Wang C07, vs Rudra Sheth C07). This confirms the switch from Advanced French noted in qa.md.
+- h4-h5 storm in Sicilian Kan: Used again (vs Sean Liu B41) — the same pattern from NAYCC R6. Austin shows a recurring preference for this aggressive setup.
+
+**As Black — new developments:**
+- B45/B46/B48 Sicilian (Taimanov/Four Knights) appears 6+ times as Black. This is Austin branching out from Najdorf as planned.
+- E01/E11/E15 Catalan/Bogo-Indian positions appear frequently — Austin has been practicing Queen's Indian and Bogo-Indian structures.
+- Nimzo-Indian E46/E49 still appears — two wins with it (vs Laksshana Deepak E46, vs Aaryan Kovuru E01).
+
+---
+
+## 8. Complete Loss Inventory (All Tournaments — NAYCC 2026 Prep Reference)
+
+**Total documented losses: 15**
+
+| # | Tournament | Round | Austin Color | Opponent | Rating | ECO | Move | Primary Cause |
+|---|---|---|---|---|---|---|---|---|
+| 1 | NAYCC 2025 | R2 | White | Pranika Verma | 1765 | C58 | 26 | Opening gap: 8.Bd3?! not 8.Qf3!; allowed 16...Bxh2+ |
+| 2 | NAYCC 2025 | R4 | White | Justin Huang | 1811 | C02 | 50 | Overextended French chain c5/f5/b4; passive endgame |
+| 3 | NAYCC 2025 | R6 | White | Odyssey Fu | 1722 | B41 | 33 | h4-h5-h6 storm stalled; allowed 32...e2+ pawn promotion |
+| 4 | NAYCC 2025 | R7 | Black | Beegala | 1758 | E49 | 61 | Passive rook endgame; White d-pawn promoted to d6 |
+| 5 | NAYCC 2025 | R9 | Black | Li | 1676 | A13 | 125 | King+pawn endgame; bishop vs c-pawn lost on move 63 |
+| 6 | PAM 2026 | R5 | Black | Vinales FM | 2091 | Sicilian | 43 | Blunder 21...Bxe4?? under time pressure (<8 min) |
+| 7 | PAM 2026 | R7 | Black | Fernandez Herrera | 2137 | B45 | 26 | Theory gap: 6...Bc5?? (correct 6...d6!); trapped at move 8 |
+| 8 | Personal study | — | White | Zachary Liu | ~2050 | B46 | 67 | K+P endgame: Austin failed to convert/hold despite equal middlegame |
+| 9 | Personal study | — | White | Heye Gao | ~2065 | C54 | 53 | Positional middlegame: Heye's active pieces dominated |
+| 10 | Personal study | — | White | Warren Feng | ~1900 | B13 | 26 | 23.Nh5?? rook sacrifice backfired; structural collapse |
+| 11 | Personal study | — | ? | Juan Fernando | ? | B45 | ? | Sicilian Four Knights — insufficient detail |
+| 12 | Personal study | — | Black | IM Nicholas Vetesse | 2536 | A13 | 30 | Positionally outplayed in English; no counterplay by move 25 |
+| 13 | Personal study | — | White | Shon Lazarev | ~1900 | C04 | 68 | French Tarrasch endgame: pawn ending technique failure |
+| 14 | Personal study | — | Black | Valentyn Trofimov | ~1900 | A46 | 60 | Technical endgame: a/c-pawn race failed |
+| 15 | Personal study | — | White | IM Nicholas Vettesse | 2536 | B90 | 44+ | Najdorf positional: accumulated disadvantage from move 17 retreat |
+
+---
+
+## 9. Weakness Priority Ranking (NAYCC 2026 Focus)
+
+### Priority 1 — Endgame passivity (6 losses: #4, #5, #8, #13, #14, and partially #2)
+
+Austin's rook endgames and king+pawn endings show a systematic pattern: his pieces become passive and he loses the position slowly. The losses vs Beegala (121 moves), vs Li (125 moves), vs Zachary Liu (67 moves), vs Shon Lazarev (68 moves), vs Valentyn (60 moves) all follow the same arc — equal or better middlegame, passive endgame, material leak.
+
+**Specific drills needed:** Philidor draw defense (rook on 6th rank), Lucena bridge-building, king+pawn key squares, passed pawn blocking technique.
+
+### Priority 2 — Critical theory gap: B45 Taimanov 6.Ndb5 → 6...d6! (1 catastrophic loss: #7)
+
+PAM R7 vs Fernandez Herrera (2137): `5.Nc3 Nc6 6.Ndb5 Bc5??` instead of `6...d6!`. White played `7.Bf4 O-O 8.Bc7! Qe7 9.Bd6 Bxd6 10.Qxd6` — bishop trap, game effectively decided at move 10. This is Austin's **most critical opening rule to memorize** before NAYCC 2026. It is also relevant because multiple NAYCC opponents play 1.e4 into Sicilian setups.
+
+**Specific drill:** `5.Nc3 Nc6 6.Ndb5 → 6...d6! is automatic`. Must be reflexive.
+
+### Priority 3 — Tactical oversights under time pressure (3 losses: #6, #3, #10)
+
+PAM R5 (`21...Bxe4??` with <8 min left), NAYCC R6 (allowed e2-e1=Q promotion), vs Warren Feng (`23.Nh5??` rook sacrifice miscalculation). Austin's accuracy drops sharply below 10 minutes. The pattern: one decisive blunder in a position that was close to equal.
+
+**Specific drill:** Time management protocol — force slower moves when under 15 minutes; verify calculation before piece sacrifices.
+
+### Priority 4 — h-file pawn storm overextension (2-3 losses: #3, #10)
+
+NAYCC R6 h4-h5-h6 (Sicilian Kan) and vs Warren Feng (23.Nh5 in Caro-Kann Exchange). Austin launches h-side storms prematurely and the structure collapses when the storm doesn't break through. The h4-h5 push in B41 Sicilian Kan (also vs Sean Liu) shows this is a recurring White system that needs refining — when to commit and when to stop.
+
+**Specific drill:** Know the conditions for committing h4-h5 in Sicilian Kan vs B13 Caro-Kann Exchange: only after castling queenside or with concrete piece support; never as a pure pawn advance when Black can counterattack in the center.
+
+### Priority 5 — C58 Two Knights opening gap (1 loss: #1)
+
+NAYCC R2: `8.Bd3?!` (passive) vs correct `8.Qf3!` (threatens Qxf7#). This game also shows Austin cannot correctly assess `16...Bxh2+!` tactical shots — he was unable to calculate that `17.Kh1 Nb7 18.g3 Bxg3!` was winning for Black.
+
+**Specific drill:** Know `8.Qf3!` in Two Knights C58 as the main line; drill `Bxh2+ gxh2 Qh4+` tactical patterns.
+
+---
+
+## 10. Color-Specific Weakness Summary
+
+### As White — 8 losses out of 25 White games (~32% loss rate)
+
+Pattern: Austin's White losses cluster around two scenarios:
+1. **Sharp systems that backfire** — h-file attacks (NAYCC R6, vs Warren Feng), Two Knights (NAYCC R2), Najdorf Adams h3/g4 (vs IM Vettesse)
+2. **Endgame conversion failures** — After reaching a playable endgame, Austin either blunders (PAM R8 draw from won) or slowly drifts passive (vs Zachary Liu, vs Shon Lazarev)
+
+### As Black — 7 losses out of 24 Black games (~29% loss rate)
+
+Pattern: Austin's Black losses cluster around:
+1. **Opening theory gaps** — PAM R7 (`6...Bc5??`), NAYCC R9 (unfamiliar English structure)
+2. **Endgame passivity** — NAYCC R7 (rook ending), NAYCC R9 (king+pawn), vs Valentyn (A46 Indian)
+3. **Time pressure blunders** — PAM R5 (`21...Bxe4??`)
+
+**Key observation:** Austin's Black loss rate has improved (from 4/9 at NAYCC to 3/16 in personal study), suggesting his Black preparation is developing well. His White performance is the larger concern for NAYCC 2026.
+
+### Opening Repertoire Gaps (move-by-move)
+
+| System | Color | Gap Location | Issue |
+|---|---|---|---|
+| B45 Taimanov (Sicilian) | Black | Move 6 | `6.Ndb5 → 6...d6!` rule must be automatic |
+| C58 Two Knights | White | Move 8 | `8.Qf3!` not `8.Bd3?!` |
+| B41 Kan / h4-h5 storm | White | Moves 11-15 | When NOT to commit h-storm; know engine alternatives |
+| B90 Najdorf Adams (White) | White | Move 17 | Ncb1 retreat vs Rf3 — piece coordination in complex center |
+| 1.Nf3 b3 Nimzo-Larsen | Black | Moves 1-5 | No preparation at all; play `...d5 ...e6 ...Bd6` |
+| A13 English/Catalan | Black | Move 10+ | Pattern recognition; vs Vetesse Austin had no counterplay by move 15 |
