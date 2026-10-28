@@ -738,12 +738,55 @@ tbody tr:last-child td { border-bottom: none; }
     <span>Heye Gao (CM, 1994) — #3 seed (↓ from 2076), direct record 0W–2L–1D</span>
   </div>
   <div class="tc-body">
-    <p>Austin's worst head-to-head record. Understanding exactly what went wrong in both losses is the single most valuable prep task for this matchup.</p>
+    <p>Austin's worst head-to-head record (0W–2L–1D). Engine data reveals exactly where Heye is exploitable — and Austin's color role as White is the better scenario.</p>
+
+    <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Engine-Backed Weakness Analysis (34 classical games)</h4>
+    <table style="font-size:0.875rem;margin:0 0 16px;">
+      <thead>
+        <tr><th>Weakness</th><th>Evidence</th><th>Austin Exploit</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Black catastrophic one-move collapse</strong></td>
+          <td>RCM R3 vs Kot (2166): <strong>Nb4?? CPL 620</strong> from -0.08 (near-equal); PAM R9 vs Rodriguez (1971): <strong>Kg8?? CPL 392</strong> from 0.00; PAM R7 vs Diaz Guerrero (2209): <strong>Qe7?? CPL 504</strong> from -0.19. Three collapses from effectively equal positions.</td>
+          <td>Force sharp positions as White — one-move calculation errors are Heye's recurring Black failure mode when under tactical pressure.</td>
+        </tr>
+        <tr>
+          <td><strong>Black record 39% vs White 62.5%</strong></td>
+          <td>5W/4D/9L as Black (avg 92.6%) vs 10W/2D/4L as White (avg 94.5%). Last 6 Black games: 5 losses including to players below Heye's own rating (Rodriguez 1971, Kot 2166).</td>
+          <td>Austin as White (1.e4) is the correct color role — force Heye to defend as Black where he has the dataset's weakest record.</td>
+        </tr>
+        <tr>
+          <td><strong>Blunder window moves 20–30 as Black</strong></td>
+          <td>PAM R7: two blunders at move 24 (Qe7?? CPL 504) and move 28 (Qxf7?? CPL 531). PAM R9: Kg8?? at move 23 (CPL 392). RCM R3: Nb4?? around move 22 (CPL 620). All catastrophic collapses from equal occurred before move 30.</td>
+          <td>Austin's tactical shots (exchange sac, ...Ne4, Bxh7+) must land in the 20–30 move window. Do not wait for "a better position."</td>
+        </tr>
+        <tr>
+          <td><strong>Loses as Black to near-equal/lower rated</strong></td>
+          <td>PAM R9: lost to Rodriguez rated 1971 (Heye was 2065, -94 pts). RCM R3: lost to Kot rated 2166 (effectively same level). Both losses as Black from balanced positions via single blunder.</td>
+          <td>Austin at 1947 is only 47 pts below Heye (1994) — exactly the "underestimated lower-rated opponent" scenario Heye has failed to handle as Black.</td>
+        </tr>
+        <tr>
+          <td><strong>B58 Sicilian as White unreliable</strong></td>
+          <td>CC G267162 (White, B58): 87.5% accuracy, 1 blunder (Bf1?? CPL 1000 allowing mate) in 30 moves. Ontario R5 French C16: 88.2%, 2 blunders. Heye's White accuracy drops sharply in sharp tactical systems.</td>
+          <td>Austin as Black: play 1...c5 Sicilian to steer toward Heye's shakier Sicilian White systems (87.5–91.1%) rather than his Italian comfort zone (95–99%).</td>
+        </tr>
+        <tr>
+          <td><strong>Italian/endgame is Heye's ceiling</strong></td>
+          <td>RCM R8 vs Plotkin (2282): 97.4% in 107-move Italian endgame. RCM R9 vs Moses (2234): 97.8%, CPL 6. These near-perfect games are exclusively long Italian/Ruy Lopez endgames as White or Black.</td>
+          <td>Keep complications in the middlegame — once the position reaches a technical endgame, Heye's ceiling is 97%+ accuracy. The time to win is moves 20–35, not later.</td>
+        </tr>
+      </tbody>
+    </table>
+
     <ul>
-      <li><strong>Action:</strong> Ask Austin about both Heye games. Was it opening, middlegame, or endgame failure? The answer determines where to focus.</li>
-      <li><strong>Heye as White:</strong> Italian — Austin should be comfortable here. Review <a href="../matchup/matchup-heye-black.html">matchup-heye-black.html</a>.</li>
-      <li><strong>Heye as Black:</strong> Slav — Austin's 1.e4 weapons don't directly apply. Review <a href="../matchup/matchup-heye-white.html">matchup-heye-white.html</a>.</li>
+      <li><strong>Exploit #1: Sharp Sicilian as Black</strong> — play 1...c5 vs Heye's 1.e4 to reach B58/Scheveningen territory (87.5–91.1% Heye accuracy) rather than Italian (95–99%). Heye allowed a mating combination in 30 moves in G267162.</li>
+      <li><strong>Exploit #2: Tactical detonation moves 22–28</strong> — Heye's three worst Black collapses all happened by move 28. Austin's ...Ne4 jump or exchange sacrifice pattern must arrive in this window. PAM R7 (Qe7?? move 24, CPL 504) is the prototype.</li>
+      <li><strong>Exploit #3: You are the "lower-rated underdog"</strong> — Heye consistently underperforms vs near-equal Black opponents and has lost to players below 1971. Austin at 1947 is exactly the profile. Play confidently; psychological pressure works in Austin's favor here.</li>
     </ul>
+
+    <div class="callout callout-red"><strong>DO NOT:</strong> Allow simplification to Italian pawn endgame (Heye 97%+ accuracy in 100-move endgames); play quiet positional chess where Black slowly equalizes (Heye's strength); enter a rook endgame from an Italian structure where Heye has proven he can grind for 150 moves.</div>
+    <div class="callout callout-green"><strong>EXECUTE BEFORE MOVE 30:</strong> All three of Heye's catastrophic Black blunders (Nb4?? CPL 620, Kg8?? CPL 392, Qe7?? CPL 504) landed before move 30. Create sharp, multi-threat positions in the middlegame. If Austin has a tactical shot available at move 22–28, take it — Heye's Black defense becomes unreliable exactly there.</div>
   </div>
 </div>
 
@@ -1033,10 +1076,10 @@ tbody tr:last-child td { border-bottom: none; }
   </div>
   <div class="tc-body">
     <ul>
-      <li><strong>Known pattern:</strong> Austin's record vs Heye is 0W–2L–1D. The two losses must have come from somewhere — either opening surprise, middlegame overextension, or endgame. Ask Austin before the tournament.</li>
-      <li><strong>Opening:</strong> Do not rush. If Austin has lost to Heye's Italian before, spend extra time on moves 10–15 to avoid the specific mistake point.</li>
-      <li><strong>Psychological pacing:</strong> With a bad head-to-head record, Austin may feel pressure and play faster to "prove something." The opposite is correct — slow down more than usual. Every extra minute Austin spends thinking is time Heye cannot pressure him.</li>
-      <li><strong>Endgame:</strong> Keep 25 min. Heye at 93.5% accuracy is among the most accurate in the dataset — endgame technique will be decisive. Do not let the clock fall below 15 min in the endgame.</li>
+      <li><strong>Heye's Black blunder window is moves 20–30.</strong> Engine data: Nb4?? (CPL 620) ~move 22, Kg8?? (CPL 392) at move 23, Qe7?? (CPL 504) at move 24, Qxf7?? (CPL 531) at move 28. Austin must engineer the tactical crisis before move 30 — not after.</li>
+      <li><strong>Invest clock in moves 15–25 as White.</strong> Spend 3–5 min per move during the critical build-up phase. Heye expects faster play; a methodical approach buys Austin the calculation quality he needs to find the tactical shot in the 22–28 window.</li>
+      <li><strong>Psychological pacing:</strong> With a bad head-to-head record (0W–2L–1D), Austin may play faster to "prove something." The opposite is correct — slow down more than usual. The engine shows Heye cracks as Black when tactical complications accumulate; Austin's patience creates those complications.</li>
+      <li><strong>Endgame: do not enter it willingly.</strong> Heye played 97.4% (107 moves) and 97.8% (112 moves) in his best endgame wins. If the position reaches a technical endgame, Austin must keep 25+ min on the clock and rely on Lucena/Philidor fundamentals — Heye's technique is excellent but not error-free (CPL 6–8 even in wins means small inaccuracies exist).</li>
     </ul>
   </div>
 </div>
