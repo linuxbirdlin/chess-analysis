@@ -166,7 +166,7 @@ When a new opponent folder is added:
 ## Key Player Profiles (Quick Reference)
 
 ### Austin Lin
-- **Rating:** ~1865–1968 (U14 level)
+- **Rating:** ~1947 FIDE (Oct 2026; official tournament seed at 1914)
 - **White opening:** 1.e4 exclusively — Exchange Caro-Kann (4.Bd3), Advanced French (3.e5/3.Nd2), Rossolimo Sicilian (Bb5) and h4 systems
 - **Black opening:** Nimzo-Indian `Bxc3+` with `...b6/...Ba6` vs 1.d4; Sicilian vs 1.e4
 - **Style:** Tactical, combinational, sharp positions
