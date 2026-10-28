@@ -16,7 +16,7 @@ Answer these questions so I can update the prep report and sprint plan with accu
 
 **Q3. What are the exact tournament dates?**
 
-> Nov.10-Nov.11
+> Nov.10-Nov.16
 
 ---
 
@@ -34,33 +34,131 @@ Answer these questions so I can update the prep report and sprint plan with accu
 
 ## Opening Preparation
 
-**Q6. Are you still playing the same White repertoire as PAM 2026 — Exchange Caro-Kann (4.Bd3), Advanced French (3.e5), Rossolimo Sicilian (3.Bb5), h4 systems? Any changes?**
+**Q6. Taimanov / Kan as Black vs 1.e4 — how deep is your preparation?**
 
-> No change. 
+> Brief answer: I don't play advanced french anymore, I play 3 Nd2, also against as black I'm trying to branch out to other sicilian e6 setups like Taimanov or Kan
 
-**Q7. As Black vs 1.d4: still Nimzo-Indian (Bxc3+ with ...b6/...Ba6)? Or have you added/changed anything?**
+Please expand — answer all 4:
 
-> No change.
+1. **Move order**: Do you play `1...c5 2...e6 3...Nc6` (Taimanov) or `1...c5 2...e6 3...a6` (Kan)? Or do you decide based on what White plays?
 
-**Q8. As Black vs 1.e4: what Sicilian variation are you most comfortable with right now — Taimanov (2...e6), Kan (4...a6), Dragon (2...d6 ...g6), or something else?**
+   > *(answer here)*
 
-> Same
+2. **English Attack depth**: When White plays `6.Be3 7.f3 8.g4` English Attack — do you know the `...b5 ...b4 ...Bb7 ...Rc8` queenside counterplay plan? How far does your preparation go — move 10? Move 15? Where do you start guessing?
 
-**Q9. Do you have a prepared response to 1.Nf3 2.b3 (Joel Jeyaraj's Nimzo-Larsen)? Have you faced it before?**
+   > *(answer here)*
 
-> Same.
+3. **Maróczy Bind** (`5.c4` after `4.Nxd4`): Have you faced it? Do you know how to handle it?
+
+   > *(answer here)*
+
+4. **Biggest preparation gap**: What position appears on the board where you are no longer sure what to do?
+
+   > *(answer here)*
+
+*Example of a complete answer: "I play 2...e6 3...Nc6 Taimanov. I know the English Attack plan through move 12 — b5, b4, Bb7, Rc8. I don't know the Maróczy Bind at all. My prep runs out around move 8 if White plays something unusual."*
+
+---
+
+**Q7. Bb4+ vs Catalan setups — how do you handle it after White responds?**
+
+> Brief answer: Basically no change to Nimzo, something to note is I usually try and play Bb4+ against Catalan setups
+
+Please expand — answer all 3:
+
+1. After `1.d4 Nf6 2.c4 e6 3.Nf3 Bb4+` — what do you do if White plays `4.Bd2`? And if White plays `4.Nbd2` instead?
+
+   > *(answer here)*
+
+2. After the most common `4.Bd2 Bxd2+ 5.Qxd2` — what is your plan? Do you play `...d5`, `...c5`, or `...b6` next?
+
+   > *(answer here)*
+
+3. How many real games have you played with Bb4+ vs Catalan? Is this tested in actual games or just an idea?
+
+   > *(answer here)*
+
+*Example of a complete answer: "After 4.Bd2 Bxd2+ 5.Qxd2 I play ...d5 then ...c5 IQP. I've played it 3-4 times online. I don't know what to do if White plays 4.Nbd2."*
+
+---
+
+**Q8. Taimanov vs Kan — which 4th move do you prefer and why?**
+
+> Brief answer: Taimanov like setups, I think I want to learn more about different 4th moves instead of 4.Nf6, like 4.Nc6 or 4.a6, I am not willing to play the dragon
+
+Please expand — answer all 3:
+
+1. `4...Nc6` (Taimanov) vs `4...a6` (Kan) — which feels more natural to you right now? Or are you genuinely unsure and want to pick one to commit to for NAYCC?
+
+   > *(answer here)*
+
+2. **Keres Attack** (`6.g4` after `5.Nc3`): Have you faced it or studied it? The Keres Attack is aggressive and White gets strong kingside play quickly — do you know the main defensive plan?
+
+   > *(answer here)*
+
+3. **Key rule for `6.Ndb5`** (the trap from PAM R7): After `5.Nc3 Nc6 6.Ndb5`, you MUST play `6...d6!` immediately — NOT `6...Bc5?` (which allows `8.Bc7!` trapping your queen path). Is this rule automatic for you now, or do you need to re-drill it?
+
+   > *(answer here)*
+
+---
+
+**Q9. Nimzo-Larsen (Joel Jeyaraj: `1.Nf3 2.b3 Bb2`) — do you know anything about it?**
+
+> Brief answer: No. never faced it. Nf3 yes. but not Nf3 with b3, do you have any recommendation with style and skill set?
+
+**Recommendation for Austin (based on his style):**
+
+Play `1.Nf3 d5 2.b3 Nf6 3.Bb2 e6 4.e3 Bd6` — solid pawn center, develop naturally, do NOT fianchetto your own bishop. The Larsen bishop on b2 wants to control the long diagonal; your d5+e6+Bd6 structure completely blocks it. You already played a similar position in personal study vs Sriram Sarja — same plan.
+
+Please confirm:
+
+1. Does this recommendation make sense to you? Do you want a sharper alternative?
+
+   > *(answer here)*
+
+2. Have you played `...d5 ...e6 ...Nf6 ...Bd6` structures before? Are you comfortable with this pawn center?
+
+   > *(answer here)*
+
+---
 
 **Q10. Do you have a prepared response to 1.c4 (Tarun Sankar's English)? What do you normally play?**
 
-> Not, yet. what's your recommendation?
+> lines with e6, Nf6 d5, be7 or bb4, nimzo indian style
+
+*(Already answered — no expansion needed. Covered in Section 5 of the sprint report.)*
 
 ---
 
 ## Endgames
 
-**Q11. Have you drilled Philidor and Lucena positions since PAM 2026? How comfortable are you with rook endgames right now (1–5 scale)?**
+**Q11. Rook endgames — you rated yourself 3/5. Let's get specific so we know exactly what to drill.**
 
-> 
+> Brief answer: 3
+
+Please expand — answer all 5:
+
+1. **Philidor position** (you are defending: your Rook vs opponent's Rook + Pawn): Walk through it mentally. Do you remember the rook-to-3rd-rank rule — when to be on the 3rd rank vs the 6th rank? Can you execute this correctly every time, or do you sometimes forget the technique under pressure?
+
+   > *(answer here)*
+
+2. **Lucena position** (you are winning: your Rook + Pawn vs opponent's Rook): Do you know the bridge-building method — Re4 → Rf4 → Rg4 shelter for the king? Can you execute it cleanly, or do you need to think about it each time?
+
+   > *(answer here)*
+
+3. **King and Pawn endings**: Are you comfortable with opposition, key squares, and the square of the pawn? Or do you still calculate these from scratch each time?
+
+   > *(answer here)*
+
+4. **NAYCC R7 vs Beegala (the rook endgame loss)**: Do you remember the position? Was it a Philidor-type (you defending against a passed pawn) or a different type of rook endgame? What do you think went wrong?
+
+   > *(answer here)*
+
+5. **Current drill routine**: Are you doing any endgame practice right now, or did it stop after PAM 2026?
+
+   > *(answer here)*
+
+*Example of a complete answer: "I know the Philidor idea but I forget under pressure whether to put the rook on the 3rd or 6th rank. I know Lucena theory but haven't drilled it in months. K+P I'm okay. The Beegala game I think my rook was on the wrong file and I kept it passive. I haven't drilled endgames since PAM."*
 
 ---
 
@@ -72,7 +170,7 @@ Answer these questions so I can update the prep report and sprint plan with accu
 
 **Q13. In the two losses vs Heye Gao — do you remember what went wrong? Was it opening prep, middlegame, or endgame?**
 
-> I'll ask Austin . Let's tackle this later.
+> opening prep was a part, a bit of middle game oversights
 
 ---
 
