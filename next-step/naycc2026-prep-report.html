@@ -1308,6 +1308,98 @@ tbody tr:last-child td { border-bottom: none; }
   </div>
 </div>
 
+<div class="task-card">
+  <div class="tc-head p4">
+    <span class="badge b-medium">PRIORITY 7</span>
+    <span>Emerson Johnson (1925 FIDE / 2078 US) — Austin +22 above · Exchange CK / Rossolimo as White · Caro-Kann as Black</span>
+  </div>
+  <div class="tc-body">
+    <p>Austin is +22 above Emerson (1947 vs 1925 FIDE) — a must-win game. Emerson's overall record is 12W–15L–11D (46%), but the critical imbalance: <strong>as Black his score falls to only 37%</strong> (4W–9L–6D), with Caro-Kann as Black showing a catastrophic 1W–6L–2D record. Austin plays Exchange Caro-Kann (4.Bd3) — Emerson has <strong>zero recorded games in B13 Exchange CK structures as Black</strong>, placing Austin in deep home preparation and Emerson in entirely uncharted territory. Despite notable scalps (WIM Chumpitaz 2358, draw vs IM Fus 2514), Emerson's worst games are sharp tactical positions and time-pressure endgames — exactly Austin's targeting zone.</p>
+
+    <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Engine-Backed Weakness Analysis (38 games, 7 tournaments)</h4>
+    <table style="font-size:0.875rem;margin:0 0 16px;">
+      <thead>
+        <tr><th>Weakness</th><th>Engine Evidence</th><th>Austin's Exploit</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Caro-Kann as Black: 1W–6L–2D</strong></td>
+          <td>Total CK record (B10/B11/B12): 1W–6L–2D across all analyzed games. Worst: vs WGM Paramzina (2269), 83.8% acc, 6 blunders, 6 mistakes in B12 sharp complications. Even lower-rated CK games produce Emerson's lowest Black accuracy across the dataset.</td>
+          <td>Austin plays Exchange CK (4.Bd3) — Emerson has ZERO B13 games as Black. Austin enters deepest home prep; Emerson navigates entirely new territory. B13 Exchange opens files and the h4-h5 attack Austin knows cold.</td>
+        </tr>
+        <tr>
+          <td><strong>Sharp tactical collapse</strong></td>
+          <td>SW Open 2025 vs Paramzina (2269): 83.8% acc, 6 blunders in sharp B12 middlegame. SW Open 2026 R2 vs Hyltin (2003): Be7?? CPL 615 at move 36 from +6.15 eval, turning winning advantage to 0.00 draw in one move.</td>
+          <td>Force sharp, double-edged middlegames with mutual king exposure — Emerson's calculation collapses in exactly this position type. Austin's Greek gift Bxh7+! or exchange sac on d5/f5 creates these structures where Emerson has historically failed.</td>
+        </tr>
+        <tr>
+          <td><strong>From-winning collapse moves 26–55</strong></td>
+          <td>TX State R5 vs Gani (1837): Ra8?? CPL 1000 at move 49 from +17.67 → +5.39. TX Sch R1 vs Caridad (1498): Rc5?? CPL 1000 at move 39 from a mating position. SW26 R4 vs Balaji (1624): Rg1?? CPL 650 at move 36 from +7.78. Pattern: decisive winning advantages squandered via one move in the middlegame.</td>
+          <td>When Austin reaches a winning position, maintain tactical pressure — do not simplify into technical endgame. Emerson's conversion technique breaks down when a winning advantage requires active calculation rather than routine execution. Keep pieces on the board.</td>
+        </tr>
+        <tr>
+          <td><strong>Loses as White to near-equal/lower-rated</strong></td>
+          <td>SW26 R3: lost as White to Vinayagaram (1597) — Rg5?? CPL 581 at move 35 from 0.00 → −6.04. Unknown 2025 R1: lost as White to Chodniewicz (1850). Both collapsed from equal positions via a single king-safety blunder. Emerson's White accuracy drops against opponents he is "expected" to beat.</td>
+          <td>Austin at 1947 is precisely the "lower-rated underdog" profile that has repeatedly beaten Emerson. Play aggressively as Black — Emerson's White calculation reliability drops when facing counter-attacking pressure from opponents he underestimates.</td>
+        </tr>
+        <tr>
+          <td><strong>Time-pressure endgame collapse</strong></td>
+          <td>Unknown 2025 R6 vs Lonie (1818): 90.6% accuracy but 15 blunders in 187-move game — technique completely disintegrated under time pressure. TX State R4 vs Anandh (2158): Kxg5?? CPL 355 at move 53 from a theoretically equal position.</td>
+          <td>Austin should not fear long games vs Emerson — under time pressure even from drawable positions his technique collapses completely. Maintain precision after move 40; Emerson's clock management breaks down in exactly this phase.</td>
+        </tr>
+        <tr>
+          <td><strong>⚠️ DANGER: Technical endgame mastery</strong></td>
+          <td>98.3% accuracy draw vs Albert (2044) in 193-move Slav endgame. 95.9% win vs WIM Chumpitaz (2358) in 127-move Rossolimo endgame. When the position is clear, non-sharp, and technical, Emerson's endgame technique is near-FM level with sustained precision.</td>
+          <td>DO NOT simplify into quiet technical endgames with no tactical potential. Emerson's worst results are in sharp double-edged middlegames, not clean technical endings. Austin must keep position complex and tactically alive.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Austin Strength → Emerson Weakness Bridge</h4>
+    <table style="font-size:0.875rem;margin:0 0 16px;">
+      <thead>
+        <tr><th>Austin's Strength (documented)</th><th>Emerson's Weakness (engine-backed)</th><th>Bridge</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Exchange CK h4-h5 attacking schemes</strong> — Austin's primary 1.e4 weapon vs CK; Bxh7+! and h4-h5 storm documented in NAYCC 2025 and PAM 2026 games</td>
+          <td>Caro-Kann as Black: 1W–6L–2D total record; 83.8% accuracy (6 blunders, 6 mistakes) in sharpest CK game; zero B13 Exchange CK games on record</td>
+          <td>Austin in deepest Exchange CK preparation; Emerson in completely uncharted B13 territory. The h4-h5 attack is Austin's most practiced attacking scheme vs exactly the opening Emerson plays worst.</td>
+        </tr>
+        <tr>
+          <td><strong>Tactical sharpness / Greek gift Bxh7+!</strong> — executed in chess4win Oct 2026 (2 games); 17-move attack pattern; exchange sac to open kingside lines</td>
+          <td>Sharp tactical positions: 83.8% accuracy (6B/6M) vs Paramzina; Be7?? CPL 615 from +6.15 vs Hyltin (2003). Both collapses from positions requiring sustained active calculation in double-edged middlegames.</td>
+          <td>Austin's attacking style manufactures exactly the double-edged positions where Emerson's calculation collapses. The Greek gift or exchange sacrifice creates the structure where Emerson has historically produced his worst games.</td>
+        </tr>
+        <tr>
+          <td><strong>Sicilian Taimanov/Kan as Black</strong> — Austin's primary Black weapon vs 1.e4; ...b5/...Bb7/...Rc8 counter-attack patterns confirmed; branching out from Sveshnikov per Q8 notes</td>
+          <td>Emerson plays Rossolimo (B51/B52) as White — but accuracy drops when Black counter-attacks sharply (SW26 R7 vs Chodniewicz B51: 90.9%, 2 mistakes when Black played actively). Lost as White to 1597 and 1850 from equal positions.</td>
+          <td>Austin's Taimanov/Kan forces Emerson into Rossolimo territory where early Black counter-play is required. Emerson's Rossolimo is not his sharpest system — active ...b5/...Bb7 queenside pressure exposes the pattern of White losing from equal positions.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ul>
+      <li><strong>Exploit #1: Exchange CK 4.Bd3 → h4-h5 storm</strong> — Emerson's CK record (1W–6L–2D) is the worst as-Black opening performance among all 14 analyzed opponents. Austin plays Exchange (4.Bd3 then h4!). Emerson has ZERO B13 games — Austin is in prep, Emerson is not. The h4-h5 storm creates exactly the sharp complications where Emerson recorded his worst game (83.8% acc, 6 blunders vs Paramzina).</li>
+      <li><strong>Exploit #2: Manufacture sharp middlegame by move 20</strong> — Both of Emerson's worst games (83.8% vs Paramzina, Be7?? from +6.15 vs Hyltin 2003) were sharp tactical positions with mutual complications. Austin's exchange sacrifice or Bxh7+! Greek gift sets up exactly these structures. Do not simplify — keep pieces on and maximize tactical tension through move 40 where Emerson's calculation reliability collapses.</li>
+      <li><strong>Exploit #3: Taimanov/Kan as Black — force early counter-play vs Rossolimo</strong> — Emerson's Rossolimo showed 90.9% accuracy and 2 mistakes vs Chodniewicz when Black counter-attacked. Austin's ...b5/...Bb7/...Rc8 queenside counter forces active White play rather than technical conversion — matching the exact profile of Emerson's White losses (Rg5?? CPL 581 vs 1597, Chodniewicz 1850).</li>
+    </ul>
+
+    <div class="callout callout-red"><strong>DO NOT:</strong> (1) Simplify into quiet technical endgames — Emerson held a 193-move draw vs 2044-rated Albert at 98.3% and won a 127-move endgame vs WIM Chumpitaz (2358). His technique in non-sharp endings is near-FM level. (2) Play passively as Black vs Emerson's Rossolimo — passive ...d6/...Nf6 development allows White a technical consolidation game, exactly Emerson's comfort zone. Force sharp counter-play with ...b5 early. (3) Treat this as a "safe draw" game — Emerson at 1925 is +22 below Austin; anything less than a full point is a missed opportunity in a must-win matchup.</div>
+
+    <div class="callout callout-green"><strong>EXECUTE BEFORE MOVE 40:</strong> Emerson's from-winning collapses: Ra8?? CPL 1000 from +17.67 (move 49), Rg1?? CPL 650 from +7.78 (move 36), Be7?? CPL 615 from +6.15 (move 36). The blunder wave starts at move 35 and peaks through move 55. Build a clear advantage via the Exchange CK h4-h5 attack by move 30, then maintain tactical pressure rather than converting technically — Emerson's calculation reliability breaks down in exactly this window.</div>
+
+    <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Opening Preparation</h4>
+    <ul>
+      <li><strong>Austin as White vs Emerson's Caro-Kann:</strong> Play <strong>Exchange CK 4.Bd3 → h4-h5 storm:</strong> <code>1.e4 c6 2.d4 d5 3.exd5 cxd5 4.Bd3 Nc6 5.c3 Nf3 6.h4</code>. Emerson has ZERO B13 games as Black — Austin knows this structure deeply from NAYCC 2025 and personal study. Emerson's CK record (1W–6L–2D) is his dataset's weakest opening. The h4-h5 storm forces the exact sharp complications where Emerson produced his worst performance (83.8%, 6 blunders vs Paramzina).</li>
+      <li><strong>Austin as Black vs Emerson's 1.e4 Rossolimo:</strong> Play <strong>Sicilian Taimanov/Kan (1...c5 2...e6).</strong> After Emerson's Rossolimo (3.Bb5+): accept, play ...Bd7, counter with ...Nc6/...Nf6/...b5 active queenside play. Force sharp, unbalanced positions where Emerson's Rossolimo requires active White play rather than technical conversion. His B51 SW26 R7 (90.9%, 2 mistakes vs Chodniewicz when Black counter-attacked) shows the line under pressure. Avoid QGA/Slav structures — those are Emerson's comfort zone for long technical battles (193-move draw, 127-move win).</li>
+      <li><strong>Critical warning:</strong> Emerson elevates under pressure from stronger opponents (95.5% draw vs IM Fus 2514, 95.9% win vs WIM Chumpitaz 2358). Austin should NOT play slower "safer" chess — that activates Emerson's best technical game. Attack sharply and early; his collapse pattern (6 blunders + 6 mistakes in one game, 15 blunders in time pressure) shows he cannot sustain accuracy under prolonged tactical tension.</li>
+    </ul>
+
+    <div class="callout callout-blue"><strong>Austin +22 above Emerson — must-win game.</strong> Emerson's Black record (37%, 4W–9L–6D) and CK weakness (1W–6L–2D) make this the highest-probability favorable matchup for Austin among all 14 analyzed opponents. Exchange CK 4.Bd3 with the h4-h5 attack is Austin's best-prepared attacking scheme vs Emerson's weakest opening. This is Austin's clearest full-point opportunity. Deep prep: <a href="../matchup/matchup-emerson-deep.html">matchup-emerson-deep.html</a></div>
+  </div>
+</div>
+
 <!-- ═══════════════════════════════════════════════════════════ -->
 <h2 class="new">5 — Q10 Answer: What to Play vs 1.c4 (Tarun Sankar, seed #10, 1965)</h2>
 
