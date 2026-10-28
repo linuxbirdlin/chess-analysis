@@ -874,14 +874,65 @@ tbody tr:last-child td { border-bottom: none; }
     <span>Fernando Cortes Medina (CM, 2072) — #4 seed, French as Black</span>
   </div>
   <div class="tc-body">
-    <p>Fernando plays French Defense as Black. Austin will play <strong>Tarrasch (3.Nd2)</strong> — not Advanced French (3.e5 dropped from repertoire).</p>
+    <p>Fernando (CM, ~2072–2133 FIDE) is +125 above Austin. His defining Black weapon is the French Defense — Winawer (C15/C17), Advance (C02), and Exchange (C01) all confirmed. However <strong>ZERO Tarrasch (C03–C09) games exist in his 37-game dataset</strong> — Austin's 3.Nd2 forces entirely uncharted territory. As White Fernando plays a 1.e4/1.c4 mix with Yugoslav/English Attack vs Sicilian, but his White blunder rate (1.59/game) is 50% higher than Black (1.05/game).</p>
+
+    <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Engine-Backed Weakness Analysis (37 games across 7 tournaments)</h4>
+    <table style="font-size:0.875rem;margin:0 0 16px;">
+      <thead>
+        <tr><th>Weakness</th><th>Evidence</th><th>Austin Exploit</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Zero Tarrasch preparation</strong></td>
+          <td>0 of 37 games in French Tarrasch (C03–C09). Fernando's confirmed French repertoire: Winawer C15/C17 (avg 95.7%), Advance C02, Exchange C01 — all requiring 3.Nc3 or 3.e5 or 3.exd5 from White. 3.Nd2 is completely untested.</td>
+          <td>Austin plays Tarrasch exclusively. Tabiya: <code>3...Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 7.Ne2!</code> — Fernando must navigate from scratch. This is Austin's sharpest preparation gap exploit.</td>
+        </tr>
+        <tr>
+          <td><strong>White blunder rate 1.59/game</strong></td>
+          <td>White avg: 91.8% accuracy, 1.59 blunders/game vs Black 93.6%, 1.05/game. PAM School R6 (White, A16, 89.7%): 3 blunders (<code>Kb1??</code> CPL=1000, <code>Kf1??</code> CPL=542, <code>Bxd4??</code> CPL=371) — lost to Loayza Rivera 1936 as 90-pt favorite. Olimpia R5 (White, C54, 92.6%): 13(!) blunders vs Alba Ruiz 1924.</td>
+          <td>Austin as Black (Sicilian Taimanov/Kan) forces Fernando's English/Yugoslav Attack (B56/B78, 90.1% accuracy). Create sharp counter-play early — Fernando's White play under pressure collapses with multiple blunders.</td>
+        </tr>
+        <tr>
+          <td><strong>Critical-moment collapse moves 22–30</strong></td>
+          <td>Ed-Nacional R1 (Black): <code>Qf7??</code> move 30 (lost to GM Cori 2586). Ed-Nacional R9 (Black): <code>exd5?</code> move 23, <code>Bxe5?</code> move 28 — collapsed from defensible position vs Paredes 2137. PAM R8 (Black): <code>Nxf3+??</code> move 28 equalized from +2-pawn advantage (89.7% acc). Pattern: one wrong calculation ends the game in the 22–30 window.</td>
+          <td>Austin's tactical shots (exchange sac, Bxh7+!, ...Ne4) must land in the 22–30 window. Fernando's calculation fails exactly there under complexity.</td>
+        </tr>
+        <tr>
+          <td><strong>Loses as White to near-equal/lower rated</strong></td>
+          <td>PAM School R6: lost to Loayza Rivera 1936 (Fernando rated 2026, -90 pts). Olimpia R6 (Black): lost to Leal Escamilla 1765 (Fernando was 1836, -71 pts). Both collapses from balanced or superior positions. Austin at 1947 is exactly this profile vs Fernando's 2072.</td>
+          <td>Play confidently as the "lower-rated underdog" — Fernando has proven unable to handle near-equal opponents cleanly. His accuracy in these upsets was 89–94%.</td>
+        </tr>
+        <tr>
+          <td><strong>vs 2300+ as White: 85–89% accuracy</strong></td>
+          <td>MEX Open G5 (White, 85.4%): 1B/2M, lost to Perez Rodriguez 2395. Queretaro R6 (White, 86.8%): 1B/3M, lost to Ramos Silvera 2357. MEX Open G3 (White, 88.1%): 1B/1M, drew Valdes Romero 2325. Pattern: strong opposition dismantles Fernando's White play. Austin's tactical attacks create this same pressure profile.</td>
+          <td>Austin as Black plays for sharp imbalance — make Fernando's White position feel like a 2300+ problem. The more calculation required, the worse Fernando's White accuracy gets.</td>
+        </tr>
+        <tr>
+          <td><strong>⚠️ DANGER: French as Black (C15/C17 Winawer) 95.7%</strong></td>
+          <td>PAM R7 (Black, C15, 95.9%): clean draw vs Xu 1978. PAM R8 (Black, C17, 95.4%): draw vs Suresh 1893. If Austin plays 3.Nc3 allowing Winawer, Fernando's accuracy is at its peak and he handles the endgame comfortably.</td>
+          <td><strong>NEVER play 3.Nc3</strong> — Austin's 3.Nd2 Tarrasch must be played on move 3, before Fernando can enter the Winawer. The Winawer is Fernando's comfort zone; Tarrasch is not.</td>
+        </tr>
+      </tbody>
+    </table>
+
     <ul>
-      <li><strong>Austin as White vs French:</strong> <code>1.e4 e6 2.d4 d5 3.Nd2</code> — Tarrasch. Main lines: 3...Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 7.Ndf3 (standard Tarrasch tabiya); or 3...c5 4.exd5 Qxd5 5.Ngf3 (counter-gambit — dynamic, unbalanced).</li>
-      <li><strong>Key Tarrasch ideas:</strong> Bd3 pointed at h7, Ndf3 supporting e5 or recapturing on d4, queenside castling option if Black commits kingside. Austin's tactical style suits the open middlegames arising after 3...c5 4.exd5.</li>
-      <li><strong>Fernando as White:</strong> 1.e4/1.c4 mix — standard Austin Sicilian preparation applies.</li>
-      <li>Review: <a href="../matchup/matchup-fernando-gm.html">matchup-fernando-gm.html</a></li>
+      <li><strong>Exploit #1: Force Tarrasch 3.Nd2 immediately</strong> — Fernando's 37-game dataset has zero Tarrasch games. After <code>1.e4 e6 2.d4 d5 3.Nd2</code>, Fernando cannot enter the Winawer (needs 3.Nc3), Advance (needs 3.e5), or Exchange (needs 3.exd5). Austin's prepared tabiya <code>3...Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 7.Ne2!</code> is his deepest opening preparation; Fernando is navigating completely new territory.</li>
+      <li><strong>Exploit #2: Tactical shot before move 30 (Austin as White)</strong> — Fernando's critical collapse pattern occurs at moves 22–30 (Ed-Nacional R1 move 30, R9 moves 23 &amp; 28, PAM R8 move 28). In the Tarrasch IQP middlegame, Austin should execute his tactical shot — exchange sacrifice, Bxh7+!, or Ne4 centralization — in this window. IQP positions are Austin's documented strength and Fernando's untested territory.</li>
+      <li><strong>Exploit #3: Sicilian Taimanov/Kan as Black creates White pressure</strong> — Fernando's Yugoslav/English Attack (B56/B78) was only 90.1% accuracy even vs 1726. Austin's Taimanov/Kan forces Fernando into this system. Counter-attack early with ...b5, ...Bb7, ...Rc8 — force Fernando to find active plans where his White blunder rate is 1.59/game.</li>
     </ul>
-    <div class="callout callout-blue"><strong>Tarrasch resource:</strong> <a href="https://lichess.org/opening/French_Defense_Tarrasch_Variation" target="_blank">lichess.org/opening → French Tarrasch</a> — study 3...Nf6 and 3...c5 branches in master games. The 3...c5 counter-gambit (C07) creates the tactical, unbalanced positions Austin plays best in.</div>
+
+    <div class="callout callout-red"><strong>DO NOT:</strong> (1) Play 3.e5 Advance — Fernando won against an FM in C02 (Olimpia R4) and knows the Advance deeply. (2) Play 3.exd5 Exchange — Fernando won a 72-move endgame from C01 as Black (PAM R3) and drew 97.4% as White in C01 (PAM R4 vs Li 2021). (3) Play 3.Nc3 Winawer territory — Fernando's best Black accuracy (95.7%) is in C15/C17 Winawer. Give him none of these.</div>
+
+    <div class="callout callout-green"><strong>EXECUTE BEFORE MOVE 30:</strong> Fernando's three confirmed critical collapses occurred at moves 23, 28, and 30 (Ed-Nacional R1, R9, PAM R8). Create sharp multi-threat positions in the Tarrasch IQP middlegame. If Austin has a combination available at move 22–28, take it — Fernando's calculation fails exactly in this window when complexity peaks.</div>
+
+    <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Opening Preparation</h4>
+    <ul>
+      <li><strong>Austin as White vs Fernando's French:</strong> Play <strong>Tarrasch 3.Nd2</strong> exclusively — do NOT deviate to 3.e5, 3.Nc3, or 3.exd5. Tabiya: <code>1.e4 e6 2.d4 d5 3.Nd2 Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 7.Ne2!</code> — the critical 7.Ne2 covers f4 and prepares Nf4 pressing the d5-hole. If Fernando plays 3...c5 counter-gambit: <code>4.exd5 Qxd5 5.Ngf3</code> — dynamic, unbalanced, Austin's preferred territory. The IQP structures arising after 3...c5 are Austin's documented strength and Fernando's completely uncharted territory.</li>
+      <li><strong>Austin as Black vs Fernando's 1.e4/1.c4:</strong> Play <strong>Sicilian Taimanov/Kan</strong> (1...c5 2...e6). Fernando's response will be Yugoslav/English Attack (B56/B78) — his most-practiced White Sicilian system. Play <code>...b5, ...Bb7, ...Rc8</code> queenside counter-attack. Fernando's B56/B78 accuracy was only 90.1% (Olimpia R1). Keep complications sharp — his White blunder rate (1.59/game) is highest in positions requiring active play. If Fernando plays 1.c4 (English): play <code>1...e5 2...Nf6 3...c6</code> for central counterplay — Fernando lost in PAM R6 from a long English endgame.</li>
+      <li><strong>Critical endgame warning:</strong> Fernando's French Exchange endgame technique is reliable (72-move win in PAM R3 at 94.9% accuracy). Do NOT allow simplification to symmetrical pawn endings from French Exchange structures. The Tarrasch IQP creates dynamic imbalance that avoids this entirely — Austin must convert or create a decisive attack before the endgame.</li>
+    </ul>
+
+    <div class="callout callout-blue"><strong>⚠️ The Tarrasch gap is Austin's clearest pre-game preparation advantage in the field.</strong> Fernando is deeply prepared in 3 French systems (Winawer, Advance, Exchange) — but 3.Nd2 (Austin's repertoire) is a 4th system he has never faced in analyzed games. This isn't a minor preparation edge; it means Fernando will be navigating new territory from move 3 while Austin is in his deepest preparation. Deep prep: <a href="../matchup/matchup-fernando-gm.html">matchup-fernando-gm.html</a></div>
   </div>
 </div>
 
@@ -1108,9 +1159,9 @@ tbody tr:last-child td { border-bottom: none; }
   </div>
   <div class="tc-body">
     <ul>
-      <li><strong>Opening vs French (Tarrasch 3.Nd2):</strong> Austin plays Tarrasch now — the 7.Ne2! tabiya must be known cold before this game. Once in the IQP structure, spend 30 sec minimum per move — verify the f4–f5–f6 break timing before committing. Do not rush it.</li>
-      <li><strong>Middlegame:</strong> Tarrasch French creates rich IQP positions. Invest time on the moment when Austin decides whether to advance the IQP (d4-d5) or keep it static as a long-term asset — this is the key strategic choice in these games.</li>
-      <li><strong>Pacing target:</strong> Aim for 45 min remaining at move 20. Fernando's 92.8% accuracy means he won't gift points — Austin needs clock reserves to outmaneuver him.</li>
+      <li><strong>Opening vs French (Tarrasch 3.Nd2):</strong> Austin plays Tarrasch — the 7.Ne2! tabiya must be known cold. Fernando has ZERO Tarrasch games in his dataset; he will be navigating from scratch while Austin is in deepest prep. Play the tabiya move-for-move: <code>3...Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 7.Ne2!</code>. Do not deviate to 3.Nc3 (Winawer), 3.e5 (Advance), or 3.exd5 (Exchange) — those are Fernando's prepared lines.</li>
+      <li><strong>Tactical window moves 22–30:</strong> Fernando's three confirmed critical collapses happened at moves 23, 28, and 30 (Ed-Nacional R1/R9, PAM R8). Create sharp multi-threat positions in the Tarrasch IQP middlegame and execute tactical shots in this window. Fernando's calculation fails here under complexity — his White blunder rate is 1.59/game.</li>
+      <li><strong>Pacing target:</strong> Aim for 45 min remaining at move 20. Fernando's overall accuracy is 92.8% but drops to 85–90% vs strong opposition as White. Austin needs clock reserves to create the tactical complexity that exploits Fernando's calculation ceiling.</li>
     </ul>
   </div>
 </div>
