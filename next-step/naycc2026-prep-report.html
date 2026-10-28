@@ -675,12 +675,50 @@ tbody tr:last-child td { border-bottom: none; }
     <span>Zachary Liu (CM, 2140) — #1 seed, +193 pts, Reti/English</span>
   </div>
   <div class="tc-body">
-    <p>Highest rated player in the field, highest accuracy in dataset (93.8%), and Austin's most likely R8–R9 opponent if performing well.</p>
+    <p>Highest rated player in the field (CM, 2140 · +193 above Austin), highest accuracy in dataset (93.8% avg). Austin's most likely R8–R9 opponent. <strong>Austin has already played Zachary once</strong> — personal study B46 Taimanov, White, 67 moves — and lost in a K+P endgame. The lesson: never let this game reach an endgame.</p>
+
+    <table>
+      <thead><tr><th>Weakness</th><th>Engine Evidence</th><th>Austin's Exploit</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Sharp Sicilian tactical meltdown</strong></td>
+          <td>CC G266854: B46 Taimanov as Black vs Tseng 1907 — 79.4% acc, 4 blunders (<code>Rc7??</code> CPL 830, <code>f3??</code> CPL 699, <code>Rc5??</code> CPL 569). PAM R4: B75 Dragon as White — 83.4%, 4 blunders (<code>Rc1??</code> CPL 884). His 2 worst games are both sharp Sicilian — 10–14% accuracy drop from 93.8% norm.</td>
+          <td><strong>Play Open Sicilian 3.d4</strong> — <em>not</em> Rossolimo (Zachary plays 2...e6, not 2...Nc6; Rossolimo doesn't apply). After 3.d4 cxd4 4.Nxd4 Nc6, deploy English Attack: 5.Nc3 6.Be3 7.f3 8.g4!! Force the exact structure where Zachary collapsed.</td>
+        </tr>
+        <tr>
+          <td><strong>Winning plan misidentification</strong></td>
+          <td>GV G267722 A37 English: <code>b5??</code> (CPL 443, eval +4.75→+0.32) instead of winning <code>Nf5</code>. CC G266937 D38 as Black: <code>Bd7??</code> (CPL 630, eval +6.91→+0.61) instead of endgame-winning <code>Kd5</code>. Pattern: large advantages squandered when the "right" active plan is non-obvious.</td>
+          <td><strong>Complicate constantly.</strong> When the position looks quiet and Zachary seems comfortable, add a tactical threat — he will find the "safe" move, not the active one. Austin's knight jump (...Ne4) or exchange sacrifice is the kind of concrete threat Zachary handles poorly.</td>
+        </tr>
+        <tr>
+          <td><strong>2181+ barrier as White</strong></td>
+          <td>Canada Open R2: vs Jaferian 2249, 90.9%, <code>Kg1??</code> CPL 1000 (→ forced mate), LOSS. Canada Open R4: vs Marchand 2181, 89.9%, 2 blunders, LOSS. Both White losses came exclusively vs 2181+ opposition. As Black his ceiling is much higher (drew 2512 Keleberda).</td>
+          <td><strong>Austin as Black is the safer role.</strong> If Zachary has White, play for an unbalanced Nimzo/Queen's Indian — force dynamic complications where Zachary must out-calculate rather than out-grind. Austin should aim to make the game feel like a 2181 problem for Zachary's White pieces.</td>
+        </tr>
+        <tr>
+          <td><strong>Long-game tactical blindness as Black</strong></td>
+          <td>PAM R1 D02 vs Tapiero 1645 (73 moves): 3 blunders — <code>cxd5??</code> CPL 510 (+2.79→−2.31), <code>f3??</code> CPL 331. Drew a completely won game vs a 1645-rated player. Tactical vision degrades in long non-Sicilian games as Black.</td>
+          <td><strong>Austin as White: steer Reti/English into imbalance at move 25–40.</strong> If Zachary has Black in a long positional game, create a sudden tactical decision point around move 30+. He will likely find the "strategic" continuation and miss the tactical resource.</td>
+        </tr>
+        <tr>
+          <td><strong>⚠️ DANGER: Elite endgame technique</strong></td>
+          <td>Held draw vs 2512 Keleberda, 104 moves, 97.4% accuracy, 0 blunders, 1 inaccuracy. Austin lost to Zachary in their personal study game (B46, 67 moves) in exactly a K+P endgame.</td>
+          <td><strong>DO NOT reach an endgame.</strong> Any ending — even a "good" one for Austin — is Zachary's home territory. Austin must create a decisive attack or convert material advantage before move 40.</td>
+        </tr>
+      </tbody>
+    </table>
+
     <ul>
-      <li><strong>Austin as Black vs Reti/English:</strong> Play <code>1.Nf3 Nf6 2.c4 e6</code> — wait and redirect. If Zachary plays 3.Nc3 d4 → Nimzo available. If 3.g3 → <code>3...d5</code> Catalan-type. Don't force; let the Nimzo arise naturally.</li>
-      <li><strong>Austin as White vs Zachary's Sicilian:</strong> Rossolimo (3.Bb5) — puts Zachary in unfamiliar structure.</li>
-      <li>Review: <a href="../matchup/matchup-zachary-gm.html">matchup-zachary-gm.html</a></li>
+      <li><strong>Exploit #1: Open Sicilian English Attack</strong> — After 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3, play 6.Be3 7.f3 8.g4!! — Zachary's B46 Taimanov is his worst structure (79.4% accuracy), and Austin's tactical sharpness is strongest in sharp open positions.</li>
+      <li><strong>Exploit #2: Tactical detonation before move 35</strong> — Both multi-blunder games (B46: 38 moves, B75 Dragon: 41 moves) show Zachary's blunders cluster in the moves 20–38 range. Austin's tactical shot must land in this window, not later. If Austin has a combination available at move 25, play it — don't "improve" the position first.</li>
+      <li><strong>Exploit #3: Nimzo ...Ne4 versus Reti/English (Austin as Black)</strong> — When Zachary plays Reti/English and Austin reaches a Queen's Indian or Nimzo structure, the ...Ne4 centralizing jump creates exactly the kind of active decision point where Zachary plays passively (b5 vs Nf5 pattern). Austin wins by forcing Zachary to find the active plan.</li>
     </ul>
+
+    <div class="callout callout-red"><strong>DO NOT:</strong> (1) Simplify to an endgame — Zachary's technique is near-FM level, Austin has already lost to him in a 67-move K+P ending. (2) Play Rossolimo (3.Bb5) vs Zachary's Sicilian — Zachary plays 2...e6, not 2...Nc6; Rossolimo doesn't reach the structures he struggles in. (3) Play Exchange French vs Zachary — closed/technical structures are his strength at 93–97% accuracy.</div>
+
+    <div class="callout callout-green"><strong>EXECUTE BEFORE MOVE 38:</strong> Zachary's catastrophic blunders (CPL 830, 699, 884) in multi-blunder games all occurred before move 42. Austin's tactical shot — an exchange sacrifice, ...Ne4 centralization, or Bxh7+! Greek gift — must land by move 35. A drawn endgame after move 40 is effectively a Zachary win.</div>
+
+    <p style="font-size:0.88em;color:#57606a;">→ <a href="../matchup/matchup-zachary-gm.html">GM Battle Plan</a></p>
   </div>
 </div>
 
@@ -963,10 +1001,10 @@ tbody tr:last-child td { border-bottom: none; }
   </div>
   <div class="tc-body">
     <ul>
-      <li><strong>Opening (moves 1–15):</strong> Spend 20–25 min. Even in familiar territory, Zachary's Reti/English channels into structures Austin sees less often. Verify the plan on every move — don't coast.</li>
-      <li><strong>Middlegame (moves 16–30):</strong> Invest 10–15 min on any move where a tactical shot is possible. Zachary at 93.8% accuracy rarely blunders — your only winning path is a position where calculation depth matters more than positional accuracy. Create that position deliberately.</li>
-      <li><strong>Clock trap to avoid:</strong> Zachary plays quickly. Austin may feel pressure to "keep up." Do not match his pace. Austin using 5 min on move 22 while Zachary used 45 seconds is not a problem — it is correct.</li>
-      <li><strong>Endgame:</strong> Keep 25 min. Zachary's technical endgame is near-FM level. If you reach an endgame even slightly worse, time is your only resource.</li>
+      <li><strong>Opening (moves 1–15):</strong> Spend 20–25 min. In Taimanov Sicilian (Austin as White), verify the English Attack plan: 5.Nc3 6.Be3 7.f3 8.g4!! is the sharpest and most dangerous weapon. In Reti/English (Austin as Black), reach a Nimzo or Queen's Indian structure — don't accept a passive QGD or London setup.</li>
+      <li><strong>Tactical window moves 20–38: invest here.</strong> Engine data shows Zachary's catastrophic blunders (CPL 830, 699, 884, 510) all landed in games decided before move 42. His worst games (79.4% B46 Taimanov, 83.4% B75 Dragon) both ended by move 38–41 in crisis. Austin must force the decisive tactical moment in this exact window — exchange sacrifice, ...Ne4 centralization, or Greek gift Bxh7+ before move 38. Use 10–15 min per move here if needed.</li>
+      <li><strong>Clock trap to avoid:</strong> Zachary plays quickly and confidently — he "feels" he's doing fine even when blundering (b5?? instead of Nf5, Bd7?? instead of Kd5). Don't be misled by his speed. Austin using 8 min on move 22 while Zachary used 90 seconds is correct — the position requires calculation, not pattern-matching.</li>
+      <li><strong>Endgame — extreme danger:</strong> Zachary held a 104-move draw vs a 2512-rated FM at 97.4% accuracy. Austin already lost to Zachary in a B46 67-move K+P ending. Keep 25 min for the endgame only as a last resort. <em>The goal is to make the endgame irrelevant by winning in the middlegame.</em></li>
     </ul>
   </div>
 </div>
