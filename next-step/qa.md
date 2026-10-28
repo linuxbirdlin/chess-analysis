@@ -168,7 +168,7 @@ Please expand — answer all 5:
 
 > No. all are latest games.
 
-**Q13. In the two losses vs Heye Gao — do you remember what went wrong? Was it opening prep, middlegame, or endgame?**
+**Q13. In the two losses vs Heye Gao — do you remember what went wrong? Was it opening prep, middle game, or endgame?**
 
 > opening prep was a part, a bit of middle game oversights
 
