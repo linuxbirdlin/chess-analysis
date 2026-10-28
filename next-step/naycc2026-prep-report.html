@@ -1221,6 +1221,93 @@ tbody tr:last-child td { border-bottom: none; }
   </div>
 </div>
 
+<div class="task-card">
+  <div class="tc-head p3">
+    <span class="badge b-medium">PRIORITY 6</span>
+    <span>Aarush Ajith (1937) — Austin +10 FIDE · Direct record: 1W–0L–2D (Austin) · Najdorf Black / Catalan White</span>
+  </div>
+  <div class="tc-body">
+    <p>Austin is now rated <em>above</em> Aarush (1947 vs 1937 FIDE) — this is a must-convert game. Three direct encounters confirm Austin's edge: he <strong>won G2 as White</strong> using Adams Attack h4!? against Aarush's Najdorf (Aarush 87.8%, 3 mistakes), and held two Catalan draws. Engine data from 30 games (5 tournaments) reveals catastrophic king endgame failures and single-move from-winning collapses at moves 20–25. Austin's h4 attacking style directly exploits Aarush's 0W–3L record against h4 systems.</p>
+
+    <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Engine-Backed Weakness Analysis (30 games, 5 tournaments)</h4>
+    <table style="font-size:0.875rem;margin:0 0 16px;">
+      <thead>
+        <tr><th>Weakness</th><th>Engine Evidence</th><th>Austin's Exploit</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>h4 kingside attack: 0W–3L as Black</td>
+          <td>CC R1 (80.6%, 3 blunders: Rxa7 CPL 563, Rd7 CPL 327); Toronto R6 (84%, Qb4?? CPL 1000 from +7.31, move 22)</td>
+          <td>Austin WON G2 with Adams Attack h4!? — repeat and escalate in any game where Aarush is Black</td>
+        </tr>
+        <tr>
+          <td>From-winning collapse at moves 20–25</td>
+          <td>Toronto R6: Qb4?? CPL 1000 (+7.31→−6.05, move 22); Canada Open R1: Nxb4?? CPL 482 (+4.96→+0.14); CC R6: Rd7?? CPL 579 (0.00→−5.79)</td>
+          <td>Maintain time pressure and tactical threats in the 18–25 window — Aarush abandons won positions with one catastrophic move</td>
+        </tr>
+        <tr>
+          <td>King endgame catastrophe (3×CPL 1000)</td>
+          <td>CC R7: 3×CPL 1000 king blunders, lost 128-move game to 1824-rated Yin; PAM R8: 3×CPL 1000 king blunders, lost to Fernandez 2137</td>
+          <td>Steer into pawn/king endgames if available — Aarush's king navigation collapses under precision regardless of rating</td>
+        </tr>
+        <tr>
+          <td>White record: 3W–10L–3D (28% score)</td>
+          <td>CC R4 (85.7% vs 2098, blunders: Rfe1 CPL 536, Bh4 CPL 445); PAM R6 (87.9% vs 1833, 5 blunders incl. Re2?? CPL 1000 into forced mate)</td>
+          <td>As Black vs Aarush's Catalan: Open Catalan pawn grab (…dxc4) for IQP complications — Aarush's White accuracy drops sharply vs 2000+ opposition</td>
+        </tr>
+        <tr>
+          <td>Time-pressure meltdown (PAM R6)</td>
+          <td>PAM R6: 87.9% acc, 5 blunders, 100 CPL average, lost as White to 1833-rated Delgado Gutierrez</td>
+          <td>Generate complexity by move 20 — Aarush's accuracy drops to ~88% in pressure positions, below Austin's documented floor</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Austin Strength → Aarush Weakness Bridge</h4>
+    <table style="font-size:0.875rem;margin:0 0 16px;">
+      <thead>
+        <tr><th>Austin Strength</th><th>Aarush Weakness</th><th>Bridge</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>h4-h5 attacking schemes (Adams Attack, Exchange CK h4 storm)</td>
+          <td>0W–3L vs h4 systems as Black; Toronto R6: 4 blunders in h4 game, Qb4?? CPL 1000 from +7.31</td>
+          <td>Austin WON G2 with exact h4!? Adams Attack — highest-confidence exploit; direct encounter proof with engine validation</td>
+        </tr>
+        <tr>
+          <td>Tactical urgency in moves 18–25 (quick mating attacks, combinational sharpness)</td>
+          <td>3 documented from-winning collapses at moves 20–25 (CPL 1000, 579, 482) across different tournaments</td>
+          <td>Austin's attacking style creates the time-pressure and complexity that consistently triggers Aarush's single-move collapse pattern</td>
+        </tr>
+        <tr>
+          <td>IQP positions (comfortable with d5 control, presses e-file)</td>
+          <td>Catalan as White 3W–10L–3D (28%); loses to 2000+ opponents consistently; 87.9–91.3% accuracy as White</td>
+          <td>Open Catalan pawn grab (…dxc4) creates IQP structures Austin thrives in while forcing Aarush to prove compensation against an opponent who knows this territory</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ul>
+      <li><strong>Exploit #1: Adams Attack h4!? (proven in G2)</strong> — 1.e4 c5 Najdorf → 5.h4!? direct repeat of the only decisive direct encounter; Aarush's 0W–3L vs h4 systems and G2 result (Aarush 87.8%, 3 mistakes, Austin wins) make this the highest-probability path to a win</li>
+      <li><strong>Exploit #2: From-winning pressure window (moves 18–25)</strong> — Create complex, winning-looking positions with multiple threats and maintain time pressure; 3 separate games document Aarush abandoning +4 to +7 advantages with one move between moves 20–25 under tactical pressure</li>
+      <li><strong>Exploit #3: Open Catalan pawn grab as Black (…dxc4)</strong> — If Aarush plays 1.d4 Catalan, take the pawn and defend with …a6/…b5/…Bb7; forces IQP positions Austin handles well vs a White player with a 3W–10L–3D record, even against 1800-rated opponents</li>
+    </ul>
+
+    <div class="callout callout-red"><strong>DO NOT:</strong> Accept a third Catalan draw — G1 and G3 (both draws at 91–93% Aarush accuracy) are his comfort ceiling. Do NOT simplify into technical equal endgames as Black — Aarush's collapses happen from complex positions, not quiet ones. Do NOT play Exchange French if Aarush unexpectedly plays …e6 — Aarush's best chess is Najdorf (87.8% draw/win), not French structures.</div>
+
+    <div class="callout callout-green"><strong>EXECUTE BEFORE MOVE 25:</strong> h4 attack must reach h5-g5 advance or be committed before move 20. From-winning pressure window closes at move 25 — if Austin has a tactical shot available between moves 18–25, execute it rather than improving the position. Aarush's collapse pattern is documented across 3 different tournaments: this is a reliable tendency, not a fluke.</div>
+
+    <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Opening Preparation</h4>
+    <ul>
+      <li><strong>Austin White vs Najdorf:</strong> Adams Attack 5.h4!? (1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.h4) — direct repeat of G2 win; engine confirms Aarush's 3 mistakes and 87.8% accuracy in this line vs Austin</li>
+      <li><strong>Austin White vs other Black setups (Caro-Kann, Sicilian non-Najdorf):</strong> Exchange CK + h4 storm or Rossolimo + h4 — keep h4 in the position at all costs; Aarush's 0W–3L record vs h4 systems applies regardless of exact Sicilian variation</li>
+      <li><strong>Austin Black vs Aarush's Catalan (1.d4 Nf6 2.c4 e6 3.Nf3):</strong> Open Catalan pawn grab (…d5 4.g3 dxc4) for IQP imbalance — two Catalan draw results show Austin is comfortable in these structures; now create winning chances instead of accepting a third draw</li>
+    </ul>
+
+    <div class="callout callout-blue"><strong>Direct encounter edge confirmed:</strong> Austin 1W–0L–2D vs Aarush. The win was G2 via h4 Adams Attack as White vs Najdorf (Aarush 87.8%, 3 mistakes). Both draws are Catalan structures where Aarush was accurate (91–93%). This is a must-win: Austin is now rated above Aarush. Play for the win in every game — avoid a third Catalan draw by grabbing the pawn with …dxc4. Deep prep: <a href="../matchup/matchup-aarush-deep.html">matchup-aarush-deep.html</a></div>
+  </div>
+</div>
+
 <!-- ═══════════════════════════════════════════════════════════ -->
 <h2 class="new">5 — Q10 Answer: What to Play vs 1.c4 (Tarun Sankar, seed #10, 1965)</h2>
 
@@ -1460,7 +1547,7 @@ tbody tr:last-child td { border-bottom: none; }
 <thead><tr><th>Seed</th><th>Opponent</th><th>Rtg</th><th>Key time note</th><th>GM Plan</th></tr></thead>
 <tbody>
 <tr><td>#7</td><td>Emerson Johnson</td><td>1905</td><td>Rossolimo/Exch CK mirror — familiar structures. Spend time at the first moment your plan changes from the known idea.</td><td><a href="../matchup/matchup-emerson-gm.html">→ Plan</a></td></tr>
-<tr><td>#9</td><td><strong>Aarush Ajith</strong></td><td><strong>1937</strong> <em style="font-size:0.78rem;color:#cf2222">↑</em></td><td>Austin now +10 above Aarush — not a trivial win. Aarush blunders in endgames (confirmed); steer there. Spend extra time reaching a clean technical position.</td><td><a href="../matchup/matchup-aarush-gm.html">→ Plan</a></td></tr>
+<tr><td>#9</td><td><strong>Aarush Ajith</strong></td><td><strong>1937</strong> <em style="font-size:0.78rem;color:#cf2222">↑</em></td><td>Austin +10 above Aarush — must win. <strong>From-winning collapse window: moves 18–25</strong> (3 documented CPL 1000/579/482 blunders across Toronto R6, CC R6, Canada Open R1). Spend time building complexity before move 18; once ahead, maintain tactical threats through move 25 rather than simplifying. Adams Attack h4!? as White is confirmed win from G2.</td><td><a href="../matchup/matchup-aarush-gm.html">→ Plan</a></td></tr>
 <tr><td>#10</td><td><strong>Tarun Sankar</strong></td><td><strong>1965</strong> <em style="font-size:0.78rem;color:#cf2222">↑</em></td><td>1.c4 English — now 18 pts above Austin. Use 10 min extra on moves 8–12 to orient in the 1.c4 structure. Do not underestimate; treat as near-equal game.</td><td><a href="../matchup/matchup-tarun-gm.html">→ Plan</a></td></tr>
 <tr><td>#11</td><td>Daniel Hernandez Gamboa</td><td>1844</td><td>All 3 Black losses at move 15–27. If Austin creates complexity in this window, Daniel's blunder pattern activates. Spend time on sharpening moves 15–22.</td><td><a href="../matchup/matchup-danielh-gm.html">→ Plan</a></td></tr>
 <tr><td>#12</td><td>Yaen Saenz Cabrera</td><td>1841</td><td>Scotch C45 as White. Balanced — spend time at the first pawn break opportunity as Black.</td><td><a href="../matchup/matchup-yaen-gm.html">→ Plan</a></td></tr>
