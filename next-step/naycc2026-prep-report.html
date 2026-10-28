@@ -459,6 +459,23 @@ tbody tr:last-child td { border-bottom: none; }
 <!-- ═══════════════════════════════════════════════════════════ -->
 <h2 class="urgent">3 — Austin's Confirmed Weaknesses (Drill These First)</h2>
 
+<p>Full review of all 15 confirmed losses (NAYCC 2025 + PAM 2026 + 33 personal study games). Ranked by games lost:</p>
+
+<table>
+<thead><tr><th>Priority</th><th>Weakness</th><th>Losses</th><th>Pattern</th><th>Card</th></tr></thead>
+<tbody>
+<tr style="background:#fff3f3;"><td><strong>1 · CRITICAL</strong></td><td><strong>Endgame passivity</strong></td><td><strong>6/15</strong></td><td>Equal middlegame → pieces go passive → slow material leak. Same arc every time: NAYCC R7/R9, PAM R5, vs Zachary Liu, Shon Lazarev, Valentyn.</td><td>→ B</td></tr>
+<tr style="background:#fff3f3;"><td><strong>2 · CRITICAL</strong></td><td><strong>Taimanov 6...d6! rule</strong></td><td>1 catastrophic</td><td>PAM R7: <code>6...Bc5??</code> → <code>8.Bc7!</code> bishop trap, game over at move 10 vs 2137-rated player.</td><td>→ D</td></tr>
+<tr style="background:#fff8f0;"><td><strong>3 · HIGH</strong></td><td><strong>Tactical blunder under time pressure</strong></td><td>3/15</td><td>PAM R5 <code>21...Bxe4??</code> (under 8 min), NAYCC R6 missed promotion, study vs Warren Feng <code>23.Nh5??</code>. All occur below 15 min.</td><td>→ F</td></tr>
+<tr style="background:#fff8f0;"><td><strong>4 · HIGH</strong></td><td><strong>h-file pawn storm overextension</strong></td><td>2–3/15</td><td>NAYCC R6 h4-h5-h6 stalled and allowed e-pawn promotion. Study vs Warren Feng: same pattern, unsound rook sacrifice.</td><td>→ A</td></tr>
+<tr style="background:#fffff0;"><td><strong>5 · MEDIUM</strong></td><td><strong>C58 Two Knights theory gap</strong></td><td>1/15</td><td>NAYCC R2: <code>8.Bd3?!</code> not <code>8.Qf3!</code>; missed <code>16...Bxh2+!</code> which was visible 4 moves earlier.</td><td>→ D</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-green">
+  <strong>Key positive:</strong> Austin's Black record in personal study is 9W–3L–4D (56% win rate). Taimanov and Nimzo-Indian are working. The 3 Black losses in study were all endgame failures, not opening gaps — confirming that endgame drill is the highest-ROI activity before NAYCC.
+</div>
+
 <div class="task-card">
   <div class="tc-head p1">
     <span class="badge b-critical">A · CRITICAL</span>
@@ -490,8 +507,8 @@ tbody tr:last-child td { border-bottom: none; }
 
 <div class="task-card">
   <div class="tc-head p1">
-    <span class="badge b-critical">B · CRITICAL</span>
-    <span>Rook endgame passivity: lost NAYCC R7, R9 + PAM R5</span>
+    <span class="badge b-critical">B · CRITICAL — PRIORITY 1</span>
+    <span>Endgame passivity: 6/15 losses (NAYCC R7, R9 · PAM R5 · + 3 confirmed in personal study)</span>
   </div>
   <div class="tc-body">
     <p>Three rook endgame losses from holdable positions. With 9 rounds over 6 days, fatigue in round 7+ is real — this weakness compounds under time pressure and exhaustion.</p>
@@ -568,6 +585,32 @@ tbody tr:last-child td { border-bottom: none; }
         <li><a href="https://lichess.org/opening/Two_Knights_Defense" target="_blank">lichess.org/opening → Two Knights Defense</a> — navigate to C58 branch after 4.Ng5 d5 5.exd5 Na5; find the 8.Qf3 line in master games and confirm why 8.Bd3 loses the initiative</li>
         <li><a href="https://lichess.org/opening/Sicilian_Defense_Taimanov_Variation" target="_blank">lichess.org/opening → Sicilian Taimanov</a> — search the 6.Ndb5 branch; confirm 6...d6 as the universal response (master games overwhelmingly show this)</li>
         <li><a href="../austin/opening-theory-check.html" target="_blank">opening-theory-check.html</a> — project file with full move-by-move reconstruction of both deviations and the specific positions to drill</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="task-card">
+  <div class="tc-head p2">
+    <span class="badge b-high">F · HIGH — PRIORITY 3</span>
+    <span>Tactical blunders under time pressure: 3/15 losses — all when clock drops below 15 min</span>
+  </div>
+  <div class="tc-body">
+    <p>Three losses share a single pattern: Austin reaches a playable or equal position, then makes one decisive blunder when the clock is under 15 minutes. None of these positions were lost before the time-pressure blunder.</p>
+    <ul>
+      <li><strong>PAM R5 vs Vinales (FM, 2091)</strong> — <code>21...Bxe4??</code> under 8 minutes. The position was equal; the move hangs material with no compensation. Austin said the time pressure was a factor.</li>
+      <li><strong>NAYCC R6 vs Fu (1722)</strong> — allowed <code>31...e2+ 32.Be3 exd1=Q+</code> pawn promotion. Austin had misjudged the promotion threat while managing a complicated pawn structure with little time.</li>
+      <li><strong>Study vs Warren Feng (~1900)</strong> — <code>23.Nh5??</code> rook sacrifice miscalculated. The continuation <code>23.Nh5 gxh5 24.Rxe6 fxe6 25.Rg3 e5</code> collapses the structure; the sacrifice was unsound but Austin played it without full calculation.</li>
+    </ul>
+    <div class="callout callout-gold">
+      <strong>The rule:</strong> When the clock drops below 15 minutes, Austin must NOT make a piece sacrifice or pawn push without verifying the 3-move continuation. Every one of these blunders was a move that required calculating 3+ moves ahead — and Austin did not do it. The 30-second increment means there is no "real" time pressure at G/90+30 until the clock reads under 5 minutes; the panic is premature.<br><br>
+      <strong>Specific rule for NAYCC:</strong> When under 15 min, slow down to 45 seconds minimum per move. Write the opponent's threat on the scoresheet before moving. Never play a sacrifice without confirming <em>their</em> best response.
+    </div>
+    <div class="callout callout-blue">
+      <strong>Drill resources:</strong>
+      <ul>
+        <li><a href="https://lichess.org/practice" target="_blank">lichess.org/practice</a> → Time management: deliberately play G/5+0 blitz games to practice finding tactics under time stress, then debrief after each game on which moves were rushed</li>
+        <li>Personal protocol: before every piece sacrifice in a classical game, say to yourself "what does Black/White play back?" and find their best response before committing</li>
       </ul>
     </div>
   </div>
