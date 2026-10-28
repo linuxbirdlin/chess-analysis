@@ -677,6 +677,7 @@ tbody tr:last-child td { border-bottom: none; }
   <div class="tc-body">
     <p>Highest rated player in the field (CM, 2140 · +193 above Austin), highest accuracy in dataset (93.8% avg). Austin's most likely R8–R9 opponent. <strong>Austin has already played Zachary once</strong> — personal study B46 Taimanov, White, 67 moves — and lost in a K+P endgame. The lesson: never let this game reach an endgame.</p>
 
+    <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Engine-Backed Weakness Analysis (51 games, 31 classical)</h4>
     <table>
       <thead><tr><th>Weakness</th><th>Engine Evidence</th><th>Austin's Exploit</th></tr></thead>
       <tbody>
@@ -718,7 +719,14 @@ tbody tr:last-child td { border-bottom: none; }
 
     <div class="callout callout-green"><strong>EXECUTE BEFORE MOVE 38:</strong> Zachary's catastrophic blunders (CPL 830, 699, 884) in multi-blunder games all occurred before move 42. Austin's tactical shot — an exchange sacrifice, ...Ne4 centralization, or Bxh7+! Greek gift — must land by move 35. A drawn endgame after move 40 is effectively a Zachary win.</div>
 
-    <p style="font-size:0.88em;color:#57606a;">→ <a href="../matchup/matchup-zachary-gm.html">GM Battle Plan</a></p>
+    <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Opening Preparation</h4>
+    <ul>
+      <li><strong>Austin as White vs Zachary's Sicilian:</strong> Zachary plays 2...e6 (B46 Taimanov), <em>not</em> 2...Nc6 — Rossolimo (3.Bb5) does not apply. Play Open Sicilian: <code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3</code>, then English Attack: <code>6.Be3 7.f3 8.g4!!</code> — force exactly the structure where Zachary dropped to 79.4% accuracy. Do NOT play Exchange French or Alapin — closed structures are Zachary's comfort zone at 93–97%.</li>
+      <li><strong>Austin as Black vs Zachary's Reti/English:</strong> Zachary plays 1.Nf3/1.c4. Austin plays Queen's Indian structure: <code>1.d4 Nf6 2.c4 e6 3.Nf3 b6</code> or Nimzo (<code>3.Nc3 Bb4</code>). Key ideas: <strong>...Ne4</strong> centralizing jump (forces Zachary to find active plan — he plays passive "strategic" moves instead); <strong>...Ba6</strong> attacking c4 (familiar Austin Nimzo pattern). Austin's personal study loss to Zachary was in a 67-move K+P endgame — steer away from that at all costs.</li>
+      <li><strong>Critical endgame warning:</strong> Austin already lost to Zachary in a K+P endgame (67 moves, personal study). Zachary held a draw vs 2512 Keleberda at 97.4% accuracy / 0 blunders over 104 moves. ANY endgame, even a slightly favorable one, is a probable Zachary win. Convert advantages before move 35 or fight for a draw.</li>
+    </ul>
+
+    <div class="callout callout-blue"><strong>⚠️ Highest-rated opponent (+193 pts, CM 2140).</strong> Zachary is Austin's R8–R9 wall. The only viable path: 1) maximize tactical complications to reach his B46 vulnerability zone, 2) use the personal study loss as intel — he plays the correct endgame technique, so the game must not reach move 40 in a balanced state. Deep prep: <a href="../matchup/matchup-zachary-gm.html">matchup-zachary-gm.html</a></div>
   </div>
 </div>
 
@@ -787,6 +795,15 @@ tbody tr:last-child td { border-bottom: none; }
 
     <div class="callout callout-red"><strong>DO NOT:</strong> Allow simplification to Italian pawn endgame (Heye 97%+ accuracy in 100-move endgames); play quiet positional chess where Black slowly equalizes (Heye's strength); enter a rook endgame from an Italian structure where Heye has proven he can grind for 150 moves.</div>
     <div class="callout callout-green"><strong>EXECUTE BEFORE MOVE 30:</strong> All three of Heye's catastrophic Black blunders (Nb4?? CPL 620, Kg8?? CPL 392, Qe7?? CPL 504) landed before move 30. Create sharp, multi-threat positions in the middlegame. If Austin has a tactical shot available at move 22–28, take it — Heye's Black defense becomes unreliable exactly there.</div>
+
+    <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Opening Preparation</h4>
+    <ul>
+      <li><strong>Austin as White (1.e4):</strong> Heye plays Slav as Black vs 1.d4, but vs 1.e4 expect 1...e5 or 1...c6. Use Austin's normal Exchange CK (4.Bd3) vs Caro-Kann or Rossolimo/Open vs Sicilian. Key goal: reach a <em>sharp tactical</em> structure by move 12. Heye's White Italian accuracy is 95–99%; his Black accuracy in tactical positions is 87–92%. Force complications early — do not let the position become a slow Italian symmetrical build-up.</li>
+      <li><strong>Austin as Black vs Heye's 1.e4 Italian:</strong> Play <strong>1...c5 Sicilian</strong> — Austin's standard Taimanov/Kan. This forces Heye into B58/Scheveningen territory (87.5–91.1% accuracy) rather than his safe Italian structure (95–99%). In CC G267162, Heye allowed a mating combination in 30 moves as White in a B58. Avoid 1...e5 Italian structures — that is exactly Heye's home base where he plays near-perfect 95%+ accuracy.</li>
+      <li><strong>Direct record context:</strong> Austin is 0W–2L–1D vs Heye — the worst record among analyzed opponents. Both losses came from opening prep gaps and middlegame oversights (per Austin's own assessment in qa.md). This analysis shows <em>when</em> to strike: Heye's Black catastrophic blunders at moves 22–28. Austin's previous losses did not reach those critical moments with advantage — the prep fix is creating tactical pressure earlier.</li>
+    </ul>
+
+    <div class="callout callout-blue"><strong>⚠️ Worst head-to-head record (0W–2L–1D) but engine data shows a clear exploit path.</strong> Heye's 39% Black record and catastrophic single-move collapses (CPL 392–620) from balanced positions are exactly Austin's opportunity. Austin at 1947 is the profile of opponent Heye routinely loses to as Black. Deep prep: <a href="../matchup/matchup-heye-gm.html">matchup-heye-gm.html</a></div>
   </div>
 </div>
 
