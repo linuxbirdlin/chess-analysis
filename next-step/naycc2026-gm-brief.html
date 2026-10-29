@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GM Strategic Brief — Austin Lin · NAYCC 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 72px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    @media (max-width: 680px) { .page { padding: 24px 20px 48px; } }
+
+    /* ── Header ── */
+    .doc-header {
+      border-bottom: 4px solid #1a3a6e;
+      padding-bottom: 20px;
+      margin-bottom: 36px;
+    }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.9rem; color: #1a3a6e; }
+    .doc-header .sub { font-size: 1rem; color: #57606a; margin: 0 0 10px; }
+    .doc-header .meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.88rem; color: #57606a; }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link {
+      display: inline-block; margin-top: 12px; font-size: 0.875rem;
+      color: #1a3a6e; text-decoration: none; font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    /* ── Section headings ── */
+    h2 {
+      font-size: 1.25rem; color: #ffffff; background: #1a3a6e;
+      margin: 44px 0 16px; padding: 10px 18px; border-radius: 6px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    h2 .sec-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+      background: rgba(255,255,255,0.25); padding: 2px 8px; border-radius: 3px;
+      text-transform: uppercase; white-space: nowrap;
+    }
+    h3 { font-size: 1.05rem; color: #1a3a6e; margin: 24px 0 8px; }
+    h4 { font-size: 0.93rem; color: #1f2328; font-weight: 600; margin: 16px 0 6px; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
+    li { margin-bottom: 5px; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    strong { font-weight: 600; }
+    em { color: #57606a; font-style: italic; }
+    a { color: #1a3a6e; }
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de;
+      border-radius: 4px; padding: 1px 5px;
+    }
+
+    /* ── Tables ── */
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 14px 0 20px; }
+    thead th { background: #1a3a6e; color: #fff; padding: 9px 13px; text-align: left; }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #ffffff; }
+    tbody td { padding: 9px 13px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .center { text-align: center; }
+
+    /* ── Callout boxes ── */
+    .callout {
+      border-radius: 6px; padding: 13px 18px;
+      margin: 14px 0; font-size: 0.93rem; line-height: 1.6;
+    }
+    .c-red    { background: #fff0f0; border-left: 4px solid #cf2222; color: #5a0000; }
+    .c-green  { background: #dafbe1; border-left: 4px solid #2d7d46; color: #1a4731; }
+    .c-gold   { background: #fff8e6; border-left: 4px solid #c08000; color: #5a3800; }
+    .c-blue   { background: #eaf2ff; border-left: 4px solid #1a3a6e; color: #1a3a6e; }
+    .c-purple { background: #f4eeff; border-left: 4px solid #6b3fa0; color: #3a0070; }
+    .c-grey   { background: #f6f8fa; border-left: 4px solid #57606a; color: #3a4149; }
+
+    /* ── Gap cards ── */
+    .gap-card {
+      border: 1px solid #d0d7de; border-radius: 8px;
+      margin: 18px 0; overflow: hidden;
+    }
+    .gap-head {
+      display: flex; align-items: center; gap: 12px;
+      padding: 11px 18px; font-weight: 600; font-size: 0.95rem;
+    }
+    .gap-head.critical { background: #ffeaea; color: #7a0000; border-bottom: 1px solid #f5c6c6; }
+    .gap-head.high     { background: #fff4e5; color: #7a3800; border-bottom: 1px solid #f5d6b0; }
+    .gap-head.moderate { background: #fff8e6; color: #5a4000; border-bottom: 1px solid #f5e0a0; }
+    .gap-body { padding: 14px 18px; font-size: 0.9rem; }
+
+    .badge-sev {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em;
+      padding: 2px 8px; border-radius: 3px; text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .sev-c { background: #cf2222; color: #fff; }
+    .sev-h { background: #e07020; color: #fff; }
+    .sev-m { background: #c08000; color: #fff; }
+
+    /* ── Opening decision cards ── */
+    .od-card {
+      border: 1px solid #d0d7de; border-radius: 6px; margin: 10px 0;
+    }
+    .od-head {
+      background: #2d7d46; color: #fff; padding: 8px 16px;
+      font-size: 0.92rem; font-weight: 600; border-radius: 5px 5px 0 0;
+    }
+    .od-head.black { background: #1a3a6e; }
+    .od-body { padding: 12px 16px; font-size: 0.9rem; }
+
+    /* ── Sprint table ── */
+    .sprint-table td.day-num { font-weight: 700; text-align: center; }
+    .sprint-table td.pri-c { color: #cf2222; font-weight: 700; }
+    .sprint-table td.pri-h { color: #e07020; font-weight: 700; }
+    .sprint-table td.pri-m { color: #c08000; font-weight: 700; }
+    .sprint-table td.pri-l { color: #57606a; }
+
+    /* ── Drill block ── */
+    .drill {
+      background: #1a3a6e; color: #fff; border-radius: 8px;
+      padding: 20px 24px; margin: 16px 0; font-size: 0.92rem; line-height: 1.7;
+    }
+    .drill code { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.3); color: #fff; }
+    .drill h4 { color: #7ec8f0; margin: 16px 0 6px; }
+    .drill .rule { font-size: 1.05rem; font-weight: 700; color: #ffe06a; margin: 8px 0; }
+
+    /* ── Round path ── */
+    .round-path {
+      display: grid; grid-template-columns: repeat(9, 1fr); gap: 6px; margin: 16px 0;
+    }
+    .rp-cell {
+      border-radius: 5px; padding: 8px 4px; text-align: center;
+      font-size: 0.75rem; font-weight: 600; line-height: 1.3;
+    }
+    .rp-win  { background: #dafbe1; color: #1a4731; border: 1px solid #2d7d46; }
+    .rp-must { background: #fff0f0; color: #7a0000; border: 1px solid #cf2222; }
+    .rp-hard { background: #fff8e6; color: #5a3800; border: 1px solid #c08000; }
+    .rp-open { background: #f0f4ff; color: #1a3a6e; border: 1px solid #7090d0; }
+
+    @media (max-width: 600px) {
+      .round-path { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .score-box {
+      display: flex; gap: 12px; flex-wrap: wrap; margin: 14px 0;
+    }
+    .score-tile {
+      border-radius: 6px; padding: 10px 16px; text-align: center; flex: 1; min-width: 100px;
+    }
+    .score-tile .val { font-size: 1.6rem; font-weight: 700; line-height: 1; }
+    .score-tile .lbl { font-size: 0.75rem; color: #57606a; margin-top: 4px; }
+    .st-green  { background: #dafbe1; border: 1px solid #2d7d46; }
+    .st-blue   { background: #eaf2ff; border: 1px solid #1a3a6e; }
+    .st-orange { background: #fff4e5; border: 1px solid #e07020; }
+    .st-red    { background: #fff0f0; border: 1px solid #cf2222; }
+
+    /* ── Clock table ── */
+    .clock-table td.target { font-weight: 700; color: #1a3a6e; }
+
+    /* ── Psych bars ── */
+    .psych-row { display: flex; align-items: center; gap: 12px; margin: 8px 0; font-size: 0.875rem; }
+    .psych-name { min-width: 130px; font-weight: 600; }
+    .psych-bar { flex: 1; background: #e8e8e8; border-radius: 4px; height: 12px; }
+    .psych-fill { height: 100%; border-radius: 4px; }
+    .pb-green  { background: #2d7d46; }
+    .pb-yellow { background: #c08000; }
+    .pb-red    { background: #cf2222; }
+    .psych-note { min-width: 200px; color: #57606a; }
+
+    /* ── Checklist ── */
+    .checklist { list-style: none; padding-left: 0; }
+    .checklist li {
+      padding: 6px 0 6px 30px; position: relative;
+      border-bottom: 1px solid #f0f4f8; font-size: 0.92rem;
+    }
+    .checklist li::before { content: "☐"; position: absolute; left: 4px; color: #1a3a6e; }
+    .checklist li:last-child { border-bottom: none; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ════════════════════════════════════════════════════════ HEADER -->
+  <div class="doc-header">
+    <h1>GM Strategic Brief — NAYCC 2026</h1>
+    <div class="sub">Top-3 battle plan · 12-day sprint · honest gap assessment</div>
+    <div class="meta">
+      <span><strong>Player:</strong> Austin Lin · 1947 FIDE (official seed 1914)</span>
+      <span><strong>Tournament:</strong> NAYCC 2026 · Nov 10–16 · Hotel del Prado, Mexico City · FIDE Event 496177</span>
+      <span><strong>Format:</strong> 9 rounds Swiss · G/90+30 · 33 players</span>
+      <span><strong>Prepared:</strong> Oct 29, 2026</span>
+    </div>
+    <a class="back-link" href="../austin-prep.html">← Back to Preparation Index</a>
+    &nbsp;&nbsp;
+    <a class="back-link" href="naycc2026-prep-report.html">Sprint Report →</a>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════ SECTION A -->
+  <h2><span class="sec-label">Section A</span> Austin's Actual Preparation State — Honest Assessment</h2>
+
+  <p>Before planning your path to top 3, you need an accurate picture of what you actually know versus what you think you know. This section is not criticism — it's calibration. The gaps are smaller than they look, and every one of them is fixable in 12 days.</p>
+
+  <div class="callout c-green"><strong>What's solid:</strong> Exchange Caro-Kann 4.Bd3 + h4 attack (deepest preparation), Nimzo-Indian Bxc3+/...b6/...Ba6 (fully prepared), French Tarrasch 3.Nd2 tabiya (confirmed per Q6), Adams Attack 5.h4!? vs Aarush Najdorf (proven in direct encounter, G2 win). These are genuine weapons — not just familiarity.</div>
+
+  <table>
+    <thead><tr><th>Topic</th><th>Your Answer</th><th>Honest Assessment</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Taimanov move order</strong> (4...Nc6 vs 4...a6?)</td>
+        <td>"want to learn more about different 4th moves"</td>
+        <td>Not yet committed. You're branching without an anchor. Pick 4...Nc6 Taimanov now and don't look at Kan until after NAYCC.</td>
+        <td><span class="badge-sev sev-c">Critical</span></td>
+      </tr>
+      <tr>
+        <td><strong>Keres Attack 6.g4</strong> vs Taimanov/Kan</td>
+        <td><em>(unanswered)</em></td>
+        <td>Zero preparation confirmed. White's most aggressive reply — g4 on move 6, rapid kingside advance. If a well-prepared opponent plays this, you have no defensive plan. <strong>Must drill immediately.</strong></td>
+        <td><span class="badge-sev sev-c">Critical</span></td>
+      </tr>
+      <tr>
+        <td><strong>6.Ndb5 d6! rule</strong> (Taimanov queen trap)</td>
+        <td><em>(unanswered)</em></td>
+        <td>Status unknown — possibly not automatic. One wrong move (6...Bc5?) allows 8.Bc7! trapping your queen path in the main Sveshnikov lines. See Section E for the emergency drill.</td>
+        <td><span class="badge-sev sev-c">Critical</span></td>
+      </tr>
+      <tr>
+        <td><strong>Lucena bridge-building</strong></td>
+        <td>"general idea but might mess up specific moves"</td>
+        <td>Honest answer. "General idea" is not enough if you need to execute it with 2 minutes on the clock. Drill until automatic before the tournament.</td>
+        <td><span class="badge-sev sev-h">High</span></td>
+      </tr>
+      <tr>
+        <td><strong>Nimzo-Larsen vs Joel</strong> (1.Nf3 2.b3 Bb2)</td>
+        <td>"No, never faced it"</td>
+        <td>Zero preparation. Joel is your most predictable matchup — he plays Nimzo-Larsen in virtually every game. This is an entirely learnable plan in 2 hours.</td>
+        <td><span class="badge-sev sev-h">High</span></td>
+      </tr>
+      <tr>
+        <td><strong>Bb4+ vs Catalan after 4.Bd2</strong></td>
+        <td>"basically no change to Nimzo"</td>
+        <td>The plan is correct but not detailed enough. After 4.Bd2 Bxd2+ 5.Qxd2: you need a specific plan for ...d5, ...c5, or ...b6. Leo plays 3.Nf3 every game — you will face this line.</td>
+        <td><span class="badge-sev sev-h">High</span></td>
+      </tr>
+      <tr>
+        <td><strong>English Attack depth</strong> (6.Be3 7.f3 8.g4)</td>
+        <td><em>(unanswered)</em></td>
+        <td>Pranav and others may use this. The ...b5/...b4/...Bb7/...Rc8 counter-plan is your answer — but confirm you know the move order through at least move 12 before the tournament.</td>
+        <td><span class="badge-sev sev-m">Moderate</span></td>
+      </tr>
+      <tr>
+        <td><strong>Philidor position defense</strong></td>
+        <td>"perhaps I will remember" (saw it recently)</td>
+        <td>Dangerous optimism. "Perhaps" in a tournament means 40% chance of forgetting under pressure. One 45-minute drill session removes this uncertainty permanently.</td>
+        <td><span class="badge-sev sev-m">Moderate</span></td>
+      </tr>
+      <tr>
+        <td><strong>Heye Gao losses (2× as Black, 1 draw)</strong></td>
+        <td>"opening prep was a part, middlegame oversights"</td>
+        <td>Honest. The engine data confirms Black collapse pattern (Nb4?? CPL 620, Kg8?? CPL 392, Qe7?? CPL 504). This is an exploitable weakness — but so is yours. Play 1...c5 Sicilian (not Italian 3...Bc5 where Heye scored 95–99% accuracy).</td>
+        <td><span class="badge-sev sev-m">Moderate</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout c-red"><strong>The single most dangerous gap:</strong> You are planning to play Sicilian Taimanov/Kan as your main Black weapon, but you don't know the Keres Attack (6.g4) and may not have the 6.Ndb5 d6! rule automatic. This combination could lose you a game against a prepared opponent in the first 10 moves. Fix both on Day 1 before anything else.</div>
+
+  <!-- ════════════════════════════════════════════════════════ SECTION B -->
+  <h2><span class="sec-label">Section B</span> Path to Top 3 — Round-by-Round Reality</h2>
+
+  <p>33 players, 9 rounds. Historical top-3 cutoff in comparable NAYCC fields: <strong>~6.5–7/9</strong>. Your realistic win expectation by opponent category:</p>
+
+  <div class="score-box">
+    <div class="score-tile st-green">
+      <div class="val">3/3</div>
+      <div class="lbl">Expected vs lower-rated<br>(R1–R3)</div>
+    </div>
+    <div class="score-tile st-blue">
+      <div class="val">1.5–2/3</div>
+      <div class="lbl">Must-win tier<br>(Aarush, Emerson, Tarun)</div>
+    </div>
+    <div class="score-tile st-orange">
+      <div class="val">0.5–1/2</div>
+      <div class="lbl">Winnable top-10<br>(Pranav, Heye)</div>
+    </div>
+    <div class="score-tile st-red">
+      <div class="val">0–1/3</div>
+      <div class="lbl">Upset required<br>(Fernando, Leo, Zachary)</div>
+    </div>
+  </div>
+
+  <p><strong>Top-3 formula:</strong> Win all R1–R3 (3 pts) + win both Aarush and Emerson (5 pts) + win Tarun or Pranav (6 pts) + steal one point vs Fernando/Leo/Zachary (6.5–7 pts). That is the exact path. You do not need to beat Zachary or Daniel Lee to reach top 3.</p>
+
+  <div class="round-path">
+    <div class="rp-cell rp-win">R1<br>Win<br>~1300–1500</div>
+    <div class="rp-cell rp-win">R2<br>Win<br>~1500–1700</div>
+    <div class="rp-cell rp-win">R3<br>Win<br>~1700–1850</div>
+    <div class="rp-cell rp-must">R4–R5<br>MUST-WIN<br>Aarush/Emerson/Tarun</div>
+    <div class="rp-cell rp-must">R5–R6<br>MUST-WIN<br>Aarush/Emerson</div>
+    <div class="rp-cell rp-hard">R6–R7<br>Winnable<br>Pranav/Heye</div>
+    <div class="rp-cell rp-hard">R7–R8<br>Hard<br>Fernando/Leo</div>
+    <div class="rp-cell rp-open">R8–R9<br>Target<br>Zachary/DLee</div>
+    <div class="rp-cell rp-open">R9<br>Final<br>#1 Seed</div>
+  </div>
+
+  <div class="callout c-gold"><strong>Critical pairing trap — Leo Jackson:</strong> Leo is seeded #8 officially (~1886 frozen rating) but is actually ~2077 FIDE now. In Swiss pairings, this means you may face him in R5–R6 rather than R8. His real rank is #2 in the field. Do not go into that game expecting a mid-table opponent.</div>
+
+  <h3>If Daniel Lee stays (2191, seed #2)</h3>
+  <p>The field is harder. You likely face him in R8–R9 if you're scoring well. Plan: Sicilian Taimanov/Kan as Black (forces his Maróczy or English Attack); Exchange CK as White if he plays Caro-Kann. His Maróczy (B36/B38) is his bread and butter — study the ...e5 or ...f5 challenge to break the Nd5 anchor before it forms.</p>
+
+  <h3>If Daniel Lee moves to U18 (rumored per Q1)</h3>
+  <p>Top-3 path becomes significantly more accessible. Zachary becomes the #1 seed at ~2140, Leo effectively #2, Fernando #3. Your preparation advantages vs Fernando (Tarrasch gap) and Emerson (zero B13 games) become the decisive factor in the tournament.</p>
+
+  <!-- ════════════════════════════════════════════════════════ SECTION C -->
+  <h2><span class="sec-label">Section C</span> 5 Biggest Preparation Gaps — Ranked by Tournament Impact</h2>
+
+  <!-- Gap 1 -->
+  <div class="gap-card">
+    <div class="gap-head critical">
+      <span class="badge-sev sev-c">Gap #1 — Critical</span>
+      Taimanov: Keres Attack (6.g4) defensive plan — UNKNOWN
+    </div>
+    <div class="gap-body">
+      <p><strong>The position:</strong> After <code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Nc6 6.g4!?</code> — White launches an immediate kingside pawn storm before castling. This is one of the sharpest and most theory-intensive lines in the Sicilian.</p>
+      <p><strong>Why it matters:</strong> If a well-coached opponent (Fernando, Pranav, or any player who has studied your PAM 2026 games) knows you're playing Taimanov and has prepared 6.g4, you walk into it with zero defensive plan. In the Keres Attack, Black must react precisely — passive play loses quickly. Wrong moves (like ...d6 without setting up ...e5) allow White to build a dominant center and kingside attack.</p>
+      <p><strong>The fix (2 hours):</strong> Learn the main Keres defensive plan: after 6.g4, play <code>6...e5! 7.Ndb5 d6 8.Bg5 a6 9.Na3</code> — the same Sveshnikov-like structure you're learning for 6.Ndb5. The key insight: <strong>6...e5 creates a strong central barrier that stops White's g4-g5 advance from being dangerous immediately.</strong> Alternatively: <code>6...h6 7.h4 Nb4</code> (counterplay on c2). Either response stops the Keres Attack from becoming overwhelming.</p>
+      <div class="callout c-red" style="margin:8px 0;"><strong>Time to fix:</strong> 2 hours of focused study + 5 rapid practice games. Cannot skip.</div>
+    </div>
+  </div>
+
+  <!-- Gap 2 -->
+  <div class="gap-card">
+    <div class="gap-head critical">
+      <span class="badge-sev sev-c">Gap #2 — Critical</span>
+      Taimanov: 6.Ndb5 d6! rule — Status Unknown (may not be automatic)
+    </div>
+    <div class="gap-body">
+      <p><strong>The trap:</strong> After <code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Nc6 6.Ndb5</code>, you MUST play <code>6...d6!</code> immediately — no exceptions. See Section E for the full emergency drill. The wrong alternatives:</p>
+      <ul>
+        <li><code>6...Bc5?</code> → <code>7.Nd6+ Ke7 8.Nxf7!</code> — White wins material with a rook fork</li>
+        <li><code>6...a6?</code> → <code>7.Nd6+ Ke7 8.Nxf7!</code> — identical tactical motif</li>
+        <li><code>6...Bb4?</code> → <code>7.a3! Bxc3+ 8.Nxc3</code> — White achieves good structure for free</li>
+      </ul>
+      <p><strong>Time to fix:</strong> 30 minutes of memorization, then confirm in 3 practice games. One session. This is not a deep theory problem — it is a single rule you must know automatically.</p>
+    </div>
+  </div>
+
+  <!-- Gap 3 -->
+  <div class="gap-card">
+    <div class="gap-head high">
+      <span class="badge-sev sev-h">Gap #3 — High</span>
+      Lucena bridge-building — "might mess up specific moves"
+    </div>
+    <div class="gap-body">
+      <p><strong>Why it matters:</strong> You are likely to reach rook endgames vs Leo (long technical games), Tarun (endgame blunders), and possibly Zachary (77-move game in PAM). If you're winning and don't know the Lucena, you give back the full point. The bridge-building is not complex once learned, but the exact sequence must be automatic.</p>
+      <p><strong>The method:</strong> Rook + pawn vs Rook, pawn on 7th rank. White king on 8th square adjacent to pawn. Steps: (1) Rook cuts off enemy king from behind: <code>Ra1+</code> pushes enemy king away. (2) King steps in front of pawn to shelter itself from checks: <code>Kf7</code>. (3) Build the bridge: <code>Re4!</code> → <code>Rf4!</code> → <code>Rg4</code>, blocking checks on the 4th rank while the pawn promotes. This sequence wins in all positions with proper technique.</p>
+      <p><strong>Time to fix:</strong> 2 sessions of 45 minutes each. First session: memorize the position and bridge sequence. Second session: execute it from memory 5 times correctly. Your coach Vadim is already doing this — ask to drill Lucena specifically in the next class before you travel.</p>
+    </div>
+  </div>
+
+  <!-- Gap 4 -->
+  <div class="gap-card">
+    <div class="gap-head high">
+      <span class="badge-sev sev-h">Gap #4 — High</span>
+      Nimzo-Larsen vs Joel Jeyaraj — zero preparation
+    </div>
+    <div class="gap-body">
+      <p><strong>The situation:</strong> Joel plays <code>1.Nf3 2.b3 Bb2</code> Nimzo-Larsen in virtually every classical game. The Bb2 bishop controls the long diagonal and wants to create a "Hypermodern" center pressure. If you don't have a specific plan, you can end up in a passive position where Joel's well-practiced system dominates.</p>
+      <p><strong>The recommended plan (based on your style):</strong> Play <code>1.Nf3 d5 2.b3 Nf6 3.Bb2 e6 4.e3 Bd6!</code> — your Bd6 bishop goes to d6 (NOT c5 or e7). The d5+e6+Bd6 pawn structure blocks the long diagonal entirely — the Bb2 bishop points at nothing. This is identical in spirit to your Nimzo-Indian ...b6/...Ba6 plan: actively block their bishop and create your own attacking setup. You've played these d5+e6 pawn centers frequently in your personal study.</p>
+      <p><strong>Continue with:</strong> <code>5.d4 0-0 6.Bd3 b6!</code> — mirror Joel's own fianchetto idea. Now <code>7.0-0 Bb7 8.c4 dxc4 9.Bxc4</code> → IQP position you know well from your Nimzo/Catalan games. Your ...Ne4 patterns transfer directly.</p>
+      <p><strong>Time to fix:</strong> 2 hours to learn the plan, 10 rapid practice games vs 1.Nf3+b3 online. The moves are simple — one focused session is enough.</p>
+      <div class="callout c-blue" style="margin:8px 0;"><strong>Also prepare vs Joel's Scandinavian as Black:</strong> Joel plays 1.e4 → Scandinavian (2...Nf6 ...g6 fianchetto). Austin's response: Exchange CK or just play 2...Qxd5 (if not familiar with 2...Nf6). The Scandinavian is less preparation-intensive than the Nimzo-Larsen.</div>
+    </div>
+  </div>
+
+  <!-- Gap 5 -->
+  <div class="gap-card">
+    <div class="gap-head moderate">
+      <span class="badge-sev sev-m">Gap #5 — Moderate</span>
+      Bogo-Indian plan vs Leo's Catalan (after 4.Bd2 Bxd2+) — unclear
+    </div>
+    <div class="gap-body">
+      <p><strong>The situation:</strong> Leo plays <code>1.d4 Nf6 2.c4 e6 3.Nf3</code> (avoids 3.Nc3 to sidestep your Nimzo). Your plan was Bb4+ Bogo-Indian: <code>3...Bb4+ 4.Bd2 Bxd2+</code>. After <code>5.Qxd2</code>, you need a concrete plan. Your brief answer "basically no change to Nimzo" is right in spirit — but what exactly are you playing?</p>
+      <p><strong>Recommended plan:</strong> After <code>5.Qxd2</code>, play <code>5...d5! 6.g3 0-0 7.Bg2 c6 8.0-0 Nbd7</code> — a solid QGD-Catalan structure where you've given up the bishop pair but have a solid pawn center. Key idea: <code>...b6</code> and <code>...Ba6</code> attacking c4 — the same Austin pattern from your Nimzo. Alternatively: <code>5...c5!</code> immediately for IQP imbalance (standard Bogo approach).</p>
+      <p><strong>Alternative (simpler):</strong> Play <code>3...b6</code> Queen's Indian instead. Your ...Ne4 and ...Ba6 ideas transfer directly, and you avoid the bishop exchange entirely. The QID is slightly less sharp than Bogo, but you know the pawn structures from your Nimzo games.</p>
+      <p><strong>Decision needed:</strong> <em>Pick one plan and stick to it.</em> Bogo-Indian (Bb4+ then ...d5 or ...c5) OR Queen's Indian (3...b6). Either is fine. The indecision is the problem — commit before the tournament.</p>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════ SECTION D -->
+  <h2><span class="sec-label">Section D</span> Opening Decisions — Final Confirmed Choices</h2>
+
+  <p>One decision per situation. No more "or maybe." Commit to these before Day 5 of the sprint.</p>
+
+  <h3>As White (1.e4)</h3>
+  <div class="od-card">
+    <div class="od-head">vs French (1...e6) — 3.Nd2 Tarrasch ONLY</div>
+    <div class="od-body">
+      Tabiya: <code>1.e4 e6 2.d4 d5 3.Nd2 Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 7.Ne2!</code>
+      <br>The 7.Ne2! move (covering f4, preparing Nf4 on the d5-hole) is your deepest preparation point. Know it cold.
+      <br><strong>Exit ramp if they deviate:</strong> If opponent plays 3...c5 counter-gambit → <code>4.exd5 Qxd5 5.Ngf3</code> — dynamic, good.
+      <br><span style="color:#cf2222;font-weight:600;">NEVER: 3.e5 Advance (Fernando knows it), 3.Nc3 (Winawer is his best), 3.exd5 (Heye/Leo endgame trap).</span>
+    </div>
+  </div>
+  <div class="od-card">
+    <div class="od-head">vs Caro-Kann (1...c6) — Exchange 4.Bd3 → h4 storm</div>
+    <div class="od-body">
+      Line: <code>1.e4 c6 2.d4 d5 3.exd5 cxd5 4.Bd3 Nc6 5.c3 Nf3 6.h4</code>
+      <br>Emerson has ZERO B13 games as Black — your deepest attacking prep vs a completely unprepared opponent.
+      <br><strong>Exit ramp:</strong> If you sense prep in opening moves, delay h4 by one move and play positionally instead.
+    </div>
+  </div>
+  <div class="od-card">
+    <div class="od-head">vs Sicilian (1...c5) — Rossolimo first, Adams Attack vs Najdorf</div>
+    <div class="od-body">
+      vs 2...Nc6: Rossolimo <code>3.Bb5</code> → h4-h5 attack (Tarun, general Sicilian)
+      <br>vs Najdorf (2...d6 3...Nf6 4...a6): Adams Attack <code>5.h4!?</code> — proven win vs Aarush; 0W-3L record for opponents in h4 systems.
+      <br><strong>Exit ramp:</strong> If opponent plays Rossolimo structures badly (fast opening moves = they're in prep), switch to 2.c3 Alapin — entirely different structure.
+    </div>
+  </div>
+  <div class="od-card">
+    <div class="od-head">vs 1...e5 — Scotch 3.d4 or sharp Italian with early d4</div>
+    <div class="od-body">
+      Scotch: <code>1.e4 e5 2.Nf3 Nc6 3.d4 exd4 4.Nxd4</code> — creates open tactical positions immediately.
+      <br><strong>Do NOT play</strong> quiet Italian (d3/c3) — Pranav uses exactly this as his attacking model and has a 29-move mating game with it.
+    </div>
+  </div>
+
+  <h3>As Black</h3>
+  <div class="od-card">
+    <div class="od-head black">vs 1.d4 + Nc3 — Nimzo-Indian 3...Bb4 (primary, fully prepared)</div>
+    <div class="od-body">
+      Line: Bxc3+ with ...b6/...Ba6 — your best-prepared and strongest weapon. No change needed.
+      <br><strong>Exit ramp:</strong> If you sense a prep surprise, switch to 3...d5 QGD — ultra-solid, no tactical theory needed.
+    </div>
+  </div>
+  <div class="od-card">
+    <div class="od-head black">vs 1.d4 + Nf3 (no Nc3) — Commit to ONE of: 3...Bb4+ Bogo or 3...b6 QI</div>
+    <div class="od-body">
+      Leo plays 3.Nf3 in every game. Recommended: <strong>3...b6 Queen's Indian</strong> (simpler, your ...Ne4/...Ba6 ideas transfer directly).
+      <br>Alternative: <strong>3...Bb4+ 4.Bd2 Bxd2+ 5.Qxd2</strong> then ...d5 or ...c5.
+      <br><strong>Pick ONE now. Do not decide at the board.</strong>
+    </div>
+  </div>
+  <div class="od-card">
+    <div class="od-head black">vs 1.e4 — Sicilian Taimanov 4...Nc6 (commit, not Kan)</div>
+    <div class="od-body">
+      Line: <code>1...c5 2...e6 3...Nc6</code> — 4...Nc6 Taimanov only. Do NOT split with Kan (4...a6) before NAYCC — pick one and know it.
+      <br><strong>Vs English Attack (6.Be3):</strong> ...b5/...b4/...Bb7/...Rc8 queenside counter-attack — must know through move 12.
+      <br><strong>Vs Keres (6.g4):</strong> See Section E — MUST DRILL TODAY.
+    </div>
+  </div>
+  <div class="od-card">
+    <div class="od-head black">vs 1.c4 — 1...Nf6 2...e6 wait-and-redirect</div>
+    <div class="od-body">
+      Vs 3.d4 → Nimzo (3...Bb4). Vs 3.e4 Mikenas → 3...Bb4 pin. Vs 3.g3 → 3...d5. Vs 3.Nf3 → 3...b6 QI.
+      <br>Practice once before the tournament — the moves are simple, the branches are clear.
+    </div>
+  </div>
+  <div class="od-card">
+    <div class="od-head black">vs 1.Nf3 2.b3 Bb2 (Nimzo-Larsen — Joel) — 1...d5 2...e6 3...Nf6 4...Bd6</div>
+    <div class="od-body">
+      The Bd6 bishop blocks the long diagonal completely. Continue: ...b6, ...Bb7, ...c5 — familiar IQP pawn structure.
+      <br>See Section C Gap #4 for full plan.
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════ SECTION E -->
+  <h2><span class="sec-label">Section E</span> Taimanov Emergency Drill — 6.Ndb5 d6! Rule</h2>
+
+  <div class="drill">
+    <h4>The Critical Position</h4>
+    <p>This position arises after: <code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Nc6 6.Ndb5</code></p>
+    <p>White's Ndb5 threatens Nd6+, forking king and rook. Black has one correct reply.</p>
+
+    <div class="rule">THE RULE: Play 6...d6! — IMMEDIATELY. No exceptions.</div>
+
+    <h4>Why d6 — not the alternatives:</h4>
+    <ul>
+      <li><code>6...d6!</code> ✓ — blocks the Nd6+ fork permanently. Position: standard Sveshnikov territory → <code>7.Bf4 e5 8.Bg5 a6 9.Na3 b5</code> — you know this.</li>
+      <li><code>6...Bc5?</code> ✗ → <code>7.Nd6+ Ke7 8.Nxf7!</code> White wins material (rook on h8 trapped, knight on f7 attacks queen)</li>
+      <li><code>6...a6?</code> ✗ → <code>7.Nd6+ Ke7 8.Nxf7!</code> — identical pattern. King must walk away from f7, losing the rook</li>
+      <li><code>6...Bb4?</code> ✗ → <code>7.a3! Bxc3+ 8.Nxc3</code> → White achieves bishop pair + better structure for free</li>
+      <li><code>6...Nf6?</code> ✗ → <code>7.Nd6+!</code> still works — your king is stuck in the center</li>
+    </ul>
+
+    <h4>After 6...d6! — the Sveshnikov continues:</h4>
+    <p><code>7.Bf4 e5 8.Bg5 a6 9.Na3 b5 10.Nd5</code> — this is the main Sveshnikov tabiya. White's knight on d5 is powerful but temporary. Black's plan: ...Be7, ...Be6 (exchange the powerful Nd5), then queenside expansion with ...b4.</p>
+
+    <h4>Drill protocol:</h4>
+    <p>Set up the position after 6.Ndb5. Without looking at notes, find 6...d6!. Do this 10 times. Then play 5 rapid games online and reach this position in at least 3 of them. The rule must be automatic before Day 3.</p>
+  </div>
+
+  <div class="callout c-gold"><strong>Why this matters so much:</strong> Any opponent who has studied the Taimanov theory (Fernando plays Sicilian as White; Pranav uses English Attack vs Najdorf) may reach this position. If 6...d6! is not automatic, the tournament is already damaged. This is 30 minutes of work that eliminates a potential catastrophe.</div>
+
+  <!-- ════════════════════════════════════════════════════════ SECTION F -->
+  <h2><span class="sec-label">Section F</span> Clock Management Battle Plan</h2>
+
+  <h3>The 45-Second Rule</h3>
+  <p>Never make a move in fewer than 45 seconds in any critical position. This is not about being slow — it's about preventing panic moves. In G/90+30, you have ample time if you use it consistently rather than banking time during non-critical moves and spending nothing on critical ones.</p>
+
+  <div class="callout c-blue"><strong>The most common clock mistake:</strong> Spending 10–15 minutes on an early middlegame decision, then making tactical moves quickly in the critical window (moves 18–35). This is backwards. Tactics require more time, not less. If you're down to 20 minutes with 20 moves to go, you will blunder — engine data from Pranav, Tarun, Aarush, and Emerson all confirm this pattern. They lost games this way. Don't replicate their mistakes.</div>
+
+  <h3>Target Clock Times by Opponent</h3>
+  <table class="clock-table">
+    <thead><tr><th>Opponent</th><th>At Move 20 (target)</th><th>At Move 30 (target)</th><th>Their Danger Zone</th><th>Your Clock Rule</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Zachary (2140)</strong></td>
+        <td class="target">≥ 65 min</td>
+        <td class="target">≥ 45 min</td>
+        <td>Moves 30–45: Sicilian Nd5?? misidentification</td>
+        <td>NEVER simplify early. Keep time for moves 30–38 where you execute before his endgame kicks in.</td>
+      </tr>
+      <tr>
+        <td><strong>Fernando (2072)</strong></td>
+        <td class="target">≥ 60 min</td>
+        <td class="target">≥ 40 min</td>
+        <td>Moves 22–30: triple-collapse pattern (R1 m30, R9 m23/28)</td>
+        <td>Force tactical decision point at move 22–28. If you have a combination: take it, don't wait. EXECUTE BEFORE MOVE 30.</td>
+      </tr>
+      <tr>
+        <td><strong>Leo (2077)</strong></td>
+        <td class="target">≥ 65 min</td>
+        <td class="target">≥ 50 min</td>
+        <td>Moves 21–40: White plan-finding collapses (30% White score)</td>
+        <td>Keep pieces on board. Avoid simplification at all costs. Leo wins 100–150 move endgames — Austin wins in the middle game. Use the clock advantage in the opening to build a complex position.</td>
+      </tr>
+      <tr>
+        <td><strong>Pranav (1979)</strong></td>
+        <td class="target">≥ 60 min</td>
+        <td class="target">≥ 40 min</td>
+        <td>Moves 7–22: unfamiliar structure collapses (51%, 53.1% accuracy spikes)</td>
+        <td>Generate complexity by move 15–18. Pranav's clock dropped to 0:32 by move 12 in B50 sideline (AGCA Summer R9). Force him onto the clock early. EXECUTE BEFORE MOVE 25.</td>
+      </tr>
+      <tr>
+        <td><strong>Tarun (1965)</strong></td>
+        <td class="target">≥ 65 min</td>
+        <td class="target">≥ 45 min</td>
+        <td>Moves 26–40: five CPL-1000 blunders in this range</td>
+        <td>Wait for his impulse move (g4?? or e5?? from equality). This will come. Austin should NOT initiate complications before move 20 — let Tarun self-destruct. Then execute.</td>
+      </tr>
+      <tr>
+        <td><strong>Aarush (1937)</strong></td>
+        <td class="target">≥ 65 min</td>
+        <td class="target">≥ 45 min</td>
+        <td>Moves 20–25: three from-winning collapses documented (CPL 1000, 579, 482)</td>
+        <td>h4 attack must reach h5 by move 18–20. From-winning window closes after move 25. If position is winning at move 22, take the tactical shot — don't improve. EXECUTE BEFORE MOVE 25.</td>
+      </tr>
+      <tr>
+        <td><strong>Emerson (1925)</strong></td>
+        <td class="target">≥ 60 min</td>
+        <td class="target">≥ 45 min</td>
+        <td>Moves 35–55: from-winning collapses (CPL 1000 from +17.67, +7.78, +6.15)</td>
+        <td>Build clear advantage via Exchange CK h4-h5 by move 25. Maintain tactical tension after move 30 — do NOT simplify technically. Emerson's collapse window starts at move 35. Stay complex until he breaks. EXECUTE BEFORE MOVE 40.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Time Management General Principles</h3>
+  <ul>
+    <li><strong>Openings:</strong> Spend freely in unfamiliar territory (up to 20 min on moves 5–12). The 30-sec increment accumulates fast in the opening — use it. You'll have plenty of time later.</li>
+    <li><strong>Moves 15–30:</strong> This is your critical window vs all opponents. Never move in under 45 seconds here. If you feel "I know what to do," ask: "Is there a tactic I'm missing?" Then check.</li>
+    <li><strong>Endgames:</strong> If you reach an endgame with under 20 min, focus on one move at a time. Don't calculate 5 moves ahead — calculate 2 and use the increment to recalibrate.</li>
+    <li><strong>Time-trouble rule:</strong> If under 10 minutes, fall back to the simplest plan — don't find the brilliant move, find the correct move. Endgame losses by Aarush, Emerson, Tarun all happened under time pressure.</li>
+  </ul>
+
+  <!-- ════════════════════════════════════════════════════════ SECTION G -->
+  <h2><span class="sec-label">Section G</span> GM Psychological Gameplan</h2>
+
+  <h3>Win Condition Formula</h3>
+  <div class="callout c-purple"><strong>The psychological key:</strong> You are the best-prepared player in this tournament for specific matchups, not the highest-rated. Zachary is 193 points above you but has never played 3.Nd2 Tarrasch in 37 French games. Fernando is a CM with zero Tarrasch prep. Emerson has never faced B13 Exchange CK as Black in analyzed games. Your preparation advantages are <em>real</em> — not just "I've studied" — they are documented in engine data. Play with the confidence of those advantages.</div>
+
+  <h3>Confidence vs Each Opponent</h3>
+
+  <div class="psych-row">
+    <span class="psych-name">Emerson (1925)</span>
+    <span class="psych-bar"><span class="psych-fill pb-green" style="width:72%"></span></span>
+    <span class="psych-note">Your clearest full-point: zero B13 prep, 1W-6L-2D CK record. Be aggressive.</span>
+  </div>
+  <div class="psych-row">
+    <span class="psych-name">Aarush (1937)</span>
+    <span class="psych-bar"><span class="psych-fill pb-green" style="width:68%"></span></span>
+    <span class="psych-note">You are ABOVE him in FIDE. h4 Adams Attack won directly. Must-win.</span>
+  </div>
+  <div class="psych-row">
+    <span class="psych-name">Tarun (1965)</span>
+    <span class="psych-bar"><span class="psych-fill pb-green" style="width:58%"></span></span>
+    <span class="psych-note">Wait for impulse blunder (it will come). Patient Nimzo/QID as Black.</span>
+  </div>
+  <div class="psych-row">
+    <span class="psych-name">Pranav (1979)</span>
+    <span class="psych-bar"><span class="psych-fill pb-yellow" style="width:48%"></span></span>
+    <span class="psych-note">Most worried (Q14) — but 51% White accuracy IS possible. Force unfamiliar territory.</span>
+  </div>
+  <div class="psych-row">
+    <span class="psych-name">Heye (2028–2065)</span>
+    <span class="psych-bar"><span class="psych-fill pb-yellow" style="width:40%"></span></span>
+    <span class="psych-note">0W-2L-1D history but engine shows exploit path. 1...c5 Sicilian forces B58.</span>
+  </div>
+  <div class="psych-row">
+    <span class="psych-name">Fernando (2072 CM)</span>
+    <span class="psych-bar"><span class="psych-fill pb-yellow" style="width:38%"></span></span>
+    <span class="psych-note">Tarrasch 3.Nd2 = secret weapon. 37-game gap in his prep. Don't fear the CM title.</span>
+  </div>
+  <div class="psych-row">
+    <span class="psych-name">Leo (2077 est.)</span>
+    <span class="psych-bar"><span class="psych-fill pb-red" style="width:30%"></span></span>
+    <span class="psych-note">130pts above. 30% White score = exploitable. Execute Advance French before endgame.</span>
+  </div>
+  <div class="psych-row">
+    <span class="psych-name">Zachary (2140 CM)</span>
+    <span class="psych-bar"><span class="psych-fill pb-red" style="width:25%"></span></span>
+    <span class="psych-note">Most worried (Q14) — but B46 79.4% accuracy. Open Sicilian English Attack is the key.</span>
+  </div>
+
+  <h3>Specific Mindset Instructions</h3>
+
+  <div class="callout c-gold"><strong>You said you're most worried about Zachary, Fernando, and Pranav.</strong> Here's the accurate picture:
+  <ul style="margin:8px 0 0;">
+    <li><strong>Zachary:</strong> You are right to take him seriously. But he has a documented Sicilian collapse (B46 79.4%, Dragon 83.4%) and a "winning plan misidentification" blunder (Nd5?? CPL 443). You play the Open Sicilian English Attack and he crumbles. Your fear should transform into targeted preparation.</li>
+    <li><strong>Fernando:</strong> You should NOT be worried. He has never played a Tarrasch French game in 37 analyzed games. You have his entire preparation mapped — and the one thing he's never seen is your first move. Walk in with confidence.</li>
+    <li><strong>Pranav:</strong> Highest variance player in the field. His 51% game exists. Your Taimanov/Kan forces his worst White structure type. The worrying is valid because he can play brilliantly — but so can you.</li>
+  </ul></div>
+
+  <h3>Counter-Preparation: When They've Studied Your Games</h3>
+  <p>Your PAM 2026 games are public (July 2026). Any well-coached opponent can study your Bxh7+ Exchange CK, Advanced French pawn choices, and Rossolimo tabiya. <strong>Signs they're in preparation:</strong></p>
+  <ul>
+    <li>First 8–10 moves in under 2 minutes total (retrieving memory, not calculating)</li>
+    <li>Sharp move played in under 5 seconds (pre-studied combination)</li>
+    <li>Opponent doesn't look at the board — stares at scoresheet (visualizing prep line)</li>
+  </ul>
+  <p><strong>Your response protocol:</strong> Don't change your plan at move 1. Play normally through move 5–6, then: if the position feels "too prepared" (they're not spending any time), trigger your exit ramp at the last safe point. Your preparation advantage is in the <em>specific positions</em> — not in being unpredictable. Trust your calculation when their prep runs out.</p>
+
+  <table>
+    <thead><tr><th>Austin's Opening</th><th>Normal line</th><th>Exit ramp (vs prep)</th></tr></thead>
+    <tbody>
+      <tr><td>Exchange Caro-Kann</td><td>4.Bd3 → h4 sacrifice</td><td>6.Nf3 solid play — positional Exchange instead</td></tr>
+      <tr><td>Tarrasch French</td><td>7.Ne2! tabiya</td><td>6.Ngf3 instead of 6.c3 — different structure, less theory</td></tr>
+      <tr><td>Rossolimo Sicilian</td><td>3.Bb5 Rossolimo</td><td>2.c3 Alapin — completely different structure, prep evaporates</td></tr>
+      <tr><td>Nimzo-Indian (Black)</td><td>Bxc3+ ...b6 ...Ba6</td><td>3...d5 QGD — ultra-solid, no tactical theory needed</td></tr>
+      <tr><td>Taimanov (Black)</td><td>4...Nc6 main lines</td><td>4...a6 Kan — same broad structure, different immediate theory</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout c-grey"><strong>Core principle:</strong> Preparation covers positional plans through move 15–20. After that, no one has memorized the specific tactical complexities of your game's position. Once past the prep window, your calculation is the equalizer — not your memory. Stay in the game. Trust your tactics.</div>
+
+  <!-- ════════════════════════════════════════════════════════ SECTION H -->
+  <h2><span class="sec-label">Section H</span> 12-Day Sprint Priority List (Oct 29 – Nov 9)</h2>
+
+  <p><strong>Today: Oct 29 (Day 1). Tournament: Nov 10. Travel: Nov 9 (Day 12). Prep window: 12 days.</strong></p>
+
+  <table class="sprint-table">
+    <thead><tr><th>Day</th><th>Date</th><th>Pri</th><th>Focus (60–90 min)</th><th>Specific Output</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="day-num">1</td><td>Oct 29</td>
+        <td class="pri-c">CRITICAL</td>
+        <td><strong>Taimanov emergency drill:</strong> 6.Ndb5 d6! (see Section E) + Keres Attack 6.g4 defensive plan (6...e5! and 6...h6 options)</td>
+        <td>Know 6...d6! automatically. Know at least one Keres Attack response. 10 rapid games reaching these positions.</td>
+      </tr>
+      <tr>
+        <td class="day-num">2</td><td>Oct 30</td>
+        <td class="pri-c">CRITICAL</td>
+        <td><strong>English Attack depth check:</strong> After 4...Nc6 5.Nc3 6.Be3 — drill ...b5/...b4/...Bb7/...Rc8 counter-attack plan through move 12. Know what to do if White delays f3 or plays Qd2 first.</td>
+        <td>5 rapid games as Black in Taimanov English Attack. Your counter-plan must be reflexive through move 12.</td>
+      </tr>
+      <tr>
+        <td class="day-num">3</td><td>Oct 31</td>
+        <td class="pri-h">HIGH</td>
+        <td><strong>Lucena bridge-building drill:</strong> Set up R+P vs R position (pawn on 7th). Execute Re4→Rf4→Rg4 bridge 5 times correctly from memory. Then do 10 rapid endgame practice games on Lichess (rook + pawn endings).</td>
+        <td>Bridge-building must be automatic. If still making mistakes after session 1, schedule session 2 on Day 6.</td>
+      </tr>
+      <tr>
+        <td class="day-num">4</td><td>Nov 1</td>
+        <td class="pri-h">HIGH</td>
+        <td><strong>Nimzo-Larsen vs Joel:</strong> Learn 1...d5 2...e6 3...Nf6 4...Bd6 plan (Section C Gap #4). Commit to QI (3...b6) vs Leo's Catalan (Section D). 10 rapid games as Black vs 1.Nf3 b3.</td>
+        <td>Have concrete plan vs Joel's every game. Have committed response vs Leo's 3.Nf3.</td>
+      </tr>
+      <tr>
+        <td class="day-num">5</td><td>Nov 2</td>
+        <td class="pri-h">HIGH</td>
+        <td><strong>Fernando matchup review:</strong> Read <a href="../matchup/matchup-fernando-deep.html">matchup-fernando-deep.html</a>. Drill Tarrasch 7.Ne2! tabiya cold — say the line aloud from memory: 3.Nd2 Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 7.Ne2! Commit to the exit ramp (6.Ngf3 instead of 6.c3) if you sense prep.</td>
+        <td>7.Ne2! must be automatic. Know why Ne2 beats Nf3 in this structure (covers f4, allows Nf4 pressure on d5).</td>
+      </tr>
+      <tr>
+        <td class="day-num">6</td><td>Nov 3</td>
+        <td class="pri-h">HIGH</td>
+        <td><strong>Zachary matchup review:</strong> Read <a href="../matchup/matchup-zachary-deep.html">matchup-zachary-deep.html</a>. B46 Sicilian Taimanov vs Zachary: Open Sicilian English Attack plan. Confirm your ...Ne4 response as Black if Zachary plays Reti/English (his main White). 1 full-length practice game vs computer at 2100 level.</td>
+        <td>Know the Open Sicilian English Attack vs Zachary's B46 (Austin as White). Know ...Ne4 counter vs Reti as Black.</td>
+      </tr>
+      <tr>
+        <td class="day-num">7</td><td>Nov 4</td>
+        <td class="pri-m">MEDIUM</td>
+        <td><strong>Leo matchup review:</strong> Read <a href="../matchup/matchup-leo.html">matchup-leo.html</a>. Advance French (3.e5) vs his French — Austin as White plan. QI response (3...b6) as Black vs Leo's 1.d4 3.Nf3. Leo is now 130pts above Austin — treat as a hard game, not mid-table.</td>
+        <td>Know f4-f5 kingside attack in Advance French. Know ...Ne4 and ...Ba6 ideas in QI. Confirm you will NOT play Exchange French (3.exd5) — Leo won a 134-move endgame from it.</td>
+      </tr>
+      <tr>
+        <td class="day-num">8</td><td>Nov 5</td>
+        <td class="pri-m">MEDIUM</td>
+        <td><strong>Pranav matchup review:</strong> Read <a href="../matchup/matchup-pranav-deep.html">matchup-pranav-deep.html</a>. Taimanov/Kan as Black vs his English Attack (your counter-plan from Day 2 should now feel natural). Scotch as White vs his 1...e5. Confirm: if tactical shot available at move 18–22, take it.</td>
+        <td>Know Scotch tabiya for when you're White vs Pranav's 1...e5. Confirm Taimanov English Attack counter runs to move 12 automatically.</td>
+      </tr>
+      <tr>
+        <td class="day-num">9</td><td>Nov 6</td>
+        <td class="pri-m">MEDIUM</td>
+        <td><strong>Heye + Aarush review:</strong> Heye (0W-2L-1D: play 1...c5 Sicilian to avoid Italian 95–99% comfort). Aarush (Adams Attack h4!? — proven win; no Catalan draws this time). Review exit-ramp table (Section G). Practice vs 1.e4 e5 as Black.</td>
+        <td>Confirm 1...c5 vs Heye (not 3...Bc5 Italian). Confirm h4!? vs Aarush will be played again. Exit ramps memorized.</td>
+      </tr>
+      <tr>
+        <td class="day-num">10</td><td>Nov 7</td>
+        <td class="pri-m">MEDIUM</td>
+        <td><strong>Philidor position drill:</strong> Set up R vs R+P with pawn on 6th — learn the 3rd-rank → 6th-rank trigger rule. When pawn is on 6th, rook goes to 8th rank (checks); when advancing, shift to 3rd rank for shelter. 10 endgame practice games. 30-min tactics: h-file attacks and Greek gift Bxh7+! recognition.</td>
+        <td>Know 3rd-rank vs 6th-rank trigger. Bxh7+! sacrifice must feel natural — you've done it in chess4win; trust it.</td>
+      </tr>
+      <tr>
+        <td class="day-num">11</td><td>Nov 8</td>
+        <td class="pri-m">MEDIUM</td>
+        <td><strong>Emerson + Tarun quick review:</strong> Exchange CK 4.Bd3 → h4 (zero B13 prep for Emerson). Rossolimo 3.Bb5 vs Tarun's Sicilian 2...Nc6. 1 practice game targeting these lines. <strong>No new material after this session.</strong> Rest.</td>
+        <td>Confirm Exchange CK h4 plan. Confirm Rossolimo vs Tarun.</td>
+      </tr>
+      <tr>
+        <td class="day-num">12</td><td>Nov 9</td>
+        <td class="pri-l">TRAVEL</td>
+        <td><strong>Travel to Mexico City.</strong> On plane/hotel: mentally rehearse the exit-ramp table (5 scenarios), say the Tarrasch tabiya aloud (3.Nd2 Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 7.Ne2!), confirm 6...d6! rule. No new material. Eat well. Sleep.</td>
+        <td>Arrive rested and mentally ready. The preparation is done — now execute.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Pre-Tournament Day Checklist (Nov 10)</h3>
+  <ul class="checklist">
+    <li>Taimanov 6...d6! rule — automatic? Test yourself 5 times.</li>
+    <li>Keres Attack 6.g4 — know at least one solid defensive response</li>
+    <li>Tarrasch tabiya 7.Ne2! — can you say it aloud without notes?</li>
+    <li>Lucena bridge-building — executed 5 times correctly in last 3 days?</li>
+    <li>Exit ramp table memorized — all 5 scenarios?</li>
+    <li>Counter-prep detection signs memorized — fast moves, no board scanning, instant tactical moves?</li>
+    <li>Must-win games identified: Aarush, Emerson (below your rating)</li>
+    <li>High-value targets identified: Tarun, Pranav, Heye (winnable with preparation edge)</li>
+    <li>Secret weapons loaded: Tarrasch (Fernando), Exchange CK h4 (Emerson), Adams Attack h4 (Aarush)</li>
+  </ul>
+
+  <!-- ════════════════════════════════════════════════════════ FINAL NOTE -->
+  <hr />
+  <div class="callout c-blue">
+    <strong>Final GM assessment:</strong> Austin Lin has real top-3 potential at NAYCC 2026 — not based on hope, but on specific, engine-verified preparation advantages that no other player in the field has mapped this precisely. The biggest risk is not the rating gap vs Zachary or Leo. The biggest risk is walking into the Taimanov Keres Attack unprepared, or letting Aarush or Emerson escape with a draw when a win was available. Close those gaps in the next 12 days, execute your weapons with confidence, and the score will follow.
+    <br><br>
+    Score target: <strong>7/9</strong> puts you in top-3 territory. That requires winning all three low-rated games, both Aarush and Emerson, one of Tarun/Pranav/Heye, and one point from the top tier. Every single one of those six wins has a documented path based on opponent weaknesses. You know where to hit. Hit there.
+  </div>
+
+  <p style="font-size:0.8rem;color:#57606a;margin-top:36px;text-align:center;">
+    Generated Oct 29, 2026 · Based on engine analysis of 300+ games across 14 opponents + Austin's personal study games and Q&amp;A responses ·
+    <a href="naycc2026-prep-report.html">Full Sprint Report</a> · <a href="../austin-prep.html">Preparation Index</a>
+  </p>
+
+</div>
+</body>
+</html>

@@ -140,23 +140,23 @@ Please expand — answer all 5:
 
 1. **Philidor position** (you are defending: your Rook vs opponent's Rook + Pawn): Walk through it mentally. Do you remember the rook-to-3rd-rank rule — when to be on the 3rd rank vs the 6th rank? Can you execute this correctly every time, or do you sometimes forget the technique under pressure?
 
-   > *(answer here)*
+   > I haven't had to defend a position where Philidor was relevant in a while. However I recently played a game where I was able to win despite my opponent having Philidor, and I saw it for him, so perhaps I will remember it during NAYCC. 
 
 2. **Lucena position** (you are winning: your Rook + Pawn vs opponent's Rook): Do you know the bridge-building method — Re4 → Rf4 → Rg4 shelter for the king? Can you execute it cleanly, or do you need to think about it each time?
 
-   > *(answer here)*
+   > It's not as simple as Philidor, so I remember the general idea but I might messup specific moves or move orders. I haven't had anything Lucena-like come up in game, so I probably will need to practice it just in case.
 
 3. **King and Pawn endings**: Are you comfortable with opposition, key squares, and the square of the pawn? Or do you still calculate these from scratch each time?
 
-   > *(answer here)*
+   > It's a bit of both; I remember the concepts of King and Pawn, opposition, and key squares, but sometimes I find it more comfortable to calculate it just to make sure I haven't made a mistake.
 
 4. **NAYCC R7 vs Beegala (the rook endgame loss)**: Do you remember the position? Was it a Philidor-type (you defending against a passed pawn) or a different type of rook endgame? What do you think went wrong?
 
-   > *(answer here)*
+   > We did not reach the endgame. I was lost way before even the middlegame. This was due to lost confidence after losing three games, the fatigue, and bady opening prep/play
 
 5. **Current drill routine**: Are you doing any endgame practice right now, or did it stop after PAM 2026?
 
-   > *(answer here)*
+   > Yes, my new coach Vadim Razin usually will give a few endgame puzzles once every two classes, also he ocasionally teaches me about simple endgame plans (rook and pawn vs rook, king and two pawns vs king and one pawn, etc.)
 
 *Example of a complete answer: "I know the Philidor idea but I forget under pressure whether to put the rook on the 3rd or 6th rank. I know Lucena theory but haven't drilled it in months. K+P I'm okay. The Beegala game I think my rook was on the wrong file and I kept it passive. I haven't drilled endgames since PAM."*
 
