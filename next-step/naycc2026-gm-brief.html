@@ -752,6 +752,154 @@
     <li>Secret weapons loaded: Tarrasch (Fernando), Exchange CK h4 (Emerson), Adams Attack h4 (Aarush)</li>
   </ul>
 
+  <!-- ════════════════════════════════════════════════════════ SECTION I -->
+  <h2><span class="sec-label">Section I</span> Gap Audit — What We Missed</h2>
+
+  <p>A full review of all prep documents, Q&amp;A responses, engine JSONs, and opponent analysis files surfaced the following uncovered items. Read this section <strong>before</strong> your first tournament game.</p>
+
+  <!-- CRITICAL GAPS -->
+  <h3>🔴 Critical — Could Directly Cost You a Result</h3>
+
+  <h4>1. Mexico City Altitude (2,240 m / 7,350 ft) — Never Mentioned Anywhere</h4>
+  <div class="callout c-red">
+    <strong>Gap:</strong> No prep document mentions that NAYCC 2026 is in Mexico City, which sits at 2,240 m above sea level. This is not a comfort detail — it is a <em>performance variable</em>.
+    <br><br>
+    <strong>What altitude does to chess thinking:</strong> Mild hypoxia reduces blood oxygen saturation for the first 48–72 hours after arrival. In a G/90+30 game (up to 5 hours), this means measurable increases in calculation errors, shorter attention spans, and earlier fatigue in move 30–40 critical middlegames. Austin's documented blunder cluster is moves 20–40 — altitude amplifies this window.
+    <br><br>
+    <strong>What to do:</strong>
+    <ul style="margin:8px 0 0;">
+      <li><strong>Arrive Nov 9 or earlier (already planned).</strong> Arriving the evening before a morning round is inadequate — 24 hours at altitude is not enough. Request Austin's travel depart early enough to arrive by end of day Nov 9 at the latest. If there's a Nov 10 opening ceremony, that's one acclimatization day — fine.</li>
+      <li><strong>Hydrate aggressively:</strong> Altitude increases dehydration rate. During each game, bring water and sip every 15–20 minutes. Avoid caffeine (amplifies dehydration).</li>
+      <li><strong>Sleep:</strong> First-night sleep at altitude is often disrupted. Bring melatonin. Do not stay up late Nov 9 "reviewing prep." The value of an extra prep hour is zero if Round 1 starts dehydrated and tired.</li>
+      <li><strong>Headache protocol:</strong> Many players get headaches on Day 1–2. Have ibuprofen available. Do not play through a headache without treatment — it compounds calculation errors.</li>
+    </ul>
+  </div>
+
+  <h4>2. Tiebreak System — Not Covered Anywhere</h4>
+  <div class="callout c-red">
+    <strong>Gap:</strong> This report says "7/9 puts you in top-3 territory." But the top-3 guarantee is only true if Austin outright leads. In a 33-player Swiss, multiple players may score 7/9 — and the tiebreak criteria determine who gets CM/FM norms. The report never explains how tiebreaks work.
+    <br><br>
+    <strong>FIDE Swiss tiebreak precedence (most common configuration):</strong>
+    <ol style="margin:8px 0 0;">
+      <li><strong>Buchholz (BH):</strong> Sum of all opponents' final scores. Playing against higher-scoring opponents = better tiebreak. If Austin beats Tarun early (low BH) and draws Zachary late (high BH), his BH is better than if the order were reversed.</li>
+      <li><strong>Buchholz-Cut 1 (BH-1):</strong> Same as Buchholz, but drop the lowest-scoring opponent. Protects against the one opponent who withdrew early.</li>
+      <li><strong>Sonneborn-Berger (SB):</strong> For each WIN, add opponent's score; for each DRAW, add half. Beating higher-rated players counts more.</li>
+      <li><strong>Direct encounter:</strong> If two players scored identically and played each other, the winner ranks higher.</li>
+    </ol>
+    <br>
+    <strong>What this means for Austin's strategy:</strong>
+    <ul style="margin:8px 0 0;">
+      <li><strong>Do NOT take easy draws vs strong opponents when you have winning chances.</strong> A draw vs Zachary (seeded high) gives you +0.5 BH contribution from a high-scoring player. A win gives you +1 BH. But more importantly — a win is what earns the CM norm, not a draw.</li>
+      <li><strong>Do NOT offer draws vs low-rated unanalyzed players.</strong> A win over a player who finishes 5/9 is worth more BH than a draw. If you're slightly better, convert.</li>
+      <li><strong>If you finish 7/9 and there are 3 other players at 7/9:</strong> Your BH depends on who you beat. Beating Zachary (likely 6–7/9) gives much better BH than beating Danielh (who may finish 4/9). This is not in your control — but the awareness prevents costly draw offers late in the tournament.</li>
+      <li><strong>Action:</strong> Confirm the specific tiebreak system NAYCC 2026 uses by checking the official tournament page (FIDE Event 496177) or the arbiter's announcement. Some tournaments use BH; others use SB or progressive score. Do this before Nov 10.</li>
+    </ul>
+  </div>
+
+  <h4>3. Q&amp;A Sub-Questions Still Unanswered — Sprint Plan Built on Unverified Assumptions</h4>
+  <div class="callout c-red">
+    <strong>Gap:</strong> The qa.md file has 12 specific sub-questions (Q6, Q7, Q8, Q9 expansions) that Austin left blank. The sprint plan in Sections C–H was built using best-estimate assumptions for these gaps. Some assumptions may be wrong.
+    <br><br>
+    <strong>The critical unknowns are:</strong>
+    <table style="width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:8px;">
+      <thead><tr style="background:#fff0f0;"><th style="padding:6px 8px;text-align:left;border:1px solid #e0a0a0;">Question</th><th style="padding:6px 8px;text-align:left;border:1px solid #e0a0a0;">What we assumed</th><th style="padding:6px 8px;text-align:left;border:1px solid #e0a0a0;">Risk if wrong</th></tr></thead>
+      <tbody>
+        <tr><td style="padding:5px 8px;border:1px solid #eee;"><strong>Q6.1</strong>: Taimanov vs Kan move-order?</td><td style="padding:5px 8px;border:1px solid #eee;">Austin plays 4...Nc6 Taimanov</td><td style="padding:5px 8px;border:1px solid #eee;">All Day 1–2 drills target wrong position</td></tr>
+        <tr><td style="padding:5px 8px;border:1px solid #eee;"><strong>Q6.2</strong>: English Attack depth?</td><td style="padding:5px 8px;border:1px solid #eee;">Prep runs out at move 8–10</td><td style="padding:5px 8px;border:1px solid #eee;">May over-prepare; or actual gap is move 6</td></tr>
+        <tr><td style="padding:5px 8px;border:1px solid #eee;"><strong>Q6.3</strong>: Maróczy Bind 5.c4?</td><td style="padding:5px 8px;border:1px solid #eee;">Austin has <em>no</em> preparation for it</td><td style="padding:5px 8px;border:1px solid #eee;">If Pranav plays 5.c4, Austin is flying blind in critical pairing</td></tr>
+        <tr><td style="padding:5px 8px;border:1px solid #eee;"><strong>Q8.1</strong>: Committing to Taimanov or Kan?</td><td style="padding:5px 8px;border:1px solid #eee;">Austin plays Taimanov (4...Nc6)</td><td style="padding:5px 8px;border:1px solid #eee;">Decision still unmade = no drill focus</td></tr>
+        <tr><td style="padding:5px 8px;border:1px solid #eee;"><strong>Q8.3</strong>: Is 6...d6! automatic?</td><td style="padding:5px 8px;border:1px solid #eee;">Needs re-drilling</td><td style="padding:5px 8px;border:1px solid #eee;">If already automatic, Day 1 drill is wasted; if NOT, queen is trapped in critical game</td></tr>
+        <tr><td style="padding:5px 8px;border:1px solid #eee;"><strong>Q9</strong>: Nimzo-Larsen plan accepted?</td><td style="padding:5px 8px;border:1px solid #eee;">Austin plays d5+e6+Bd6 vs Joel</td><td style="padding:5px 8px;border:1px solid #eee;">If uncomfortable, alternative plan needed for a real game</td></tr>
+      </tbody>
+    </table>
+    <br>
+    <strong>Action (Oct 29, today):</strong> Answer all 12 sub-questions in qa.md. Takes 10 minutes. Everything else in this brief updates once you do.
+  </div>
+
+  <!-- IMPORTANT GAPS -->
+  <h3>🟡 Important — Will Show Up in the Tournament</h3>
+
+  <h4>4. Maróczy Bind (5.c4) — Zero Prep, Real Threat vs Pranav</h4>
+  <p>Pranav plays 1.e4 as White. If Austin plays Taimanov (1...c5 2...e6 3...Nc6 4...Nf6), Pranav can respond with 5.c4 (Maróczy Bind) instead of 5.Nc3 (English Attack). The Maróczy is a fundamentally different structure: White builds a d4+c4 pawn center and clamps Black's queenside. Austin has never faced or studied this. The sprint plan currently has no Maróczy drill.</p>
+  <div class="callout c-gold">
+    <strong>Emergency fix (1 session, Day 2 or Day 3):</strong> Learn one solid Maróczy plan. The recommended structure: after 5.c4 Nf6, play <strong>...d6, ...Be7, ...0-0, ...a6, ...b5</strong> (the Taimanov Bind Break — standard Black plan). Do NOT try ...e5 immediately — it weakens d6. Do NOT castle queenside — White's king is usually on the kingside. Plug this into your Day 2 Taimanov drill session: spend 30 minutes on "what if White plays 5.c4?" in 5 rapid games.
+  </div>
+
+  <h4>5. Draw-Offer Protocol — Explicit Rules Missing</h4>
+  <p>The exit-ramp table (Section G) covers <em>when to deviate from your opening</em>, not <em>when to offer or accept a draw</em>. These are different decisions that Austin needs a rule for in real-time.</p>
+  <div class="callout c-gold">
+    <strong>Draw rules by opponent category:</strong>
+    <ul style="margin:8px 0 0;">
+      <li><strong>Must-win (Aarush, Emerson):</strong> NEVER offer a draw. If they offer one when you're worse, take a breath, look for a practical try. Only accept at move 50+ with zero winning chances AND a forced draw line visible. Being slightly worse vs a lower-rated player who offers a draw is a trap.</li>
+      <li><strong>High-value targets (Tarun, Pranav, Heye):</strong> Do NOT offer a draw before move 40. Accept one only if you are objectively lost and they are rated 30+ above you. If the position is dynamically equal, play on — your preparation gives you practical compensation.</li>
+      <li><strong>Top-tier steal candidates (Leo, Zachary, Fernando, Daniel Lee):</strong> At 6.5/9 or better going into a late-round game, a draw secures top-3 if others haven't caught up. Actively track the live standings. Accept a draw offer from a top-tier player at move 25+ if you are slightly worse OR if your score already secures top-3 on tiebreaks.</li>
+      <li><strong>Unanalyzed lower seeds (R1–R3):</strong> Do NOT accept draws — these are must-win games for BH and score.</li>
+    </ul>
+  </div>
+
+  <h4>6. Round Schedule — Dates Conflict in This Document</h4>
+  <p>Austin's qa.md says Nov 10–16 (7 days, 9 rounds). The sprint report says "9 rounds over 6 days (Nov 11–16)." These conflict. The actual schedule affects how Austin paces energy: 2 rounds in a day is brutally different from 1 round per day.</p>
+  <div class="callout c-gold">
+    <strong>Action:</strong> Confirm the exact round schedule from the FIDE event page (Event 496177). Key questions: Does Round 1 start Nov 10 or Nov 11? Which days have double rounds? Are there rest days? This affects when to schedule the travel day (currently Nov 9 — is that enough buffer?) and when to schedule mental recovery after tough rounds.
+    <br><br>
+    <strong>If 2 rounds in a day:</strong> After Round 1, eat a real meal, walk outside for 20 minutes before Round 2. Do not analyze the first game between rounds — it only activates negative emotions. Reset mentally with physical movement.
+  </div>
+
+  <h4>7. Coach Vadim — No Structured Role in the 12-Day Sprint</h4>
+  <p>Vadim Razin (Austin's current coach) is mentioned once in Section C (Lucena drill). There's no plan for what Austin should bring to each coaching session over the next 12 days, or what Vadim should specifically cover.</p>
+  <div class="callout c-gold">
+    <strong>Recommended coaching agenda (share this with Vadim):</strong>
+    <ul style="margin:8px 0 0;">
+      <li><strong>Next session (ASAP — Oct 30 or 31):</strong> Lucena bridge-building drill (Section C Gap #5 — Austin admits he'll "mess up specific moves"). This is the only pre-tournament window. Vadim should set up R+P vs R with pawn on 7th and watch Austin execute the bridge 5 times.</li>
+      <li><strong>Session 2 (Nov 2–4):</strong> Keres Attack defensive plan as Black — 6.g4 after 5.Nc3. Show Vadim the critical position from Section E and drill the automatic 6...e5! response.</li>
+      <li><strong>Session 3 if time allows:</strong> Maróczy Bind (5.c4) vs Taimanov — one solid plan for Austin to apply vs Pranav.</li>
+      <li><strong>Share the GM brief with Vadim.</strong> A coach who knows the prep plan can reinforce it, not work against it. Vadim should know: Austin is committing to Taimanov, Tarrasch, Exchange CK — not learning new openings this cycle.</li>
+    </ul>
+  </div>
+
+  <!-- NICE-TO-HAVE -->
+  <h3>🟢 Nice-to-Have — Small Edge Gainers</h3>
+
+  <h4>8. Per-Game Opponent Cheat Sheet (Pocket Reference)</h4>
+  <p>There's no single-page printout Austin can glance at on the way to each game. Every detailed matchup analysis is in the HTML files — which Austin cannot access during a tournament without a device. A paper cheat sheet per opponent (<em>White: play X, Black: play Y, avoid Z, their blunder window: moves A–B</em>) is a practical tool that requires 30 minutes to make and saves critical recall under pressure.</p>
+  <div class="callout c-green">
+    <strong>Make this Nov 8 (Day 11):</strong> One index card per analyzed opponent, front/back. E.g., "Zachary — White: Open Sicilian 6.Be3 7.f3 8.g4; their weakness B46 79.4% accuracy; DO NOT play Exchange French; Black: Nimzo ...b6 ...Ba6; their blunder: Nd5?? CPL 443 in equal position." This card rides in Austin's bag. Before each game, he reads it once.
+  </div>
+
+  <h4>9. Food and Hydration During Games</h4>
+  <p>G/90+30 games can run 4–5 hours. No document mentions in-game nutrition. At altitude, cognitive performance degrades with blood sugar drops. Tournament conditions vary — hotel cafeteria may be closed mid-game.</p>
+  <div class="callout c-green">
+    <strong>Pack for each game:</strong> 1 water bottle (750ml), 1 banana or energy bar, 1 small bag of nuts. The tournament hall likely provides water at the boards, but having food ensures no mid-game hunger disruption. Do not eat a heavy meal immediately before a game — 60–90 minutes before is optimal. Avoid sugar spikes (candy, soda): the crash at move 35 is real.
+  </div>
+
+  <!-- WELL COVERED -->
+  <h3>✅ Well-Covered — Already in This Prep Package</h3>
+  <table>
+    <thead><tr><th>Area</th><th>Where covered</th></tr></thead>
+    <tbody>
+      <tr><td>Opening recommendations per opponent (White &amp; Black)</td><td>Section 4 cards, all 9 matchup HTMLs</td></tr>
+      <tr><td>Taimanov 6...d6! emergency drill</td><td>Section E + Day 1 sprint</td></tr>
+      <tr><td>Lucena bridge-building</td><td>Section C Gap #5 + Day 3 sprint</td></tr>
+      <tr><td>Counter-preparation detection signs</td><td>Section G + exit-ramp table</td></tr>
+      <tr><td>Per-opponent clock management rules</td><td>Section F (full table)</td></tr>
+      <tr><td>Psychological framing per opponent</td><td>Section G win-probability bars</td></tr>
+      <tr><td>C58 Two Knights gap (8.Qf3! not 8.Bd3?!)</td><td>Sprint report Section 5 + Tarun matchup note</td></tr>
+      <tr><td>Leo underseeding warning (treat as #2 seed)</td><td>Section B + Sprint report Section 2</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ACTION BLOCK -->
+  <h3>Top 5 Actions Right Now (Oct 29–31)</h3>
+  <div class="callout c-blue">
+    <ol style="margin:8px 0 0;line-height:1.9;">
+      <li><strong>Answer the 12 unanswered Q&amp;A sub-questions</strong> (qa.md Q6/Q7/Q8/Q9 expansions). 10 minutes. Everything else calibrates once you do this.</li>
+      <li><strong>Check the FIDE event page for NAYCC 2026 (Event 496177)</strong>: confirm round schedule (which days are double-round), tiebreak system, and exact start date. Share with your family if travel logistics need adjusting.</li>
+      <li><strong>Contact Vadim Razin today</strong> to schedule a coaching session before Nov 5. Priority: Lucena bridge-building. If only one session is possible, do Lucena + Keres Attack.</li>
+      <li><strong>Run 10 rapid games on Lichess today as Taimanov Black</strong> — specifically reach the 6.g4 Keres Attack or 6.Ndb5 positions. You're doing this anyway (Day 1 task) — verify 6...d6! is already automatic or confirm it needs drilling.</li>
+      <li><strong>Pack altitude essentials for Nov 9 travel</strong>: ibuprofen, melatonin, 2× water bottles for the flight, electrolyte tablets for game days. This takes 5 minutes and removes a real cognitive risk.</li>
+    </ol>
+  </div>
+
   <!-- ════════════════════════════════════════════════════════ FINAL NOTE -->
   <hr />
   <div class="callout c-blue">
