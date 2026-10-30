@@ -6,7 +6,10 @@ const { spawn } = require('child_process');
 const { Chess } = require('chess.js');
 
 const ROOT = path.resolve(__dirname, '..');
-const RESULTS_FILE = path.join(__dirname, 'fernando-analysis-results.json');
+const SF_MOVETIME = parseInt(process.env.SF_MOVETIME || '800', 10);
+const RESULTS_FILE = SF_MOVETIME > 800
+  ? path.join(__dirname, 'fernando-analysis-results-deep.json')
+  : path.join(__dirname, 'fernando-analysis-results.json');
 
 const SF_DEPTH = parseInt(process.env.SF_DEPTH || '18', 10);
 const SF_THREADS = parseInt(process.env.SF_THREADS || '16', 10);
@@ -94,7 +97,7 @@ class StockfishEngine {
   async evaluate(fen, useMoveTime = true) {
     let score = null, pv1uci = null;
     this.send(`position fen ${fen}`);
-    this.send(`go movetime 800`);
+    this.send(`go movetime ${SF_MOVETIME}`);
     await this.waitFor(
       l => l.startsWith('bestmove'),
       l => {

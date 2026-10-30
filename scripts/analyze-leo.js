@@ -6,7 +6,10 @@ const { spawn } = require('child_process');
 const { Chess } = require('chess.js');
 
 const ROOT = path.resolve(__dirname, '..');
-const RESULTS_FILE = path.join(__dirname, 'leo-analysis-results.json');
+const SF_MOVETIME = parseInt(process.env.SF_MOVETIME || '800', 10);
+const RESULTS_FILE = SF_MOVETIME > 800
+  ? path.join(__dirname, 'leo-analysis-results-deep.json')
+  : path.join(__dirname, 'leo-analysis-results.json');
 const PGN_FILES = [
   path.join(ROOT, 'opponents/leo/jackson,leo.pgn'),
   path.join(ROOT, 'opponents/leo/pam2026.pgn'),
@@ -137,7 +140,7 @@ class StockfishEngine {
   async evaluate(fen) {
     let score = null, pv1uci = null;
     this.send(`position fen ${fen}`);
-    this.send(`go movetime 800`);
+    this.send(`go movetime ${SF_MOVETIME}`);
     await this.waitFor(
       l => l.startsWith('bestmove'),
       l => {
