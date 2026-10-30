@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAYCC 2026 — Austin's Game-Day Cheat Sheet</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+         background: #f3f4f6; color: #1a1a1a; font-size: 15px; line-height: 1.5; }
+
+  .page-header {
+    background: #1a3a6e; color: #fff; padding: 18px 16px 14px;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .page-header h1 { font-size: 1.15rem; font-weight: 800; }
+  .page-header p  { font-size: 0.78rem; opacity: 0.8; margin-top: 3px; }
+
+  .how-to {
+    background: #fffbe6; border-left: 4px solid #f0a000;
+    padding: 10px 14px; margin: 12px 10px; font-size: 0.82rem; border-radius: 4px;
+  }
+
+  .section-label {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #666; padding: 10px 12px 4px;
+  }
+
+  .card {
+    background: #fff; border-radius: 10px; margin: 0 8px 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.10); overflow: hidden;
+  }
+
+  .card-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 14px 10px; border-bottom: 1px solid #f0f0f0;
+  }
+  .diff-strip {
+    width: 5px; height: 100%; border-radius: 3px; align-self: stretch; min-height: 40px;
+  }
+  .d-red    { background: #cf2222; }
+  .d-orange { background: #e07020; }
+  .d-yellow { background: #c08000; }
+  .d-green  { background: #2d7d46; }
+
+  .opp-name { font-size: 1.05rem; font-weight: 800; flex: 1; }
+  .rating-badge {
+    font-size: 0.78rem; font-weight: 700; padding: 2px 8px;
+    border-radius: 12px; white-space: nowrap;
+  }
+  .r-red    { background: #fff0f0; color: #cf2222; border: 1px solid #e8c0c0; }
+  .r-orange { background: #fff4e6; color: #a05000; border: 1px solid #e8c090; }
+  .r-yellow { background: #fffbe6; color: #7a5000; border: 1px solid #e0c040; }
+  .r-green  { background: #e6f4ea; color: #1a5c30; border: 1px solid #90d0a0; }
+
+  .record-tag {
+    font-size: 0.72rem; padding: 1px 6px; border-radius: 10px;
+    background: #f0f4ff; color: #2a4a8e; border: 1px solid #c0d0f0;
+  }
+
+  .card-body { padding: 10px 14px 12px; }
+
+  .row {
+    display: grid; grid-template-columns: 90px 1fr;
+    gap: 4px 10px; padding: 6px 0; border-bottom: 1px solid #f5f5f5;
+    font-size: 0.87rem;
+  }
+  .row:last-child { border-bottom: none; }
+
+  .row-label {
+    font-size: 0.72rem; font-weight: 700; color: #777;
+    text-transform: uppercase; letter-spacing: 0.04em;
+    padding-top: 1px; align-self: start;
+  }
+  .row-val { color: #1a1a1a; }
+  .row-val code {
+    background: #f0f4ff; color: #1a3a8e; padding: 1px 4px;
+    border-radius: 3px; font-size: 0.83em; font-family: 'SF Mono', monospace;
+  }
+
+  .tag-edge    { color: #1a5c30; font-weight: 600; }
+  .tag-watch   { color: #8a2000; font-weight: 600; }
+  .tag-mindset { color: #1a3a6e; font-style: italic; }
+  .tag-clock   { color: #5a3800; }
+  .tag-white   { color: #1a1a1a; }
+  .tag-black   { color: #333; }
+
+  .drill-flag {
+    display: inline-block; background: #fff0f0; color: #cf2222;
+    font-size: 0.7rem; font-weight: 700; padding: 1px 5px;
+    border-radius: 3px; border: 1px solid #e8b0b0; margin-left: 4px;
+    vertical-align: middle;
+  }
+  .unconfirmed {
+    font-size: 0.72rem; color: #888; font-style: italic;
+  }
+
+  .footer {
+    text-align: center; padding: 16px; font-size: 0.75rem; color: #999;
+  }
+
+  @media (max-width: 380px) {
+    .row { grid-template-columns: 80px 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>NAYCC 2026 — Pairing Cheat Sheet</h1>
+  <p>Austin Lin · Read after pairings · ~30 sec per card</p>
+</div>
+
+<div class="how-to">
+  <strong>How to use:</strong> Find your opponent's card. Read Austin White OR Austin Black depending on your color. Check clock target and mindset cue. Done.
+</div>
+
+<!-- ═══════════════════════ UPSET REQUIRED ═══════════════════════ -->
+<div class="section-label">Upset Required (top seed zone)</div>
+
+<!-- Daniel Lee -->
+<div class="card">
+  <div class="card-header">
+    <div class="diff-strip d-red"></div>
+    <div class="opp-name">Daniel Joshua Lee</div>
+    <span class="rating-badge r-red">~2191 FIDE</span>
+    <span class="unconfirmed">(may be U16)</span>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="row-label">Austin White</div>
+      <div class="row-val tag-white">1.e4 → Lee plays Italian/Giuoco Piano → <strong>Scotch 3.d4</strong> to force open game on your terms. If he plays CK: Exchange 4.Bd3 + h4.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Austin Black</div>
+      <div class="row-val tag-black">Lee plays 1.e4 → Taimanov <code>1...c5 2...e6 3...Nc6</code> → Lee uses <strong>Maróczy 5.c4</strong> as his anti-Taimanov weapon. Plan: <code>...d6 ...Be7 ...0-0 ...a6 ...b5</code>. See Section E.2.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Clock</div>
+      <div class="row-val tag-clock">Stay ≥ 60 min at move 20. He converts cleanly — don't let it become a technical endgame.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Watch out</div>
+      <div class="row-val tag-watch">Maróczy Nd5 anchor + queenside push. Challenge Nd5 before it lands. b4/a4 will come — get ...b5 in first.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Your edge</div>
+      <div class="row-val tag-edge">He lost a technically winning Taimanov game (WY R10) through overconfidence. Reach move 25 alive = pressure shifts to him.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Mindset</div>
+      <div class="row-val tag-mindset">Biggest upset in your career if you win. Don't play scared — play the position.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Zachary -->
+<div class="card">
+  <div class="card-header">
+    <div class="diff-strip d-red"></div>
+    <div class="opp-name">Zachary Liu</div>
+    <span class="rating-badge r-red">~2140 seed (CM)</span>
+    <span class="record-tag">No prior games</span>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="row-label">Austin White</div>
+      <div class="row-val tag-white">Zachary plays Sicilian as Black → <strong>Rossolimo 3.Bb5</strong>. B46 Taimanov accuracy vs Zachary: 79.4% (below his avg). Stay in Open Sicilian English Attack structure.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Austin Black</div>
+      <div class="row-val tag-black">Zachary plays Reti/English 1.Nf3 → <strong><code>1...Nf6 2...e6</code></strong> wait-and-redirect. If Catalan (g3/Bg2): <code>...Bb4+</code> Nimzo-style. No Catalan draws — keep pieces on board.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Clock</div>
+      <div class="row-val tag-clock">≥ 65 min at move 20 · ≥ 45 min at move 30. NEVER simplify early — your winning window is moves 30–38.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Watch out</div>
+      <div class="row-val tag-watch">Endgame technique is strong. Avoid trade-down. If the position is complex at move 30, keep it complex.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Your edge</div>
+      <div class="row-val tag-edge">He has never played Tarrasch French (0 in 37 French games). If you're White and he plays French: Tarrasch 3.Nd2 — secret weapon.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Mindset</div>
+      <div class="row-val tag-mindset">193 pts gap but you have documented preparation advantages. Play your game — respect the rating, don't fear it.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Leo -->
+<div class="card">
+  <div class="card-header">
+    <div class="diff-strip d-red"></div>
+    <div class="opp-name">Leo Jackson</div>
+    <span class="rating-badge r-red">~2077 FIDE</span>
+    <span class="record-tag">No prior games</span>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="row-label">Austin White</div>
+      <div class="row-val tag-white">Leo plays French as Black (Advance 3...c5 4.c3 Qa5 or Tarrasch Chistyakov) → <strong>Tarrasch 3.Nd2</strong>. His French Advance theory is deep — consider 3.Nd2 to sidestep it. Middlegame attack before his endgame technique kicks in.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Austin Black</div>
+      <div class="row-val tag-black">Leo plays 1.d4 Catalan (3.Nf3, no Nc3) → <strong>Nimzo/Bb4+</strong> vs Catalan: <code>1...Nf6 2...e6 3...Bb4+</code>. Block his Catalan bishop system. Keep pieces on board.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Clock</div>
+      <div class="row-val tag-clock">≥ 65 min at move 20 · ≥ 50 min at move 30. Leo wins 100+ move endgames. You win in the middle game — NEVER simplify early.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Watch out</div>
+      <div class="row-val tag-watch">30% White score — but when he wins as White it's clean positional pressure. Don't give him a free pawn center.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Your edge</div>
+      <div class="row-val tag-edge">His White record collapses moves 21–40 when plan-finding under pressure. Force a complex middlegame where you have the attacking initiative.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Mindset</div>
+      <div class="row-val tag-mindset">130 pts above you but 30% White score is exploitable. Execute before the endgame phase — that's his territory, not yours.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Fernando -->
+<div class="card">
+  <div class="card-header">
+    <div class="diff-strip d-orange"></div>
+    <div class="opp-name">Fernando Cortes Medina</div>
+    <span class="rating-badge r-orange">~2072 FIDE (CM)</span>
+    <span class="record-tag">No prior games</span>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="row-label">Austin White</div>
+      <div class="row-val tag-white">Fernando plays French (Winawer C15/C17, Advance C02, Exchange C01) → <strong>Tarrasch 3.Nd2</strong>. He has <em>zero</em> Tarrasch prep in 37 analyzed French games. Tabiya: <code>3.Nd2 Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 7.Ne2!</code> Know this cold.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Austin Black</div>
+      <div class="row-val tag-black">Fernando plays 1.e4, English Attack (6.Be3 f3 Qd2 O-O-O then g4-g5) → Taimanov <code>1...c5 2...e6 3...Nc6</code>. Queenside race: <code>...a6 ...b5 ...Bb7 ...Rc8</code> before his g5. May also try Keres 6.g4 → same counter: <code>6...d6 → ...a6 → ...b5</code>. <span class="drill-flag">DRILL</span></div>
+    </div>
+    <div class="row">
+      <div class="row-label">Clock</div>
+      <div class="row-val tag-clock">≥ 60 min at move 20 · ≥ 40 min at move 30. Fernando's triple-collapse zone: moves 22–30. If you have a combo: take it. EXECUTE BEFORE MOVE 30.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Watch out</div>
+      <div class="row-val tag-watch">Long-castle kingside attack with g4-g5-h4-h5 — very real if your queenside counter is slow. Don't delay ...b5 past move 10.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Your edge</div>
+      <div class="row-val tag-edge">Tarrasch gap (37 games, zero prep). His White record degrades in technical positions — his blunder rate as White vs strong players is high. Reach move 25 in a complex position and he will crack.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Mindset</div>
+      <div class="row-val tag-mindset">Don't fear the CM title. He has never seen your first move as White. Walk in confident — this is one of your best-prepared matchups.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ WINNABLE — TARGET WINS ═══════════════════════ -->
+<div class="section-label">Winnable — Target Full Points</div>
+
+<!-- Pranav -->
+<div class="card">
+  <div class="card-header">
+    <div class="diff-strip d-orange"></div>
+    <div class="opp-name">Pranav Santhosh</div>
+    <span class="rating-badge r-orange">1940 FIDE · 1979 seed</span>
+    <span class="record-tag">No prior games</span>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="row-label">Austin White</div>
+      <div class="row-val tag-white">Pranav plays 1...e5 (Italian/Ruy Lopez) as Black → <strong>Scotch 3.d4</strong>. He loses to 2100+ as Black in Italian/Lopez (0W–3L). Generate complexity by move 15 — force him off-balance before his pattern recognition kicks in.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Austin Black</div>
+      <div class="row-val tag-black">Pranav plays 1.e4 → Taimanov <code>1...c5 2...e6 3...Nc6</code> → his primary anti-Taimanov weapon: <strong>Maróczy 5.c4</strong> (observed WY R10). Plan: <code>...d6 ...Be7 ...0-0 ...a6 ...b5</code>. Fight Nd5 before it anchors. Do NOT play ...e5 immediately. <span class="drill-flag">DRILL</span></div>
+    </div>
+    <div class="row">
+      <div class="row-label">Clock</div>
+      <div class="row-val tag-clock">≥ 60 min at move 20 · ≥ 40 min at move 30. His clock hit 0:32 by move 12 in unfamiliar territory. Get him into unknown positions early.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Watch out</div>
+      <div class="row-val tag-watch">Nd5 anchor in Maróczy (recurring pattern in WY R11, R8). If Nd5 lands and you haven't challenged it, the position slowly becomes dominated. Challenge it immediately: ...Nxd5 exd5 or pre-empt with ...e5.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Your edge</div>
+      <div class="row-val tag-edge">He lost a technically winning Taimanov game (WY R10 — conversion failure). Don't offer draws before move 35. His 51% accuracy game exists — force him into it.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Mindset</div>
+      <div class="row-val tag-mindset">You were most worried about him. But variance is your friend — he can crater AND he can play brilliantly. Force complexity and let the result decide itself.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Heye -->
+<div class="card">
+  <div class="card-header">
+    <div class="diff-strip d-orange"></div>
+    <div class="opp-name">Heye Gao</div>
+    <span class="rating-badge r-orange">~2028–2065 FIDE</span>
+    <span class="record-tag">0W–2L–1D vs Austin</span>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="row-label">Austin White</div>
+      <div class="row-val tag-white">Heye plays Sicilian Kan as Black (confirmed — he played Kan vs you directly: <code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6</code>) → <strong>English Attack</strong>: after 4...a6, play 5.Nc3 Qc7 6.Be3 building toward f3/Qd2/O-O-O. Or consider Rossolimo 3.Bb5+ after 2...Nc6 if he varies.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Austin Black</div>
+      <div class="row-val tag-black">Heye plays 1.e4 Italian (Bc4/d3/c3) as White → Austin plays Taimanov <code>1...c5</code> — sidesteps the Italian entirely. Heye then faces Sicilian Yugoslav Attack position (his known weapon, but Austin forces the Taimanov structure).</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Clock</div>
+      <div class="row-val tag-clock">Heye's danger: his Black calculation collapses under time pressure. If you're White, force him into complex defensive positions. His Black record: 39% score (massive White/Black split).</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Watch out</div>
+      <div class="row-val tag-watch">He's dominant as White (62.5% score, beat 2282 and 2234 rated players). If he gets White, don't underestimate — play solidly and reach a position where his tactical attacks can't develop cleanly.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Your edge</div>
+      <div class="row-val tag-edge">His Black collapse pattern is documented: from roughly equal positions (even eval), two blunders in succession when under time pressure. Keep it equal and alive — he self-destructs.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Mindset</div>
+      <div class="row-val tag-mindset">0W-2L-1D record but the pattern analysis shows a clear exploit path. If Black, the engine shows the position is playable. Reset the record — this is a new game.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Emerson -->
+<div class="card">
+  <div class="card-header">
+    <div class="diff-strip d-yellow"></div>
+    <div class="opp-name">Emerson Johnson</div>
+    <span class="rating-badge r-yellow">1925 FIDE · 2078 US</span>
+    <span class="record-tag">No prior games</span>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="row-label">Austin White</div>
+      <div class="row-val tag-white">Emerson plays Caro-Kann as Black → <strong>Exchange 4.Bd3 + h4 attack</strong>. He has <em>zero</em> B13 Exchange CK games in analyzed data — no preparation for this structure. Drive h4-h5 attack before move 25. Also plays QGA (1.d4 d5 2.c4 dxc4) — if he goes QGA, play solidly.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Austin Black</div>
+      <div class="row-val tag-black">Emerson plays 1.e4 Rossolimo (3.Bb5 vs Sicilian) → Taimanov <code>1...c5 2...e6 3...Nc6</code> → Rossolimo arrives: <code>3.Bb5 Nge7</code> (Taimanov Rossolimo). Keep the position complex. Emerson's Black wins come from Caro-Kann setups — as White he's less proven.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Clock</div>
+      <div class="row-val tag-clock">≥ 60 min at move 20 · ≥ 45 min at move 30. Emerson's collapse zone: moves 35–55. Build clear advantage by move 25 then MAINTAIN TENSION — do not simplify technically.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Watch out</div>
+      <div class="row-val tag-watch">His US rating (2078) is inflated vs FIDE (1925). Don't be intimidated by the US number. His FIDE record is the accurate picture.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Your edge</div>
+      <div class="row-val tag-edge">Zero B13 Exchange CK prep as Black. Three CPL-1000 collapses from winning positions documented (from +17.67, +7.78, +6.15). Stay complex past move 30 — he breaks.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Mindset</div>
+      <div class="row-val tag-mindset">Your clearest path to a full point after Aarush. Be aggressive from move 1.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Tarun -->
+<div class="card">
+  <div class="card-header">
+    <div class="diff-strip d-yellow"></div>
+    <div class="opp-name">Tarun Sankar</div>
+    <span class="rating-badge r-yellow">~1965 FIDE (peak 2002)</span>
+    <span class="record-tag">No prior games</span>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="row-label">Austin White</div>
+      <div class="row-val tag-white">Tarun plays Sicilian as Black → <strong>Rossolimo 3.Bb5</strong>. If he plays 1.c4 English as White when positions flip — your Scotch/1.e4 force open game. Be patient: he uses English quiet buildup.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Austin Black</div>
+      <div class="row-val tag-black">Tarun plays 1.c4 English (Catalan/Mikenas) → <strong><code>1...Nf6 2...e6 3...d5</code></strong> (Nimzo-Indian style). If Catalan (g3/Bg2): <code>...Bb4+</code>. If Mikenas attack (3.Nc3 Bb4): hold with solid piece play. He uses Mikenas aggressively — don't get panicked.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Clock</div>
+      <div class="row-val tag-clock">≥ 65 min at move 20. Wait for his impulse blunder (5 CPL-1000 blunders documented, moves 26–40). Do NOT initiate complications before move 20 — let Tarun self-destruct. Then execute.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Watch out</div>
+      <div class="row-val tag-watch">Mikenas Attack (1.c4 Nf6 2.Nc3 e6 3.e4) can get aggressive early if Black is passive. Know your plan: solid center with ...d5 and ...c5 pressure.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Your edge</div>
+      <div class="row-val tag-edge">His peak was 2002 — he's on a downward trend. Five CPL-1000 blunders from equality in the documented range. Stay solid, wait, execute.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Mindset</div>
+      <div class="row-val tag-mindset">Don't force it — patient chess wins this one. Keep a complex position and he will give you something.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ EXPECTED WINS ═══════════════════════ -->
+<div class="section-label">Expected Wins — Don't Drop Points</div>
+
+<!-- Aarush -->
+<div class="card">
+  <div class="card-header">
+    <div class="diff-strip d-green"></div>
+    <div class="opp-name">Aarush Ajith</div>
+    <span class="rating-badge r-green">~1895 FIDE</span>
+    <span class="record-tag">1W vs Austin (NAYCC R3 — Adams Attack)</span>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="row-label">Austin White</div>
+      <div class="row-val tag-white">Aarush plays Sicilian Najdorf as Black → <strong>Adams Attack 5.h4!?</strong> — the exact move that won in NAYCC R3. Proven preparation. h4 must reach h5 by move 18–20. From-winning window closes after move 25 — EXECUTE BEFORE MOVE 25.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Austin Black</div>
+      <div class="row-val tag-black">Aarush plays 1.d4 as White → <strong>Nimzo-Indian</strong> <code>...e6 ...Nf6 ...Bb4 Bxc3+ ...b6 ...Ba6</code>. Fully prepared repertoire. If he plays 1.c4 → same Nimzo structure via ...Nf6 ...e6 ...Bb4+.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Clock</div>
+      <div class="row-val tag-clock">≥ 65 min at move 20. His from-winning collapses: CPL 1000, 579, 482 documented at moves 20–25. If winning at move 22 — take the shot. Don't wait to "improve the position."</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Watch out</div>
+      <div class="row-val tag-watch">Najdorf theory is deep — don't deviate from the Adams Attack setup or you'll be out-theoried. Stick to what worked.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Your edge</div>
+      <div class="row-val tag-edge">You are above him in FIDE rating. Direct win in the books. He knows he lost to your preparation — psychological pressure is on him.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Mindset</div>
+      <div class="row-val tag-mindset">Must-win. Don't let familiarity breed complacency. Same preparation, same aggression, same execution as NAYCC R3.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Joel -->
+<div class="card">
+  <div class="card-header">
+    <div class="diff-strip d-green"></div>
+    <div class="opp-name">Joel Ethan Jeyaraj</div>
+    <span class="rating-badge r-green">1872 FIDE · 2114 Lichess Blitz</span>
+    <span class="record-tag">No prior games</span>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="row-label">Austin White</div>
+      <div class="row-val tag-white">Joel plays Scandinavian Modern (3...Nf6 ...g6 fianchetto) as Black → 1.e4 d5 2.exd5 Nf6 3.d4 → solid center build. His Scandinavian Modern is his primary defensive weapon — he knows it deeply. Play for structural advantage, not the gambit trap.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Austin Black</div>
+      <div class="row-val tag-black">Joel plays <strong>Nimzo-Larsen</strong> (1.Nf3 2.b3 Bb2) as White → <strong><code>1...d5 2...e6 3...Nf6 4...Bd6</code></strong>. Block his b2 bishop's long diagonal with ...Bd6. Do NOT fianchetto your own bishop — keep solid pawn center d5+e6. Already studied in Section E.2.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Clock</div>
+      <div class="row-val tag-clock">His classical FIDE (1872) is the accurate number — not 2114 Lichess Blitz. Don't overthing. Standard clock management applies.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Watch out</div>
+      <div class="row-val tag-watch">Nimzo-Larsen's b2 bishop is very strong if you let it control the long diagonal. The ...Bd6 block on move 4 is non-negotiable.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Your edge</div>
+      <div class="row-val tag-edge">75 FIDE points above him (classical). Nimzo-Larsen is rare — most opponents are unprepared; you have a specific plan ready.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Mindset</div>
+      <div class="row-val tag-mindset">Don't be spooked by the Lichess Blitz number. Classical FIDE is what counts here. Play confidently.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Yaen -->
+<div class="card">
+  <div class="card-header">
+    <div class="diff-strip d-green"></div>
+    <div class="opp-name">Yaen Saenz Cabrera</div>
+    <span class="rating-badge r-green">~1841 FIDE (peak 1899)</span>
+    <span class="record-tag">No prior games</span>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="row-label">Austin White</div>
+      <div class="row-val tag-white">Yaen plays Sicilian Sveshnikov (B32/B33) as Black → <strong>Rossolimo 3.Bb5</strong> sidesteps Sveshnikov theory entirely. If he insists on Open Sicilian with ...Nc6, stay in Rossolimo and avoid his preparation window.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Austin Black</div>
+      <div class="row-val tag-black">Yaen plays 1.e4 Scotch (C45) as White → Austin plays <code>1...c5</code> Taimanov (Scotch only arises vs 1...e5 — your Sicilian sidesteps it). Yaen will need to play his Sicilian White system vs your 1...c5.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Clock</div>
+      <div class="row-val tag-clock">Standard approach — 60+ min at move 20. He peaked at 1899 and is declining. No special urgency; just clean chess.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Watch out</div>
+      <div class="row-val tag-watch">Sveshnikov theory is deep — avoid getting into 2...e5 lines as White. Rossolimo sidesteps all his preparation.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Your edge</div>
+      <div class="row-val tag-edge">106 FIDE pts above him. Rossolimo cuts off all his Sveshnikov prep immediately on move 3.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Mindset</div>
+      <div class="row-val tag-mindset">Win cleanly. Don't overcomplicate. Rossolimo into solid positional play and convert.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Pablo -->
+<div class="card">
+  <div class="card-header">
+    <div class="diff-strip d-green"></div>
+    <div class="opp-name">Pablo Elliot De Alba Boudreau</div>
+    <span class="rating-badge r-green">~1824 FIDE (peaked 1937)</span>
+    <span class="record-tag">No prior games</span>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="row-label">Austin White</div>
+      <div class="row-val tag-white">Pablo plays Sicilian Kan/Taimanov as Black (15+ games, deep theory) → <strong>Rossolimo 3.Bb5</strong>. He knows Kan/Taimanov theory deeply as Black — don't go into his main lines. Rossolimo (3.Bb5 vs ...Nc6) or Anti-Kan (3.Bb5+) cuts off his preparation.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Austin Black</div>
+      <div class="row-val tag-black">Pablo plays 1.e4 English Attack vs Sicilian → Austin plays Taimanov — same matchup mirror. Pablo's White English Attack: know the <code>...a6 ...b5 ...Bb7 ...Rc8</code> queenside counter (Fernando drill applies).</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Clock</div>
+      <div class="row-val tag-clock">His peak (1937) was June 2026 and he's dropped since. Standard clock management. Win by move 35.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Watch out</div>
+      <div class="row-val tag-watch">1W-6L as White in his own analyzed games — but he's tactically active and can create complications from equal positions. Don't be careless.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Your edge</div>
+      <div class="row-val tag-edge">123 FIDE pts above. Rossolimo sidesteps all his prepared Kan/Taimanov Black theory when he's Black.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Mindset</div>
+      <div class="row-val tag-mindset">Expected win — play sharply, don't get complacent, convert cleanly.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Daniel H. Gamboa -->
+<div class="card">
+  <div class="card-header">
+    <div class="diff-strip d-green"></div>
+    <div class="opp-name">Daniel Hernandez Gamboa</div>
+    <span class="rating-badge r-green">~1685–1692 FIDE</span>
+    <span class="record-tag">No prior games</span>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="row-label">Austin White</div>
+      <div class="row-val tag-white">Plays 1.e4 as White, varies (Philidor/Pirc/Sicilian responses) → <strong>1.e4 → standard setup</strong>. Whatever he plays, you have the rating advantage and preparation edge. Exchange CK vs Caro, Tarrasch vs French, Rossolimo vs Sicilian.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Austin Black</div>
+      <div class="row-val tag-black">Plays 1...e5 Four Knights as Black → as White he opens 1.e4. Austin plays Taimanov: <code>1...c5 2...e6 3...Nc6</code>. He has limited Sicilian White experience — your Taimanov is well-prepared; his response is not.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Clock</div>
+      <div class="row-val tag-clock">255+ FIDE pts below you. Stay focused, play normally, don't rush — convert in 40-50 moves.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Watch out</div>
+      <div class="row-val tag-watch">Don't be sloppy — over-confidence is the only way to drop this point. Respect the position, not just the rating.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Your edge</div>
+      <div class="row-val tag-edge">255 FIDE pts above. Deep preparation advantage across all lines. Play clean technical chess.</div>
+    </div>
+    <div class="row">
+      <div class="row-label">Mindset</div>
+      <div class="row-val tag-mindset">Full point expected. Play solidly and convert. Save your energy for later rounds.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ QUICK REFERENCE ═══════════════════════ -->
+<div class="section-label">Quick Reference — Austin's Opening Lines</div>
+<div class="card">
+  <div class="card-body" style="padding:12px 14px;">
+    <div class="row">
+      <div class="row-label">Austin White</div>
+      <div class="row-val" style="font-size:0.85rem;">
+        vs French → <code>3.Nd2</code> Tarrasch (Fernando, Leo, Zachary if French)<br>
+        vs CK → <code>4.Bd3</code> Exchange + h4 (Emerson, Heye if CK)<br>
+        vs Sicilian Najdorf → <code>5.h4</code> Adams Attack (Aarush)<br>
+        vs Sicilian (others) → <code>3.Bb5</code> Rossolimo (Zachary, Tarun, Yaen, Pablo, Emerson)<br>
+        vs 1...e5 → <code>3.d4</code> Scotch (Pranav, Daniel H.)
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-label">Austin Black</div>
+      <div class="row-val" style="font-size:0.85rem;">
+        vs 1.e4 → Taimanov <code>1...c5 2...e6 3...Nc6</code> (Fernando, Pranav, Heye, Emerson, Yaen, Daniel Lee, Pablo)<br>
+        vs 1.d4 → Nimzo-Indian <code>...e6 ...Nf6 ...Bb4 Bxc3+ ...b6 ...Ba6</code> (Aarush, Leo)<br>
+        vs 1.Nf3/1.c4 → <code>1...Nf6 2...e6</code> redirect; Bb4+ vs Catalan (Zachary, Tarun)<br>
+        vs 1.Nf3 Nimzo-Larsen → <code>1...d5 2...e6 3...Nf6 4...Bd6</code> (Joel)
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-label">Taimanov drill flags</div>
+      <div class="row-val" style="font-size:0.85rem;">
+        <code>6.Ndb5</code> → play <code>d6!</code> immediately — NEVER <code>Bc5?</code><br>
+        vs Keres <code>6.g4</code> → <code>6...d6 7.g5 Nd7 8.Be3 a6 → ...b5</code><br>
+        vs Maróczy <code>5.c4</code> → <code>...d6 ...Be7 ...0-0 ...a6 ...b5</code> break<br>
+        vs English Attack <code>6.Be3</code> → <code>...a6 ...b5 ...Bb7 ...Rc8</code> race
+      </div>
+    </div>
+    <div class="row" style="border-bottom:none;">
+      <div class="row-label">Exit ramps</div>
+      <div class="row-val" style="font-size:0.85rem;">
+        If they're in prep: Exchange CK → 6.Nf3 solid · Tarrasch → 6.Ngf3 structure · Rossolimo → 2.c3 Alapin · Taimanov → 4...a6 Kan switch
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  NAYCC 2026 · Mexico City · Nov 10–16 · 9R Swiss G/90+30<br>
+  Full prep: naycc2026-gm-brief.html · Full matchup details: matchup/ folder
+</div>
+
+</body>
+</html>
