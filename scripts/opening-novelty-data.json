@@ -1,0 +1,685 @@
+[
+  {
+    "label": "Taimanov B45 after 6.Ndb5 — Black to play (6...d6! vs alternatives)",
+    "fen": "r1bqkb1r/pp1p1ppp/2n1pn2/1N6/4P3/2N5/PPP2PPP/R1BQKB1R b KQkq - 5 6",
+    "total": 6319,
+    "moves": [
+      {
+        "uci": "d7d6",
+        "san": "d6",
+        "averageRating": 2399,
+        "white": 1112,
+        "draws": 1561,
+        "black": 829,
+        "game": null,
+        "opening": {
+          "eco": "B45",
+          "name": "Sicilian Defense: Four Knights Variation, Sveshnikov Transfer"
+        }
+      },
+      {
+        "uci": "f8b4",
+        "san": "Bb4",
+        "averageRating": 2361,
+        "white": 700,
+        "draws": 1023,
+        "black": 241,
+        "game": null,
+        "opening": null
+      },
+      {
+        "uci": "f8c5",
+        "san": "Bc5",
+        "averageRating": 2404,
+        "white": 279,
+        "draws": 285,
+        "black": 282,
+        "game": null,
+        "opening": {
+          "eco": "B45",
+          "name": "Sicilian Defense: Four Knights Variation, Cobra Variation"
+        }
+      },
+      {
+        "uci": "a7a6",
+        "san": "a6",
+        "averageRating": 2301,
+        "white": 1,
+        "draws": 2,
+        "black": 1,
+        "game": null,
+        "opening": null
+      },
+      {
+        "uci": "d7d5",
+        "san": "d5",
+        "averageRating": 2388,
+        "white": 2,
+        "draws": 0,
+        "black": 0,
+        "game": null,
+        "opening": null
+      },
+      {
+        "uci": "b7b6",
+        "san": "b6",
+        "averageRating": 2471,
+        "white": 0,
+        "draws": 1,
+        "black": 0,
+        "game": {
+          "id": "TQXk5gul",
+          "winner": null,
+          "black": {
+            "name": "Vukic, Milan",
+            "rating": 2471
+          },
+          "white": {
+            "name": "Feletar, Darko",
+            "rating": 2441
+          },
+          "year": 2001,
+          "month": "2001-08"
+        },
+        "opening": null
+      }
+    ],
+    "topGames": [
+      {
+        "uci": "f8b4",
+        "id": "r0u73Swo",
+        "winner": "white",
+        "black": {
+          "name": "Ivanchuk, Vassily",
+          "rating": 2786
+        },
+        "white": {
+          "name": "Topalov, Veselin",
+          "rating": 2791
+        },
+        "year": 2008,
+        "month": "2008-12"
+      },
+      {
+        "uci": "f8b4",
+        "id": "oDvlRTMf",
+        "winner": "black",
+        "black": {
+          "name": "Yu Yangyi",
+          "rating": 2752
+        },
+        "white": {
+          "name": "Caruana, F.",
+          "rating": 2818
+        },
+        "year": 2019,
+        "month": "2019-08"
+      },
+      {
+        "uci": "d7d6",
+        "id": "pqLT84zf",
+        "winner": null,
+        "black": {
+          "name": "Nepomniachtchi, I.",
+          "rating": 2795
+        },
+        "white": {
+          "name": "Giri, A.",
+          "rating": 2768
+        },
+        "year": 2023,
+        "month": "2023-05"
+      }
+    ]
+  },
+  {
+    "label": "After 6...d6! 7.Bf4 — Black to play (Austin's key response point)",
+    "fen": "r1bqkb1r/pp3ppp/2nppn2/1N6/4PB2/2N5/PPP2PPP/R2QKB1R b KQkq - 1 7",
+    "total": 3481,
+    "moves": [
+      {
+        "uci": "e6e5",
+        "san": "e5",
+        "averageRating": 2400,
+        "white": 1098,
+        "draws": 1554,
+        "black": 816,
+        "game": null,
+        "opening": null
+      },
+      {
+        "uci": "c6e5",
+        "san": "Ne5",
+        "averageRating": 2310,
+        "white": 8,
+        "draws": 1,
+        "black": 3,
+        "game": null,
+        "opening": null
+      },
+      {
+        "uci": "d6d5",
+        "san": "d5",
+        "averageRating": 2351,
+        "white": 0,
+        "draws": 0,
+        "black": 1,
+        "game": {
+          "id": "H8J5feQj",
+          "winner": "black",
+          "black": {
+            "name": "Echavarria, Johann",
+            "rating": 2351
+          },
+          "white": {
+            "name": "Garcia Garcia, Ruben",
+            "rating": 2308
+          },
+          "year": 2004,
+          "month": "2004-03"
+        },
+        "opening": null
+      }
+    ],
+    "topGames": [
+      {
+        "uci": "e6e5",
+        "id": "pqLT84zf",
+        "winner": null,
+        "black": {
+          "name": "Nepomniachtchi, I.",
+          "rating": 2795
+        },
+        "white": {
+          "name": "Giri, A.",
+          "rating": 2768
+        },
+        "year": 2023,
+        "month": "2023-05"
+      },
+      {
+        "uci": "e6e5",
+        "id": "k2A0UNHU",
+        "winner": "white",
+        "black": {
+          "name": "Shirov, Alexei",
+          "rating": 2740
+        },
+        "white": {
+          "name": "Kasparov, Garry",
+          "rating": 2805
+        },
+        "year": 1994,
+        "month": null
+      },
+      {
+        "uci": "e6e5",
+        "id": "VV1i9DyI",
+        "winner": null,
+        "black": {
+          "name": "Mamedyarov, S.",
+          "rating": 2771
+        },
+        "white": {
+          "name": "Giri, A.",
+          "rating": 2773
+        },
+        "year": 2022,
+        "month": "2022-04"
+      }
+    ]
+  },
+  {
+    "label": "After 7.Bf4 e5 8.Bg5 — Black to play (a6 or Nb4?)",
+    "fen": "r1bqkb1r/pp3ppp/2np1n2/1N2p1B1/4P3/2N5/PPP2PPP/R2QKB1R b KQkq - 1 8",
+    "total": 26184,
+    "moves": [
+      {
+        "uci": "a7a6",
+        "san": "a6",
+        "averageRating": 2389,
+        "white": 6505,
+        "draws": 14959,
+        "black": 4661,
+        "game": null,
+        "opening": null
+      },
+      {
+        "uci": "c8e6",
+        "san": "Be6",
+        "averageRating": 2301,
+        "white": 18,
+        "draws": 6,
+        "black": 3,
+        "game": null,
+        "opening": null
+      },
+      {
+        "uci": "h7h6",
+        "san": "h6",
+        "averageRating": 2345,
+        "white": 17,
+        "draws": 0,
+        "black": 3,
+        "game": null,
+        "opening": null
+      },
+      {
+        "uci": "f8e7",
+        "san": "Be7",
+        "averageRating": 2329,
+        "white": 6,
+        "draws": 0,
+        "black": 2,
+        "game": null,
+        "opening": null
+      },
+      {
+        "uci": "g7g6",
+        "san": "g6",
+        "averageRating": 2298,
+        "white": 0,
+        "draws": 3,
+        "black": 0,
+        "game": null,
+        "opening": null
+      },
+      {
+        "uci": "d6d5",
+        "san": "d5",
+        "averageRating": 2435,
+        "white": 1,
+        "draws": 0,
+        "black": 0,
+        "game": {
+          "id": "CWdqTUma",
+          "winner": "white",
+          "black": {
+            "name": "Whelan, Hugh",
+            "rating": 2435
+          },
+          "white": {
+            "name": "Aglietti, Graziano",
+            "rating": 2215
+          },
+          "year": 2024,
+          "month": "2024-11"
+        },
+        "opening": null
+      }
+    ],
+    "topGames": [
+      {
+        "uci": "a7a6",
+        "id": "3T6laDU6",
+        "winner": null,
+        "black": {
+          "name": "Carlsen, M.",
+          "rating": 2853
+        },
+        "white": {
+          "name": "Giri, A.",
+          "rating": 2793
+        },
+        "year": 2015,
+        "month": "2015-08"
+      },
+      {
+        "uci": "a7a6",
+        "id": "URQYx9hO",
+        "winner": null,
+        "black": {
+          "name": "Carlsen, M..",
+          "rating": 2862
+        },
+        "white": {
+          "name": "Nepomniachtchi, I..",
+          "rating": 2784
+        },
+        "year": 2020,
+        "month": "2020-12"
+      },
+      {
+        "uci": "a7a6",
+        "id": "XgWg4yVr",
+        "winner": "white",
+        "black": {
+          "name": "Carlsen, M.",
+          "rating": 2882
+        },
+        "white": {
+          "name": "Dominguez Perez, L.",
+          "rating": 2763
+        },
+        "year": 2019,
+        "month": "2019-08"
+      }
+    ]
+  },
+  {
+    "label": "Batrikov Variation 6.g4 (Taimanov) — Black to play (6...d6 main line vs alternatives)",
+    "fen": "r1bqkb1r/pp1p1ppp/2n1pn2/8/3NP1P1/2N5/PPP2PP1/R1BQKB1R b KQkq g3 0 6",
+    "total": 0,
+    "moves": [],
+    "topGames": []
+  },
+  {
+    "label": "Taimanov English Attack 6.Be3 — Black to play",
+    "fen": "r1bqkb1r/pp1p1ppp/2n1pn2/8/3NP3/2N1B3/PPP2PPP/R2QKB1R b KQkq - 1 6",
+    "total": 272,
+    "moves": [
+      {
+        "uci": "f8b4",
+        "san": "Bb4",
+        "averageRating": 2368,
+        "white": 73,
+        "draws": 74,
+        "black": 87,
+        "game": null,
+        "opening": null
+      },
+      {
+        "uci": "d8c7",
+        "san": "Qc7",
+        "averageRating": 2393,
+        "white": 5,
+        "draws": 5,
+        "black": 4,
+        "game": null,
+        "opening": null
+      },
+      {
+        "uci": "d7d6",
+        "san": "d6",
+        "averageRating": 2401,
+        "white": 4,
+        "draws": 3,
+        "black": 3,
+        "game": null,
+        "opening": null
+      },
+      {
+        "uci": "a7a6",
+        "san": "a6",
+        "averageRating": 2389,
+        "white": 2,
+        "draws": 3,
+        "black": 4,
+        "game": null,
+        "opening": null
+      },
+      {
+        "uci": "d7d5",
+        "san": "d5",
+        "averageRating": 2334,
+        "white": 0,
+        "draws": 3,
+        "black": 0,
+        "game": null,
+        "opening": null
+      },
+      {
+        "uci": "f8e7",
+        "san": "Be7",
+        "averageRating": 2332,
+        "white": 1,
+        "draws": 1,
+        "black": 0,
+        "game": null,
+        "opening": null
+      }
+    ],
+    "topGames": [
+      {
+        "uci": "f8b4",
+        "id": "NBAw6T4Q",
+        "winner": null,
+        "black": {
+          "name": "Huebner, Robert",
+          "rating": 2640
+        },
+        "white": {
+          "name": "Spassky, Boris V",
+          "rating": 2630
+        },
+        "year": 1981,
+        "month": "1981-10"
+      },
+      {
+        "uci": "f8b4",
+        "id": "ND7uHGSk",
+        "winner": null,
+        "black": {
+          "name": "Abdusattorov, Nodirbek",
+          "rating": 2688
+        },
+        "white": {
+          "name": "Shimanov, A.",
+          "rating": 2581
+        },
+        "year": 2022,
+        "month": "2022-07"
+      },
+      {
+        "uci": "f8b4",
+        "id": "98wVHCYb",
+        "winner": "black",
+        "black": {
+          "name": "Krasenkow, Michal",
+          "rating": 2565
+        },
+        "white": {
+          "name": "Hector, Jonny",
+          "rating": 2515
+        },
+        "year": 1994,
+        "month": null
+      }
+    ]
+  },
+  {
+    "label": "English Attack tabiya after 6.Be3 a6 7.f3 — Black to play (...b5 race)",
+    "fen": "r1bqkb1r/1p1p1ppp/p1n1pn2/8/3NP3/2N1BP2/PPP3PP/R2QKB1R b KQkq - 0 7",
+    "total": 32,
+    "moves": [
+      {
+        "uci": "f8b4",
+        "san": "Bb4",
+        "averageRating": 2429,
+        "white": 4,
+        "draws": 2,
+        "black": 7,
+        "game": null,
+        "opening": null
+      },
+      {
+        "uci": "d7d5",
+        "san": "d5",
+        "averageRating": 2481,
+        "white": 3,
+        "draws": 7,
+        "black": 2,
+        "game": null,
+        "opening": null
+      },
+      {
+        "uci": "d8c7",
+        "san": "Qc7",
+        "averageRating": 2543,
+        "white": 0,
+        "draws": 0,
+        "black": 5,
+        "game": null,
+        "opening": null
+      },
+      {
+        "uci": "f8e7",
+        "san": "Be7",
+        "averageRating": 2614,
+        "white": 0,
+        "draws": 0,
+        "black": 1,
+        "game": {
+          "id": "LmV2e9L6",
+          "winner": "black",
+          "black": {
+            "name": "Kobalia, Mihail",
+            "rating": 2614
+          },
+          "white": {
+            "name": "Klimentov, Evgeny",
+            "rating": 2222
+          },
+          "year": 2020,
+          "month": "2020-10"
+        },
+        "opening": null
+      },
+      {
+        "uci": "d8b6",
+        "san": "Qb6",
+        "averageRating": 2545,
+        "white": 0,
+        "draws": 1,
+        "black": 0,
+        "game": {
+          "id": "K4zQWrwW",
+          "winner": null,
+          "black": {
+            "name": "Horvath, Csaba",
+            "rating": 2545
+          },
+          "white": {
+            "name": "Bosiocic, Marin",
+            "rating": 2384
+          },
+          "year": 2006,
+          "month": "2006-05"
+        },
+        "opening": null
+      }
+    ],
+    "topGames": [
+      {
+        "uci": "d8c7",
+        "id": "tA1bzuXH",
+        "winner": "black",
+        "black": {
+          "name": "Ivanchuk, Vassily",
+          "rating": 2775
+        },
+        "white": {
+          "name": "Dominguez Perez, Leinier",
+          "rating": 2712
+        },
+        "year": 2011,
+        "month": "2011-12"
+      },
+      {
+        "uci": "d7d5",
+        "id": "eW3qbrLV",
+        "winner": null,
+        "black": {
+          "name": "Grachev, B.",
+          "rating": 2628
+        },
+        "white": {
+          "name": "Savchenko, B.",
+          "rating": 2607
+        },
+        "year": 2016,
+        "month": "2016-09"
+      },
+      {
+        "uci": "f8b4",
+        "id": "4l03PTzz",
+        "winner": "black",
+        "black": {
+          "name": "Rublevsky, Sergei",
+          "rating": 2649
+        },
+        "white": {
+          "name": "Panarin, Michail",
+          "rating": 2482
+        },
+        "year": 2004,
+        "month": "2004-12"
+      }
+    ]
+  },
+  {
+    "label": "Catalan Bogo-Indian after 4.Bd2 Qe7 — White to play (Austin's actual plan)",
+    "fen": "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/5N2/PP1BPPPP/RN1QKB1R w KQkq - 2 5",
+    "total": 0,
+    "moves": [],
+    "topGames": []
+  },
+  {
+    "label": "After 4...Qe7 5.g3 — White develops bishop (Leo's Catalan setup)",
+    "fen": "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/5N2/PP1BPPPP/RN1QKB1R w KQkq - 2 5",
+    "total": 0,
+    "moves": [],
+    "topGames": []
+  },
+  {
+    "label": "After 4...Qe7 5.Nc3 Bxc3 — Nimzo transposition (Austin familiar territory)",
+    "fen": "rnb1k2r/pppp1ppp/4pn2/8/1bPP4/2N2N2/PP1BPPPP/R2QKB1R b KQkq - 3 5",
+    "total": 0,
+    "moves": [],
+    "topGames": []
+  },
+  {
+    "label": "Maróczy Bind after 5.c4 — Black to play (Austin needs a plan)",
+    "fen": "r1bqkbnr/pp1ppppp/2n5/8/2PNP3/8/PP3PPP/RNBQKB1R b KQkq c3 0 5",
+    "total": 1,
+    "moves": [
+      {
+        "uci": "g7g6",
+        "san": "g6",
+        "averageRating": 2222,
+        "white": 1,
+        "draws": 0,
+        "black": 0,
+        "game": {
+          "id": "O77U5mk6",
+          "winner": "white",
+          "black": {
+            "name": "Oliveira, Sancho",
+            "rating": 2222
+          },
+          "white": {
+            "name": "Sulava, Nenad",
+            "rating": 2492
+          },
+          "year": 2008,
+          "month": "2008-07"
+        },
+        "opening": null
+      }
+    ],
+    "topGames": [
+      {
+        "uci": "g7g6",
+        "id": "O77U5mk6",
+        "winner": "white",
+        "black": {
+          "name": "Oliveira, Sancho",
+          "rating": 2222
+        },
+        "white": {
+          "name": "Sulava, Nenad",
+          "rating": 2492
+        },
+        "year": 2008,
+        "month": "2008-07"
+      }
+    ]
+  },
+  {
+    "label": "Maróczy Bind tabiya after 5.c4 Nf6 6.Nc3 d6 — White to play",
+    "fen": "r1bqkb1r/pp2pppp/2np1n2/8/2PNP3/2N5/PP3PPP/R1BQKB1R w KQkq - 0 7",
+    "total": 0,
+    "moves": [],
+    "topGames": []
+  }
+]

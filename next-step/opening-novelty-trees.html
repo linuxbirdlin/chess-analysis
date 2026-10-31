@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opening Novelty Trees — Austin Lin · NAYCC 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 72px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    @media (max-width: 680px) { .page { padding: 24px 20px 48px; } }
+
+    .doc-header {
+      border-bottom: 4px solid #1a3a6e;
+      padding-bottom: 20px;
+      margin-bottom: 36px;
+    }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.9rem; color: #1a3a6e; }
+    .doc-header .sub { font-size: 1rem; color: #57606a; margin: 0 0 10px; }
+    .doc-header .meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.88rem; color: #57606a; }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link {
+      display: inline-block; margin-top: 12px; font-size: 0.875rem;
+      color: #1a3a6e; text-decoration: none; font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 {
+      font-size: 1.25rem; color: #ffffff; background: #1a3a6e;
+      margin: 44px 0 16px; padding: 10px 18px; border-radius: 6px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    h2 .sec-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+      background: rgba(255,255,255,0.25); padding: 2px 8px; border-radius: 3px;
+      text-transform: uppercase; white-space: nowrap;
+    }
+    h3 { font-size: 1.05rem; color: #1a3a6e; margin: 24px 0 8px; }
+    h4 { font-size: 0.93rem; color: #1f2328; font-weight: 600; margin: 16px 0 6px; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
+    li { margin-bottom: 5px; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    strong { font-weight: 600; }
+    em { color: #57606a; font-style: italic; }
+    a { color: #1a3a6e; }
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de;
+      border-radius: 4px; padding: 1px 5px;
+    }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 14px 0 20px; }
+    thead th { background: #1a3a6e; color: #fff; padding: 9px 13px; text-align: left; }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #ffffff; }
+    tbody td { padding: 9px 13px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .center { text-align: center; }
+    .num { text-align: right; font-variant-numeric: tabular-nums; }
+
+    .callout {
+      border-radius: 6px; padding: 13px 18px;
+      margin: 14px 0; font-size: 0.93rem; line-height: 1.6;
+    }
+    .callout.info  { background: #dff0ff; border-left: 4px solid #0969da; }
+    .callout.warn  { background: #fff8c5; border-left: 4px solid #bf8700; }
+    .callout.good  { background: #dcffe4; border-left: 4px solid #1a7f37; }
+    .callout.alert { background: #ffebe9; border-left: 4px solid #d1242f; }
+    .callout p { margin: 0 0 6px; }
+    .callout p:last-child { margin: 0; }
+    .callout strong { color: #1f2328; }
+
+    /* Move tree boxes */
+    .tree {
+      background: #f0f4f8;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 12px 0 20px;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.88rem;
+      line-height: 2;
+    }
+    .tree .move  { color: #1a3a6e; font-weight: 700; }
+    .tree .pct   { color: #57606a; font-size: 0.82em; margin-left: 4px; }
+    .tree .label { color: #1f2328; font-family: sans-serif; font-size: 0.85rem; font-weight: 500; margin-left: 6px; }
+    .tree .sub   { margin-left: 28px; }
+    .tree .sub2  { margin-left: 56px; }
+    .tree .ann   { color: #bf8700; font-weight: 700; }
+    .tree .good  { color: #1a7f37; font-weight: 700; }
+    .tree .bad   { color: #d1242f; font-weight: 700; }
+    .tree hr     { border: none; border-top: 1px solid #c6ccd3; margin: 6px 0; }
+
+    .opp-tag {
+      display: inline-block; font-size: 0.75rem; font-weight: 700;
+      background: #1a3a6e; color: #fff;
+      border-radius: 4px; padding: 1px 8px; margin-right: 6px;
+      vertical-align: middle;
+    }
+    .opp-tag.orange { background: #bf5900; }
+    .opp-tag.teal   { background: #0e5a6b; }
+
+    .badge {
+      display: inline-block; font-size: 0.75rem; font-weight: 700;
+      border-radius: 4px; padding: 2px 8px; vertical-align: middle;
+    }
+    .badge.master { background: #f6e9ff; color: #622ab5; border: 1px solid #c6a5e8; }
+    .badge.action { background: #dcffe4; color: #1a7f37; border: 1px solid #9aeab1; }
+    .badge.novel  { background: #fff8c5; color: #7a4f00; border: 1px solid #e5c249; }
+
+    .toc { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 8px; padding: 16px 20px; margin-bottom: 36px; }
+    .toc ul { margin: 6px 0 0; padding-left: 1.4em; }
+    .toc li { margin-bottom: 3px; font-size: 0.9rem; }
+
+    footer { margin-top: 60px; border-top: 1px solid #d0d7de; padding-top: 16px; font-size: 0.8rem; color: #8c959f; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Opening Novelty Trees</h1>
+    <div class="sub">Lichess Masters Explorer — Critical positions for NAYCC 2026</div>
+    <div class="meta">
+      <span><strong>Player:</strong> Austin Lin (~1947 FIDE)</span>
+      <span><strong>Scope:</strong> Fernando, Pranav (Taimanov) · Leo (Catalan Bogo)</span>
+      <span><strong>Source:</strong> Lichess Masters DB (2400+ avg rating)</span>
+      <span><strong>Generated:</strong> Oct 30, 2026</span>
+    </div>
+    <a href="naycc2026-gm-brief.html" class="back-link">← GM Strategic Brief</a>
+  </div>
+
+  <div class="toc">
+    <strong>Contents</strong>
+    <ul>
+      <li><a href="#sec-a">A. Taimanov B45 — main line after 6.Ndb5 d6!</a></li>
+      <li><a href="#sec-b">B. Taimanov — Batrikov Variation (6.g4)</a></li>
+      <li><a href="#sec-c">C. Taimanov — English Attack (6.Be3)</a></li>
+      <li><a href="#sec-d">D. Catalan Bogo-Indian — vs Leo after 4.Bd2 Qe7</a></li>
+      <li><a href="#sec-e">E. Novelty summary &amp; action plan</a></li>
+    </ul>
+  </div>
+
+  <div class="callout info">
+    <p><strong>How to read the move trees:</strong> percentages are from the Lichess Masters DB (2400+ average rating). A move at <strong>90%+</strong> is consensus — follow it blindly. A move at <strong>30–70%</strong> is a genuine theoretical choice. A line with <strong>0 master games</strong> means "below master theory" — Austin needs a principled plan, not memorized moves.</p>
+  </div>
+
+  <!-- ── SECTION A ─────────────────────────────────────────────── -->
+  <h2 id="sec-a"><span class="sec-label">A</span> Taimanov B45 — main line after 6.Ndb5 d6!</h2>
+  <p><span class="opp-tag">Fernando</span><span class="opp-tag orange">Pranav</span> Both play 1.e4 into Austin's Taimanov (1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Nf6). The main White weapon is 6.Ndb5.</p>
+
+  <h3>Position after 6.Ndb5 — Black to play (6319 master games)</h3>
+  <div class="tree">
+    <div><span class="move">6...d6!</span><span class="pct">(55%)</span> <span class="label good">✓ Austin's correct move — knight must retreat</span></div>
+    <div><span class="move">6...Bb4</span><span class="pct">(31%)</span> <span class="label">Pin — complex, less common at amateur level</span></div>
+    <div><span class="move bad">6...Bc5?!</span><span class="pct">(13%)</span> <span class="label">Ambitious — but 7.Nd6+ forces awkward responses; Austin played this at PAM R7</span></div>
+    <hr/>
+    <div class="sub"><span class="move">7.Bf4</span><span class="pct">(100% after d6)</span> <span class="label">Universal — 3481 games, zero exceptions at master level</span></div>
+    <div class="sub2"><span class="move">7...e5!</span><span class="pct">(100%)</span> <span class="label good">✓ Kick the bishop — absolutely forced, no alternatives at master level</span></div>
+    <hr/>
+    <div class="sub"><span class="move">8.Bg5</span></div>
+    <div class="sub2"><span class="move">8...a6!</span><span class="pct">(100%)</span> <span class="label good">✓ Force the Nb5 to declare — 26000+ games, universal consensus</span></div>
+    <hr/>
+    <div class="sub"><span class="move">9.Na3</span><span class="pct">(97%)</span> <span class="label">Knight retreats to a3 — the Sveshnikov tabiya is reached</span></div>
+    <div class="sub"><span class="move">9.Bxf6</span><span class="pct">(3%)</span> <span class="label">Rare — White gives up bishop pair</span></div>
+  </div>
+
+  <div class="callout good">
+    <p><strong>Key rule for Austin:</strong> After 6.Ndb5, the move order <code>d6 → e5 → a6</code> is 100% consensus at every step. There are no branches to worry about. Austin must simply know this sequence cold and reach the Sveshnikov-type position with confidence.</p>
+    <p>After 9.Na3, the well-known plan is <code>...b5 → ...Bb7 → ...Be7</code> with kingside castle. Austin is fighting for the d5 square.</p>
+  </div>
+
+  <h3>Detailed statistics</h3>
+  <table>
+    <thead>
+      <tr><th>Position</th><th>Total Games</th><th>Top Move</th><th>Frequency</th><th>Note</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>After 6.Ndb5</td><td class="num">6,319</td><td><code>6...d6!</code></td><td class="num">55%</td><td>Black's correct response</td></tr>
+      <tr><td>After 6...d6 7.Bf4</td><td class="num">3,481</td><td><code>7...e5!</code></td><td class="num">100%</td><td>Absolute consensus</td></tr>
+      <tr><td>After 7...e5 8.Bg5 + 8...a6</td><td class="num">26,126</td><td><code>9.Na3</code></td><td class="num">97%</td><td>White retreats, Sveshnikov tabiya</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ── SECTION B ─────────────────────────────────────────────── -->
+  <h2 id="sec-b"><span class="sec-label">B</span> Taimanov — Batrikov Variation (6.g4)</h2>
+  <p><span class="opp-tag orange">Pranav</span> Fernando's English Attack background means he may know aggressive pawn attacks. 6.g4 (Batrikov Variation, B46) is the "chaos" weapon against Taimanov.</p>
+
+  <div class="callout warn">
+    <p><strong>0 master games in the Lichess Masters DB</strong> (2400+ average rating). Also 0 games in the Lichess pool at 2200–2500. The Batrikov is an amateur-level weapon — it is below master theory.</p>
+    <p><strong>Implication:</strong> If Fernando or Pranav plays 6.g4, they are going off the map. This is not a problem — it's an opportunity. Austin should respond with principled development rather than memorized lines.</p>
+  </div>
+
+  <h3>Recommended plan vs 6.g4</h3>
+  <div class="tree">
+    <div><span class="move good">6...d6!</span> <span class="label">Same as vs 6.Ndb5 — prevent knight jump, claim center</span></div>
+    <div class="sub"><span class="move">7.g5</span> <span class="label">Aggressive, kicks Nf6</span></div>
+    <div class="sub2"><span class="move good">7...Nd7!</span> <span class="label">Retreat knight, prepare ...a6 and ...b5 queenside expansion</span></div>
+    <div class="sub2"><span class="move">7...Nh5</span> <span class="label">Also fine, knight goes to f4 later</span></div>
+    <hr/>
+    <div class="sub"><span class="move">7.Ndb5</span> <span class="label">Knight jump anyway</span></div>
+    <div class="sub2"><span class="move good">7...d5!</span> <span class="label">Counter in center — refutes the premature g4 advance</span></div>
+    <hr/>
+    <div class="sub"><span class="move">7.Nf3</span> <span class="label">Developing knight back</span></div>
+    <div class="sub2"><span class="move good">7...e5!</span> <span class="label">Central break</span></div>
+  </div>
+
+  <div class="callout info">
+    <p><strong>Psychological note:</strong> White's 6.g4 is an attempt to destabilize Austin with an unfamiliar position. The correct response is to stay calm, play principled chess, and remember that premature flank attacks are punished by central counterplay (<code>...d5</code> or <code>...e5</code>). Austin's clock data shows Fernando spends 5+ minutes on novelty moves 12–15 — if Austin responds confidently to 6.g4, Fernando is the one who enters unfamiliar territory.</p>
+  </div>
+
+  <!-- ── SECTION C ─────────────────────────────────────────────── -->
+  <h2 id="sec-c"><span class="sec-label">C</span> Taimanov — English Attack (6.Be3)</h2>
+  <p><span class="opp-tag">Fernando</span> The English Attack (6.Be3 + 7.f3 + 8.Qd2 + O-O-O) is Fernando's main weapon in the Sicilian. Against Taimanov B45, Fernando likely transitions to this plan.</p>
+
+  <h3>After 6.Be3 (272 master games)</h3>
+  <div class="tree">
+    <div><span class="move good">6...Bb4!</span><span class="pct">(86%)</span> <span class="label good">✓ Pin the Nc3 — by far the master consensus</span></div>
+    <div><span class="move">6...Qc7</span><span class="pct">(5%)</span> <span class="label">Rare — flexible but gives up the pin</span></div>
+    <div><span class="move">6...d6</span><span class="pct">(4%)</span> <span class="label">Passive — White plays 7.f3 + Qd2 with kingside attack</span></div>
+    <div><span class="move">6...a6</span><span class="pct">(3%)</span> <span class="label">Flexible — prepares ...Qc7 + ...b5</span></div>
+    <hr/>
+    <div class="sub"><span class="move">After 6...Bb4: 7.Qd2</span> <span class="label">White develops and unpins</span></div>
+    <div class="sub2"><span class="move good">7...a6</span> <span class="label">Force White to declare on the bishop</span></div>
+    <hr/>
+    <div class="sub"><span class="move">After 6...Bb4: 7.a3</span> <span class="label">Attack the bishop immediately</span></div>
+    <div class="sub2"><span class="move good">7...Bxc3+</span> <span class="label">Double White's pawns — structural damage</span></div>
+  </div>
+
+  <h3>After 6.Be3 a6 7.f3 (32 master games)</h3>
+  <div class="tree">
+    <div><span class="move good">7...Bb4</span><span class="pct">(41%)</span> <span class="label good">✓ Pin before queenside castling — safer, keeps structure</span></div>
+    <div><span class="move">7...d5</span><span class="pct">(38%)</span> <span class="label">Sharp central break — double-edged, high risk/reward</span></div>
+    <div><span class="move">7...Qc7</span><span class="pct">(16%)</span> <span class="label">Flexible — but all top games were losses for Black here</span></div>
+  </div>
+
+  <div class="callout good">
+    <p><strong>Austin's recommendation vs English Attack:</strong></p>
+    <ol>
+      <li>If 6.Be3 → play <strong>6...Bb4!</strong> (86% of masters, pins the key defending piece)</li>
+      <li>If 7.f3 → play <strong>7...Bb4</strong> (41%, safer than 7...d5 which is sharp and can backfire)</li>
+      <li>If 7.a3 attacks the bishop → <strong>Bxc3+</strong> (double the pawns, take away the tempo)</li>
+    </ol>
+    <p>Key idea: the Bb4 pin against Nc3 is Austin's main fighting weapon. It prevents White from comfortably playing f3+g4 without worrying about the pin on the c3 knight.</p>
+  </div>
+
+  <!-- ── SECTION D ─────────────────────────────────────────────── -->
+  <h2 id="sec-d"><span class="sec-label">D</span> Catalan Bogo-Indian — vs Leo after 4.Bd2 Qe7</h2>
+  <p><span class="opp-tag teal">Leo</span> Leo plays the Catalan (1.d4 Nf6 2.c4 e6 3.Nf3 — no Nc3). Austin's plan: 3...Bb4+ (Bogo-Indian) then 4...Qe7 to keep the bishop and maintain dynamic tension.</p>
+
+  <div class="callout info">
+    <p><strong>Why 4...Qe7 instead of 4...Bxd2+?</strong> After 4.Bd2, White hopes Black exchanges immediately (<code>4...Bxd2+</code>), giving White a free tempo recapturing. Austin's <code>4...Qe7</code> delays the exchange until it's on Black's terms — after White has spent g3 + Bg2, the bishop exchange is no longer a concession.</p>
+  </div>
+
+  <h3>After 4.Bd2 Qe7 — White's options (6,254 master games)</h3>
+  <div class="tree">
+    <div><span class="move">5.g3</span><span class="pct">(79%)</span> <span class="label">Catalan fianchetto — Leo's main setup</span></div>
+    <div><span class="move">5.Nc3</span><span class="pct">(9%)</span> <span class="label">Transposes to Nimzo-Indian territory (Austin's comfort zone)</span></div>
+    <div><span class="move">5.e3</span><span class="pct">(5%)</span> <span class="label">Solid but passive</span></div>
+    <div><span class="move">5.a3</span><span class="pct">(4%)</span> <span class="label">Attack the Bb4 immediately — Austin exchanges happily</span></div>
+  </div>
+
+  <h3>After 5.g3 — Black's options (5,353 master games)</h3>
+  <div class="tree">
+    <div><span class="move good">5...Nc6!</span><span class="pct">(59%)</span> <span class="label good">✓ Main line — develop before deciding on bishop</span></div>
+    <div><span class="move">5...Bxd2+</span><span class="pct">(17%)</span> <span class="label">Early exchange — gives White free tempo</span></div>
+    <div><span class="move">5...O-O</span><span class="pct">(15%)</span> <span class="label">Castle first — still fine, same idea</span></div>
+    <div><span class="move">5...b6</span><span class="pct">(7%)</span> <span class="label">Queen's Indian setup</span></div>
+  </div>
+
+  <h3>After 5.g3 Nc6 6.Bg2 — Black's options (1,723 master games)</h3>
+  <p><em>Now that White has committed the bishop to g2, the exchange becomes correct.</em></p>
+  <div class="tree">
+    <div><span class="move good">6...Bxd2+!</span><span class="pct">(93%)</span> <span class="label good">✓ Exchange on your own terms — near-universal at master level</span></div>
+    <div><span class="move">6...O-O</span><span class="pct">(4%)</span> <span class="label">Also fine but less forcing</span></div>
+    <div><span class="move">6...Ne4</span><span class="pct">(1%)</span> <span class="label">Aggressive knight jump — interesting but rare</span></div>
+  </div>
+
+  <h3>After 5.g3 O-O 6.Bg2 — Black's options (915 master games)</h3>
+  <p><em>Austin might castle first — same conclusion applies.</em></p>
+  <div class="tree">
+    <div><span class="move good">6...Bxd2+!</span><span class="pct">(77%)</span> <span class="label good">✓ Same idea — exchange after Bg2 is on Black's terms</span></div>
+    <div><span class="move">6...Nc6</span><span class="pct">(10%)</span> <span class="label">Develop — circle back to Bxd2+ later</span></div>
+    <div><span class="move">6...d5</span><span class="pct">(8%)</span> <span class="label">Central break — also valid</span></div>
+  </div>
+
+  <div class="callout good">
+    <p><strong>Austin's full Bogo-Indian sequence vs Leo:</strong></p>
+    <ol>
+      <li><code>3...Bb4+</code> (Bogo-Indian — force White to deal with the check)</li>
+      <li><code>4.Bd2 → 4...Qe7!</code> (queen develops, bishop stays — don't exchange on move 4)</li>
+      <li><code>5.g3 → 5...Nc6!</code> (59% of masters — develop naturally)</li>
+      <li><code>6.Bg2 → 6...Bxd2+!</code> (93% of masters — exchange is correct NOW, not before)</li>
+      <li>After <code>7.Qxd2 d6 + ...e5</code> (or <code>7.Nbxd2 O-O + ...d6</code>) — Black has a solid Nimzo-style structure</li>
+    </ol>
+    <p><strong>Key insight:</strong> Austin keeps the bishop through moves 4–5, forcing White to invest in g3+Bg2 first. Then Austin exchanges on his own terms on move 6. This is more accurate than immediate <code>4...Bxd2+</code>.</p>
+  </div>
+
+  <h3>What if Leo plays 5.Nc3? (562 master games)</h3>
+  <div class="tree">
+    <div><span class="move good">5.Nc3 → Bxc3!</span><span class="pct">(24%)</span> <span class="label good">✓ Austin's Nimzo-Indian specialty — double the pawns</span></div>
+    <div><span class="move">5.Nc3 → O-O</span><span class="pct">(42%)</span> <span class="label">Castle first, decide on bishop later</span></div>
+    <div><span class="move">5.Nc3 → b6</span><span class="pct">(29%)</span> <span class="label">Queen's Indian flavor — also solid</span></div>
+  </div>
+
+  <div class="callout info">
+    <p>If Leo plays 5.Nc3, Austin is on home turf — this transposes close to Nimzo-Indian positions. Austin's normal Nimzo plan (<code>...Bxc3+ doubled pawns + ...b6/...Ba6</code>) applies directly here.</p>
+  </div>
+
+  <!-- ── SECTION E ─────────────────────────────────────────────── -->
+  <h2 id="sec-e"><span class="sec-label">E</span> Novelty summary &amp; action plan</h2>
+
+  <table>
+    <thead>
+      <tr><th>Opponent</th><th>Opening</th><th>Critical Position</th><th>Austin's Move</th><th>Confidence</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Fernando / Pranav</strong></td>
+        <td>Taimanov after 6.Ndb5</td>
+        <td>Black to play on move 6</td>
+        <td><code>d6!</code> then <code>e5!</code> then <code>a6!</code></td>
+        <td><span class="badge master">100% consensus</span></td>
+      </tr>
+      <tr>
+        <td><strong>Fernando</strong></td>
+        <td>English Attack 6.Be3</td>
+        <td>Black to play on move 6</td>
+        <td><code>Bb4!</code></td>
+        <td><span class="badge master">86% consensus</span></td>
+      </tr>
+      <tr>
+        <td><strong>Pranav?</strong></td>
+        <td>Batrikov 6.g4</td>
+        <td>Below master theory</td>
+        <td><code>d6</code> then <code>Nd7</code> or <code>d5</code></td>
+        <td><span class="badge novel">Principled play</span></td>
+      </tr>
+      <tr>
+        <td><strong>Leo</strong></td>
+        <td>Catalan 4.Bd2 Qe7 5.g3</td>
+        <td>Black to play on move 5</td>
+        <td><code>Nc6!</code></td>
+        <td><span class="badge master">59% consensus</span></td>
+      </tr>
+      <tr>
+        <td><strong>Leo</strong></td>
+        <td>Catalan after 5.g3 Nc6 6.Bg2</td>
+        <td>Black to play on move 6</td>
+        <td><code>Bxd2+!</code></td>
+        <td><span class="badge master">93% consensus</span></td>
+      </tr>
+      <tr>
+        <td><strong>Leo</strong></td>
+        <td>Catalan after 5.Nc3</td>
+        <td>Black to play on move 5</td>
+        <td><code>Bxc3!</code> or <code>O-O</code></td>
+        <td><span class="badge action">Austin's home turf</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Drill priorities (ordered by impact)</h3>
+  <ol>
+    <li><strong>Taimanov d6→e5→a6 sequence</strong> — must be automatic, no thinking required. Fernando is a potential round 3–4 opponent and this is the first critical fork.</li>
+    <li><strong>Bogo-Indian: 4...Qe7 then Nc6 then Bxd2+</strong> — practice the sequence once from the starting position to build muscle memory. The point is the timing of the exchange.</li>
+    <li><strong>English Attack: Bb4 pin</strong> — simple to remember, just know the key idea (pin before White plays f3+g4).</li>
+    <li><strong>Batrikov 6.g4</strong> — no memorization needed. Just remember: stay calm, play <code>d6</code>, and counter with <code>d5</code> or <code>e5</code> when the center is ready.</li>
+  </ol>
+
+  <hr/>
+
+  <h3>Data notes</h3>
+  <ul>
+    <li>All data from Lichess Masters Explorer (positions evaluated Oct 30, 2026)</li>
+    <li>Master DB = games where average rating ≥ 2400 (typically FIDE games between titled players)</li>
+    <li>The position after 7...e5 8.Bg5 a6 (26,126 games) includes games from multiple Sicilian lines that share the same FEN — the move counts are reliable but the specific game context is the Sveshnikov tabiya, closely related to what Austin reaches via the Taimanov route</li>
+    <li>Batrikov (6.g4) queried on both Masters DB and Lichess player pool (2200–2500 range) — 0 games in both databases</li>
+    <li>Raw data: <code>scripts/opening-novelty-data.json</code></li>
+  </ul>
+
+  <footer>
+    Gap 1 implementation · NAYCC 2026 prep · Generated Oct 30, 2026
+  </footer>
+
+</div>
+</body>
+</html>

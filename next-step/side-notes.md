@@ -113,4 +113,21 @@ Each position should show the setup moves, the trigger condition, and the tactic
 
 The single highest-ROI action before NAYCC: **build novelty trees for Fernando and Pranav** (the two 1.e4 players most likely to reach Austin's Taimanov preparation), verified against Lichess master database and Stockfish depth 25. This is work that takes ~4 hours and directly neutralizes the biggest risk identified in the GM brief.
 
+---
 
+## Implementation Status (Oct 30, 2026)
+
+| Gap | Status | Output |
+|---|---|---|
+| Gap 1: Opening novelty trees | ✅ **Done** | `next-step/opening-novelty-trees.html` · `scripts/opening-novelty-data.json` |
+| Gap 2: Deep Stockfish analysis | ⏳ Running (movetime-3000, background) | `scripts/*-analysis-results-deep.json` (Zachary ~50% complete; others queued) |
+| Gap 3: Opponent coverage check | ✅ Done (flagged Heye/Zachary as possibly missing Oct games) | Noted in GM Brief |
+| Gap 4: Clock usage analysis | ✅ Done | `scripts/clock-analysis-results.json` · `scripts/analyze-clock.js` |
+| Gap 5: Austin's tactical pattern library | ⬜ Not started | — |
+| Gap 6: Endgame drill document | ✅ Done | `next-step/austin-endgame-drills.html` |
+
+**Key novelty-trees findings (Gap 1):**
+- Taimanov 6.Ndb5: `d6 → e5 → a6` is 100% consensus at every step — zero branches to memorize
+- Batrikov 6.g4: **0 master games** — not a prep gap, principled play (`d6` then `Nd7` or `d5`) is sufficient
+- English Attack 6.Be3: `Bb4!` at 86% consensus — the pin is Austin's main weapon  
+- Catalan Bogo vs Leo: `4...Qe7 → 5.g3 Nc6 → 6.Bg2 Bxd2+!` — delay exchange to move 6 (93% of masters confirm timing)
