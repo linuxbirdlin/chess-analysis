@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin — Endgame Drill Pack · NAYCC 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+    .page { max-width: 860px; margin: 0 auto; background: #fff; padding: 44px 52px 72px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+    @media(max-width:640px){ .page { padding: 24px 18px 48px; } }
+
+    .doc-header { border-bottom: 4px solid #1a3a6e; padding-bottom: 18px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 4px; font-size: 1.75rem; color: #1a3a6e; }
+    .doc-header .sub { font-size: 0.92rem; color: #57606a; margin: 0 0 8px; }
+    .doc-header .meta { font-size: 0.82rem; color: #57606a; }
+    .back-link { display: inline-block; margin-top: 10px; font-size: 0.85rem; color: #1a3a6e; text-decoration: none; }
+    .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.15rem; color: #fff; background: #1a3a6e; margin: 40px 0 14px; padding: 9px 16px; border-radius: 5px; display: flex; align-items: center; gap: 10px; }
+    h2 .sec { font-size: 0.7rem; font-weight: 700; letter-spacing: .08em; background: rgba(255,255,255,.25); padding: 2px 7px; border-radius: 3px; text-transform: uppercase; }
+    h3 { font-size: 1rem; color: #1a3a6e; margin: 22px 0 6px; }
+    h4 { font-size: 0.9rem; font-weight: 600; margin: 14px 0 5px; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 4px; }
+    code { font-family: "SFMono-Regular",Consolas,Menlo,monospace; font-size: 0.85em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 3px; padding: 1px 5px; }
+    strong { font-weight: 600; }
+    a { color: #1a3a6e; }
+
+    .callout { border-radius: 5px; padding: 11px 16px; margin: 12px 0; font-size: 0.91rem; line-height: 1.55; }
+    .c-red   { background: #fff0f0; border-left: 4px solid #cf2222; color: #5a0000; }
+    .c-green { background: #dafbe1; border-left: 4px solid #2d7d46; color: #1a4731; }
+    .c-gold  { background: #fff8e6; border-left: 4px solid #c08000; color: #5a3800; }
+    .c-blue  { background: #eaf2ff; border-left: 4px solid #1a3a6e; color: #1a3a6e; }
+
+    .drill-card { border: 1px solid #d0d7de; border-radius: 7px; margin: 16px 0; overflow: hidden; }
+    .drill-head { background: #1a3a6e; color: #fff; padding: 10px 16px; font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; }
+    .drill-head .tag { font-size: 0.7rem; background: rgba(255,255,255,.25); padding: 2px 8px; border-radius: 3px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    .drill-body { padding: 14px 18px; }
+
+    .rule-box { background: #1a3a6e; color: #fff; font-size: 1rem; font-weight: 700; text-align: center; padding: 10px 16px; border-radius: 5px; margin: 12px 0; letter-spacing: .03em; }
+
+    .pos-block { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 5px; padding: 12px 16px; margin: 12px 0; font-family: "SFMono-Regular",Consolas,Menlo,monospace; font-size: 0.82rem; line-height: 1.8; }
+    .pos-block .lbl { font-family: -apple-system,sans-serif; font-size: 0.78rem; font-weight: 600; color: #57606a; margin-bottom: 6px; text-transform: uppercase; letter-spacing: .05em; }
+
+    .seq { margin: 10px 0; }
+    .seq li { font-family: "SFMono-Regular",Consolas,Menlo,monospace; font-size: 0.87rem; margin-bottom: 3px; }
+
+    .game-ref { font-size: 0.82rem; color: #57606a; font-style: italic; }
+
+    .mistake-line { background: #fff0f0; border-left: 3px solid #cf2222; padding: 6px 12px; margin: 8px 0; border-radius: 0 4px 4px 0; font-size: 0.9rem; }
+    .correct-line { background: #dafbe1; border-left: 3px solid #2d7d46; padding: 6px 12px; margin: 8px 0; border-radius: 0 4px 4px 0; font-size: 0.9rem; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 10px 0 16px; }
+    thead th { background: #1a3a6e; color: #fff; padding: 8px 12px; text-align: left; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody td { padding: 8px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Endgame Drill Pack — Austin Lin</h1>
+    <p class="sub">Gap #6 of GM-level prep | Three confirmed endgame patterns to drill before NAYCC 2026</p>
+    <p class="meta"><strong>Tournament:</strong> NAYCC 2026 · Nov 11–16, Ottawa &nbsp;·&nbsp; <strong>Generated:</strong> Oct 30, 2026</p>
+    <a class="back-link" href="../austin-prep.html">← Prep Index</a>
+  </div>
+
+  <div class="callout c-red">
+    <strong>Why this matters:</strong> Austin has lost 6 of his 15 rated/study games in the endgame — the single largest loss category. The three games below follow the same arc: equal or slightly better position in the middlegame → passive piece placement → slow material leak → loss. All three could have been draws or wins with correct endgame execution. The drills below address exactly those patterns.
+  </div>
+
+  <!-- ════ SECTION 1: LUCENA ════ -->
+  <h2><span class="sec">Drill 1</span> Lucena Position — Bridge-Building (Rook Endgame Win)</h2>
+
+  <p>The Lucena position is the most fundamental winning technique in rook endings. Austin described knowing "the general idea but might mess up specific moves." That is not enough — the bridge must be automatic because the sequence has non-obvious waiting moves that feel wrong under time pressure.</p>
+
+  <div class="drill-card">
+    <div class="drill-head">
+      <span class="tag">Position</span>
+      Standard Lucena Setup — White to Win
+    </div>
+    <div class="drill-body">
+      <div class="pos-block">
+        <div class="lbl">FEN (standard Lucena — Rook pawn on 7th rank)</div>
+        1K1k4/1P6/8/8/8/8/r7/2R5 w - - 0 1
+        <br><br>
+        <div class="lbl">Setup description</div>
+        White: King b8, Pawn b7, Rook c1<br>
+        Black: King d8, Rook a2<br>
+        White to move and win.
+      </div>
+
+      <div class="rule-box">THE 4-STEP BRIDGE: Re1 → Re4 → Kb8 shield → Rg4 → Rg1/Rg8 deliver</div>
+
+      <h4>Correct winning sequence:</h4>
+      <ol class="seq">
+        <li><code>1.Rc4!</code> — The critical first move. Build the "4th rank shield" so the king can emerge. <em>NOT 1.Re1? Rxb7! 2.Rxb7 stalemate trap.</em></li>
+        <li><code>1...Ra1 2.Kb6</code> — King steps toward freedom. Black's rook must keep giving checks.</li>
+        <li><code>2...Rb1+ 3.Kc6 Rc1+ 4.Kd6 Rd1+ 5.Ke6 Re1+ 6.Re4!</code> — Shield is now active. Block the checks with the rook.</li>
+        <li><code>6...Re2 7.Kd7 Rd2+ 8.Rd4!</code> — Interpose — the bridge blocks the last check.</li>
+        <li><code>8...Rxd4 9.b8=Q+</code> — Promote and win. ✓</li>
+      </ol>
+
+      <div class="callout c-gold">
+        <strong>The two critical moments Austin must know cold:</strong><br>
+        (1) <code>Rc4!</code> — not Re1 (stalemate), not Rb1 (allows Rxb7). The 4th rank is the key rank.<br>
+        (2) <code>Re4!</code> — interposing the rook to absorb the last check. This feels passive but it's the winning move. Many players play Kf6 or Kd7 instead and lose the win.
+      </div>
+
+      <h4>Drill protocol:</h4>
+      <ul>
+        <li>Set up the FEN above. Without notes, find <code>Rc4!</code> and play out the full win.</li>
+        <li>Try with Black going Ra1, Rb1+, Rc1+, Rd1+, Re1+ — execute the interpose at each check.</li>
+        <li>Do this 5 times until the sequence is automatic (under 30 seconds to spot Rc4).</li>
+        <li>Ask Vadim for the position from the Black side — practice holding or losing it as Black.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="drill-card">
+    <div class="drill-head">
+      <span class="tag">Variant</span>
+      Lucena with the King Cut Off — Rook on the Long Side
+    </div>
+    <div class="drill-body">
+      <p>If your king is cut off on the short side (the pawn's file), the bridge-building plan still applies but the rook goes to the long side first (at least 3 files away from the pawn). This is the most common real-game version.</p>
+      <div class="pos-block">
+        <div class="lbl">FEN (Lucena variant — king cut off on e-file)</div>
+        8/6P1/8/8/8/5K2/r7/6R1 w - - 0 1
+        <br><br>
+        White: King f3, Pawn g7, Rook g1<br>
+        Black: Rook a2<br>
+        White to move and win.
+      </div>
+      <p><strong>Key idea:</strong> <code>1.Kf4!</code> then bring the king toward the pawn while the rook builds the bridge on the 4th rank (<code>Rg4</code>). If Black gives side checks, interpose when you've gained enough ground. The technique is the same as the standard position.</p>
+    </div>
+  </div>
+
+  <!-- ════ SECTION 2: PHILIDOR ════ -->
+  <h2><span class="sec">Drill 2</span> Philidor Position — Drawing Defense (Rook Endgame Draw)</h2>
+
+  <p>The Philidor position is the most important defensive technique in rook endings. The key trigger: <strong>as long as the opposing pawn has not reached the 6th rank, hold your rook on the 6th rank (3rd-rank defense). The moment the pawn advances to the 6th rank, switch to the back rank.</strong></p>
+
+  <div class="drill-card">
+    <div class="drill-head">
+      <span class="tag">Position</span>
+      Philidor Draw — Black to Hold
+    </div>
+    <div class="drill-body">
+      <div class="pos-block">
+        <div class="lbl">FEN (standard Philidor — White pawn on e5)</div>
+        8/8/8/4kp2/8/4K3/8/R7 w - - 0 1
+        <br><br>
+        <strong>Corrected Philidor setup:</strong><br>
+        White: King e4, Rook a1, Pawn e5<br>
+        Black: King e6, Rook a8<br>
+        FEN: 8/8/4k3/4P3/4K3/8/8/R7 w - - 0 1<br>
+        White to move — Black holds with correct play.
+      </div>
+
+      <div class="rule-box">THE TRIGGER: Pawn on 5th or below → HOLD 6th rank. Pawn reaches 6th → SWITCH to back rank.</div>
+
+      <h4>Phase 1 — Pawn on e5 (or below): Rook on 6th rank</h4>
+      <ol class="seq">
+        <li>Black plays <code>...Ra6!</code> — rook to the 6th rank, cutting off the White king. Hold this.</li>
+        <li>If White tries <code>Rf1 Rf6</code> to trade rooks: simply retreat <code>...Ra6</code> back and hold.</li>
+        <li>Key: keep the rook on the 6th rank as long as the pawn is on e5. Never let it drift.</li>
+      </ol>
+
+      <h4>Phase 2 — Pawn advances to e6: Switch to back rank immediately</h4>
+      <ol class="seq">
+        <li>The moment White plays <code>e6</code>, Black must immediately play <code>...Ra1!</code> — back rank defense.</li>
+        <li>Now give side checks from behind: <code>...Ra1, Rb1, Rc1</code> etc., keeping the White king active.</li>
+        <li>The winning attempt <code>Ke7 Rf7+ Ke8 Rf1 Rxf1</code> draw! (stalemate or perpetual)</li>
+        <li><strong>Critical:</strong> Do NOT delay the back-rank switch. If you stay on the 6th rank after e6 is played, <code>Rd8+ Ke7 Re8+</code> is checkmate by White.</li>
+      </ol>
+
+      <div class="callout c-red">
+        <strong>Austin's actual mistake pattern:</strong> In PAM R5 (vs Vinales) and NAYCC R9 (vs Li), the endgame wasn't pure Philidor — but the same principle of passive piece placement applied. In both games, Austin's rook went to a passive square (behind pawns, unable to give side checks) while the opponent's rook was active on the 7th rank. The Philidor principle — <strong>stay active, cut off the king, switch to back rank when forced</strong> — is the meta-lesson from both losses.
+      </div>
+
+      <h4>Drill protocol:</h4>
+      <ul>
+        <li>Set up the position. Let an opponent (or opponent-mode on Lichess) play White trying to promote e5.</li>
+        <li>Practice Phase 1 (hold 6th) 5 times, then Phase 2 (switch to back rank) 5 times.</li>
+        <li>The trigger recognition — "pawn reached 6th? → back rank NOW" — must be automatic.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ════ SECTION 3: AUSTIN'S LOSSES ════ -->
+  <h2><span class="sec">Loss Analysis</span> Austin's Three Endgame Losses — Exact Mistakes</h2>
+
+  <p>These are not "bad endgame positions" — they are positions where Austin had a draw or better but made a structural error that converted into a loss. Understanding the exact mistake is more valuable than general drilling.</p>
+
+  <!-- Loss 1: NAYCC R7 -->
+  <div class="drill-card">
+    <div class="drill-head">
+      <span class="tag">Loss 1</span>
+      NAYCC 2025 R7 vs Beegala, Keshav (White) — E49 Nimzo-Indian
+    </div>
+    <div class="drill-body">
+      <p class="game-ref">Result: 1-0 (121 moves). Austin played Black. Rook + bishop endgame.</p>
+      <p><strong>What happened:</strong> After mutual simplifications around moves 40–45, a rook+bishop vs rook+bishop endgame arose with White having a passed d-pawn on d6 (move 45: <code>d6 Rd7</code>). Austin's king was forced to the kingside (Kf6/Kf5) while White's rook became active on the 7th rank (<code>Rc7</code>). The bishop went passive on d8 rather than blockading or creating counterplay.</p>
+
+      <div class="mistake-line">
+        <strong>Critical mistake (~move 47–50):</strong> After <code>46.Bf4 a5 47.Re2 Kf6 48.g3 h5 49.Rb2</code>, Austin played passive defence (<code>49...Rb7 50.Rd2 Rd7</code>). The rooks traded, leaving a bishop + pawn endgame where White's king centralized easily. With the pawn on d6, Austin's bishop on d8 was purely defensive and the endgame was theoretically lost.
+      </div>
+
+      <div class="correct-line">
+        <strong>What should have been tried:</strong> Before move 44 (before the bishops were exchanged), Austin needed to activate the bishop via <code>...Bf6</code> or <code>...Be7</code> to create a blockade on d7. The passive <code>...Bd8</code> gave up all counterplay. Additionally, the king needed to centralize immediately — <code>...Ke7</code> rather than retreating to the kingside.
+      </div>
+
+      <p><strong>Pattern lesson:</strong> <em>In endgames with a passed pawn, never allow your bishop to become a passive blockader while the enemy rook is active. The bishop must either blockade from a distance (on the same color diagonal as the pawn) or attack the pawn from the side.</em></p>
+    </div>
+  </div>
+
+  <!-- Loss 2: NAYCC R9 -->
+  <div class="drill-card">
+    <div class="drill-head">
+      <span class="tag">Loss 2</span>
+      NAYCC 2025 R9 vs Li, Aiden (White) — Rook + Bishop Endgame
+    </div>
+    <div class="drill-body">
+      <p class="game-ref">Result: 1-0 (63 moves). Austin played Black. Rook + bishop vs rook + bishop ending.</p>
+      <p><strong>What happened:</strong> Around move 38–42, the position entered a rook+bishop endgame where White had a passed pawn on the c-file supported by an active bishop. Austin's bishop was on the wrong color diagonal (g6/f7) and could never effectively blockade. White's rook penetrated to the 7th rank (<code>Rb7</code>, move ~45) and created decisive threats.</p>
+
+      <div class="mistake-line">
+        <strong>Key endgame sequence (moves 44–50):</strong>
+        <code>44.Rb7 Kd6 45.Rxc7 Kxc7 46.Be4 Kd6 47.h4 Bf7 48.h5 h6 49.Kf5</code>
+        — White's king centralized and marched to f5 while Austin's bishop was forced to passive defense on f7. After <code>49...Ke7 50.c7 Be6+ 51.Kg6 Bxg4 52.Bf5!</code> the bishop exchange was forced and the resulting pawn endgame was lost.
+      </div>
+
+      <div class="correct-line">
+        <strong>What Austin needed:</strong> Before the rook trade (<code>Rxc7</code>), the defensive try was <code>...Ra7!</code> (keep the rook active, don't let White's rook penetrate). After <code>Ra7</code>, if <code>Rxc7+</code>, take back and immediately activate the bishop toward the d4 pawn rather than the c-pawn. The bishop needed to be on b6 or e3 diagonal, not f7.
+      </div>
+
+      <p><strong>Pattern lesson:</strong> <em>When two rooks are about to be traded off the board, calculate the resulting bishop endgame BEFORE the exchange. Bishops on the wrong diagonal relative to the opponent's passed pawns are permanently passive. Either avoid the exchange or reposition the bishop first.</em></p>
+    </div>
+  </div>
+
+  <!-- Loss 3: PAM R5 -->
+  <div class="drill-card">
+    <div class="drill-head">
+      <span class="tag">Loss 3</span>
+      PAM 2026 R5 vs Vinales Gonzalez (White, 2091) — Rook Endgame
+    </div>
+    <div class="drill-body">
+      <p class="game-ref">Result: 1-0 (43 moves). Austin played Black. Pure rook endgame from move ~30.</p>
+      <p><strong>What happened:</strong> From a dynamically equal middlegame, White got a rook to the 7th rank (<code>Ra7</code>, move 29). Austin's pieces became passive: bishop retreated to f8/d8 and the queenside rook was tied to defending the b-file. White's two rooks and active bishop dominated the board. The decisive sequence: <code>Rc8 Bg5 → Re4 → Re8 → Rg8+ → Rc7 Rg5 → Rf8 → Rcxf7</code> — a double rook on the 7th rank that Austin could not counter.</p>
+
+      <div class="mistake-line">
+        <strong>Critical moment (moves 32–35):</strong> After <code>32.Rf1 Bd8 33.Rf4 h5</code>, Austin's bishop became completely passive on d8 — defending nothing, blocking the rook's own d-file. The correct plan was to sacrifice the d4 pawn with <code>...d3!</code> to activate the bishop via <code>...Bc7</code>, giving the bishop a purpose and breaking up White's coordination.
+      </div>
+
+      <div class="correct-line">
+        <strong>Defensive try:</strong> After White plays <code>Ra7</code>, the defensive concept is to immediately contest the 7th rank with your own rook: <code>...Rc7!</code> (trading off White's most active rook). If White takes, the resulting one-rook ending is drawable. If White avoids the trade, <code>...Rc7</code> prevents the double-rook penetration that decided the game.
+      </div>
+
+      <p><strong>Pattern lesson:</strong> <em>The moment the opponent's rook reaches the 7th rank, trading it off is almost always the correct decision — even at material cost. A rook on the 7th rank coordinating with another rook creates unstoppable threats. Don't passively defend; contest the 7th rank immediately.</em></p>
+    </div>
+  </div>
+
+  <!-- ════ SECTION 4: DRILL SCHEDULE ════ -->
+  <h2><span class="sec">Schedule</span> 3-Session Drill Plan</h2>
+
+  <table>
+    <thead><tr><th>Session</th><th>Topic</th><th>Time</th><th>Goal</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Session 1</strong><br>Day 1 or 2</td>
+        <td>Lucena position — bridge-building from both sides</td>
+        <td>45 min</td>
+        <td>Find <code>Rc4!</code> automatically in under 15 seconds. Complete the bridge 5 times in a row without error. Ask Vadim to test you.</td>
+      </tr>
+      <tr>
+        <td><strong>Session 2</strong><br>Day 3 or 4</td>
+        <td>Philidor defense — both phases (6th rank + back rank switch)</td>
+        <td>45 min</td>
+        <td>Recognize the Phase 1→Phase 2 trigger (pawn to 6th). Hold the draw 5 times in a row as Black starting from the standard position.</td>
+      </tr>
+      <tr>
+        <td><strong>Session 3</strong><br>Day 5 or 6</td>
+        <td>Review the three loss positions above — find the improvement move</td>
+        <td>30 min</td>
+        <td>Without notes, identify: (1) the passive move Austin played, (2) the correct active plan. Understanding WHY the move was wrong matters more than memorizing the game.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout c-green">
+    <strong>Meta-principle from all three losses:</strong> Austin's endgame losses share one root cause — <strong>passive piece placement</strong>. In all three games, a rook or bishop retreated to a "safe" square that defended nothing and blocked the other piece. The correct principle: <em>in rook endings, both pieces must remain active simultaneously. A bishop defending from behind a pawn is worth almost nothing. A rook on the 1st rank while the opponent's is on the 7th is already losing.</em> When you feel the urge to make a "safe" move in the endgame, ask: is my piece going to an active or a passive square?
+  </div>
+
+  <p style="font-size:0.8rem;color:#57606a;text-align:center;margin-top:36px;">Gap 6 of GM-level prep plan · Generated Oct 30, 2026 · <a href="../austin-prep.html">← Prep Index</a></p>
+
+</div>
+</body>
+</html>
