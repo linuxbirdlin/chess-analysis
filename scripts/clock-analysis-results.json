@@ -1,0 +1,2608 @@
+{
+  "zachary": {
+    "player": "zachary",
+    "gamesAnalyzed": 12,
+    "avgSecsPerMove": {
+      "opening": 44,
+      "middlegame": 129,
+      "endgame": 93
+    },
+    "topUncertaintyMoves": [
+      {
+        "move": 10,
+        "games": 3
+      },
+      {
+        "move": 11,
+        "games": 2
+      },
+      {
+        "move": 20,
+        "games": 2
+      },
+      {
+        "move": 22,
+        "games": 2
+      },
+      {
+        "move": 24,
+        "games": 2
+      },
+      {
+        "move": 28,
+        "games": 2
+      },
+      {
+        "move": 13,
+        "games": 1
+      },
+      {
+        "move": 14,
+        "games": 1
+      }
+    ],
+    "avgPanicMove": 42,
+    "games": [
+      {
+        "file": "opponents/zachary/pam2026/round1.pgn",
+        "date": "2026.07.27",
+        "colour": "black",
+        "opponent": "Tapiero Lozano, Harrison Geronimo",
+        "result": "1/2-1/2",
+        "totalMoves": 73,
+        "avgOpen": 21,
+        "avgMid": 65,
+        "avgEnd": 21,
+        "slowMoves": [
+          {
+            "moveNum": 29,
+            "secs": 746
+          },
+          {
+            "moveNum": 64,
+            "secs": 304
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/zachary/pam2026/round4.pgn",
+        "date": "2026.07.29",
+        "colour": "white",
+        "opponent": "Piza Vera, Andres",
+        "result": "*",
+        "totalMoves": 39,
+        "avgOpen": 56,
+        "avgMid": 248,
+        "avgEnd": 11,
+        "slowMoves": [
+          {
+            "moveNum": 13,
+            "secs": 1412
+          },
+          {
+            "moveNum": 23,
+            "secs": 1296
+          },
+          {
+            "moveNum": 20,
+            "secs": 1259
+          },
+          {
+            "moveNum": 10,
+            "secs": 341
+          }
+        ],
+        "panicAtMove": 23,
+        "panicRemaining": 564
+      },
+      {
+        "file": "opponents/zachary/pam2026/round7.pgn",
+        "date": "2026.07.31",
+        "colour": "black",
+        "opponent": "Jackson, Leo Daniel Olivera",
+        "result": "0-1",
+        "totalMoves": 31,
+        "avgOpen": 68,
+        "avgMid": 137,
+        "avgEnd": 0,
+        "slowMoves": [
+          {
+            "moveNum": 24,
+            "secs": 562
+          },
+          {
+            "moveNum": 20,
+            "secs": 393
+          },
+          {
+            "moveNum": 15,
+            "secs": 322
+          },
+          {
+            "moveNum": 10,
+            "secs": 321
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/zachary/pam2026/round8.pgn",
+        "date": "2026.07.31",
+        "colour": "white",
+        "opponent": "Payares Diaz, Alejandro",
+        "result": "1/2-1/2",
+        "totalMoves": 49,
+        "avgOpen": 53,
+        "avgMid": 185,
+        "avgEnd": 106,
+        "slowMoves": [
+          {
+            "moveNum": 45,
+            "secs": 1138
+          },
+          {
+            "moveNum": 16,
+            "secs": 686
+          },
+          {
+            "moveNum": 25,
+            "secs": 674
+          },
+          {
+            "moveNum": 22,
+            "secs": 502
+          },
+          {
+            "moveNum": 11,
+            "secs": 404
+          }
+        ],
+        "panicAtMove": 45,
+        "panicRemaining": 332
+      },
+      {
+        "file": "opponents/zachary/pamschool2026/round1.pgn",
+        "date": "2026.05.12",
+        "colour": "white",
+        "opponent": "Porras Taipe, Rodrigo Thiago",
+        "result": "1-0",
+        "totalMoves": 44,
+        "avgOpen": 32,
+        "avgMid": 12,
+        "avgEnd": 1,
+        "slowMoves": [],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/zachary/pamschool2026/round2.pgn",
+        "date": "2026.05.12",
+        "colour": "black",
+        "opponent": "Ajith, Aarush",
+        "result": "0-1",
+        "totalMoves": 39,
+        "avgOpen": 60,
+        "avgMid": 141,
+        "avgEnd": 13,
+        "slowMoves": [
+          {
+            "moveNum": 17,
+            "secs": 681
+          },
+          {
+            "moveNum": 26,
+            "secs": 397
+          },
+          {
+            "moveNum": 11,
+            "secs": 392
+          },
+          {
+            "moveNum": 27,
+            "secs": 312
+          },
+          {
+            "moveNum": 28,
+            "secs": 309
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/zachary/pamschool2026/round3.pgn",
+        "date": "2026.05.13",
+        "colour": "white",
+        "opponent": "Yin, Aiden",
+        "result": "1-0",
+        "totalMoves": 47,
+        "avgOpen": 0,
+        "avgMid": 128,
+        "avgEnd": 181,
+        "slowMoves": [
+          {
+            "moveNum": 47,
+            "secs": 2657
+          },
+          {
+            "moveNum": 22,
+            "secs": 461
+          },
+          {
+            "moveNum": 21,
+            "secs": 386
+          }
+        ],
+        "panicAtMove": 47,
+        "panicRemaining": 369
+      },
+      {
+        "file": "opponents/zachary/pamschool2026/round4.pgn",
+        "date": "2026.04.22",
+        "colour": "black",
+        "opponent": "Diaz Guerrero, Jesus Daniel",
+        "result": "1/2-1/2",
+        "totalMoves": 30,
+        "avgOpen": 46,
+        "avgMid": 128,
+        "avgEnd": 0,
+        "slowMoves": [
+          {
+            "moveNum": 24,
+            "secs": 303
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/zachary/pamschool2026/round5.pgn",
+        "date": "2026.05.14",
+        "colour": "white",
+        "opponent": "Yu, Vincent Zhiwen",
+        "result": "1/2-1/2",
+        "totalMoves": 42,
+        "avgOpen": 19,
+        "avgMid": 46,
+        "avgEnd": 325,
+        "slowMoves": [
+          {
+            "moveNum": 35,
+            "secs": 1801
+          },
+          {
+            "moveNum": 38,
+            "secs": 1193
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/zachary/pamschool2026/round6.pgn",
+        "date": "2026.04.22",
+        "colour": "black",
+        "opponent": "Jain, Vihaan",
+        "result": "1/2-1/2",
+        "totalMoves": 59,
+        "avgOpen": 9,
+        "avgMid": 158,
+        "avgEnd": 89,
+        "slowMoves": [
+          {
+            "moveNum": 28,
+            "secs": 828
+          },
+          {
+            "moveNum": 53,
+            "secs": 661
+          },
+          {
+            "moveNum": 19,
+            "secs": 580
+          },
+          {
+            "moveNum": 14,
+            "secs": 354
+          },
+          {
+            "moveNum": 59,
+            "secs": 354
+          }
+        ],
+        "panicAtMove": 54,
+        "panicRemaining": 554
+      },
+      {
+        "file": "opponents/zachary/pamschool2026/round8.pgn",
+        "date": "2026.05.16",
+        "colour": "white",
+        "opponent": "Ayala Delgado, Sergio Alejandro",
+        "result": "*",
+        "totalMoves": 19,
+        "avgOpen": 39,
+        "avgMid": 187,
+        "avgEnd": 0,
+        "slowMoves": [
+          {
+            "moveNum": 18,
+            "secs": 656
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/zachary/pamschool2026/round9.pgn",
+        "date": "2026.05.17",
+        "colour": "black",
+        "opponent": "Vuyyuru, Shriyan",
+        "result": "1/2-1/2",
+        "totalMoves": 37,
+        "avgOpen": 86,
+        "avgMid": 117,
+        "avgEnd": 0,
+        "slowMoves": [
+          {
+            "moveNum": 10,
+            "secs": 434
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      }
+    ]
+  },
+  "heye": {
+    "player": "heye",
+    "gamesAnalyzed": 11,
+    "avgSecsPerMove": {
+      "opening": 41,
+      "middlegame": 148,
+      "endgame": 36
+    },
+    "topUncertaintyMoves": [
+      {
+        "move": 12,
+        "games": 3
+      },
+      {
+        "move": 17,
+        "games": 3
+      },
+      {
+        "move": 13,
+        "games": 2
+      },
+      {
+        "move": 14,
+        "games": 2
+      },
+      {
+        "move": 15,
+        "games": 2
+      },
+      {
+        "move": 16,
+        "games": 2
+      },
+      {
+        "move": 18,
+        "games": 2
+      },
+      {
+        "move": 19,
+        "games": 2
+      }
+    ],
+    "avgPanicMove": 39,
+    "games": [
+      {
+        "file": "opponents/heye/pam2026/round1.pgn",
+        "date": "2026.07.27",
+        "colour": "white",
+        "opponent": "Rincon Dimate, Justin Said",
+        "result": "1-0",
+        "totalMoves": 46,
+        "avgOpen": 33,
+        "avgMid": 57,
+        "avgEnd": 2,
+        "slowMoves": [
+          {
+            "moveNum": 18,
+            "secs": 379
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/heye/pam2026/round2.pgn",
+        "date": "2026.07.27",
+        "colour": "black",
+        "opponent": "Murcia, Leonardo Adrian",
+        "result": "0-1",
+        "totalMoves": 48,
+        "avgOpen": 32,
+        "avgMid": 181,
+        "avgEnd": 22,
+        "slowMoves": [
+          {
+            "moveNum": 16,
+            "secs": 974
+          },
+          {
+            "moveNum": 27,
+            "secs": 427
+          },
+          {
+            "moveNum": 28,
+            "secs": 380
+          },
+          {
+            "moveNum": 23,
+            "secs": 320
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/heye/pam2026/round3.pgn",
+        "date": "2026.07.28",
+        "colour": "white",
+        "opponent": "Ramirez Villegas, Nicolas David",
+        "result": "1-0",
+        "totalMoves": 39,
+        "avgOpen": 34,
+        "avgMid": 62,
+        "avgEnd": 60,
+        "slowMoves": [
+          {
+            "moveNum": 12,
+            "secs": 714
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/heye/pam2026/round4.pgn",
+        "date": "2026.07.29",
+        "colour": "black",
+        "opponent": "Jackson, Leo Daniel Olivera",
+        "result": "0-1",
+        "totalMoves": 57,
+        "avgOpen": 62,
+        "avgMid": 153,
+        "avgEnd": 61,
+        "slowMoves": [
+          {
+            "moveNum": 41,
+            "secs": 876
+          },
+          {
+            "moveNum": 12,
+            "secs": 721
+          },
+          {
+            "moveNum": 13,
+            "secs": 466
+          },
+          {
+            "moveNum": 32,
+            "secs": 413
+          },
+          {
+            "moveNum": 10,
+            "secs": 328
+          }
+        ],
+        "panicAtMove": 41,
+        "panicRemaining": 140
+      },
+      {
+        "file": "opponents/heye/pam2026/round5.pgn",
+        "date": "2026.07.29",
+        "colour": "black",
+        "opponent": "Ajith, Aarush",
+        "result": "0-1",
+        "totalMoves": 31,
+        "avgOpen": 77,
+        "avgMid": 88,
+        "avgEnd": 0,
+        "slowMoves": [
+          {
+            "moveNum": 14,
+            "secs": 687
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/heye/pam2026/round6.pgn",
+        "date": "2026.07.25",
+        "colour": "white",
+        "opponent": "Sen, Samant Robert",
+        "result": "1-0",
+        "totalMoves": 40,
+        "avgOpen": 34,
+        "avgMid": 242,
+        "avgEnd": 0,
+        "slowMoves": [
+          {
+            "moveNum": 21,
+            "secs": 1230
+          },
+          {
+            "moveNum": 26,
+            "secs": 822
+          },
+          {
+            "moveNum": 18,
+            "secs": 566
+          },
+          {
+            "moveNum": 19,
+            "secs": 550
+          },
+          {
+            "moveNum": 15,
+            "secs": 463
+          }
+        ],
+        "panicAtMove": 29,
+        "panicRemaining": 305
+      },
+      {
+        "file": "opponents/heye/pam2026/round7.pgn",
+        "date": "2026.07.25",
+        "colour": "black",
+        "opponent": "Diaz Guerrero, Jesus Daniel",
+        "result": "1-0",
+        "totalMoves": 30,
+        "avgOpen": 54,
+        "avgMid": 226,
+        "avgEnd": 0,
+        "slowMoves": [
+          {
+            "moveNum": 22,
+            "secs": 1305
+          },
+          {
+            "moveNum": 25,
+            "secs": 503
+          },
+          {
+            "moveNum": 17,
+            "secs": 484
+          },
+          {
+            "moveNum": 13,
+            "secs": 399
+          },
+          {
+            "moveNum": 14,
+            "secs": 351
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/heye/pam2026/round8.pgn",
+        "date": "2026.07.31",
+        "colour": "white",
+        "opponent": "Simbler, Facundo",
+        "result": "1-0",
+        "totalMoves": 37,
+        "avgOpen": 40,
+        "avgMid": 105,
+        "avgEnd": 4,
+        "slowMoves": [
+          {
+            "moveNum": 17,
+            "secs": 477
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/heye/pam2026/round9.pgn",
+        "date": "2026.07.25",
+        "colour": "black",
+        "opponent": "Rodriguez, William Nicolas",
+        "result": "1-0",
+        "totalMoves": 36,
+        "avgOpen": 14,
+        "avgMid": 167,
+        "avgEnd": 76,
+        "slowMoves": [
+          {
+            "moveNum": 22,
+            "secs": 612
+          },
+          {
+            "moveNum": 28,
+            "secs": 582
+          },
+          {
+            "moveNum": 23,
+            "secs": 472
+          },
+          {
+            "moveNum": 19,
+            "secs": 365
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/heye/torontopen2026/round2.pgn",
+        "date": "2026.09.05",
+        "colour": "white",
+        "opponent": "Wu, Nolan",
+        "result": "1/2-1/2",
+        "totalMoves": 58,
+        "avgOpen": 8,
+        "avgMid": 147,
+        "avgEnd": 34,
+        "slowMoves": [
+          {
+            "moveNum": 29,
+            "secs": 1111
+          },
+          {
+            "moveNum": 25,
+            "secs": 1047
+          },
+          {
+            "moveNum": 52,
+            "secs": 634
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/heye/torontopen2026/round3.pgn",
+        "date": "2026.09.06",
+        "colour": "black",
+        "opponent": "Lu, Tony",
+        "result": "1-0",
+        "totalMoves": 69,
+        "avgOpen": 60,
+        "avgMid": 195,
+        "avgEnd": 32,
+        "slowMoves": [
+          {
+            "moveNum": 15,
+            "secs": 510
+          },
+          {
+            "moveNum": 17,
+            "secs": 469
+          },
+          {
+            "moveNum": 12,
+            "secs": 426
+          },
+          {
+            "moveNum": 16,
+            "secs": 420
+          }
+        ],
+        "panicAtMove": 46,
+        "panicRemaining": 513
+      }
+    ]
+  },
+  "justin": {
+    "player": "justin",
+    "gamesAnalyzed": 8,
+    "avgSecsPerMove": {
+      "opening": 136,
+      "middlegame": 197,
+      "endgame": 24
+    },
+    "topUncertaintyMoves": [
+      {
+        "move": 17,
+        "games": 4
+      },
+      {
+        "move": 8,
+        "games": 3
+      },
+      {
+        "move": 14,
+        "games": 3
+      },
+      {
+        "move": 7,
+        "games": 2
+      },
+      {
+        "move": 9,
+        "games": 2
+      },
+      {
+        "move": 11,
+        "games": 2
+      },
+      {
+        "move": 15,
+        "games": 2
+      },
+      {
+        "move": 18,
+        "games": 2
+      }
+    ],
+    "avgPanicMove": 33,
+    "games": [
+      {
+        "file": "opponents/justin/pam2026/round1.pgn",
+        "date": "2026.07.27",
+        "colour": "black",
+        "opponent": "Lau, Jacek",
+        "result": "0-1",
+        "totalMoves": 42,
+        "avgOpen": 332,
+        "avgMid": 106,
+        "avgEnd": 7,
+        "slowMoves": [
+          {
+            "moveNum": 11,
+            "secs": 1155
+          },
+          {
+            "moveNum": 8,
+            "secs": 1044
+          },
+          {
+            "moveNum": 14,
+            "secs": 777
+          },
+          {
+            "moveNum": 18,
+            "secs": 628
+          },
+          {
+            "moveNum": 7,
+            "secs": 391
+          }
+        ],
+        "panicAtMove": 18,
+        "panicRemaining": 445
+      },
+      {
+        "file": "opponents/justin/pamschool2026/round4.pgn",
+        "date": "2026.05.14",
+        "colour": "white",
+        "opponent": "Tobar Beltran, Miguel Angel",
+        "result": "1-0",
+        "totalMoves": 80,
+        "avgOpen": 99,
+        "avgMid": 181,
+        "avgEnd": 22,
+        "slowMoves": [
+          {
+            "moveNum": 17,
+            "secs": 788
+          },
+          {
+            "moveNum": 19,
+            "secs": 714
+          },
+          {
+            "moveNum": 18,
+            "secs": 574
+          },
+          {
+            "moveNum": 8,
+            "secs": 538
+          }
+        ],
+        "panicAtMove": 35,
+        "panicRemaining": 504
+      },
+      {
+        "file": "opponents/justin/pamschool2026/round5.pgn",
+        "date": "2026.05.14",
+        "colour": "black",
+        "opponent": "Bernal Martinez, Elias Isidro",
+        "result": "1/2-1/2",
+        "totalMoves": 74,
+        "avgOpen": 111,
+        "avgMid": 107,
+        "avgEnd": 58,
+        "slowMoves": [
+          {
+            "moveNum": 44,
+            "secs": 475
+          },
+          {
+            "moveNum": 32,
+            "secs": 403
+          },
+          {
+            "moveNum": 20,
+            "secs": 391
+          },
+          {
+            "moveNum": 17,
+            "secs": 359
+          },
+          {
+            "moveNum": 43,
+            "secs": 329
+          }
+        ],
+        "panicAtMove": 44,
+        "panicRemaining": 331
+      },
+      {
+        "file": "opponents/justin/pamschool2026/round6.pgn",
+        "date": "2026.05.15",
+        "colour": "white",
+        "opponent": "Vuyyuru, Shriyan",
+        "result": "*",
+        "totalMoves": 98,
+        "avgOpen": 72,
+        "avgMid": 220,
+        "avgEnd": 14,
+        "slowMoves": [
+          {
+            "moveNum": 16,
+            "secs": 694
+          },
+          {
+            "moveNum": 17,
+            "secs": 470
+          },
+          {
+            "moveNum": 27,
+            "secs": 431
+          },
+          {
+            "moveNum": 14,
+            "secs": 397
+          },
+          {
+            "moveNum": 15,
+            "secs": 381
+          }
+        ],
+        "panicAtMove": 27,
+        "panicRemaining": 517
+      },
+      {
+        "file": "opponents/justin/pamschool2026/round7.pgn",
+        "date": "2026.05.16",
+        "colour": "white",
+        "opponent": "Yu, Vincent Zhiwen",
+        "result": "*",
+        "totalMoves": 15,
+        "avgOpen": 121,
+        "avgMid": 391,
+        "avgEnd": 0,
+        "slowMoves": [
+          {
+            "moveNum": 14,
+            "secs": 939
+          },
+          {
+            "moveNum": 9,
+            "secs": 518
+          },
+          {
+            "moveNum": 10,
+            "secs": 369
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/justin/torontoopen2026/round2.pgn",
+        "date": "2026.07.27",
+        "colour": "white",
+        "opponent": "Preotu, Razvan",
+        "result": "0-1",
+        "totalMoves": 41,
+        "avgOpen": 118,
+        "avgMid": 217,
+        "avgEnd": 8,
+        "slowMoves": [
+          {
+            "moveNum": 15,
+            "secs": 933
+          },
+          {
+            "moveNum": 12,
+            "secs": 906
+          },
+          {
+            "moveNum": 7,
+            "secs": 840
+          },
+          {
+            "moveNum": 27,
+            "secs": 387
+          },
+          {
+            "moveNum": 21,
+            "secs": 358
+          }
+        ],
+        "panicAtMove": 28,
+        "panicRemaining": 597
+      },
+      {
+        "file": "opponents/justin/torontoopen2026/round4.pgn",
+        "date": "2026.09.06",
+        "colour": "black",
+        "opponent": "Achyuth, Akshaj",
+        "result": "1/2-1/2",
+        "totalMoves": 57,
+        "avgOpen": 101,
+        "avgMid": 220,
+        "avgEnd": 47,
+        "slowMoves": [
+          {
+            "moveNum": 21,
+            "secs": 902
+          },
+          {
+            "moveNum": 19,
+            "secs": 559
+          },
+          {
+            "moveNum": 28,
+            "secs": 523
+          },
+          {
+            "moveNum": 44,
+            "secs": 466
+          },
+          {
+            "moveNum": 26,
+            "secs": 403
+          }
+        ],
+        "panicAtMove": 43,
+        "panicRemaining": 588
+      },
+      {
+        "file": "opponents/justin/torontoopen2026/round5.pgn",
+        "date": "2026.09.07",
+        "colour": "white",
+        "opponent": "Wang, Nathan Zian",
+        "result": "1-0",
+        "totalMoves": 38,
+        "avgOpen": 135,
+        "avgMid": 130,
+        "avgEnd": 11,
+        "slowMoves": [
+          {
+            "moveNum": 17,
+            "secs": 761
+          },
+          {
+            "moveNum": 11,
+            "secs": 467
+          },
+          {
+            "moveNum": 8,
+            "secs": 353
+          },
+          {
+            "moveNum": 24,
+            "secs": 302
+          },
+          {
+            "moveNum": 9,
+            "secs": 301
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      }
+    ]
+  },
+  "aarush": {
+    "player": "aarush",
+    "gamesAnalyzed": 8,
+    "avgSecsPerMove": {
+      "opening": 131,
+      "middlegame": 168,
+      "endgame": 41
+    },
+    "topUncertaintyMoves": [
+      {
+        "move": 12,
+        "games": 5
+      },
+      {
+        "move": 17,
+        "games": 4
+      },
+      {
+        "move": 18,
+        "games": 4
+      },
+      {
+        "move": 8,
+        "games": 2
+      },
+      {
+        "move": 9,
+        "games": 2
+      },
+      {
+        "move": 10,
+        "games": 2
+      },
+      {
+        "move": 15,
+        "games": 2
+      },
+      {
+        "move": 16,
+        "games": 2
+      }
+    ],
+    "avgPanicMove": 28,
+    "games": [
+      {
+        "file": "opponents/aarush/pam2026/round3.pgn",
+        "date": "2026.07.28",
+        "colour": "black",
+        "opponent": "Otalvaro Vasquez, Camilo Andres",
+        "result": "0-1",
+        "totalMoves": 37,
+        "avgOpen": 4,
+        "avgMid": 174,
+        "avgEnd": 15,
+        "slowMoves": [
+          {
+            "moveNum": 22,
+            "secs": 566
+          },
+          {
+            "moveNum": 18,
+            "secs": 484
+          },
+          {
+            "moveNum": 26,
+            "secs": 472
+          },
+          {
+            "moveNum": 17,
+            "secs": 398
+          },
+          {
+            "moveNum": 20,
+            "secs": 384
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/aarush/pam2026/round4.pgn",
+        "date": "2026.07.29",
+        "colour": "black",
+        "opponent": "Ayala Delgado, Sergio Alejandro",
+        "result": "0-1",
+        "totalMoves": 45,
+        "avgOpen": 161,
+        "avgMid": 192,
+        "avgEnd": 4,
+        "slowMoves": [
+          {
+            "moveNum": 12,
+            "secs": 1585
+          },
+          {
+            "moveNum": 24,
+            "secs": 386
+          },
+          {
+            "moveNum": 18,
+            "secs": 358
+          },
+          {
+            "moveNum": 11,
+            "secs": 348
+          },
+          {
+            "moveNum": 15,
+            "secs": 323
+          }
+        ],
+        "panicAtMove": 23,
+        "panicRemaining": 573
+      },
+      {
+        "file": "opponents/aarush/pam2026/round5.pgn",
+        "date": "2026.07.29",
+        "colour": "white",
+        "opponent": "Gao, Heye",
+        "result": "0-1",
+        "totalMoves": 31,
+        "avgOpen": 250,
+        "avgMid": 118,
+        "avgEnd": 0,
+        "slowMoves": [
+          {
+            "moveNum": 7,
+            "secs": 929
+          },
+          {
+            "moveNum": 8,
+            "secs": 694
+          },
+          {
+            "moveNum": 9,
+            "secs": 619
+          },
+          {
+            "moveNum": 12,
+            "secs": 555
+          },
+          {
+            "moveNum": 15,
+            "secs": 396
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/aarush/pam2026/round6.pgn",
+        "date": "2026.07.30",
+        "colour": "white",
+        "opponent": "Delgado Gutierrez, Mateo",
+        "result": "0-1",
+        "totalMoves": 50,
+        "avgOpen": 88,
+        "avgMid": 220,
+        "avgEnd": 17,
+        "slowMoves": [
+          {
+            "moveNum": 18,
+            "secs": 686
+          },
+          {
+            "moveNum": 12,
+            "secs": 639
+          },
+          {
+            "moveNum": 14,
+            "secs": 622
+          },
+          {
+            "moveNum": 21,
+            "secs": 570
+          },
+          {
+            "moveNum": 10,
+            "secs": 474
+          }
+        ],
+        "panicAtMove": 28,
+        "panicRemaining": 408
+      },
+      {
+        "file": "opponents/aarush/pam2026/round8.pgn",
+        "date": "2026.07.31",
+        "colour": "white",
+        "opponent": "Fernandez Herrera, Andres",
+        "result": "0-1",
+        "totalMoves": 54,
+        "avgOpen": 93,
+        "avgMid": 172,
+        "avgEnd": 52,
+        "slowMoves": [
+          {
+            "moveNum": 33,
+            "secs": 666
+          },
+          {
+            "moveNum": 21,
+            "secs": 522
+          },
+          {
+            "moveNum": 13,
+            "secs": 469
+          },
+          {
+            "moveNum": 29,
+            "secs": 452
+          },
+          {
+            "moveNum": 17,
+            "secs": 407
+          }
+        ],
+        "panicAtMove": 33,
+        "panicRemaining": 401
+      },
+      {
+        "file": "opponents/aarush/pamschool2026/round2.pgn",
+        "date": "2026.05.12",
+        "colour": "white",
+        "opponent": "Liu, Zachary Hankun",
+        "result": "0-1",
+        "totalMoves": 39,
+        "avgOpen": 27,
+        "avgMid": 226,
+        "avgEnd": 96,
+        "slowMoves": [
+          {
+            "moveNum": 18,
+            "secs": 1359
+          },
+          {
+            "moveNum": 23,
+            "secs": 816
+          },
+          {
+            "moveNum": 12,
+            "secs": 533
+          },
+          {
+            "moveNum": 16,
+            "secs": 319
+          },
+          {
+            "moveNum": 17,
+            "secs": 309
+          }
+        ],
+        "panicAtMove": 33,
+        "panicRemaining": 370
+      },
+      {
+        "file": "opponents/aarush/pamschool2026/round8.pgn",
+        "date": "2026.05.16",
+        "colour": "black",
+        "opponent": "Espinosa Castaneda, Ronald Manuel",
+        "result": "0-1",
+        "totalMoves": 28,
+        "avgOpen": 42,
+        "avgMid": 165,
+        "avgEnd": 0,
+        "slowMoves": [
+          {
+            "moveNum": 16,
+            "secs": 721
+          },
+          {
+            "moveNum": 17,
+            "secs": 540
+          },
+          {
+            "moveNum": 12,
+            "secs": 477
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/aarush/torontoopen2026/round6.pgn",
+        "date": "2026.09.07",
+        "colour": "black",
+        "opponent": "Gao, Raymond",
+        "result": "1-0",
+        "totalMoves": 38,
+        "avgOpen": 385,
+        "avgMid": 79,
+        "avgEnd": 61,
+        "slowMoves": [
+          {
+            "moveNum": 9,
+            "secs": 1143
+          },
+          {
+            "moveNum": 10,
+            "secs": 867
+          },
+          {
+            "moveNum": 8,
+            "secs": 615
+          },
+          {
+            "moveNum": 4,
+            "secs": 433
+          },
+          {
+            "moveNum": 32,
+            "secs": 399
+          }
+        ],
+        "panicAtMove": 21,
+        "panicRemaining": 590
+      }
+    ]
+  },
+  "leo": {
+    "player": "leo",
+    "gamesAnalyzed": 4,
+    "avgSecsPerMove": {
+      "opening": 33,
+      "middlegame": 90,
+      "endgame": 25
+    },
+    "topUncertaintyMoves": [
+      {
+        "move": 15,
+        "games": 1
+      },
+      {
+        "move": 16,
+        "games": 1
+      },
+      {
+        "move": 18,
+        "games": 1
+      },
+      {
+        "move": 24,
+        "games": 1
+      },
+      {
+        "move": 50,
+        "games": 1
+      }
+    ],
+    "avgPanicMove": 48,
+    "games": [
+      {
+        "file": "opponents/leo/newgames.pgn",
+        "date": "2026.10.03",
+        "colour": "black",
+        "opponent": "Del Rosario Silva, Dexnisi",
+        "result": "0-1",
+        "totalMoves": 74,
+        "avgOpen": 51,
+        "avgMid": 74,
+        "avgEnd": 30,
+        "slowMoves": [
+          {
+            "moveNum": 50,
+            "secs": 328
+          },
+          {
+            "moveNum": 15,
+            "secs": 325
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/leo/newgames.pgn",
+        "date": "2026.10.03",
+        "colour": "black",
+        "opponent": "Ruiz Perez, Juan Octavio",
+        "result": "1-0",
+        "totalMoves": 30,
+        "avgOpen": 25,
+        "avgMid": 39,
+        "avgEnd": 0,
+        "slowMoves": [],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/leo/newgames.pgn",
+        "date": "2026.10.04",
+        "colour": "black",
+        "opponent": "Rodriguez Rivera, Pedro",
+        "result": "1/2-1/2",
+        "totalMoves": 64,
+        "avgOpen": 12,
+        "avgMid": 148,
+        "avgEnd": 23,
+        "slowMoves": [
+          {
+            "moveNum": 24,
+            "secs": 853
+          },
+          {
+            "moveNum": 16,
+            "secs": 561
+          }
+        ],
+        "panicAtMove": 45,
+        "panicRemaining": 487
+      },
+      {
+        "file": "opponents/leo/newgames.pgn",
+        "date": "2026.10.04",
+        "colour": "black",
+        "opponent": "Nipita Medina, Jesus Hassan",
+        "result": "0-1",
+        "totalMoves": 77,
+        "avgOpen": 42,
+        "avgMid": 98,
+        "avgEnd": 23,
+        "slowMoves": [
+          {
+            "moveNum": 18,
+            "secs": 416
+          }
+        ],
+        "panicAtMove": 51,
+        "panicRemaining": 593
+      }
+    ]
+  },
+  "fernando": {
+    "player": "fernando",
+    "gamesAnalyzed": 39,
+    "avgSecsPerMove": {
+      "opening": 58,
+      "middlegame": 115,
+      "endgame": 32
+    },
+    "topUncertaintyMoves": [
+      {
+        "move": 13,
+        "games": 8
+      },
+      {
+        "move": 15,
+        "games": 5
+      },
+      {
+        "move": 17,
+        "games": 5
+      },
+      {
+        "move": 5,
+        "games": 4
+      },
+      {
+        "move": 7,
+        "games": 4
+      },
+      {
+        "move": 12,
+        "games": 4
+      },
+      {
+        "move": 14,
+        "games": 4
+      },
+      {
+        "move": 22,
+        "games": 4
+      }
+    ],
+    "avgPanicMove": 32,
+    "games": [
+      {
+        "file": "opponents/fernando/ed-national/round1.pgn",
+        "date": "2026.08.04",
+        "colour": "black",
+        "opponent": "Cori, Jorge",
+        "result": "1-0",
+        "totalMoves": 68,
+        "avgOpen": 77,
+        "avgMid": 218,
+        "avgEnd": 17,
+        "slowMoves": [
+          {
+            "moveNum": 30,
+            "secs": 979
+          },
+          {
+            "moveNum": 25,
+            "secs": 774
+          },
+          {
+            "moveNum": 17,
+            "secs": 618
+          },
+          {
+            "moveNum": 22,
+            "secs": 320
+          }
+        ],
+        "panicAtMove": 30,
+        "panicRemaining": 446
+      },
+      {
+        "file": "opponents/fernando/fernando-all.pgn",
+        "date": "2026.08.04",
+        "colour": "black",
+        "opponent": "Cori, Jorge",
+        "result": "1-0",
+        "totalMoves": 68,
+        "avgOpen": 77,
+        "avgMid": 218,
+        "avgEnd": 17,
+        "slowMoves": [
+          {
+            "moveNum": 30,
+            "secs": 979
+          },
+          {
+            "moveNum": 25,
+            "secs": 774
+          },
+          {
+            "moveNum": 17,
+            "secs": 618
+          },
+          {
+            "moveNum": 22,
+            "secs": 320
+          }
+        ],
+        "panicAtMove": 30,
+        "panicRemaining": 446
+      },
+      {
+        "file": "opponents/fernando/fernando-all.pgn",
+        "date": "2026.08.09",
+        "colour": "black",
+        "opponent": "Paredes Guzman, Francisco Javier",
+        "result": "1-0",
+        "totalMoves": 32,
+        "avgOpen": 93,
+        "avgMid": 155,
+        "avgEnd": 0,
+        "slowMoves": [
+          {
+            "moveNum": 16,
+            "secs": 618
+          },
+          {
+            "moveNum": 15,
+            "secs": 570
+          },
+          {
+            "moveNum": 26,
+            "secs": 516
+          },
+          {
+            "moveNum": 17,
+            "secs": 439
+          },
+          {
+            "moveNum": 11,
+            "secs": 315
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/fernando-all.pgn",
+        "date": "2026.05.24",
+        "colour": "white",
+        "opponent": "Silva Valdes, Leonardo",
+        "result": "1-0",
+        "totalMoves": 34,
+        "avgOpen": 2,
+        "avgMid": 35,
+        "avgEnd": 63,
+        "slowMoves": [],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/fernando-all.pgn",
+        "date": "2026.05.24",
+        "colour": "black",
+        "opponent": "Valdez Lomeli, Nicolas",
+        "result": "1/2-1/2",
+        "totalMoves": 22,
+        "avgOpen": 7,
+        "avgMid": 36,
+        "avgEnd": 0,
+        "slowMoves": [],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/fernando-all.pgn",
+        "date": "2026.05.24",
+        "colour": "white",
+        "opponent": "Roque Aranda, Jeronimo",
+        "result": "1-0",
+        "totalMoves": 50,
+        "avgOpen": 7,
+        "avgMid": 33,
+        "avgEnd": 10,
+        "slowMoves": [],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/fernando-all.pgn",
+        "date": "2026.05.24",
+        "colour": "black",
+        "opponent": "Martinez Flores, Matias",
+        "result": "0-1",
+        "totalMoves": 53,
+        "avgOpen": 3,
+        "avgMid": 40,
+        "avgEnd": 4,
+        "slowMoves": [],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/fernando-all.pgn",
+        "date": "2026.05.24",
+        "colour": "white",
+        "opponent": "Alba Ruiz, Kenneth Damian",
+        "result": "0-1",
+        "totalMoves": 83,
+        "avgOpen": 2,
+        "avgMid": 30,
+        "avgEnd": 19,
+        "slowMoves": [
+          {
+            "moveNum": 36,
+            "secs": 623
+          }
+        ],
+        "panicAtMove": 36,
+        "panicRemaining": 292
+      },
+      {
+        "file": "opponents/fernando/fernando-all.pgn",
+        "date": "2026.05.25",
+        "colour": "black",
+        "opponent": "Leal Escamilla, Daniel Zinedine",
+        "result": "1-0",
+        "totalMoves": 50,
+        "avgOpen": 11,
+        "avgMid": 66,
+        "avgEnd": 6,
+        "slowMoves": [
+          {
+            "moveNum": 28,
+            "secs": 335
+          }
+        ],
+        "panicAtMove": 26,
+        "panicRemaining": 523
+      },
+      {
+        "file": "opponents/fernando/fernando-all.pgn",
+        "date": "2026.05.25",
+        "colour": "white",
+        "opponent": "Herrera Alonso, Isaac Emmanuel",
+        "result": "1/2-1/2",
+        "totalMoves": 33,
+        "avgOpen": 1,
+        "avgMid": 21,
+        "avgEnd": 125,
+        "slowMoves": [],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/fernando-all.pgn",
+        "date": "2026.05.12",
+        "colour": "black",
+        "opponent": "Farley, Jeremiah",
+        "result": "0-1",
+        "totalMoves": 16,
+        "avgOpen": 334,
+        "avgMid": 416,
+        "avgEnd": 0,
+        "slowMoves": [
+          {
+            "moveNum": 7,
+            "secs": 2492
+          },
+          {
+            "moveNum": 15,
+            "secs": 2082
+          },
+          {
+            "moveNum": 5,
+            "secs": 453
+          },
+          {
+            "moveNum": 4,
+            "secs": 338
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/fernando-all.pgn",
+        "date": "2026.05.12",
+        "colour": "white",
+        "opponent": "Wang, Darren",
+        "result": "1-0",
+        "totalMoves": 34,
+        "avgOpen": 34,
+        "avgMid": 83,
+        "avgEnd": 2,
+        "slowMoves": [],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/fernando-all.pgn",
+        "date": "2026.05.13",
+        "colour": "black",
+        "opponent": "Alba Ruiz, Kenneth Damian",
+        "result": "0-1",
+        "totalMoves": 72,
+        "avgOpen": 7,
+        "avgMid": 111,
+        "avgEnd": 48,
+        "slowMoves": [
+          {
+            "moveNum": 28,
+            "secs": 477
+          },
+          {
+            "moveNum": 57,
+            "secs": 339
+          },
+          {
+            "moveNum": 35,
+            "secs": 335
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/fernando-all.pgn",
+        "date": "2026.04.22",
+        "colour": "white",
+        "opponent": "Li, Aiden Linyuan",
+        "result": "1/2-1/2",
+        "totalMoves": 26,
+        "avgOpen": 20,
+        "avgMid": 59,
+        "avgEnd": 0,
+        "slowMoves": [],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/fernando-all.pgn",
+        "date": "2026.05.14",
+        "colour": "black",
+        "opponent": "Takahashi Guevara, Javier Kazuo",
+        "result": "0-1",
+        "totalMoves": 36,
+        "avgOpen": 60,
+        "avgMid": 260,
+        "avgEnd": 3,
+        "slowMoves": [
+          {
+            "moveNum": 13,
+            "secs": 1855
+          },
+          {
+            "moveNum": 17,
+            "secs": 754
+          },
+          {
+            "moveNum": 12,
+            "secs": 444
+          },
+          {
+            "moveNum": 18,
+            "secs": 434
+          },
+          {
+            "moveNum": 14,
+            "secs": 344
+          }
+        ],
+        "panicAtMove": 21,
+        "panicRemaining": 336
+      },
+      {
+        "file": "opponents/fernando/fernando-all.pgn",
+        "date": "2026.04.22",
+        "colour": "white",
+        "opponent": "Loayza Rivera, Bryan James",
+        "result": "0-1",
+        "totalMoves": 68,
+        "avgOpen": 75,
+        "avgMid": 206,
+        "avgEnd": 6,
+        "slowMoves": [
+          {
+            "moveNum": 16,
+            "secs": 634
+          },
+          {
+            "moveNum": 12,
+            "secs": 536
+          },
+          {
+            "moveNum": 31,
+            "secs": 478
+          },
+          {
+            "moveNum": 25,
+            "secs": 440
+          },
+          {
+            "moveNum": 13,
+            "secs": 426
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/fernando-all.pgn",
+        "date": "2026.05.16",
+        "colour": "black",
+        "opponent": "Xu, Zhihan (samuel)",
+        "result": "1/2-1/2",
+        "totalMoves": 27,
+        "avgOpen": 144,
+        "avgMid": 146,
+        "avgEnd": 0,
+        "slowMoves": [
+          {
+            "moveNum": 8,
+            "secs": 783
+          },
+          {
+            "moveNum": 24,
+            "secs": 773
+          },
+          {
+            "moveNum": 6,
+            "secs": 431
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/fernando-all.pgn",
+        "date": "2026.04.22",
+        "colour": "black",
+        "opponent": "Suresh, Barath Subramanian",
+        "result": "1/2-1/2",
+        "totalMoves": 76,
+        "avgOpen": 89,
+        "avgMid": 195,
+        "avgEnd": 27,
+        "slowMoves": [
+          {
+            "moveNum": 13,
+            "secs": 918
+          },
+          {
+            "moveNum": 14,
+            "secs": 679
+          },
+          {
+            "moveNum": 21,
+            "secs": 443
+          },
+          {
+            "moveNum": 19,
+            "secs": 391
+          },
+          {
+            "moveNum": 22,
+            "secs": 356
+          }
+        ],
+        "panicAtMove": 49,
+        "panicRemaining": 539
+      },
+      {
+        "file": "opponents/fernando/fernando-all.pgn",
+        "date": "2026.05.17",
+        "colour": "white",
+        "opponent": "Wang, Rocky",
+        "result": "1-0",
+        "totalMoves": 35,
+        "avgOpen": 186,
+        "avgMid": 119,
+        "avgEnd": 115,
+        "slowMoves": [
+          {
+            "moveNum": 13,
+            "secs": 685
+          },
+          {
+            "moveNum": 7,
+            "secs": 586
+          },
+          {
+            "moveNum": 32,
+            "secs": 460
+          },
+          {
+            "moveNum": 5,
+            "secs": 409
+          },
+          {
+            "moveNum": 15,
+            "secs": 394
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/fernando-all.pgn",
+        "date": "2026.04.22",
+        "colour": "white",
+        "opponent": "Li, Aiden Linyuan",
+        "result": "1/2-1/2",
+        "totalMoves": 26,
+        "avgOpen": 20,
+        "avgMid": 59,
+        "avgEnd": 0,
+        "slowMoves": [],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/fernando-all.pgn",
+        "date": "2026.05.24",
+        "colour": "black",
+        "opponent": "Martinez Flores, Matias",
+        "result": "0-1",
+        "totalMoves": 53,
+        "avgOpen": 3,
+        "avgMid": 40,
+        "avgEnd": 4,
+        "slowMoves": [],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/olypianational2026/round1.pgn",
+        "date": "2026.05.24",
+        "colour": "white",
+        "opponent": "Silva Valdes, Leonardo",
+        "result": "1-0",
+        "totalMoves": 34,
+        "avgOpen": 2,
+        "avgMid": 35,
+        "avgEnd": 63,
+        "slowMoves": [],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/olypianational2026/round2.pgn",
+        "date": "2026.05.24",
+        "colour": "black",
+        "opponent": "Valdez Lomeli, Nicolas",
+        "result": "1/2-1/2",
+        "totalMoves": 22,
+        "avgOpen": 7,
+        "avgMid": 36,
+        "avgEnd": 0,
+        "slowMoves": [],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/olypianational2026/round3.pgn",
+        "date": "2026.05.24",
+        "colour": "white",
+        "opponent": "Roque Aranda, Jeronimo",
+        "result": "1-0",
+        "totalMoves": 50,
+        "avgOpen": 7,
+        "avgMid": 33,
+        "avgEnd": 10,
+        "slowMoves": [],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/olypianational2026/round4.pgn",
+        "date": "2026.05.24",
+        "colour": "black",
+        "opponent": "Martinez Flores, Matias",
+        "result": "0-1",
+        "totalMoves": 53,
+        "avgOpen": 3,
+        "avgMid": 40,
+        "avgEnd": 4,
+        "slowMoves": [],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/olypianational2026/round5.pgn",
+        "date": "2026.05.24",
+        "colour": "white",
+        "opponent": "Alba Ruiz, Kenneth Damian",
+        "result": "0-1",
+        "totalMoves": 83,
+        "avgOpen": 2,
+        "avgMid": 30,
+        "avgEnd": 19,
+        "slowMoves": [
+          {
+            "moveNum": 36,
+            "secs": 623
+          }
+        ],
+        "panicAtMove": 36,
+        "panicRemaining": 292
+      },
+      {
+        "file": "opponents/fernando/olypianational2026/round6.pgn",
+        "date": "2026.05.25",
+        "colour": "black",
+        "opponent": "Leal Escamilla, Daniel Zinedine",
+        "result": "1-0",
+        "totalMoves": 50,
+        "avgOpen": 11,
+        "avgMid": 66,
+        "avgEnd": 6,
+        "slowMoves": [
+          {
+            "moveNum": 28,
+            "secs": 335
+          }
+        ],
+        "panicAtMove": 26,
+        "panicRemaining": 523
+      },
+      {
+        "file": "opponents/fernando/olypianational2026/round7.pgn",
+        "date": "2026.05.25",
+        "colour": "white",
+        "opponent": "Herrera Alonso, Isaac Emmanuel",
+        "result": "1/2-1/2",
+        "totalMoves": 33,
+        "avgOpen": 1,
+        "avgMid": 21,
+        "avgEnd": 125,
+        "slowMoves": [],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/pamschool2026/round1.pgn",
+        "date": "2026.05.12",
+        "colour": "black",
+        "opponent": "Farley, Jeremiah",
+        "result": "0-1",
+        "totalMoves": 16,
+        "avgOpen": 334,
+        "avgMid": 416,
+        "avgEnd": 0,
+        "slowMoves": [
+          {
+            "moveNum": 7,
+            "secs": 2492
+          },
+          {
+            "moveNum": 15,
+            "secs": 2082
+          },
+          {
+            "moveNum": 5,
+            "secs": 453
+          },
+          {
+            "moveNum": 4,
+            "secs": 338
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/pamschool2026/round2.pgn",
+        "date": "2026.05.12",
+        "colour": "white",
+        "opponent": "Wang, Darren",
+        "result": "1-0",
+        "totalMoves": 34,
+        "avgOpen": 34,
+        "avgMid": 83,
+        "avgEnd": 2,
+        "slowMoves": [],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/pamschool2026/round3.pgn",
+        "date": "2026.05.13",
+        "colour": "black",
+        "opponent": "Alba Ruiz, Kenneth Damian",
+        "result": "0-1",
+        "totalMoves": 72,
+        "avgOpen": 7,
+        "avgMid": 111,
+        "avgEnd": 48,
+        "slowMoves": [
+          {
+            "moveNum": 28,
+            "secs": 477
+          },
+          {
+            "moveNum": 57,
+            "secs": 339
+          },
+          {
+            "moveNum": 35,
+            "secs": 335
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/pamschool2026/round4.pgn",
+        "date": "2026.04.22",
+        "colour": "white",
+        "opponent": "Li, Aiden Linyuan",
+        "result": "1/2-1/2",
+        "totalMoves": 26,
+        "avgOpen": 20,
+        "avgMid": 59,
+        "avgEnd": 0,
+        "slowMoves": [],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/pamschool2026/round5.pgn",
+        "date": "2026.05.14",
+        "colour": "black",
+        "opponent": "Takahashi Guevara, Javier Kazuo",
+        "result": "0-1",
+        "totalMoves": 36,
+        "avgOpen": 60,
+        "avgMid": 260,
+        "avgEnd": 3,
+        "slowMoves": [
+          {
+            "moveNum": 13,
+            "secs": 1855
+          },
+          {
+            "moveNum": 17,
+            "secs": 754
+          },
+          {
+            "moveNum": 12,
+            "secs": 444
+          },
+          {
+            "moveNum": 18,
+            "secs": 434
+          },
+          {
+            "moveNum": 14,
+            "secs": 344
+          }
+        ],
+        "panicAtMove": 21,
+        "panicRemaining": 336
+      },
+      {
+        "file": "opponents/fernando/pamschool2026/round6.pgn",
+        "date": "2026.04.22",
+        "colour": "white",
+        "opponent": "Loayza Rivera, Bryan James",
+        "result": "0-1",
+        "totalMoves": 68,
+        "avgOpen": 75,
+        "avgMid": 206,
+        "avgEnd": 6,
+        "slowMoves": [
+          {
+            "moveNum": 16,
+            "secs": 634
+          },
+          {
+            "moveNum": 12,
+            "secs": 536
+          },
+          {
+            "moveNum": 31,
+            "secs": 478
+          },
+          {
+            "moveNum": 25,
+            "secs": 440
+          },
+          {
+            "moveNum": 13,
+            "secs": 426
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/pamschool2026/round7.pgn",
+        "date": "2026.05.16",
+        "colour": "black",
+        "opponent": "Xu, Zhihan (samuel)",
+        "result": "1/2-1/2",
+        "totalMoves": 27,
+        "avgOpen": 144,
+        "avgMid": 146,
+        "avgEnd": 0,
+        "slowMoves": [
+          {
+            "moveNum": 8,
+            "secs": 783
+          },
+          {
+            "moveNum": 24,
+            "secs": 773
+          },
+          {
+            "moveNum": 6,
+            "secs": 431
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/pamschool2026/round8.pgn",
+        "date": "2026.04.22",
+        "colour": "black",
+        "opponent": "Suresh, Barath Subramanian",
+        "result": "1/2-1/2",
+        "totalMoves": 76,
+        "avgOpen": 89,
+        "avgMid": 195,
+        "avgEnd": 27,
+        "slowMoves": [
+          {
+            "moveNum": 13,
+            "secs": 918
+          },
+          {
+            "moveNum": 14,
+            "secs": 679
+          },
+          {
+            "moveNum": 21,
+            "secs": 443
+          },
+          {
+            "moveNum": 19,
+            "secs": 391
+          },
+          {
+            "moveNum": 22,
+            "secs": 356
+          }
+        ],
+        "panicAtMove": 49,
+        "panicRemaining": 539
+      },
+      {
+        "file": "opponents/fernando/pamschool2026/round9.pgn",
+        "date": "2026.05.17",
+        "colour": "white",
+        "opponent": "Wang, Rocky",
+        "result": "1-0",
+        "totalMoves": 35,
+        "avgOpen": 186,
+        "avgMid": 119,
+        "avgEnd": 115,
+        "slowMoves": [
+          {
+            "moveNum": 13,
+            "secs": 685
+          },
+          {
+            "moveNum": 7,
+            "secs": 586
+          },
+          {
+            "moveNum": 32,
+            "secs": 460
+          },
+          {
+            "moveNum": 5,
+            "secs": 409
+          },
+          {
+            "moveNum": 15,
+            "secs": 394
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/representative-games.pgn",
+        "date": "2026.04.22",
+        "colour": "white",
+        "opponent": "Li, Aiden Linyuan",
+        "result": "1/2-1/2",
+        "totalMoves": 26,
+        "avgOpen": 20,
+        "avgMid": 59,
+        "avgEnd": 0,
+        "slowMoves": [],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/fernando/representative-games.pgn",
+        "date": "2026.05.24",
+        "colour": "black",
+        "opponent": "Martinez Flores, Matias",
+        "result": "0-1",
+        "totalMoves": 53,
+        "avgOpen": 3,
+        "avgMid": 40,
+        "avgEnd": 4,
+        "slowMoves": [],
+        "panicAtMove": null,
+        "panicRemaining": null
+      }
+    ]
+  },
+  "pranav": {
+    "player": "pranav",
+    "gamesAnalyzed": 6,
+    "avgSecsPerMove": {
+      "opening": 41,
+      "middlegame": 419,
+      "endgame": 16
+    },
+    "topUncertaintyMoves": [
+      {
+        "move": 14,
+        "games": 3
+      },
+      {
+        "move": 12,
+        "games": 2
+      },
+      {
+        "move": 13,
+        "games": 2
+      },
+      {
+        "move": 15,
+        "games": 2
+      },
+      {
+        "move": 16,
+        "games": 2
+      },
+      {
+        "move": 18,
+        "games": 2
+      },
+      {
+        "move": 19,
+        "games": 2
+      },
+      {
+        "move": 22,
+        "games": 2
+      }
+    ],
+    "avgPanicMove": null,
+    "games": [
+      {
+        "file": "opponents/pranav/agcasummer2026/round3.pgn",
+        "date": "2026.06.06",
+        "colour": "white",
+        "opponent": "Thomas, Michael D",
+        "result": "*",
+        "totalMoves": 33,
+        "avgOpen": 18,
+        "avgMid": 158,
+        "avgEnd": 24,
+        "slowMoves": [
+          {
+            "moveNum": 12,
+            "secs": 561
+          },
+          {
+            "moveNum": 26,
+            "secs": 435
+          },
+          {
+            "moveNum": 19,
+            "secs": 399
+          },
+          {
+            "moveNum": 22,
+            "secs": 392
+          },
+          {
+            "moveNum": 17,
+            "secs": 342
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/pranav/agcasummer2026/round4.pgn",
+        "date": "2026.06.07",
+        "colour": "black",
+        "opponent": "Lonie, Chase Rugby",
+        "result": "1/2-1/2",
+        "totalMoves": 30,
+        "avgOpen": 140,
+        "avgMid": 178,
+        "avgEnd": 0,
+        "slowMoves": [
+          {
+            "moveNum": 10,
+            "secs": 776
+          },
+          {
+            "moveNum": 13,
+            "secs": 691
+          },
+          {
+            "moveNum": 15,
+            "secs": 661
+          },
+          {
+            "moveNum": 12,
+            "secs": 546
+          },
+          {
+            "moveNum": 14,
+            "secs": 425
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/pranav/agcasummer2026/round5.pgn",
+        "date": "2026.06.07",
+        "colour": "white",
+        "opponent": "Maddipati, Srihas",
+        "result": "1-0",
+        "totalMoves": 14,
+        "avgOpen": 7,
+        "avgMid": 742,
+        "avgEnd": 0,
+        "slowMoves": [
+          {
+            "moveNum": 14,
+            "secs": 1784
+          },
+          {
+            "moveNum": 13,
+            "secs": 441
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/pranav/agcasummer2026/round6.pgn",
+        "date": "2026.06.08",
+        "colour": "white",
+        "opponent": "Li, Rachael",
+        "result": "*",
+        "totalMoves": 27,
+        "avgOpen": 35,
+        "avgMid": 192,
+        "avgEnd": 0,
+        "slowMoves": [
+          {
+            "moveNum": 18,
+            "secs": 800
+          },
+          {
+            "moveNum": 14,
+            "secs": 466
+          },
+          {
+            "moveNum": 16,
+            "secs": 302
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/pranav/agcasummer2026/round7.pgn",
+        "date": "2026.06.08",
+        "colour": "black",
+        "opponent": "Kaliyur, Rohith",
+        "result": "*",
+        "totalMoves": 24,
+        "avgOpen": 26,
+        "avgMid": 833,
+        "avgEnd": 0,
+        "slowMoves": [
+          {
+            "moveNum": 16,
+            "secs": 4151
+          },
+          {
+            "moveNum": 19,
+            "secs": 3580
+          },
+          {
+            "moveNum": 22,
+            "secs": 1549
+          },
+          {
+            "moveNum": 18,
+            "secs": 654
+          },
+          {
+            "moveNum": 24,
+            "secs": 629
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      },
+      {
+        "file": "opponents/pranav/agcasummer2026/round9.pgn",
+        "date": "2026.06.09",
+        "colour": "white",
+        "opponent": "Padmanabhan, Akshay",
+        "result": "0-1",
+        "totalMoves": 39,
+        "avgOpen": 20,
+        "avgMid": 410,
+        "avgEnd": 8,
+        "slowMoves": [
+          {
+            "moveNum": 15,
+            "secs": 3866
+          },
+          {
+            "moveNum": 24,
+            "secs": 2283
+          },
+          {
+            "moveNum": 25,
+            "secs": 524
+          },
+          {
+            "moveNum": 26,
+            "secs": 488
+          },
+          {
+            "moveNum": 23,
+            "secs": 351
+          }
+        ],
+        "panicAtMove": null,
+        "panicRemaining": null
+      }
+    ]
+  }
+}
