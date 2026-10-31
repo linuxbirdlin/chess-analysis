@@ -52,7 +52,7 @@ const TOURNAMENTS = [
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 const SF_DEPTH   = parseInt(process.env.SF_DEPTH   || '18', 10);
-const SF_THREADS = parseInt(process.env.SF_THREADS || '2',  10);
+const SF_THREADS = parseInt(process.env.SF_THREADS || '16', 10);
 
 const INACCURACY_CPL = 50;
 const MISTAKE_CPL    = 150;
