@@ -177,13 +177,11 @@ class StockfishEngine {
     let pv1uci = null;
 
     this.send(`position fen ${fen}`);
-    this.send(`go depth ${SF_DEPTH}`);
+    this.send(`go movetime ${SF_MOVETIME}`);
 
     await this.waitFor(
       line => line.startsWith('bestmove'),
       line => {
-        const depthM = line.match(/\bdepth (\d+)\b/);
-        if (!depthM || parseInt(depthM[1]) !== SF_DEPTH) return;
         if (line.includes('lowerbound') || line.includes('upperbound')) return;
         const cpM   = line.match(/score cp (-?\d+)/);
         const mateM = line.match(/score mate (-?\d+)/);
