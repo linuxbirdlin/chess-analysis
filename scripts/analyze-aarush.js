@@ -26,7 +26,10 @@ const { Chess }     = require('chess.js');
 
 // ─── Paths ────────────────────────────────────────────────────────────────────
 const ROOT         = path.resolve(__dirname, '..');
-const RESULTS_FILE = path.join(__dirname, 'aarush-analysis-results.json');
+const SF_MOVETIME  = parseInt(process.env.SF_MOVETIME || '800', 10);
+const RESULTS_FILE = SF_MOVETIME > 800
+  ? path.join(__dirname, 'aarush-analysis-results-deep.json')
+  : path.join(__dirname, 'aarush-analysis-results.json');
 
 const TOURNAMENTS = [
   {
