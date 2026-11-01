@@ -2,7 +2,7 @@
 
 ## Background
 
-Leo Daniel Olivera Jackson is a junior player based in the Americas, competing at international youth events (Pan American, World U12, North American U20, American Continental, and NAYCC 2026). He is currently rated approximately **2077 FIDE** (estimated post-Queretaro Oct 2026; was 2009 at PAM entry, 1886 at Am Continental Jun 2026). His rating trajectory — 1731 → 1886 → 2009 → ~2077 in under a year — marks him as one of the fastest-improving players in the NAYCC 2026 U14 field.
+Leo Daniel Olivera Jackson is a junior player based in the Americas, competing at international youth events (Pan American, World U12, North American U20, American Continental, and NAYCC 2026). He is currently rated **2081 FIDE** (Nov 2026; was 2009 at PAM entry, 1886 at Am Continental Jun 2026). His rating trajectory — 1731 → 1886 → 2009 → 2081 in under a year — marks him as one of the fastest-improving players in the NAYCC 2026 U14 field.
 
 The dataset now contains **60 games** across 10 tournaments and 3 time controls (PAM 2026 and Queretaro 2026 added Oct 2026). This analysis uses all time controls for pattern recognition but notes where classical, rapid, and blitz differ.
 
@@ -186,7 +186,7 @@ Leo Black vs 2311-rated opponent. Loss — the largest rating gap in the dataset
 
 | Attribute | Assessment |
 |---|---|
-| Rating | ~2077 FIDE (estimated post-Queretaro Oct 2026; was 2009 at PAM) |
+| Rating | 2081 FIDE (Nov 2026; was 2009 at PAM) |
 | Style | Patient, technical, endgame-oriented; improving rapidly |
 | White opening | 1.d4 → Catalan (3.Nf3, avoids Nimzo); Bogo-Indian 5.Nbd2 variant |
 | Black vs 1.e4 | **French Defense (100%)** — Advance 3...c5 4.c3 Qa5; Tarrasch 3...c5 Qxd5 |
