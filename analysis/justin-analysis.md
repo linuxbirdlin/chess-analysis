@@ -1,7 +1,7 @@
 # Justin Huang — Chess Analysis Report
 
 **Tournaments analyzed:** Canada Closed 2026 · PAM 2026 · PAM School 2026 · Toronto Open 2026 · Canada Open 2026
-**Ratings:** 1963 (Canada Closed) → 2023 (PAM) → 2093 (estimated current)
+**Ratings:** 1963 (Canada Closed) → 2023 (PAM) → 2093 (peak Sep 2026 Toronto Open) → **2010 (Nov 2026)**
 **Total games reviewed:** 30 (engine-analyzed, depth-18)
 
 ---
@@ -17,7 +17,7 @@
 | Canada Open 2026 | 2W–1L (3g) | — | 2W–1L (3g) | 93.3% |
 | **Combined** | | | | **93.4%** |
 
-**Critical context:** 30 games across 5 tournaments. Justin's rating jumped from 1963 to 2023 after PAM, and current estimates put him around 2093. Canada Closed losses were almost all as Black — a persistent structural weakness. Canada Open (all White, vs 2174–2302 opponents) confirms his White 1.d4 is genuinely strong. Toronto was 1W-1L-2D; the R2 loss vs FM Preotu 2475 came from a small inaccuracy that compounded at elite level. PAM School 96.1% is his best tournament by accuracy — 5 games including a near-perfect 97.2% French win.
+**Critical context:** 30 games across 5 tournaments. Justin's rating jumped from 1963 to 2023 after PAM, peaked at 2093 (Toronto Open Sep 2026), and settled to 2010 (Nov 2026). Canada Closed losses were almost all as Black — a persistent structural weakness. Canada Open (all White, vs 2174–2302 opponents) confirms his White 1.d4 is genuinely strong. Toronto was 1W-1L-2D; the R2 loss vs FM Preotu 2475 came from a small inaccuracy that compounded at elite level. PAM School 96.1% is his best tournament by accuracy — 5 games including a near-perfect 97.2% French win.
 
 ### PAM School 2026 (5 games · avg 96.1%)
 
@@ -196,4 +196,4 @@ Since Austin will almost certainly face Justin's French, this section is critica
 | Performance vs higher-rated (2200+) | Poor — struggles to generate Black counterplay |
 | French Defense expertise | Very high — his primary identity as a player |
 
-**Overall:** 30 games across 5 tournaments, avg 93.4% accuracy. Justin is a solid, positional player whose identity is built on the French Defense as Black and 1.d4 as White. Current rating ~2093. His greatest strength is endgame technique and patience; his greatest vulnerability is facing aggressive kingside attacks in the French and single-move collapses from equal positions (Ke1/Rg4 blunders from 0.00 in Canada Open R1). Canada Open R5 win vs 2302 Malakar shows his White is genuinely strong. PAM School 96.1% avg is his most accurate tournament.
+**Overall:** 30 games across 5 tournaments, avg 93.4% accuracy. Justin is a solid, positional player whose identity is built on the French Defense as Black and 1.d4 as White. Current rating 2010 (Nov 2026; peaked at 2093 Sep 2026). His greatest strength is endgame technique and patience; his greatest vulnerability is facing aggressive kingside attacks in the French and single-move collapses from equal positions (Ke1/Rg4 blunders from 0.00 in Canada Open R1). Canada Open R5 win vs 2302 Malakar shows his White is genuinely strong. PAM School 96.1% avg is his most accurate tournament.

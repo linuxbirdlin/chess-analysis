@@ -1,7 +1,7 @@
 # Heye Gao — Chess Analysis Report
 
 **Tournaments analyzed:** Royal City Masters 2025 (Aug) · Canada Closed 2026 (Apr) · Ontario Open 2026 (May) · PAM 2026 (Jul) · Toronto Open 2026 (Sep) · Hart House Reading Week Open 2026 (Feb) · World Open 2026 (Jul)  
-**Ratings:** 2068 (Royal City Masters Aug 2025) → 2028 (Canada Closed Apr 2026) → 2065 (PAM Jul 2026) → 2044 (Toronto Open Sep 2026) → 2099 (World Open Jul 2026)  
+**Ratings:** 2068 (Royal City Masters Aug 2025) → 2028 (Canada Closed Apr 2026) → 2065 (PAM Jul 2026) → 2044 (Toronto Open Sep 2026) → 2099 (World Open Jul 2026) → **1968 (Nov 2026)**  
 **FIDE title:** CM (Candidate Master)  
 **Total games reviewed:** 34 (8 Royal City Masters, 9 Canada Closed, 4 Ontario Open, 9 PAM 2026, 2 Toronto Open, 1 Hart House, 1 World Open)
 

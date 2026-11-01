@@ -3,8 +3,8 @@
 **FIDE ID:** 2640708  
 **Nationality:** Canada  
 **Age group:** Youth (U17 circuit, 2026)  
-**Rating:** ~1942 FIDE (April 2026) → **2191 FIDE (September 2026)** — 249-point gain in 5 months  
-**Rating trajectory:** Rapidly rising; moved from ~1900 level to FM-territory in 2026 alone
+**Rating:** ~1942 FIDE (April 2026) → **2191 FIDE (September 2026, peak)** → **2165 FIDE (November 2026)** — confirmed FM  
+**Rating trajectory:** Rapidly rising; reached FM level in 2026; peak 2191, settled to 2165 (Nov 2026)
 
 ---
 
@@ -122,7 +122,7 @@
 
 | Category | Assessment |
 |---|---|
-| Current rating | ~2191 FIDE (Sep 2026) — FM territory, rapidly rising |
+| Current rating | 2165 FIDE (Nov 2026) — confirmed FM; peaked 2191 Sep 2026 |
 | Strongest opening | Italian C54 (both colors) — 10 games, main repertoire backbone |
 | Best color | Black (7W-2D-4L, 62%) vs White (5W-3D-3L, 59%) |
 | Best tournament | PAM 2026 (7W-1D-1L, 83%) — outstanding performance vs South American field |

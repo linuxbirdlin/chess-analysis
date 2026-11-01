@@ -5,7 +5,7 @@ date: "October 2026"
 
 # Austin Lin vs Daniel Joshua Lee
 
-**Rating differential:** Austin ~1865 vs Daniel ~2191 (≈–326 Austin underdog)  
+**Rating differential:** Austin 1959 (Nov 2026) vs Daniel 2165 FM (Nov 2026) (≈–206 Austin underdog)  
 **Direct record:** No prior encounter  
 **Tournament context:** Both active in 2026 North American youth circuit
 
@@ -13,13 +13,13 @@ date: "October 2026"
 
 ## Quick Profile: Daniel Joshua Lee
 
-- **FIDE ID:** 2640708 | **Rating:** 2191 FIDE (Sep 2026), was 1942 in Apr 2026 — surged 249 pts in 5 months
+- **FIDE ID:** 2640708 | **Title:** FM | **Rating:** 2165 FIDE (Nov 2026; peaked 2191 Sep 2026, was 1942 Apr 2026 — surged 249 pts in 5 months)
 - **Style:** Classical positional — Italian long-game specialist; not a sharp attacker
 - **White:** 1.e4 → Italian/Giuoco Piano (C54/C55) vs 1...e5; Maróczy Bind (B36/B38/B45) vs Sicilian; French Tarrasch (C07) vs French
 - **Black vs 1.e4:** 1...e5 → Italian/Giuoco Piano (C54) — 7 games, his single most-played line
 - **Black vs 1.d4:** QGA (D20/D27) — enterprising, takes the pawn and fights for initiative
 - **Notable:** Drew 2209-rated Diaz Guerrero (C54), beat 2137-rated Fernandez Herrera (C54), beat 2206-rated Duong (D27)
-- **Warning:** At 2191, Daniel is currently 326 rating points above Austin — this is a major uphill matchup
+- **Warning:** At 2165 FM (Nov 2026), Daniel is 206 rating points above Austin — a meaningful but less extreme uphill matchup than previously
 
 ---
 
@@ -45,7 +45,7 @@ Austin's standard White weapons (Exchange Caro-Kann, Advanced French, Rossolimo 
 **Best: Exchange Spanish** (3.Bb5 a6 4.Bxc6 dxc6 5.0-0) — structural compensation, simplified, Austin's Exchange style applies.
 
 ### Key Themes
-1. **Avoid Italian theory** — Daniel has 10 Italian games (C54/C55) in his dataset. Playing into his prepared ground is highly risky given the 326-point gap.
+1. **Avoid Italian theory** — Daniel has 10 Italian games (C54/C55) in his dataset. Playing into his prepared ground is risky given the 206-point gap.
 2. **Exchange Variation mindset** — Austin excels at Exchange positions (Exchange CK shows his style). Exchange Spanish gives similar structural play.
 3. **Simplify carefully** — Daniel is a long-game specialist; don't play for a complex endgame where his technique will shine.
 
@@ -77,14 +77,14 @@ Daniel also played B90 English Attack once (lost to 2162-rated opponent), sugges
 ### Key Themes
 1. **Sveshnikov kills the Maróczy** — After 1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 e5, 5.c4 is impossible (the e5 pawn controls d4/c3 area). Daniel must go into proper Sveshnikov theory.
 2. **Create imbalances early** — Daniel is strongest in long technical games; Austin must create tactical complications before move 20.
-3. **Rating gap reality** — At 326 points up, Daniel is a significant favorite. Austin must play for complexity and time-pressure opportunities, not simplified positions.
+3. **Rating gap reality** — At 206 points up (Nov 2026), Daniel is a meaningful favorite. Austin must play for complexity and time-pressure opportunities, not simplified positions.
 
 ---
 
 ## Psychological Notes
 
-- Daniel's **2191 rating** is ~FM level — this is one of Austin's hardest matchups in the dataset
-- His rapid rise (1942→2191 in 5 months) suggests he's "hot" — don't underestimate form
+- Daniel is a confirmed **FM at 2165** (Nov 2026; peaked 2191 Sep 2026) — this is one of Austin's hardest matchups in the dataset
+- His rapid rise (1942→2191 in 5 months) shows exceptional form; now settled to 2165 but still dangerous
 - The **Canada Closed** showed a weakness: 0W-1D-3L with White pieces vs avg 2100+ opposition. If Austin plays for complications as Black, Daniel's White game can crack under pressure.
 - Daniel's strongest results are in long classical games (C54, PAM 2026). **Time pressure** is Austin's best tool if the position is still complex at move 30.
 

@@ -1,8 +1,8 @@
 # Austin Lin vs Heye Gao — Tournament Preparation Plan
 
-**Austin's rating:** ~1865–1968  
-**Heye's rating:** CM, ~2028–2065  
-**Rating gap:** Heye is roughly 100–200 points stronger on paper — Austin needs concrete preparation and imbalance  
+**Austin's rating:** 1959 (Nov 2026)  
+**Heye's rating:** CM, 1968 (Nov 2026; was ~2028–2099)  
+**Rating gap:** Near-equal (~9 points) — Austin needs sharp preparation but is no longer a significant underdog  
 **Direct record:** 3 games (Jul 2024–Jul 2026) — 0W–2L–1D (Austin)
 
 ---
@@ -131,7 +131,7 @@ Recommendation: **Austin plays Four Knights Cobra (B45)** as the primary Sicilia
 
 ## Part 3 — Psychological and Practical Notes
 
-**Heye's rating volatility:** He went from 2028 to 2065 to 2044 across three tournaments. This suggests he is still developing and can be inconsistent — especially as Black under pressure. Austin should be confident playing sharp positions.
+**Heye's rating volatility:** He ranged 2028–2099 across tournaments but has settled to 1968 (Nov 2026). This significant drop confirms inconsistency — especially as Black under pressure. Austin at 1959 is now near-equal and should play confidently.
 
 **Heye blunders under time pressure:** Both documented Heye losses in PAM 2026 (R7 `24...Qe7??`, R9 `23...Kg8??`) occurred when he was under 25 minutes. Austin should **manage the clock aggressively** — playing quickly in known positions to force Heye into time pressure.
 

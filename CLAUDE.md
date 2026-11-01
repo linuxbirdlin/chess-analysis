@@ -167,7 +167,7 @@ When a new opponent folder is added:
 ## Key Player Profiles (Quick Reference)
 
 ### Austin Lin
-- **Rating:** ~1947 FIDE (Oct 2026; official tournament seed at 1914)
+- **Rating:** 1959 FIDE (Nov 2026; official tournament seed at 1914)
 - **White opening:** 1.e4 exclusively — Exchange Caro-Kann (4.Bd3), Advanced French (3.e5/3.Nd2), Rossolimo Sicilian (Bb5) and h4 systems
 - **Black opening:** Nimzo-Indian `Bxc3+` with `...b6/...Ba6` vs 1.d4; Sicilian vs 1.e4
 - **Style:** Tactical, combinational, sharp positions
@@ -178,18 +178,18 @@ When a new opponent folder is added:
 
 | Opponent | Rating | White | Black | Direct record |
 |---|---|---|---|---|
-| Justin Huang | 2093 | 1.d4 QGD/Semi-Slav | French + Sicilian | 0W–1L (NAYCC R4) |
-| Aarush Ajith | 1895 | 1.d4 | Sicilian Najdorf | No encounter |
-| Zachary Liu | ~2050–2250 | Reti/English | Sicilian | No encounter |
-| Heye Gao | ~2028–2065 | Italian | Slav | 1D (Mar 2026) |
-| Fernando Cortes Medina | ~2026–2133 | 1.e4/1.c4 | French | No encounter |
-| Pranav Santhosh | 1940 | 1.e4 English Attack/Maróczy | Italian/Lopez | No encounter |
-| Emerson Johnson | 1925 FIDE / 2078 US | 1.e4 Rossolimo/Exch CK | Caro-Kann/QGA | No encounter |
-| Leo Jackson | ~2077 FIDE (est. Oct 2026; was 2009 PAM) | 1.d4 Catalan (3.Nf3, no Nc3) | French Defense: Advance 3...c5 4.c3 Qa5; Tarrasch Chistyakov 3...c5 Qxd5 | No encounter |
-| Tarun Sankar | ~1965 FIDE (peak 2002) | 1.c4 English (Catalan/Mikenas) | Sicilian | No encounter |
-| Daniel Hernandez Gamboa | ~1685–1692 FIDE | 1.e4 (Philidor/Pirc/Sicilian) | 1...e5 Four Knights | No encounter |
-| Yaen Saenz Cabrera | ~1841 FIDE (peak 1899) | 1.e4 Scotch C45 | Sicilian Sveshnikov B32/B33 | No encounter |
-| Daniel Joshua Lee | ~2191 FIDE (Sep 2026; was 1942 Apr 2026) | 1.e4 Maróczy Bind B36/B38/Taimanov B45/B47 | Italian C54/C55 + QGA D27/D20 | No encounter |
+| Justin Huang | 2010 (Nov 2026; was 2093 Sep 2026) | 1.d4 QGD/Semi-Slav | French + Sicilian | 0W–1L (NAYCC R4) |
+| Aarush Ajith | 1943 | 1.d4 | Sicilian Najdorf | No encounter |
+| Zachary Liu | 2185 | Reti/English | Sicilian | No encounter |
+| Heye Gao | 1968 (Nov 2026; was ~2028–2099) | Italian | Slav | 1D (Mar 2026) |
+| Fernando Cortes Medina | 2085 | 1.e4/1.c4 | French | No encounter |
+| Pranav Santhosh | 1922 | 1.e4 English Attack/Maróczy | Italian/Lopez | No encounter |
+| Emerson Johnson | 1909 FIDE / 2078 US | 1.e4 Rossolimo/Exch CK | Caro-Kann/QGA | No encounter |
+| Leo Jackson | 2081 FIDE (Nov 2026) | 1.d4 Catalan (3.Nf3, no Nc3) | French Defense: Advance 3...c5 4.c3 Qa5; Tarrasch Chistyakov 3...c5 Qxd5 | No encounter |
+| Tarun Sankar | 1984 FIDE (Nov 2026; peak 2002) | 1.c4 English (Catalan/Mikenas) | Sicilian | No encounter |
+| Daniel Hernandez Gamboa | 1753 FIDE | 1.e4 (Philidor/Pirc/Sicilian) | 1...e5 Four Knights | No encounter |
+| Yaen Saenz Cabrera | 1841 FIDE | 1.e4 Scotch C45 | Sicilian Sveshnikov B32/B33 | No encounter |
+| Daniel Joshua Lee | FM · 2165 FIDE (Nov 2026; was 2191 Sep 2026, up from 1942 Apr 2026) | 1.e4 Maróczy Bind B36/B38/Taimanov B45/B47 | Italian C54/C55 + QGA D27/D20 | No encounter |
 | Pablo Elliot De Alba Boudreau | ~1824 FIDE (peaked 1937 Jun 2026) | 1.e4 English Attack vs Sicilian; Ruy Lopez vs e5 (1W–6L+) | Sicilian Kan/Taimanov (2…e6 4…a6) 15+ games | No encounter |
 | Joel Ethan Jeyaraj | 1872 FIDE / 2114 Lichess Blitz | 1.Nf3 → Nimzo-Larsen (2.b3 Bb2) PRIMARY; 1.d4/1.c4 secondary | Scandinavian Modern B01 (3...Nf6 ...g6 fianchetto) PRIMARY; Caro-Kann secondary | No encounter |
 | Inti Dario Flores Ojeda | 2011 FIDE (Nov 2026; +256 in 13 months; seed #4 NAYCC 2026) | 1.e4 Open Sicilian (Löwenthal B32, Modern Bc4 B35, f4-e5 B43); French Rubinstein C10; Caro-Kann exchange B15 | 1...e5 exclusively: Italian Giuoco Pianissimo C50/C54, Ruy Lopez Exchange C69, Ruy Lopez Morphy C77/C78; vs 1.d4: QGD solid D00 | No encounter |

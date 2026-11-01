@@ -78,7 +78,7 @@ New Justin Huang game folders have been added:
 **Key new findings that require updating `justin-analysis.md` and `matchup/matchup-justin.md`:**
 
 1. **Justin now plays the Sicilian (1...c5) as Black against 1.e4** — observed in Toronto Open R4 vs Achyuth (1934). This breaks from his previous French-only pattern and is critical for Austin's preparation.
-2. **Justin's rating has jumped to 2093** — significantly higher than the 1963–2023 range in the current analysis.
+2. **Justin's rating peaked at 2093 (Toronto Open, Jul–Sep 2026)** — significantly higher than the 1963–2023 range. Nov 2026 FIDE list shows 2010 (settled after peak).
 3. **As White vs KID/Grünfeld**: Justin used a quiet Semi-Classical setup (e3, Be2, Nf3) in both Toronto Open games vs KID players — won one (R5 vs Wang Nathan, 2011) and lost one (R2 vs GM Preotu, 2475).
 4. **Chronological rating progression**: pamschool2026 (1894, May 2026) → canadaclosed2026 (1963) → pam2026 (2023) → torontoopen2026 (2093, Jul–Sep 2026).
 

@@ -3,7 +3,7 @@
 ## Background
 
 **Full name:** Emerson Aurelius Johnson  
-**Rating:** ~1925 FIDE / ~2078 US Chess (as of Sep 2026)  
+**Rating:** 1909 FIDE / ~2078 US Chess (Nov 2026)  
 **Style:** Technical, endgame-oriented; capable of sharp tactical play but strongest in long positional/endgame struggles  
 **Location:** Texas (competes primarily in Texas regional opens and national scholastic events)
 
@@ -159,7 +159,7 @@ His highest-accuracy game. Only 1 inaccuracy in 96 Emerson moves. A remarkable t
 
 | Category | Assessment |
 |---|---|
-| Rating (FIDE/US Chess) | 1925 / 2078 |
+| Rating (FIDE/US Chess) | 1909 / 2078 |
 | Style | Technical, endgame-focused, long-game specialist |
 | Accuracy avg | 92.2% (38 games) |
 | White score | 55% (8W–6L–5D) |

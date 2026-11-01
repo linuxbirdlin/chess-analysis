@@ -14,7 +14,7 @@ This document gives concrete preparation recommendations for Austin playing Just
 
 Justin has historically played **the French Defense in every game against 1.e4**, and across 7 documented 1.e4 games prior to 2026 he responded with 1...e6 100% of the time. Austin should still prepare for the French as the primary threat.
 
-**ALERT — Sicilian sighting (Toronto Open 2026, R4):** In his most recent recorded game as Black vs 1.e4 (vs Achyuth, September 2026), Justin responded with **1...c5** — the Sicilian Defense (B30, Old Sicilian). This is a significant new data point. Justin's rating is now 2093 and he may be expanding his repertoire. Austin must have at least a minimal Sicilian White preparation ready.
+**ALERT — Sicilian sighting (Toronto Open 2026, R4):** In his most recent recorded game as Black vs 1.e4 (vs Achyuth, September 2026), Justin responded with **1...c5** — the Sicilian Defense (B30, Old Sicilian). This is a significant new data point. Justin's current rating is 2010 (Nov 2026; peaked at 2093 at Toronto Open) and he may be expanding his repertoire. Austin must have at least a minimal Sicilian White preparation ready.
 
 Justin's French knowledge remains deep — he has played it versus the Exchange, Classical, Advanced, and Burn variations, scoring wins in the Advanced and Burn lines, and holding firm draws in the Exchange.
 
@@ -146,11 +146,11 @@ If Austin plays something like 1.d4 Nf6 2.c4 c5 (Benoni attempt), Justin can pla
 
 ## Part 4: Psychological and Practical Notes
 
-**Rating dynamic — a significant shift:** At NAYCC 2025, Austin (1968) outrated Justin (1811) by 157 points. Justin's rating has since jumped to **2093** (Toronto Open 2026), meaning the next encounter will likely have Justin as the higher-rated player. Austin is now the underdog on paper and should prepare accordingly — playing sharper, more concrete chess rather than relying on a rating edge.
+**Rating dynamic — near-equal:** At NAYCC 2025, Austin (1968) outrated Justin (1811) by 157 points. Justin peaked at **2093** (Toronto Open Sep 2026) but has since settled to **2010 (Nov 2026)**. Austin at 1959 is only ~51 points below — treat this as a near-equal match, not a heavy underdog situation. Still prepare with full intensity.
 
 **Justin's confidence in the French:** He has beaten Austin once with it. He will play it again without hesitation — but he may also surprise with the Sicilian (see Part 1 Sicilian alert). Austin needs to study the French thoroughly as the primary preparation, with Sicilian backup.
 
-**The endgame:** Justin is a better endgame player, and this gap has likely grown as his rating climbed to 2093. Austin should aim for tactical middlegame complexity, especially when playing White. Apply **Rule 3 (Active Defender Scan)** — when Austin has a winning attack, find the forcing blow rather than drifting into a long endgame where Justin is stronger.
+**The endgame:** Justin is a better endgame player. Austin should aim for tactical middlegame complexity, especially when playing White. Apply **Rule 3 (Active Defender Scan)** — when Austin has a winning attack, find the forcing blow rather than drifting into a long endgame where Justin is stronger.
 
 **Game length:** Austin's wins tend to be decisive (21 moves, 33 moves, 41 moves) while his losses go longer (100 moves, 66 moves, 121 moves) — suggesting Austin is better at winning than defending. Play for quick, sharp decisions rather than slow defensive grinding.
 

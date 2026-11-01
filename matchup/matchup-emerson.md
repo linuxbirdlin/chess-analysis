@@ -4,7 +4,7 @@
 
 | | Austin Lin | Emerson Johnson |
 |---|---|---|
-| Rating | ~1865–1968 (FIDE) | ~1925 (FIDE) / ~2078 (US Chess) |
+| Rating | 1959 (FIDE, Nov 2026) | 1909 FIDE / ~2078 US Chess (Nov 2026) |
 | Style | Tactical, combinational, sharp | Technical, endgame-oriented |
 | White opening | 1.e4 | 1.e4 |
 | Black opening | Nimzo-Indian / Sicilian | Caro-Kann / QGA |
@@ -91,7 +91,7 @@ Against 1.e4 c5 2.Nf3 (Nc6 or d6) 3.Bb5+:
 
 3. **The Vinayagaram shock.** Even in seemingly equal positions (move 35 was +0.00), Emerson can drop a piece-losing blunder (Rg5 with 581 CPL). Austin's tactical pressure can create exactly these moments.
 
-4. **Don't fear his rating.** Emerson is 1925 FIDE but 92.2% average accuracy — comparable to Austin's level. The rating gap is not large. Austin has beaten and drawn with 2000+ opponents.
+4. **Don't fear his rating.** Emerson is 1909 FIDE (Nov 2026) but 92.2% average accuracy — comparable to Austin's level. The rating gap is not large. Austin has beaten and drawn with 2000+ opponents.
 
 5. **Endgame preparation.** If the game reaches an endgame despite best efforts, Austin needs to know R+B vs R positions (Emerson's specialty). The Chumpitaz win was in exactly this structure.
 

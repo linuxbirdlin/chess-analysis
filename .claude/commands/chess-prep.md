@@ -297,8 +297,8 @@ Forbidden phrases:
 
 When preparing for NAYCC 2026 specifically:
 
-- Austin's current tournament rating entry: ~1865–1968 FIDE
-- Likely opponents in the field: Justin Huang (2093), Aarush Ajith (1895), Zachary Liu (~2050–2250), Heye Gao (~2065), Fernando Cortes Medina (~2133), Pranav Santhosh (1940), Tarun Sankar (~1965), Emerson Johnson (~1925), Leo Jackson (~1886)
+- Austin's current FIDE rating: 1959 (Nov 2026; official seed 1914)
+- Likely opponents in the field: Justin Huang (2010), Aarush Ajith (1895), Zachary Liu (2185), Heye Gao (1968), Fernando Cortes Medina (2085), Pranav Santhosh (1940), Tarun Sankar (~1965), Emerson Johnson (1909), Leo Jackson (~2077)
 - Austin needs full points to finish near the top — plan for wins, not draws, against players within 100 rating points
 - Against 2050+ opponents, draw with Black may be acceptable depending on tournament standing
 - Austin's strongest color is White (check `austin-analysis.md` for current color accuracy split)
