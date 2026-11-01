@@ -115,15 +115,15 @@ The single highest-ROI action before NAYCC: **build novelty trees for Fernando a
 
 ---
 
-## Implementation Status (Oct 30, 2026)
+## Implementation Status (Nov 1, 2026)
 
 | Gap | Status | Output |
 |---|---|---|
 | Gap 1: Opening novelty trees | ✅ **Done** | `next-step/opening-novelty-trees.html` · `scripts/opening-novelty-data.json` |
-| Gap 2: Deep Stockfish analysis | ⏳ Running (movetime-3000, background) | `scripts/*-analysis-results-deep.json` (Zachary ~50% complete; others queued) |
+| Gap 2: Deep Stockfish analysis | ✅ **Done** — all 7 opponents at movetime-3000 | `scripts/*-analysis-results-deep.json` (Zachary 45g 93.4%, Leo 61g 90.5%, Fernando 37g 92.8%, Heye 37g 93.5%, Pranav 25g 85.6%, Aarush 32g 90.7%, Tarun 24g 89.0%) + deep HTMLs updated |
 | Gap 3: Opponent coverage check | ✅ Done (flagged Heye/Zachary as possibly missing Oct games) | Noted in GM Brief |
 | Gap 4: Clock usage analysis | ✅ Done | `scripts/clock-analysis-results.json` · `scripts/analyze-clock.js` |
-| Gap 5: Austin's tactical pattern library | ⬜ Not started | — |
+| Gap 5: Austin's tactical pattern library | ✅ **Done** | `next-step/austin-tactics.html` — 5 patterns: Greek Gift, h4–h5 storm, IQP Ncxe4, Rook battery f4, Active Defender Scan |
 | Gap 6: Endgame drill document | ✅ Done | `next-step/austin-endgame-drills.html` |
 
 **Key novelty-trees findings (Gap 1):**

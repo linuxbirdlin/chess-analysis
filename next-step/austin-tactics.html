@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Austin Lin — Tactical Pattern Library</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #1f2328;
+    background: #f6f8fa;
+  }
+
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 48px 56px 64px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+
+  @media (max-width: 680px) {
+    .page { padding: 24px 20px 40px; }
+  }
+
+  /* ── Header ── */
+  .doc-header {
+    border-bottom: 3px solid #1a5276;
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+  .doc-header h1 {
+    margin: 0 0 6px;
+    font-size: 1.85rem;
+    color: #1f2328;
+  }
+  .doc-header .subtitle {
+    font-size: 1rem;
+    color: #57606a;
+    margin: 0 0 14px;
+  }
+  .doc-header .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 0.88rem;
+    color: #57606a;
+  }
+  .doc-header .meta span strong { color: #1f2328; }
+  .doc-header .back-link {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 0.875rem;
+    color: #1a5276;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .doc-header .back-link:hover { text-decoration: underline; }
+
+  /* ── Typography ── */
+  h2 {
+    font-size: 1.3rem;
+    color: #1f2328;
+    margin: 44px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #d0d7de;
+  }
+  h3 { font-size: 1.0rem; color: #1a5276; margin: 20px 0 8px; font-weight: 700; }
+  p { margin: 0 0 12px; }
+  ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
+  li { margin-bottom: 4px; }
+  code {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.875em;
+    background: #f0f4f8;
+    border: 1px solid #d0d7de;
+    border-radius: 4px;
+    padding: 1px 5px;
+  }
+  hr { border: none; border-top: 1px solid #d0d7de; margin: 40px 0; }
+
+  /* ── Tables ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin: 16px 0 24px;
+  }
+  thead th {
+    background: #1a5276;
+    color: #ffffff;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  tbody tr:nth-child(odd)  { background: #f6f8fa; }
+  tbody tr:nth-child(even) { background: #ffffff; }
+  tbody td {
+    padding: 9px 14px;
+    border-bottom: 1px solid #d0d7de;
+    vertical-align: top;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+
+  /* ── Pattern cards ── */
+  .pattern-card {
+    border: 1px solid #d0d7de;
+    border-radius: 10px;
+    margin: 28px 0;
+    overflow: hidden;
+  }
+  .pattern-card .card-header {
+    padding: 14px 20px;
+    color: #fff;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .card-header .pnum {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    opacity: 0.85;
+  }
+  .card-header .ptitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    flex: 1;
+  }
+  .card-header .pbadge {
+    font-size: 0.78rem;
+    background: rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 2px 10px;
+    white-space: nowrap;
+  }
+
+  .p1 .card-header { background: #cf2222; }
+  .p2 .card-header { background: #1a5276; }
+  .p3 .card-header { background: #2d7d46; }
+  .p4 .card-header { background: #6b3fa0; }
+  .p5 .card-header { background: #7a4f00; }
+
+  .card-body { padding: 22px 24px; }
+
+  /* ── Checklist visual ── */
+  .trigger-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 14px;
+  }
+  .trigger-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 7px;
+    font-size: 0.95rem;
+  }
+  .trigger-list li::before {
+    content: "☐";
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: #57606a;
+  }
+
+  /* ── Move sequence box ── */
+  .move-seq {
+    background: #1b1f24;
+    color: #adbac7;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    margin: 12px 0 18px;
+  }
+  .move-seq .key-move { color: #79c0ff; font-weight: 700; }
+  .move-seq .branch { color: #d2a8ff; font-style: italic; }
+  .move-seq .eval { color: #56d364; font-size: 0.82rem; }
+
+  /* ── Boxes ── */
+  .warn-box {
+    background: #fff5f5;
+    border-left: 4px solid #cf2222;
+    border-radius: 0 6px 6px 0;
+    padding: 10px 16px;
+    margin: 12px 0;
+    font-size: 0.93rem;
+    color: #7a0000;
+  }
+  .tip-box {
+    background: #dafbe1;
+    border-left: 4px solid #2d7d46;
+    border-radius: 0 6px 6px 0;
+    padding: 10px 16px;
+    margin: 12px 0;
+    font-size: 0.93rem;
+    color: #1a4731;
+  }
+  .info-box {
+    background: #eaf0f8;
+    border-left: 4px solid #1a5276;
+    border-radius: 0 6px 6px 0;
+    padding: 10px 16px;
+    margin: 12px 0;
+    font-size: 0.93rem;
+    color: #1a3a55;
+  }
+  .gold-box {
+    background: #fff8e6;
+    border-left: 4px solid #d4a017;
+    border-radius: 0 6px 6px 0;
+    padding: 10px 16px;
+    margin: 12px 0;
+    font-size: 0.93rem;
+    color: #7a4f00;
+  }
+
+  /* ── Lichess buttons ── */
+  .diagram-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #1a5276;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin: 4px 6px 4px 0;
+    transition: background .15s;
+  }
+  .diagram-btn:hover { background: #154360; }
+  .diagram-btn.green { background: #2d7d46; }
+  .diagram-btn.green:hover { background: #1e5631; }
+
+  /* ── Miss table ── */
+  .miss-table thead th { background: #7a0000; }
+
+  /* ── Checklist card ── */
+  .checklist-card {
+    border: 2px solid #d4a017;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 32px 0 16px;
+  }
+  .checklist-card .ch-header {
+    background: #d4a017;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .checklist-card .ch-body { padding: 20px 24px; }
+  .checklist-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: steps;
+  }
+  .checklist-steps li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0e8cc;
+    font-size: 0.97rem;
+  }
+  .checklist-steps li:last-child { border-bottom: none; }
+  .checklist-steps li::before {
+    content: counter(steps);
+    background: #d4a017;
+    color: #fff;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── Source tag ── */
+  .source-tag {
+    display: inline-block;
+    background: #f0f4f8;
+    border: 1px solid #d0d7de;
+    border-radius: 12px;
+    padding: 2px 10px;
+    font-size: 0.78rem;
+    color: #57606a;
+    margin-bottom: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Header ── -->
+  <div class="doc-header">
+    <h1>Austin Lin — Tactical Pattern Library</h1>
+    <p class="subtitle">5 drillable patterns confirmed by engine review · Pre-NAYCC 2026</p>
+    <div class="meta">
+      <span><strong>Player:</strong> Austin Lin (~1947 FIDE)</span>
+      <span><strong>Engine:</strong> Stockfish movetime-3000 · personal study + tournament games</span>
+      <span><strong>Updated:</strong> Nov 2026</span>
+    </div>
+    <a class="back-link" href="../austin-prep.html">← Back to Austin Lin — Prep &amp; Index</a>
+  </div>
+
+  <!-- ── Summary Table ── -->
+  <h2>Pattern Summary</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Pattern</th>
+        <th>Source</th>
+        <th>Times Missed</th>
+        <th>Priority</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><strong>Greek Gift Sacrifice (Bxh7+)</strong></td>
+        <td>chess4win vs Malakhovets, Oct 2026</td>
+        <td style="color:#cf2222;font-weight:700;">4 times (engine confirmed)</td>
+        <td style="color:#cf2222;font-weight:700;">🔴 CRITICAL</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><strong>h4–h5 Pawn Storm (Maróczy/English Attack)</strong></td>
+        <td>chess4win vs Sean Liu, Oct 2026</td>
+        <td>Executed correctly</td>
+        <td style="color:#1a5276;font-weight:700;">🔵 HIGH</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>IQP Knight Storm (Ncxe4!)</strong></td>
+        <td>NAYCC R3 vs Chitta, Aug 2025</td>
+        <td>Executed (98.1% accuracy)</td>
+        <td style="color:#2d7d46;font-weight:700;">🟢 HIGH</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><strong>Rook Battery + f4 Storm</strong></td>
+        <td>chess4win vs Deepak, Oct 2026</td>
+        <td>Executed correctly</td>
+        <td style="color:#2d7d46;font-weight:700;">🟢 MEDIUM</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><strong>Active Defender Scan (Forcing Checks)</strong></td>
+        <td>Recurring miss — 6+ games</td>
+        <td style="color:#cf2222;font-weight:700;">6+ times (multiple forms)</td>
+        <td style="color:#cf2222;font-weight:700;">🔴 CRITICAL</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ═══ PATTERN 1 ═══ -->
+  <div class="pattern-card p1">
+    <div class="card-header">
+      <span class="pnum">Pattern 1</span>
+      <span class="ptitle">Greek Gift Sacrifice — Bxh7+</span>
+      <span class="pbadge">MOST CRITICAL · Missed 4× by engine</span>
+    </div>
+    <div class="card-body">
+      <span class="source-tag">✓ Executed: chess4win vs Malakhovets (Oct 11, 2026) · B13 Exchange Caro-Kann</span>
+      <span class="source-tag">✗ Missed: Study #4 (Maulucci), #17 (Sheth), #26 (Zachary), PAM R6</span>
+
+      <div class="warn-box">
+        <strong>The pattern Austin builds but doesn't execute:</strong> In 4 separate games Austin constructed the exact position where Bxh7+ wins — bishop on d3, knight on f3, h7 unguarded — and each time played a different move. The attacking setup was correct; the sacrifice trigger was not fired.
+      </div>
+
+      <h3>Three Trigger Conditions (ALL must be true before Bxh7+)</h3>
+      <ul class="trigger-list">
+        <li>White's bishop is on <strong>d3</strong> aiming at h7</li>
+        <li>White's knight is on <strong>f3</strong> ready to leap to g5</li>
+        <li>Black's h7 is defended <strong>only by the king</strong> — no Nf6 or Ng6 guard</li>
+      </ul>
+
+      <h3>Setup Position (White to play — find Bxh7+)</h3>
+      <p>Exchange Caro-Kann: after 1.e4 c6 2.d4 d5 3.exd5 cxd5 4.Bd3 Nc6 5.c3 Qc7 6.h3 e6 7.Nf3 Bd6 8.O-O Nge7 9.Re1 O-O</p>
+      <a class="diagram-btn" href="https://lichess.org/analysis/r1b2rk1/ppq1nppp/2nbp3/3p4/3P4/2PB1N1P/PP3PP1/RNBQR1K1_w_-_-_6_10" target="_blank">♟ Open in Lichess Analysis</a>
+      <a class="diagram-btn green" href="https://lichess.org/training/BishopSacH7" target="_blank">🎯 Drill: Bishop Sac h7 Puzzles</a>
+
+      <h3>The Winning Sequence</h3>
+      <div class="move-seq">
+<span class="key-move">10.Bxh7+!</span> Kxh7 <span class="key-move">11.Ng5+</span> <span class="eval">(eval: +2 → winning)</span>
+  Kg6 <span class="eval">(forced — Kg8?? loses to)</span>
+    <span class="branch">→ if Kg8: 12.Qh5 Rfe8 13.Qxf7+ Kh8 14.Qh5+ Kg8 15.Qh7#</span>
+12.Qg4 f5 13.Qh4 Bd7 14.Qh7+ Kf6 15.Qh5 g6
+  <span class="eval">(Malakhovets game continuation — attack sustained)</span>
+
+<span class="branch">→ if 11...Kg8 (alternative): 12.Qh5 Rfe8 13.Qxf7#</span></div>
+
+      <h3>After Bxh7+ Kxh7 Ng5+ (assess escape squares)</h3>
+      <a class="diagram-btn" href="https://lichess.org/analysis/r1b2r2/ppq1nppk/2nbp3/3p2N1/3P4/2P4P/PP3PP1/RNBQR1K1_b_-_-_1_11" target="_blank">♟ Post-Ng5+ Position</a>
+
+      <div class="tip-box">
+        <strong>Why Austin misses it:</strong> He plays <code>Qh5</code> or <code>Qd4</code> instead — queen activation without the forced king exposure. Bxh7+ feels "speculative" unless you've drilled the trigger. Drill until recognizing the Bd3+Nf3 battery is automatic.
+      </div>
+
+      <h3>Drill Plan</h3>
+      <ol>
+        <li>Set up the trigger position on a board and repeat the sequence 10 times from memory.</li>
+        <li>Complete the <a href="https://lichess.org/training/BishopSacH7" target="_blank">Lichess "Bishop sacrifice on h7" puzzle set</a>.</li>
+        <li>Before every game as White in the Exchange CK: at move 8–10, consciously ask "Is Bxh7+ available?"</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ═══ PATTERN 2 ═══ -->
+  <div class="pattern-card p2">
+    <div class="card-header">
+      <span class="pnum">Pattern 2</span>
+      <span class="ptitle">h4–h5 Pawn Storm</span>
+      <span class="pbadge">Sicilian Maróczy / English Attack</span>
+    </div>
+    <div class="card-body">
+      <span class="source-tag">✓ Executed: chess4win vs Sean Liu (Oct 10, 2026) · B41 Sicilian Kan, Maróczy Bind</span>
+
+      <p>When Black plays <code>...d6 ...e6 ...a6 ...O-O</code> without blocking the h-file, the h4–h5 storm is structurally available. Austin executed this correctly against Sean Liu — the attack created lasting kingside pressure that won material on move 30.</p>
+
+      <h3>Trigger Conditions</h3>
+      <ul class="trigger-list">
+        <li>Black has castled kingside and played <code>...d6 ...e6 ...a6</code> (Kan/Taimanov structure)</li>
+        <li>Black has NOT played <code>...h5</code> to block</li>
+        <li>White has e4+c4 Maróczy pawns and bishop active on d4 or e3</li>
+        <li>White's rook is on h1 (or can reach it via h-file)</li>
+      </ul>
+
+      <h3>Setup Position (after 12.h4 — Black must react)</h3>
+      <p>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6 5.c4 Qc7 6.Nc3 Nc6 7.Be3 Nf6 8.a3 Be7 9.Be2 O-O 10.Rc1 Nxd4 11.Bxd4 d6 <span style="color:#1a5276;font-weight:700;">12.h4!</span></p>
+      <a class="diagram-btn" href="https://lichess.org/analysis/r1b2rk1/1pq1bppp/p2ppn2/8/2PBP2P/P1N5/1P2BPP1/2RQK2R_b_K_-_0_12" target="_blank">♟ Open in Lichess Analysis</a>
+
+      <h3>The Plan</h3>
+      <div class="move-seq">
+<span class="key-move">12.h4!</span> → 13.h5 h6 <span class="eval">(Black blocks — concedes g5 outpost)</span>
+  → Qd2 targets h6 · Ng5 outpost available
+  → Rg3/Rh3 battery · Bxh6 when pawn falls
+
+<span class="branch">→ if Black plays 12...h5 (blocks): Ng5! → Bxe7 Qxe7 → Nd5 Qd8 → f4 kingside space</span>
+<span class="branch">→ if Black plays 12...h6 immediately: Ng5! Bxg5 hxg5 → open h-file, Qd3 threatens Qxh7#</span></div>
+
+      <div class="info-box">
+        <strong>In the Sean Liu game:</strong> 12.h4 Bd7 13.h5 h6 → Austin eventually played 30.Bxh6! winning the h-pawn, then 31.Rg3 with dominant kingside position.
+      </div>
+
+      <h3>Drill Plan</h3>
+      <ol>
+        <li>In the Maróczy Bind setup, if Black has not played ...h5 by move 11, h4 is almost always right. Make it automatic.</li>
+        <li>Study the h4 timing: it should come <em>before</em> castling if possible (h4 on move 9–11 is strongest when Black's king is already committed).</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ═══ PATTERN 3 ═══ -->
+  <div class="pattern-card p3">
+    <div class="card-header">
+      <span class="pnum">Pattern 3</span>
+      <span class="ptitle">IQP Knight Storm — Ncxe4!</span>
+      <span class="pbadge">Nimzo-Indian as Black · 98.1% accuracy win</span>
+    </div>
+    <div class="card-body">
+      <span class="source-tag">✓ Executed: NAYCC R3 vs Adithya Chitta (Aug 2025) · E49 Nimzo-Indian Rubinstein</span>
+
+      <p>Austin's cleanest tournament win came from correctly identifying the IQP knight sacrifice moment. When White has an isolated d4 pawn and Austin has knights on c5 and f6, the e4 square is chronically weak. Jumping <code>Ncxe4!</code> creates "knight domination" — two knights on e4/e2 that cannot be expelled.</p>
+
+      <h3>Trigger Conditions</h3>
+      <ul class="trigger-list">
+        <li>White has an isolated pawn on d4 (no pawn on c4 or e4)</li>
+        <li>Austin (Black) has knights on <strong>c5</strong> and <strong>f6</strong></li>
+        <li>White's queen is on c4 or b3 (overloaded defending d4)</li>
+        <li>e4 is unguarded or defended only by the queen</li>
+      </ul>
+
+      <h3>Setup Position (Black to play — find Ncxe4!)</h3>
+      <p>After 1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.e3 O-O 5.Bd3 d5 6.a3 Bxc3+ 7.bxc3 b6 8.Nf3 Ba6 9.cxd5 exd5 10.Bxa6 Nxa6 11.Qd3 Qc8 12.O-O c5 13.Nd2 Qb7 14.f3 Rfe8 15.Re1 Rad8 16.e4 dxe4 17.fxe4 cxd4 18.cxd4 Nc5 <span style="color:#2d7d46;font-weight:700;">19.Qc4 ← Black to play</span></p>
+      <a class="diagram-btn green" href="https://lichess.org/analysis/3rr1k1/pq3ppp/1p3n2/2n5/2QPP3/P7/3N2PP/R1B1R1K1_b_-_-_2_19" target="_blank">♟ Open in Lichess Analysis</a>
+
+      <h3>The Winning Sequence</h3>
+      <div class="move-seq">
+<span class="key-move">19...Ncxe4!</span> <span class="eval">(temporarily loses a pawn but gains outpost dominance)</span>
+20.Nf3 Rc8 21.Qb5 <span class="key-move">Nc3!</span> <span class="eval">(forks queen + Re1)</span>
+22.Rxe8+ Rxe8 23.Qf1 <span class="key-move">Ne2+!</span> 24.Kh1 Ne4
+<span class="eval">(two knights dominate e4 + e2 — White's pieces paralyzed)</span>
+25.Qe1 Qd5 26.Be3 <span class="key-move">N4g3+!</span> 27.hxg3 Qh5+ 28.Nh2 Rxe3!
+29.g4 Qd5 30.Rc1 h6 31.Nf3 Qe6 32.Qf2 <span class="key-move">Nxc1</span> 0-1</div>
+
+      <h3>Resulting Domination Position</h3>
+      <a class="diagram-btn green" href="https://lichess.org/analysis/4r1k1/pq3ppp/1p6/8/3Pn3/P4N2/4n1PP/R1B2Q1K_w_-_-_4_25" target="_blank">♟ Knight domination after Ne2+</a>
+
+      <div class="tip-box">
+        <strong>Why it works:</strong> The IQP structure has no pawn on e3 or f3 to kick the knight. Once Nc3 forks the queen, White has no time to reorganize. Two coordinated knights on e4 and e2 attack d4, f4, c3, g3 simultaneously — a structural bind.
+      </div>
+
+      <h3>Drill Plan</h3>
+      <ol>
+        <li>In the Nimzo-Indian Bxc3+ with ...b6/...Ba6: after White plays ...Qc4, always check if Ncxe4! works.</li>
+        <li>Verify: is there a pawn on e3 or f3? If no → Ncxe4 is almost always correct.</li>
+        <li>Study the Nc3 fork (step 3 above) — it's the key tactical shot that makes the sacrifice pay off.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ═══ PATTERN 4 ═══ -->
+  <div class="pattern-card p4">
+    <div class="card-header">
+      <span class="pnum">Pattern 4</span>
+      <span class="ptitle">Rook Battery + f4 Storm</span>
+      <span class="pbadge">Nimzo-Indian as White · IQP vs IQP</span>
+    </div>
+    <div class="card-body">
+      <span class="source-tag">✓ Executed: chess4win vs Laksshana Deepak (Oct 11, 2026) · E46 Nimzo-Indian Normal</span>
+
+      <p>When Austin has Ne5 (outpost), f4 (space), and can swing the rook to f3 or h3, the rook battery into a kingside attack is a recurring theme from the Nimzo-Indian as White. The position has a "rook lift" structure: the f-rook swings to h3, the Ne2 repositions to g3, and the h4–g5 breakthrough follows.</p>
+
+      <h3>Trigger Conditions</h3>
+      <ul class="trigger-list">
+        <li>Austin has <strong>Ne5</strong> (outpost — Black's knight is on e4 as counterpart)</li>
+        <li>Austin has played <strong>f4</strong> (space grab, restricts Black's e5 break)</li>
+        <li>Austin's f1-rook is available to swing to f3 or h3</li>
+        <li>Black's king is castled short with pawns on g7/h7 intact</li>
+      </ul>
+
+      <h3>Setup Position (White just played Rf3)</h3>
+      <p>After 1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.e3 O-O 5.Bd2 b6 6.Nf3 Bb7 7.Bd3 d5 8.cxd5 exd5 9.Rc1 a6 10.O-O Bd6 11.Ne5 c5 12.f4 Nc6 13.Ne2 Ne4 <span style="color:#6b3fa0;font-weight:700;">14.Rf3!</span></p>
+      <a class="diagram-btn" style="background:#6b3fa0;" href="https://lichess.org/analysis/r2q1rk1/1b3ppp/ppnb4/2ppN3/3PnP2/3BPR2/PP1BN1PP/2RQ2K1_b_-_-_4_14" target="_blank">♟ Open in Lichess Analysis</a>
+
+      <h3>The Plan</h3>
+      <div class="move-seq">
+14.Rf3! <span class="eval">(battery prep — rook activates toward h3)</span>
+→ g4 <span class="eval">(space grab — Black's Ne4 will be pushed)</span>
+→ Rh3 <span class="eval">(rook targets h7)</span>
+→ Ne2→g3 <span class="eval">(knight joins the attack, supports h4)</span>
+→ g5 <span class="eval">(breakthrough — open g-file or h-file)</span>
+
+<span class="branch">Key moment in game: 18.g4 cxd4 19.Bxg6! fxg6 20.exd4 → open f-file, knight on g3 next</span></div>
+
+      <div class="gold-box">
+        <strong>The rook lift pattern (Rf1–f3–h3):</strong> This is the same mechanism Austin uses in the French Tarrasch with h4 — the f-rook slides along the third rank to the h-file. In any structure where Black's king is castled short and Austin has f4 + a bishop on d3, ask: "Can I play Rf3 → Rh3?"
+      </div>
+
+      <h3>Drill Plan</h3>
+      <ol>
+        <li>After Ne5 + f4 are in place, the next question is always: "Can I swing the rook to h3?"</li>
+        <li>Practice the Ne2→g3 repositioning — it's the key piece that ties the attack together.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ═══ PATTERN 5 ═══ -->
+  <div class="pattern-card p5">
+    <div class="card-header">
+      <span class="pnum">Pattern 5</span>
+      <span class="ptitle">Active Defender Scan — Forcing Checks</span>
+      <span class="pbadge">CRITICAL · Recurring miss in 6+ games</span>
+    </div>
+    <div class="card-body">
+      <span class="source-tag">✗ Recurring miss: personal study games + NAYCC + PAM</span>
+
+      <div class="warn-box">
+        <strong>The single costliest habit:</strong> In winning positions (+2.0 or better), Austin repeatedly plays a positional or passive move when a forcing check or sacrifice was available and winning. The engine found this in 6+ games across NAYCC, PAM, and personal study. Pattern 1 (Bxh7+) is a subset of this problem.
+      </div>
+
+      <h3>Confirmed Misses (Engine)</h3>
+      <table class="miss-table">
+        <thead>
+          <tr>
+            <th>Game</th>
+            <th>Eval</th>
+            <th>Austin played</th>
+            <th>Should have played</th>
+            <th>Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Study #26 (vs Zachary Liu)</td>
+            <td>+3.79</td>
+            <td><code>Qh5</code></td>
+            <td><strong>Bxh7+!</strong></td>
+            <td style="color:#cf2222;">+3.79 → 0.00</td>
+          </tr>
+          <tr>
+            <td>Study #17 (vs Rudra Sheth)</td>
+            <td>+7.68</td>
+            <td><code>Qd4</code></td>
+            <td><strong>Bxh7+!</strong></td>
+            <td style="color:#cf2222;">+7.68 → +1.89</td>
+          </tr>
+          <tr>
+            <td>Study #11 (vs Anthony Maulucci)</td>
+            <td>#</td>
+            <td><code>Rxb7</code>, then <code>Bh6</code></td>
+            <td><strong>Bxh7+</strong> (missed twice)</td>
+            <td style="color:#cf2222;">Mate → escaped</td>
+          </tr>
+          <tr>
+            <td>PAM R3 (vs Juan Fernando)</td>
+            <td>+10.20</td>
+            <td><code>Qg8+</code></td>
+            <td><strong>Qf5+!</strong> (exact check)</td>
+            <td style="color:#cf2222;">+10.20 → 0.00</td>
+          </tr>
+          <tr>
+            <td>Study #28 (vs Adithya Sekeran)</td>
+            <td>+11.94</td>
+            <td><code>Rb8</code></td>
+            <td><strong>Qe1+!</strong></td>
+            <td style="color:#cf2222;">+11.94 → +1.07</td>
+          </tr>
+          <tr>
+            <td>Study (vs Shon Lazarev)</td>
+            <td>winning</td>
+            <td>Positional move <em>twice</em></td>
+            <td><strong>Qd4+</strong> (missed twice in a row)</td>
+            <td style="color:#cf2222;">advantage → equal</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Why It Happens</h3>
+      <p>In a winning position, Austin shifts to <em>consolidation mode</em> — playing solid, non-committal moves to preserve the advantage. The engine wants <em>forcing mode</em> — the one concrete move that closes the game out immediately. The passive move feels "safe" but allows the opponent to regroup.</p>
+
+      <div class="tip-box">
+        <strong>The common thread:</strong> In every case above, the winning move was a check or sacrifice that forced the king to a specific square. Austin saw the passive alternative first and played it without checking for the forcing option.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Master Checklist ═══ -->
+  <div class="checklist-card">
+    <div class="ch-header">⚡ Before Every Move in a Winning Position (+2.0 or better)</div>
+    <div class="ch-body">
+      <p style="margin:0 0 16px;font-size:0.95rem;color:#57606a;">Run this 4-step scan <em>before</em> playing your candidate move. It should take 10–15 seconds. If any step fires, play that move — do not default to the positional alternative.</p>
+      <ol class="checklist-steps">
+        <li>
+          <div>
+            <strong>Bxh7+ check.</strong> Is my bishop on d3 and my knight on f3? Is Black's h7 defended only by the king?
+            <br><span style="color:#2d7d46;font-size:0.88rem;">→ If YES to all three: play Bxh7+ Kxh7 Ng5+ and calculate escapes.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Forcing check scan.</strong> Can any piece give check that forces the king to a bad square?
+            <br><span style="color:#2d7d46;font-size:0.88rem;">→ Try every checking move mentally. If one wins material or forces checkmate: play it.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Free material capture.</strong> Is there a piece hanging that I can take — check, then capture?
+            <br><span style="color:#2d7d46;font-size:0.88rem;">→ Check tactics: forks, pins, skewers, discovered attacks.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Only if none of the above fire:</strong> play your positional candidate move.
+            <br><span style="color:#57606a;font-size:0.88rem;">Consolidation is correct only when no forcing option exists.</span>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ═══ Footer ═══ -->
+  <hr>
+  <p style="font-size:0.85rem;color:#57606a;text-align:center;">
+    Austin Lin Tactical Drill Page · Engine: Stockfish movetime-3000 · Sources: NAYCC 2025, PAM 2026, personal study games (Oct 2026) ·
+    <a href="../austin-prep.html" style="color:#1a5276;">← Back to Prep Index</a>
+  </p>
+
+</div>
+</body>
+</html>
