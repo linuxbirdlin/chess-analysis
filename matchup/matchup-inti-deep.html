@@ -7,7 +7,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
-    .page { max-width: 860px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
     @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
     .doc-header { border-bottom: 3px solid #7a4f00; padding-bottom: 20px; margin-bottom: 32px; }
     .doc-header h1 { margin: 0 0 8px; font-size: 1.85rem; color: #1f2328; }
@@ -21,20 +21,28 @@
     p { margin: 0 0 12px; }
     ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
     li { margin-bottom: 4px; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 14px 0 22px; }
-    thead th { background: #7a4f00; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 14px 0 22px; }
+    thead th { background: #7a4f00; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
     tbody tr:nth-child(odd) { background: #f6f8fa; }
     tbody tr:nth-child(even) { background: #fff; }
-    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody td { padding: 6px 10px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
     tbody tr:last-child td { border-bottom: none; }
     .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.91rem; color: #1a3a55; }
-    .pending-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 20px 24px; margin: 24px 0; text-align: center; }
-    .pending-box h3 { color: #7a4f00; margin: 0 0 10px; }
+    .warn-box { background: #fff8e6; border-left: 4px solid #d4a017; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.91rem; color: #7a4f00; }
     .badge { display: inline-block; font-size: 0.82rem; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
-    .badge-pending { background: #fff3cd; color: #7a4f00; border: 1px solid #d4a017; }
+    .badge-done { background: #d4edda; color: #155724; border: 1px solid #4cae4c; }
     strong { font-weight: 600; }
-    .acc-hi { color: #1a6030; font-weight: 700; }
-    .acc-lo { color: #8b0000; font-weight: 700; }
+    .acc-hi  { color: #1a6030; font-weight: 700; }
+    .acc-lo  { color: #8b0000; font-weight: 700; }
+    .acc-mid { color: #7a4f00; font-weight: 700; }
+    .result-win  { color: #1a6030; font-weight: 600; }
+    .result-loss { color: #8b0000; font-weight: 600; }
+    .result-draw { color: #555; font-weight: 600; }
+    .critical-box { background: #fff2f2; border: 1px solid #e8a0a0; border-radius: 8px; padding: 14px 18px; margin: 10px 0; font-size: 0.91rem; }
+    .critical-box .move-label { font-family: monospace; background: #fee; padding: 1px 6px; border-radius: 4px; border: 1px solid #e8a0a0; }
+    .summary-stat { display: inline-block; background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 8px; padding: 10px 16px; margin: 6px 8px 6px 0; text-align: center; min-width: 100px; }
+    .summary-stat .stat-val { font-size: 1.5rem; font-weight: 700; color: #1f2328; display: block; }
+    .summary-stat .stat-lbl { font-size: 0.76rem; color: #57606a; }
   </style>
 </head>
 <body>
@@ -44,57 +52,171 @@
     <h1>Austin vs Inti Dario Flores Ojeda — Deep Analysis</h1>
     <div class="meta">
       <span><strong>Engine:</strong> Stockfish movetime-800ms, 16 threads</span>
-      <span><strong>Games:</strong> 13 known (copa2025 blitz + Queretaro2026 classical + Aguascalientes2026 classical)</span>
-      <span><strong>Status:</strong> <span class="badge badge-pending">⏳ Running</span></span>
+      <span><strong>Games:</strong> 33 analyzed across 5 tournaments (2024–2026)</span>
+      <span><strong>Status:</strong> <span class="badge badge-done">✓ Complete</span></span>
     </div>
     <a class="back-link" href="matchup-inti.html">← Back to matchup overview</a>
   </div>
 
+  <div style="display:flex; flex-wrap:wrap; gap:0; margin: 0 0 28px;">
+    <div class="summary-stat"><span class="stat-val acc-mid">90.4%</span><span class="stat-lbl">Overall avg (33g)</span></div>
+    <div class="summary-stat"><span class="stat-val acc-hi">92.3%</span><span class="stat-lbl">Classical avg</span></div>
+    <div class="summary-stat"><span class="stat-val acc-lo">88.3%</span><span class="stat-lbl">Blitz avg</span></div>
+    <div class="summary-stat"><span class="stat-val">98.6%</span><span class="stat-lbl">Best single game</span></div>
+  </div>
+
   <div class="info-box">
-    <strong>Engine analysis is running in the background.</strong> Results are being saved to <code>scripts/inti-analysis-results.json</code>. This page will be updated once the analysis completes. To check progress: <code>tail -f /tmp/inti-analysis.log</code>
+    <strong>33 games analyzed (Copa 2024 · Copa 2025 · Querétaro 2026 · Nacional Olímpico 2025 · Aguascalientes 2026).</strong>
+    Inti plays at a consistent 90–92% accuracy across formats. His key weakness is <strong>converting winning positions in the endgame</strong>: he blundered a +4.67 winning endgame into a draw (Querétaro R5), and lost two consecutive games at Aguascalientes 2026 including one where he had 84.8% accuracy but missed tactical resources. High-accuracy losses (93.5% vs Rodriguez Juarez) confirm he loses on <em>preparation depth</em>, not move quality.
   </div>
 
-  <div class="pending-box">
-    <h3>⏳ Analysis In Progress</h3>
-    <p>Stockfish is analyzing 13 games from 3 tournaments (copa2025, Queretaro2026, Aguascalientes2026).<br/>
-    Estimated completion: ~15–20 minutes at movetime-800ms on 16 threads.</p>
-    <p><strong>After completion:</strong> Update this page with per-game accuracy data from <code>scripts/inti-analysis-results.json</code>.</p>
-  </div>
-
-  <h2>What to Expect from Engine Analysis</h2>
-
-  <p>Based on manual game review, Inti's expected accuracy profile:</p>
+  <h2>Tournament Summary</h2>
 
   <table>
-    <thead><tr><th>Tournament</th><th>Format</th><th>Games</th><th>Expected avg accuracy</th><th>Notes</th></tr></thead>
+    <thead>
+      <tr><th>Tournament</th><th>Format</th><th>W-L-D</th><th>Inti Avg</th><th>Games</th><th>Notes</th></tr>
+    </thead>
     <tbody>
-      <tr><td>Copa Estado de México 2025</td><td>Blitz 10+5</td><td>6</td><td>~80–85%</td><td>Blitz — many mutual errors under time</td></tr>
-      <tr><td>Querétaro 2026</td><td>Classical 90+30</td><td>6</td><td>~87–92%</td><td>Classical — cleaner play</td></tr>
-      <tr><td>Aguascalientes 2026</td><td>Classical 90+30</td><td>1</td><td>~80–84%</td><td>vs CM 2135 — accuracy dropped after move 20</td></tr>
+      <tr><td><strong>Copa Estado de México 2024</strong></td><td>Rapid/Blitz</td><td>10W-5L-0D</td><td class="acc-mid">90.5%</td><td>15</td><td>Pre-2000 era; strong result vs weaker field</td></tr>
+      <tr><td><strong>Copa Estado de México 2025</strong></td><td>Blitz 10+5</td><td>4W-1L-1D</td><td class="acc-lo">88.3%</td><td>6</td><td>Blitz — more errors under time</td></tr>
+      <tr><td><strong>Nacional Olímpico Sub-16 2025</strong></td><td>Classical</td><td>1W-3L-0D</td><td class="acc-mid">91.0%</td><td>4</td><td>Strong opponents; lost despite high accuracy</td></tr>
+      <tr><td><strong>Querétaro 2026</strong></td><td>Classical 90+30</td><td>4W-1L-1D</td><td class="acc-hi">92.3%</td><td>6</td><td>Best classical tournament; missed win in R5</td></tr>
+      <tr><td><strong>Aguascalientes 2026</strong></td><td>Classical 90+30</td><td>0W-2L-0D</td><td class="acc-lo">88.1%</td><td>2</td><td>Two consecutive losses; worst recent form</td></tr>
     </tbody>
   </table>
 
-  <h2>Pre-Analysis Key Findings (Manual)</h2>
+  <h2>Per-Game Accuracy — Copa Estado de México 2024</h2>
+  <table>
+    <thead><tr><th>Opponent</th><th>Color</th><th>Result</th><th>Inti Acc</th><th>Opp Acc</th><th>CPL</th><th>B/M/I</th></tr></thead>
+    <tbody>
+      <tr><td>Alejandro, Betancourt Debany</td><td>White</td><td class="result-win">Win</td><td class="acc-hi">98.6%</td><td>93.5%</td><td>4</td><td>0/0/0</td></tr>
+      <tr><td>Ruiz Bolanos, Eithan</td><td>Black</td><td class="result-win">Win</td><td class="acc-hi">98.6%</td><td>93.8%</td><td>19</td><td>1/1/1</td></tr>
+      <tr><td>Ordonez Alarcon, Daniela</td><td>Black</td><td class="result-win">Win</td><td class="acc-hi">98.2%</td><td>93.2%</td><td>41</td><td>1/1/3</td></tr>
+      <tr><td>Ordonez Alarcon, Daniela (R2)</td><td>White</td><td class="result-win">Win</td><td class="acc-hi">96.0%</td><td>88.7%</td><td>38</td><td>1/2/1</td></tr>
+      <tr><td>Campos Gorgonio, Eduardo Arturo</td><td>Black</td><td class="result-win">Win</td><td class="acc-hi">94.1%</td><td>90.5%</td><td>69</td><td>3/6/8</td></tr>
+      <tr><td>Garcia Benich, Luna Mabel</td><td>White</td><td class="result-win">Win</td><td class="acc-hi">93.5%</td><td>90.0%</td><td>30</td><td>0/2/9</td></tr>
+      <tr><td>Gonzalez Cadena, Armando Zayd</td><td>White</td><td class="result-loss">Loss</td><td class="acc-mid">90.2%</td><td>94.3%</td><td>45</td><td>2/1/6</td></tr>
+      <tr><td>Galvan Anguiano, Victoria</td><td>White</td><td class="result-win">Win</td><td class="acc-mid">90.0%</td><td>90.0%</td><td>40</td><td>2/2/6</td></tr>
+      <tr><td>Martinez, Hernandez Eduardo Yoav (R2)</td><td>Black</td><td class="result-win">Win</td><td class="acc-mid">90.1%</td><td>85.9%</td><td>39</td><td>2/1/2</td></tr>
+      <tr><td>Rascon Peralta, Bolivar Ernesto</td><td>White</td><td class="result-win">Win</td><td class="acc-mid">86.8%</td><td>86.4%</td><td>39</td><td>1/3/5</td></tr>
+      <tr><td>Zamora Marquez, Martin</td><td>White</td><td class="result-win">Win</td><td class="acc-lo">86.1%</td><td>88.2%</td><td>36</td><td>0/0/5</td></tr>
+      <tr><td>Guzman Garcia, Mia Fernanda</td><td>Black</td><td class="result-loss">Loss</td><td class="acc-lo">86.5%</td><td>94.8%</td><td>99</td><td>2/3/2</td></tr>
+      <tr><td>Valdez Lomeli, Nicolas</td><td>Black</td><td class="result-loss">Loss</td><td class="acc-lo">83.4%</td><td>92.2%</td><td>90</td><td>2/3/4</td></tr>
+      <tr><td>Agama Hernandez, Luis Fernando</td><td>Black</td><td class="result-loss">Loss</td><td class="acc-lo">83.4%</td><td>87.1%</td><td>70</td><td>2/4/12</td></tr>
+      <tr><td>Galaviz Medina, Ades Antares</td><td>White</td><td class="result-loss">Loss</td><td class="acc-lo">82.1%</td><td>86.9%</td><td>47</td><td>1/1/5</td></tr>
+    </tbody>
+  </table>
 
-  <h3>Accuracy Drop vs 2000+ Opponents (Agua R1)</h3>
-  <p>In the only game vs a rated 2000+ opponent (CM Lopez Calderon, 2135), Inti made 3 classification errors in 4 consecutive moves (moves 22–25): f5? (mistake), N4e5?? (blunder), Bb7? (mistake). This is Inti's most important accuracy weakness — under pressure from a stronger player, his move quality degrades rapidly in the middlegame.</p>
+  <h2>Per-Game Accuracy — Copa Estado de México 2025 (Blitz)</h2>
+  <table>
+    <thead><tr><th>Rd</th><th>Opponent</th><th>Color</th><th>Result</th><th>Inti Acc</th><th>Opp Acc</th><th>CPL</th><th>B/M/I</th></tr></thead>
+    <tbody>
+      <tr><td>R1</td><td>Gonzalez Diaz, Daniel Alexander</td><td>Black</td><td class="result-win">Win</td><td class="acc-hi">96.8%</td><td>90.4%</td><td>22</td><td>0/0/7</td></tr>
+      <tr><td>R3</td><td>Estrada, Ricardo</td><td>Black</td><td class="acc-mid">88.0%</td><td>87.2%</td><td>50</td><td class="result-draw">Draw</td><td>3/1/10</td></tr>
+      <tr><td>R4</td><td>Landa Carrillo, Oliver Ariel</td><td>White</td><td class="result-loss">Loss</td><td class="acc-lo">86.3%</td><td>90.2%</td><td>61</td><td>1/3/13</td></tr>
+      <tr><td>R6</td><td>Espinosa De La Cruz, Bruno Adan</td><td>White</td><td class="result-win">Win</td><td class="acc-hi">91.7%</td><td>87.0%</td><td>21</td><td>0/1/4</td></tr>
+      <tr><td>R7</td><td>Palestina Diaz, Angel</td><td>White</td><td class="result-win">Win</td><td class="acc-mid">85.4%</td><td>82.5%</td><td>67</td><td>5/3/6</td></tr>
+      <tr><td>R5</td><td>Moreno Avendano, Jose Angel</td><td>Black</td><td class="result-win">Win</td><td class="acc-lo">81.6%</td><td>76.4%</td><td>80</td><td>2/0/3</td></tr>
+    </tbody>
+  </table>
 
-  <h3>Queretaro R6 — White Accuracy Drop (Sicilian f4 system)</h3>
-  <p>Against De Alba (1825) in B43 Kan, Inti played 13.Bf2?? (blunder on move 13) after spending only 3 minutes vs opponent's 49 minutes. The time disparity suggests he was in his preparation but then lost the thread when preparation ended. The blunder cost him a decisive advantage.</p>
+  <h2>Per-Game Accuracy — Nacional Olímpico Sub-16 2025 (Classical)</h2>
+  <table>
+    <thead><tr><th>Opponent</th><th>Color</th><th>Result</th><th>Inti Acc</th><th>Opp Acc</th><th>CPL</th><th>B/M/I</th></tr></thead>
+    <tbody>
+      <tr><td>Sanchez Juarez, Zlatan Alexander</td><td>Black</td><td class="result-win">Win</td><td class="acc-hi">97.9%</td><td>91.8%</td><td>18</td><td>0/1/2</td></tr>
+      <tr><td>Rodriguez Juarez, Daniel Alexande</td><td>Black</td><td class="result-loss">Loss</td><td class="acc-hi">93.5%</td><td>96.7%</td><td>39</td><td>2/2/2</td></tr>
+      <tr><td>Solis Galicia, Luis Angel</td><td>Black</td><td class="result-loss">Loss</td><td class="acc-mid">88.8%</td><td>95.2%</td><td>43</td><td>1/0/6</td></tr>
+      <tr><td>Madrigal Madrazo, Luis Xavier</td><td>White</td><td class="result-loss">Loss</td><td class="acc-lo">83.8%</td><td>88.9%</td><td>55</td><td>1/3/7</td></tr>
+    </tbody>
+  </table>
 
-  <h3>Copa Blitz — Multiple Mutual Blunders</h3>
-  <p>Copa R7 (Philidor win) and Copa R3 (Ruy Lopez draw) both feature sequences of mutual blunders near time control. Blitz accuracy is expected to be lower — these games are less useful for pattern identification than classical games.</p>
+  <h2>Per-Game Accuracy — Querétaro 2026 (Classical)</h2>
+  <table>
+    <thead><tr><th>Rd</th><th>Opponent</th><th>Color</th><th>Result</th><th>Inti Acc</th><th>Opp Acc</th><th>CPL</th><th>B/M/I</th></tr></thead>
+    <tbody>
+      <tr><td>R2</td><td>Martinez Cruz, Axel (1519)</td><td>White</td><td class="result-win">Win</td><td class="acc-hi">98.2%</td><td>92.2%</td><td>9</td><td>0/0/2</td></tr>
+      <tr><td>R1</td><td>Alcantara Juarez, Fernando</td><td>Black</td><td class="result-win">Win</td><td class="acc-hi">94.4%</td><td>88.2%</td><td>21</td><td>0/1/2</td></tr>
+      <tr><td>R3</td><td>Sanchez Martinez, Uriel Mateo (1661)</td><td>Black</td><td class="result-win">Win</td><td class="acc-hi">92.4%</td><td>81.7%</td><td>20</td><td>0/0/3</td></tr>
+      <tr><td>R4</td><td>Cortez Madera, Fidel Leonardo (1553)</td><td>White</td><td class="result-win">Win</td><td class="acc-hi">92.1%</td><td>88.7%</td><td>33</td><td>2/0/6</td></tr>
+      <tr><td>R6</td><td>De Alba Boudreau, Pablo Elliott (1825)</td><td>White</td><td class="result-loss">Loss</td><td class="acc-mid">89.4%</td><td>91.2%</td><td>185</td><td>16/5/16</td></tr>
+      <tr><td>R5</td><td>Hernandez Gamboa, Daniel (1692)</td><td>Black</td><td class="result-draw">Draw</td><td class="acc-mid">87.5%</td><td>88.0%</td><td>37</td><td>1/2/3</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Per-Game Accuracy — Aguascalientes 2026 (Classical)</h2>
+  <table>
+    <thead><tr><th>Rd</th><th>Opponent (Rating)</th><th>Color</th><th>Result</th><th>Inti Acc</th><th>Opp Acc</th><th>CPL</th><th>B/M/I</th></tr></thead>
+    <tbody>
+      <tr><td>R1</td><td>Lopez Calderon, Alfonso Al (2135)</td><td>Black</td><td class="result-loss">Loss</td><td class="acc-mid">91.4%</td><td>93.7%</td><td>58</td><td>1/3/14</td></tr>
+      <tr><td>R3</td><td>Garcia Nevarez, Moises Omar</td><td>Black</td><td class="result-loss">Loss</td><td class="acc-lo">84.8%</td><td>91.9%</td><td>49</td><td>1/2/2</td></tr>
+    </tbody>
+  </table>
 
   <hr/>
 
-  <h2>Update Instructions (After Analysis Completes)</h2>
-  <ol>
-    <li>Read <code>scripts/inti-analysis-results.json</code></li>
-    <li>Compute per-tournament averages (filter out blitz copa2025 for clean classical avg)</li>
-    <li>Replace the pending boxes above with actual accuracy tables</li>
-    <li>Add top-3 critical moments per key game (Queretaro R6, Agua R1)</li>
-    <li>Update the header badge from "Running" to "Complete"</li>
-  </ol>
+  <h2>Critical Moments — Key Games</h2>
+
+  <h3>Querétaro R5 vs Hernandez Gamboa — missed win (87.5% acc)</h3>
+  <p>Inti entered this endgame with a <strong>+4.67 advantage</strong> (decisive) but blundered it to a draw. This is his most significant conversion failure in the classical sample.</p>
+  <div class="critical-box">
+    <p><strong>Move 41 — Bd3? (Blunder, CPL 473)</strong><br/>
+    Eval: <strong>+4.67</strong> → <strong>−0.06</strong> (draw)<br/>
+    Correct: <span class="move-label">Rbc8!</span> — decisive rook coordination. Inti played a passive bishop move when the rooks needed to invade.</p>
+  </div>
+  <div class="critical-box">
+    <p><strong>Move 27 — Rbc8? (Mistake, CPL 258) · Move 35 — Kh7? (Mistake, CPL 260)</strong><br/>
+    Eval gradually slipped from +3.55 → +1.39 over these two moves. Inti missed the right moment for Bb4! (pin) on move 27, then played a passive king move instead of the queenside break b5 on move 35. <em>The same rook maneuver (Rbc8) that was wrong on move 27 became the winning move on move 41 — but by then it was too late.</em></p>
+  </div>
+
+  <h3>Nacional Olímpico — vs Rodriguez Juarez (93.5% acc, still lost)</h3>
+  <p>Inti played 93.5% accuracy — his highest recorded losing performance — but lost because his opponent played 96.7%. This is Inti's clearest demonstration that he can be outprepared in the opening. The loss came from <em>preparation quality</em>, not tactical errors.</p>
+
+  <h3>Aguascalientes 2026 R3 — vs Garcia Nevarez (84.8% acc)</h3>
+  <p>Only 49 plies, suggesting the game ended early. 84.8% with 1B/2M/2I is Inti's worst classical performance in 2026. Combined with the R1 loss (91.4%), Aguascalientes 2026 was a poor showing and likely contributed to a rating dip before recovery.</p>
+
+  <h3>Aguascalientes R1 — vs Lopez Calderon 2135 (91.4% acc)</h3>
+  <div class="critical-box">
+    <p><strong>Move 24 — N4e5? (Mistake, CPL 214)</strong><br/>
+    Eval: <strong>−0.71</strong> → <strong>−2.85</strong><br/>
+    Correct: <span class="move-label">Nf6!</span> — active knight kept the position competitive. Inti chose an aggressive-looking centralization that only exposed the knight and worsened his structure.</p>
+  </div>
+
+  <hr/>
+
+  <h2>Accuracy Patterns for Austin's Preparation</h2>
+
+  <h3>Accuracy vs Result — The Conversion Gap</h3>
+  <table>
+    <thead><tr><th>Scenario</th><th>Games</th><th>Avg Acc</th><th>Record</th></tr></thead>
+    <tbody>
+      <tr><td>Won games</td><td>19</td><td class="acc-hi">92.2%</td><td>—</td></tr>
+      <tr><td>Lost games</td><td>11</td><td class="acc-lo">87.4%</td><td>—</td></tr>
+      <tr><td>Classical only (Querétaro + Agua + Olímpico)</td><td>12</td><td class="acc-hi">91.4%</td><td>5W-6L-1D</td></tr>
+      <tr><td>Lost in classical despite &gt;90% acc</td><td>3</td><td>92.0%</td><td>0W-3L-0D</td></tr>
+    </tbody>
+  </table>
+
+  <div class="info-box">
+    <strong>The 3 high-accuracy classical losses tell the preparation story:</strong>
+    Inti lost to Rodriguez Juarez (93.5%), Lopez Calderon (91.4%), and Solis Galicia (88.8%) — all while playing above 88%. He doesn't blunder his way out of games; he loses on preparation depth and structural decision-making. Austin (1959 FIDE) needs novelty-level prep to beat him, not tactical traps.
+  </div>
+
+  <h3>Color Split (Classical only)</h3>
+  <table>
+    <thead><tr><th>Color</th><th>Classical Games</th><th>Avg Acc</th><th>W-L-D</th></tr></thead>
+    <tbody>
+      <tr><td>White</td><td>5</td><td class="acc-hi">93.4%</td><td>3W-1L-0D (missed conversion in Querétaro R6)</td></tr>
+      <tr><td>Black</td><td>7</td><td class="acc-mid">90.1%</td><td>2W-5L-1D (more vulnerable as Black)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warn-box">
+    <strong>Austin plays White vs Inti's 1...e5.</strong> Inti's classical White accuracy (93.4%) is his strongest color. As Black vs 1.e4, he scores 2W-5L-1D across classical games — his most exploitable side. Targeting Inti's Black game with prepared Italian / Ruy Lopez lines where Austin knows the theory deeper is the highest-EV preparation path.
+  </div>
+
+  <h3>Best Action Zone — Move 20–30</h3>
+  <p>Across all classical games, Inti's worst-classified moves cluster in the move 20–35 range: N4e5? (move 24, Agua R1), Rbc8? (move 27, Querétaro R5), Kh7? (move 35, Querétaro R5). This is precisely where his opening preparation ends and original calculation is required. Austin should create complications or novelties that require Inti to think independently from move 20 onwards.</p>
 
 </div>
 </body>

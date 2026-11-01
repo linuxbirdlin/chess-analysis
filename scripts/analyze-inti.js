@@ -16,9 +16,12 @@ const SF_THREADS = parseInt(process.env.SF_THREADS || '16', 10);
 const INACCURACY_CPL = 50, MISTAKE_CPL = 150, BLUNDER_CPL = 300;
 
 const TOURNAMENTS = [
-  { dir: 'copa2025',     name: 'Copa Estado de México 2025', format: 'pgn' },
-  { dir: 'Queretaro2026', name: 'Querétaro 2026',            format: 'pgn' },
-  { dir: 'agua2026',     name: 'Aguascalientes 2026',        format: 'pgn' },
+  { dir: 'copa2024',      name: 'Copa Estado de México 2024', format: 'pgn' },
+  { dir: 'copa2025',      name: 'Copa Estado de México 2025', format: 'pgn' },
+  { dir: 'queretaro2025', name: 'Querétaro 2025',             format: 'pgn' },
+  { dir: 'Queretaro2026', name: 'Querétaro 2026',             format: 'pgn' },
+  { dir: 'olimpico2025',  name: 'Nacional Olímpico Sub-16 2025', format: 'pgn' },
+  { dir: 'agua2026',      name: 'Aguascalientes 2026',        format: 'pgn' },
 ];
 
 function isInti(name) { return /flores ojeda|inti/i.test(name); }
@@ -28,6 +31,12 @@ function preprocessPgn(text) {
   text = text.replace(/\{[^{}]*\}/g, '');
   let prev;
   do { prev = text; text = text.replace(/\([^()]*\)/g, ''); } while (text !== prev);
+  // Strip Black move numbers written as "1... " (Lichess broadcast format)
+  text = text.replace(/\d+\.\.\./g, '');
+  // Strip move annotation symbols
+  text = text.replace(/[?!]{1,2}/g, '');
+  // Strip Lichess broadcast extra headers that chess.js chokes on (BroadcastName has escaped quotes)
+  text = text.replace(/^\[(BroadcastName|BroadcastURL|GameURL|Variant|StudyName|ChapterName|ChapterURL|UTCDate|UTCTime|Annotator)[^\]]*\]\n?/gm, '');
   return text;
 }
 
