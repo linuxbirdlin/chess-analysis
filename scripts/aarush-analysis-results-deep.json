@@ -1,0 +1,1283 @@
+{
+  "Canada Closed 2026": {
+    "R1": {
+      "aarushAccuracy": 82.1,
+      "oppAccuracy": 85.6,
+      "avgCPL": 65,
+      "blunders": 2,
+      "mistakes": 1,
+      "inaccuracies": 12,
+      "movesAnalyzed": 36,
+      "criticalMoments": [
+        {
+          "san": "Rxa7",
+          "bestMove": "exf4",
+          "cpl": 440,
+          "classification": "blunder",
+          "evalBefore": "+3.25",
+          "evalAfter": "-1.15"
+        },
+        {
+          "san": "hxg6",
+          "bestMove": "fxg5",
+          "cpl": 338,
+          "classification": "blunder",
+          "evalBefore": "-2.19",
+          "evalAfter": "-5.57"
+        },
+        {
+          "san": "Rd7",
+          "bestMove": "exf4",
+          "cpl": 256,
+          "classification": "mistake",
+          "evalBefore": "+2.92",
+          "evalAfter": "+0.36"
+        }
+      ],
+      "aarushColor": "black",
+      "opponent": "Iordanescu, Victor Nicolae",
+      "opponentElo": 2108,
+      "round": 1,
+      "result": "1-0",
+      "aarushResult": "loss",
+      "eco": "E60"
+    },
+    "R2": {
+      "aarushAccuracy": 90.1,
+      "oppAccuracy": 96.7,
+      "avgCPL": 75,
+      "blunders": 1,
+      "mistakes": 2,
+      "inaccuracies": 6,
+      "movesAnalyzed": 28,
+      "criticalMoments": [
+        {
+          "san": "Kf7",
+          "bestMove": "Rf8",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-7.93",
+          "evalAfter": "-#"
+        },
+        {
+          "san": "Nc4",
+          "bestMove": "Re8",
+          "cpl": 253,
+          "classification": "mistake",
+          "evalBefore": "-1.37",
+          "evalAfter": "-3.90"
+        },
+        {
+          "san": "Rfd8",
+          "bestMove": "Nc4",
+          "cpl": 184,
+          "classification": "mistake",
+          "evalBefore": "-0.26",
+          "evalAfter": "-2.10"
+        }
+      ],
+      "aarushColor": "black",
+      "opponent": "Gao, Heye",
+      "opponentElo": 2028,
+      "round": 2,
+      "result": "1-0",
+      "aarushResult": "loss",
+      "eco": "B92"
+    },
+    "R3": {
+      "aarushAccuracy": 94,
+      "oppAccuracy": 88.9,
+      "avgCPL": 17,
+      "blunders": 0,
+      "mistakes": 1,
+      "inaccuracies": 1,
+      "movesAnalyzed": 31,
+      "criticalMoments": [
+        {
+          "san": "Rae1",
+          "bestMove": "f6",
+          "cpl": 175,
+          "classification": "mistake",
+          "evalBefore": "+3.62",
+          "evalAfter": "+1.87"
+        },
+        {
+          "san": "Qe2",
+          "bestMove": "f5",
+          "cpl": 80,
+          "classification": "inaccuracy",
+          "evalBefore": "+2.28",
+          "evalAfter": "+1.48"
+        }
+      ],
+      "aarushColor": "white",
+      "opponent": "Laughlin, Braden",
+      "opponentElo": 1947,
+      "round": 3,
+      "result": "1-0",
+      "aarushResult": "win",
+      "eco": "D10"
+    },
+    "R4": {
+      "aarushAccuracy": 86,
+      "oppAccuracy": 91.5,
+      "avgCPL": 59,
+      "blunders": 2,
+      "mistakes": 3,
+      "inaccuracies": 4,
+      "movesAnalyzed": 36,
+      "criticalMoments": [
+        {
+          "san": "Rfe1",
+          "bestMove": "Bxf6",
+          "cpl": 441,
+          "classification": "blunder",
+          "evalBefore": "-1.83",
+          "evalAfter": "-6.24"
+        },
+        {
+          "san": "Bh4",
+          "bestMove": "Bf6",
+          "cpl": 423,
+          "classification": "blunder",
+          "evalBefore": "-0.63",
+          "evalAfter": "-4.86"
+        },
+        {
+          "san": "Bxf5",
+          "bestMove": "Qd4",
+          "cpl": 215,
+          "classification": "mistake",
+          "evalBefore": "-6.39",
+          "evalAfter": "-8.54"
+        }
+      ],
+      "aarushColor": "white",
+      "opponent": "Yin, Zeming",
+      "opponentElo": 2098,
+      "round": 4,
+      "result": "0-1",
+      "aarushResult": "loss",
+      "eco": "E04"
+    },
+    "R5": {
+      "aarushAccuracy": 88,
+      "oppAccuracy": 93.2,
+      "avgCPL": 41,
+      "blunders": 1,
+      "mistakes": 0,
+      "inaccuracies": 9,
+      "movesAnalyzed": 34,
+      "criticalMoments": [
+        {
+          "san": "Qf6",
+          "bestMove": "dxc5",
+          "cpl": 344,
+          "classification": "blunder",
+          "evalBefore": "-4.55",
+          "evalAfter": "-7.99"
+        },
+        {
+          "san": "Ncd7",
+          "bestMove": "g5",
+          "cpl": 144,
+          "classification": "inaccuracy",
+          "evalBefore": "+1.16",
+          "evalAfter": "-0.28"
+        },
+        {
+          "san": "Bxd5",
+          "bestMove": "h5",
+          "cpl": 141,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.48",
+          "evalAfter": "-1.89"
+        }
+      ],
+      "aarushColor": "black",
+      "opponent": "Hartner, Rian",
+      "opponentElo": 2013,
+      "round": 5,
+      "result": "1-0",
+      "aarushResult": "loss",
+      "eco": "B51"
+    },
+    "R6": {
+      "aarushAccuracy": 90.6,
+      "oppAccuracy": 96.3,
+      "avgCPL": 51,
+      "blunders": 3,
+      "mistakes": 0,
+      "inaccuracies": 2,
+      "movesAnalyzed": 38,
+      "criticalMoments": [
+        {
+          "san": "Qg7",
+          "bestMove": "h6",
+          "cpl": 581,
+          "classification": "blunder",
+          "evalBefore": "-10.42",
+          "evalAfter": "-16.23"
+        },
+        {
+          "san": "Rd7",
+          "bestMove": "Qd7",
+          "cpl": 544,
+          "classification": "blunder",
+          "evalBefore": "+0.00",
+          "evalAfter": "-5.44"
+        },
+        {
+          "san": "Bxa4",
+          "bestMove": "Rf8",
+          "cpl": 358,
+          "classification": "blunder",
+          "evalBefore": "-6.39",
+          "evalAfter": "-9.97"
+        }
+      ],
+      "aarushColor": "black",
+      "opponent": "Zhu, Elber",
+      "opponentElo": 1936,
+      "round": 6,
+      "result": "1-0",
+      "aarushResult": "loss",
+      "eco": "A48"
+    },
+    "R7": {
+      "aarushAccuracy": 93.6,
+      "oppAccuracy": 96.4,
+      "avgCPL": 151,
+      "blunders": 9,
+      "mistakes": 3,
+      "inaccuracies": 8,
+      "movesAnalyzed": 64,
+      "criticalMoments": [
+        {
+          "san": "Kxa5",
+          "bestMove": "Kxa5",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-9.43",
+          "evalAfter": "-35.59"
+        },
+        {
+          "san": "Kxc6",
+          "bestMove": "Kxc6",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-22.79",
+          "evalAfter": "-50.90"
+        },
+        {
+          "san": "Kd6",
+          "bestMove": "Kd6",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-14.46",
+          "evalAfter": "-50.02"
+        }
+      ],
+      "aarushColor": "white",
+      "opponent": "Yin, Aiden",
+      "opponentElo": 1824,
+      "round": 7,
+      "result": "0-1",
+      "aarushResult": "loss",
+      "eco": "D11"
+    },
+    "R8": {
+      "aarushAccuracy": 94.1,
+      "oppAccuracy": 93.4,
+      "avgCPL": 53,
+      "blunders": 2,
+      "mistakes": 5,
+      "inaccuracies": 3,
+      "movesAnalyzed": 52,
+      "criticalMoments": [
+        {
+          "san": "Ke5",
+          "bestMove": "Kf5",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-12.64",
+          "evalAfter": "-25.27"
+        },
+        {
+          "san": "Kd5",
+          "bestMove": "Kf5",
+          "cpl": 349,
+          "classification": "blunder",
+          "evalBefore": "-58.37",
+          "evalAfter": "-61.86"
+        },
+        {
+          "san": "Qxe6",
+          "bestMove": "Nc6",
+          "cpl": 236,
+          "classification": "mistake",
+          "evalBefore": "-1.52",
+          "evalAfter": "-3.88"
+        }
+      ],
+      "aarushColor": "black",
+      "opponent": "Wu, Ting En Ryan",
+      "opponentElo": 1906,
+      "round": 8,
+      "result": "1/2-1/2",
+      "aarushResult": "draw",
+      "eco": "B90"
+    },
+    "R9": {
+      "aarushAccuracy": 98.1,
+      "oppAccuracy": 92.9,
+      "avgCPL": 5,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 1,
+      "movesAnalyzed": 36,
+      "criticalMoments": [
+        {
+          "san": "g4",
+          "bestMove": "Nb5",
+          "cpl": 54,
+          "classification": "inaccuracy",
+          "evalBefore": "+2.90",
+          "evalAfter": "+2.36"
+        }
+      ],
+      "aarushColor": "white",
+      "opponent": "Velasquez, Noah",
+      "opponentElo": 1925,
+      "round": 9,
+      "result": "1-0",
+      "aarushResult": "win",
+      "eco": "E68"
+    }
+  },
+  "PAM School 2026": {
+    "R2": {
+      "aarushAccuracy": 91.7,
+      "oppAccuracy": 96.4,
+      "avgCPL": 40,
+      "blunders": 1,
+      "mistakes": 2,
+      "inaccuracies": 8,
+      "movesAnalyzed": 39,
+      "criticalMoments": [
+        {
+          "san": "Nc4",
+          "bestMove": "Bxd5",
+          "cpl": 301,
+          "classification": "blunder",
+          "evalBefore": "-3.79",
+          "evalAfter": "-6.80"
+        },
+        {
+          "san": "Qf1",
+          "bestMove": "Qc2",
+          "cpl": 184,
+          "classification": "mistake",
+          "evalBefore": "-10.07",
+          "evalAfter": "-11.91"
+        },
+        {
+          "san": "Rfe1",
+          "bestMove": "exd5",
+          "cpl": 179,
+          "classification": "mistake",
+          "evalBefore": "+0.00",
+          "evalAfter": "-1.79"
+        }
+      ],
+      "aarushColor": "white",
+      "opponent": "Liu, Zachary Hankun",
+      "opponentElo": 2051,
+      "round": 2,
+      "result": "0-1",
+      "aarushResult": "loss",
+      "eco": "E08 — Catalan Opening: Closed"
+    },
+    "R8": {
+      "aarushAccuracy": 91.1,
+      "oppAccuracy": 97.3,
+      "avgCPL": 53,
+      "blunders": 0,
+      "mistakes": 3,
+      "inaccuracies": 6,
+      "movesAnalyzed": 28,
+      "criticalMoments": [
+        {
+          "san": "Qe7",
+          "bestMove": "Ncxe4",
+          "cpl": 227,
+          "classification": "mistake",
+          "evalBefore": "-5.31",
+          "evalAfter": "-7.58"
+        },
+        {
+          "san": "Rb8",
+          "bestMove": "Qg6",
+          "cpl": 227,
+          "classification": "mistake",
+          "evalBefore": "-6.58",
+          "evalAfter": "-8.85"
+        },
+        {
+          "san": "dxc4",
+          "bestMove": "h6",
+          "cpl": 151,
+          "classification": "mistake",
+          "evalBefore": "-3.83",
+          "evalAfter": "-5.34"
+        }
+      ],
+      "aarushColor": "black",
+      "opponent": "Espinosa Castaneda, Ronald Manuel",
+      "opponentElo": 2087,
+      "round": 8,
+      "result": "0-1",
+      "aarushResult": "win",
+      "eco": "B90 — Sicilian Defense: Najdorf Variation"
+    }
+  },
+  "PAM 2026": {
+    "R1": {
+      "aarushAccuracy": 93.6,
+      "oppAccuracy": 90.1,
+      "avgCPL": 48,
+      "blunders": 1,
+      "mistakes": 0,
+      "inaccuracies": 3,
+      "movesAnalyzed": 31,
+      "criticalMoments": [
+        {
+          "san": "Rf6",
+          "bestMove": "Rf5",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "#",
+          "evalAfter": "+6.27"
+        },
+        {
+          "san": "Rf3",
+          "bestMove": "Bg7",
+          "cpl": 127,
+          "classification": "inaccuracy",
+          "evalBefore": "+7.34",
+          "evalAfter": "+6.07"
+        },
+        {
+          "san": "Qd7",
+          "bestMove": "Bg4",
+          "cpl": 83,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.87",
+          "evalAfter": "+0.04"
+        }
+      ],
+      "aarushColor": "black",
+      "opponent": "Santamaria Arcila, Nicolas",
+      "opponentElo": 1589,
+      "round": 1,
+      "result": "0-1",
+      "aarushResult": "win",
+      "eco": "?"
+    },
+    "R2": {
+      "aarushAccuracy": 94.3,
+      "oppAccuracy": 86.8,
+      "avgCPL": 17,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 3,
+      "movesAnalyzed": 25,
+      "criticalMoments": [
+        {
+          "san": "Kh1",
+          "bestMove": "Rff2",
+          "cpl": 145,
+          "classification": "inaccuracy",
+          "evalBefore": "+4.23",
+          "evalAfter": "+2.78"
+        },
+        {
+          "san": "Rd2",
+          "bestMove": "Nfd2",
+          "cpl": 92,
+          "classification": "inaccuracy",
+          "evalBefore": "+1.14",
+          "evalAfter": "+0.22"
+        },
+        {
+          "san": "Qxd2",
+          "bestMove": "Nbxd2",
+          "cpl": 59,
+          "classification": "inaccuracy",
+          "evalBefore": "+2.76",
+          "evalAfter": "+2.17"
+        }
+      ],
+      "aarushColor": "white",
+      "opponent": "Naranjo Diaz, Juan Felipe",
+      "opponentElo": 1727,
+      "round": 2,
+      "result": "1-0",
+      "aarushResult": "win",
+      "eco": "?"
+    },
+    "R3": {
+      "aarushAccuracy": 93.7,
+      "oppAccuracy": 87.9,
+      "avgCPL": 29,
+      "blunders": 1,
+      "mistakes": 2,
+      "inaccuracies": 3,
+      "movesAnalyzed": 37,
+      "criticalMoments": [
+        {
+          "san": "Qd2",
+          "bestMove": "a5",
+          "cpl": 360,
+          "classification": "blunder",
+          "evalBefore": "+13.87",
+          "evalAfter": "+10.27"
+        },
+        {
+          "san": "Bb6",
+          "bestMove": "e4",
+          "cpl": 166,
+          "classification": "mistake",
+          "evalBefore": "+1.52",
+          "evalAfter": "-0.14"
+        },
+        {
+          "san": "Qxg5",
+          "bestMove": "Bd4",
+          "cpl": 151,
+          "classification": "mistake",
+          "evalBefore": "+11.21",
+          "evalAfter": "+9.70"
+        }
+      ],
+      "aarushColor": "black",
+      "opponent": "Otalvaro Vasquez, Camilo Andres",
+      "opponentElo": 1825,
+      "round": 3,
+      "result": "0-1",
+      "aarushResult": "win",
+      "eco": "B90 — Sicilian Defense: Najdorf Variation, English Attack"
+    },
+    "R4": {
+      "aarushAccuracy": 87.9,
+      "oppAccuracy": 82.8,
+      "avgCPL": 49,
+      "blunders": 1,
+      "mistakes": 3,
+      "inaccuracies": 10,
+      "movesAnalyzed": 45,
+      "criticalMoments": [
+        {
+          "san": "Bh6+",
+          "bestMove": "Be5+",
+          "cpl": 701,
+          "classification": "blunder",
+          "evalBefore": "+0.84",
+          "evalAfter": "-6.17"
+        },
+        {
+          "san": "g4+",
+          "bestMove": "Qxh2",
+          "cpl": 197,
+          "classification": "mistake",
+          "evalBefore": "-4.15",
+          "evalAfter": "-6.12"
+        },
+        {
+          "san": "b6",
+          "bestMove": "Qd8",
+          "cpl": 194,
+          "classification": "mistake",
+          "evalBefore": "-0.93",
+          "evalAfter": "-2.87"
+        }
+      ],
+      "aarushColor": "black",
+      "opponent": "Ayala Delgado, Sergio Alejandro",
+      "opponentElo": 2097,
+      "round": 4,
+      "result": "0-1",
+      "aarushResult": "win",
+      "eco": "A45 — Trompowsky Attack"
+    },
+    "R5": {
+      "aarushAccuracy": 89.2,
+      "oppAccuracy": 94.7,
+      "avgCPL": 47,
+      "blunders": 0,
+      "mistakes": 4,
+      "inaccuracies": 6,
+      "movesAnalyzed": 31,
+      "criticalMoments": [
+        {
+          "san": "Nd5",
+          "bestMove": "dxe5",
+          "cpl": 210,
+          "classification": "mistake",
+          "evalBefore": "-0.02",
+          "evalAfter": "-2.12"
+        },
+        {
+          "san": "Nf1",
+          "bestMove": "e5",
+          "cpl": 185,
+          "classification": "mistake",
+          "evalBefore": "-5.19",
+          "evalAfter": "-7.04"
+        },
+        {
+          "san": "h4",
+          "bestMove": "e5",
+          "cpl": 175,
+          "classification": "mistake",
+          "evalBefore": "-4.96",
+          "evalAfter": "-6.71"
+        }
+      ],
+      "aarushColor": "white",
+      "opponent": "Gao, Heye",
+      "opponentElo": 2065,
+      "round": 5,
+      "result": "0-1",
+      "aarushResult": "loss",
+      "eco": "E04 — Catalan Opening: Open Defense"
+    },
+    "R6": {
+      "aarushAccuracy": 88,
+      "oppAccuracy": 91.8,
+      "avgCPL": 143,
+      "blunders": 6,
+      "mistakes": 5,
+      "inaccuracies": 7,
+      "movesAnalyzed": 50,
+      "criticalMoments": [
+        {
+          "san": "e5",
+          "bestMove": "Qf2",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-9.09",
+          "evalAfter": "-22.33"
+        },
+        {
+          "san": "Re2",
+          "bestMove": "Bxe6",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-9.54",
+          "evalAfter": "-#"
+        },
+        {
+          "san": "g4",
+          "bestMove": "Rxe6",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-11.77",
+          "evalAfter": "-22.80"
+        }
+      ],
+      "aarushColor": "white",
+      "opponent": "Delgado Gutierrez, Mateo",
+      "opponentElo": 1833,
+      "round": 6,
+      "result": "0-1",
+      "aarushResult": "loss",
+      "eco": "E68 — King's Indian Defense: Fianchetto Variation, Classical Variation"
+    },
+    "R7": {
+      "aarushAccuracy": 97.4,
+      "oppAccuracy": 92,
+      "avgCPL": 14,
+      "blunders": 0,
+      "mistakes": 1,
+      "inaccuracies": 0,
+      "movesAnalyzed": 30,
+      "criticalMoments": [
+        {
+          "san": "Rab8",
+          "bestMove": "Rae8",
+          "cpl": 187,
+          "classification": "mistake",
+          "evalBefore": "+7.89",
+          "evalAfter": "+6.02"
+        }
+      ],
+      "aarushColor": "black",
+      "opponent": "Ladino Hernandez, Angel Joel",
+      "opponentElo": 1816,
+      "round": 7,
+      "result": "0-1",
+      "aarushResult": "win",
+      "eco": "?"
+    },
+    "R8": {
+      "aarushAccuracy": 92,
+      "oppAccuracy": 95.1,
+      "avgCPL": 109,
+      "blunders": 6,
+      "mistakes": 3,
+      "inaccuracies": 4,
+      "movesAnalyzed": 54,
+      "criticalMoments": [
+        {
+          "san": "e7",
+          "bestMove": "h3",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-14.76",
+          "evalAfter": "-38.70"
+        },
+        {
+          "san": "Kf7",
+          "bestMove": "g4",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-79.72",
+          "evalAfter": "-#"
+        },
+        {
+          "san": "Kxb4",
+          "bestMove": "Kxb4",
+          "cpl": 988,
+          "classification": "blunder",
+          "evalBefore": "-64.80",
+          "evalAfter": "-74.68"
+        }
+      ],
+      "aarushColor": "white",
+      "opponent": "Fernandez Herrera, Andres",
+      "opponentElo": 2137,
+      "round": 8,
+      "result": "0-1",
+      "aarushResult": "loss",
+      "eco": "D30 — Queen's Gambit Declined"
+    },
+    "R9": {
+      "aarushAccuracy": 87.6,
+      "oppAccuracy": 94.3,
+      "avgCPL": 48,
+      "blunders": 1,
+      "mistakes": 1,
+      "inaccuracies": 1,
+      "movesAnalyzed": 27,
+      "criticalMoments": [
+        {
+          "san": "Bxa4",
+          "bestMove": "b6",
+          "cpl": 796,
+          "classification": "blunder",
+          "evalBefore": "-1.23",
+          "evalAfter": "-9.19"
+        },
+        {
+          "san": "Rh5",
+          "bestMove": "Rf5",
+          "cpl": 227,
+          "classification": "mistake",
+          "evalBefore": "-0.44",
+          "evalAfter": "-2.71"
+        },
+        {
+          "san": "Re5",
+          "bestMove": "b6",
+          "cpl": 103,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.00",
+          "evalAfter": "-1.03"
+        }
+      ],
+      "aarushColor": "black",
+      "opponent": "Barriga Vera, Aaron Joshua",
+      "opponentElo": 1910,
+      "round": 9,
+      "result": "1-0",
+      "aarushResult": "loss",
+      "eco": "?"
+    }
+  },
+  "Canada Open 2026": {
+    "R1": {
+      "aarushAccuracy": 92.4,
+      "oppAccuracy": 92.6,
+      "avgCPL": 24,
+      "blunders": 1,
+      "mistakes": 0,
+      "inaccuracies": 1,
+      "movesAnalyzed": 35,
+      "criticalMoments": [
+        {
+          "san": "Nxb4",
+          "bestMove": "Nf4+",
+          "cpl": 618,
+          "classification": "blunder",
+          "evalBefore": "+6.18",
+          "evalAfter": "+0.00"
+        },
+        {
+          "san": "Nd3",
+          "bestMove": "Rcc1",
+          "cpl": 54,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.50",
+          "evalAfter": "-0.04"
+        }
+      ],
+      "aarushColor": "white",
+      "opponent": "Malakar, Saarthak",
+      "opponentElo": 2302,
+      "round": 1,
+      "result": "1/2-1/2",
+      "aarushResult": "draw",
+      "eco": "?"
+    },
+    "R2": {
+      "aarushAccuracy": 89,
+      "oppAccuracy": 94.5,
+      "avgCPL": 50,
+      "blunders": 1,
+      "mistakes": 1,
+      "inaccuracies": 7,
+      "movesAnalyzed": 30,
+      "criticalMoments": [
+        {
+          "san": "Kg7",
+          "bestMove": "g5",
+          "cpl": 497,
+          "classification": "blunder",
+          "evalBefore": "-4.11",
+          "evalAfter": "-9.08"
+        },
+        {
+          "san": "Qd8",
+          "bestMove": "e6",
+          "cpl": 167,
+          "classification": "mistake",
+          "evalBefore": "-1.83",
+          "evalAfter": "-3.50"
+        },
+        {
+          "san": "Kf8",
+          "bestMove": "Nf8",
+          "cpl": 93,
+          "classification": "inaccuracy",
+          "evalBefore": "-4.08",
+          "evalAfter": "-5.01"
+        }
+      ],
+      "aarushColor": "black",
+      "opponent": "Stevens, Christian",
+      "opponentElo": 2201,
+      "round": 2,
+      "result": "1-0",
+      "aarushResult": "loss",
+      "eco": "?"
+    },
+    "R3": {
+      "aarushAccuracy": 90.6,
+      "oppAccuracy": 95.9,
+      "avgCPL": 77,
+      "blunders": 1,
+      "mistakes": 3,
+      "inaccuracies": 10,
+      "movesAnalyzed": 35,
+      "criticalMoments": [
+        {
+          "san": "Kh3",
+          "bestMove": "Kf1",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-14.78",
+          "evalAfter": "-98.80"
+        },
+        {
+          "san": "dxc5",
+          "bestMove": "Qxc4",
+          "cpl": 189,
+          "classification": "mistake",
+          "evalBefore": "-0.26",
+          "evalAfter": "-2.15"
+        },
+        {
+          "san": "Qxa1",
+          "bestMove": "Qd8+",
+          "cpl": 186,
+          "classification": "mistake",
+          "evalBefore": "-11.76",
+          "evalAfter": "-13.62"
+        }
+      ],
+      "aarushColor": "white",
+      "opponent": "Xin, Stella",
+      "opponentElo": 2007,
+      "round": 3,
+      "result": "0-1",
+      "aarushResult": "loss",
+      "eco": "?"
+    },
+    "R4": {
+      "aarushAccuracy": 87.4,
+      "oppAccuracy": 90.5,
+      "avgCPL": 50,
+      "blunders": 1,
+      "mistakes": 5,
+      "inaccuracies": 7,
+      "movesAnalyzed": 51,
+      "criticalMoments": [
+        {
+          "san": "Rc8",
+          "bestMove": "d5",
+          "cpl": 307,
+          "classification": "blunder",
+          "evalBefore": "-7.97",
+          "evalAfter": "-11.04"
+        },
+        {
+          "san": "Rxc5",
+          "bestMove": "dxc5",
+          "cpl": 256,
+          "classification": "mistake",
+          "evalBefore": "-1.60",
+          "evalAfter": "-4.16"
+        },
+        {
+          "san": "Kd8",
+          "bestMove": "Kd7",
+          "cpl": 215,
+          "classification": "mistake",
+          "evalBefore": "-5.73",
+          "evalAfter": "-7.88"
+        }
+      ],
+      "aarushColor": "black",
+      "opponent": "Lu, Aiden Hao-Ting",
+      "opponentElo": 1959,
+      "round": 4,
+      "result": "1-0",
+      "aarushResult": "loss",
+      "eco": "?"
+    },
+    "R5": {
+      "aarushAccuracy": 91,
+      "oppAccuracy": 92,
+      "avgCPL": 23,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 3,
+      "movesAnalyzed": 26,
+      "criticalMoments": [
+        {
+          "san": "Bf1",
+          "bestMove": "Nxc4",
+          "cpl": 109,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.53",
+          "evalAfter": "-0.56"
+        },
+        {
+          "san": "f4",
+          "bestMove": "Nf3",
+          "cpl": 60,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.55",
+          "evalAfter": "-0.05"
+        },
+        {
+          "san": "Nf3",
+          "bestMove": "Ne5",
+          "cpl": 54,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.48",
+          "evalAfter": "-0.06"
+        }
+      ],
+      "aarushColor": "white",
+      "opponent": "Achyuth, Akshaj",
+      "opponentElo": 1912,
+      "round": 5,
+      "result": "1/2-1/2",
+      "aarushResult": "draw",
+      "eco": "?"
+    },
+    "R6": {
+      "aarushAccuracy": 85.2,
+      "oppAccuracy": 89.3,
+      "avgCPL": 57,
+      "blunders": 3,
+      "mistakes": 2,
+      "inaccuracies": 4,
+      "movesAnalyzed": 46,
+      "criticalMoments": [
+        {
+          "san": "Bf8",
+          "bestMove": "Bxb2",
+          "cpl": 633,
+          "classification": "blunder",
+          "evalBefore": "+3.10",
+          "evalAfter": "-3.23"
+        },
+        {
+          "san": "Nxb2",
+          "bestMove": "Qf6",
+          "cpl": 477,
+          "classification": "blunder",
+          "evalBefore": "+0.00",
+          "evalAfter": "-4.77"
+        },
+        {
+          "san": "Qa7",
+          "bestMove": "Kh7",
+          "cpl": 325,
+          "classification": "blunder",
+          "evalBefore": "-6.93",
+          "evalAfter": "-10.18"
+        }
+      ],
+      "aarushColor": "black",
+      "opponent": "Hoekman, Samuel",
+      "opponentElo": 1983,
+      "round": 6,
+      "result": "1-0",
+      "aarushResult": "loss",
+      "eco": "?"
+    },
+    "R7": {
+      "aarushAccuracy": 90.1,
+      "oppAccuracy": 90.9,
+      "avgCPL": 27,
+      "blunders": 0,
+      "mistakes": 1,
+      "inaccuracies": 6,
+      "movesAnalyzed": 30,
+      "criticalMoments": [
+        {
+          "san": "Re3",
+          "bestMove": "Qe2",
+          "cpl": 152,
+          "classification": "mistake",
+          "evalBefore": "-2.73",
+          "evalAfter": "-4.25"
+        },
+        {
+          "san": "Rcd1",
+          "bestMove": "Red1",
+          "cpl": 138,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.94",
+          "evalAfter": "-2.32"
+        },
+        {
+          "san": "e4",
+          "bestMove": "Qd2",
+          "cpl": 121,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.18",
+          "evalAfter": "-1.03"
+        }
+      ],
+      "aarushColor": "white",
+      "opponent": "Chen, Ray",
+      "opponentElo": 1839,
+      "round": 7,
+      "result": "1/2-1/2",
+      "aarushResult": "draw",
+      "eco": "?"
+    },
+    "R8": {
+      "aarushAccuracy": 98.1,
+      "oppAccuracy": 98,
+      "avgCPL": 5,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 0,
+      "movesAnalyzed": 38,
+      "criticalMoments": [],
+      "aarushColor": "black",
+      "opponent": "Nassar, Marc",
+      "opponentElo": 1945,
+      "round": 8,
+      "result": "1/2-1/2",
+      "aarushResult": "draw",
+      "eco": "?"
+    },
+    "R9": {
+      "aarushAccuracy": 89.4,
+      "oppAccuracy": 94.3,
+      "avgCPL": 66,
+      "blunders": 2,
+      "mistakes": 2,
+      "inaccuracies": 6,
+      "movesAnalyzed": 40,
+      "criticalMoments": [
+        {
+          "san": "Rf6",
+          "bestMove": "Ra1",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-8.71",
+          "evalAfter": "-#"
+        },
+        {
+          "san": "Rxd4",
+          "bestMove": "Kg2",
+          "cpl": 325,
+          "classification": "blunder",
+          "evalBefore": "+0.05",
+          "evalAfter": "-3.20"
+        },
+        {
+          "san": "Bc4",
+          "bestMove": "Kf2",
+          "cpl": 280,
+          "classification": "mistake",
+          "evalBefore": "-5.83",
+          "evalAfter": "-8.63"
+        }
+      ],
+      "aarushColor": "white",
+      "opponent": "Yang, Bohan (Henry)",
+      "opponentElo": 2012,
+      "round": 9,
+      "result": "0-1",
+      "aarushResult": "loss",
+      "eco": "?"
+    }
+  },
+  "Direct Encounter": {
+    "G1_20260621": {
+      "aarushAccuracy": 88.2,
+      "oppAccuracy": 88.2,
+      "avgCPL": 31,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 6,
+      "movesAnalyzed": 28,
+      "criticalMoments": [
+        {
+          "san": "Bg2",
+          "bestMove": "Qf1",
+          "cpl": 138,
+          "classification": "inaccuracy",
+          "evalBefore": "+1.38",
+          "evalAfter": "+0.00"
+        },
+        {
+          "san": "exd5",
+          "bestMove": "e5",
+          "cpl": 136,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.38",
+          "evalAfter": "-1.74"
+        },
+        {
+          "san": "Re1",
+          "bestMove": "Qb3",
+          "cpl": 119,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.41",
+          "evalAfter": "-1.60"
+        }
+      ],
+      "aarushColor": "white",
+      "opponent": "Austin Lin",
+      "opponentElo": null,
+      "result": "1/2-1/2",
+      "aarushResult": "draw",
+      "eco": "E00 — Catalan Opening",
+      "date": "2026.06.21"
+    },
+    "G2_20260222": {
+      "aarushAccuracy": 87.7,
+      "oppAccuracy": 82.8,
+      "avgCPL": 35,
+      "blunders": 1,
+      "mistakes": 2,
+      "inaccuracies": 4,
+      "movesAnalyzed": 36,
+      "criticalMoments": [
+        {
+          "san": "Kg7",
+          "bestMove": "g5",
+          "cpl": 329,
+          "classification": "blunder",
+          "evalBefore": "+3.33",
+          "evalAfter": "+0.04"
+        },
+        {
+          "san": "Ba6",
+          "bestMove": "Rb8",
+          "cpl": 206,
+          "classification": "mistake",
+          "evalBefore": "-0.23",
+          "evalAfter": "-2.29"
+        },
+        {
+          "san": "Nd7",
+          "bestMove": "Qb8",
+          "cpl": 196,
+          "classification": "mistake",
+          "evalBefore": "+4.37",
+          "evalAfter": "+2.41"
+        }
+      ],
+      "aarushColor": "black",
+      "opponent": "Austin",
+      "opponentElo": null,
+      "result": "0-1",
+      "aarushResult": "win",
+      "eco": "B90 — Sicilian Defense: Najdorf Variation, Adams Attack",
+      "date": "2026.02.22"
+    },
+    "G3_20260216": {
+      "aarushAccuracy": 91.5,
+      "oppAccuracy": 89.2,
+      "avgCPL": 24,
+      "blunders": 1,
+      "mistakes": 0,
+      "inaccuracies": 3,
+      "movesAnalyzed": 30,
+      "criticalMoments": [
+        {
+          "san": "Qc4",
+          "bestMove": "Qb6",
+          "cpl": 329,
+          "classification": "blunder",
+          "evalBefore": "+4.60",
+          "evalAfter": "+1.31"
+        },
+        {
+          "san": "Rxd8",
+          "bestMove": "Rab1",
+          "cpl": 73,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.68",
+          "evalAfter": "-1.41"
+        },
+        {
+          "san": "Bg2",
+          "bestMove": "Bd3",
+          "cpl": 73,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.73",
+          "evalAfter": "+0.00"
+        }
+      ],
+      "aarushColor": "white",
+      "opponent": "Austin Lin",
+      "opponentElo": null,
+      "result": "1/2-1/2",
+      "aarushResult": "draw",
+      "eco": "E00 — Catalan Opening",
+      "date": "2026.02.16"
+    }
+  }
+}
