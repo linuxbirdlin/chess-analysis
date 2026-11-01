@@ -22,6 +22,7 @@ const TOURNAMENTS = [
   { dir: 'Queretaro2026', name: 'Querétaro 2026',             format: 'pgn' },
   { dir: 'olimpico2025',  name: 'Nacional Olímpico Sub-16 2025', format: 'pgn' },
   { dir: 'agua2026',      name: 'Aguascalientes 2026',        format: 'pgn' },
+  { dir: 'copa-independencia2025', name: 'Copa Independencia 2025', format: 'pgn' },
 ];
 
 function isInti(name) { return /flores ojeda|inti/i.test(name); }
