@@ -1066,6 +1066,270 @@
           "evalAfter": "+2.48"
         }
       ]
+    },
+    "G3": {
+      "fernandoColor": "black",
+      "opponent": "Pille Cruz,Juan Luis",
+      "opponentElo": 1774,
+      "result": "0-1",
+      "fernandoResult": "win",
+      "eco": "?",
+      "fernandoAccuracy": 97.4,
+      "oppAccuracy": 96.2,
+      "avgCPL": 6,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 0,
+      "movesAnalyzed": 13,
+      "criticalMoments": []
+    },
+    "G4": {
+      "fernandoColor": "black",
+      "opponent": "Urbina Ballina,Christopher",
+      "opponentElo": 1585,
+      "result": "0-1",
+      "fernandoResult": "win",
+      "eco": "?",
+      "fernandoAccuracy": 96,
+      "oppAccuracy": 89.7,
+      "avgCPL": 68,
+      "blunders": 2,
+      "mistakes": 1,
+      "inaccuracies": 2,
+      "movesAnalyzed": 30,
+      "criticalMoments": [
+        {
+          "san": "Ke7",
+          "bestMove": "Bd3",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "#",
+          "evalAfter": "+10.60"
+        },
+        {
+          "san": "Rc8",
+          "bestMove": "Rg8",
+          "cpl": 509,
+          "classification": "blunder",
+          "evalBefore": "+18.27",
+          "evalAfter": "+13.18"
+        },
+        {
+          "san": "Nxe5",
+          "bestMove": "dxe3",
+          "cpl": 169,
+          "classification": "mistake",
+          "evalBefore": "+6.79",
+          "evalAfter": "+5.10"
+        }
+      ]
+    },
+    "G5": {
+      "fernandoColor": "black",
+      "opponent": "Vargas Arana,Marcos Leonel",
+      "opponentElo": 0,
+      "result": "1-0",
+      "fernandoResult": "loss",
+      "eco": "?",
+      "fernandoAccuracy": 91.8,
+      "oppAccuracy": 97.9,
+      "avgCPL": 50,
+      "blunders": 2,
+      "mistakes": 1,
+      "inaccuracies": 4,
+      "movesAnalyzed": 33,
+      "criticalMoments": [
+        {
+          "san": "Nxg4",
+          "bestMove": "Ne4",
+          "cpl": 444,
+          "classification": "blunder",
+          "evalBefore": "-9.21",
+          "evalAfter": "-13.65"
+        },
+        {
+          "san": "Re6",
+          "bestMove": "h6",
+          "cpl": 345,
+          "classification": "blunder",
+          "evalBefore": "-3.35",
+          "evalAfter": "-6.80"
+        },
+        {
+          "san": "c5",
+          "bestMove": "Qb6",
+          "cpl": 244,
+          "classification": "mistake",
+          "evalBefore": "-1.68",
+          "evalAfter": "-4.12"
+        }
+      ]
+    }
+  },
+  "MEX Open 71st": {
+    "G2": {
+      "fernandoColor": "white",
+      "opponent": "Torres Rosas,Luis Carlos",
+      "opponentElo": 2302,
+      "result": "0-1",
+      "fernandoResult": "loss",
+      "eco": "?",
+      "fernandoAccuracy": 91.1,
+      "oppAccuracy": 96.3,
+      "avgCPL": 32,
+      "blunders": 1,
+      "mistakes": 0,
+      "inaccuracies": 5,
+      "movesAnalyzed": 32,
+      "criticalMoments": [
+        {
+          "san": "Qd2",
+          "bestMove": "Rd1",
+          "cpl": 304,
+          "classification": "blunder",
+          "evalBefore": "-2.25",
+          "evalAfter": "-5.29"
+        },
+        {
+          "san": "Bc1",
+          "bestMove": "Bd2",
+          "cpl": 134,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.99",
+          "evalAfter": "-2.33"
+        },
+        {
+          "san": "Ree1",
+          "bestMove": "Rae1",
+          "cpl": 105,
+          "classification": "inaccuracy",
+          "evalBefore": "-5.35",
+          "evalAfter": "-6.40"
+        }
+      ]
+    },
+    "G3": {
+      "fernandoColor": "white",
+      "opponent": "Valdes Romero,Leonardo",
+      "opponentElo": 2325,
+      "result": "1/2-1/2",
+      "fernandoResult": "draw",
+      "eco": "?",
+      "fernandoAccuracy": 89.2,
+      "oppAccuracy": 89.4,
+      "avgCPL": 34,
+      "blunders": 1,
+      "mistakes": 1,
+      "inaccuracies": 6,
+      "movesAnalyzed": 36,
+      "criticalMoments": [
+        {
+          "san": "Rd7",
+          "bestMove": "Nd5",
+          "cpl": 468,
+          "classification": "blunder",
+          "evalBefore": "+4.68",
+          "evalAfter": "+0.00"
+        },
+        {
+          "san": "Qd5",
+          "bestMove": "Re1+",
+          "cpl": 160,
+          "classification": "mistake",
+          "evalBefore": "+3.36",
+          "evalAfter": "+1.76"
+        },
+        {
+          "san": "Rc1",
+          "bestMove": "Rf1",
+          "cpl": 128,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.04",
+          "evalAfter": "-1.32"
+        }
+      ]
+    },
+    "G4": {
+      "fernandoColor": "black",
+      "opponent": "Magana Morales,David",
+      "opponentElo": 1892,
+      "result": "0-1",
+      "fernandoResult": "win",
+      "eco": "?",
+      "fernandoAccuracy": 95.6,
+      "oppAccuracy": 91.9,
+      "avgCPL": 23,
+      "blunders": 0,
+      "mistakes": 1,
+      "inaccuracies": 6,
+      "movesAnalyzed": 50,
+      "criticalMoments": [
+        {
+          "san": "Bd5",
+          "bestMove": "exf4",
+          "cpl": 166,
+          "classification": "mistake",
+          "evalBefore": "+5.94",
+          "evalAfter": "+4.28"
+        },
+        {
+          "san": "Rh5",
+          "bestMove": "f3",
+          "cpl": 126,
+          "classification": "inaccuracy",
+          "evalBefore": "+8.17",
+          "evalAfter": "+6.91"
+        },
+        {
+          "san": "Rh6",
+          "bestMove": "h2",
+          "cpl": 93,
+          "classification": "inaccuracy",
+          "evalBefore": "+8.85",
+          "evalAfter": "+7.92"
+        }
+      ]
+    },
+    "G5": {
+      "fernandoColor": "white",
+      "opponent": "Perez Rodriguez,Cesar Alejandro",
+      "opponentElo": 2395,
+      "result": "0-1",
+      "fernandoResult": "loss",
+      "eco": "?",
+      "fernandoAccuracy": 84.5,
+      "oppAccuracy": 91.2,
+      "avgCPL": 93,
+      "blunders": 1,
+      "mistakes": 2,
+      "inaccuracies": 8,
+      "movesAnalyzed": 26,
+      "criticalMoments": [
+        {
+          "san": "gxh4",
+          "bestMove": "Be3",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-10.57",
+          "evalAfter": "-#"
+        },
+        {
+          "san": "cxb6",
+          "bestMove": "Ne4",
+          "cpl": 285,
+          "classification": "mistake",
+          "evalBefore": "-4.51",
+          "evalAfter": "-7.36"
+        },
+        {
+          "san": "hxg5",
+          "bestMove": "b5",
+          "cpl": 245,
+          "classification": "mistake",
+          "evalBefore": "-0.11",
+          "evalAfter": "-2.56"
+        }
+      ]
     }
   }
 }

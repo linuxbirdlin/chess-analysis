@@ -95,6 +95,54 @@
           "evalAfter": "-5.93"
         }
       ]
+    },
+    "R4_PyrihRom": {
+      "prColor": "black",
+      "opponent": "Pyrih, Roman",
+      "oppElo": 2395,
+      "result": "1-0",
+      "prResult": "loss",
+      "eco": "?",
+      "event": "Texas Grand Circuit Int",
+      "tournKey": "Texas Grand Circuit 2026",
+      "date": "2026.03.14",
+      "roundKey": "R4",
+      "prAccuracy": 93.5,
+      "oppAccuracy": 97.1,
+      "avgCPL": 22,
+      "blunders": 0,
+      "mistakes": 1,
+      "inaccuracies": 3,
+      "movesAnalyzed": 38,
+      "criticalMoments": [
+        {
+          "moveNum": 23,
+          "san": "Bc7",
+          "bestMove": "Ra8",
+          "cpl": 249,
+          "classification": "mistake",
+          "evalBefore": "-1.34",
+          "evalAfter": "-3.83"
+        },
+        {
+          "moveNum": 26,
+          "san": "cxb5",
+          "bestMove": "Ne5",
+          "cpl": 135,
+          "classification": "inaccuracy",
+          "evalBefore": "-3.48",
+          "evalAfter": "-4.83"
+        },
+        {
+          "moveNum": 38,
+          "san": "d3",
+          "bestMove": "g4",
+          "cpl": 59,
+          "classification": "inaccuracy",
+          "evalBefore": "-5.48",
+          "evalAfter": "-6.07"
+        }
+      ]
     }
   },
   "NA Open 2025": {
