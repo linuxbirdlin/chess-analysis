@@ -11,7 +11,7 @@ This project helps **Austin Lin** prepare for competitive chess tournaments by:
 2. Analyzing potential opponents' games
 3. Generating matchup-specific preparation plans
 
-Opponents analyzed to date: **Justin Huang, Aarush Ajith, Zachary Liu, Heye Gao, Fernando Cortes Medina, Pranav Santhosh, Emerson Johnson, Leo Jackson, Tarun Sankar, Daniel Hernandez Gamboa, Yaen Saenz Cabrera, Daniel Joshua Lee, Pablo Elliot De Alba Boudreau, Joel Ethan Jeyaraj** — full pipeline complete for all 14 opponents (deep HTML + white/black matchup HTMLs)
+Opponents analyzed to date: **Justin Huang, Aarush Ajith, Zachary Liu, Heye Gao, Fernando Cortes Medina, Pranav Santhosh, Emerson Johnson, Leo Jackson, Tarun Sankar, Daniel Hernandez Gamboa, Yaen Saenz Cabrera, Daniel Joshua Lee, Pablo Elliot De Alba Boudreau, Joel Ethan Jeyaraj, Inti Dario Flores Ojeda** — full pipeline complete for all 15 opponents (deep HTML + white/black matchup HTMLs). Note: Heye Gao and Daniel Joshua Lee moved to other sections at NAYCC 2026 (Nov 1 roster); Inti Flores Ojeda added (seed #4, 2011 FIDE, MEX).
 
 ---
 
@@ -77,7 +77,8 @@ chess-analysis/
     ├── yaen/                   # saenz cabrera, yaen.pgn — 64 games
     ├── danielee/               # canadaclose2026, pam2026, pamschool2026, torontoopen2026 — 24 games
     ├── pablo/                  # PabliElliot-ChaseBase.pgn (57 games) + newgames.pgn (3 Copa 2026 games)
-    └── joel/                   # Joel-Ethan-chessBase.pgn (1 classical) + lichess_JEJ13_2026-10-26.pgn (100 Lichess)
+    ├── joel/                   # Joel-Ethan-chessBase.pgn (1 classical) + lichess_JEJ13_2026-10-26.pgn (100 Lichess)
+    └── inti/                   # copa2025.pgn (6 blitz 10+5), Queretaro2026.pgn (6 classical), agua2026.pgn (1 classical)
 ```
 
 ---
@@ -191,6 +192,7 @@ When a new opponent folder is added:
 | Daniel Joshua Lee | ~2191 FIDE (Sep 2026; was 1942 Apr 2026) | 1.e4 Maróczy Bind B36/B38/Taimanov B45/B47 | Italian C54/C55 + QGA D27/D20 | No encounter |
 | Pablo Elliot De Alba Boudreau | ~1824 FIDE (peaked 1937 Jun 2026) | 1.e4 English Attack vs Sicilian; Ruy Lopez vs e5 (1W–6L+) | Sicilian Kan/Taimanov (2…e6 4…a6) 15+ games | No encounter |
 | Joel Ethan Jeyaraj | 1872 FIDE / 2114 Lichess Blitz | 1.Nf3 → Nimzo-Larsen (2.b3 Bb2) PRIMARY; 1.d4/1.c4 secondary | Scandinavian Modern B01 (3...Nf6 ...g6 fianchetto) PRIMARY; Caro-Kann secondary | No encounter |
+| Inti Dario Flores Ojeda | 2011 FIDE (Nov 2026; +256 in 13 months; seed #4 NAYCC 2026) | 1.e4 Open Sicilian (Löwenthal B32, Modern Bc4 B35, f4-e5 B43); French Rubinstein C10; Caro-Kann exchange B15 | 1...e5 exclusively: Italian Giuoco Pianissimo C50/C54, Ruy Lopez Exchange C69, Ruy Lopez Morphy C77/C78; vs 1.d4: QGD solid D00 | No encounter |
 
 ---
 

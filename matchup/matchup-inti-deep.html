@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin vs Inti — Deep Analysis (Stockfish)</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 860px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+    .doc-header { border-bottom: 3px solid #7a4f00; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 8px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.9rem; color: #57606a; }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link { display: inline-block; margin-top: 14px; font-size: 0.875rem; color: #7a4f00; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+    h2 { font-size: 1.3rem; color: #1f2328; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.05rem; color: #7a4f00; margin: 24px 0 8px; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
+    li { margin-bottom: 4px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 14px 0 22px; }
+    thead th { background: #7a4f00; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.91rem; color: #1a3a55; }
+    .pending-box { background: #fff8e6; border: 1px solid #d4a017; border-radius: 8px; padding: 20px 24px; margin: 24px 0; text-align: center; }
+    .pending-box h3 { color: #7a4f00; margin: 0 0 10px; }
+    .badge { display: inline-block; font-size: 0.82rem; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+    .badge-pending { background: #fff3cd; color: #7a4f00; border: 1px solid #d4a017; }
+    strong { font-weight: 600; }
+    .acc-hi { color: #1a6030; font-weight: 700; }
+    .acc-lo { color: #8b0000; font-weight: 700; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin vs Inti Dario Flores Ojeda — Deep Analysis</h1>
+    <div class="meta">
+      <span><strong>Engine:</strong> Stockfish movetime-800ms, 16 threads</span>
+      <span><strong>Games:</strong> 13 known (copa2025 blitz + Queretaro2026 classical + Aguascalientes2026 classical)</span>
+      <span><strong>Status:</strong> <span class="badge badge-pending">⏳ Running</span></span>
+    </div>
+    <a class="back-link" href="matchup-inti.html">← Back to matchup overview</a>
+  </div>
+
+  <div class="info-box">
+    <strong>Engine analysis is running in the background.</strong> Results are being saved to <code>scripts/inti-analysis-results.json</code>. This page will be updated once the analysis completes. To check progress: <code>tail -f /tmp/inti-analysis.log</code>
+  </div>
+
+  <div class="pending-box">
+    <h3>⏳ Analysis In Progress</h3>
+    <p>Stockfish is analyzing 13 games from 3 tournaments (copa2025, Queretaro2026, Aguascalientes2026).<br/>
+    Estimated completion: ~15–20 minutes at movetime-800ms on 16 threads.</p>
+    <p><strong>After completion:</strong> Update this page with per-game accuracy data from <code>scripts/inti-analysis-results.json</code>.</p>
+  </div>
+
+  <h2>What to Expect from Engine Analysis</h2>
+
+  <p>Based on manual game review, Inti's expected accuracy profile:</p>
+
+  <table>
+    <thead><tr><th>Tournament</th><th>Format</th><th>Games</th><th>Expected avg accuracy</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Copa Estado de México 2025</td><td>Blitz 10+5</td><td>6</td><td>~80–85%</td><td>Blitz — many mutual errors under time</td></tr>
+      <tr><td>Querétaro 2026</td><td>Classical 90+30</td><td>6</td><td>~87–92%</td><td>Classical — cleaner play</td></tr>
+      <tr><td>Aguascalientes 2026</td><td>Classical 90+30</td><td>1</td><td>~80–84%</td><td>vs CM 2135 — accuracy dropped after move 20</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Pre-Analysis Key Findings (Manual)</h2>
+
+  <h3>Accuracy Drop vs 2000+ Opponents (Agua R1)</h3>
+  <p>In the only game vs a rated 2000+ opponent (CM Lopez Calderon, 2135), Inti made 3 classification errors in 4 consecutive moves (moves 22–25): f5? (mistake), N4e5?? (blunder), Bb7? (mistake). This is Inti's most important accuracy weakness — under pressure from a stronger player, his move quality degrades rapidly in the middlegame.</p>
+
+  <h3>Queretaro R6 — White Accuracy Drop (Sicilian f4 system)</h3>
+  <p>Against De Alba (1825) in B43 Kan, Inti played 13.Bf2?? (blunder on move 13) after spending only 3 minutes vs opponent's 49 minutes. The time disparity suggests he was in his preparation but then lost the thread when preparation ended. The blunder cost him a decisive advantage.</p>
+
+  <h3>Copa Blitz — Multiple Mutual Blunders</h3>
+  <p>Copa R7 (Philidor win) and Copa R3 (Ruy Lopez draw) both feature sequences of mutual blunders near time control. Blitz accuracy is expected to be lower — these games are less useful for pattern identification than classical games.</p>
+
+  <hr/>
+
+  <h2>Update Instructions (After Analysis Completes)</h2>
+  <ol>
+    <li>Read <code>scripts/inti-analysis-results.json</code></li>
+    <li>Compute per-tournament averages (filter out blitz copa2025 for clean classical avg)</li>
+    <li>Replace the pending boxes above with actual accuracy tables</li>
+    <li>Add top-3 critical moments per key game (Queretaro R6, Agua R1)</li>
+    <li>Update the header badge from "Running" to "Complete"</li>
+  </ol>
+
+</div>
+</body>
+</html>
