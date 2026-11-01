@@ -1,0 +1,609 @@
+{
+  "World Schools 2026": {
+    "World Schools 2026:R1:Davalos Gimenez, Santino Mariano": {
+      "prColor": "black",
+      "opponent": "Davalos Gimenez, Santino Mariano",
+      "oppElo": 1690,
+      "result": "0-1",
+      "prResult": "win",
+      "eco": "D01",
+      "opening": "Rapport-Jobava System",
+      "uniqueKey": "1.5|Davalos Gimenez, Santino Mariano|Wu, Zhuoyuan",
+      "prAccuracy": 97,
+      "oppAccuracy": 93.3,
+      "avgCPL": 50,
+      "blunders": 2,
+      "mistakes": 1,
+      "inaccuracies": 1,
+      "movesAnalyzed": 51,
+      "criticalMoments": [
+        {
+          "moveNum": 38,
+          "san": "Kd6",
+          "bestMove": "f5",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "+91.65",
+          "evalAfter": "+10.61"
+        },
+        {
+          "moveNum": 39,
+          "san": "Kc5",
+          "bestMove": "a4",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "+78.16",
+          "evalAfter": "+10.75"
+        },
+        {
+          "moveNum": 16,
+          "san": "d4",
+          "bestMove": "Bg7",
+          "cpl": 229,
+          "classification": "mistake",
+          "evalBefore": "+3.92",
+          "evalAfter": "+1.63"
+        }
+      ]
+    },
+    "World Schools 2026:R2:Wright, Luke E": {
+      "prColor": "white",
+      "opponent": "Wright, Luke E",
+      "oppElo": 1691,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "C05",
+      "opening": "French Defense: Tarrasch Variation, Closed Variation",
+      "uniqueKey": "2.5|Wu, Zhuoyuan|Wright, Luke E",
+      "prAccuracy": 94.8,
+      "oppAccuracy": 88.9,
+      "avgCPL": 15,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 3,
+      "movesAnalyzed": 32,
+      "criticalMoments": [
+        {
+          "moveNum": 22,
+          "san": "Kg2",
+          "bestMove": "f5",
+          "cpl": 127,
+          "classification": "inaccuracy",
+          "evalBefore": "+3.34",
+          "evalAfter": "+2.07"
+        },
+        {
+          "moveNum": 16,
+          "san": "Be3",
+          "bestMove": "Kf2",
+          "cpl": 89,
+          "classification": "inaccuracy",
+          "evalBefore": "+2.66",
+          "evalAfter": "+1.77"
+        },
+        {
+          "moveNum": 21,
+          "san": "Rhc1",
+          "bestMove": "a4",
+          "cpl": 56,
+          "classification": "inaccuracy",
+          "evalBefore": "+1.85",
+          "evalAfter": "+1.29"
+        }
+      ]
+    },
+    "World Schools 2026:R3:Passmore Bowman, Tobias": {
+      "prColor": "black",
+      "opponent": "Passmore Bowman, Tobias",
+      "oppElo": 1866,
+      "result": "0-1",
+      "prResult": "win",
+      "eco": "B34",
+      "opening": "Sicilian Defense: Accelerated Dragon, Modern Variation",
+      "uniqueKey": "3.1|Passmore Bowman, Tobias|Wu, Zhuoyuan",
+      "prAccuracy": 93.3,
+      "oppAccuracy": 89.1,
+      "avgCPL": 18,
+      "blunders": 0,
+      "mistakes": 1,
+      "inaccuracies": 4,
+      "movesAnalyzed": 52,
+      "criticalMoments": [
+        {
+          "moveNum": 17,
+          "san": "Qc5",
+          "bestMove": "Qxd2",
+          "cpl": 153,
+          "classification": "mistake",
+          "evalBefore": "-1.22",
+          "evalAfter": "-2.75"
+        },
+        {
+          "moveNum": 32,
+          "san": "Kd7",
+          "bestMove": "g5",
+          "cpl": 124,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.11",
+          "evalAfter": "-1.35"
+        },
+        {
+          "moveNum": 33,
+          "san": "Rc8",
+          "bestMove": "Ke7",
+          "cpl": 118,
+          "classification": "inaccuracy",
+          "evalBefore": "-1.29",
+          "evalAfter": "-2.47"
+        }
+      ]
+    },
+    "World Schools 2026:R5:Meneses Morales, Marcos Beltran": {
+      "prColor": "white",
+      "opponent": "Meneses Morales, Marcos Beltran",
+      "oppElo": 1969,
+      "result": "0-1",
+      "prResult": "loss",
+      "eco": "B13",
+      "opening": "Caro-Kann Defense: Exchange Variation",
+      "uniqueKey": "5.1|Wu, Zhuoyuan|Meneses Morales, Marcos Beltran",
+      "prAccuracy": 91.2,
+      "oppAccuracy": 96.1,
+      "avgCPL": 113,
+      "blunders": 5,
+      "mistakes": 1,
+      "inaccuracies": 5,
+      "movesAnalyzed": 42,
+      "criticalMoments": [
+        {
+          "moveNum": 37,
+          "san": "Kh3",
+          "bestMove": "Kh3",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-19.62",
+          "evalAfter": "-#"
+        },
+        {
+          "moveNum": 42,
+          "san": "Nxc3",
+          "bestMove": "Nxc3",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-14.56",
+          "evalAfter": "-#"
+        },
+        {
+          "moveNum": 36,
+          "san": "h5",
+          "bestMove": "Kh3",
+          "cpl": 851,
+          "classification": "blunder",
+          "evalBefore": "-8.18",
+          "evalAfter": "-16.69"
+        }
+      ]
+    },
+    "World Schools 2026:R6:Rodriguez, William Nicolas": {
+      "prColor": "black",
+      "opponent": "Rodriguez, William Nicolas",
+      "oppElo": 1971,
+      "result": "1-0",
+      "prResult": "loss",
+      "eco": "A26",
+      "opening": "English Opening: King's English Variation, Closed System, Full Symmetry",
+      "uniqueKey": "6.5|Rodriguez, William Nicolas|Wu, Zhuoyuan",
+      "prAccuracy": 87.1,
+      "oppAccuracy": 91.6,
+      "avgCPL": 52,
+      "blunders": 2,
+      "mistakes": 1,
+      "inaccuracies": 4,
+      "movesAnalyzed": 43,
+      "criticalMoments": [
+        {
+          "moveNum": 39,
+          "san": "Rxe1",
+          "bestMove": "Qxc7",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-1.76",
+          "evalAfter": "-#"
+        },
+        {
+          "moveNum": 36,
+          "san": "Qd7",
+          "bestMove": "Qc8",
+          "cpl": 356,
+          "classification": "blunder",
+          "evalBefore": "+0.00",
+          "evalAfter": "-3.56"
+        },
+        {
+          "moveNum": 35,
+          "san": "Re8",
+          "bestMove": "Qxe5",
+          "cpl": 211,
+          "classification": "mistake",
+          "evalBefore": "+0.00",
+          "evalAfter": "-2.11"
+        }
+      ]
+    },
+    "World Schools 2026:R7:Castillo Romero, Jasmany Shallom": {
+      "prColor": "black",
+      "opponent": "Castillo Romero, Jasmany Shallom",
+      "oppElo": 1929,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "B73",
+      "opening": "Sicilian Defense: Dragon Variation, Classical Variation",
+      "uniqueKey": "7.5|Castillo Romero, Jasmany Shallom|Wu, Zhuoyuan",
+      "prAccuracy": 94.6,
+      "oppAccuracy": 94.8,
+      "avgCPL": 23,
+      "blunders": 2,
+      "mistakes": 2,
+      "inaccuracies": 0,
+      "movesAnalyzed": 92,
+      "criticalMoments": [
+        {
+          "moveNum": 51,
+          "san": "Bf5",
+          "bestMove": "Bb1",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "+57.91",
+          "evalAfter": "+0.00"
+        },
+        {
+          "moveNum": 44,
+          "san": "Kc7",
+          "bestMove": "Be2",
+          "cpl": 502,
+          "classification": "blunder",
+          "evalBefore": "+5.58",
+          "evalAfter": "+0.56"
+        },
+        {
+          "moveNum": 41,
+          "san": "Bd1",
+          "bestMove": "Bb3",
+          "cpl": 215,
+          "classification": "mistake",
+          "evalBefore": "+7.62",
+          "evalAfter": "+5.47"
+        }
+      ]
+    },
+    "World Schools 2026:R8:Farley, Jeremiah": {
+      "prColor": "white",
+      "opponent": "Farley, Jeremiah",
+      "oppElo": 1835,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "B13",
+      "opening": "Caro-Kann Defense: Exchange Variation",
+      "uniqueKey": "8.9|Wu, Zhuoyuan|Farley, Jeremiah",
+      "skipped": "parse-error"
+    }
+  },
+  "59th Stamer Memorial 2025": {
+    "59th Stamer Memorial 2025:R2:Gopalakrishnan, Kritin": {
+      "prColor": "black",
+      "opponent": "Gopalakrishnan, Kritin",
+      "oppElo": 2052,
+      "result": "1-0",
+      "prResult": "loss",
+      "eco": "?",
+      "opening": "",
+      "uniqueKey": "2|Gopalakrishnan, Kritin|Wu, Zhuoyuan",
+      "prAccuracy": 94.2,
+      "oppAccuracy": 96.7,
+      "avgCPL": 41,
+      "blunders": 1,
+      "mistakes": 2,
+      "inaccuracies": 9,
+      "movesAnalyzed": 60,
+      "criticalMoments": [
+        {
+          "moveNum": 41,
+          "san": "gxh5",
+          "bestMove": "g5",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-12.13",
+          "evalAfter": "-82.01"
+        },
+        {
+          "moveNum": 25,
+          "san": "Ne3",
+          "bestMove": "Qxb5",
+          "cpl": 220,
+          "classification": "mistake",
+          "evalBefore": "-3.16",
+          "evalAfter": "-5.36"
+        },
+        {
+          "moveNum": 39,
+          "san": "h6",
+          "bestMove": "h5",
+          "cpl": 156,
+          "classification": "mistake",
+          "evalBefore": "-7.15",
+          "evalAfter": "-8.71"
+        }
+      ]
+    },
+    "59th Stamer Memorial 2025:R4:Bhaduri, Neil S": {
+      "prColor": "black",
+      "opponent": "Bhaduri, Neil S",
+      "oppElo": 2162,
+      "result": "1-0",
+      "prResult": "loss",
+      "eco": "?",
+      "opening": "",
+      "uniqueKey": "4|Bhaduri, Neil S|Wu, Zhuoyuan",
+      "prAccuracy": 92.3,
+      "oppAccuracy": 96.7,
+      "avgCPL": 132,
+      "blunders": 5,
+      "mistakes": 2,
+      "inaccuracies": 5,
+      "movesAnalyzed": 41,
+      "criticalMoments": [
+        {
+          "moveNum": 31,
+          "san": "Kf7",
+          "bestMove": "Rf8",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-11.87",
+          "evalAfter": "-29.28"
+        },
+        {
+          "moveNum": 32,
+          "san": "Kf6",
+          "bestMove": "Kg8",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-12.07",
+          "evalAfter": "-#"
+        },
+        {
+          "moveNum": 36,
+          "san": "Qxf3",
+          "bestMove": "Qxf3",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-23.98",
+          "evalAfter": "-#"
+        }
+      ]
+    }
+  },
+  "53rd Capps Memorial 2025": {
+    "53rd Capps Memorial 2025:R01:Seidel, Eli": {
+      "prColor": "white",
+      "opponent": "Seidel, Eli",
+      "oppElo": 1786,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "opening": "",
+      "uniqueKey": "01|Wu, Zhuoyuan|Seidel, Eli",
+      "prAccuracy": 86.7,
+      "oppAccuracy": 86.8,
+      "avgCPL": 44,
+      "blunders": 1,
+      "mistakes": 1,
+      "inaccuracies": 4,
+      "movesAnalyzed": 39,
+      "criticalMoments": [
+        {
+          "moveNum": 32,
+          "san": "Rc2",
+          "bestMove": "Bb2",
+          "cpl": 845,
+          "classification": "blunder",
+          "evalBefore": "+0.00",
+          "evalAfter": "-8.45"
+        },
+        {
+          "moveNum": 33,
+          "san": "Rf2",
+          "bestMove": "Rc6",
+          "cpl": 176,
+          "classification": "mistake",
+          "evalBefore": "+1.76",
+          "evalAfter": "+0.00"
+        },
+        {
+          "moveNum": 13,
+          "san": "Bb2",
+          "bestMove": "Ng4",
+          "cpl": 126,
+          "classification": "inaccuracy",
+          "evalBefore": "+1.26",
+          "evalAfter": "+0.00"
+        }
+      ]
+    },
+    "53rd Capps Memorial 2025:R02:Silva, Javier": {
+      "prColor": "black",
+      "opponent": "Silva, Javier",
+      "oppElo": 2005,
+      "result": "0-1",
+      "prResult": "win",
+      "eco": "?",
+      "opening": "",
+      "uniqueKey": "02|Silva, Javier|Wu, Zhuoyuan",
+      "prAccuracy": 96.7,
+      "oppAccuracy": 90.7,
+      "avgCPL": 8,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 0,
+      "movesAnalyzed": 37,
+      "criticalMoments": []
+    },
+    "53rd Capps Memorial 2025:R03:Qi, Jenny": {
+      "prColor": "white",
+      "opponent": "Qi, Jenny",
+      "oppElo": 1826,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "opening": "",
+      "uniqueKey": "03|Wu, Zhuoyuan|Qi, Jenny",
+      "prAccuracy": 90.5,
+      "oppAccuracy": 90.1,
+      "avgCPL": 27,
+      "blunders": 1,
+      "mistakes": 2,
+      "inaccuracies": 3,
+      "movesAnalyzed": 44,
+      "criticalMoments": [
+        {
+          "moveNum": 22,
+          "san": "Bd2",
+          "bestMove": "Re1",
+          "cpl": 307,
+          "classification": "blunder",
+          "evalBefore": "-2.14",
+          "evalAfter": "-5.21"
+        },
+        {
+          "moveNum": 27,
+          "san": "Rac1",
+          "bestMove": "Ne3",
+          "cpl": 190,
+          "classification": "mistake",
+          "evalBefore": "+1.95",
+          "evalAfter": "+0.05"
+        },
+        {
+          "moveNum": 24,
+          "san": "Ng2",
+          "bestMove": "Nf1",
+          "cpl": 178,
+          "classification": "mistake",
+          "evalBefore": "+0.00",
+          "evalAfter": "-1.78"
+        }
+      ]
+    },
+    "53rd Capps Memorial 2025:R04:Mokeeva, Zlata": {
+      "prColor": "black",
+      "opponent": "Mokeeva, Zlata",
+      "oppElo": 1910,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "opening": "",
+      "uniqueKey": "04|Mokeeva, Zlata|Wu, Zhuoyuan",
+      "prAccuracy": 93.1,
+      "oppAccuracy": 94.7,
+      "avgCPL": 17,
+      "blunders": 0,
+      "mistakes": 1,
+      "inaccuracies": 2,
+      "movesAnalyzed": 26,
+      "criticalMoments": [
+        {
+          "moveNum": 21,
+          "san": "Qb6",
+          "bestMove": "e5",
+          "cpl": 202,
+          "classification": "mistake",
+          "evalBefore": "+0.96",
+          "evalAfter": "-1.06"
+        },
+        {
+          "moveNum": 19,
+          "san": "Rg8",
+          "bestMove": "O-O",
+          "cpl": 106,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.18",
+          "evalAfter": "-1.24"
+        },
+        {
+          "moveNum": 16,
+          "san": "a5",
+          "bestMove": "Rb8",
+          "cpl": 54,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.37",
+          "evalAfter": "-0.91"
+        }
+      ]
+    }
+  },
+  "24th Addison Memorial 2025": {
+    "24th Addison Memorial 2025:R04:Indukuri, Suhas": {
+      "prColor": "white",
+      "opponent": "Indukuri, Suhas",
+      "oppElo": 1630,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "?",
+      "opening": "",
+      "uniqueKey": "04|Wu, Zhuoyuan|Indukuri, Suhas",
+      "prAccuracy": 98,
+      "oppAccuracy": 94.4,
+      "avgCPL": 11,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 3,
+      "movesAnalyzed": 55,
+      "criticalMoments": [
+        {
+          "moveNum": 31,
+          "san": "Qe4",
+          "bestMove": "Qg4",
+          "cpl": 140,
+          "classification": "inaccuracy",
+          "evalBefore": "+8.72",
+          "evalAfter": "+7.32"
+        },
+        {
+          "moveNum": 29,
+          "san": "Bg6",
+          "bestMove": "Rg3",
+          "cpl": 60,
+          "classification": "inaccuracy",
+          "evalBefore": "+8.77",
+          "evalAfter": "+8.17"
+        },
+        {
+          "moveNum": 19,
+          "san": "Rde1",
+          "bestMove": "h3",
+          "cpl": 57,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.29",
+          "evalAfter": "-0.28"
+        }
+      ]
+    },
+    "24th Addison Memorial 2025:R03:Ng, Alexander PN": {
+      "prColor": "black",
+      "opponent": "Ng, Alexander PN",
+      "oppElo": 1921,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "opening": "",
+      "uniqueKey": "03|Ng, Alexander PN|Wu, Zhuoyuan",
+      "prAccuracy": 97.5,
+      "oppAccuracy": 97.4,
+      "avgCPL": 6,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 0,
+      "movesAnalyzed": 41,
+      "criticalMoments": []
+    }
+  }
+}
