@@ -187,4 +187,4 @@ Full pipeline = analysis.md + matchup.md + matchup.html + deep analysis JSON + d
 |---|---|---|---|
 | 1 | **Zhuoyuan Wu deep pipeline** — deep HTML, white/black matchup HTMLs, GM battle plan HTML | ~4 hrs | ✅ Done (Nov 2, 2026) — white/black HTMLs created |
 | 2 | **Irene Xie** — determine if she's in Austin's section; if yes, run full pipeline | 1 hr to check, 4–6 hrs pipeline | ✅ Done (Nov 2, 2026) — sparring partner confirmed, snoop2026 analyzed |
-| 3 | **Final GM brief pass** — verify all 9 opponents in Austin's actual field are correctly weighted | 30 min | ⚠️ Partial — Zhuoyuan and Inti added; final pass pending |
+| 3 | **Final GM brief pass** — verify all 9 opponents in Austin's actual field are correctly weighted | 30 min | ✅ Done (Nov 2, 2026) — all ratings corrected to Nov 2026 FIDE; Inti clock row added |
