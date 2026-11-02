@@ -67,20 +67,24 @@ The Be2/Nc3 approach avoids early tactical tricks around the Bd3 diagonal. Ferna
 
 ### Recommended White Preparation
 
-**Primary system: Advanced French with 6.a3**
+**Primary system: Tarrasch 3.Nd2** *(do NOT play the Advance 3.e5 — Fernando beat FM Martinez in this line; see "What NOT to do" below)*
 
 ```
-1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 Qb6 6.a3
+1.e4 e6 2.d4 d5 3.Nd2 Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 7.Ne2!
 ```
 
-After `6...c4` (most common): `7.Nbd2 Na5 8.g3 f6 9.exf6 Nxf6 10.Bg2 Be7 11.O-O O-O 12.Re1` — White has a solid kingside setup with space advantage. Fernando has not been tested in this specific line.
+This is the Tarrasch tabiya. **Fernando has zero Tarrasch games in his entire 26-game dataset** — he cannot rely on specific theory past move 8.
 
-After `6...Bd7` (flexible): `7.b4 cxb4 8.axb4 Nxb4 9.Bb5!` — White regains the pawn with initiative.
+**Branch A (most likely — 3...Nf6):**
+`7.Ne2! Qb6 8.Nf4 cxd4 9.cxd4 f6 10.exf6! Nxf6 11.O-O Bd6 12.Nf3` — open f-file, tactical middlegame. Key rule: when Fernando plays `...f6`, capture immediately with `exf6 Nxf6` — do NOT hold the e5 pawn.
 
-**Why 6.a3 specifically vs Fernando:**
-1. Fernando's only documented French Advance game had White play 6.Bd3, so 6.a3 takes him into less familiar territory
-2. The 6.a3/b4 plan gives White queenside counterplay without kingside pawn commitments — this reduces the chance of Fernando's `...c4` pawn chain locking the position and making it passive
-3. Fernando has not faced the `g3/Bg2` system — his preparation likely focuses on the `Bd3/h4` main line
+**Branch B (counter-gambit — 3...c5 Chistyakov):**
+`3.Nd2 c5 4.exd5 Qxd5 5.Ngf3! cxd4 6.Bc4! Qd6 7.O-O Nf6 8.Nb3` — White castles fast, Bc4 targets f7. Play `5.Ngf3` then `6.Bc4` — do NOT recapture `6.Nxd4` immediately.
+
+**Why Tarrasch vs Fernando:**
+1. Fernando beat FM Martinez Flores (1904) in the French Advance (Olimpia R4, C02) — Advance preparation confirmed at FM level
+2. Zero Tarrasch games in Fernando's 26-game dataset — no theory to fall back on past move 8
+3. Tarrasch creates IQP/blocked-center structures where Fernando's Advance preparation does not transfer
 
 ### Key tactical themes Austin White should target
 
@@ -94,9 +98,9 @@ After `6...Bd7` (flexible): `7.b4 cxb4 8.axb4 Nxb4 9.Bb5!` — White regains the
 
 ### What NOT to do as Austin White
 
-- **Do not play h4 prematurely.** Fernando beat FM Martinez partly because White rushed `h4/h5` before the center was stabilized. Austin's `h4` should only come after `Be3`, `Qd2`, and the center is locked.
+- **Do not play the French Advance (3.e5).** Fernando beat FM Martinez Flores (1904) in this line (Olimpia R4, C02, `...c5/...Qb6/...Nc6` play). His Advance preparation is confirmed at FM level. The Tarrasch 3.Nd2 is Austin's weapon.
 - **Do not play the French Exchange (3.exd5).** Fernando is comfortable in Exchange French positions (PAM R3, 72 moves, won) — he knows the isolated pawn structure as Black well. The Exchange would play into his hands.
-- **Do not play the Winawer variation.** Austin does not normally play `3.Nc3 Bb4` territory, but if he drifts there, Fernando drew two games in the Winawer system. Stick to the Advance.
+- **Do not play the Winawer variation.** Austin does not normally play `3.Nc3 Bb4` territory, but if he drifts there, Fernando drew two games in the Winawer system. Stick to the Tarrasch 3.Nd2.
 - **Do not enter a queenside rook endgame early.** Fernando's French endgame technique is his best quality (PAM R3 knight maneuvering). Keep the position complex with pieces.
 
 ---
@@ -195,9 +199,9 @@ Fernando has the Dragon Yugoslav prepared (Olimpia R7) and understands the attac
 | Situation | Action |
 |---|---|
 | Austin as White vs Fernando | Play 1.e4; expect French Defense |
-| Fernando plays French (1...e6) | Play French Advance (3.e5); use 6.a3 system, NOT 6.Bd3/h4 |
-| French Advance middlegame | Play a4 early; maneuver Nd2-Nf1-Ng3; avoid premature h4 |
-| Fernando plays ...Qb6/...c5 structure | Know Milner-Barry responses; do NOT play 13.c4? or 16.h5? errors from Olimpia R4 |
+| Fernando plays French (1...e6) | Play Tarrasch (3.Nd2); do NOT play Advance 3.e5 (Fernando beat FM Martinez in this line) |
+| Tarrasch tabiya (3.Nd2 Nf6 4.e5) | Play 7.Ne2!; if ...f6 then exf6 immediately; full tree in matchup-fernando-gm.html |
+| Fernando plays ...Qb6/...c5 structure | His Advance prep — irrelevant once you play Tarrasch; know 3...c5 Chistyakov counter |
 | Do NOT play French Exchange | Fernando wins in Exchange French endgames (72-move win PAM R3) |
 | Austin as Black vs Fernando | Play Sicilian Najdorf (5...a6); avoid Dragon (5...g6) |
 | Fernando plays English/Yugoslav Attack | Use ...b5/...b4 queenside; execute ...d5 break vs g4/g5 attack |
@@ -206,4 +210,4 @@ Fernando has the Dragon Yugoslav prepared (Olimpia R7) and understands the attac
 | Time trouble situations | Austin manages clock; Fernando blunders catastrophically under time pressure (Olimpia R6, Ed-National R9) |
 | Key opening drill | French Advance 6.a3 (Austin White); Najdorf vs English Attack 6.f3 (Austin Black) |
 | Key tactical theme to avoid | Do not allow Fernando's rooks to a7/b7 in endgames |
-| Rating differential note | Fernando 2060–2133 vs Austin 1865–1968; ~100–200 point gap; Fernando is favorite but loses to 1765 |
+| Rating differential note | Fernando 2085 vs Austin 1959 (Nov 2026, FIDE); 126-point gap; Fernando is favorite but loses to 1765 |

@@ -185,5 +185,6 @@ Fernando's worst result in the dataset. Playing Black in a Sicilian O'Kelly, he 
 | **French Defense (Black)** | Primary weapon | Advance, Exchange, Winawer — all tested; Advance win vs FM most important |
 | **Sicilian (Black)** | Occasional | O'Kelly 2...a6; less reliable than French |
 | **KID/Grünfeld (Black)** | Secondary vs 1.d4 | Mixed results |
-| **Classical rating range** | ~2060–2133 | Rising; 2130 at Ed-National Aug 2026 |
+| **Current FIDE** | 2085 | Nov 2026 (authoritative); peak 2133 MEX-ch U17 Jul 2026 |
+| **Classical rating range** | ~2060–2133 | Historical range across 2026 dataset |
 | **Rapid rating** | 1836 | Different pool; rapid results less reliable |
