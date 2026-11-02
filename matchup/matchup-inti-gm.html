@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle Plan: Austin vs Flores Ojeda, Inti Dario (GM Prep)</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Georgia', serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg);
+}
+h1 { font-size: 1.6em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.15em; margin: 28px 0 10px; padding-left: 10px; }
+h2.white-section { border-left: 5px solid var(--blue); }
+h2.black-section { border-left: 5px solid var(--red); }
+h2.analysis   { border-left: 5px solid var(--gold); }
+h2.reference  { border-left: 5px solid #666; }
+h3 { font-size: 1em; margin: 14px 0 6px; color: #333; }
+.subtitle { font-size: 0.85em; color: #666; margin-bottom: 22px; }
+.subtitle span { margin-right: 16px; }
+
+.rating-note { background: #eaf4fb; border: 2px solid #1a5276; border-radius: 5px;
+               padding: 10px 14px; margin-bottom: 18px; font-size: 0.9em; }
+
+.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.intel-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.intel-card h3 { margin-top: 0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }
+.intel-card ul { padding-left: 16px; margin-top: 4px; }
+.intel-card li { margin-bottom: 3px; }
+
+.callout { border-radius: 4px; padding: 10px 14px; margin: 10px 0; font-size: 0.9em; }
+.callout-gold   { background: #fffbe0; border-left: 4px solid var(--gold); }
+.callout-blue   { background: #eef4ff; border-left: 4px solid var(--blue); }
+.callout-green  { background: #efffef; border-left: 4px solid var(--green); }
+.callout-danger { background: #fff0f0; border-left: 4px solid var(--red); }
+
+.move-line { background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+             padding: 8px 12px; margin: 6px 0; font-size: 0.92em; line-height: 1.9; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: #eef4ff; border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.bad-move { background: #ffe0e0; border: 1px solid #cc8888; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; color: #8b1a1a; }
+.note { color: #555; font-style: italic; font-size: 0.88em; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
+th { background: #333; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+.row-danger td { background: #fff0f0 !important; }
+
+hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20px; }
+
+.acc-toggle { display: none; }
+.acc-label {
+  display: block; cursor: pointer; padding: 8px 12px; margin: 4px 0;
+  background: #eee; border: 1px solid #ccc; border-radius: 4px;
+  font-weight: bold; font-size: 0.9em; user-select: none;
+}
+.acc-label::before { content: '▶ '; font-size: 0.75em; color: #666; }
+.acc-toggle:checked ~ .acc-label::before { content: '▼ '; }
+.acc-content { display: none; padding: 10px 14px; background: #fafaf6;
+               border: 1px solid #ddd; border-top: none; border-radius: 0 0 4px 4px; margin-bottom: 6px; }
+.acc-toggle:checked ~ .acc-content { display: block; }
+
+@media print {
+  .acc-content { display: block !important; }
+  .acc-label::before { content: '' !important; }
+  body { font-size: 12px; padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<h1>Battle Plan: Austin (White &amp; Black) vs Flores Ojeda, Inti Dario</h1>
+<div class="subtitle">
+  <span><strong>GM Prep — NAYCC 2026</strong></span>
+  <span>Inti rating: 2011 FIDE (Nov 2026; seed #4)</span>
+  <span>Austin rating: 1959 FIDE (Nov 2026; seed #7)</span>
+  <span>Direct record: No prior encounter</span>
+  <span>Games analyzed: 36 classical games (Stockfish 3000ms)</span>
+</div>
+
+<div class="rating-note">
+  <strong>Rating context:</strong> Inti holds a <strong>+52 point advantage</strong> — marginal at this level. The real danger is trajectory: <strong>+256 FIDE in 13 months</strong> with his Sep–Nov 2026 spike games not yet captured. His Querétaro 2026 classical tournament (5W-1L-2D, 92.5% avg) is his best-documented recent form. Crucially, Inti's <strong>primary Black weapon is 1…e5 Italian/Ruy Lopez</strong> — forcing Austin outside his normal Exchange Caro-Kann and Rossolimo preparation. As Black, Austin's Taimanov (5…a6) directly enters Inti's worst documented White position: the <strong>B43 Sicilian Kan f4 system where Inti collapsed in 14 blunders</strong> (Querétaro R6 vs De Alba). This matchup favors Austin if the opening preparation is sharp.
+</div>
+
+<div class="intel-grid">
+  <div class="intel-card">
+    <h3>Inti as White</h3>
+    <ul>
+      <li><strong>1.e4 exclusively</strong> in all documented games</li>
+      <li>vs Sicilian: <strong>Open 3.d4</strong> — B32 Löwenthal (5.Nb5), B35 modern Bc4, <strong>B43 Kan f4 system</strong> (6.Bd3 f4-e5)</li>
+      <li>vs 1…e5: no documented games — exact system unknown</li>
+      <li>vs French: <strong>Rubinstein C10</strong> (3.Nd2 or 3.e5); record is poor</li>
+      <li>vs Caro-Kann: exchange variant B15</li>
+      <li>White record (Querétaro 2026): 5W-1L-2D, avg <strong>92.5%</strong></li>
+      <li><em>Worst White game: B43 Kan (Querétaro R6) — 90.2% but <strong>14 blunders</strong> when queenside counterplay arrived</em></li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Inti as Black</h3>
+    <ul>
+      <li><strong>1…e5 exclusively</strong> vs 1.e4 — no Sicilian, no French documented</li>
+      <li>vs 3.Bc4: Italian Giuoco Pianissimo <strong>C50/C54</strong> — 3…Bc5 4…Nf6 5…d6 solid setup</li>
+      <li>vs 3.Bb5: Morphy C77/C78 and Exchange C69 — lost Agua R1 vs CM 2135</li>
+      <li>vs 1.d4: QGD solid D35; vs English: A06/A13 flexible</li>
+      <li>Black record (Copa 2024): 98.2%, 98.1% wins — strong Italian theory</li>
+      <li>vs 2000+ opponents: accuracy drops sharply (<strong>Agua R1 vs CM: 91.1%, LOSS</strong>)</li>
+      <li><em>Best Italian as Black: C54 Ruiz (98.1%), C54 Ordonez (98.2%)</em></li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Critical weaknesses</h3>
+    <ul>
+      <li><strong>B43 Sicilian Kan as White: catastrophic</strong> — Querétaro R6 vs De Alba: 14B/7M/12I; collapse after …b4/…bxc3 queenside passers. Best move was Ke6 (move 67), played Re4+ (CPL=1000)</li>
+      <li><strong>French as White: LOSS pattern</strong> — Copa 2024 vs Gonzalez (C02) LOSS 89.8%; Copa 2025 R4 vs Landa (C10) LOSS 85.9% (3 critical errors moves 32/48/49)</li>
+      <li><strong>Post-move-20 accuracy drop vs 2000+</strong> — Agua R1 vs CM Lopez (2135): N4e5?? CPL=275 on move 24 (eval -0.56 → -3.31); lost endgame move 60</li>
+      <li><strong>Slow clock</strong> — only 3:47 remaining at move 12 in Querétaro R6 vs De Alba's 49:18; time trouble documented in blitz AND classical</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Key game facts</h3>
+    <ul>
+      <li>Overall avg: <strong>90.6%</strong> (36 games, SF 3000ms)</li>
+      <li>Best classical tournament: Querétaro 2026 — <strong>92.5%</strong> (most recent data)</li>
+      <li>Best single game: Copa 2024 Betancourt (C54) — <strong>98.5%</strong>; Ruiz (C54) — <strong>98.1%</strong></li>
+      <li>Worst game: Copa 2025 R5 — <strong>81.2%</strong></li>
+      <li>Agua 2026 (2g vs strong opponents): <strong>87.7%</strong> avg — 0W-2L</li>
+      <li>Rating trajectory: <strong>+256 FIDE in 13 months</strong> (fastest improver in field)</li>
+      <li><em>Sep–Nov 2026 games missing — treat opening prep as directional</em></li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="white-section">Part 1 — Austin as White: Italian Classical — Central Squeeze vs Solid 1…e5</h2>
+
+<div class="callout callout-blue">
+  <strong>The core challenge:</strong> Inti plays <strong>1…e5 exclusively</strong> — Austin's normal Rossolimo, Exchange Caro-Kann, and Advanced French preparation does not apply. Austin must face an <em>Italian/Ruy Lopez player</em>. The weapon: <strong>Italian Classical with the d4 central break (7.Re1 → h3 → Nbd2-Nf1-Ng3 → d4!)</strong>. Inti's Italian as Black is tactically active — but his accuracy collapses when positionally squeezed past move 20 against stronger players (Agua R1: CM played d4 at move 18, gained space, Inti never recovered). Austin's plan: contain his pieces, build central pressure, deliver the d4 break with maximum force.
+</div>
+
+<h3>Italian Classical — Austin's main line vs 3…Bc5</h3>
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">e5</span>
+  2.Nf3 <span class="mv-z">Nc6</span>
+  3.Bc4 <span class="mv-z">Bc5</span>
+  4.c3 <span class="mv-z">Nf6</span>
+  5.d3 <span class="mv-z">d6</span>
+  6.O-O <span class="mv-z">O-O</span>
+  7.Re1 <span class="mv-z">a6</span>
+  <span class="key-move">8.h3!</span>
+  <span class="note"> — Critical prophylaxis. Prevents …Bg4 pin against the f3-knight — Inti used this in Copa 2024 R1 and Querétaro R1 to generate piece activity. Play h3 before Nbd2 every time.</span>
+</div>
+
+<input class="acc-toggle" id="w1" type="checkbox" checked>
+<label class="acc-label" for="w1">Branch A — Main: 8…Re8 9.Nbd2 → Nf1-Ng3 → d4 squeeze (most likely)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 8.h3 <span class="mv-z">Re8</span>
+    9.Nbd2 <span class="mv-z">Nd7</span>
+    10.Nf1 <span class="mv-z">Nf8</span>
+    11.Ng3 <span class="mv-z">Ne6</span>
+    <span class="key-move">12.d4!</span> <span class="mv-z">exd4</span>
+    13.cxd4 <span class="mv-z">Bb6</span>
+    14.d5 <span class="mv-z">Nc5</span>
+    15.Bc2
+    <span class="note"> — The d4-d5 space gain is Austin's goal. Black's knights are restricted, the queenside is locked, and Austin builds b4-b5 or Nh5-Nf5 kingside pressure. Inti had this done to him at Agua R1 — his accuracy fell immediately.</span>
+  </div>
+  <p style="margin-top:8px">After 15.Bc2: plan b4 (pushing the c5-knight away), then a4-a5 or Nh5-Nf5. The Ng3-Nh5-Nf5 maneuver is the classic Italian squeeze — Inti's Nd7-Nf8-Ne6 retreat pattern shows he knows the defensive setup, so Austin must deny ...Nf4 at all times (play g3 if the f4 square opens).</p>
+  <p style="margin-top:6px"><strong>Key rule:</strong> If Inti plays …Nd4 at any point, consider exchanging on d4 (cxd4 or Nxd4) and recapturing with the c-pawn or the other knight — do not allow the centralized knight to sit uncontested.</p>
+</div>
+
+<input class="acc-toggle" id="w2" type="checkbox" checked>
+<label class="acc-label" for="w2">Branch B — Inti plays 8…Ba7 (bishop retreat, preparing …d5 or …Ne5)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 8.h3 <span class="mv-z">Ba7</span>
+    9.Nbd2 <span class="mv-z">Ne5</span>
+    <span class="key-move">10.Nxe5!</span> <span class="mv-z">dxe5</span>
+    11.d4 <span class="mv-z">exd4</span>
+    12.cxd4 <span class="mv-z">Bb6</span>
+    13.Nc4 <span class="mv-z">Bc7</span>
+    14.Ne3
+    <span class="note"> — After Nxe5, Austin immediately gains central space with d4. The doubled e-pawns (e4/e5 or e5/d4) give White a lasting central advantage. Black's Ba7 is locked out of play temporarily.</span>
+  </div>
+  <p style="margin-top:8px">After 14.Ne3: plan Nd5 — the ideal knight post. Inti's 93.8% Copa 2024 game (B13 Caro-Kann as White) showed he plays well in open positions, so avoid simplifying here. Keep the central tension and build with f4-f5 or Qd3 pressure on the kingside.</p>
+</div>
+
+<input class="acc-toggle" id="w3" type="checkbox">
+<label class="acc-label" for="w3">Branch C — Inti plays 5…d5!? (central break in Italian)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 4.c3 <span class="mv-z">Nf6</span>
+    5.d3 <span class="mv-z">d5!?</span>
+    <span class="key-move">6.exd5!</span> <span class="mv-z">Nxd5</span>
+    7.O-O <span class="mv-z">O-O</span>
+    8.Re1 <span class="mv-z">Bg4</span>
+    <span class="key-move">9.h3!</span> <span class="mv-z">Bh5</span>
+    10.Nbd2 <span class="mv-z">Nf4</span>
+    11.Nxe5 <span class="mv-z">Nxe2+</span>
+    12.Rxe2
+    <span class="note"> — After 6.exd5 Nxd5, do NOT play 7.Nxe5?! (7…Nxe5 8.Rxe5?? loses to 8…Nxf2!). Play 7.O-O and keep central tension. After 9.h3!, the Bh5 bishop is stuck outside Black's queenside — a permanent liability. The Nf4 attempt is met with Nxe5 and the bishop remains misplaced.</span>
+  </div>
+  <p style="margin-top:8px">After 12.Rxe2: Austin has the bishop pair, the rook is centralized, and Black's pieces lack coordination. Continue with d4, opening the center. Inti has never been documented playing this line — it would be unfamiliar territory for him at this stage.</p>
+</div>
+
+<input class="acc-toggle" id="w4" type="checkbox">
+<label class="acc-label" for="w4">Branch D — Sidestep: Ruy Lopez 3.Bb5 (if Austin wants familiar territory)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">e5</span>
+    2.Nf3 <span class="mv-z">Nc6</span>
+    <span class="key-move">3.Bb5!</span> <span class="mv-z">a6</span>
+    4.Ba4 <span class="mv-z">Nf6</span>
+    5.O-O <span class="mv-z">Bc5</span>
+    6.c3 <span class="mv-z">b5</span>
+    7.Bc2 <span class="mv-z">d6</span>
+    <span class="key-move">8.d4!</span> <span class="mv-z">Bg4</span>
+    9.Be3
+    <span class="note"> — The Lopez Chigorin-type. Inti plays Bc5-b5 as Black in the Lopez — he knows this structure from the Black side (C77/C78). The Lopez as White gives Austin the same d4 break idea, and Inti's Lopez as Black lost at Agua R1 vs CM who played exactly 8.d4. Tradeoff: Inti has documented López theory — he won Querétaro R3 as Black in C69 Exchange. Use this only if Austin is more comfortable here than Italian.</span>
+  </div>
+  <p style="margin-top:8px">After 9.Be3: plan Nbd2-Nf1-Ng3 (same Italian knight maneuver) or d5 to gain space. Inti's worst documented Lopez game (Agua R1, C77) showed accuracy dropping to 91.1% vs CM — Austin should aim for the same positional squeeze.</p>
+</div>
+
+<h3>Key themes table — Austin as White</h3>
+<table>
+  <tr><th>Theme</th><th>Austin's move</th><th>Why it works vs Inti</th></tr>
+  <tr><td>Prevent …Bg4 pin</td><td>h3 before any Nbd2</td><td>Inti used …Bg4 in Copa R1 and Querétaro R1 to generate tactical activity — neutralize it every time</td></tr>
+  <tr><td>Deny …Nf4 fork</td><td>g3 if f4 square opens</td><td>Inti reached …Nf4 fork threats in multiple games; calculate if …Nf4 is legal BEFORE releasing central tension</td></tr>
+  <tr><td>d4 central break</td><td>Build Nbd2-Nf1-Ng3 first</td><td>Inti's accuracy drops sharply under positional squeeze; d4 is the trigger (Agua R1 CM model)</td></tr>
+  <tr><td>Never Nxe5?! in Italian</td><td>7.O-O not 7.Nxe5 after exd5</td><td>7.Nxe5 Nxe5 8.Rxe5?? loses piece to …Nxf2! — a known Italian trap</td></tr>
+  <tr><td>b4 vs Nc5</td><td>b4 after Inti's Nc5 jump</td><td>After d4-d5, Inti's best plan is …Nc5; b4 immediately evicts the knight and maintains space advantage</td></tr>
+</table>
+
+<hr class="section-divider">
+
+<h2 class="black-section">Part 2 — Austin as Black: Taimanov (5…a6) — Castle Kingside, Queenside Squeeze</h2>
+
+<div class="callout callout-green">
+  <strong>The core insight:</strong> Inti's <strong>B43 Sicilian Kan f4 system is his biggest White vulnerability in the entire database</strong> — 14 blunders, 7 mistakes in a single game (Querétaro R6). Austin's Taimanov (5…Nc6 5…a6) enters this exact structure. The <strong>single most important rule</strong>: <strong>castle KINGSIDE</strong>. De Alba's 11…O-O-O?? handed Inti +3.0 instantly — Inti had the a-file attack pre-prepared. With Austin castled kingside, Inti's f4-e5 push loses its target, and Austin's …b5-b4 queenside break dismantles the position.
+</div>
+
+<h3>Taimanov 5…a6 — Austin's defense vs Inti's Open Sicilian</h3>
+<div class="move-line">
+  <span class="mv-z">Inti:</span> 1.e4 <span class="mv-a">c5</span>
+  2.Nf3 <span class="mv-a">e6</span>
+  3.d4 <span class="mv-a">cxd4</span>
+  4.Nxd4 <span class="mv-a">Nc6</span>
+  5.Nc3 <span class="mv-a">a6</span>
+  <span class="note"> — Taimanov Sicilian. After 5.Nc3 a6, Austin reaches the Taimanov structure. Inti's primary response based on Querétaro R6 is 6.Bd3 building toward f4. The critical rule: whatever happens next, <strong>castle KINGSIDE</strong>.</span>
+</div>
+
+<input class="acc-toggle" id="b1" type="checkbox" checked>
+<label class="acc-label" for="b1">Branch A — vs 6.Bd3 (Inti's primary system — B43 f4 buildup)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">Inti:</span> 5.Nc3 <span class="mv-a">a6</span>
+    6.Bd3 <span class="mv-a">Nf6</span>
+    7.O-O <span class="mv-a">Be7</span>
+    8.Kh1 <span class="key-move">O-O!</span>
+    <span class="note"> — KINGSIDE only. Never O-O-O here. Querétaro R6 proof: De Alba played O-O-O and handed Inti +3.0 instantly. With O-O, Inti's f4-f5 push has no target and Austin begins queenside play.</span>
+    9.f4 <span class="mv-a">d6</span>
+    10.Nxc6 <span class="mv-a">bxc6</span>
+    <span class="key-move">11…b5!</span>
+    <span class="note"> — The …b5 push begins the queenside squeeze. Inti has no prepared plan once the kingside attack loses its target. In Querétaro R6, once Black got …b4/…bxc3, Inti's position collapsed in 14 blunders.</span>
+  </div>
+  <p style="margin-top:8px">After 11…b5: plan …Bb7, …Nd7, …Nc5 with queenside pressure. If Inti plays f5, answer …e5 closing the kingside — Inti has no documented plan against a closed kingside. The critical queenside break …b4 should come when Nc3 is on the board: it disrupts coordination and creates passed pawns (exactly the pattern that ended Querétaro R6).</p>
+</div>
+
+<input class="acc-toggle" id="b2" type="checkbox" checked>
+<label class="acc-label" for="b2">Branch B — vs 6.Be3 (English Attack — plan: …b5-b4 counterattack)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">Inti:</span> 6.Be3 <span class="mv-a">Qc7</span>
+    7.Bd3 <span class="mv-a">Nf6</span>
+    8.O-O <span class="mv-a">Be7</span>
+    9.f4 <span class="mv-a">d6</span>
+    10.Kh1 <span class="key-move">O-O!</span>
+    11.Qe1 <span class="mv-a">Nxd4</span>
+    12.Bxd4 <span class="mv-a">b5</span>
+    <span class="key-move">13…b4!</span>
+    <span class="note"> — The English Attack is tamer than 6.Bd3 because Be3 commits the bishop early. After …Nxd4/Bxd4, Austin eliminates the critical d4-knight and launches …b5-b4 immediately. The b4-push attacks Nc3 and begins active queenside counterplay — the exact structure Inti mishandled in Querétaro R6.</span>
+  </div>
+  <p style="margin-top:8px">After 13…b4: if 14.Nd1 Bb7 15.Ne3 d5! — central break is strong. If 14.Na4 Bb7 15.c3 bxc3 16.bxc3 c5 — Austin's queenside initiative compensates for the kingside attack. Inti's Copa 2024 pattern (Sicilian B89, B90) shows he understands English Attack setups — expect him to play f4-f5 quickly. Austin must generate queenside play before move 20.</p>
+</div>
+
+<input class="acc-toggle" id="b3" type="checkbox">
+<label class="acc-label" for="b3">Branch C — vs 5.Nb5 Löwenthal (B32 trick — Inti played this at Querétaro R2)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">Inti:</span> 1.e4 <span class="mv-a">c5</span>
+    2.Nf3 <span class="mv-a">Nc6</span>
+    3.d4 <span class="mv-a">cxd4</span>
+    4.Nxd4 <span class="mv-a">e5</span>
+    <span class="mv-z">5.Nb5</span> <span class="mv-a">a6</span>
+    6.Nd6+ <span class="mv-a">Bxd6</span>
+    7.Qxd6 <span class="key-move">Qf6!</span>
+    <span class="note"> — The theoretical equalizer. 7…Qf6 attacks d6, threatens …Qxb2 (not winning but awkward), and forces 8.Qd2 (or Qd3) when 8…Qg6 → …Nf6 → …d5 gives Black active play and equal game. Querétaro R2 shows Inti chose B32 (Löwenthal) — he knows the theory, so Austin must too. Qf6 is the move.</span>
+  </div>
+  <p style="margin-top:8px">After 8.Qd2 Qg6: plan 9…Nf6 10…d5 with central counter. In Querétaro R2 Inti scored 98.9% as White in a B32 game (won easily) — his opponent likely didn't know the Löwenthal defense well. Austin knowing Qf6! removes this advantage completely.</p>
+</div>
+
+<input class="acc-toggle" id="b4" type="checkbox">
+<label class="acc-label" for="b4">Branch D — vs 6.Bc4 Sozin (B41/B42 type — if Inti avoids Bd3)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">Inti:</span> 5.Nc3 <span class="mv-a">a6</span>
+    6.Bc4 <span class="mv-a">Nf6</span>
+    7.O-O <span class="mv-a">Be7</span>
+    8.Bb3 <span class="mv-a">d6</span>
+    9.f4 <span class="key-move">O-O!</span>
+    10.f5 <span class="mv-a">e5</span>
+    <span class="note"> — Inti's Bc4 puts the bishop on an attacking diagonal but overextends early. After O-O (kingside again!), if Inti plays f5 immediately, Austin answers …e5 to close the kingside. This cuts off the f5-pawn's support and leaves Inti with a pawn weakness. Plan: …Nd4/…Nc5 central outpost, then …b5-b4 queenside break as usual.</span>
+  </div>
+  <p style="margin-top:8px">Inti's B35 modern Bc4 system (Querétaro R2, 98.9% win vs 1519) was against a much lower-rated opponent. Against Austin's prepared Taimanov, Bc4 is less dangerous than Bd3 because it doesn't immediately threaten f4-f5 with piece coordination. The …e5 close + …Nd4 outpost neutralizes it.</p>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="analysis">Part 3 — Accuracy Profile and Error Patterns</h2>
+
+<h3>Tournament accuracy — classical games (Stockfish 3000ms deep)</h3>
+<table>
+  <tr><th>Tournament</th><th>Games</th><th>Record</th><th>Avg Acc%</th><th>Notes</th></tr>
+  <tr><td>Querétaro 2026</td><td>8</td><td>5W-1L-2D</td><td><strong>92.5%</strong></td><td>Most recent classical; best form documented</td></tr>
+  <tr><td>Copa Estado de México 2024</td><td>18</td><td>11W-7L-0D</td><td>91.0%</td><td>Largest sample; includes all opening tests</td></tr>
+  <tr><td>Nacional Olímpico Sub-16 2025</td><td>6</td><td>2W-4L-0D</td><td>91.3%</td><td>4 losses — competed vs stronger field</td></tr>
+  <tr><td>Copa Estado de México 2025</td><td>7</td><td>5W-1L-1D</td><td>88.3%</td><td>French Rubinstein losses drag avg down</td></tr>
+  <tr class="row-danger"><td>Aguascalientes 2026</td><td>2</td><td>0W-2L-0D</td><td><strong>87.7%</strong></td><td>vs CM 2135 (R1) and R3 — strongest opposition; 0 points</td></tr>
+  <tr><th>OVERALL</th><th>36</th><th>23W-15L-3D</th><th><strong>90.6%</strong></th><th>Stockfish deep, classical only</th></tr>
+</table>
+
+<div class="callout callout-gold">
+  <strong>Pattern:</strong> Inti plays at <strong>90–92% accuracy in classical games at NAYCC field strength</strong> — a respectable but beatable ceiling. His accuracy against the strongest opponents (CM+ range) drops to 87–91% while opponent accuracy reads 93–97%, creating a consistent gap. Austin at 1959 FIDE sits in the range where Inti begins showing accuracy drops. The <strong>Agua 2026 data is the clearest signal</strong>: Inti scored 0/2 against players rated above 2000, averaging 87.7% while his opponents averaged 92%. Austin must force the game into the positional complexity zone (move 25+) rather than allowing Inti to reach comfortable tactical simplicity.
+</div>
+
+<h3>Known error patterns (from deep engine analysis)</h3>
+<table>
+  <tr><th>Pattern</th><th>Example</th><th>Austin's exploit</th></tr>
+  <tr class="row-danger">
+    <td><strong>B43 Kan queenside collapse</strong></td>
+    <td>Querétaro R6 vs De Alba: 14B/7M — move 67 Re4+ (CPL=1000, eval −7→−49); move 68 Re1 (CPL=1000, eval −60→−87). Inti's clock: critical role.</td>
+    <td>Austin's Taimanov 5…a6 directly enters B43 territory. Castle kingside. Push …b5-b4. The collapse pattern is exactly reproducible.</td>
+  </tr>
+  <tr class="row-danger">
+    <td><strong>French Rubinstein handling</strong></td>
+    <td>Copa 2025 R4 (Landa, C10) LOSS 85.9%: move 32 Qb3 CPL=300 (−1.50→−4.50); move 48 Rxd3 CPL=697 (−6.64→−13.61); move 49 Ka1 CPL=1000 → mate</td>
+    <td>Austin doesn't play French — but if transposition reaches C10/C02 structure, Inti loses the thread completely. Exploit any opportunity to steer there.</td>
+  </tr>
+  <tr>
+    <td><strong>Late-game accuracy drop vs 2000+</strong></td>
+    <td>Agua R1 (CM Lopez 2135, C77) LOSS 91.1%: move 24 N4e5 CPL=275 (−0.56→−3.31); move 56 a3 CPL=213; move 60 Nb1 CPL=1000 → mate</td>
+    <td>Force complications past move 20. Inti's accuracy drops systematically when facing opponents in Austin's rating range. The endgame is Austin's primary winning zone.</td>
+  </tr>
+  <tr>
+    <td><strong>Knight misplacement under time pressure</strong></td>
+    <td>Copa 2025 R5 WORST: 81.2%, move 26 Qxc6 CPL=1000 (# → +7.18); move 31 Re5 CPL=1000 (+8.55 → −#). Had winning position, lost it in consecutive moves.</td>
+    <td>Inti blunders in won positions when the clock runs low. Build a position that requires precise calculation in time trouble — he will misfire.</td>
+  </tr>
+</table>
+
+<h3>Psychological notes</h3>
+<ul style="padding-left:18px; line-height:1.8">
+  <li><strong>Inti over-presses for wins.</strong> Querétaro R5 vs Hernandez Gamboa (rated 1692): held a +6.9 eval advantage, drew it out by pressing too hard in time trouble. He doesn't play for draws — exploit over-pressing by entering complex endgames.</li>
+  <li><strong>Time trouble is a documented problem.</strong> Querétaro R6: Inti had only 3:47 remaining at move 12 vs De Alba's 49:18. In classical G/90+30, he will often be in time pressure during the critical phase. Austin should create positions that require Inti to calculate — not avoid complications.</li>
+  <li><strong>Inti fights from behind but loses the thread.</strong> Copa 2024 Agama (2): 83% accuracy, already behind at move 38 Qf2 (CPL=309), then Kg7 (CPL=420), then Qf3 (CPL=1000, resigned). The blundering is sequential — once Inti is on the back foot past move 30, he tends to compound errors.</li>
+  <li><strong>Rapid improver — expect new preparation.</strong> +256 FIDE in 13 months. The Sep–Nov 2026 games (his fastest improvement period) are not captured. Assume he has corrected the B43 Kan weakness. Austin's move tree should not assume Inti will repeat the exact same f4 system from Querétaro R6.</li>
+</ul>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 4 — If / Then Quick Reference</h2>
+
+<input class="acc-toggle" id="ift1" type="checkbox" checked>
+<label class="acc-label" for="ift1">Austin as White — Decision Table</label>
+<div class="acc-content">
+  <table>
+    <tr><th>If Inti plays…</th><th>Austin plays…</th><th>Why</th></tr>
+    <tr><td>3…Bc5 (Italian)</td><td>4.c3 Nf6 5.d3 d6 6.O-O O-O 7.Re1, then h3-Nbd2-Nf1-Ng3-d4</td><td>Primary plan. CM Lopez won with d4 squeeze vs this exact setup (Agua R1). Contain first, break later.</td></tr>
+    <tr><td>3…a6 (Ruy Morphy)</td><td>4.Ba4 Nf6 5.O-O Bc5 6.c3 b5 7.Bc2 d6 8.d4!</td><td>Same d4 pressure principle. Inti lost Agua R1 as Black vs this Lopez d4 plan. Avoid Exchange Ruy (Inti won Querétaro R3 as Black in C69).</td></tr>
+    <tr><td>5…d5!? (Italian central break)</td><td>6.exd5 Nxd5 7.O-O O-O 8.Re1 Bg4 9.h3! Bh5 10.Nbd2</td><td>Do NOT 7.Nxe5?! (loses piece to …Nxf2!). After 9.h3, Bh5 is misplaced outside the queenside — permanent liability.</td></tr>
+    <tr><td>9…Nf4 (knight fork threat)</td><td>10.g3 or 10.Nxe5 depending on position</td><td>Calculate Nf4 BEFORE releasing central tension. Inti used …Nf4 threats in Copa R1 and Querétaro R1. g3 preemptively shuts it down.</td></tr>
+    <tr><td>…Ne5 (attacking Bc4 in Italian)</td><td>10.Nxe5! dxe5 11.d4</td><td>Exchange the attacking knight, gain center. Inti's piece activity as Black requires active piece play — neutralize it with exchanges.</td></tr>
+    <tr><td>Inti plays …Bb4 vs d4 (Nimzo-type)</td><td>Not applicable — Inti plays 1…e5 exclusively</td><td>Zero documented Nimzo/d4 games as Black vs e4. No need to prep 1.d4 response.</td></tr>
+  </table>
+</div>
+
+<input class="acc-toggle" id="ift2" type="checkbox" checked>
+<label class="acc-label" for="ift2">Austin as Black — Decision Table</label>
+<div class="acc-content">
+  <table>
+    <tr><th>If Inti plays…</th><th>Austin plays…</th><th>Why</th></tr>
+    <tr><td>6.Bd3 (primary B43 system)</td><td>6…Nf6 7.O-O Be7 8.Kh1 <strong>O-O</strong> (KINGSIDE!)</td><td>De Alba's O-O-O gave Inti +3.0 instantly. Inti has the a-file attack pre-prepared. Kingside castle removes the target entirely.</td></tr>
+    <tr><td>6.Be3 (English Attack)</td><td>6…Qc7 7.Bd3 Nf6 8.O-O Be7 9.f4 O-O → …Nxd4 Bxd4 …b5-b4</td><td>After Nxd4/Bxd4, push …b5-b4 immediately. This is the Querétaro R6 break that ended Inti's position. Same plan, same execution.</td></tr>
+    <tr><td>5.Nb5 (Löwenthal B32)</td><td>5…a6 6.Nd6+ Bxd6 7.Qxd6 <strong>Qf6!</strong></td><td>Theoretical equalizer. Forces Qd2, then …Qg6-Nf6-d5. Querétaro R2 shows Inti knows B32 — Austin must know Qf6! cold.</td></tr>
+    <tr><td>9.f4 push (after main line)</td><td>9…d6 10.Kh1 O-O then …b5-b4 plan</td><td>Never react passively to f4. Immediate queenside counterplay (...b5-b4) is the antidote — Querétaro R6 proof.</td></tr>
+    <tr><td>10.f5 (kingside expansion)</td><td>10…e5! (close the f-file)</td><td>Inti has no documented plan when the kingside closes. Once f-file is sealed, Austin generates queenside and central counterplay.</td></tr>
+    <tr><td>Anti-Sicilian 3.Bb5+ (Moscow)</td><td>3…d6 4.O-O Nf6 5.Re1 solid setup</td><td>Inti plays Open Sicilian (d4) in all known games. If he deviates to anti-Sicilian, Austin plays …d6 …Nf6 and maintains standard Taimanov structure.</td></tr>
+  </table>
+</div>
+
+<input class="acc-toggle" id="ift3" type="checkbox" checked>
+<label class="acc-label" for="ift3">Key principles for this matchup</label>
+<div class="acc-content">
+  <ul style="padding-left:18px; line-height:2.0">
+    <li><strong>KINGSIDE ONLY</strong> — The most critical rule. De Alba's O-O-O (Querétaro R6) turned a roughly equal position into +3.0 for Inti within two moves. Austin's Taimanov castles kingside, every time, no exceptions.</li>
+    <li><strong>Push …b5-b4 as soon as Nc3 is on the board</strong> — This is the exact maneuver that caused Inti's 14-blunder collapse in Querétaro R6. The queenside passers after …bxc3 are Inti's worst nightmare. Don't delay this break.</li>
+    <li><strong>h3 before Nbd2 as White</strong> — Inti's …Bg4 pin (used Copa R1 and Querétaro R1 vs 1.e4 opponents) is his primary counter to the Italian. h3 stops it cold. This is a non-negotiable prophylactic move.</li>
+    <li><strong>The d4 break is Austin's winning idea as White</strong> — CM Lopez Calderon (2135) demonstrated at Agua R1: play d4 when Inti's pieces are passively placed. Inti's accuracy dropped to 91.1% with the opponent at 93.7% — and Austin is in that rating zone.</li>
+    <li><strong>Avoid early simplification in the Italian endgame</strong> — Inti's best accuracy games are Italian C54 wins (98.5%, 98.1%, 98.2%). He is extremely comfortable in Italian endgames. Keep the position complex; don't simplify to equal endings where he's near-perfect.</li>
+    <li><strong>Create positions requiring calculation in time trouble</strong> — Inti used only 3:47 for the first 12 moves of Querétaro R6 (extremely fast, burning clock). He computes deeply but burns time. In G/90+30, he will be short on time during the critical phase. Complications = Austin's advantage.</li>
+  </ul>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 5 — Critical Moments Reference</h2>
+
+<h3>Pattern 1: B43 Queenside Collapse (Querétaro 2026 R6, Inti White, 90.2%, LOSS vs De Alba 1873)</h3>
+
+<div class="callout callout-danger">
+  <strong>Most instructive game in the database.</strong> Inti entered a B43 Sicilian Kan position with 6.Bd3 and built toward f4-e5. When Black played <strong>11…O-O-O!!</strong> (kingside castle — De Alba's error turned correct), Inti was given +3.0. He pressed the advantage with 12…Bf4 and 13.e5. But after Black's …b5-b4 and …bxc3 created connected queenside passers, Inti's position collapsed: <strong>14 blunders</strong> in the final phase. Move 67 Re4+ (should be Ke6) = CPL 1000, eval −7.02 → −48.92. Move 68 Re1 = CPL 1000, eval −60.05 → −87.10. Move 72 → checkmate.
+</div>
+
+<div class="move-line">
+  <span class="mv-z">Inti (White):</span> 1.e4 <span class="mv-a">c5</span> 2.Nf3 <span class="mv-a">e6</span> 3.d4 <span class="mv-a">cxd4</span> 4.Nxd4 <span class="mv-a">a6</span>
+  5.Nc3 <span class="mv-a">Qc7</span> 6.Bd3 <span class="mv-a">b5</span> 7.Qe2 <span class="mv-a">Bb7</span> 8.Bd2 <span class="mv-a">d6</span> 9.f4 <span class="mv-a">Nf6</span>
+  10.O-O-O <span class="mv-z">— (here, De Alba played</span> <span class="bad-move">11…O-O-O??</span><span class="mv-z"> should be …O-O!)</span>
+  <br>
+  <span class="note">After 11…O-O-O, Inti had +3.0. But he played too ambitiously: 13.Bf2?? (missing tactic), 14.e5 premature, 15.fxe5 bxc3 creating passers. From that point: 14B in the endgame, sequential blundering under time pressure (confirmed 3:47 used vs 49:18 for Black by move 12).</span>
+  <br>
+  <span class="note"><strong>Austin's lesson</strong>: Castle kingside (…O-O not …O-O-O). Do not give Inti the +3.0 for free. After …O-O, the …b5-b4 queenside break immediately puts Inti on the back foot. He does not recover from queenside pressure — the 14-blunder record proves it.</span>
+</div>
+
+<h3>Pattern 2: French Rubinstein Endgame Collapse (Copa 2025 R4, Inti White, 85.9%, LOSS vs Landa)</h3>
+
+<div class="callout callout-danger">
+  <strong>Systematic error pattern.</strong> Inti played the French Rubinstein as White (C10, with 3.Nd2 or 3.e5 structure). The position reached a complex middlegame where Inti held slightly inferior but defensible structure. Then a sequential collapse: Move 32 Qb3 (CPL=300, eval −1.50 → −4.50: should be Qxc6); Move 48 Rxd3 (CPL=697, eval −6.64 → −13.61: should be Qe2); Move 49 Ka1 (CPL=1000 → mate: should be Kb1). Three critical errors in a losing position — exactly the "trailing blunder chain" seen in Agua R1 and Copa 2024 Agama game.
+</div>
+
+<div class="move-line">
+  <span class="note">Copa 2024 also showed French weakness: vs Gonzalez Cadena (C02 Advance French) LOSS 89.8% — CPL=153 on move 20, CPL=120 on move 29, CPL=1000 on move 35. Two separate tournaments, same pattern: <strong>Inti's French handling as White generates consistent LOSS results</strong>. Austin doesn't play French — but if the game somehow transposes to a French pawn structure (e.g., via 1.e4 e6 transposition or an Italian that reaches a closed French-like center), it is dead money for Austin.</span>
+</div>
+
+<h3>Pattern 3: Accuracy Floor vs 2000+ (Agua 2026 R1, Inti Black, 91.1%, LOSS vs CM Lopez Calderon 2135)</h3>
+
+<div class="callout callout-gold">
+  <strong>Calibration game.</strong> CM Lopez Calderon (2135) — 52 points above Austin's FIDE — played the Ruy Lopez C77 as White and squeezed with d4 at move 18. Inti's accuracy: 91.1%. CM's accuracy: 93.7%. The gap is only 2.6% — but it was enough. Inti's move 24 N4e5?? (CPL=275, eval −0.56 → −3.31) was the critical moment: a knight that appeared active was actually misplaced. The endgame eventually collapsed: move 56 a3 (CPL=213), move 60 Nb1 (CPL=1000 → mate). <strong>Austin at 1959 FIDE is well within the range where this gap manifests. The d4 squeeze is the weapon.</strong>
+</div>
+
+<h3>Best game reference — Inti's defensive ceiling</h3>
+
+<div class="callout callout-green">
+  <strong>Copa 2024 vs Betancourt Debany (C54, Inti White, 98.5%, WIN) + Copa 2024 Ruiz Bolaños (C54, Inti Black, 98.1%, WIN).</strong> Inti plays near-perfect chess in Italian Classical positions (C50/C54) — both as White and Black. In C54 he achieves 95–99% accuracy regularly. This is his maximum form. Austin's Italian plan as White invites Inti into his most comfortable territory — but the d4 squeeze transforms a familiar structure into a long-term positional test where Inti's clock problems and post-move-30 accuracy drop become decisive. Austin must embrace the Italian without fear; Inti plays it extremely well but falls apart under time pressure in the complex middlegame.
+</div>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 6 — Engine Accuracy Reference (All Games)</h2>
+
+<table>
+  <tr><th>Tournament</th><th>Key</th><th>Color</th><th>Opponent</th><th>Result</th><th>Acc%</th><th>Opp%</th><th>ECO</th><th>B/M/I</th></tr>
+  <tr><td>Querétaro 2026</td><td>R2</td><td>White</td><td>Martinez Cruz, Axel</td><td>WIN</td><td><strong>98.9%</strong></td><td>92.8%</td><td>B32</td><td>0/0/3</td></tr>
+  <tr><td>Querétaro 2026</td><td>R1</td><td>Black</td><td>Alcantara Juarez, Fernando</td><td>WIN</td><td>94.6%</td><td>87.9%</td><td>C54</td><td>0/2/1</td></tr>
+  <tr><td>Querétaro 2026</td><td>R3</td><td>Black</td><td>Sanchez Martinez, Uriel</td><td>WIN</td><td>93.4%</td><td>82.4%</td><td>C69</td><td>0/0/3</td></tr>
+  <tr><td>Querétaro 2026</td><td>R6</td><td>White</td><td>De Alba Boudreau, Pablo</td><td><strong>LOSS</strong></td><td>90.2%</td><td>91.9%</td><td>B43</td><td>14/7/12</td></tr>
+  <tr><td>Querétaro 2026</td><td>R4</td><td>White</td><td>Cortez Madera, Fidel</td><td>WIN</td><td>91.6%</td><td>88.4%</td><td>B15</td><td>2/2/3</td></tr>
+  <tr class="row-danger"><td>Querétaro 2026</td><td>R5</td><td>Black</td><td>Hernandez Gamboa, Daniel</td><td>DRAW</td><td>86.4%</td><td>86.6%</td><td>D00</td><td>2/1/4</td></tr>
+  <tr><td>Copa 2024</td><td>Betancourt</td><td>White</td><td>Betancourt Debany Bere</td><td>WIN</td><td><strong>98.5%</strong></td><td>—</td><td>C54</td><td>0/0/—</td></tr>
+  <tr><td>Copa 2024</td><td>Ordonez</td><td>Black</td><td>Ordonez Alarcon, Daniela</td><td>WIN</td><td>98.2%</td><td>—</td><td>D02</td><td>0/3/—</td></tr>
+  <tr><td>Copa 2024</td><td>Ruiz</td><td>Black</td><td>Ruiz Bolaños, Eithan</td><td>WIN</td><td>98.1%</td><td>—</td><td>C54</td><td>2/0/—</td></tr>
+  <tr><td>Copa 2024</td><td>Ordonez (1)</td><td>White</td><td>Ordonez Alarcon, Daniela</td><td>WIN</td><td>95.8%</td><td>—</td><td>C54</td><td>1/2/—</td></tr>
+  <tr><td>Copa 2024</td><td>Campos</td><td>Black</td><td>Campos Gorgonio, Eduardo</td><td>WIN</td><td>93.6%</td><td>—</td><td>C70</td><td>7/4/—</td></tr>
+  <tr><td>Copa 2024</td><td>Garcia</td><td>White</td><td>Garcia Benich, Luna Mabel</td><td>WIN</td><td>93.8%</td><td>—</td><td>B13</td><td>0/4/—</td></tr>
+  <tr><td>Copa 2024</td><td>Martinez (2)</td><td>Black</td><td>Martinez, Hernandez Eduardo</td><td>LOSS</td><td>90.9%</td><td>87.3%</td><td>C50</td><td>6/4/6</td></tr>
+  <tr><td>Copa 2024</td><td>Zamora</td><td>White</td><td>Zamora Marquez, Martin</td><td>WIN</td><td>88.3%</td><td>—</td><td>B54</td><td>0/0/—</td></tr>
+  <tr><td>Copa 2024</td><td>Gonzalez</td><td>White</td><td>Gonzalez Cadena, Armando</td><td><strong>LOSS</strong></td><td>89.8%</td><td>—</td><td>C02</td><td>2/2/—</td></tr>
+  <tr><td>Copa 2024</td><td>Rascon</td><td>White</td><td>Rascon Peralta, Bolivar</td><td>WIN</td><td>86.2%</td><td>—</td><td>C54</td><td>2/2/6</td></tr>
+  <tr><td>Copa 2024</td><td>Guzman</td><td>Black</td><td>Guzman Garcia, Mia Fernanda</td><td>LOSS</td><td>85.7%</td><td>—</td><td>C77</td><td>2/3/1</td></tr>
+  <tr><td>Copa 2024</td><td>Galaviz</td><td>White</td><td>Galaviz Medina, Ades Antares</td><td>LOSS</td><td>82.1%</td><td>—</td><td>B90</td><td>1/1/5</td></tr>
+  <tr><td>Copa 2024</td><td>Agama (2)</td><td>Black</td><td>Agama Hernandez, Luis Fernando</td><td>LOSS</td><td>92.2%</td><td>95.1%</td><td>D00</td><td>5/3/8</td></tr>
+  <tr><td>Copa 2024</td><td>Agama (1)</td><td>Black</td><td>Agama Hernandez, Luis Fernando</td><td>LOSS</td><td>83.0%</td><td>—</td><td>D00</td><td>4/4/9</td></tr>
+  <tr><td>Copa 2024</td><td>Valdez</td><td>Black</td><td>Valdez Lomeli, Nicolas</td><td>LOSS</td><td>82.6%</td><td>—</td><td>C54</td><td>3/4/2</td></tr>
+  <tr><td>Copa 2025</td><td>R1</td><td>Black</td><td>Gonzalez Diaz, Daniel</td><td>WIN</td><td>97.0%</td><td>91.2%</td><td>—</td><td>0/1/5</td></tr>
+  <tr><td>Copa 2025</td><td>R6</td><td>White</td><td>Espinosa De La Cruz, Bruno</td><td>WIN</td><td>92.7%</td><td>87.9%</td><td>—</td><td>0/2/2</td></tr>
+  <tr><td>Copa 2025</td><td>R3</td><td>Black</td><td>Estrada, Ricardo (1712)</td><td>DRAW</td><td>87.5%</td><td>86.8%</td><td>—</td><td>3/1/10</td></tr>
+  <tr><td>Copa 2025</td><td>R7</td><td>White</td><td>Palestina Diaz, Angel (1816)</td><td>WIN</td><td>85.5%</td><td>82.6%</td><td>—</td><td>5/3/7</td></tr>
+  <tr class="row-danger"><td>Copa 2025</td><td>R4</td><td>White</td><td>Landa Carrillo, Oliver (French)</td><td><strong>LOSS</strong></td><td>85.9%</td><td>89.4%</td><td>C10</td><td>3/4/8</td></tr>
+  <tr class="row-danger"><td>Copa 2025</td><td>R5</td><td>Black</td><td>Moreno Avendano, Jose</td><td>WIN</td><td><strong>81.2%</strong></td><td>75.8%</td><td>—</td><td>2/0/3</td></tr>
+  <tr><td>Olimpico 2025</td><td>Sanchez</td><td>Black</td><td>Sanchez Juarez, Zlatan</td><td>WIN</td><td>97.9%</td><td>92.1%</td><td>A13</td><td>0/0/—</td></tr>
+  <tr><td>Olimpico 2025</td><td>Rodriguez</td><td>Black</td><td>Rodriguez Juarez, Daniel</td><td>LOSS</td><td>94.2%</td><td>97.0%</td><td>D35</td><td>2/1/—</td></tr>
+  <tr><td>Olimpico 2025</td><td>Solis</td><td>Black</td><td>Solis Galicia, Luis Angel</td><td>LOSS</td><td>89.3%</td><td>96.0%</td><td>A06</td><td>1/0/—</td></tr>
+  <tr class="row-danger"><td>Olimpico 2025</td><td>Madrigal</td><td>White</td><td>Madrigal Madrazo, Luis Xavier</td><td>LOSS</td><td>83.9%</td><td>88.8%</td><td>C54</td><td>1/3/7</td></tr>
+  <tr class="row-danger"><td>Agua 2026</td><td>R1</td><td>Black</td><td>Lopez Calderon, Alfonso (CM, ~2135)</td><td><strong>LOSS</strong></td><td>91.1%</td><td>93.7%</td><td>C77</td><td>1/7/—</td></tr>
+  <tr class="row-danger"><td>Agua 2026</td><td>R3</td><td>Black</td><td>Garcia Nevarez, Moises Omar</td><td>LOSS</td><td>84.2%</td><td>90.7%</td><td>C45</td><td>1/2/2</td></tr>
+</table>
+
+<p style="margin-top: 12px; font-size: 0.85em; color: #555;">
+  <a href="../austin-prep.html">← Back to Austin Prep Index</a> &nbsp;|&nbsp;
+  <a href="matchup-inti-deep.html">Inti Deep Analysis HTML →</a> &nbsp;|&nbsp;
+  <a href="matchup-inti.html">Inti Matchup Overview →</a>
+</p>
+
+</body>
+</html>
