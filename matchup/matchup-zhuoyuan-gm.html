@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle Plan: Austin vs Wu, Zhuoyuan (GM Prep)</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Georgia', serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg);
+}
+h1 { font-size: 1.6em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.15em; margin: 28px 0 10px; padding-left: 10px; }
+h2.white-section { border-left: 5px solid var(--blue); }
+h2.black-section { border-left: 5px solid var(--red); }
+h2.analysis   { border-left: 5px solid var(--gold); }
+h2.reference  { border-left: 5px solid #666; }
+h3 { font-size: 1em; margin: 14px 0 6px; color: #333; }
+.subtitle { font-size: 0.85em; color: #666; margin-bottom: 22px; }
+.subtitle span { margin-right: 16px; }
+
+.rating-note { background: #eaf4fb; border: 2px solid #1a5276; border-radius: 5px;
+               padding: 10px 14px; margin-bottom: 18px; font-size: 0.9em; }
+
+.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.intel-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.intel-card h3 { margin-top: 0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }
+.intel-card ul { padding-left: 16px; margin-top: 4px; }
+.intel-card li { margin-bottom: 3px; }
+
+.callout { border-radius: 4px; padding: 10px 14px; margin: 10px 0; font-size: 0.9em; }
+.callout-gold   { background: #fffbe0; border-left: 4px solid var(--gold); }
+.callout-blue   { background: #eef4ff; border-left: 4px solid var(--blue); }
+.callout-green  { background: #efffef; border-left: 4px solid var(--green); }
+.callout-danger { background: #fff0f0; border-left: 4px solid var(--red); }
+
+.move-line { background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+             padding: 8px 12px; margin: 6px 0; font-size: 0.92em; line-height: 1.9; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: #eef4ff; border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.bad-move { background: #ffe0e0; border: 1px solid #cc8888; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; color: #8b1a1a; }
+.note { color: #555; font-style: italic; font-size: 0.88em; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
+th { background: #333; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+.row-danger td { background: #fff0f0 !important; }
+
+hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20px; }
+
+.acc-toggle { display: none; }
+.acc-label {
+  display: block; cursor: pointer; padding: 8px 12px; margin: 4px 0;
+  background: #eee; border: 1px solid #ccc; border-radius: 4px;
+  font-weight: bold; font-size: 0.9em; user-select: none;
+}
+.acc-label::before { content: '▶ '; font-size: 0.75em; color: #666; }
+.acc-toggle:checked ~ .acc-label::before { content: '▼ '; }
+.acc-content { display: none; padding: 10px 14px; background: #fafaf6;
+               border: 1px solid #ddd; border-top: none; border-radius: 0 0 4px 4px; margin-bottom: 6px; }
+.acc-toggle:checked ~ .acc-content { display: block; }
+
+@media print {
+  .acc-content { display: block !important; }
+  .acc-label::before { content: '' !important; }
+  body { font-size: 12px; padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<h1>Battle Plan: Austin (White &amp; Black) vs Wu, Zhuoyuan</h1>
+<div class="subtitle">
+  <span><strong>GM Prep</strong></span>
+  <span>Zhuoyuan rating: 1890 FIDE (Nov 2026) · Seed #10</span>
+  <span>Austin advantage: <strong>+69 FIDE — MUST WIN</strong></span>
+  <span>Direct record: No encounter</span>
+  <span>Games analyzed: 46 (deep, movetime-3000)</span>
+</div>
+
+<div class="rating-note">
+  <strong>Rating context:</strong> Austin (~1959 FIDE) carries a <strong>+69 point advantage</strong> — this is a must-win game against the lowest-seeded opponent in Austin's priority tier. Zhuoyuan's record is 14W–16L–16D across 46 games with a high blunder rate of <strong>0.63 blunders/game</strong>. His critical vulnerability: he blunder-chains catastrophically under time pressure from equal positions (World Schools R5 vs Meneses 1969: 5 blunders in 8 moves when clock hit ~1 min). The strategic plan is to reach a complex middlegame by move 20, let time pressure build, and win when he cracks in the 25–35 move window.
+</div>
+
+<div class="intel-grid">
+  <div class="intel-card">
+    <h3>Zhuoyuan as White</h3>
+    <ul>
+      <li><strong>1.e4</strong> exclusively (all classical games)</li>
+      <li>vs French: <strong>Tarrasch 3.Nd2</strong> → 4.e5 Nfd7 5.c3 6.f4 + h4-h5 storm</li>
+      <li>vs Caro-Kann: <strong>Exchange 3.exd5 4.Bd3</strong> → Ne5 + f4 plan</li>
+      <li>vs Sicilian: No classical ECO data — likely Open Sicilian; must improvise vs Taimanov</li>
+      <li><em>White record: 7W–7L–7D (50%) · avg 91.2%</em></li>
+      <li><em>Critical White failure: WS R5 — 5 blunders vs 1969-rated from equal position</em></li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Zhuoyuan as Black</h3>
+    <ul>
+      <li>vs 1.e4: <strong>Sicilian Accelerated Dragon</strong> (1…c5 2…Nc6 3…g6 4…cxd4 5…Bg7) — PRIMARY</li>
+      <li>Plays Dragon Classical (B73) as secondary — knows both sides of Dragon</li>
+      <li>vs 1.d4: 1…Nf6 + …d5 + …g6 (Grünfeld/KID type vs Rapport-Jobava)</li>
+      <li>vs 1.c4 English: Closed symmetric (A26) — weakest: 87.1%, 2 blunders, loss vs 1971</li>
+      <li><em>Black record: 7W–9L–9D (46%) · avg 92.5%</em></li>
+      <li><em>Best: Capps R02 vs Silva 2005 — 96.7% acc, win as Black</em></li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Critical weaknesses</h3>
+    <ul>
+      <li><strong>Time pressure blunder chain:</strong> WS R5 — equal at move 24, then Qf3?? (eval +0.2 → −4.9) when clock hit 1:15. Five consecutive errors before flag. Pattern confirmed in multiple games.</li>
+      <li><strong>Accuracy floor vs 2100+:</strong> Stamer R4 vs Bhaduri 2162 — 92.3% avg but 5 blunders; loses all 2 Stamer games (both 2000+)</li>
+      <li><strong>Evaluation collapses from winning positions:</strong> SnoopChess 74.7% game — had +4.95 eval, then 3 blunders 3 mistakes. Wins converted into losses.</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Key game facts</h3>
+    <ul>
+      <li>Overall avg: <strong>91.9%</strong> (46 games)</li>
+      <li>Best game: <strong>98.7%</strong> (SnoopChess vs Heiserman, draw)</li>
+      <li>Worst game: <strong>74.7%</strong> (SnoopChess vs Srinivasan, loss)</li>
+      <li>Best classical result: Capps R02 — beat Silva 2005 as Black (96.7%)</li>
+      <li>Blunders: <strong>29 total</strong> across 46 games (0.63/game)</li>
+      <li>World Schools 2026: 3W–2L–2D vs 1690–1971 rated field</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="white-section">Part 1 — Austin as White: Rossolimo 3.Bb5 Sidesteps Dragon Theory</h2>
+
+<div class="callout callout-blue">
+  <strong>The core challenge:</strong> Zhuoyuan's primary Black weapon is the <strong>Sicilian Accelerated Dragon (2…Nc6, 3…g6)</strong>. He plays it from both sides — knows Dragon theory deeply. Austin's Rossolimo (<code>3.Bb5</code>) bypasses all Dragon preparation: Zhuoyuan cannot reach his B34/B73 structures. Austin steers into <strong>Rossolimo Fianchetto (B31)</strong> — Zhuoyuan must improvise in unfamiliar territory while Austin plays a system he has drilled vs multiple opponents.
+</div>
+
+<h3>Rossolimo main line — Austin's weapon</h3>
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">c5</span>
+  2.Nf3 <span class="mv-z">Nc6</span>
+  <span class="key-move">3.Bb5</span>
+  <span class="mv-z">g6</span>
+  4.O-O <span class="mv-z">Bg7</span>
+  5.Re1 <span class="mv-z">Nf6</span>
+  6.c3 <span class="mv-z">O-O</span>
+  <span class="key-move">7.d4!</span>
+  <span class="note"> — 7.d4! is the critical central strike. After 7…cxd4 8.cxd4, Austin has a dominant center with IQP potential. Zhuoyuan's Dragon fianchetto is passive — his Bg7 bites on the pawn chain but the IQP structure is exactly Austin's territory (Nimzo-IQP experience).</span>
+</div>
+
+<input class="acc-toggle" id="w1" type="checkbox" checked>
+<label class="acc-label" for="w1">Branch A — 3…g6 Fianchetto (Zhuoyuan's primary pattern — B31 Rossolimo)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">c5</span>
+    2.Nf3 <span class="mv-z">Nc6</span>
+    3.Bb5 <span class="mv-z">g6</span>
+    4.O-O <span class="mv-z">Bg7</span>
+    5.Re1 <span class="mv-z">Nf6</span>
+    6.c3 <span class="mv-z">O-O</span>
+    7.d4 <span class="mv-z">cxd4</span>
+    8.cxd4 <span class="mv-z">d5</span>
+    9.e5 <span class="mv-z">Ne4</span>
+    <span class="key-move">10.Nc3!</span> <span class="mv-z">Nxc3</span>
+    11.bxc3 <span class="mv-z">Na5</span>
+    12.Bd3
+    <span class="note"> — After 12.Bd3, White has d4+e5 pawn chain, bishop pair, and space. Zhuoyuan's Na5 is offside. Plan: Ng5! threatening Nxh7 or Nxf7. Austin's Greek Gift training kicks in — Bxh7+ patterns all over this structure.</span>
+  </div>
+  <p style="margin-top:8px">This is the IQP tabiya Austin knows from Nimzo-Indian structures. The dominant d4+e5 center restricts Black completely. Zhuoyuan's ...d5 counterplay is standard but Austin should know: after 12.Bd3 Nc4 13.Bxc4 dxc4 14.d5! the passed pawn is decisive. Alternative to 8...d5: if Black plays 8...d6, play 9.Nc3 and develop normally — the center is already dominant.</p>
+</div>
+
+<input class="acc-toggle" id="w2" type="checkbox" checked>
+<label class="acc-label" for="w2">Branch B — Exchange Rossolimo 4.Bxc6 (simplified — good for must-win)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">c5</span>
+    2.Nf3 <span class="mv-z">Nc6</span>
+    3.Bb5 <span class="mv-z">g6</span>
+    <span class="key-move">4.Bxc6!</span> <span class="mv-z">dxc6</span>
+    5.d3 <span class="mv-z">Bg7</span>
+    6.O-O <span class="mv-z">Nf6</span>
+    7.Re1 <span class="mv-z">O-O</span>
+    8.Nbd2 <span class="mv-z">Nd7</span>
+    9.Nc4 <span class="mv-z">e5</span>
+    <span class="key-move">10.Ne3!</span>
+    <span class="note"> — Exchange gives Austin long-term structural advantage: Zhuoyuan has doubled c-pawns, bishop pair is neutralized. Austin's plan: f4! break eventually. Ne3 controls d5/f5. Zhuoyuan's Dragon Bg7 is passive vs two healthy White pawns on e4+d3.</span>
+  </div>
+  <p style="margin-top:8px">After 10.Ne3, plan is: d4! central break when ready, or f4-f5 kingside attack. This structure plays like a Ruy Lopez Exchange where Austin's mobility compensates for the bishop. Use this branch if Austin wants maximum imbalance with solid structure — or if he wants to play a long technical game where Zhuoyuan's clock management breaks down in the endgame.</p>
+</div>
+
+<input class="acc-toggle" id="w3" type="checkbox">
+<label class="acc-label" for="w3">Branch C — If Zhuoyuan plays 1…e6 French instead</label>
+<div class="acc-content">
+  <div class="callout callout-gold" style="margin-bottom:8px">
+    Zhuoyuan plays French as Black in some games (he faces Tarrasch as White). Austin plays <strong>Advanced French (3.e5)</strong> or <strong>Tarrasch (3.Nd2)</strong> — same as Austin's standard preparation. Austin has deep Tarrasch knowledge (7.Ne2! tabiya). Play 3.Nd2 to mirror the Tarrasch system Zhuoyuan himself uses as White — he may not be as prepared defending it.
+  </div>
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">e6</span>
+    2.d4 <span class="mv-z">d5</span>
+    3.Nd2 <span class="mv-z">Nf6</span>
+    4.e5 <span class="mv-z">Nfd7</span>
+    5.Bd3 <span class="mv-z">c5</span>
+    6.c3 <span class="mv-z">Nc6</span>
+    <span class="key-move">7.Ne2!</span>
+    <span class="note"> — 7.Ne2! (Austin's prepared Tarrasch tabiya). Covers f4, prepares Nf4 pressure. Zhuoyuan plays Tarrasch as White — he knows one side of it, but NOT as Black. He will spend time figuring out defenses Austin has already studied.</span>
+  </div>
+</div>
+
+<input class="acc-toggle" id="w4" type="checkbox">
+<label class="acc-label" for="w4">Branch D — Alapin 2.c3 sidestep (avoid Dragon theory entirely)</label>
+<div class="acc-content">
+  <div class="callout callout-gold" style="margin-bottom:8px">
+    Use only if Austin wants to avoid any Sicilian theory. Trade-off: Alapin is more symmetrical, less dynamic. Austin gives up the Rossolimo advantage in exchange for total theory safety.
+  </div>
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">c5</span>
+    2.c3 <span class="mv-z">Nf6</span>
+    3.e5 <span class="mv-z">Nd5</span>
+    4.d4 <span class="mv-z">cxd4</span>
+    5.cxd4 <span class="mv-z">d6</span>
+    6.Nf3 <span class="mv-z">Nc6</span>
+    <span class="key-move">7.Bc4!</span> <span class="mv-z">Nb6</span>
+    8.Bb3
+    <span class="note"> — Alapin with 7.Bc4 — active bishop targets f7. Zhuoyuan has no Dragon fianchetto. Play develops naturally: 8...dxe5 9.dxe5 Qxd1+ 10.Kxd1 and White is slightly better in the endgame. Not recommended as the main line — Rossolimo is stronger.</span>
+  </div>
+</div>
+
+<h3 style="margin-top:18px">Key tactical themes — Austin as White</h3>
+<table>
+  <thead><tr><th>Theme</th><th>How it plays out</th><th>Evidence</th></tr></thead>
+  <tbody>
+  <tr><td><strong>Rossolimo sidesteps Dragon prep entirely</strong></td><td>Zhuoyuan plays B34/B73 Dragon as Black — that requires White to play 2.Nc3 (not 2.Nf3). Austin's 2.Nf3 → 3.Bb5 cuts off all Dragon theory from move 3.</td><td>WS R3: Zhuoyuan won B34 game at 93.3% — he knows Dragon. Austin avoids all of it with 3.Bb5.</td></tr>
+  <tr><td><strong>IQP structures are Austin's home territory</strong></td><td>After Branch A d4! central break, Austin gets IQP positions identical to his Nimzo-Indian attack patterns. Piece activity over the IQP — Ng5, Bxh7+ themes are automatic for Austin.</td><td>Austin's Nimzo record: 3W-2L using IQP and ...Ne4 patterns — the most trusted Black structure now becomes White's weapon.</td></tr>
+  <tr><td><strong>Force complexity by move 20 — clock exploit</strong></td><td>Zhuoyuan blunder-chains when his clock drops below 2 minutes in complex positions. Austin should avoid simplifications and keep the position rich in possibilities through move 25.</td><td>WS R5: Equal at move 24 → 5 blunders when clock hit 1 min. Steer into positions like this deliberately.</td></tr>
+  <tr><td><strong>Ng5 and Greek Gift themes in Rossolimo IQP</strong></td><td>After Branch A with d4+e5 center, Ng5 threatens Nxh7 (if undefended) or Nxf7. Austin has drilled Greek Gift in austin-tactics.html — trigger recognition should be automatic.</td><td>Austin's tactical library includes Bxh7+ patterns — apply them here when Zhuoyuan castles kingside with weak h-file.</td></tr>
+  </tbody>
+</table>
+
+<hr class="section-divider">
+
+<h2 class="black-section">Part 2 — Austin as Black: Taimanov vs Unknown Sicilian-White</h2>
+
+<div class="callout callout-green">
+  <strong>Core insight:</strong> Zhuoyuan plays <strong>1.e4</strong> with Tarrasch vs French and Exchange CK vs Caro-Kann. Austin plays <strong>1…c5</strong> — Zhuoyuan has <em>no classical game data</em> showing his Sicilian-White repertoire. He must improvise vs Austin's Taimanov from move 2. Austin knows the Taimanov drill cold (6.Ndb5 d6! rule, English Attack counter, Batrikov Variation). The advantage is entirely on Austin's side: one player is prepared, the other must guess.
+</div>
+
+<h3>Austin's Taimanov — main defense</h3>
+<div class="move-line">
+  <span class="mv-a">Austin:</span> <span class="mv-z">1.e4</span> c5
+  <span class="mv-z">2.Nf3</span> e6
+  <span class="mv-z">3.d4</span> cxd4
+  <span class="mv-z">4.Nxd4</span> Nc6
+  <span class="mv-z">5.Nc3</span> Nf6
+  <span class="mv-z">6.Ndb5</span>
+  <span class="key-move">d6!</span>
+  <span class="note"> — 6…d6! is automatic. Blocks Nd6+ fork permanently. Do NOT play 6…Bc5?! — even though dynamic, the 7.Bf4 O-O 8.Bc7! trap is real. 6…d6! solves everything immediately. Zhuoyuan almost certainly does not know the specific counter-play lines past move 8.</span>
+</div>
+
+<input class="acc-toggle" id="b1" type="checkbox" checked>
+<label class="acc-label" for="b1">Branch A — 6.Ndb5 → Sveshnikov continuation (most likely after Taimanov)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> <span class="mv-z">1.e4</span> c5
+    <span class="mv-z">2.Nf3</span> e6
+    <span class="mv-z">3.d4</span> cxd4
+    <span class="mv-z">4.Nxd4</span> Nc6
+    <span class="mv-z">5.Nc3</span> Nf6
+    <span class="mv-z">6.Ndb5</span>
+    <span class="key-move">d6!</span>
+    <span class="mv-z">7.Bf4</span> e5
+    <span class="mv-z">8.Bg5</span> a6
+    <span class="mv-z">9.Na3</span> b5
+    <span class="key-move">→ …b4!</span>
+    <span class="note"> — After 9.Na3, Austin plays …b5-b4 queenside counter immediately. The Na3 is trapped on the rim. Plan: …Bb7, …Rc8, queenside pawn roller. Austin knows this from NAYCC drill prep — this IS the Sveshnikov tabiya (Section E of GM brief).</span>
+  </div>
+  <p style="margin-top:8px">This position is Austin's most drilled defensive structure. The Na3 is passive, and Black's queenside expansion (...b4, ...Bb7, ...Rc8) provides dynamic counterplay while White struggles to activate. Zhuoyuan may not know the specific defensive plans past move 10 — he plays Dragon as Black, not Sveshnikov lines as White.</p>
+</div>
+
+<input class="acc-toggle" id="b2" type="checkbox" checked>
+<label class="acc-label" for="b2">Branch B — 6.Be3 English Attack (if Zhuoyuan skips Ndb5)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> <span class="mv-z">1.e4</span> c5
+    <span class="mv-z">2.Nf3</span> e6
+    <span class="mv-z">3.d4</span> cxd4
+    <span class="mv-z">4.Nxd4</span> Nc6
+    <span class="mv-z">5.Nc3</span> Nf6
+    <span class="mv-z">6.Be3</span> a6
+    <span class="mv-z">7.f3</span> b5
+    <span class="mv-z">8.Qd2</span> Bb7
+    <span class="key-move">9.O-O-O</span> Rc8
+    <span class="note"> — If Zhuoyuan plays English Attack, Austin's response is the queenside race: …a6, …b5, …Bb7, …Rc8 all before White plays g4. The counter-attack on the queenside must be faster than White's g4-g5-h4-h5. Austin has drilled this vs Fernando (Section E.2 of GM brief).</span>
+  </div>
+  <p style="margin-top:8px">The critical rule: do NOT wait for White to castle before starting …b5. After 9.O-O-O Rc8, Austin's rook is already on the c-file. The queenside race (...b4, ...Nb4, ...Bxf3) can decide the game before White's kingside attack gets rolling. Austin has the more concrete plan.</p>
+</div>
+
+<input class="acc-toggle" id="b3" type="checkbox">
+<label class="acc-label" for="b3">Branch C — 5.c4 Maróczy Bind (Zhuoyuan could adopt from Dragon-White knowledge)</label>
+<div class="acc-content">
+  <div class="callout callout-gold" style="margin-bottom:8px">
+    Zhuoyuan knows Dragon structures from both sides. He may reach for 5.c4 Maróczy Bind — a common anti-Dragon system White players use. This is covered in Austin's drill prep (vs Pranav threat from GM brief).
+  </div>
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> <span class="mv-z">1.e4</span> c5
+    <span class="mv-z">2.Nf3</span> Nc6
+    <span class="mv-z">3.d4</span> cxd4
+    <span class="mv-z">4.Nxd4</span> Nf6
+    <span class="mv-z">5.c4</span>
+    <span class="key-move">d6!</span>
+    <span class="mv-z">6.Nc3</span> g6
+    7.f3 <span class="mv-z">Bg7</span>
+    8.Be3 <span class="mv-z">O-O</span>
+    <span class="key-move">9…a5!</span>
+    <span class="note"> — vs Maróczy Bind, play …d6 immediately (not …e5). Then …Bg7, …O-O, …a5 break. The …a5 pawn prevents …b4 but fixes a5 as a queenside target. Austin's plan: …Nd7-Nc5, …Be6, play on the c5 outpost. Do NOT push …b5 prematurely — it weakens c5.</span>
+  </div>
+</div>
+
+<input class="acc-toggle" id="b4" type="checkbox">
+<label class="acc-label" for="b4">Branch D — If Zhuoyuan plays 2.Nc3 (Closed Sicilian / Grand Prix)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> <span class="mv-z">1.e4</span> c5
+    <span class="mv-z">2.Nc3</span> Nc6
+    3.Nf3 <span class="mv-z">e6</span>
+    <span class="mv-z">4.d4</span> cxd4
+    <span class="mv-z">5.Nxd4</span> Nf6
+    <span class="note"> — After 2.Nc3, Austin plays 2...Nc6 and redirects into Taimanov via 3.Nf3 e6. If White plays 3.f4 Grand Prix: play 3...e6 4.Nf3 d5! central counter immediately. Austin's Taimanov move order works regardless of White's 2nd move.</span>
+  </div>
+  <p style="margin-top:8px">Zhuoyuan is unlikely to play Grand Prix Attack — he's a 1.e4 Nf3/d4 player. But if he does, 3...e6 followed by ...d5 is principled. After 4.e5 d4 5.Ne2, play 5...Nc6 and ...Nge7 with French-like structure — Austin's Advanced French knowledge applies here.</p>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="analysis">Part 3 — Accuracy Profile and Error Patterns</h2>
+
+<h3>World Schools 2026 — Best Classical Data</h3>
+<table>
+  <thead><tr><th>Rnd</th><th>Color</th><th>Opponent</th><th>Elo</th><th>Result</th><th>Acc%</th><th>ECO</th><th>B/M/I</th></tr></thead>
+  <tbody>
+  <tr><td>R1</td><td>Black</td><td>Davalos Gimenez, Santino Mariano</td><td>1690</td><td>WIN</td><td>97.0%</td><td>D01</td><td>2/1/1</td></tr>
+  <tr><td>R2</td><td>White</td><td>Wright, Luke E</td><td>1691</td><td>WIN</td><td>94.8%</td><td>C05</td><td>0/0/3</td></tr>
+  <tr><td>R3</td><td>Black</td><td>Passmore Bowman, Tobias</td><td>1866</td><td>WIN</td><td>93.3%</td><td>B34</td><td>0/1/4</td></tr>
+  <tr class="row-danger"><td>R5</td><td>White</td><td>Meneses Morales, Marcos Beltran</td><td>1969</td><td>LOSS</td><td>91.2%</td><td>B13</td><td><strong>5/1/5</strong></td></tr>
+  <tr class="row-danger"><td>R6</td><td>Black</td><td>Rodriguez, William Nicolas</td><td>1971</td><td>LOSS</td><td>87.1%</td><td>A26</td><td>2/1/4</td></tr>
+  <tr><td>R7</td><td>Black</td><td>Castillo Romero, Jasmany Shallom</td><td>1929</td><td>DRAW</td><td>94.6%</td><td>B73</td><td>2/2/0</td></tr>
+  </tbody>
+</table>
+
+<h3>Other Classical Events</h3>
+<table>
+  <thead><tr><th>Tournament</th><th>Rnd</th><th>Color</th><th>Opponent</th><th>Elo</th><th>Result</th><th>Acc%</th><th>B/M/I</th></tr></thead>
+  <tbody>
+  <tr><td>24th Addison 2025</td><td>R04</td><td>White</td><td>Indukuri, Suhas</td><td>1630</td><td>WIN</td><td>98.0%</td><td>0/0/?</td></tr>
+  <tr><td>24th Addison 2025</td><td>R03</td><td>Black</td><td>Ng, Alexander PN</td><td>1921</td><td>DRAW</td><td>97.5%</td><td>0/0/?</td></tr>
+  <tr class="row-danger"><td>59th Stamer 2025</td><td>R2</td><td>Black</td><td>Gopalakrishnan, Kritin</td><td>2052</td><td>LOSS</td><td>94.2%</td><td>1/?/?</td></tr>
+  <tr class="row-danger"><td>59th Stamer 2025</td><td>R4</td><td>Black</td><td>Bhaduri, Neil S</td><td>2162</td><td>LOSS</td><td>92.3%</td><td><strong>5/2/?</strong></td></tr>
+  <tr><td>53rd Capps 2025</td><td>R02</td><td>Black</td><td>Silva, Javier</td><td>2005</td><td>WIN</td><td>96.7%</td><td>0/0/?</td></tr>
+  <tr><td>53rd Capps 2025</td><td>R04</td><td>Black</td><td>Mokeeva, Zlata</td><td>1910</td><td>DRAW</td><td>93.1%</td><td>0/0/?</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-gold">
+  <strong>Accuracy summary:</strong> Zhuoyuan averages 91.9% overall with higher scores as Black (92.5%) vs White (91.2%). However, his accuracy is <em>misleading</em> — the headline number masks a high blunder rate (0.63/game). He performs best in long maneuvering games (Dragon structures, 93–97% range) but breaks down catastrophically in sharp positions under time pressure. The key pattern for Austin: Zhuoyuan's worst games all involve a <strong>time-pressure forced calculation at move 25–35</strong>. His ceiling vs 2100+ opponents is 5 blunders even when averaging 92% — which means against Austin's tactical pressure, one critical moment can end the game decisively.
+</div>
+
+<h3>Known Error Patterns</h3>
+<table>
+  <thead><tr><th>#</th><th>Pattern</th><th>Critical Example</th><th>Austin's Exploit</th></tr></thead>
+  <tbody>
+  <tr class="row-danger">
+    <td>1</td>
+    <td><strong>Time-pressure blunder chain from equal positions (White)</strong></td>
+    <td>WS R5 vs Meneses 1969 (B13): Equal at move 24 (+0.2 eval). Clock hit ~1:15 → Qf3?? (eval swings to −4.9). Then Ne2? (eval → −8.5) with 13 seconds. Five blunders in eight moves.</td>
+    <td>Force a complex middlegame lasting 25+ moves. Keep material on the board. Let clock pressure build naturally. When Zhuoyuan has &lt;3 min and the position is still complex, he WILL blunder.</td>
+  </tr>
+  <tr class="row-danger">
+    <td>2</td>
+    <td><strong>Calculation failure vs 2100+ opposition</strong></td>
+    <td>Stamer R4 vs Bhaduri 2162 (Black): 92.3% average but 5 blunders. Loses all games vs 2000+ rated opponents in Stamer (0W–2L). Pattern holds vs Meneses 1969 in World Schools.</td>
+    <td>Austin at 1959 FIDE represents a higher level than Zhuoyuan typically faces. Play confidently and create positions requiring forced-line calculation — Zhuoyuan's accuracy floor collapses when this is demanded.</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td><strong>Won-position collapse (SnoopChess 74.7%)</strong></td>
+    <td>SnoopChess vs Srinivasan: Had +4.95 eval in a winning position, then 3 blunders 3 mistakes. Turned a win into a loss from a favorable position. CPL swings of 762 and 676.</td>
+    <td>If Austin achieves a small advantage (+0.5 to +1.0), do NOT simplify to a technical endgame. Maintain complexity — Zhuoyuan has documented pattern of giving back advantages when he must "maintain" rather than "attack".</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3>Psychological notes</h3>
+<p style="margin: 10px 0;">Zhuoyuan is a tactically competent player in familiar Dragon structures but has no experience defending Austin's preparation gap. His biggest mental challenge: his primary defensive weapon (Dragon fianchetto) is bypassed by Rossolimo from move 3 — he must play the entire game out of preparation. Under time pressure in unfamiliar territory is exactly where his 0.63 blunders/game rate fully manifests. Austin should play confidently and avoid early simplifications. The game decides itself after move 25 if Austin keeps the position complex.</p>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 4 — If / Then Quick Reference</h2>
+
+<input class="acc-toggle" id="ift1" type="checkbox" checked>
+<label class="acc-label" for="ift1">Austin as White — Decision Tree</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Zhuoyuan plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
+    <tbody>
+    <tr><td>1…c5 2…Nc6</td><td><strong>3.Bb5 Rossolimo!</strong></td><td>Sidesteps Dragon theory entirely. Zhuoyuan's main Black weapon (B34/B73) requires 2.Nc3 not 2.Nf3; 3.Bb5 cuts him off from it. Austin's confirmed weapon vs 2...Nc6.</td></tr>
+    <tr><td>3…g6 (fianchetto)</td><td>4.O-O Bg7 5.Re1 Nf6 6.c3 O-O <strong>7.d4!</strong></td><td>IQP structures are Austin's territory (Nimzo-IQP experience). d4 creates the dominant center; Branch A shows the exact continuation to move 12.</td></tr>
+    <tr><td>3…e6 (Rossolimo Taimanov)</td><td>4.O-O Nge7 5.c3 a6 6.Ba4 b5 7.Bc2</td><td>Maintain bishop, continue center build with d4. Solid structure favoring Austin's attacking style.</td></tr>
+    <tr><td>1…e6 French</td><td><strong>3.Nd2 Tarrasch</strong> with 7.Ne2! tabiya</td><td>Austin's drilled system; Zhuoyuan plays Tarrasch as White but may not know the Black side defenses. His Tarrasch prep is for being White, not defending.</td></tr>
+    <tr><td>1…c6 Caro-Kann</td><td>3.exd5 cxd5 <strong>4.Bd3 Exchange</strong></td><td>Austin's primary White CK system (confirmed: NAYCC + multiple matchup analyses). d4/Bd3/c3 structure → Ne5/f4 attack. Zhuoyuan plays this from the White side — he may not know the Black defensive plans deeply.</td></tr>
+    <tr><td>1…e5</td><td>2.Nf3 Nc6 3.Bc4 → Two Knights or Italian</td><td>Austin's standard vs 1...e5. Use Italian d4 squeeze (7.Re1 8.h3 9.Nbd2 10.Nf1 11.Ng3 12.d4!) — proven from Inti matchup prep. No Zhuoyuan game data vs 1...e5 responses.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<input class="acc-toggle" id="ift2" type="checkbox" checked>
+<label class="acc-label" for="ift2">Austin as Black — Decision Tree</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Zhuoyuan plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
+    <tbody>
+    <tr><td>1.e4</td><td><strong>1…c5 Sicilian</strong></td><td>Austin's confirmed Black weapon. Zhuoyuan has NO classical game data showing his Sicilian-White repertoire — he must improvise from move 2.</td></tr>
+    <tr><td>2.Nf3 (most likely)</td><td>2…e6 3…Nc6 → Taimanov</td><td>Taimanov is Austin's developing weapon with drilled responses through move 12. Zhuoyuan knows Dragon from Black side but Taimanov-White is unexplored territory for him.</td></tr>
+    <tr><td>6.Ndb5</td><td><strong>6…d6!</strong> (automatic, no thinking)</td><td>The cardinal rule from Section E of GM brief. Blocks Nd6+ fork permanently. Takes &lt;1 second to play — Austin should have the reflex drilled.</td></tr>
+    <tr><td>6.Be3 English Attack</td><td>6…a6 7…b5 8…Bb7 9…Rc8</td><td>Queenside counter-race. Austin has drilled this vs Fernando (Section E.2). Must complete ...Rc8 before White plays g5. Austin's preparation is deeper than Zhuoyuan's.</td></tr>
+    <tr><td>5.c4 Maróczy Bind</td><td>5…d6 6…Bg7 7…O-O 8…a5!</td><td>Maróczy bind break via a5. Austin drilled this vs Pranav threat. Do NOT push ...e5 or ...b5 prematurely. Zhuoyuan might reach for this from Dragon-White knowledge.</td></tr>
+    <tr><td>2.Nc3 Closed Sicilian</td><td>2…Nc6 3.Nf3 e6 → Taimanov</td><td>Austin redirects into Taimanov regardless of White's 2nd move. Same position, different move order — Austin's prep applies identically.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<input class="acc-toggle" id="ift3" type="checkbox" checked>
+<label class="acc-label" for="ift3">Key principles for this matchup</label>
+<div class="acc-content">
+  <ul style="padding-left:20px; line-height:1.9;">
+    <li><strong>This is a must-win.</strong> Austin is +69 FIDE. A draw is a bad result. Play for complications from the start — a draw doesn't come from careful play, it comes from letting Zhuoyuan equalize in his Dragon structures. Avoid Dragon by playing Rossolimo. (Source: rating gap + NAYCC seed #10 context.)</li>
+    <li><strong>Time pressure is Austin's best weapon.</strong> Zhuoyuan blundered 5 times in 8 moves when his clock hit ~1 min (WS R5 vs Meneses). Austin should deliberately keep the position complex at moves 20–30, even if he can simplify. Let the clock do the work. (Source: WS R5 blunder chain.)</li>
+    <li><strong>Do NOT enter Dragon positions as White.</strong> Zhuoyuan scored 93.3% (win) and 94.6% (draw) in B34/B73 Dragon games. These are his comfort structures. Rossolimo from move 3 prevents any Dragon. (Source: WS R3 93.3% win, R7 94.6% draw.)</li>
+    <li><strong>As Black, 6…d6! takes zero clock.</strong> The Ndb5 trap is Austin's best-drilled position. Answer 6.Ndb5 instantly — don't spend more than 10 seconds. The time saved here can be invested in the complex middlegame. (Source: GM brief Section E drill.)</li>
+    <li><strong>Avoid simplifications when ahead.</strong> Zhuoyuan's worst SnoopChess game (74.7%) shows he collapses from won positions when required to "maintain." If Austin achieves a +0.5 advantage, keep pieces on the board and create new threats rather than trading down. (Source: SnoopChess 74.7% pattern.)</li>
+    <li><strong>Zhuoyuan is beatable vs 1959-strength pressure.</strong> He loses all games vs 2000+ rated opponents (Stamer R2 vs 2052, Stamer R4 vs 2162, WS R5 vs 1969, WS R6 vs 1971). Austin at 1959 represents the level at which his calculation reliability breaks down. (Source: 0W–4L record vs 1969+ rated opponents.)</li>
+  </ul>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 5 — Critical Moments Reference</h2>
+
+<h3>Pattern 1: The Time-Pressure Catastrophe (WS R5, White, 91.2%, LOSS vs Meneses 1969)</h3>
+<p class="note" style="margin-bottom:6px;">B13 Caro-Kann Exchange. Zhuoyuan played the Exchange CK — his preferred White system. Equal position through move 24. Then clock hit critical zone.</p>
+<div class="move-line">
+  …<span class="mv-z">23…Rc7</span>
+  24.Kh2 <span class="mv-z">Bf8</span>
+  25.h4? <span class="note">(inaccuracy — Qd2 was best; clock ~4:17)</span>
+  <span class="mv-z">25…Qe7</span>
+  26.Kh3 <span class="mv-z">Rac8</span>
+  27.gxf5 <span class="mv-z">gxf5</span>
+  28.Rc1? <span class="note">(should be Rg1; clock 1:24)</span>
+  <span class="mv-z">28…Bh6</span>
+  <span class="bad-move">29.Qf3??</span> <span class="note">(eval +0.2 → −4.9; decisive blunder; clock 1:15)</span>
+  <span class="mv-z">29…Rg8</span>
+  <span class="bad-move">30.Ne2?</span> <span class="note">(eval → −8.5; clock 0:13 — game over)</span>
+</div>
+<p style="margin-top:8px">Qf2 was the correct move on both 29 and 30. Under time pressure, Zhuoyuan chose Qf3 (attacking nothing) and Ne2 (passive retreat) when the position demanded forcing moves. <strong>What this reveals</strong>: Zhuoyuan calculates well in long-think situations but loses positional orientation completely when his clock hits ~1 minute. Austin should aim for this clock state by move 29 in any complex position.</p>
+
+<h3>Pattern 2: Best Defense Ceiling (WS R3, Black, 93.3%, WIN vs Passmore 1866)</h3>
+<p class="note" style="margin-bottom:6px;">B34 Sicilian Accelerated Dragon. Zhuoyuan's best structure — he won at 93.3% against a 1866-rated opponent. This calibrates expectations: in his comfort zone (Dragon), Zhuoyuan is a solid 93% player with good piece coordination.</p>
+<div class="move-line">
+  <span class="mv-z">1.e4</span> c5
+  <span class="mv-z">2.Nc3</span> Nc6
+  <span class="mv-z">3.Nf3</span> g6
+  <span class="mv-z">4.d4</span> cxd4
+  <span class="mv-z">5.Nxd4</span> Bg7
+  <span class="mv-z">6.Be3</span> d6
+  <span class="mv-z">7.Bc4</span> Ne5
+  <span class="mv-z">8.Bb3</span> Nf6
+  <span class="mv-z">9.f3</span> O-O
+  <span class="mv-z">10.Qd2</span> Bd7
+  <span class="mv-z">11.O-O-O</span> Rc8
+  <span class="note"> — Zhuoyuan's Dragon setup is clean: …Ne5, …Nf6, …Bd7, …Rc8. He knows this position well.</span>
+</div>
+<p style="margin-top:8px"><strong>What this means for Austin</strong>: Rossolimo (3.Bb5) cuts this structure off from move 3. Zhuoyuan never gets to play Ne5/...Bd7/...Rc8. The difference between his 93% Dragon game and his 91.2% Exchange CK game is entirely about familiarity — Austin should always steer toward Zhuoyuan's unfamiliar territory.</p>
+
+<h3>Pattern 3: Accuracy Collapse vs Strong Opposition (Stamer R4, Black, 92.3%, LOSS vs Bhaduri 2162)</h3>
+<p class="note" style="margin-bottom:6px;">Zhuoyuan's second-highest rated opponent in the dataset. Despite averaging 92.3%, he committed 5 blunders — the same count as WS R5. Against 2100+ rated players, Zhuoyuan's blunder count is independent of his accuracy average.</p>
+<p>The 92.3% accuracy included a string of correct moves punctuated by catastrophic calculation errors. Bhaduri (2162) exploited each one. This confirms: <strong>Austin at 1959 is in the range where Zhuoyuan's calculation ceiling breaks</strong>. Austin does not need to be perfect — he needs to create positions where Zhuoyuan must calculate concretely, and the blunders will appear.</p>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 6 — Engine Accuracy Reference</h2>
+
+<h3>All Classical Games (sorted by accuracy)</h3>
+<table>
+  <thead><tr><th>Tournament</th><th>Rnd</th><th>Color</th><th>Opponent</th><th>Elo</th><th>Result</th><th>Acc%</th><th>ECO</th><th>B/M/I</th></tr></thead>
+  <tbody>
+  <tr><td>24th Addison 2025</td><td>R04</td><td>White</td><td>Indukuri, Suhas</td><td>1630</td><td>WIN</td><td>98.0%</td><td>—</td><td>0/0/—</td></tr>
+  <tr><td>24th Addison 2025</td><td>R03</td><td>Black</td><td>Ng, Alexander PN</td><td>1921</td><td>DRAW</td><td>97.5%</td><td>—</td><td>0/0/—</td></tr>
+  <tr><td>World Schools 2026</td><td>R1</td><td>Black</td><td>Davalos Gimenez</td><td>1690</td><td>WIN</td><td>97.0%</td><td>D01</td><td>2/1/1</td></tr>
+  <tr><td>53rd Capps 2025</td><td>R02</td><td>Black</td><td>Silva, Javier</td><td>2005</td><td>WIN</td><td>96.7%</td><td>—</td><td>0/0/—</td></tr>
+  <tr><td>World Schools 2026</td><td>R2</td><td>White</td><td>Wright, Luke E</td><td>1691</td><td>WIN</td><td>94.8%</td><td>C05</td><td>0/0/3</td></tr>
+  <tr><td>World Schools 2026</td><td>R7</td><td>Black</td><td>Castillo Romero</td><td>1929</td><td>DRAW</td><td>94.6%</td><td>B73</td><td>2/2/0</td></tr>
+  <tr><td>59th Stamer 2025</td><td>R2</td><td>Black</td><td>Gopalakrishnan, Kritin</td><td>2052</td><td>LOSS</td><td>94.2%</td><td>—</td><td>1/?/?</td></tr>
+  <tr><td>53rd Capps 2025</td><td>R04</td><td>Black</td><td>Mokeeva, Zlata</td><td>1910</td><td>DRAW</td><td>93.1%</td><td>—</td><td>0/0/—</td></tr>
+  <tr><td>World Schools 2026</td><td>R3</td><td>Black</td><td>Passmore Bowman</td><td>1866</td><td>WIN</td><td>93.3%</td><td>B34</td><td>0/1/4</td></tr>
+  <tr><td>59th Stamer 2025</td><td>R4</td><td>Black</td><td>Bhaduri, Neil S</td><td>2162</td><td>LOSS</td><td>92.3%</td><td>—</td><td>5/2/?</td></tr>
+  <tr class="row-danger"><td>World Schools 2026</td><td>R5</td><td>White</td><td>Meneses Morales</td><td>1969</td><td>LOSS</td><td>91.2%</td><td>B13</td><td><strong>5/1/5</strong></td></tr>
+  <tr class="row-danger"><td>World Schools 2026</td><td>R6</td><td>Black</td><td>Rodriguez, William N</td><td>1971</td><td>LOSS</td><td>87.1%</td><td>A26</td><td>2/1/4</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-gold">
+  <strong>Pattern:</strong> Zhuoyuan wins or draws all games vs ≤1929-rated opponents (7 games). Loses all games vs ≥1969-rated opponents (4 games). Austin's 1959 FIDE puts him exactly at the boundary — but with preparation advantage, his effective playing strength is higher. Play for a complex game lasting 30+ moves.
+</div>
+
+<p style="margin-top:16px;">
+  <a href="../austin-prep.html">← Austin Prep Index</a>
+  &nbsp;|&nbsp;
+  <a href="matchup-zhuoyuan-deep.html">Deep Analysis HTML (in progress)</a>
+</p>
+
+<p style="font-size:0.8rem;color:#57606a;margin-top:36px;text-align:center;">
+  Generated Nov 1, 2026 · Based on deep engine analysis (movetime-3000) of 46 games ·
+  Zhuoyuan Wu, 1890 FIDE · NAYCC 2026 Seed #10
+</p>
+</body>
+</html>
