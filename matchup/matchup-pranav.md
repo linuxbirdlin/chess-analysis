@@ -1,8 +1,8 @@
 # Austin Lin vs Pranav Santhosh — Matchup Preparation
 
-**Austin's rating:** ~1865–1968  
-**Pranav's rating:** 1940 FIDE (stable)  
-**Rating gap:** Roughly equal — a genuine peer matchup. Neither player has a clear rating edge.  
+**Austin's rating:** 1959 FIDE (Nov 2026)  
+**Pranav's rating:** 1922 FIDE (Nov 2026)  
+**Rating gap:** Austin +37 — Austin is the higher-rated player; must-win  
 **Direct record:** None known.
 
 ---
@@ -34,38 +34,38 @@ Pranav's Italian/Lopez as Black breaks down in **long, slowly-building positiona
 
 He does NOT collapse in sharp tactical positions (his Italian as Black gave him active counterplay in AGCA Summer R4 draw). The weakness is positional — not tactical.
 
-### Recommended: Ruy Lopez with d4 central pressure
+### Recommended: Italian Game (3.Bc4) — Target King Navigation Weakness
 
-Austin should play the **Ruy Lopez** (3.Bb5) rather than the Italian:
-
-```
-1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Ba4 Nf6 5.O-O b5 6.Bb3 Be7 7.Re1
-```
-
-This forces Pranav into the exact pawn structure where he's had trouble — White's central tension with d4 and the e5 pawn as a target. The idea: build with Re1, d4, Nbd2 and fight for the d5 outpost.
-
-**Why Lopez over Italian:**
-1. Pranav **knows the Italian** with ...Bc5 more deeply than he knows the Lopez. His Italian draw (AGCA R4) and Italian win (WY R7 as White showed he studies it) make the Italian riskier for Austin.
-2. In the Lopez, Pranav's ...b5 ...Bc5 plan (Chigorin) creates queenside imbalance Austin can exploit — unlike the symmetrical Italian ...Bc5 structures.
-3. Both of Pranav's Lopez losses came against 2100+ players who used exactly this plan — d4 break, central tension, Nd5 threat. At Austin's level (similar to Pranav), a focused preparation can replicate this.
-
-### Concrete Prep: Lopez d4 plan
-
-After `1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Ba4 Nf6 5.O-O b5 6.Bb3 Bc5` (Pranav's Chigorin):
+Austin should play the **Italian** (3.Bc4), **not** the Ruy Lopez (3.Bb5):
 
 ```
-7.c3 d6 8.d4 Bb6 9.Be3
+1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.c3 Nf6 5.d4 exd4 6.cxd4 Bb4+ 7.Nc3
 ```
 
-White achieves d4 central break and exchanges off the dangerous ...Bc5 bishop. The Bb6 is now a passive piece. Austin can follow with Nbd2, Re1, a4 to pressure the b5 pawn.
+This is Austin's standard Italian C54 setup. It steers directly into the structure where Pranav's king navigation has catastrophically failed across 4 documented games.
 
-Alternatively, if Pranav plays `6...Be7` (more solid):
-```
-7.Re1 d6 8.c3 O-O 9.h3 (preventing ...Bg4)
-```
-Then Nbd2-Nf1-Ng3 is a classical Lopez maneuvering plan that slowly builds kingside pressure — exactly the type of long positional squeeze Pranav struggles with.
+**Why Italian over Lopez:**
+1. Pranav is **0W–2D–1L** as Black in the Italian — he has never won it. His Italian draw (AGCA R4) was a position he should have won and failed to convert. The Italian is where his king navigation pattern breaks down.
+2. The Italian C54 structure naturally creates **king-and-pawn endgames** — exactly the structure where Pranav missed a forced king march from +4.63 (AGCA Summer R4) and had king blunders in 3 World Youth games (WY R5 ×11 blunders, WY R7 ×2, WY R4).
+3. The GM battle plan explicitly: **"DO NOT play 3.Bb5 — Pranav has better results in Lopez. Stay in the Italian where he's 0W-2D-1L."**
 
-**Tactical theme to prepare:** Once the center is fixed with White's d4-e4 vs Black's d6-e5, the Nd5 outpost (after Nbd2-Nf1-Ng3-Nh5 or d4-cxd4-Nxd4-Nxc6) becomes Austin's main weapon. Pranav's WY R5 loss showed he doesn't handle the Nd5 knight well — it paralyzes his queenside.
+### Concrete Prep: Italian 4.c3 5.d4 plan
+
+After `1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.c3 Nf6`:
+
+```
+5.d4 exd4 6.cxd4 Bb4+ 7.Nc3
+```
+
+White achieves the d4 central break. Bb4+ forces clarification and leads toward an IQP or symmetrical structure where White controls d5. The plan: d5 knight outpost, trade toward a K+P ending where Pranav's king navigation breaks down.
+
+Alternatively, if Pranav plays `5...exd4 6.cxd4 Bb4+ 7.Bd2` (quieter):
+```
+7...Bxd2+ 8.Nbxd2 d5 9.exd5 Nxd5 10.Qb3
+```
+White gets active piece play and a space advantage. The endgame prospects remain favorable for Austin.
+
+**Key tactical theme:** Once pieces are traded and a king-and-pawn ending arises, Pranav's king navigation fails systematically — confirmed across 4 games. Austin must be willing to enter these technical endings even from approximately equal positions.
 
 ---
 
@@ -142,7 +142,7 @@ This forces **Maróczy Bind (5.c4)** from Pranav instead of English Attack. The 
 
 **Pranav's White games are his strongest.** Austin, as Black, should not try to "out-prepare" the English Attack — instead, aim for solid equality with ...Qc7 and ...d6 and look for counterplay opportunities. Getting a slightly inferior but complex middlegame is fine; Pranav will likely take time on his clock trying to find the best plan.
 
-**Both players have similar rating (~1940 vs ~1865–1968).** This is not a matchup where Austin must desperately fight for imbalance. A well-prepared, disciplined game from either side can win.
+**Austin +37 above Pranav (1959 vs 1922 FIDE, Nov 2026).** Pranav peaked at 2003 (Blue Ridge Sep 2026) but Nov 1 FIDE is 1922 — Austin is the higher-rated player. This is a must-win: aim for complex positions that test Pranav's calculation under pressure; avoid simplification into sterile draws.
 
 ---
 
@@ -150,7 +150,7 @@ This forces **Maróczy Bind (5.c4)** from Pranav instead of English Attack. The 
 
 | Priority | Task |
 |---|---|
-| **Critical** | Learn Lopez with d4 plan vs Pranav's ...Bc5/...b5 (Chigorin) as White |
+| **Critical** | Play Italian (3.Bc4 4.c3 5.d4) as White — NOT 3.Bb5 Lopez; steer toward K+P endgames |
 | **Critical** | Know English Attack response: 6.Be3 Qc7 7...Nf6 8...d6 structure |
 | **Important** | Understand the Nd5 knight outpost in Lopez — when to play it and consequences |
 | **Important** | Recognize Pranav's f4-f5 pawn storm triggers — have ...e5 or ...d5 ready |
