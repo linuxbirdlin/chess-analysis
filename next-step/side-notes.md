@@ -131,3 +131,51 @@ The single highest-ROI action before NAYCC: **build novelty trees for Fernando a
 - Batrikov 6.g4: **0 master games** — not a prep gap, principled play (`d6` then `Nd7` or `d5`) is sufficient
 - English Attack 6.Be3: `Bb4!` at 86% consensus — the pin is Austin's main weapon  
 - Catalan Bogo vs Leo: `4...Qe7 → 5.g3 Nc6 → 6.Bg2 Bxd2+!` — delay exchange to move 6 (93% of masters confirm timing)
+
+---
+
+## Pipeline Status by Opponent (Nov 1, 2026)
+
+Full pipeline = analysis.md + matchup.md + matchup.html + deep analysis JSON + deep HTML + white/black matchup HTMLs + GM battle plan HTML + index entry.
+
+| Opponent | Rating | Field? | analysis.md | matchup.html | deep HTML | white/black | GM HTML | Notes |
+|---|---|---|---|---|---|---|---|---|
+| Zachary Liu | 2185 | ✅ P1 | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
+| Inti Flores Ojeda | 2011 | ✅ P2 | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done; GM brief updated |
+| Leo Jackson | 2081 | ✅ P3 | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
+| Fernando Cortes | 2085 | ✅ P4 | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
+| Pranav Santhosh | 1922 | ✅ P4 | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
+| Tarun Sankar | 1984 | ✅ P5 | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
+| Aarush Ajith | 1943 | ✅ P6 | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
+| Emerson Johnson | 1909 | ✅ P7 | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
+| Zhuoyuan Wu | 1890 | ✅ P8 | ✅ | ⚠️ basic only | ⚠️ in progress | ❌ | ❌ | Deep HTML + white/black + GM HTML still needed |
+| Daniel H. Gamboa | 1753 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
+| Yaen Saenz | 1841 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
+| Pablo De Alba | 1873 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
+| Joel Jeyaraj | 1813 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
+| Heye Gao | 1968 | ❌ moved | ✅ | ✅ | ✅ | ✅ | ✅ | Moved to another section; pipeline preserved |
+| Daniel Joshua Lee | 2165 | ❌ moved | ✅ | ✅ | ✅ | ✅ | ✅ | Moved to U18; pipeline preserved |
+| Justin Huang | 2010 | ❌ moved | ✅ | ✅ | — | — | — | Moved to U16; partial pipeline preserved |
+| **Irene Xie** | ? | ❓ TBD | ❌ | ❌ | ❌ | ❌ | ❌ | PGN file staged (`opponents/irene/chessbase-Xie-Irene.pgn`); no pipeline started |
+
+---
+
+## Recent Work Log (Nov 1, 2026)
+
+- **qa-reconcile corrections applied** (commit `501484d`): All three issues from Austin's GM brief review resolved:
+  - Issue #1 (Bc5 nuance): prep report Section D game evidence + loss table updated — `6...Bc5?!` is dynamic; decisive error was `7...O-O`; `6...d6!` remains the correct OTB choice.
+  - Issue #2 (4...Qe7 vs Bxd2+): was already correct in both documents.
+  - Issue #3 (Batrikov naming): replaced all ~15 "Keres Attack" occurrences in GM brief with "Batrikov Variation (6.g4)" throughout Taimanov context. One intentional "Keres Attack" preserved in the naming-clarification note at line 228.
+- **GM brief threat table updated**: Inti Flores Ojeda added (⭐ P2, f4-e5 system B43/B45); Pranav rating corrected to 1922.
+- **Prep report Section 4 restructured** (commit `504339c`): Inti added as PRIORITY 2; Heye Gao and Daniel Lee collapsed to NOT IN FIELD; Zhuoyuan Wu added as PRIORITY 8.
+- **Inti full pipeline complete**: `matchup-inti-gm.html` generated; `inti-analysis-results-deep.json` (36 games, 90.6% avg); Italian d4 squeeze plan (White) + Taimanov O-O kingside rule (Black) documented.
+
+---
+
+## Next Actions
+
+| Priority | Task | Effort |
+|---|---|---|
+| 1 | **Zhuoyuan Wu deep pipeline** — deep HTML, white/black matchup HTMLs, GM battle plan HTML | ~4 hrs |
+| 2 | **Irene Xie** — determine if she's in Austin's section; if yes, run full pipeline | 1 hr to check, 4–6 hrs pipeline |
+| 3 | **Final GM brief pass** — verify all 9 opponents in Austin's actual field are correctly weighted | 30 min |
