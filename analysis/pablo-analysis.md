@@ -2,7 +2,7 @@
 
 **FIDE ID:** 29635934  
 **Nationality:** Mexican  
-**Rating history:** 1569 (MEX-ch May 2024) → ~1841 (Dec 2025) → ~1937 (Jun 2026 American Continental) → 1824 (Sep 2026 Copa Independencia Hidalgo)  
+**Rating history:** 1569 (MEX-ch May 2024) → ~1841 (Dec 2025) → ~1937 (Jun 2026 American Continental) → 1824 (Sep 2026 Copa Independencia Hidalgo) → 1873 (Nov 2026)  
 **Age category:** U20 / U17  
 **Tournaments in dataset:** MEX-ch 2024, Mexico City Revolucion 2024, Mexico City Independencia Cup 14th 2025, North American U20 Ch 2025, North American U20 Blitz 2025, American Continental 20th 2026, American Continental Rapid 20th 2026, American Continental Blitz 20th 2026, MEX U17 Ch 2026, Copa Independencia 2026  
 **Total games in dataset:** 60  
@@ -129,7 +129,7 @@ Pablo consistently plays the **Sicilian Kan** (1...c5 2...e6 then eventually 4..
 
 1. **Solid Black play, sharp White play**: Pablo's Black games feature queenside counterplay (Kan ...b5, ...Rc8); his White games feature tactical attacking chess (English Attack g4, Ruy Lopez complications).
 2. **Long games favor him**: Many of his wins come after 60+ moves of patient play.
-3. **Rating trajectory**: Jumped from 1569 (May 2024) to ~1937 (Jun 2026) — rapid improvement over 2 years. At 1824 in September 2026, he may be in a rating correction from a strong tournament field at Continentals.
+3. **Rating trajectory**: Jumped from 1569 (May 2024) to ~1937 (Jun 2026) — rapid improvement over 2 years. His Nov 2026 FIDE rating is 1873 — rebounding from the 1824 dip after Copa Independencia.
 4. **Strongest at classical time controls**: His Copa Independencia 2026 performance (1W–1L–1D, beat 1990, drew 2241, lost to 2272) is his most recent classical data and shows solid, professional-level play.
 
 ---
@@ -152,7 +152,7 @@ Pablo uses English Attack or Alapin vs Sicilian. Austin plays Sicilian — shoul
 
 | Attribute | Assessment |
 |---|---|
-| **FIDE Rating (Sep 2026)** | 1824 (peaked 1937 Jun 2026) |
+| **FIDE Rating (Nov 2026)** | 1873 (peaked 1937 Jun 2026) |
 | **Primary White** | 1.e4 → Ruy Lopez vs 1...e5; English Attack vs Sicilian |
 | **Primary Black** | Sicilian Kan/Taimanov (1...c5 2...e6 4...a6) |
 | **vs 1.d4 as Black** | Nimzo-Indian / Ragozin / QGD flexible |

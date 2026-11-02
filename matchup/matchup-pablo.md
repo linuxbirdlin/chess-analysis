@@ -1,7 +1,7 @@
 # Austin vs Pablo Elliot De Alba Boudreau — Matchup Prep
 
 **Pablo FIDE ID:** 29635934  
-**Rating:** ~1824 FIDE (Sep 2026), peaked ~1937 (Jun 2026 American Continental)  
+**Rating:** 1873 FIDE (Nov 2026), peaked ~1937 (Jun 2026 American Continental)  
 **Direct record:** No encounter  
 **Games analyzed:** 60  
 
@@ -16,7 +16,7 @@
 | Style | Patient, defensive, endgame-focused; tactical when needed |
 | Classical strength | Solid; draws FM-level; beat Tran 2023 |
 | Weakness | Poor as White vs 1...e5 (1W–6L+); occasional early collapses |
-| Rating trajectory | Rapid improvement 1569→1937 (2 years); currently ~1824 |
+| Rating trajectory | Rapid improvement 1569→1937 (2 years); currently 1873 (Nov 2026) |
 
 ---
 
@@ -118,7 +118,7 @@ Pablo has used 2.c3 himself as White. Austin should play **2...d5** (countering 
 
 ## Psychological Notes
 
-1. **Rating advantage for Austin**: Pablo ~1824 FIDE vs Austin ~1865–1968. Austin's experience base is similar or larger.
+1. **Rating advantage for Austin**: Pablo 1873 FIDE vs Austin 1959 FIDE (+86 gap). Austin's experience base is similar or larger.
 2. **Pablo's upswing trajectory**: Jumped from 1569 to 1937 in 2 years. He's actively improving. Don't underestimate — he can beat 2000+ players.
 3. **Copa Independencia 2026 form** (most recent): 1W–1L–1D vs average 2103 field (IM 2272, FM 2241, 1990). Respectable performance.
 4. **Pablo's Kan is genuine preparation**: He's played it many times across many tournaments. Austin's English Attack must be accurate to avoid getting outplayed in a structure Pablo knows cold.
