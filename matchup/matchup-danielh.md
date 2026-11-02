@@ -5,7 +5,7 @@ date: "October 2026"
 
 # Austin Lin vs Daniel Hernandez Gamboa
 
-**Rating differential:** Austin ~1865 vs Daniel ~1685–1692 (≈+173–180 advantage)  
+**Rating differential:** Austin 1959 vs Daniel 1753 (≈+206 advantage)  
 **Direct record:** No prior encounter  
 **Tournament context:** Possible opponent in 2026 Mexican-American youth events  
 
@@ -13,7 +13,7 @@ date: "October 2026"
 
 ## Quick Profile: Daniel Hernandez Gamboa
 
-- **FIDE ID:** 29611555 | **Rating:** 1685–1692 (2026), peaked 1767 (April 2025)
+- **FIDE ID:** 29611555 | **Rating:** 1753 (Nov 2026), peaked 1767 (April 2025)
 - **Style:** Tactical as White (kingside attacks); solid/passive as Black
 - **White:** 1.e4 (Philidor, Pirc B07, Sicilian Taimanov B44); secondary 1.d4 (London D00)
 - **Black:** Spanish/Four Knights (1...e5 → C49 symmetrical); Dutch Stonewall (A93) vs 1.d4
@@ -66,11 +66,11 @@ Daniel appears to play **Open Sicilian** (1.e4 c5 2.Nf3 ...) when facing Sicilia
 
 ### Recommended Approach
 
-**Standard Sicilian** (Austin's preferred line: 3...g6 fianchetto or main Sicilian structure)
+**Taimanov/Kan Sicilian** (Austin's primary line: 1...c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 a6)
 
 - Daniel has not shown prepared anti-Sicilian systems
-- Open Sicilian allows Austin to steer into his preferred tactical positions
-- Against 1.e4 c5 2.Nf3 e6 3.d4 — avoid Taimanov if unfamiliar; prefer Dragon/Scheveningen
+- Taimanov/Kan is Austin's most-drilled Sicilian — deep preparation advantage against Daniel's unprepared Open Sicilian White
+- Against 1.e4 c5 2.Nf3 e6 3.d4: enter Taimanov (5.Nc3 a6) or Kan structure; do NOT play 3...g6 Dragon
 
 **vs 1.d4:** Play Nimzo-Indian (1.d4 Nf6 2.c4 e6 3.Nc3 Bb4)
 

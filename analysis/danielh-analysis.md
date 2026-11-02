@@ -2,7 +2,7 @@
 
 **FIDE ID:** 29611555  
 **Nationality:** Mexico  
-**Rating:** ~1685–1767 (peaked 1767 in April 2025; 1685–1692 in 2026)  
+**Rating:** 1753 (Nov 2026; peaked 1767 Apr 2025)  
 **Age group:** Sub-14 (as of 2026)  
 **Tournaments in dataset:** Querétaro 2024 (Sub-12), Querétaro 2025 (Sub-12), Querétaro 2026 (Sub-14), Aguascalientes 2025 (Sub-13), Aguascalientes 2026, Copa Revolución 2024 (Sub-11)  
 
@@ -126,7 +126,7 @@ Daniel plays **1.e4** exclusively as White.
 
 | Attribute | Assessment |
 |---|---|
-| Rating | ~1685–1692 (declining from peak 1767 Apr 2025) |
+| Rating | 1753 (Nov 2026; peaked 1767 Apr 2025) |
 | Dataset | 12 games, 6 tournaments (2024–2026) |
 | Overall accuracy | 90.4% avg · White 91.1% (7g) · Black 89.3% (5g) |
 | Best game | 96.2% Aguascalientes 2025 R4 (White win) |
@@ -139,4 +139,4 @@ Daniel plays **1.e4** exclusively as White.
 | Key weakness | Single-move collapses from equality as Black (Qd1??, Nxe4??, Rab8??) |
 | vs Higher-rated | Can draw; has drawn CM (2003) |
 | vs Lower-rated | Can lose — upset loss to 1560-rated Cadena (Four Knights) |
-| Overall threat level to Austin | Low-Moderate — 1685 Elo, ~180 pts below; Black side exploitable |
+| Overall threat level to Austin | Low-Moderate — 1753 FIDE, +206 below Austin; Black side exploitable |
