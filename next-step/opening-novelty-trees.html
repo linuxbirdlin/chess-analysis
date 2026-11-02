@@ -111,8 +111,13 @@
       border-radius: 4px; padding: 1px 8px; margin-right: 6px;
       vertical-align: middle;
     }
-    .opp-tag.orange { background: #bf5900; }
-    .opp-tag.teal   { background: #0e5a6b; }
+    .opp-tag.orange  { background: #bf5900; }
+    .opp-tag.teal    { background: #0e5a6b; }
+    .opp-tag.purple  { background: #622ab5; }
+
+    .move-tree { background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 6px; padding: 12px 16px; margin: 10px 0; }
+    .move-tree .moves { font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.85rem; color: #1f2328; margin-bottom: 6px; }
+    .move-tree p.note { margin: 0; font-size: 0.9rem; color: #57606a; font-style: italic; }
 
     .badge {
       display: inline-block; font-size: 0.75rem; font-weight: 700;
@@ -137,7 +142,7 @@
     <div class="sub">Lichess Masters Explorer — Critical positions for NAYCC 2026</div>
     <div class="meta">
       <span><strong>Player:</strong> Austin Lin (1959 FIDE, Nov 2026)</span>
-      <span><strong>Scope:</strong> Fernando, Pranav (Taimanov) · Leo (Catalan Bogo)</span>
+      <span><strong>Scope:</strong> Fernando, Pranav (Taimanov) · Leo (Catalan Bogo) · Zachary (Dutch Leningrad)</span>
       <span><strong>Source:</strong> Lichess Masters DB (2400+ avg rating)</span>
       <span><strong>Generated:</strong> Oct 30, 2026</span>
     </div>
@@ -152,6 +157,7 @@
       <li><a href="#sec-c">C. Taimanov — English Attack (6.Be3)</a></li>
       <li><a href="#sec-d">D. Catalan Bogo-Indian — vs Leo after 4.Bd2 Qe7</a></li>
       <li><a href="#sec-e">E. Novelty summary &amp; action plan</a></li>
+      <li><a href="#sec-f">F. Dutch Leningrad — vs Zachary Liu (1.Nf3 f5 → Catalan)</a></li>
     </ul>
   </div>
 
@@ -371,6 +377,20 @@
         <td><code>Bxc3!</code> or <code>O-O</code></td>
         <td><span class="badge action">Austin's home turf</span></td>
       </tr>
+      <tr>
+        <td><strong>Zachary</strong></td>
+        <td>Dutch Leningrad tabiya (move 7)</td>
+        <td>Black to play after 7.Nc3</td>
+        <td><code>Nc6!</code> → <code>e5!</code> break</td>
+        <td><span class="badge novel">Zachary: 0 Dutch games</span></td>
+      </tr>
+      <tr>
+        <td><strong>Zachary</strong></td>
+        <td>Mikenas Attack (1.c4 2.Nc3 3.e4)</td>
+        <td>Black to play on move 4</td>
+        <td><code>d5!</code> central counter</td>
+        <td><span class="badge master">Engine-confirmed ≈ 0.0</span></td>
+      </tr>
     </tbody>
   </table>
 
@@ -380,6 +400,8 @@
     <li><strong>Bogo-Indian: 4...Qe7 then Nc6 then Bxd2+</strong> — practice the sequence once from the starting position to build muscle memory. The point is the timing of the exchange.</li>
     <li><strong>English Attack: Bb4 pin</strong> — simple to remember, just know the key idea (pin before White plays f3+g4).</li>
     <li><strong>Batrikov 6.g4</strong> — no memorization needed. Just remember: stay calm, play <code>d6</code>, and counter with <code>d5</code> or <code>e5</code> when the center is ready.</li>
+    <li><strong>Dutch Leningrad: ...Ne4 outpost then ...e5 break</strong> — drill the sequence <code>7...Nc6 8.d5 Ne5 9.Nxe5 dxe5</code> → e5 locked center with Bg7 monster. Or if White doesn't play d5: play ...e5 yourself after Ne4 is established. Two-line decision, both favorable.</li>
+    <li><strong>Mikenas 4...d5!</strong> — one move to remember if Zachary opens 1.c4. Can also avoid entirely with 1...e6.</li>
   </ol>
 
   <hr/>
@@ -393,8 +415,83 @@
     <li>Raw data: <code>scripts/opening-novelty-data.json</code></li>
   </ul>
 
+  <!-- ── SECTION F ─────────────────────────────────────────────── -->
+  <h2 id="sec-f"><span class="sec-label">F</span> Dutch Leningrad — vs Zachary Liu (1.Nf3 f5 → Catalan setup)</h2>
+
+  <p><span class="opp-tag purple">Zachary</span> CM · 2185 FIDE (Nov 2026) · Seed #1. Zachary plays <strong>1.Nf3 in 100% of games</strong>, almost always entering the Catalan system (g3/Bg2). He has <strong>zero Dutch games</strong> in the entire dataset — this is Austin's prepared surprise. Austin needs one concrete plan from the tabiya position, not memorized theory.</p>
+
+  <div class="callout info">
+    <p><strong>Why the Dutch?</strong> Zachary's entire repertoire is built around solid QGD/Catalan structures where he scores 96–97%. The Dutch <em>forces</em> him into uncharted territory where he cannot rely on practice. He has never had to navigate the key Dutch imbalances: the …Ne4 outpost, the …e5 pawn break, or the Bg7 monster bishop. His 94.8% accuracy in the Mikenas (3 games, all wins) suggests he handles sharp tactical English lines well — but that record is vs weaker preparation, not vs a prepared Leningrad player.</p>
+  </div>
+
+  <h3>Tabiya — move 7 position (Dutch Leningrad)</h3>
+  <div class="move-tree">
+    <div class="moves"><code>1.Nf3 f5 2.d4 Nf6 3.g3 g6 4.Bg2 Bg7 5.O-O O-O 6.c4 d6 7.Nc3 Nc6</code></div>
+    <p class="note">This is the tabiya. Black has played <strong>7...Nc6!</strong> — the most principled move (develops the last minor piece, controls d4/e5, prepares ...e5 or ...Ne4). This is Austin's deviation point: many club players play 7...Qe8 or 7...e6 here. <strong>7...Nc6!</strong> is the GM choice — it keeps the most options open.</p>
+  </div>
+
+  <h3>After 7...Nc6 — White's main responses</h3>
+  <table>
+    <thead>
+      <tr><th>White plays</th><th>Frequency</th><th>Austin's response</th><th>Plan</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>8.d5</code> — close the center</td>
+        <td>~40% at master level</td>
+        <td><code>8...Ne5!</code></td>
+        <td>After 9.Nxe5 dxe5, Black gets a locked center with the Bg7 on the long diagonal and an e5 pawn wedge. White's queenside expansion is slow; Black plays ...c6 break or ...f4 pawn storm depending on White's plan. This is a Leningrad structure where Black is comfortable and White is unfamiliar.</td>
+      </tr>
+      <tr>
+        <td><code>8.b3</code> — fianchetto Bb2</td>
+        <td>~25%</td>
+        <td><code>8...e5!</code></td>
+        <td>Immediately seize the center before White completes development. After 9.dxe5 dxe5, Black has the Bg7 diagonal fully open and a mobile center. 9.d5 Ne7 10.e4 f4! is also excellent for Black — pawn storm secures the kingside.</td>
+      </tr>
+      <tr>
+        <td><code>8.e3</code> — solid setup</td>
+        <td>~20%</td>
+        <td><code>8...Ne4!</code></td>
+        <td>Establish the outpost immediately. After 9.Nxe4 fxe4 10.Nd2 e5, Black has active play with the backward f-file no longer weak and the e5 square covered. The Bg7 becomes a monster on the long diagonal once the center opens.</td>
+      </tr>
+      <tr>
+        <td><code>8.Qd3</code> or <code>8.Re1</code></td>
+        <td>~15% combined</td>
+        <td><code>8...e5!</code></td>
+        <td>Same ...e5 plan applies. This is the universally correct response when White plays slowly — seize the center before it closes.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Key decision rule (one rule to know cold)</h3>
+  <div class="callout">
+    <p><strong>If White closes with d5 → play Ne5! (then ...c6 break later)</strong><br>
+    <strong>If White plays slowly (b3/e3/Re1/Qd3) → play e5! immediately</strong><br>
+    <strong>If White plays e3 or quiet — Ne4! outpost first, then e5</strong></p>
+    <p>All three paths lead to positions where Austin's preparation advantage is decisive and Zachary has no practical experience. Austin has drilled these Dutch structures; Zachary has not played a single Dutch game.</p>
+  </div>
+
+  <h3>Zachary's specific pattern to exploit</h3>
+  <ul>
+    <li><strong>He cannot calculate under tactical pressure from complex positions.</strong> His worst documented blunder was 830cpl from +11.65 — in a position that demanded concrete calculation, not maneuvering. The Dutch at move 15+ in the ...Ne4/...e5 structure creates exactly these tactical decision points.</li>
+    <li><strong>He has zero Dutch games.</strong> His move choices from move 8 onward will be improvised. Austin's preparation outranks his at every branch.</li>
+    <li><strong>The critical moment window is moves 12–18.</strong> After the tabiya, the next 6 moves determine whether Black's ...e5 break opens the Bg7 diagonal. Austin must know these 6 moves cold; Zachary will be spending significant time.</li>
+  </ul>
+
+  <h3>Backup: Stonewall if Dutch feels uncertain</h3>
+  <div class="move-tree">
+    <div class="moves"><code>1.Nf3 e6! 2.d4 f5!</code></div>
+    <p class="note">Stonewall move order. Safer against Anti-Dutch attempts (2.Bg5 is now met by ...d5 Stonewall immediately). Slightly less aggressive than Leningrad but Zachary has zero Stonewall games too. Structure: d5/e6/f5/c6 + Bd6 + Ne4. Same exploitation logic applies.</p>
+  </div>
+
+  <h3>Mikenas Attack side-note (if Zachary opens 1.c4)</h3>
+  <div class="callout warn">
+    <p>Zachary's Mikenas record: 3W–0L, 94.8% — his best White system. If he plays <code>1.c4 f5 2.Nc3 Nf6 3.e4!? fxe4 4.Nxe4</code>, respond with <strong>4...d5!</strong> (central counter). After <code>5.Nxf6+ exf6 6.d4 Bb4+ 7.Bd2 Bxd2+ 8.Qxd2</code> Black has two bishops and solid pawns — near-equal position where Austin's structural play is familiar.<br>
+    <em>Alternative: on 1.c4 play 1...e6 entering Nimzo/Bogo — avoids Mikenas entirely at the cost of surrendering the Dutch surprise.</em></p>
+  </div>
+
   <footer>
-    Gap 1 implementation · NAYCC 2026 prep · Generated Oct 30, 2026
+    Gap 1 implementation · NAYCC 2026 prep · Generated Oct 30, 2026 · Updated Nov 1, 2026 (Section F: Dutch Leningrad vs Zachary)
   </footer>
 
 </div>
