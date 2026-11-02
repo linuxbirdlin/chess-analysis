@@ -1,7 +1,7 @@
 # Austin Lin vs Tarun Sankar — Matchup Preparation
 
 **Austin:** ~1865–1968 FIDE, 1.e4 exclusively, tactical/combinational style
-**Tarun:** ~1965 FIDE (peak 2002), fast improver, English (1.c4) White, Sicilian (1...c5) Black
+**Tarun:** 1984 FIDE (Nov 2026; peak 2002), fast improver, English (1.c4) White, Sicilian (1...c5) Black
 
 **Direct record:** No prior encounter
 

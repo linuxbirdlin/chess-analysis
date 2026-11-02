@@ -13,7 +13,7 @@ Tarun Sankar is a fast-improving junior player based in the United States (Texas
 | Mar 2026 | Texas Grand Circuit | **2002** |
 | Oct 2026 | 5th Skyline Open | 1965 |
 
-That is approximately **600 Elo points gained in 2.5 years** (Dec 2023 → Mar 2026). His current active FIDE rating is ~1965 (Oct 2026), just below his peak of 2002. He is clearly still in a strong growth phase.
+That is approximately **600 Elo points gained in 2.5 years** (Dec 2023 → Mar 2026). His current active FIDE rating is 1984 (Nov 2026), 18 points below his peak of 2002. He is clearly still in a strong growth phase.
 
 The PGN collection contains **23 unique games** across 7 tournaments. The sample is heavily biased toward strong opposition — his Dulles Skyline 2024 games include opponents rated 1829–2130, both Texas Grand Circuit games were against titled or near-titled players (IM Fus 2419, Pyrig 2395), and the 3-0 Thursday Club 2026 games include opponents rated 1943–2265. His record in the PGN looks weak (5W–15L–3D) precisely because these were "playing up" events; his actual rating rise proves he won many games not captured here.
 
@@ -159,7 +159,7 @@ White win vs an opponent 170 points higher. 1.c4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4. 
 
 | Attribute | Assessment |
 |---|---|
-| Rating | ~1965 FIDE (Oct 2026); peak 2002 (Mar 2026) |
+| Rating | 1984 FIDE (Nov 2026); peak 2002 (Mar 2026) |
 | Style | Tactical, aggressive, complexity-seeking |
 | White opening | 1.c4 English — Catalan-English (g3/Bg2) or Mikenas (e4/Nc3) |
 | Black vs 1.e4 | Sicilian 1...c5 → 2...Nc6 (Old Sicilian/Kan-type) — 100% consistent |
@@ -169,5 +169,5 @@ White win vs an opponent 170 points higher. 1.c4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4. 
 | Strength | Opening complexity (Mikenas, Sicilian), tactical calculation, fast improver |
 | Weakness | Blundering from winning/equal positions (g4??, Bd3??, e4?? pattern); endgame king misplacement; Black side unreliable vs 2000+ |
 | Worst game in dataset | Thursday Club R4 vs Boutikos — 76.1% acc, 9 blunders; threw away +5.76 winning position |
-| Direct rating gap vs Austin | ~0–100 points (Austin ~1865–1968, Tarun ~1965) — effectively even |
+| Direct rating gap vs Austin | Tarun +25 (Austin 1959, Tarun 1984) — effectively even, must-win for Austin |
 | vs Zachary Liu | Lost (1750 vs 2153, 2024) |
