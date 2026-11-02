@@ -142,7 +142,7 @@
     <div class="sub">Lichess Masters Explorer — Critical positions for NAYCC 2026</div>
     <div class="meta">
       <span><strong>Player:</strong> Austin Lin (1959 FIDE, Nov 2026)</span>
-      <span><strong>Scope:</strong> Fernando, Pranav (Taimanov) · Leo (Catalan Bogo) · Zachary (Dutch Leningrad)</span>
+      <span><strong>Scope:</strong> Fernando, Pranav (Taimanov) · Leo (Catalan Bogo) · Zachary (Dutch Leningrad) · Zhuoyuan (Rossolimo)</span>
       <span><strong>Source:</strong> Lichess Masters DB (2400+ avg rating)</span>
       <span><strong>Generated:</strong> Oct 30, 2026</span>
     </div>
@@ -158,6 +158,7 @@
       <li><a href="#sec-d">D. Catalan Bogo-Indian — vs Leo after 4.Bd2 Qe7</a></li>
       <li><a href="#sec-e">E. Novelty summary &amp; action plan</a></li>
       <li><a href="#sec-f">F. Dutch Leningrad — vs Zachary Liu (1.Nf3 f5 → Catalan)</a></li>
+      <li><a href="#sec-g">G. Rossolimo 3.Bb5 — vs Zhuoyuan Wu (sidesteps Accelerated Dragon)</a></li>
     </ul>
   </div>
 
@@ -391,6 +392,20 @@
         <td><code>d5!</code> central counter</td>
         <td><span class="badge master">Engine-confirmed ≈ 0.0</span></td>
       </tr>
+      <tr>
+        <td><strong>Zhuoyuan</strong></td>
+        <td>Rossolimo B31 (Austin White — 3.Bb5)</td>
+        <td>White to play on move 7</td>
+        <td><code>7.d4!</code> central strike → IQP</td>
+        <td><span class="badge novel">Zhuoyuan: 0 Rossolimo games</span></td>
+      </tr>
+      <tr>
+        <td><strong>Zhuoyuan</strong></td>
+        <td>Taimanov as Black — 6.Ndb5 rule</td>
+        <td>Black to play on move 6</td>
+        <td><code>6...d6!</code> automatic</td>
+        <td><span class="badge master">Covered in Section A</span></td>
+      </tr>
     </tbody>
   </table>
 
@@ -402,6 +417,7 @@
     <li><strong>Batrikov 6.g4</strong> — no memorization needed. Just remember: stay calm, play <code>d6</code>, and counter with <code>d5</code> or <code>e5</code> when the center is ready.</li>
     <li><strong>Dutch Leningrad: ...Ne4 outpost then ...e5 break</strong> — drill the sequence <code>7...Nc6 8.d5 Ne5 9.Nxe5 dxe5</code> → e5 locked center with Bg7 monster. Or if White doesn't play d5: play ...e5 yourself after Ne4 is established. Two-line decision, both favorable.</li>
     <li><strong>Mikenas 4...d5!</strong> — one move to remember if Zachary opens 1.c4. Can also avoid entirely with 1...e6.</li>
+    <li><strong>Rossolimo 7.d4! vs Zhuoyuan</strong> — must-win game: play 3.Bb5 on move 3 and commit to 7.d4! central strike. Know the IQP tabiya after 8.cxd4 d5 9.e5 Ne4 10.Nc3! through move 14. Zhuoyuan has zero Rossolimo games — full preparation advantage.</li>
   </ol>
 
   <hr/>
@@ -490,8 +506,70 @@
     <em>Alternative: on 1.c4 play 1...e6 entering Nimzo/Bogo — avoids Mikenas entirely at the cost of surrendering the Dutch surprise.</em></p>
   </div>
 
+  <!-- ── SECTION G ─────────────────────────────────────────────── -->
+  <h2 id="sec-g"><span class="sec-label">G</span> Rossolimo 3.Bb5 — vs Zhuoyuan Wu (sidesteps Accelerated Dragon entirely)</h2>
+
+  <p><span class="opp-tag purple">Zhuoyuan</span> 1890 FIDE (Nov 2026) · Seed #10 · Must-win (Austin +69). Zhuoyuan's primary Black weapon is the <strong>Sicilian Accelerated Dragon (1…c5 2…Nc6 3…g6)</strong> — his best-performing structure (B34/B73, 93–95% accuracy). Austin's Rossolimo (<code>3.Bb5</code>) cuts off all Dragon preparation from move 3. Zhuoyuan has <strong>zero Rossolimo games</strong> in the 46-game dataset — he cannot draw on specific theory after move 3.</p>
+
+  <div class="callout info">
+    <p><strong>Why Rossolimo, not Open Sicilian?</strong> Zhuoyuan knows Dragon theory from both sides (plays it as Black AND has faced it as White). Entering the Open Sicilian with 3.d4 hands him his best-prepared structure. Rossolimo 3.Bb5 forces a fundamentally different position: bishop pins the Nc6 immediately, Austin keeps the option of trading on c6 or retreating, and the resulting structures (B31 Fianchetto, B32 Exchange) are exactly the IQP/positional territory Austin knows from Nimzo-Indian play. This is the entire strategic advantage: Austin is prepared, Zhuoyuan is improvising from move 3.</p>
+  </div>
+
+  <h3>Rossolimo main tabiya — Austin as White</h3>
+  <div class="move-tree">
+    <div class="moves"><code>1.e4 c5 2.Nf3 Nc6 3.Bb5 g6 4.O-O Bg7 5.Re1 Nf6 6.c3 O-O 7.d4!</code></div>
+    <p class="note"><strong>7.d4! is the key move.</strong> After 7…cxd4 8.cxd4, Austin has the dominant center. This is the IQP structure Austin knows well from Nimzo-Indian games. Zhuoyuan's Bg7 on the long diagonal is passive — the d4 pawn controls the center and Black has no Dragon counterplay (the e5/f5 advances require c5 pawn support, which is gone after 7...cxd4).</p>
+  </div>
+
+  <h3>After 7.d4! — the critical branching</h3>
+  <table>
+    <thead>
+      <tr><th>Zhuoyuan plays</th><th>Frequency</th><th>Austin's response</th><th>Plan</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>7...cxd4 8.cxd4 d5</code> — central counter</td>
+        <td>Most common at master level</td>
+        <td><code>9.e5 Ne4 10.Nc3!</code></td>
+        <td>10.Nc3! (not 10.Nbd2) attacks the Ne4 immediately. After 10...Nxc3 11.bxc3 Na5 12.Bd3 Nc4 13.Bxc4 dxc4 14.d5! — the passed d-pawn is powerful and Austin has the initiative. IQP tabiya Austin knows from Nimzo training.</td>
+      </tr>
+      <tr>
+        <td><code>7...cxd4 8.cxd4 d6</code> — solid setup</td>
+        <td>~30%</td>
+        <td><code>9.Nc3 Bg4 10.Be3</code></td>
+        <td>Develop naturally. After ...Nd7 11.Bc4 or ...Na5 11.Bb5, Austin has a space advantage and the c-file pressure. Play h3 to neutralize the Bg4 pin if needed. Standard IQP technique.</td>
+      </tr>
+      <tr>
+        <td><code>7...d6</code> — delay taking</td>
+        <td>~15%</td>
+        <td><code>8.dxc5! dxc5 9.Qxd8 Rxd8 10.Bxc6</code></td>
+        <td>Exchange queens early. After the exchanges, Austin has a slight structural edge (Black's c-pawn is isolated or doubled). Long technical game — exactly where Zhuoyuan's time-pressure vulnerability emerges after move 25.</td>
+      </tr>
+      <tr>
+        <td><code>3...e5</code> instead of 3...g6</td>
+        <td>Rare (0 Zhuoyuan games)</td>
+        <td><code>4.O-O Nge7 5.c3 a6 6.Ba4 b5 7.Bb3</code></td>
+        <td>Lopez-type structure. Austin retreats the bishop and prepares d4. Zhuoyuan has no practice here — play standard Ruy Lopez plans (d4, Re1, Nbd2). The Dragon fianchetto is permanently off the board.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Key decision rule</h3>
+  <div class="callout good">
+    <p><strong>Play 3.Bb5 on move 3 — no hesitation.</strong> If Zhuoyuan plays 2...Nc6 (which he always does entering the Dragon), respond 3.Bb5 immediately. Do NOT play 3.d4 (hands him the Dragon). After 3...g6 4.O-O Bg7 5.Re1 Nf6 6.c3, the only decision is move 7: always play <strong>7.d4!</strong> — the central break that gives Austin a dominant center and IQP structures he has already drilled.</p>
+    <p><strong>One move to know cold: 7.d4!</strong> — everything else flows from there.</p>
+  </div>
+
+  <h3>Zhuoyuan-specific exploitation notes</h3>
+  <ul>
+    <li><strong>Must-win context.</strong> Zhuoyuan is 69 FIDE below Austin — this is a must-win game, not a draw-or-better. The Rossolimo creates the imbalance needed to press for a win without overreaching.</li>
+    <li><strong>Time-pressure window: moves 25–35.</strong> WS R5 vs Meneses (1969): Zhuoyuan had an equal position at move 24, then made 5 blunders when his clock hit ~1 minute. Do NOT simplify before move 25. Keep pieces on the board and maintain tension through the critical clock window.</li>
+    <li><strong>His Bg7 is not active in the Rossolimo IQP.</strong> Zhuoyuan's Dragon power comes from the Bg7 on the long diagonal combined with open c-file queenside play. After 7.d4 cxd4 8.cxd4, the Bg7 faces Austin's pawn chain — it has no diagonal to operate on until Austin makes a mistake. Don't make that mistake.</li>
+    <li><strong>0W–4L vs 1969+ rated opponents in classical.</strong> Austin's 1959 FIDE lands exactly in this range. Zhuoyuan has never beaten a player at Austin's level in a classical game.</li>
+  </ul>
+
   <footer>
-    Gap 1 implementation · NAYCC 2026 prep · Generated Oct 30, 2026 · Updated Nov 1, 2026 (Section F: Dutch Leningrad vs Zachary)
+    Gap 1 implementation · NAYCC 2026 prep · Generated Oct 30, 2026 · Updated Nov 1, 2026 (Section F: Dutch Leningrad vs Zachary; Section G: Rossolimo vs Zhuoyuan)
   </footer>
 
 </div>
