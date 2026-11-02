@@ -20,6 +20,7 @@ const TOURNAMENTS = [
   { dir: '59thstamer',     name: '59th Stamer Memorial 2025',     format: 'pgn' },
   { dir: 'capps2025',      name: '53rd Capps Memorial 2025',      format: 'pgn' },
   { dir: 'addison2025',    name: '24th Addison Memorial 2025',    format: 'pgn' },
+  { dir: 'wu-zhuoyuan',    name: 'SnoopChess Mixed (2024–2026)',  format: 'pgn' },
 ];
 
 function isZhuoyuan(name) { return /wu.*zhuoyuan|zhuoyuan.*wu/i.test(name) || /^wu,/i.test(name); }

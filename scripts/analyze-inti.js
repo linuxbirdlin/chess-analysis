@@ -64,9 +64,11 @@ function parseStandardPgn(text) {
   const result   = res ? res[1] : '*';
   const prResult = deriveResult(result, prColor);
 
-  // Generate a unique key from round + player names (handles deduplication)
+  // Generate a unique key from date + round + player names (handles deduplication)
   const roundTag = roundM ? roundM[1] : '';
-  const uniqueKey = `${roundTag}|${wName}|${bName}`;
+  const dateM = text.match(/\[Date\s+"([^"]+)"\]/);
+  const dateTag = dateM ? dateM[1] : '';
+  const uniqueKey = `${dateTag}|${roundTag}|${wName}|${bName}`;
 
   return { prColor, opponent, oppElo, result, prResult,
     eco: eco ? eco[1] : '?', opening: opening ? opening[1] : '',
@@ -284,6 +286,7 @@ async function main() {
 
   let gameNum = 0;
   const seenKeys = new Set(); // for deduplication
+  const seenCacheKeys = new Set(); // tracks cacheKeys assigned this run
 
   for (const t of TOURNAMENTS) {
     const dir = path.join(ROOT, 'opponents/inti', t.dir);
@@ -319,10 +322,16 @@ async function main() {
         seenKeys.add(info.uniqueKey);
 
         gameNum++;
-        const roundKey = pf.multi
-          ? `R${info.uniqueKey.split('|')[0].split('.')[0]}`
+        let roundKey = pf.multi
+          ? `R${info.uniqueKey.split('|')[1].split('.')[0]}`
           : pf.key;
-        const cacheKey = `${t.name}:${roundKey}:${info.opponent}`;
+        // Deduplicate cacheKey when same round tag appears twice in one PGN (e.g. Lichess + YottaBase R2)
+        let cacheKey = `${t.name}:${roundKey}:${info.opponent}`;
+        if (seenCacheKeys.has(cacheKey)) {
+          roundKey = roundKey + 'b';
+          cacheKey = `${t.name}:${roundKey}:${info.opponent}`;
+        }
+        seenCacheKeys.add(cacheKey);
 
         const cached = results[t.name][cacheKey];
         if (cached?.skipped) {
