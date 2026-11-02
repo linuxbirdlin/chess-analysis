@@ -2,20 +2,22 @@
 
 **Role:** Sparring partner for NAYCC 2026 preparation  
 **Rating:** ~1888–1977 FIDE (Apr 2026 1888; peak ~1977 Aug–Sep 2025)  
-**Engine analysis:** 36 games, movetime-800 · `scripts/irene-analysis-results.json` (snoop2026.pgn only)  
+**Engine analysis:** 36 games, movetime-800 · `scripts/irene-analysis-results.json` (snoop2026.pgn only) · avg 91.0% · 1.00 blunders/game  
 **Tournaments (snoop2026.pgn):** Toronto Open 2026, Pan American Youth 2026 (Girls/Open U18), Canadian Open 2026, Canadian Youth Championships 2026 (CYCC), Toronto Open Crown 2025, NAYCC U18 2025
 
 ---
 
 ## 1. Overall Results (snoop2026.pgn, 36 unique games)
 
-| Color | W | L | D | Notes |
-|---|---|---|---|---|
-| As White | ~8 | ~4 | ~4 | Estimated from PGN |
-| As Black | ~8 | ~5 | ~4 | Estimated from PGN |
-| **Combined** | ~16 | ~9 | ~8 | See JSON for exact counts |
+| Color | W | L | D | Avg Acc | Notes |
+|---|---|---|---|---|---|
+| As White | 7 | 4 | 5 | 92.0% | Best White: 97.1% (Toronto Open vs Qian) |
+| As Black | 7 | 6 | 7 | 90.2% | Best Black: 98.1% (CYCC Nimzo vs Ruchinskaya) |
+| **Combined** | **14** | **10** | **12** | **91.0%** | 36 games · 1.00 blunders/game · 47 mistakes · 125 inaccuracies |
 
-*Engine accuracy averages to be populated from `irene-analysis-results.json`.*
+- **Best game:** 98.1% (Black, draw vs Ruchinskaya — Nimzo-Indian Bxc3+ structure)
+- **Worst game:** 68.2% (Black, draw vs Acuna Alarcon — 4 blunders in 46 moves)
+- **Opponent avg accuracy:** 90.7% (closely matched)
 
 ---
 
@@ -102,4 +104,7 @@
 | Practice value: Austin White | French Tarrasch + Advance drill partner |
 | Practice value: Austin Black | Taimanov vs Rossolimo drill partner |
 | Endgame | Weaker — good for Austin to press in R+P endings |
-| Engine avg | Pending (irene-analysis-results.json) |
+| Engine avg (36g) | 91.0% overall · 92.0% as White · 90.2% as Black |
+| Blunders/game | 1.00 (high — double Zhuoyuan's 0.63/game) |
+| Best game | 98.1% vs Ruchinskaya (Nimzo draw, CYCC) |
+| Worst game | 68.2% vs Acuna Alarcon (4 blunders, Pan Am draw) |
