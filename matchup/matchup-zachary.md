@@ -1,8 +1,8 @@
 # Austin Lin vs Zachary Liu — Matchup Preparation
 
-**Austin's rating:** ~1865–1968  
-**Zachary's rating:** CM, ~2050–2250  
-**Rating gap:** Zachary is likely 100–300 points stronger — Austin needs to fight for imbalance and avoid technical endgames  
+**Austin's rating:** 1959 FIDE (Nov 2026)  
+**Zachary's rating:** CM, 2185 FIDE (Nov 2026)  
+**Rating gap:** Zachary is 226 points stronger — Austin needs to fight for imbalance and avoid technical endgames  
 **Direct record:** 1 game — Personal Study (Sep 12 2026): Austin (White) vs Zachary (Black), **Sicilian Taimanov B46, 0-1** (Austin lost, 67 moves)
 
 ---

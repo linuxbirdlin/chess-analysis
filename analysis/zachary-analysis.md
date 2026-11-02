@@ -2,7 +2,7 @@
 
 **Tournaments analyzed:** BC Chess Cup 2026 · Greater Vancouver 2026 · Canada Closed 2026 · PAM 2026 · PAM School 2026 · Canada Open 2026  
 **Title:** Candidate Master (CM)  
-**Approximate rating:** 2050–2250 (based on opponent ratings defeated/drawn)  
+**Rating:** 2185 FIDE (Nov 2026, CM)  
 **Total games reviewed:** 46 (43 fully analyzed, 3 skipped for technical reasons)
 
 ---
@@ -180,7 +180,7 @@ Zachary played `1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.g3 Be7 5.Bg2 O-O 6.O-O Nbd7 7.Nc3 dx
 
 | Category | Assessment |
 |---|---|
-| Rating (estimated) | CM, ~2050–2250 |
+| Rating | CM, 2185 FIDE (Nov 2026) |
 | White main opening | 1.Nf3/c4 Reti/English (primary), 1.e4 (secondary) |
 | Black vs 1.e4 | Sicilian Taimanov (B46/B47) primarily; Dragon occasionally |
 | Black vs 1.d4/1.Nf3 | Catalan Open (E07/E08) as main weapon; Ragozin (D38); Benko (A57) |
