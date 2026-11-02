@@ -185,8 +185,15 @@ Full pipeline = analysis.md + matchup.md + matchup.html + deep analysis JSON + d
 
 ## Next Actions
 
-| Priority | Task | Effort | Status |
+**Pipeline status as of Nov 2, 2026: ALL COMPLETE.** All 9 in-field opponents have full pipelines. Irene Xie confirmed sparring partner only (not in Austin's section) — sparring guide complete. No further file-generation work needed.
+
+### Remaining prep before NAYCC (Nov 10 travel, Nov 11 R1) — from GM Brief Section I
+
+| Priority | Task | Who | By when |
 |---|---|---|---|
-| 1 | **Zhuoyuan Wu deep pipeline** — deep HTML, white/black matchup HTMLs, GM battle plan HTML | ~4 hrs | ✅ Done (Nov 2, 2026) — white/black HTMLs created |
-| 2 | **Irene Xie** — determine if she's in Austin's section; if yes, run full pipeline | 1 hr to check, 4–6 hrs pipeline | ✅ Done (Nov 2, 2026) — sparring partner confirmed, snoop2026 analyzed |
-| 3 | **Final GM brief pass** — verify all 9 opponents in Austin's actual field are correctly weighted | 30 min | ✅ Done (Nov 2, 2026) — all ratings corrected to Nov 2026 FIDE; Inti clock row added |
+| 🔴 1 | **Taimanov drill** — 10 rapid games reaching 6.Ndb5 d6! and 6.Be3 Bb4! positions; verify d6! is reflexive | Austin | Nov 3–4 |
+| 🔴 2 | **Batrikov (6.g4) + Maróczy (5.c4) drill** — 3 hrs total; learn d6→Nd7 plan and d6/Be7/O-O/a5 bind break | Austin | Nov 3–4 |
+| 🔴 3 | **Contact Vadim** — schedule session before Nov 5; priority: Lucena bridge-building + Batrikov Variation | Austin/family | Nov 3 |
+| 🟡 4 | **Confirm round schedule** — check FIDE Event 496177 for double-round days and tiebreak system | Austin/family | Before Nov 9 |
+| 🟡 5 | **Bxh7+ recognition drill** — 10 Exchange CK positions with Bd3; instant-check habit (30 min, Day 2) | Austin | Nov 4–5 |
+| 🟢 6 | **Pack altitude essentials** — ibuprofen, melatonin, electrolyte packets, 2 water bottles for flight | Family | Nov 9 |
