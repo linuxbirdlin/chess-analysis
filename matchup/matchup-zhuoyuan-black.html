@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Wu, Zhuoyuan — Austin as Black</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+    .doc-header { border-bottom: 3px solid #1a5276; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #1a5276; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #1a5276; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #1a5276; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #1a5276; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #eaf0f8; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #1a5276; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-label.alt { background: #7a4f00; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+    strong { font-weight: 600; }
+    .must-win { background: #fff0e0; border: 2px solid #d4631a; border-radius: 6px; padding: 10px 16px; margin: 0 0 20px; font-size: 0.91rem; color: #7a3000; }
+    .cardinal { background: #fff0f0; border: 3px solid #cf2222; border-radius: 8px; padding: 14px 20px; margin: 16px 0; font-size: 1rem; }
+    .cardinal strong { color: #8b0000; font-size: 1.05rem; }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="doc-header">
+    <h1>Austin Lin vs Wu, Zhuoyuan</h1>
+    <div class="subtitle">Austin as Black — Taimanov vs Zhuoyuan's Unknown Sicilian-White</div>
+    <div class="meta">Zhuoyuan: 1890 FIDE (seed #10) · Plays 1.e4 as White · Zero classical Sicilian-White data in 46 analyzed games</div>
+    <a class="back-link" href="matchup-zhuoyuan.html">← Full matchup overview</a>
+    &nbsp;·&nbsp;
+    <a class="back-link" href="matchup-zhuoyuan-gm.html">GM Battle Plan</a>
+  </div>
+
+  <div class="must-win">
+    <strong>MUST-WIN.</strong> Austin is +69 FIDE (1959 vs 1890). Play for a win as Black — the Taimanov gives Austin full-board counterplay from the opening. Austin's preparation is deep; Zhuoyuan must improvise in the Sicilian from move 2.
+  </div>
+
+  <h2>What Zhuoyuan Plays as White</h2>
+  <p>Zhuoyuan plays <strong>1.e4</strong> exclusively. Classical game data shows two systems — neither is the Sicilian:</p>
+  <table>
+    <thead><tr><th>System</th><th>ECO</th><th>Record</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>French Tarrasch — 3.Nd2 → 4.e5 Nfd7 5.c3 6.f4 + h4-h5 storm</td><td>C05</td><td>1W 0D 0L</td><td>WS R2 win vs 1691 at 94.8%</td></tr>
+      <tr><td>Caro-Kann Exchange — 3.exd5 cxd5 4.Bd3 → Ne5 + f4</td><td>B13</td><td>0W 1D 1L</td><td>WS R5: LOST vs 1969 (5 blunders under time pressure)</td></tr>
+      <tr><td>Sicilian as White</td><td>—</td><td>No classical data</td><td><strong>Zero games recorded</strong> — must improvise vs Taimanov</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box">
+    <strong>The preparation gap:</strong> Zhuoyuan has played Tarrasch vs French and Exchange CK vs Caro-Kann. He has <strong>zero classical Sicilian-White games</strong> in Austin's database. When Austin plays 1…c5, Zhuoyuan enters completely uncharted territory. Austin has drilled the Taimanov through move 12 — Zhuoyuan is guessing from move 2.
+  </div>
+
+  <h2>Austin's Defense: Taimanov Sicilian</h2>
+
+  <div class="info-box">
+    <strong>Move-order commitment:</strong> Play <code>1…c5 2…e6 3…Nc6 5…Nf6</code> regardless of what Zhuoyuan plays on moves 2–4. The Taimanov (B45) is Austin's fully drilled Black weapon. It avoids both Austin's weaknesses (passive positions, c5/d6 Dragon-type setups that Zhuoyuan also knows) and steers into Austin's tactical strengths.
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span>Main Tabiya: Taimanov — 5…Nf6</span>
+      <span class="var-label">Primary</span>
+    </div>
+    <div class="var-body">
+      <div class="var-moves">1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Nf6
+Now White must choose a 6th move from zero Sicilian-White preparation.</div>
+      <p>After 5…Nf6, Zhuoyuan faces the Taimanov tabiya with no studied response. The three most common White 6th moves are covered below — Austin has drilled all three.</p>
+    </div>
+  </div>
+
+  <h2>The Cardinal Rule</h2>
+
+  <div class="cardinal">
+    <strong>If Zhuoyuan plays 6.Ndb5 → play 6…d6! in under 5 seconds.</strong><br/>
+    This is automatic. Never think about it. The 6.Ndb5 idea is to play Nd6+ forking king and rook. <code>6…d6!</code> blocks that forever. Do NOT play 6…Bc5?! — after 7.Bf4 O-O 8.Bc7! Black's bishop is trapped and the game is effectively over. <code>6…d6!</code> takes zero clock and zero calculation. Drill it until it is a reflex.
+  </div>
+
+  <h2>The Three Most Likely 6th Moves</h2>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span>Branch A — 6.Ndb5 (most natural vs …Nc6)</span>
+      <span class="var-label">Most likely</span>
+    </div>
+    <div class="var-body">
+      <div class="var-moves">1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Nf6
+6.Ndb5 d6!          ← INSTANT. No thinking.
+7.Bf4 e5 8.Bg5 a6 9.Na3 b5
+10...b4!            ← kick the Na3 off the rim immediately
+Then: ...Bb7 ...Rc8 queenside roller</div>
+      <p>After 9.Na3, the knight is misplaced on the rim. Austin's queenside counterplay — <code>…b4, …Bb7, …Rc8</code> — is the Sveshnikov-adjacent continuation where Black's central pawns and active pieces fully compensate for the slight backward d6 pawn. Zhuoyuan has NO game data in this structure from the White side. Austin has drilled it from GM brief Section E.</p>
+      <p><strong>If 7.N1c3 instead of 7.Bf4:</strong> play <code>7…a6 8.Na3 b5</code> — same queenside expansion idea. The Na3 ends up on the rim regardless.</p>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span>Branch B — 6.Be3 English Attack</span>
+      <span class="var-label">Second most likely</span>
+    </div>
+    <div class="var-body">
+      <div class="var-moves">1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Nf6
+6.Be3 Bb4!          ← pin the Nc3 immediately
+7.Ndb5 d6 8.a3?     ← if White plays a3 to kick bishop
+8...Bxc3+! 9.Nxc3 d5!   ← central break while knight is on c3</div>
+      <p>The pin <code>6…Bb4!</code> is Austin's strongest reply to the English Attack (86% master consensus from opening-novelty-trees.html). After pinning the Nc3, White's typical response 7.Ndb5 is already less effective — Black can play 7…d6 with normal development, or if White hastens a3 to kick the bishop, Austin takes immediately and breaks with <code>…d5!</code>.</p>
+      <p><strong>If White doesn't play 8.a3:</strong> continue with <code>7…d6 8.Qf3 Nxd4 9.Bxd4 Bxc3+ 10.bxc3</code> and Black has the bishop pair in a slightly unbalanced structure. Austin's IQP and bishop-pair handling from Nimzo-Indian experience applies directly.</p>
+      <p><strong>What about 7.f3 (full English Attack)?</strong> After 6.Be3 Bb4 7.f3 Nxd4 8.Bxd4 Bxc3+ 9.bxc3, Austin has the bishop pair. The key is NOT to castle queenside — build with <code>…d6 …Qc7 …Be7 …O-O</code> (kingside), then …b6/…Bb7 counterplay. Austin drilled this structure vs Fernando (GM brief Section E.2).</p>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span>Branch C — 5.c4 Maróczy Bind (if Zhuoyuan tries anti-Dragon)</span>
+      <span class="var-label alt">Third option</span>
+    </div>
+    <div class="var-body">
+      <div class="var-moves">1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 Nf6 5.c4!
+5...d6!             ← NOT ...e5 (weakens d6) and NOT ...b6 (too slow)
+6.Nc3 g6 7.f3 Bg7 8.Be3 O-O
+9...a5!             ← the standard Maróczy queenside break
+Then: ...Nd7 ...Nc5, occupy d5/c5 outposts</div>
+      <p>Zhuoyuan knows Dragon from both sides — he might reach for the Maróczy Bind (5.c4) as an anti-Dragon system. After 5…d6! (not 5…e6 which allows 6.Ndb5!), Austin builds with the fianchetto and launches <code>…a5</code> to prevent White's queenside expansion. The c5 knight outpost is Austin's long-term plan.</p>
+      <p><strong>Do NOT play …b5 prematurely</strong> — it weakens the c5 outpost. The correct queenside break order is: …a5 first to fix the a4/b4 pawn tension, then …Nd7-c5 to occupy the knight outpost.</p>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span>Branch D — 6.g4 Batrikov Variation (very unlikely — zero games in dataset)</span>
+      <span class="var-label alt">Rare</span>
+    </div>
+    <div class="var-body">
+      <div class="var-moves">1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Nf6
+6.g4 d6!            ← same as Section A: d6 first
+7.g5 Nd7 8.Nb3 b6   ← queenside counterplay, not ...Ne5 yet
+Then: ...Bb7 ...Be7, solid structure</div>
+      <p>Zhuoyuan has zero Batrikov (6.g4) games in the dataset. Zero master games exist for this line either. If Zhuoyuan plays 6.g4, he is taking a calculated risk with no preparation advantage. Austin's response: <code>6…d6!</code> (same d6 rule as always) then <code>7…Nd7</code> (knight retreats to safety from the g5 push). Play solidly — Zhuoyuan gains nothing from the pawn lunge. Austin's 6…d6! works regardless of what White plays on move 6.</p>
+    </div>
+  </div>
+
+  <h2>Time Pressure Notes</h2>
+
+  <p>Zhuoyuan's documented time-pressure collapse pattern applies when he is White <em>and</em> Black. His WS R5 catastrophe (5 blunders, White) and Stamer R4 (5 blunders vs 2162, Black) both show the same pattern: <strong>normal accuracy until the clock hits ~2 minutes, then catastrophic blunder chain</strong>. As Black in the Taimanov, Austin should:</p>
+
+  <ul>
+    <li>Play opening moves quickly and confidently (Austin knows this cold, Zhuoyuan is improvising)</li>
+    <li>Build a clock advantage through moves 10–20 — Austin's preparation speed vs Zhuoyuan's improvisation</li>
+    <li>By move 25, Austin should have 20–30 minutes more on his clock than Zhuoyuan</li>
+    <li>When Zhuoyuan enters time trouble (≤5 min at move 25+), keep the position complex — do NOT simplify to a drawable rook endgame</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>Clock arithmetic:</strong> In a G/90+30 game, Austin spending 30 seconds on the first 12 moves (12 × 30s = 6 min clock usage) vs Zhuoyuan spending 3 minutes per move (36 min) creates a 30-minute advantage by move 12. That advantage compounds. Austin should play opening moves in under 30 seconds each — he knows them. Zhuoyuan's clock drops start at move 6 when he has to improvise in the Sicilian.
+  </div>
+
+  <h2>Critical Rules for This Game</h2>
+
+  <div class="warn-box">
+    <strong>Rule 1 — 6.Ndb5 → 6…d6! takes zero seconds.</strong> This is a drill response. Austin has practiced it. There is no calculation to do. Play it instantly and bank the clock. Never play 6…Bc5?! — the 8.Bc7! trap is a game-ending blunder.
+  </div>
+
+  <div class="warn-box">
+    <strong>Rule 2 — 6.Be3 → 6…Bb4! is the pin.</strong> The Bb4 pin on the Nc3 is the theoretical recommendation (86% consensus) and also the most practical — it creates immediate problems for White. Austin drilled this vs Fernando (the primary 6.Be3 user in NAYCC 2026). The same preparation applies to Zhuoyuan.
+  </div>
+
+  <div class="tip-box">
+    <strong>Rule 3 — Queenside castling is never the plan.</strong> Zhuoyuan plays 1.e4 aggressive systems (Tarrasch with h4-h5, Exchange CK with queenside castle). If Austin castles queenside, he hands Zhuoyuan the attacking template he knows best. Castle kingside in all variations — the king is safer there and Zhuoyuan's preparation advantage (if any) is on the queenside.
+  </div>
+
+  <div class="tip-box">
+    <strong>Rule 4 — Maintain the 6…d6 instinct across ALL variations.</strong> Whether the position is Branch A (6.Ndb5), Branch C (Maróczy), or Branch D (Batrikov) — the answer to any pressure on the central diagonal is <code>…d6</code>. It is never wrong to anchor d6 solidly. The Nd6+ fork is always lurking; blocking it permanently with d6 costs nothing and saves everything.
+  </div>
+
+  <h2>Day-of Checklist</h2>
+  <ol>
+    <li>Play <code>1…c5</code> immediately — Sicilian every time vs Zhuoyuan's 1.e4</li>
+    <li>After 2.Nf3, play <code>2…e6</code> — commit to Taimanov move order</li>
+    <li>After 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Nf6, wait for White's 6th move</li>
+    <li>If <code>6.Ndb5</code> → play <strong>d6! instantly</strong>, no clock spent</li>
+    <li>If <code>6.Be3</code> → play <strong>Bb4!</strong> pin the Nc3</li>
+    <li>If <code>5.c4</code> Maróczy → play <strong>d6!</strong> then …g6 …Bg7 …O-O …a5</li>
+    <li>Castle kingside in every line — never queenside</li>
+    <li>Plan queenside counterplay: …b5-b4 or …a5 depending on the structure</li>
+    <li>Keep complexity — when equal at move 25, do NOT offer simplification</li>
+    <li>When Zhuoyuan has ≤5 min: create a new threat every move</li>
+  </ol>
+
+  <div class="cheat-card">
+    <h3>Opening Cheat Sheet — Austin Black vs Zhuoyuan</h3>
+    <div class="cheat-moves">TAIMANOV — vs Zhuoyuan's Unknown Sicilian-White
+
+1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Nf6
+
+vs 6.Ndb5:  6...d6! (INSTANT — &lt;5 seconds!)
+  7.Bf4 e5 8.Bg5 a6 9.Na3 b5 10...b4!
+  → Na3 stuck on rim. Queenside roller: ...Bb7 ...Rc8
+
+vs 6.Be3:   6...Bb4! (pin the Nc3)
+  7.Ndb5 d6 8.a3? Bxc3+! 9.Nxc3 d5! (central break)
+  If 7.f3: Nxd4 8.Bxd4 Bxc3+ 9.bxc3 → bishop pair
+
+vs 5.c4 Maróczy: 5...d6! 6.Nc3 g6 7.f3 Bg7 8.Be3 O-O
+  → 9...a5! (prevent b4, occupy c5 with knight)
+
+vs 6.g4 Batrikov: 6...d6! 7.g5 Nd7 8.Nb3 b6 → solid
+
+CARDINAL RULES:
+• 6.Ndb5 → d6! in &lt;5 seconds (never Bc5?!)
+• 6.Be3 → Bb4! (86% master consensus)
+• Castle KINGSIDE always
+• Queenside: ...b5-b4 or ...a5 counter (line-dependent)
+
+CLOCK GOAL:
+• Austin plays first 12 moves in &lt;30s each
+• By move 20: Austin should have 25+ min more than Zhuoyuan
+• When Zhuoyuan has &lt;5 min at move 25: any complex position wins</div>
+  </div>
+
+  <p style="margin-top: 32px; font-size: 0.875rem; color: #57606a;">
+    <a href="../austin-prep.html">← Austin Prep Index</a>
+    &nbsp;·&nbsp;
+    <a href="matchup-zhuoyuan.html">Full Matchup Overview</a>
+    &nbsp;·&nbsp;
+    <a href="matchup-zhuoyuan-white.html">← Austin as White</a>
+    &nbsp;·&nbsp;
+    <a href="matchup-zhuoyuan-gm.html">GM Battle Plan</a>
+    &nbsp;·&nbsp;
+    <a href="matchup-zhuoyuan-deep.html">Deep Engine Analysis</a>
+  </p>
+
+  <p style="font-size: 0.8rem; color: #8c959f; margin-top: 12px;">
+    Created Nov 2, 2026 · Based on deep engine analysis (movetime-3000) of 46 games · Zhuoyuan Wu, 1890 FIDE · NAYCC 2026 Seed #10
+  </p>
+</div>
+</body>
+</html>

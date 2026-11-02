@@ -148,7 +148,7 @@ Full pipeline = analysis.md + matchup.md + matchup.html + deep analysis JSON + d
 | Tarun Sankar | 1984 | ✅ P5 | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
 | Aarush Ajith | 1943 | ✅ P6 | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
 | Emerson Johnson | 1909 | ✅ P7 | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
-| Zhuoyuan Wu | 1890 | ✅ P8 | ✅ | ⚠️ basic only | ✅ | ❌ | ✅ | white/black matchup HTMLs still needed |
+| Zhuoyuan Wu | 1890 | ✅ P8 | ✅ | ⚠️ basic only | ✅ | ✅ | ✅ | Full pipeline done (Nov 2, 2026) |
 | Daniel H. Gamboa | 1753 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
 | Yaen Saenz | 1841 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
 | Pablo De Alba | 1873 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
@@ -156,7 +156,7 @@ Full pipeline = analysis.md + matchup.md + matchup.html + deep analysis JSON + d
 | Heye Gao | 1968 | ❌ moved | ✅ | ✅ | ✅ | ✅ | ✅ | Moved to another section; pipeline preserved |
 | Daniel Joshua Lee | 2165 | ❌ moved | ✅ | ✅ | ✅ | ✅ | ✅ | Moved to U18; pipeline preserved |
 | Justin Huang | 2010 | ❌ moved | ✅ | ✅ | — | — | — | Moved to U16; partial pipeline preserved |
-| **Irene Xie** | ? | ❓ TBD | ❌ | ❌ | ❌ | ❌ | ❌ | PGN file staged (`opponents/irene/chessbase-Xie-Irene.pgn`); no pipeline started |
+| **Irene Xie** | ~1888–1977 | Sparring | ✅ | ✅ sparring guide | — | — | — | Sparring partner (not NAYCC opponent) · snoop2026.pgn analyzed (36g, 91.0% avg) · chessbase 100g staged for future use |
 
 ---
 
@@ -174,8 +174,8 @@ Full pipeline = analysis.md + matchup.md + matchup.html + deep analysis JSON + d
 
 ## Next Actions
 
-| Priority | Task | Effort |
-|---|---|---|
-| 1 | **Zhuoyuan Wu deep pipeline** — deep HTML, white/black matchup HTMLs, GM battle plan HTML | ~4 hrs |
-| 2 | **Irene Xie** — determine if she's in Austin's section; if yes, run full pipeline | 1 hr to check, 4–6 hrs pipeline |
-| 3 | **Final GM brief pass** — verify all 9 opponents in Austin's actual field are correctly weighted | 30 min |
+| Priority | Task | Effort | Status |
+|---|---|---|---|
+| 1 | **Zhuoyuan Wu deep pipeline** — deep HTML, white/black matchup HTMLs, GM battle plan HTML | ~4 hrs | ✅ Done (Nov 2, 2026) — white/black HTMLs created |
+| 2 | **Irene Xie** — determine if she's in Austin's section; if yes, run full pipeline | 1 hr to check, 4–6 hrs pipeline | ✅ Done (Nov 2, 2026) — sparring partner confirmed, snoop2026 analyzed |
+| 3 | **Final GM brief pass** — verify all 9 opponents in Austin's actual field are correctly weighted | 30 min | ⚠️ Partial — Zhuoyuan and Inti added; final pass pending |

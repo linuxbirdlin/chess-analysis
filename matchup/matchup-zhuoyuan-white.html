@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin vs Wu, Zhuoyuan — Austin as White</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 900px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+    .doc-header { border-bottom: 3px solid #2d7d46; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #2d7d46; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.9rem; color: #57606a; }
+    .doc-header .back-link { display: inline-block; margin-top: 12px; font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500; }
+    .doc-header .back-link:hover { text-decoration: underline; }
+    h2 { font-size: 1.2rem; color: #1f2328; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.02rem; color: #2d7d46; margin: 20px 0 6px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 14px 0 4px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 32px 0; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 3px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 20px; }
+    thead th { background: #2d7d46; color: #fff; padding: 8px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #7a0000; }
+    .tip-box { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0; font-size: 0.91rem; color: #1a3a55; }
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+    .var-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 16px 0; overflow: hidden; }
+    .var-header { background: #f0fff5; padding: 10px 18px; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid #d0d7de; display: flex; gap: 12px; align-items: center; }
+    .var-label { font-size: 0.78rem; background: #2d7d46; color: #fff; padding: 2px 10px; border-radius: 12px; white-space: nowrap; }
+    .var-label.alt { background: #7a4f00; }
+    .var-body { padding: 14px 18px; font-size: 0.91rem; }
+    .var-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.82rem; padding: 12px 16px; border-radius: 6px; margin: 10px 0; line-height: 1.9; white-space: pre; overflow-x: auto; }
+    .cheat-card { background: #fffef0; border: 2px solid #d4a017; border-radius: 8px; padding: 18px 22px; margin: 20px 0; }
+    .cheat-card h3 { color: #7a4f00; margin-top: 0; }
+    .cheat-moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.81rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0; line-height: 2; white-space: pre; overflow-x: auto; }
+    strong { font-weight: 600; }
+    .must-win { background: #fff0e0; border: 2px solid #d4631a; border-radius: 6px; padding: 10px 16px; margin: 0 0 20px; font-size: 0.91rem; color: #7a3000; }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="doc-header">
+    <h1>Austin Lin vs Wu, Zhuoyuan</h1>
+    <div class="subtitle">Austin as White — Rossolimo 3.Bb5 Sidesteps Dragon Theory</div>
+    <div class="meta">Zhuoyuan: 1890 FIDE (seed #10) · Plays Sicilian Dragon (B34/B73) as Black · 0 Rossolimo games in 46 analyzed</div>
+    <a class="back-link" href="matchup-zhuoyuan.html">← Full matchup overview</a>
+    &nbsp;·&nbsp;
+    <a class="back-link" href="matchup-zhuoyuan-gm.html">GM Battle Plan</a>
+  </div>
+
+  <div class="must-win">
+    <strong>MUST-WIN.</strong> Austin is +69 FIDE (1959 vs 1890). Any result short of a win is a significant setback for tournament standing. Play for complications from move 1 — a draw doesn't come from careless play, it comes from letting Zhuoyuan equalize in his Dragon structures. Rossolimo prevents Dragon from move 3.
+  </div>
+
+  <h2>What Zhuoyuan Plays as Black</h2>
+  <p>Zhuoyuan's primary Black weapon is the <strong>Sicilian Dragon / Accelerated Dragon</strong>. He plays it in every classical game vs 1.e4:</p>
+  <table>
+    <thead><tr><th>Opening</th><th>ECO</th><th>Record</th><th>Engine accuracy</th></tr></thead>
+    <tbody>
+      <tr><td>Sicilian Accelerated Dragon (2…Nc6 3…g6 4…cxd4 5…Bg7)</td><td>B34</td><td>1W 0D 0L</td><td>93.3% (WS R3 win vs 1866)</td></tr>
+      <tr><td>Dragon Classical (…Nc6 …g6 …d6 …Bg7)</td><td>B73</td><td>0W 1D 0L</td><td>94.6% (WS R7 draw vs 1929)</td></tr>
+      <tr><td>Grünfeld/KID structure vs 1.d4 (…Nf6 …d5 …g6)</td><td>D01</td><td>1W 0D 0L</td><td>97.0% (WS R1 win vs 1690)</td></tr>
+      <tr><td>English Closed symmetric vs 1.c4</td><td>A26</td><td>0W 0D 1L</td><td>87.1% (WS R6 loss vs 1971)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box">
+    <strong>The key insight:</strong> Zhuoyuan has <strong>zero Rossolimo games</strong> (3.Bb5) in 46 analyzed games. His Dragon B34/B73 structures require White to play 2.Nc3. Austin's 2.Nf3 → 3.Bb5 cuts off every Dragon line from move 3. Zhuoyuan must play the rest of the game without his preparation.
+  </div>
+
+  <h2>Austin's Weapon: Rossolimo 3.Bb5</h2>
+
+  <p>Against Zhuoyuan's expected 1…c5 2…Nc6, Austin plays <strong>Rossolimo (3.Bb5)</strong>. The tabiya Austin has drilled:</p>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span>Main Tabiya: Rossolimo Fianchetto — IQP Center</span>
+      <span class="var-label">Primary</span>
+    </div>
+    <div class="var-body">
+      <div class="var-moves">1.e4 c5 2.Nf3 Nc6 3.Bb5 g6 4.O-O Bg7 5.Re1 Nf6
+6.c3 O-O
+7.d4!          ← central strike. Do NOT delay.
+7...cxd4 8.cxd4 d5 9.e5 Ne4 10.Nc3! Nxc3
+11.bxc3 Na5 12.Bd3</div>
+      <p><strong>After 12.Bd3:</strong> White has d4+e5 pawn chain with active pieces. Zhuoyuan's Na5 is offside. Plan A: <code>13.Ng5!</code> threatening Nxh7 (Greek Gift) or Nxf7 fork — Austin has drilled Bxh7+ patterns from austin-tactics.html. Plan B: <code>12...Nc4 13.Bxc4 dxc4 14.d5!</code> passed pawn is decisive.</p>
+      <p>The IQP structure here is <em>identical</em> to Austin's Nimzo-Indian Black positions — he knows every piece placement and pawn break cold. Zhuoyuan is the stranger in this position, not Austin.</p>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span>Branch A — If Zhuoyuan plays 8…d6 instead of 8…d5</span>
+      <span class="var-label alt">Variation</span>
+    </div>
+    <div class="var-body">
+      <div class="var-moves">7.d4! cxd4 8.cxd4 d6    ← passive, avoids central tension
+9.Nc3 Bg4 10.h3!      ← ALWAYS h3 before allowing ...Bxf3
+10...Bxf3 11.Qxf3 Nxd4 12.Qd1 Nc6 13.Bc4 e6
+Plan: Nd5 or Bg5 pressure on f6</div>
+      <p>After 10.h3, if Black retreats with 10…Bh5, Austin plays 11.d5! Ne5 12.Nxe5 Bxe5 13.f4 — the bishop is trapped or the center collapses. If 10…Bxf3 11.Qxf3, Austin has the bishop pair and slightly better center. Continue with <code>Nd5</code> pressure or <code>Bg5</code> pinning the Nf6.</p>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span>Branch B — Exchange Rossolimo 4.Bxc6 (structural option)</span>
+      <span class="var-label alt">Alternative</span>
+    </div>
+    <div class="var-body">
+      <div class="var-moves">1.e4 c5 2.Nf3 Nc6 3.Bb5 g6 4.Bxc6! dxc6
+5.d3 Bg7 6.O-O Nf6 7.Re1 O-O 8.Nbd2 Nd7
+9.Nc4 e5 10.Ne3!</div>
+      <p>Exchange Rossolimo gives Austin a long-term structural edge: Zhuoyuan has doubled c-pawns, the Bg7 Dragon bishop is neutralized. After <code>10.Ne3</code>, plan is <code>f4!</code> kingside break eventually. Ne3 controls d5/f5 squares. This line favors Austin in a technical endgame — Zhuoyuan's clock management collapses in long-move endgames (WS R5 pattern). Use this if Austin wants maximum imbalance with no sharp calculation required.</p>
+    </div>
+  </div>
+
+  <div class="var-card">
+    <div class="var-header">
+      <span>Branch C — If Zhuoyuan plays 1…e6 French</span>
+      <span class="var-label alt">Sideline</span>
+    </div>
+    <div class="var-body">
+      <div class="var-moves">1.e4 e6 2.d4 d5 3.Nd2 Nf6 4.e5 Nfd7 5.Bd3 c5
+6.c3 Nc6 7.Ne2!       ← Austin's drilled Tarrasch tabiya
+Plan: Nf4 pressure, O-O, then f4-g4 kingside storm</div>
+      <p>Zhuoyuan plays Tarrasch (3.Nd2) as White vs French. He knows one side of it — <em>not</em> the Black defenses. Austin has drilled the Tarrasch 7.Ne2! tabiya vs Fernando and Irene. Use the same preparation: after 7.Ne2, plan Nf4 → pressure on d5 and e6. Zhuoyuan's French-as-Black experience is essentially zero in the dataset.</p>
+    </div>
+  </div>
+
+  <h2>Critical Rules for This Game</h2>
+
+  <div class="warn-box">
+    <strong>Rule 1 — NEVER play 2.Nc3 (Closed Sicilian).</strong> 2.Nc3 allows Zhuoyuan to play 2…Nc6 3.Nf3 g6 4.d4 cxd4 5.Nxd4 Bg7 — exactly the Accelerated Dragon (B34) where he scored 93.3% (win vs 1866). Always play <code>2.Nf3</code> first to control the Rossolimo option.
+  </div>
+
+  <div class="warn-box">
+    <strong>Rule 2 — NEVER enter 3.d4 Open Sicilian territory.</strong> After 2.Nf3 Nc6, play <code>3.Bb5</code> immediately. Do not play 3.d4 — that leads to the Dragon (B34/B73) where Zhuoyuan scored 93–95%. 3.Bb5 is the exact move that cuts him off.
+  </div>
+
+  <div class="tip-box">
+    <strong>Rule 3 — Play 7.d4! without hesitation.</strong> After 3.Bb5 g6 4.O-O Bg7 5.Re1 Nf6 6.c3 O-O, the central break 7.d4! is mandatory. Delays give Black time to play …d5 on their own terms or equalize with …Ne4 tricks. The 7.d4! tabiya is Austin's key deviation from passive Rossolimo play.
+  </div>
+
+  <div class="tip-box">
+    <strong>Rule 4 — Keep complexity through move 30.</strong> Zhuoyuan collapsed (5 blunders in 8 moves) when his clock hit ~1 min at move 29 (WS R5 vs Meneses 1969). His time pressure window is moves 25–35. Austin should <em>avoid all simplifications</em> that lead to easy endgames until Zhuoyuan is visibly in time trouble. The game should still have queens on the board at move 25.
+  </div>
+
+  <h2>Key Game Reference</h2>
+
+  <h3>WS R3: Passmore (1866) vs Zhuoyuan (Black) — His Dragon Ceiling</h3>
+  <p>Zhuoyuan played B34 Accelerated Dragon against a 1866-rated opponent and won at 93.3% accuracy. His setup was textbook: …Ne5, …Nf6, …Bd7, …Rc8. This is <em>exactly</em> the Dragon preparation Austin must avoid. Rossolimo 3.Bb5 cuts off the …Ne5 rerouting from move 3 — Zhuoyuan never gets to display this preparation.</p>
+
+  <h3>WS R7: Castillo (1929) vs Zhuoyuan (Black) — Draw at 94.6%</h3>
+  <p>B73 Classical Dragon vs a 1929-rated opponent — Zhuoyuan drew at 94.6%. This confirms Dragon is his comfort zone against higher-rated opposition. Rossolimo avoids both the Accelerated and Classical Dragon in one move.</p>
+
+  <h3>WS R5: Zhuoyuan (White) vs Meneses (1969) — The Blunder Chain Model</h3>
+  <p>Equal position through move 24. Clock hit ~1:15 → Qf3?? (eval +0.2 → −4.9) at move 29. Ne2? (eval → −8.5) 13 seconds later. Five blunders in 8 moves. <strong>This is the scenario Austin should engineer in every game</strong>: complex position, equal eval, Zhuoyuan's clock in the danger zone by move 25–30.</p>
+
+  <h2>Day-of Checklist</h2>
+  <ol>
+    <li>Play <code>1.e4 c5 2.Nf3</code> — do NOT play 2.Nc3 under any circumstances</li>
+    <li>After 2…Nc6, play <code>3.Bb5</code> — Rossolimo, cutting off Dragon</li>
+    <li>After 3…g6 4.O-O Bg7 5.Re1 Nf6 6.c3 O-O, play <code>7.d4!</code> immediately</li>
+    <li>If 7…cxd4 8.cxd4 d5: play <code>9.e5 Ne4 10.Nc3! Nxc3 11.bxc3 Na5 12.Bd3</code></li>
+    <li>After 12.Bd3: calculate Ng5! (h7/f7 threats) or allow Nc4 → 13.Bxc4 dxc4 14.d5!</li>
+    <li>If 7…cxd4 8.cxd4 d6: play <code>9.Nc3</code> and develop — 10.h3 if Black plays …Bg4</li>
+    <li>Maintain complexity — no simplification trades until Zhuoyuan has less than 5 minutes</li>
+    <li>Clock targets: Austin ≥65 min at move 20; Zhuoyuan ≤15 min by move 30 is ideal</li>
+  </ol>
+
+  <div class="cheat-card">
+    <h3>Opening Cheat Sheet — Austin White vs Zhuoyuan</h3>
+    <div class="cheat-moves">ROSSOLIMO — Sidestep Dragon (MUST-WIN, +69 FIDE)
+
+1.e4 c5 2.Nf3 Nc6 3.Bb5 g6 4.O-O Bg7 5.Re1 Nf6
+6.c3 O-O 7.d4! cxd4 8.cxd4
+
+vs 8...d5: 9.e5 Ne4 10.Nc3! Nxc3 11.bxc3 Na5 12.Bd3
+  → Ng5! (h7/f7 threats) OR Nc4 13.Bxc4 dxc4 14.d5! (passed pawn)
+
+vs 8...d6: 9.Nc3 [Bg4?] 10.h3! Bxf3 11.Qxf3 → bishop pair, Nd5 pressure
+
+vs 1...e6 French: 3.Nd2 → 7.Ne2! Tarrasch (same as Fernando prep)
+vs 1...c6 CK: 3.exd5 cxd5 4.Bd3 → Exchange CK (Austin's standard)
+
+NEVER:
+• 2.Nc3 → Dragon B34 (93.3% win for him!)
+• 3.d4 Open Sicilian → Dragon B73 (94.6% draw for him!)
+• Simplify before move 30 (his clock blowup window: moves 25-35)
+
+CLOCK TARGETS:
+• Austin ≥65 min at move 20
+• If Zhuoyuan has &lt;5 min at move 25: ANY complex position is winning</div>
+  </div>
+
+  <p style="margin-top: 32px; font-size: 0.875rem; color: #57606a;">
+    <a href="../austin-prep.html">← Austin Prep Index</a>
+    &nbsp;·&nbsp;
+    <a href="matchup-zhuoyuan.html">Full Matchup Overview</a>
+    &nbsp;·&nbsp;
+    <a href="matchup-zhuoyuan-black.html">Austin as Black →</a>
+    &nbsp;·&nbsp;
+    <a href="matchup-zhuoyuan-gm.html">GM Battle Plan</a>
+    &nbsp;·&nbsp;
+    <a href="matchup-zhuoyuan-deep.html">Deep Engine Analysis</a>
+  </p>
+
+  <p style="font-size: 0.8rem; color: #8c959f; margin-top: 12px;">
+    Created Nov 2, 2026 · Based on deep engine analysis (movetime-3000) of 46 games · Zhuoyuan Wu, 1890 FIDE · NAYCC 2026 Seed #10
+  </p>
+</div>
+</body>
+</html>
