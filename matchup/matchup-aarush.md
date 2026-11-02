@@ -1,8 +1,8 @@
 # Austin Lin vs Aarush Ajith — Matchup Preparation
 
-**Austin's rating:** ~1865–1968  
-**Aarush's rating:** ~1895–1941 (fluctuating; dropped at Toronto Open Sep 2026)  
-**Rating gap:** Roughly even; Aarush slightly higher in most encounters  
+**Austin's rating:** 1959 FIDE (Nov 2026)  
+**Aarush's rating:** 1943 FIDE (Nov 2026; fluctuated 1895–1941 across 2026)  
+**Rating gap:** Austin +16 — Austin is now the higher-rated player; must-win  
 **Direct record:** 0W–1L–2D (Austin · 3 games Feb–Jun 2026)
 
 ---
@@ -119,7 +119,7 @@ Option B — `4...Be7 5.Bg2 O-O 6.O-O b6` (Catalan Closed, b6 setup): Black fian
 
 ## Part 4 — Psychological and Practical Notes
 
-1. **Aarush's rating is slightly higher (~1941 vs Austin ~1865–1968) but so was Justin's at various points.** Aarush's recent PAM 2026 score (2W-3L) shows he is beatable within his rating band — he lost to opponents rated 1833 and similar.
+1. **Austin +16 above Aarush (1959 vs 1943 FIDE, Nov 2026).** This is a must-win. Aarush's PAM 2026 losses to opponents rated 1833 and 1824 show he is beatable well below Austin's level.
 
 2. **Aarush plays confidently in the Najdorf as Black but freezes in time pressure.** If Austin can make the game complex and dynamic, Aarush's clock management deteriorates badly. The PAM R6 collapse (5 blunders vs 1833) shows Aarush panics in time scrambles. Toronto Open R6 is an even stronger example: Aarush was winning by +6 pawns and still blundered Qb4?? with under 8 minutes left, allowing a forced mating sequence. This is not an isolated incident — it is a systemic pattern across the full dataset.
 
