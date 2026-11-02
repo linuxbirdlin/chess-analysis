@@ -134,7 +134,7 @@ The single highest-ROI action before NAYCC: **build novelty trees for Fernando a
 
 ---
 
-## Pipeline Status by Opponent (Nov 1, 2026)
+## Pipeline Status by Opponent (updated Nov 2, 2026)
 
 Full pipeline = analysis.md + matchup.md + matchup.html + deep analysis JSON + deep HTML + white/black matchup HTMLs + GM battle plan HTML + index entry.
 
@@ -157,6 +157,15 @@ Full pipeline = analysis.md + matchup.md + matchup.html + deep analysis JSON + d
 | Daniel Joshua Lee | 2165 | ❌ moved | ✅ | ✅ | ✅ | ✅ | ✅ | Moved to U18; pipeline preserved |
 | Justin Huang | 2010 | ❌ moved | ✅ | ✅ | — | — | — | Moved to U16; partial pipeline preserved |
 | **Irene Xie** | ~1888–1977 | Sparring | ✅ | ✅ sparring guide | — | — | — | Sparring partner (not NAYCC opponent) · snoop2026.pgn analyzed (36g, 91.0% avg) · chessbase 100g staged for future use |
+
+---
+
+## Recent Work Log (Nov 2, 2026)
+
+- **Zhuoyuan Wu white/black matchup HTMLs complete** (commit `bdb6458`): `matchup-zhuoyuan-white.html` (Rossolimo 3.Bb5 tabiya, IQP structure, cheat sheet + clock targets) and `matchup-zhuoyuan-black.html` (Taimanov cardinal-rule callout, four branches: 6.Ndb5 d6!, 6.Be3 Bb4!, Maróczy a5, Batrikov d6 Nd7, clock-arithmetic section). Zhuoyuan's full pipeline is now complete.
+- **Opening novelty trees — Zhuoyuan additions** (commits `86f4454`, `9e31880`): Added Zhuoyuan tag to Section A (Taimanov — zero Sicilian-White classical data), cross-ref callout to Section F (Dutch Leningrad doesn't arise vs 1.e4 Zhuoyuan), and Austin-as-Black subsection to Section G (Rossolimo sidesteps Dragon + Taimanov double advantage callout). Section G scope line, TOC, drill priorities, and footer updated.
+- **GM brief — Zhuoyuan added to Section F and G** (commit `722786f`): Section F clock table — danger zone moves 25-35, at-move-30 target ≥45 min. Section G psych bars — Zhuoyuan at top (78% confidence, above Emerson) with "double prep edge: Rossolimo sidesteps Dragon + Taimanov vs zero Sicilian-White prep."
+- **Irene Xie sparring pipeline complete** (commits `d80e447`, `bd5ef41`, `6af4ff9`, `ed99be1`): `analysis/irene-analysis.md` (French/Nimzo Black, 1.e4 Exchange CK/Italian White), `matchup/matchup-irene.html` (5-section sparring guide: French Tarrasch drills, Taimanov vs Exchange Rossolimo, Nimzo mirror), `scripts/analyze-irene.js` (movetime-800, snoop2026.pgn only), `scripts/irene-analysis-results.json` (36 games: 91.0% avg, 92.0% White, 90.2% Black, 1.00 blunders/game). ChessBase 100-game PGN staged for future use. `austin-prep.html` updated with stats + sparring guide link.
 
 ---
 
