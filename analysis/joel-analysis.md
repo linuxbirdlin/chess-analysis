@@ -3,7 +3,7 @@
 **FIDE ID:** 39961672  
 **Lichess:** JEJ13  
 **Nationality:** USA (Carolinas region)  
-**FIDE Rating:** 1872 (June 2026, Carolinas Classic)  
+**FIDE Rating:** 1813 (Nov 2026) — was 1872 (June 2026, Carolinas Classic)  
 **Lichess Ratings:** Blitz 2114 (37 rated games) · Bullet 2505 (63 rated games)  
 **Rating gap note:** Lichess blitz (2114) runs ~240 points above FIDE — common for active online players. Bullet rating (2505) reflects fast tactical pattern recognition, not OTB classical strength. Use blitz + classical data as the primary indicators.  
 **Tournaments in dataset:** Carolinas Classic 2026 (1 classical game) + 100 Lichess games (37 blitz, 63 bullet)
@@ -92,7 +92,7 @@ Joel plays the **Nimzo-Indian** (confirmed: classical Carolinas game, E20 Kmoch 
 
 1. **Hypermodern over classical** — Everything about Joel's repertoire signals a hypermodern, positional player. He builds long-diagonal pressure, delays commitment, and makes the position complex in ways that are hard to navigate over-the-board.
 2. **Scandinavian is a fighting weapon** — The Modern Scandinavian (3...Nf6) is not passive. Joel aims to counterattack with ...Bg4, ...Nc6, ...0-0-0, or fianchetto ...g6/...Bg7. Austin should not assume a quiet advantage.
-3. **Classical vs online gap** — FIDE 1872 vs Lichess 2114 blitz suggests Joel's OTB play is somewhat weaker than online. Under classical time control, his accuracy may dip further (evidenced by the Carolinas game blunder at move 20).
+3. **Classical vs online gap** — FIDE 1813 vs Lichess 2114 blitz suggests Joel's OTB play is somewhat weaker than online. Under classical time control, his accuracy may dip further (evidenced by the Carolinas game blunder at move 20).
 4. **Danger zone: fast positions** — Joel's bullet strength means he's dangerous in time scrambles. Austin should not get into time trouble.
 
 ---
@@ -123,7 +123,7 @@ Austin must NOT play 1...e5 (allows 2.Nxe5 tactical tricks) or over-extend immed
 
 | Attribute | Assessment |
 |---|---|
-| FIDE Rating | 1872 (Jun 2026) |
+| FIDE Rating | 1813 (Nov 2026) |
 | Lichess Blitz | 2114 (~240 pts above FIDE — active online player) |
 | Style | Hypermodern / tactical — Reti/Nimzo-Larsen White, Scandinavian Modern Black |
 | White opening | 1.Nf3 → Nimzo-Larsen (2.b3 Bb2) — primary; 1.d4/1.c4 secondary |
@@ -131,6 +131,6 @@ Austin must NOT play 1...e5 (allows 2.Nxe5 tactical tricks) or over-extend immed
 | Tactical alertness | High in fast positions (2505 bullet); somewhat lower in classical |
 | Opening preparation | Good in Scandinavian/Reti; limited in 1.e4 systems as White |
 | vs Higher-rated | Competitive online; OTB one classical loss vs 2199 with late blunder |
-| vs Austin (projection) | Roughly even rating — Austin's 1.e4 puts Joel in Scandinavian/Caro-Kann territory Austin should know |
+| vs Austin (projection) | Austin +146 advantage (1959 vs 1813 Nov 2026) — Austin's 1.e4 puts Joel in Scandinavian/Caro-Kann territory Austin should know |
 | Main threat | Nimzo-Larsen White can be tricky; Scandinavian Modern 3...Nf6 requires specific prep |
 | Austin's edge | Exchange Caro-Kann directly applies; Scandinavian 3...Nf6 requires prep but Austin has 1.e4 d5 2.exd5 Nf6 3.Nf3 lines available |

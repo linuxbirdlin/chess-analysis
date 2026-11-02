@@ -1,7 +1,7 @@
 # Matchup: Austin Lin vs Joel Ethan Jeyaraj
 
-**Joel's rating:** 1872 FIDE / 2114 Lichess blitz  
-**Austin's rating:** ~1865–1968 FIDE  
+**Joel's rating:** 1813 FIDE (Nov 2026) / 2114 Lichess blitz  
+**Austin's rating:** 1959 FIDE (Nov 2026) — +146 advantage  
 **Direct record:** No prior encounter  
 **Data:** 1 classical game (Carolinas Classic 2026) + 100 Lichess games (37 blitz, 63 bullet)
 
@@ -79,7 +79,7 @@ If Joel plays 1.e4 (uncommon), Austin plays his normal **1...c5 Sicilian**. Joel
 
 ## Psychological and Practical Notes
 
-- **Joel's Lichess bullet rating (2505) far exceeds his FIDE rating (1872)** — he is a strong pattern recognizer in fast positions. Austin should not assume Joel will crack under time pressure.
+- **Joel's Lichess bullet rating (2505) far exceeds his FIDE rating (1813)** — he is a strong pattern recognizer in fast positions. Austin should not assume Joel will crack under time pressure.
 - **Joel's blitz Black record is weak (44%)** — if this is a classical game, Joel as Black is historically inconsistent. Austin playing 1.e4 puts Joel on defense, where his blitz results are worst.
 - **Joel will likely be well-prepared in the Scandinavian** — 10 documented games is a serious preparation base. Austin needs his Bc4/Bb3 anti-Scandinavian ready, not generic play.
 - **The Carolinas Classic game** reveals Joel's tendency to grab material when under pressure (Bxa2?? at move 20). Austin should create positions where Joel faces similar temptations.
