@@ -1,8 +1,8 @@
 # Austin Lin vs Fernando Cortes Medina — Tournament Preparation Plan
 
-**Austin's rating:** ~1865–1968  
-**Fernando's rating:** CM, ~2060–2133 (classical); 1836 (rapid)  
-**Rating gap:** Fernando is roughly 100–200 points stronger on paper — Austin needs concrete preparation and imbalance  
+**Austin's rating:** 1959 FIDE (Nov 2026)  
+**Fernando's rating:** CM, 2085 FIDE (Nov 2026); 1836 (rapid)  
+**Rating gap:** Fernando is ~126 points above Austin (2085 vs 1959) — Austin needs concrete preparation and imbalance  
 **Direct encounter:** No OTB game between Austin and Fernando on record
 
 ---
