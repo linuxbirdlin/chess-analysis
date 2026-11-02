@@ -4,7 +4,7 @@
 
 | | Austin Lin | Leo Jackson |
 |---|---|---|
-| Rating | ~1865–1968 (FIDE) | ~1886 (FIDE) / ~2000 US Chess |
+| Rating | 1959 FIDE (Nov 2026) | 2081 FIDE (Nov 2026) |
 | Style | Tactical, combinational, sharp | Patient, technical, endgame-oriented |
 | White opening | 1.e4 | 1.d4 → Catalan (g3/Bg2) |
 | Black opening | Nimzo-Indian / Sicilian | French Defense / Dutch (...e6+...f5) |
@@ -22,7 +22,7 @@ Leo plays **French Defense (1...e6)** in 100% of recorded games vs 1.e4. He is c
 
 - **Advance French (3.e5):** Leo plays the standard ...c5 break. Seen in NA U20 R4 vs Fogo Esquivel (2190), where Leo maintained the structure before losing in 113 moves.
 - **Exchange French (3.exd5 exd5):** Leo is comfortable in the symmetrical structure. He won vs Cruz Vargas (1648) in 134 moves from this structure as Black — patient endgame technique.
-- **Tarrasch (3.Nd2):** Less data, but Leo follows standard ...Nf6 or ...c5 Tarrasch counter patterns.
+- **Tarrasch (3.Nd2) — WARNING:** Leo plays **3...c5 4.exd5 Qxd5 (Chistyakov, C07)** — confirmed Queretaro R7 where he WON with **96.2% accuracy** (his best result in the dataset). Do NOT play 3.Nd2 vs Leo — this hands him his best-prepared Black line.
 
 ### Opening recommendation
 
@@ -145,7 +145,7 @@ Austin grabs the pawn (Open Catalan gambit) and plays for counterplay. Leo gets 
 
 **2. Leo's Achilles heel: losing as White to lower-rated opposition.** Leo lost to a 1609-rated opponent as White (NA U20 R5 vs Estrada) — a 120-point upset. This happened in a position where he failed to convert a structural advantage into a clear plan. Austin's aggressive, combinational play is exactly the type to induce this kind of mistake: get Leo into unfamiliar territory where he cannot find the technical plan.
 
-**3. Rating is roughly even.** Austin (1865–1968) vs Leo (1886) — this is a genuine peer matchup. Neither player has a significant rating edge. The winner will be decided by preparation and style.
+**3. Leo holds a 122-point rating edge.** Austin (1959) vs Leo (2081, Nov 2026 FIDE) — not a peer matchup. Leo is a genuine upset target, not an easy win. Austin must play decisively and avoid passive positions that favor Leo's endgame strength.
 
 **4. French Defense is Leo's home territory.** Leo has played the French in every single 1.e4 game on record. This is not a theoretical weakness Austin can exploit with obscure sidelines — Leo knows the French. Austin should play the Advance or Tarrasch confidently and look for dynamic opportunities rather than trying to "trick" Leo out of the French.
 
