@@ -5,7 +5,7 @@ date: "October 2026"
 
 # Austin Lin vs Yaen Saenz Cabrera
 
-**Rating differential:** Austin ~1865 vs Yaen ~1841 (≈+24 Austin advantage — near-equal)  
+**Rating differential:** Austin 1959 vs Yaen ~1841 (≈+118 Austin advantage)  
 **Direct record:** No prior encounter  
 **Tournament context:** Both active in 2026 youth chess circuit  
 
@@ -84,7 +84,7 @@ So against Austin's 1...c5, Yaen likely plays Open Sicilian (Najdorf territory B
 
 ## Psychological Notes
 
-- Yaen is **near-equal rating** (1841 vs Austin ~1865) — this is a serious matchup requiring full preparation
+- Yaen is **lower-rated** (1841 vs Austin 1959, +118 Austin) — a must-win game, not a near-equal match
 - Yaen has **beaten much higher-rated players** (2140, 1933) — has the tactical ability to cause upsets
 - Yaen's **rapid form is weaker** than classical — if tournament is rapid, edge toward Austin
 - Both players are **Sicilian specialists** on opposite sides — the Sicilian battle will be decisive
