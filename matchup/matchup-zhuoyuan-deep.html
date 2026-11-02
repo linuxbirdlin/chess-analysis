@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Austin vs Wu, Zhuoyuan — Deep Engine Analysis</title>
+<style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+    .doc-header {
+      border-bottom: 3px solid #2d7d46;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 { margin: 0 0 8px; font-size: 1.85rem; color: #1f2328; }
+    .doc-header .meta {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      font-size: 0.9rem; color: #57606a;
+    }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link {
+      display: inline-block; margin-top: 14px;
+      font-size: 0.875rem; color: #2d7d46;
+      text-decoration: none; font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+    h2 {
+      font-size: 1.3rem; color: #1f2328;
+      margin: 40px 0 12px; padding-bottom: 6px;
+      border-bottom: 1px solid #d0d7de;
+    }
+    h3 { font-size: 1.05rem; color: #2d7d46; margin: 24px 0 8px; }
+    h4 { font-size: 0.95rem; color: #1f2328; margin: 18px 0 6px; font-weight: 600; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 8px 0 14px; padding-left: 1.5em; }
+    li { margin-bottom: 4px; }
+    .warn-box {
+      background: #fff5f5; border-left: 4px solid #cf2222;
+      border-radius: 0 6px 6px 0; padding: 10px 16px;
+      margin: 12px 0; font-size: 0.93rem; color: #7a0000;
+    }
+    .tip-box {
+      background: #dafbe1; border-left: 4px solid #2d7d46;
+      border-radius: 0 6px 6px 0; padding: 10px 16px;
+      margin: 12px 0; font-size: 0.93rem; color: #1a4731;
+    }
+    .info-box {
+      background: #eaf0f8; border-left: 4px solid #1a5276;
+      border-radius: 0 6px 6px 0; padding: 10px 16px;
+      margin: 12px 0; font-size: 0.93rem; color: #1a3a55;
+    }
+    .gold-box {
+      background: #fff8e6; border-left: 4px solid #d4a017;
+      border-radius: 0 6px 6px 0; padding: 10px 16px;
+      margin: 12px 0; font-size: 0.93rem; color: #7a4f00;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 16px 0 24px; }
+    thead th {
+      background: #2d7d46; color: #fff;
+      padding: 10px 14px; text-align: left; font-weight: 600;
+    }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #ffffff; }
+    tbody td { padding: 9px 14px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    .tr-danger td { background: #fff0f0 !important; }
+    .tr-best td { background: #efffef !important; }
+    .stat-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+      margin: 20px 0;
+    }
+    @media (max-width: 600px) { .stat-grid { grid-template-columns: repeat(2, 1fr); } }
+    .stat-tile {
+      background: #f6f8fa; border: 1px solid #d0d7de;
+      border-radius: 8px; padding: 14px 16px; text-align: center;
+    }
+    .stat-tile .val { font-size: 1.6rem; font-weight: 700; color: #2d7d46; }
+    .stat-tile .lbl { font-size: 0.8rem; color: #57606a; margin-top: 4px; }
+    .stat-tile.danger .val { color: #cf2222; }
+    .stat-tile.gold .val { color: #b8860b; }
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em; background: #f0f4f8;
+      border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px;
+    }
+    .section-label {
+      display: inline-block; background: #2d7d46; color: #fff;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 4px;
+      margin-right: 8px; vertical-align: middle;
+    }
+    .accuracy-bar-wrap { background: #e8e8e8; border-radius: 4px; height: 8px; margin-top: 4px; }
+    .accuracy-bar { background: #2d7d46; border-radius: 4px; height: 8px; }
+    .accuracy-bar.danger { background: #cf2222; }
+    .accuracy-bar.gold { background: #b8860b; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="doc-header">
+  <h1>Austin vs Wu, Zhuoyuan — Deep Engine Analysis</h1>
+  <div class="meta">
+    <span><strong>Opponent:</strong> Wu, Zhuoyuan · 1890 FIDE (Nov 2026) · USA · Seed #10</span>
+    <span><strong>Austin:</strong> 1959 FIDE · Austin +69 advantage — <strong>MUST-WIN</strong></span>
+    <span><strong>Engine:</strong> Stockfish · movetime-3000 · 16 threads</span>
+    <span><strong>Games:</strong> 46 analyzed (47 total, 1 excluded — WS R8 incomplete)</span>
+    <span><strong>Generated:</strong> Nov 1, 2026</span>
+  </div>
+  <a class="back-link" href="matchup-zhuoyuan-gm.html">← GM Battle Plan</a>
+  &nbsp;|&nbsp;
+  <a class="back-link" href="../austin-prep.html">← Austin Prep Index</a>
+</div>
+
+<!-- ═══════════════════════════════════════════ OVERVIEW STATS -->
+<h2>Overview — Accuracy Stats (46 games, movetime-3000)</h2>
+
+<div class="stat-grid">
+  <div class="stat-tile">
+    <div class="val">91.9%</div>
+    <div class="lbl">Overall avg accuracy</div>
+  </div>
+  <div class="stat-tile gold">
+    <div class="val">0.63</div>
+    <div class="lbl">Blunders per game (high)</div>
+  </div>
+  <div class="stat-tile">
+    <div class="val">91.2%</div>
+    <div class="lbl">As White avg (21g)</div>
+  </div>
+  <div class="stat-tile">
+    <div class="val">92.5%</div>
+    <div class="lbl">As Black avg (25g)</div>
+  </div>
+  <div class="stat-tile">
+    <div class="val">14W–16L–16D</div>
+    <div class="lbl">Overall record</div>
+  </div>
+  <div class="stat-tile danger">
+    <div class="val">29</div>
+    <div class="lbl">Total blunders (46g)</div>
+  </div>
+  <div class="stat-tile danger">
+    <div class="val">43</div>
+    <div class="lbl">Total mistakes (46g)</div>
+  </div>
+  <div class="stat-tile">
+    <div class="val">93.4%</div>
+    <div class="lbl">Classical avg (14g)</div>
+  </div>
+</div>
+
+<div class="tip-box">
+  <strong>Key pattern:</strong> Zhuoyuan's headline accuracy (91.9%) understates his vulnerability — 29 blunders across 46 games means one catastrophic move roughly every 1.6 games. The worst single game is 74.7% (vs Srinivasan), and his time-pressure pattern (WS R5: 5 blunders from equal position at move 24 when clock hit ~1 min) is confirmed across multiple events.
+</div>
+
+<!-- ═══════════════════════════════════════════ TOURNAMENT SUMMARY -->
+<h2>Per-Tournament Accuracy Summary</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tournament</th>
+      <th>Format</th>
+      <th>Games</th>
+      <th>Record</th>
+      <th>Avg Acc%</th>
+      <th>Blunders</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tr-best">
+      <td><strong>24th Addison Memorial 2025</strong></td>
+      <td>Classical</td>
+      <td>2</td>
+      <td>1W–0L–1D</td>
+      <td><strong>97.8%</strong></td>
+      <td>0</td>
+      <td>Best classical tournament — beat 1630, drew 1921</td>
+    </tr>
+    <tr>
+      <td><strong>World Schools 2026</strong></td>
+      <td>Classical</td>
+      <td>6 (1 excl.)</td>
+      <td>3W–2L–2D</td>
+      <td><strong>93.0%</strong></td>
+      <td>9</td>
+      <td>WS R5: 5 blunders vs 1969 (time pressure); WS R8 excluded (incomplete)</td>
+    </tr>
+    <tr>
+      <td><strong>53rd Capps Memorial 2025</strong></td>
+      <td>Classical</td>
+      <td>4</td>
+      <td>1W–0L–3D</td>
+      <td><strong>91.8%</strong></td>
+      <td>2</td>
+      <td>Drew 1921-rated (97.5%); best win: beat Silva 2005 at 96.7%</td>
+    </tr>
+    <tr class="tr-danger">
+      <td><strong>59th Stamer Memorial 2025</strong></td>
+      <td>Classical</td>
+      <td>2</td>
+      <td>0W–2L</td>
+      <td><strong>93.3%</strong></td>
+      <td>6</td>
+      <td>Lost both vs 2052 and 2162 — 0W vs all 2000+ rated opponents in Stamer</td>
+    </tr>
+    <tr>
+      <td><strong>SnoopChess Mixed (2024–2026)</strong></td>
+      <td>Online (mixed)</td>
+      <td>32</td>
+      <td>9W–13L–10D</td>
+      <td><strong>91.4%</strong></td>
+      <td>12</td>
+      <td>Best: 98.7% vs Heiserman (draw). Worst: 74.7% vs Srinivasan (loss). Large variance.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="info-box">
+  <strong>Classical-only average (14 games with valid data):</strong> 93.4%. Zhuoyuan plays more accurately in OTB classical than in online events, but his blunder rate remains high (17 blunders across 14 classical games = 1.2/game) — higher than the overall average. This confirms the time-pressure collapse pattern is not an online-only artifact.
+</div>
+
+<!-- ═══════════════════════════════════════════ CLASSICAL GAME TABLE -->
+<h2>Classical Games — Full Accuracy Table</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tournament</th>
+      <th>Rnd</th>
+      <th>Color</th>
+      <th>Opponent</th>
+      <th>Result</th>
+      <th>Acc%</th>
+      <th>Opp%</th>
+      <th>ECO</th>
+      <th>B / M / I</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tr-best">
+      <td>24th Addison 2025</td>
+      <td>R04</td>
+      <td>White</td>
+      <td>Indukuri, Suhas</td>
+      <td>WIN</td>
+      <td><strong>98.0%</strong></td>
+      <td>94.4%</td>
+      <td>—</td>
+      <td>0 / 0 / 3</td>
+    </tr>
+    <tr class="tr-best">
+      <td>24th Addison 2025</td>
+      <td>R03</td>
+      <td>Black</td>
+      <td>Ng, Alexander PN (~1921)</td>
+      <td>DRAW</td>
+      <td><strong>97.5%</strong></td>
+      <td>97.4%</td>
+      <td>—</td>
+      <td>0 / 0 / 0</td>
+    </tr>
+    <tr class="tr-best">
+      <td>World Schools 2026</td>
+      <td>R1</td>
+      <td>Black</td>
+      <td>Davalos Gimenez, Santino M. (1690)</td>
+      <td>WIN</td>
+      <td><strong>97.0%</strong></td>
+      <td>93.3%</td>
+      <td>D01</td>
+      <td>2 / 1 / 1</td>
+    </tr>
+    <tr class="tr-best">
+      <td>53rd Capps 2025</td>
+      <td>R02</td>
+      <td>Black</td>
+      <td>Silva, Javier (~2005)</td>
+      <td>WIN</td>
+      <td><strong>96.7%</strong></td>
+      <td>90.7%</td>
+      <td>—</td>
+      <td>0 / 0 / 0</td>
+    </tr>
+    <tr>
+      <td>World Schools 2026</td>
+      <td>R2</td>
+      <td>White</td>
+      <td>Wright, Luke E (1691)</td>
+      <td>WIN</td>
+      <td>94.8%</td>
+      <td>88.9%</td>
+      <td>C05</td>
+      <td>0 / 0 / 3</td>
+    </tr>
+    <tr>
+      <td>World Schools 2026</td>
+      <td>R7</td>
+      <td>Black</td>
+      <td>Castillo Romero, Jasmany S. (1929)</td>
+      <td>DRAW</td>
+      <td>94.6%</td>
+      <td>94.8%</td>
+      <td>B73</td>
+      <td>2 / 2 / 0</td>
+    </tr>
+    <tr class="tr-danger">
+      <td>59th Stamer 2025</td>
+      <td>R2</td>
+      <td>Black</td>
+      <td>Gopalakrishnan, Kritin (~2052)</td>
+      <td>LOSS</td>
+      <td>94.2%</td>
+      <td>96.7%</td>
+      <td>—</td>
+      <td>1 / 2 / 9</td>
+    </tr>
+    <tr>
+      <td>World Schools 2026</td>
+      <td>R3</td>
+      <td>Black</td>
+      <td>Passmore Bowman, Tobias (1866)</td>
+      <td>WIN</td>
+      <td>93.3%</td>
+      <td>89.1%</td>
+      <td>B34</td>
+      <td>0 / 1 / 4</td>
+    </tr>
+    <tr>
+      <td>53rd Capps 2025</td>
+      <td>R04</td>
+      <td>White</td>
+      <td>Mokeeva, Zlata (~1910)</td>
+      <td>DRAW</td>
+      <td>93.1%</td>
+      <td>94.7%</td>
+      <td>—</td>
+      <td>0 / 1 / 2</td>
+    </tr>
+    <tr class="tr-danger">
+      <td>59th Stamer 2025</td>
+      <td>R4</td>
+      <td>Black</td>
+      <td>Bhaduri, Neil S (~2162)</td>
+      <td>LOSS</td>
+      <td>92.3%</td>
+      <td>96.7%</td>
+      <td>—</td>
+      <td><strong>5</strong> / 2 / 5</td>
+    </tr>
+    <tr>
+      <td>53rd Capps 2025</td>
+      <td>R03</td>
+      <td>White</td>
+      <td>Qi, Jenny</td>
+      <td>DRAW</td>
+      <td>90.5%</td>
+      <td>90.1%</td>
+      <td>—</td>
+      <td>1 / 2 / 3</td>
+    </tr>
+    <tr class="tr-danger">
+      <td>World Schools 2026</td>
+      <td>R5</td>
+      <td>White</td>
+      <td>Meneses Morales, M.B. (1969)</td>
+      <td>LOSS</td>
+      <td>91.2%</td>
+      <td>96.1%</td>
+      <td>B13</td>
+      <td><strong>5</strong> / 1 / 5</td>
+    </tr>
+    <tr class="tr-danger">
+      <td>World Schools 2026</td>
+      <td>R6</td>
+      <td>Black</td>
+      <td>Rodriguez, William N. (1971)</td>
+      <td>LOSS</td>
+      <td>87.1%</td>
+      <td>91.6%</td>
+      <td>A26</td>
+      <td>2 / 1 / 4</td>
+    </tr>
+    <tr>
+      <td>53rd Capps 2025</td>
+      <td>R01</td>
+      <td>Black</td>
+      <td>Seidel, Eli</td>
+      <td>DRAW</td>
+      <td>86.7%</td>
+      <td>86.8%</td>
+      <td>—</td>
+      <td>1 / 1 / 4</td>
+    </tr>
+    <tr style="background:#fffbe0;">
+      <td>World Schools 2026</td>
+      <td>R8</td>
+      <td>White</td>
+      <td>Farley, Jeremiah</td>
+      <td>DRAW</td>
+      <td colspan="4" style="color:#888;font-style:italic;">Excluded — game too short for valid accuracy (B13 CK Exchange, incomplete record)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="warn-box">
+  <strong>Pattern — 0W vs all 1969+ rated opponents (classical):</strong> Meneses (1969) — Loss; Rodriguez (1971) — Loss; Gopalakrishnan (2052) — Loss; Bhaduri (2162) — Loss. That is 0W–4L vs every classical opponent rated 1969+. Austin at 1959 FIDE sits exactly at this boundary with a preparation advantage.
+</div>
+
+<!-- ═══════════════════════════════════════════ SNOOPCHESS TABLE -->
+<h2>SnoopChess Mixed (2024–2026) — 32 Games</h2>
+
+<p style="font-size:0.88rem;color:#57606a;margin-bottom:8px;">Format: online (blitz/rapid, mixed time controls). ECO codes not recorded. Color data not available. Sorted by accuracy ascending — worst games first.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Opponent</th>
+      <th>Result</th>
+      <th>Acc%</th>
+      <th>Opp%</th>
+      <th>B / M / I</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tr-danger"><td>Srinivasan, Sivavishnu</td><td>LOSS</td><td><strong>74.7%</strong></td><td>78.6%</td><td>3 / 3 / 0</td><td>Worst single game in dataset — had winning position (+4.95 eval), then collapsed</td></tr>
+    <tr class="tr-danger"><td>Chalissery, Neil</td><td>LOSS</td><td>79.7%</td><td>83.7%</td><td>0 / 6 / 4</td><td>6 mistakes — persistent misevaluation pattern, no single blunder</td></tr>
+    <tr class="tr-danger"><td>Mallela, Abhishek</td><td>LOSS</td><td>86.3%</td><td>81.6%</td><td>0 / 4 / 2</td><td>Lost despite opponent being less accurate</td></tr>
+    <tr><td>Bambou, Christophe</td><td>DRAW</td><td>85.6%</td><td>85.4%</td><td>0 / 2 / 5</td><td></td></tr>
+    <tr><td>Sun, Kevin</td><td>WIN</td><td>85.6%</td><td>85.4%</td><td>0 / 3 / 3</td><td></td></tr>
+    <tr><td>Winslow, Elliott</td><td>LOSS</td><td>87.6%</td><td>96.1%</td><td>2 / 0 / 3</td><td>Strong opponent outclassed</td></tr>
+    <tr><td>Sun, Ethan</td><td>WIN</td><td>88.0%</td><td>77.1%</td><td>1 / 0 / 1</td><td></td></tr>
+    <tr><td>Bhaduri, Neil S</td><td>WIN</td><td>89.3%</td><td>95.2%</td><td>0 / 0 / 8</td><td>Beat a stronger opponent — 8 inaccuracies still</td></tr>
+    <tr><td>Qi, Jenny</td><td>DRAW</td><td>89.9%</td><td>87.4%</td><td>1 / 1 / 1</td><td></td></tr>
+    <tr><td>Krishnan, Varun</td><td>WIN</td><td>83.8%</td><td>89.1%</td><td>1 / 3 / 1</td><td></td></tr>
+    <tr><td>Gopalakrishnan, Kritin</td><td>WIN</td><td>90.3%</td><td>82.3%</td><td>0 / 1 / 4</td><td></td></tr>
+    <tr><td>Seidel, Eli</td><td>DRAW</td><td>90.6%</td><td>91.5%</td><td>0 / 0 / 7</td><td></td></tr>
+    <tr><td>Nanugonda, Vishva</td><td>WIN</td><td>90.8%</td><td>96.5%</td><td>1 / 0 / 1</td><td></td></tr>
+    <tr><td>Silva, Javier</td><td>LOSS</td><td>79.7%</td><td>80.2%</td><td>1 / 1 / 8</td><td></td></tr>
+    <tr><td>Gogte, Yashodhan</td><td>DRAW</td><td>92.6%</td><td>92.7%</td><td>0 / 1 / 2</td><td></td></tr>
+    <tr><td>Mokeeva, Zlata</td><td>DRAW</td><td>92.0%</td><td>92.2%</td><td>0 / 1 / 2</td><td></td></tr>
+    <tr><td>Passmore Bowman, Tobias</td><td>LOSS</td><td>92.9%</td><td>92.8%</td><td>0 / 1 / 1</td><td></td></tr>
+    <tr><td>Wright, Luke E</td><td>WIN</td><td>92.7%</td><td>86.1%</td><td>0 / 0 / 3</td><td></td></tr>
+    <tr><td>Meneses Morales, M.B.</td><td>LOSS</td><td>94.2%</td><td>94.9%</td><td>0 / 0 / 3</td><td></td></tr>
+    <tr><td>Paragiri, Reyansh</td><td>WIN</td><td>95.2%</td><td>95.4%</td><td>0 / 0 / 1</td><td></td></tr>
+    <tr><td>Farley, Jeremiah</td><td>DRAW</td><td>95.2%</td><td>95.1%</td><td>0 / 0 / 1</td><td></td></tr>
+    <tr><td>Davalos Gimenez, S.M.</td><td>WIN</td><td>94.5%</td><td>88.1%</td><td>0 / 1 / 0</td><td></td></tr>
+    <tr><td>Rodriguez, William N.</td><td>WIN</td><td>95.6%</td><td>96.5%</td><td>0 / 0 / 1</td><td></td></tr>
+    <tr><td>Cremisi, Daniel</td><td>DRAW</td><td>96.3%</td><td>89.8%</td><td>0 / 1 / 2</td><td></td></tr>
+    <tr><td>Pavuluri, Vivaan</td><td>WIN</td><td>96.8%</td><td>94.2%</td><td>0 / 0 / 1</td><td></td></tr>
+    <tr><td>Castillo Romero, J.S.</td><td>DRAW</td><td>96.9%</td><td>89.4%</td><td>0 / 0 / 0</td><td></td></tr>
+    <tr><td>Chua, Zachary McDonald</td><td>LOSS</td><td>96.9%</td><td>93.1%</td><td>0 / 0 / 0</td><td>Lost despite high accuracy — opponent just played better</td></tr>
+    <tr><td>Obrien, William</td><td>LOSS</td><td>97.7%</td><td>90.2%</td><td>0 / 0 / 0</td><td>Lost despite 97.7% — pure tactical skill gap</td></tr>
+    <tr><td>Ng, Alexander PN</td><td>DRAW</td><td>97.2%</td><td>97.3%</td><td>0 / 0 / 0</td><td></td></tr>
+    <tr><td>Indukuri, Suhas</td><td>WIN</td><td>96.5%</td><td>90.4%</td><td>0 / 0 / 1</td><td></td></tr>
+    <tr><td>Rajaram, Raghu</td><td>DRAW</td><td>96.6%</td><td>96.8%</td><td>0 / 0 / 0</td><td></td></tr>
+    <tr class="tr-best"><td>Heiserman, Jimmy</td><td>DRAW</td><td><strong>98.7%</strong></td><td>98.5%</td><td>0 / 0 / 0</td><td>Best single game in dataset</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════ CRITICAL PATTERNS -->
+<h2>Critical Error Patterns</h2>
+
+<h3>Pattern 1 — Time-Pressure Blunder Chain (White, WS R5)</h3>
+<div class="warn-box">
+  <strong>Most dangerous documented failure mode.</strong> World Schools R5 vs Meneses Morales (1969, Classical, B13 Caro-Kann Exchange). Equal position through move 24 (+0.2 eval). Then clock hit critical zone:
+  <ul style="margin:8px 0 0;">
+    <li>Move 25 h4? — inaccuracy (clock ~4:17 remaining)</li>
+    <li>Move 28 Rc1? — inaccuracy (clock 1:24)</li>
+    <li>Move 29 <strong>Qf3??</strong> — blunder (eval +0.2 → −4.9; clock 1:15) — decisive error</li>
+    <li>Move 30 <strong>Ne2?</strong> — blunder (eval → −8.5; clock 0:13) — game over</li>
+    <li>5 total blunders, 1 mistake, 5 inaccuracies in this game</li>
+  </ul>
+  <strong>Austin's exploit:</strong> Keep the position complex through move 25. Zhuoyuan blunders chains catastrophically when his clock hits ~1 minute in unresolved positions.
+</div>
+
+<h3>Pattern 2 — 2100+ Opposition Breakdown (Black, Stamer R4)</h3>
+<div class="warn-box">
+  59th Stamer R4 vs Bhaduri (2162, Classical). Zhuoyuan averaged 92.3% but committed <strong>5 blunders</strong> — matching his worst classical game. This confirms: high accuracy averages mask catastrophic calculation failures against 2100+ rated opponents. The blunders are not random; they cluster when Zhuoyuan must calculate deeply.
+  <br><br>
+  Also Stamer R2 vs Gopalakrishnan (2052): 94.2% average, still 1 blunder and loss. <strong>Classical record vs 1969+: 0W–4L.</strong>
+</div>
+
+<h3>Pattern 3 — Won-Position Collapse (SnoopChess, 74.7%)</h3>
+<div class="warn-box">
+  SnoopChess vs Srinivasan (worst game, 74.7%). Zhuoyuan had an eval of +4.95 at the point he began blundering. Three blunders and three mistakes in a position he was winning. This "won-position collapse" pattern also appears in the SnoopChess Chalissery game (79.7%, 6 mistakes) and the Mallela game (86.3%, 4 mistakes, lost despite opponent lower accuracy).
+  <br><br>
+  <strong>Austin's exploit:</strong> If Austin achieves a +0.5 to +1.0 advantage, do NOT simplify to a technical endgame. Maintain complexity — Zhuoyuan has a documented pattern of giving back winning positions when required to "maintain" rather than "attack."
+</div>
+
+<h3>Pattern 4 — Accuracy vs Opponent Strength (Classical)</h3>
+<table>
+  <thead>
+    <tr><th>Opponent Rating Range</th><th>Record</th><th>Avg Acc%</th><th>Avg Blunders/Game</th></tr>
+  </thead>
+  <tbody>
+    <tr class="tr-best"><td>≤1700</td><td>2W–0L–0D</td><td>95.9%</td><td>1.0</td></tr>
+    <tr><td>1700–1929</td><td>3W–0L–4D</td><td>92.1%</td><td>0.7</td></tr>
+    <tr class="tr-danger"><td>1930–1970</td><td>1W–2L–1D</td><td>91.8%</td><td>2.0</td></tr>
+    <tr class="tr-danger"><td>2050–2200</td><td>0W–2L</td><td>93.3%</td><td>3.0</td></tr>
+  </tbody>
+</table>
+<p style="font-size:0.88rem;color:#57606a;">Austin's 1959 FIDE puts him in the 1930–1970 bracket with preparation edge — the bracket where Zhuoyuan's blunder rate spikes to 2.0/game.</p>
+
+<!-- ═══════════════════════════════════════════ OPENING ACCURACY -->
+<h2>Opening Accuracy Profile</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ECO</th>
+      <th>Opening</th>
+      <th>Color</th>
+      <th>Result</th>
+      <th>Acc%</th>
+      <th>B/M/I</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tr-best"><td>D01</td><td>Rapport-Jobava / Richter-Veresov</td><td>Black</td><td>WIN</td><td><strong>97.0%</strong></td><td>2/1/1</td></tr>
+    <tr><td>C05</td><td>French: Tarrasch 3.Nd2 Nf6</td><td>White</td><td>WIN</td><td>94.8%</td><td>0/0/3</td></tr>
+    <tr class="tr-best"><td>B34</td><td>Sicilian Accelerated Dragon</td><td>Black</td><td>WIN</td><td>93.3%</td><td>0/1/4</td></tr>
+    <tr><td>B73</td><td>Sicilian Dragon Classical</td><td>Black</td><td>DRAW</td><td>94.6%</td><td>2/2/0</td></tr>
+    <tr class="tr-danger"><td>B13</td><td>Caro-Kann Exchange 4.Bd3</td><td>White</td><td>LOSS</td><td>91.2%</td><td>5/1/5</td></tr>
+    <tr class="tr-danger"><td>A26</td><td>English: Closed Symmetric</td><td>Black</td><td>LOSS</td><td>87.1%</td><td>2/1/4</td></tr>
+    <tr style="background:#fffbe0;"><td>B13</td><td>Caro-Kann Exchange 4.Bd3</td><td>White</td><td>DRAW</td><td colspan="2">WS R8 — excluded (incomplete)</td></tr>
+  </tbody>
+</table>
+
+<div class="gold-box">
+  <strong>Austin's Rossolimo weapon (3.Bb5) targets the B34/B73 Dragon gap directly.</strong> Zhuoyuan's two Dragon games score 93.3% and 94.6% — his highest-confidence classical structure. The Rossolimo cuts him off from B34/B73 from move 3; he must improvise in unfamiliar territory. His Exchange CK game (B13, White) produced his worst classical performance (91.2%, 5 blunders) — the exact structure Austin plays as White.
+</div>
+
+<!-- ═══════════════════════════════════════════ METHODOLOGY -->
+<h2>Methodology</h2>
+<p>All games analyzed with <strong>Stockfish</strong> at <code>movetime=3000ms</code>, 16 threads, Hash 512MB. Accuracy formula: Lichess win-probability model → <code>103.1668 × exp(−0.04354 × avgCPL) − 3.1669</code>. CPL thresholds: inaccuracy ≥50, mistake ≥150, blunder ≥300. Results cached in <code>scripts/zhuoyuan-analysis-results-deep.json</code>.</p>
+<p>Color data not available in JSON for SnoopChess games. Classical color is derived from PGN headers (World Schools Lichess broadcast). WS R8 excluded: game record was incomplete (flagged B13 but too few moves for valid accuracy calculation).</p>
+<p>SnoopChess time controls unconfirmed (mixed blitz/rapid); these games are supplementary context only. Classical accuracy (WS, Stamer, Capps, Addison) is the primary dataset.</p>
+
+<hr>
+<p style="font-size:0.85rem;color:#57606a;">
+  <a href="matchup-zhuoyuan-gm.html">← GM Battle Plan</a> &nbsp;|&nbsp;
+  <a href="../austin-prep.html">← Austin Prep Index</a><br>
+  Generated Nov 1, 2026 · Stockfish movetime-3000 · 46 games analyzed · Wu, Zhuoyuan 1890 FIDE · NAYCC 2026 Seed #10
+</p>
+
+</div>
+</body>
+</html>

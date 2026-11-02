@@ -148,7 +148,7 @@ Full pipeline = analysis.md + matchup.md + matchup.html + deep analysis JSON + d
 | Tarun Sankar | 1984 | ✅ P5 | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
 | Aarush Ajith | 1943 | ✅ P6 | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
 | Emerson Johnson | 1909 | ✅ P7 | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
-| Zhuoyuan Wu | 1890 | ✅ P8 | ✅ | ⚠️ basic only | ⚠️ in progress | ❌ | ❌ | Deep HTML + white/black + GM HTML still needed |
+| Zhuoyuan Wu | 1890 | ✅ P8 | ✅ | ⚠️ basic only | ✅ | ❌ | ✅ | white/black matchup HTMLs still needed |
 | Daniel H. Gamboa | 1753 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
 | Yaen Saenz | 1841 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
 | Pablo De Alba | 1873 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Full pipeline done |
