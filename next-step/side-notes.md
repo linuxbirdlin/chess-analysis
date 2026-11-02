@@ -193,7 +193,9 @@ Full pipeline = analysis.md + matchup.md + matchup.html + deep analysis JSON + d
 |---|---|---|---|
 | 🔴 1 | **Taimanov drill** — 10 rapid games reaching 6.Ndb5 d6! and 6.Be3 Bb4! positions; verify d6! is reflexive | Austin | Nov 3–4 |
 | 🔴 2 | **Batrikov (6.g4) + Maróczy (5.c4) drill** — 3 hrs total; learn d6→Nd7 plan and d6/Be7/O-O/a5 bind break | Austin | Nov 3–4 |
-| 🔴 3 | **Contact Vadim** — schedule session before Nov 5; priority: Lucena bridge-building + Batrikov Variation | Austin/family | Nov 3 |
+| 🔴 3 | **Contact Vadim** — schedule 3 sessions before Nov 9; detailed plan in `next-step/vadim-sessions.html` | Austin/family | Nov 3 |
 | 🟡 4 | **Confirm round schedule** — check FIDE Event 496177 for double-round days and tiebreak system | Austin/family | Before Nov 9 |
 | 🟡 5 | **Bxh7+ recognition drill** — 10 Exchange CK positions with Bd3; instant-check habit (30 min, Day 2) | Austin | Nov 4–5 |
 | 🟢 6 | **Pack altitude essentials** — ibuprofen, melatonin, electrolyte packets, 2 water bottles for flight | Family | Nov 9 |
+
+**Vadim session plan created:** `next-step/vadim-sessions.html` covers all 3 sessions with exact move trees, FEN positions, drill protocols, and the 3-question Bxh7+ checklist. Share directly with Vadim before scheduling.

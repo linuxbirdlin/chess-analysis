@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin — Vadim Coaching Sessions: 3-Session Drill Plan</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 960px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #1a2a5e; padding-bottom: 20px; margin-bottom: 36px; }
+    .doc-header h1 { margin: 0 0 6px; font-size: 1.9rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1.05rem; color: #1a2a5e; font-weight: 600; margin: 0 0 10px; }
+    .doc-header .meta { font-size: 0.88rem; color: #57606a; }
+
+    h2.session-head { font-size: 1.25rem; margin: 48px 0 12px; padding: 14px 20px; border-radius: 8px; color: #fff; }
+    h2.s1 { background: #1a5c30; }
+    h2.s2 { background: #7a3f00; }
+    h2.s3 { background: #6b0000; }
+    h2.s1 .snum, h2.s2 .snum, h2.s3 .snum { font-size: 0.75rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px; margin-right: 10px; font-weight: 400; vertical-align: middle; }
+
+    h3 { font-size: 1.05rem; color: #1f2328; margin: 28px 0 8px; padding-bottom: 5px; border-bottom: 1px solid #d0d7de; }
+    h4 { font-size: 0.97rem; color: #444; margin: 18px 0 6px; font-weight: 700; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+    li { margin-bottom: 4px; }
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 36px 0; }
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 0.875em; background: #f0f4f8; border: 1px solid #d0d7de; border-radius: 4px; padding: 1px 5px; white-space: nowrap; }
+    a { color: #1a5276; }
+
+    .warn-box { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0 14px; font-size: 0.91rem; color: #7a0000; }
+    .tip-box  { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0 14px; font-size: 0.91rem; color: #1a4731; }
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0 14px; font-size: 0.91rem; color: #1a3a55; }
+    .gold-box  { background: #fffbe6; border-left: 4px solid #c08000; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0 14px; font-size: 0.91rem; color: #5a3800; }
+    .purple-box { background: #f4f0ff; border-left: 4px solid #5b2d8e; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 10px 0 14px; font-size: 0.91rem; color: #3b1a5e; }
+
+    .cardinal { background: #fff0f0; border: 3px solid #cf2222; border-radius: 8px; padding: 14px 20px; margin: 16px 0; font-size: 1.02rem; }
+    .cardinal strong { color: #8b0000; }
+
+    .moves { background: #1e2330; color: #c9d1d9; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.83rem; padding: 14px 18px; border-radius: 6px; margin: 10px 0 14px; line-height: 2; white-space: pre; overflow-x: auto; }
+    .moves .good { color: #79c0ff; font-weight: 700; }
+    .moves .bad  { color: #ff7b72; font-weight: 700; text-decoration: line-through; }
+    .moves .key  { color: #ffa657; font-weight: 700; }
+    .moves .cmt  { color: #8b949e; font-style: italic; }
+
+    .drill-card { border: 2px solid #d4a017; border-radius: 8px; background: #fffef0; padding: 16px 20px; margin: 18px 0; }
+    .drill-card h4 { color: #7a4f00; margin-top: 0; font-size: 1rem; }
+    .drill-steps { counter-reset: drill; list-style: none; padding: 0; margin: 8px 0 0; }
+    .drill-steps li { counter-increment: drill; display: flex; gap: 10px; margin-bottom: 8px; font-size: 0.91rem; }
+    .drill-steps li::before { content: counter(drill); min-width: 24px; height: 24px; background: #c08000; color: #fff; border-radius: 50%; font-size: 0.78rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+
+    .fen-box { background: #0d1117; color: #79c0ff; font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.8rem; padding: 10px 14px; border-radius: 6px; margin: 8px 0 14px; word-break: break-all; }
+    .fen-label { font-size: 0.75rem; color: #57606a; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; }
+
+    .session-overview { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 24px 0; }
+    @media (max-width: 680px) { .session-overview { grid-template-columns: 1fr; } }
+    .overview-card { border-radius: 8px; padding: 14px 16px; }
+    .ov1 { background: #e6f4ea; border: 1px solid #90d0a0; }
+    .ov2 { background: #fff4e6; border: 1px solid #e8c090; }
+    .ov3 { background: #fff0f0; border: 1px solid #e8b0b0; }
+    .overview-card .ov-num { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+    .ov1 .ov-num { color: #1a5c30; }
+    .ov2 .ov-num { color: #7a3f00; }
+    .ov3 .ov-num { color: #8b0000; }
+    .overview-card .ov-title { font-size: 0.95rem; font-weight: 700; color: #1f2328; margin-bottom: 4px; }
+    .overview-card .ov-meta { font-size: 0.82rem; color: #57606a; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 12px 0 18px; }
+    thead th { background: #1f2328; color: #fff; padding: 7px 12px; text-align: left; font-weight: 600; }
+    tbody tr:nth-child(odd)  { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody td { padding: 7px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+
+    .checklist { list-style: none; padding: 0; margin: 10px 0; }
+    .checklist li { padding: 5px 0 5px 28px; position: relative; font-size: 0.91rem; border-bottom: 1px solid #f0f0f0; }
+    .checklist li::before { content: "□"; position: absolute; left: 6px; color: #cf2222; font-weight: 700; }
+    .checklist li:last-child { border-bottom: none; }
+
+    .resource-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 10px 0 16px; }
+    .resource-tag { background: #f0f4ff; border: 1px solid #c0d0f0; color: #1a3a8e; border-radius: 6px; padding: 5px 12px; font-size: 0.83rem; font-weight: 600; white-space: nowrap; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Vadim Coaching Sessions — 3-Session Drill Plan</h1>
+    <div class="subtitle">Austin Lin · NAYCC 2026 Pre-Tournament · Nov 3–9, Mexico City Nov 10</div>
+    <div class="meta">For Vadim Razin · Three targeted sessions covering the three highest-priority gaps identified by engine analysis · Each session is self-contained and drillable</div>
+  </div>
+
+  <div class="info-box">
+    <strong>Context for Vadim:</strong> Austin's NAYCC 2026 prep package is complete for all 9 opponents. The three remaining gaps are not opening knowledge gaps — they are <em>reflex and recognition gaps</em>. Austin knows the theory. What's missing is the habit: (1) playing d6! in under 2 seconds, (2) knowing what to do in Batrikov/Maróczy structures he hasn't faced before, and (3) automatically checking for Bxh7+ before every move in Exchange CK positions. These three sessions build those habits through repetition, not explanation.
+  </div>
+
+  <div class="session-overview">
+    <div class="overview-card ov1">
+      <div class="ov-num">Session 1 · Nov 3–4</div>
+      <div class="ov-title">Taimanov Cardinal Rules</div>
+      <div class="ov-meta">6.Ndb5 → d6! · 6.Be3 → Bb4! · English Attack race · ~75 min</div>
+    </div>
+    <div class="overview-card ov2">
+      <div class="ov-num">Session 2 · Nov 5–6</div>
+      <div class="ov-title">Batrikov + Maróczy</div>
+      <div class="ov-meta">6.g4 plan · 5.c4 bind break · Nd5 response · ~75 min</div>
+    </div>
+    <div class="overview-card ov3">
+      <div class="ov-num">Session 3 · Nov 7–8</div>
+      <div class="ov-title">Bxh7+ Recognition Drill</div>
+      <div class="ov-meta">3-question checklist · 10 pattern positions · "Before every move" habit · ~60 min</div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════ SESSION 1 ════════════════════════════════════ -->
+  <h2 class="session-head s1"><span class="snum">SESSION 1</span> Taimanov Cardinal Rules — 6.Ndb5 → d6! and 6.Be3 → Bb4!</h2>
+
+  <div class="gold-box">
+    <strong>Why this session exists:</strong> Austin blundered in a rated game (PAM R7) by playing 6...Bc5?? instead of 6...d6! — the cardinal error that costs the game immediately. At NAYCC, Fernando (2085), Pranav (1922), Zhuoyuan (1890), and Emerson (1909) all open 1.e4. The Taimanov tabiya will arise in multiple games. Austin must respond to 6.Ndb5 with d6! and to 6.Be3 with Bb4! in under 2 seconds each. The goal of this session is not explanation — it's repetition until the response is automatic.
+  </div>
+
+  <h3>The Taimanov Tabiya</h3>
+  <p>Every drill in this session starts from this position:</p>
+  <div class="moves">1.e4 c5  2.Nf3 e6  3.d4 cxd4  4.Nxd4 Nc6  5.Nc3 Nf6
+<span class="cmt">  ← Taimanov Sicilian. White must now choose a 6th move.</span></div>
+
+  <div class="fen-label">Lichess FEN — paste into lichess.org/analysis</div>
+  <div class="fen-box">r1bqkb1r/pp1p1ppp/2n1pn2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 3 6</div>
+
+  <h3>Drill A — 6.Ndb5: The Cardinal Rule</h3>
+
+  <div class="cardinal">
+    <strong>RULE: 6.Ndb5 → play 6...d6! in under 2 seconds. Zero thinking required.</strong><br/>
+    This is not a calculation. It is a reflex. The move d6! blocks the Nd6+ fork forever. Nothing else matters on this move.
+  </div>
+
+  <h4>Why 6.Ndb5 is threatening</h4>
+  <p>The Ndb5 aims for <code>Nd6+</code> — a knight fork winning the rook on a8 (if the king hasn't castled) or creating a permanent dominant outpost. White also threatens <code>Nxe6!</code> forkng the queen and bishop if Black is careless. Only <code>6...d6!</code> permanently stops both ideas.</p>
+
+  <h4>Why NOT 6...Bc5?? — The PAM R7 Blunder</h4>
+  <div class="warn-box">
+    <strong>6...Bc5?? loses immediately.</strong> After <code>7.Bf4! O-O 8.Bc7!</code> — the bishop lands on c7 attacking the queen on d8. The queen must move, and White then plays <code>9.Nd6!</code> with a dominant knight that cannot be removed. The position is fundamentally broken. This is exactly what happened in PAM R7.
+  </div>
+
+  <h4>Main line after 6...d6! — the queenside roller</h4>
+  <div class="moves">6.Ndb5  <span class="good">d6!</span>         <span class="cmt">← INSTANT. Clock cost: 0 seconds.</span>
+7.Bf4   e5
+8.Bg5   a6          <span class="cmt">← kick the Nb5</span>
+9.Na3   b5          <span class="cmt">← Na3 is stuck on the rim — "a knight on the rim is dim"</span>
+10...   <span class="key">b4!</span>         <span class="cmt">← kick it further. Na3 is permanently offside.</span>
+11...   Bb7         <span class="cmt">← complete the bishop battery</span>
+12...   Rc8         <span class="cmt">← rook on open file, queenside pressure</span>
+<span class="cmt">Plan: ...Nd4 → ...Nxe2+ or ...Nc2+ fork ideas. White's Na3 never returns to the game.</span></div>
+
+  <h4>If White plays 7.N1c3 (instead of 7.Bf4)</h4>
+  <div class="moves">6.Ndb5  d6!
+7.N1c3  a6
+8.Na3   b5          <span class="cmt">← same queenside expansion. The Na3 ends up on the rim regardless.</span>
+9...    Bb7 ...Rc8  <span class="cmt">← standard queenside roller</span></div>
+
+  <div class="tip-box">
+    <strong>Key insight:</strong> In every 6.Ndb5 line, White's knight ends up on a3 after ...a6. A knight on a3 is the worst piece in chess — it takes 3+ moves to reactivate. Austin's queenside expansion wins the battle of tempi every time.
+  </div>
+
+  <div class="drill-card">
+    <h4>Vadim Drill A — 15 minutes</h4>
+    <ul class="drill-steps">
+      <li>Set up the tabiya (FEN above). Vadim plays 6.Ndb5. Austin plays 6...d6! — measure response time. Goal: under 2 seconds.</li>
+      <li>Repeat 6.Ndb5 → 6...d6 ten times in a row. No discussion between repetitions. Build reflex.</li>
+      <li>Play through main line: 7.Bf4 e5 8.Bg5 a6 9.Na3 b5 10...b4! — Austin narrates the plan ("Na3 is stuck, I'm pushing queenside").</li>
+      <li>Vadim plays 7.N1c3 as a variation. Austin plays ...a6 ...b5 → same structure.</li>
+      <li>Test: Vadim plays the illegal attempt 6...Bc5 (shows Austin what NOT to play), then shows the 7.Bf4 Bc7 refutation briefly.</li>
+    </ul>
+  </div>
+
+  <h3>Drill B — 6.Be3: The Pin Response</h3>
+
+  <div class="cardinal">
+    <strong>RULE: 6.Be3 → play 6...Bb4! immediately. Pin the Nc3.</strong><br/>
+    The Nc3 is the key defensive piece — it supports the Nd4 AND controls d5. Pinning it with Bb4 creates instant problems for White. This is the same idea as Austin's Nimzo-Indian: pin the knight on c3 before it takes over.
+  </div>
+
+  <h4>Why 6...Bb4! is the best move</h4>
+  <p>The Be3 is move 1 of the English Attack (Be3 → f3 → Qd2 → O-O-O → g4). Playing Bb4! immediately disrupts this plan because:</p>
+  <ul>
+    <li>White can no longer play 7.f3 freely — the Nc3 is pinned to the king</li>
+    <li>If White expands with 7.Ndb5 (trying the Ndb5 idea), Austin plays 7...d6 and can respond to a3 with Bxc3+! breaking White's structure</li>
+    <li>86% of master games in the Taimanov recommend Bb4! at this point (from Austin's opening-novelty-trees analysis)</li>
+  </ul>
+
+  <h4>Branch A — 7.Ndb5 (most common)</h4>
+  <div class="moves">6.Be3  <span class="good">Bb4!</span>
+7.Ndb5  d6
+8.a3?   <span class="key">Bxc3+!</span>   <span class="cmt">← take immediately. Knight on c3 becomes awkward.</span>
+9.Nxc3  d5!          <span class="cmt">← central break WHILE White's knight is blocked by bxc3 structure</span>
+10.exd5  Nxd5
+11.Nxd5  Qxd5        <span class="cmt">← Black has active queen + open center. Equal or slightly better.</span></div>
+
+  <div class="tip-box">
+    <strong>The timing principle:</strong> After Bxc3+ and bxc3, White's c-pawns are doubled. The c3 pawn blocks the Nb5's retreat. This is exactly when ...d5! is most powerful — White cannot recapture smoothly.
+  </div>
+
+  <h4>Branch B — 7.f3 (full English Attack)</h4>
+  <div class="moves">6.Be3  Bb4!
+7.f3    <span class="key">Nxd4!</span>     <span class="cmt">← simplify immediately — don't let White build the attack</span>
+8.Bxd4  <span class="key">Bxc3+!</span>   <span class="cmt">← same exchange, get the bishop pair</span>
+9.bxc3         <span class="cmt">← White has doubled c-pawns. Austin has bishop pair.</span>
+9...    e5      <span class="cmt">← kick the Be4 diagonal, claim space</span>
+10.Bd3  d6      <span class="cmt">← solid structure. Play ...Be6 ...Qc7 ...O-O-O (kingside safer here)</span>
+<span class="cmt">Plan: ...Be6 ...Nd7 ...Nc5 targeting the c3 pawn chain. Bishop pair shines in open positions.</span></div>
+
+  <div class="info-box">
+    <strong>Why Nxd4! first?</strong> After 7.f3, White threatens 8.g4-g5 launching the full kingside attack. By playing 7...Nxd4! Austin exchanges off the central knight BEFORE White can castle long and begin the attack. The resulting position after bxc3 is structurally sound for Black: bishop pair, c3-pawn weakness, and a playable endgame.
+  </div>
+
+  <h4>Branch C — 7.f3 Nxd4 variation: if White plays 8.Qxd4 (not 8.Bxd4)</h4>
+  <div class="moves">7.f3   Nxd4
+8.Qxd4  e5      <span class="cmt">← attack the queen, gain space</span>
+9.Qd2   <span class="key">Bxc3!</span>  <span class="cmt">← still take the c3 knight — same bishop pair idea</span>
+10.Qxc3  d6     <span class="cmt">← solid. ...Be6 ...Nd7 ...O-O plan.</span></div>
+
+  <div class="drill-card">
+    <h4>Vadim Drill B — 20 minutes</h4>
+    <ul class="drill-steps">
+      <li>Tabiya (FEN above). Vadim plays 6.Be3. Austin plays 6...Bb4! without pause. Goal: under 3 seconds.</li>
+      <li>Branch A: Vadim plays 7.Ndb5 d6 8.a3. Austin plays Bxc3+! 9.Nxc3 d5! — verbalize: "I'm breaking in the center while his knight structure is weakened."</li>
+      <li>Branch B: Vadim plays 7.f3. Austin plays 7...Nxd4! 8.Bxd4 Bxc3+ 9.bxc3 e5. Play this out 5 moves each to feel the bishop pair structure.</li>
+      <li>Test: Vadim alternates 6.Ndb5 and 6.Be3 randomly. Austin must play d6! or Bb4! without pausing to identify which is which. 10 repetitions.</li>
+    </ul>
+  </div>
+
+  <h3>Bonus — English Attack Full Race (when Austin plays ...a6 instead of ...Bb4)</h3>
+  <p>Against Fernando (the primary English Attack user), Austin may choose the practical ...a6 ...b5 plan instead of the theoretical Bb4! move. This plan must be complete by move 12 or Austin loses the race.</p>
+
+  <div class="moves">6.Be3  a6        <span class="cmt">← preparing ...b5 without allowing Ndb5</span>
+7.f3   b5        <span class="cmt">← queenside expansion starts NOW, not later</span>
+8.Qd2  Bb7
+9.O-O-O  Rc8    <span class="cmt">← rook on c-file BEFORE White plays g4</span>
+10.g4  <span class="key">Nd4!</span>      <span class="cmt">← attack the Qd2, complicate before White's g5</span>
+<span class="cmt">The RACE: Austin's ...b4 must land before White's g5. If Rc8 is not played by move 12, Austin is too slow.</span></div>
+
+  <div class="warn-box">
+    <strong>Race timing rule:</strong> If you reach move 12 without having played ...Rc8, you have already lost the race. Fernando's kingside attack (g4-g5-h4-h5) is faster than Austin's queenside if the rook is not active. This is non-negotiable.
+  </div>
+
+  <div class="resource-row">
+    <span class="resource-tag">Lichess Practice: lichess.org/practice</span>
+    <span class="resource-tag">Opening Explorer: lichess.org/analysis (master games tab)</span>
+    <span class="resource-tag">ECO B45 — Sicilian Taimanov</span>
+    <span class="resource-tag">Reference: Emms, "The Sicilian Taimanov" (2002)</span>
+  </div>
+
+  <!-- ════════════════════════════════════ SESSION 2 ════════════════════════════════════ -->
+  <h2 class="session-head s2"><span class="snum">SESSION 2</span> Batrikov Variation (6.g4) + Maróczy Bind (5.c4)</h2>
+
+  <div class="gold-box">
+    <strong>Why this session exists:</strong> Three NAYCC opponents can walk Austin into positions he has never studied: Fernando (2085) may play 6.g4 Batrikov, Pranav (1922) uses the Maróczy Bind as his main Taimanov weapon (observed WY R10), and Inti (2011) plays aggressive Sicilian White setups. Austin has ZERO rapid games from the Batrikov position and zero Maróczy prep confirmed. A 5-minute clock burn on move 6 is irreversible in G/90+30. Both positions have a clear, learnable plan — this session makes those plans automatic.
+  </div>
+
+  <h3>Part A — Batrikov Variation (6.g4): Zero Master Games, Still Dangerous</h3>
+
+  <div class="info-box">
+    <strong>About the name:</strong> This line is sometimes called the "Keres Attack" in the Scheveningen (with ...d6), but in the Taimanov (with ...Nc6 already played), 6.g4 is more accurately the Batrikov Variation. It has zero games in the master database — White is playing a pure gambling attack. If Austin knows the plan, White's g4 gains nothing and the structural concession (weakened f5, h4 squares) benefits Black long-term.
+  </div>
+
+  <div class="cardinal">
+    <strong>RULE: 6.g4 → play 6...d6! (same d6 rule!) Do NOT play 6...h6.</strong><br/>
+    The d6 rule applies regardless of White's 6th move. After d6, the knight has multiple good squares (Nd7, Nh5) and Austin's queenside plan begins normally.
+  </div>
+
+  <h4>Why NOT 6...h6?</h4>
+  <p>After 6...h6, White simply plays 7.h4 and the h-file becomes contested on White's terms. White welcomes the challenge. 6...d6! is better because it doesn't feed White's attack — it instead begins Austin's queenside counter.</p>
+
+  <h4>Main line after 6.g4 d6!</h4>
+  <div class="moves">6.g4   <span class="good">d6!</span>         <span class="cmt">← INSTANT. Same d6 rule.</span>
+7.g5   <span class="good">Nd7</span>         <span class="cmt">← knight retreats safely. Nh5 is also fine.</span>
+8.Be3  a6
+9.Na3  <span class="key">b5!</span>          <span class="cmt">← queenside counter immediately. Na3 stuck on rim again.</span>
+10.Be2  Bb7
+11.O-O  Be7     <span class="cmt">← complete development, castle next move</span>
+12.f4   <span class="key">O-O</span>         <span class="cmt">← castle KINGSIDE despite g5 pawn threat — it's safe</span>
+<span class="cmt">Plan: ...Nc5 → ...Nd4 to attack Qd2 or b2. White's g5 pawn is a long-term weakness, not a strength.</span></div>
+
+  <h4>Alternative: 7...Nh5!? (aggressive counter)</h4>
+  <div class="moves">7.g5   <span class="good">Nh5!?</span>       <span class="cmt">← more dynamic; knight goes to a strong square</span>
+8.Be3  Be7       <span class="cmt">← solid development</span>
+9.Qd2  O-O      <span class="cmt">← king safe, knight on h5 causes g5 to feel overextended</span>
+<span class="cmt">Plan: ...Nf4! jumping to f4 when Be3 is on that square — wins the bishop pair with tempo.</span></div>
+
+  <div class="tip-box">
+    <strong>The strategic truth about 6.g4:</strong> White has moved a kingside pawn twice (g2-g4-g5) before developing pieces. Austin now has two free moves to develop. The g5 pawn becomes a target after ...h6 (later, after development). The f5 square — created by White's g4 — is a permanent outpost for Black's pieces. This line is <em>comfortable</em> for Black with correct play.
+  </div>
+
+  <div class="fen-label">Batrikov position FEN — after 6.g4</div>
+  <div class="fen-box">r1bqkb1r/pp1p1ppp/2n1pn2/8/3NP1P1/2N5/PPP2PPP/R1BQKB1R b KQkq g3 4 6</div>
+
+  <div class="drill-card">
+    <h4>Vadim Drill A — 15 minutes</h4>
+    <ul class="drill-steps">
+      <li>Tabiya FEN (Session 1). Vadim plays 6.g4. Austin plays 6...d6! without pausing. Repeat 5 times.</li>
+      <li>Play through: 7.g5 Nd7 8.Be3 a6 9.Na3 b5! — Austin narrates: "Na3 is stuck, b5 queenside counter starts now."</li>
+      <li>Play through the Nh5 variation: 7.g5 Nh5 8.Be3 Be7 9.Qd2 O-O. Vadim asks: why is the knight on h5 good? Austin answers: "f4 outpost — can jump to f4 attacking the Be3."</li>
+      <li>Vadim alternates 6.Ndb5 / 6.Be3 / 6.g4 randomly. Austin plays d6! or Bb4! or d6! correctly without hesitation. 15 reps.</li>
+    </ul>
+  </div>
+
+  <h3>Part B — Maróczy Bind (5.c4): The 6-Move Structural Plan</h3>
+
+  <p>The Maróczy Bind arises when White plays 5.c4 after 1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 Nf6. (Note: Pranav reaches it via the Taimanov move order — Austin's 5...Nf6 invites 5.c4 specifically because Nc6 is already on the board.)</p>
+
+  <h4>What the Maróczy Bind does</h4>
+  <table>
+    <thead><tr><th>White's pawn structure</th><th>Effect on Black</th><th>Austin's counter</th></tr></thead>
+    <tbody>
+      <tr><td>e4 + c4 pawn chain</td><td>d5 square is permanently controlled — no ...d5 break</td><td>Accept it: build with d6 instead</td></tr>
+      <tr><td>Nd5 threat</td><td>White's best piece is a knight on d5 Austin can't challenge</td><td>Pre-empt with ...Nxd5 exd5 OR block with ...e5 (carefully)</td></tr>
+      <tr><td>Closed queenside</td><td>...b5 requires ...a6 preparation first</td><td>Always ...a6 before ...b5</td></tr>
+    </tbody>
+  </table>
+
+  <div class="cardinal">
+    <strong>THE 6-MOVE PLAN (memorize this sequence):</strong><br/>
+    <code>d6 → g6 → Bg7 → O-O → a6 → b5</code><br/>
+    In that exact order. This is Austin's Maróczy structure. Do NOT deviate.
+  </div>
+
+  <h4>Full drill line</h4>
+  <div class="moves">1.e4 c5  2.Nf3 Nc6  3.d4 cxd4  4.Nxd4 Nf6
+5.c4    <span class="good">d6!</span>         <span class="cmt">← NOT e5, NOT b6, NOT e6. Solid central anchor.</span>
+6.Nc3   <span class="good">g6</span>          <span class="cmt">← fianchetto; the Bg7 will pressure the e4 pawn long-term</span>
+7.f3    <span class="good">Bg7</span>
+8.Be3   <span class="good">O-O</span>         <span class="cmt">← castle BEFORE expanding</span>
+9.Be2   <span class="good">a6</span>          <span class="cmt">← prepares ...b5, stops Na4/Na5 ideas</span>
+10.O-O  <span class="good">Rb8</span>         <span class="cmt">← rook on b-file, ready to support ...b5 push</span>
+11.Qd2  <span class="key">b5!</span>          <span class="cmt">← the break. Challenge the c4 pawn.</span>
+12.cxb5  axb5   <span class="cmt">← open the a-file for ...Ra8 pressure, or recapture with Nd4 after Nb3</span>
+<span class="cmt">Plan: ...Bb7 → ...Nd4 → ...Nc2 or ...Nxe2+ fork ideas on the queenside</span></div>
+
+  <div class="fen-label">Maróczy starting position FEN — after 5.c4</div>
+  <div class="fen-box">r1bqkb1r/pp1p1ppp/2n1pn2/8/2NNP3/8/PPP2PPP/R1BQKB1R b KQkq - 0 5</div>
+
+  <h4>The Nd5 problem — White's main weapon</h4>
+  <p>In the Maróczy, White always wants to play Nd5. When White plays Nd5, Austin should NOT ignore it or play around it. The correct response:</p>
+
+  <div class="moves"><span class="cmt">After White plays Nd5 (usually around move 12–15):</span>
+...     <span class="key">Nxd5!</span>      <span class="cmt">← take it immediately. Don't leave the knight there.</span>
+cxd5 or exd5   <span class="cmt">← recapture. Now the c-file is open for Black's rooks.</span>
+...     Nc5 or Nd7  <span class="cmt">← regroup the knight to a useful square</span>
+<span class="cmt">The resulting IQP/isolated pawn structure is familiar to Austin from Nimzo-Indian experience.</span></div>
+
+  <div class="warn-box">
+    <strong>Do NOT play ...e5 as first move in the Maróczy.</strong> After 5.c4 e5?, White plays 6.Ndb5! and now Nd6+ is a real threat. The d6 square becomes permanently weak. Then 7.Nd5! lands with devastating effect. The e5 move looks natural but is tactically refuted by Nd5.
+  </div>
+
+  <div class="warn-box">
+    <strong>Do NOT play ...b5 before ...a6.</strong> After 5.c4 and Austin plays ...b5 without ...a6 preparation, White plays a4! and the b5 pawn is hanging. Austin loses a pawn with no compensation.
+  </div>
+
+  <div class="tip-box">
+    <strong>Why the fianchetto (g6/Bg7)?</strong> The Bg7 controls the long diagonal and permanently challenges the e4 pawn. White cannot easily play d4 (it's already played). White cannot easily play f4 without weakening g4. The Bg7 is Austin's long-term pressure piece — once it's on g7, it works by itself.
+  </div>
+
+  <div class="drill-card">
+    <h4>Vadim Drill B — 25 minutes</h4>
+    <ul class="drill-steps">
+      <li>Tabiya FEN (Session 1). Vadim plays 5.c4. Austin plays the 6-move plan from memory: d6, g6, Bg7, O-O, a6, b5. Verbalize each move's purpose as you play it.</li>
+      <li>Vadim plays Nd5 on move 12. Austin plays Nxd5 cxd5 immediately without pausing. Then continues plan with ...Nc5 or ...Nd7 regrouping.</li>
+      <li>Play a full rapid game from the Maróczy position (Austin Black, Vadim White). Vadim plays normal Maróczy setups. Goal: reach move 20 with ...b5 played and rooks active.</li>
+      <li>Vadim tests: "What do you do if I play a4 before you've played ...a6?" Austin answers: "b4!" (closing the queenside) — ...b4 after a4 is the correct counter since a4 cedes the b4 square.</li>
+    </ul>
+  </div>
+
+  <div class="resource-row">
+    <span class="resource-tag">ECO B36/B38 — Sicilian Maróczy Bind</span>
+    <span class="resource-tag">ECO B43 — Batrikov in Taimanov context</span>
+    <span class="resource-tag">Reference: Ftáčnik, "Sicilian Maróczy Bind" (ChessBase)</span>
+    <span class="resource-tag">Lichess: search B36 in opening explorer</span>
+  </div>
+
+  <!-- ════════════════════════════════════ SESSION 3 ════════════════════════════════════ -->
+  <h2 class="session-head s3"><span class="snum">SESSION 3</span> Bxh7+ Greek Gift — Recognition Before Calculation</h2>
+
+  <div class="gold-box">
+    <strong>Why this session exists (engine data):</strong> In 32 personal study games, Austin missed the Bxh7+ sacrifice in exactly 4 positions, each time dropping from a winning position to equality. The losses represent approximately 600–1000 CPL each. This is NOT a calculation failure — Austin can calculate Bxh7+ correctly once he starts. The problem is that Austin is not <em>noticing</em> the pattern is available before choosing his move. A GM doesn't calculate every possibility from scratch — they first recognize the pattern, then calculate. This session builds the recognition reflex.
+  </div>
+
+  <h3>The Greek Gift Sacrifice — Complete Pattern</h3>
+
+  <h4>Required conditions (all four must be present)</h4>
+  <table>
+    <thead><tr><th>Condition</th><th>Check for</th><th>Common position</th></tr></thead>
+    <tbody>
+      <tr><td>1. Bishop on the diagonal</td><td>White's bishop on d3 (or c2, e4) with clear line to h7</td><td>Exchange CK: Bd3 after 4.Bd3</td></tr>
+      <tr><td>2. Knight reachable to g5</td><td>White's knight on f3 (or e5) can jump to g5 next move</td><td>Nf3 is standard in Exchange CK</td></tr>
+      <tr><td>3. Queen can reach h5</td><td>White's queen is NOT blocked from h5 (by own pieces)</td><td>Qe2 or Qd1 → h5 in 1–2 moves</td></tr>
+      <tr><td>4. Black's king exposed</td><td>King castled g8, pawn on h7 (NOT h6 — h6 blocks the sacrifice!)</td><td>Standard short castle with h7 intact</td></tr>
+    </tbody>
+  </table>
+
+  <div class="cardinal">
+    <strong>THE 3-QUESTION CHECKLIST — run this BEFORE every move when ahead by +2 or more:</strong><br/>
+    Q1: Is my bishop pointing at h7 with a clear diagonal?<br/>
+    Q2: Can my knight reach g5 in one move?<br/>
+    Q3: Can my queen reach h5 or d3-h7 diagonal after Ng5+?<br/>
+    If YES to all three → STOP and calculate Bxh7+ before playing anything else.
+  </div>
+
+  <h4>The standard Bxh7+ combination — full calculation</h4>
+  <div class="moves"><span class="cmt">Position: Austin has Bd3, Nf3, Queen available. Black king on g8, pawn on h7.</span>
+
+<span class="key">Bxh7+!</span>          <span class="cmt">← sacrifice the bishop. White gives up 3 points to win by force.</span>
+Kxh7             <span class="cmt">← Black must take. If Kh8, Ng5 with Qh5 threat anyway — still winning.</span>
+<span class="key">Ng5+</span>            <span class="cmt">← NOW the knight comes in with check. This is the point of Bxh7+.</span>
+
+Continuation A — Kg8:
+<span class="key">Qh5!</span>           <span class="cmt">← queen goes to h5. Two threats: Qxh7# and Qxf7#</span>
+  ...if h6:  <span class="key">Nxf7!</span>     <span class="cmt">← fork Qd8 and Rh8. Decisive.</span>
+  ...if Nxg5: <span class="key">Qxf7+ Kh8 Qh5#</span>  <span class="cmt">← or similar forced mate</span>
+
+Continuation B — Kg6:
+<span class="key">Qg4!</span> (or h4-h5)  <span class="cmt">← trap the king. Threatens f4-f5# mate net.</span>
+  h5:  <span class="key">Qf3!</span>         <span class="cmt">← or Qh3, threatening Qh4-f6 with inevitable mate</span>
+
+Continuation C — Kh6:
+<span class="key">Nxe6+!</span>         <span class="cmt">← don't go back. Fork the king and queen.</span>
+  Kxg5:  <span class="key">Qd2+ Kh4 g3#</span>  <span class="cmt">← or other forced mate lines</span></div>
+
+  <h4>Austin's 4 documented missed Bxh7+ positions</h4>
+  <table>
+    <thead><tr><th>Game</th><th>What Austin played</th><th>Correct move</th><th>Eval shift</th><th>CPL</th></tr></thead>
+    <tbody>
+      <tr><td>vs Zachary Liu (B46)</td><td>Qh5 (half-measure)</td><td><strong>Bxh7+!</strong></td><td>+3.79 → −0.03</td><td>382</td></tr>
+      <tr><td>vs Maulucci (White) #1</td><td>Rxb7</td><td><strong>Bxh7+!</strong></td><td>#1 → +8.43</td><td>1000</td></tr>
+      <tr><td>vs Maulucci (White) #2</td><td>Bh6</td><td><strong>Bxh7+!</strong></td><td>#1 → +11.06</td><td>1000</td></tr>
+      <tr><td>vs Rudra Sheth (White)</td><td>Qd4</td><td><strong>Bxh7+!</strong></td><td>+7.68 → +1.89</td><td>579</td></tr>
+    </tbody>
+  </table>
+
+  <div class="purple-box">
+    <strong>Pattern analysis:</strong> In all 4 cases, Austin's bishop was already on d3, pointing directly at h7. Austin had the pieces in position — he just didn't notice. The move Austin played (Qh5, Bh6, Qd4, Rxb7) was always a "natural-looking" move that seemed strong. The lesson: when a natural move exists, Austin stops looking. The 3-question checklist prevents this by forcing a deliberate check before the "natural" move is played.
+  </div>
+
+  <h4>Exchange CK — the primary Bxh7+ factory</h4>
+  <p>Austin's Exchange Caro-Kann setup (1.e4 c6 2.d4 d5 3.exd5 cxd5 4.Bd3 Nc6 5.c3 Nf6 6.Bf4) places the bishop on d3 by move 4. This is Austin's standard opening as White — meaning Bxh7+ is <em>always</em> a possibility against anyone who castles kingside.</p>
+
+  <div class="moves"><span class="cmt">Standard Exchange CK position where Bxh7+ will arise:</span>
+1.e4 c6  2.d4 d5  3.exd5 cxd5  4.Bd3 Nc6  5.c3 Nf6  6.Bf4 Bg4  7.Qb3 Qd7
+8.Nd2 e6  9.Ngf3 Bd6  10.h3 Bh5
+
+<span class="cmt">Position: White has Bd3 pointing at h7, Nf3, and Queen on b3 (not ideal for h5 but Qe2 coming).</span>
+<span class="cmt">Next moves: 11.O-O O-O 12.Qe2</span>
+<span class="cmt">Now check: Bd3 diagonal clear? ✓   Nf3 can reach g5? ✓   Qe2 can go to h5? ✓   h7 exposed? ✓</span>
+<span class="key">Bxh7+!</span> is available — must be calculated before any other move.</div>
+
+  <div class="fen-label">Exchange CK drill position FEN — after 10...Bh5</div>
+  <div class="fen-box">r3k2r/pp1q1ppp/2nbpn2/3p3b/3P1B2/2PB1N1P/PP1NQP2/R3K2R w KQkq - 2 11</div>
+
+  <div class="drill-card">
+    <h4>Vadim Drill — 30 minutes</h4>
+    <ul class="drill-steps">
+      <li><strong>Pattern test (10 positions):</strong> Vadim sets up 10 Exchange CK or Italian positions with Bd3 on the board. For each, Austin answers "Is Bxh7+ available? YES or NO" in under 10 seconds — no calculation yet, just pattern recognition. Time Austin. Goal: all 10 correct.</li>
+      <li><strong>Calculation drill (YES positions):</strong> For every YES position, Austin verbally walks through the full 3-continuation tree (Kg8, Kg6, Kh6) before touching a piece. Goal: 3 full verbalizations per position.</li>
+      <li><strong>Real game replay:</strong> Vadim loads the Zachary Liu B46 position (eval +3.79). Austin plays from that point — must play Bxh7+! (not Qh5). Calculate the full winning line. This is an exact position from Austin's own games.</li>
+      <li><strong>Habit formation:</strong> Play 3 rapid games from Exchange CK starting position. Every time Austin has Bd3 on the board, he must say "checking Bxh7+" out loud before making any move. Vadim corrects him if he forgets. The verbal cue builds the habit for tournament play.</li>
+      <li><strong>The "+3 Rule" contract:</strong> Austin and Vadim agree verbally: in every remaining game before NAYCC, when the evaluation reaches +3, Austin will run the 3-question checklist before playing any "natural" move. This rule goes into his pre-tournament mental checklist.</li>
+    </ul>
+  </div>
+
+  <div class="resource-row">
+    <span class="resource-tag">Greek Gift: Polgar, "Chess: 5334 Problems" — section on Bxh7+</span>
+    <span class="resource-tag">Chess Tempo tactics database — search "Greek Gift sacrifice"</span>
+    <span class="resource-tag">Lichess Puzzle: tag "sacrifice" + "Greek gift"</span>
+    <span class="resource-tag">Reference: Vukovic, "The Art of Attack in Chess" Ch. 5</span>
+  </div>
+
+  <hr />
+
+  <!-- ══════════════════════════ COACHING CHECKLIST ══════════════════════════ -->
+  <h3>Vadim's Session Checklist — What Austin Must Demonstrate by Nov 9</h3>
+
+  <div class="info-box">
+    These are the three outcomes that confirm the sessions worked. If Austin can do all three on Nov 9, the drills are complete.
+  </div>
+
+  <ul class="checklist">
+    <li><strong>Taimanov reflex:</strong> Given the tabiya (5...Nf6), Austin plays 6...d6! after 6.Ndb5 and 6...Bb4! after 6.Be3 in under 2 seconds each, 10 consecutive times with no errors.</li>
+    <li><strong>Batrikov:</strong> Given 6.g4, Austin plays 6...d6! then navigates to the 9.Na3 b5 queenside structure from memory, without pausing at any point in the first 10 moves.</li>
+    <li><strong>Maróczy:</strong> Given 5.c4, Austin plays the 6-move plan (d6, g6, Bg7, O-O, a6, b5) in order, AND responds to Nd5 with immediate Nxd5 recapture.</li>
+    <li><strong>Bxh7+ recognition:</strong> Given 10 Exchange CK positions with Bd3, Austin identifies whether Bxh7+ is available in under 10 seconds per position, with 9/10 correct.</li>
+    <li><strong>Bxh7+ calculation:</strong> Given a YES position, Austin verbalizes the Kg8/Kg6/Kh6 continuation tree correctly for at least one branch before making a move.</li>
+    <li><strong>The +3 rule:</strong> Austin can state the 3-question checklist from memory without prompting.</li>
+  </ul>
+
+  <h3>FEN Reference — All Drill Starting Positions</h3>
+
+  <div class="fen-label">Taimanov tabiya — after 5...Nf6 (Sessions 1 &amp; 2)</div>
+  <div class="fen-box">r1bqkb1r/pp1p1ppp/2n1pn2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 3 6</div>
+
+  <div class="fen-label">After 6.Ndb5 — Drill A starting point</div>
+  <div class="fen-box">r1bqkb1r/pp1p1ppp/2n1pn2/1N6/4P3/2N5/PPP2PPP/R1BQKB1R b KQkq - 4 6</div>
+
+  <div class="fen-label">After 6.Be3 — Drill B starting point</div>
+  <div class="fen-box">r1bqkb1r/pp1p1ppp/2n1pn2/8/3NP3/2N1B3/PPP2PPP/R2QKB1R b KQkq - 4 6</div>
+
+  <div class="fen-label">After 6.g4 — Batrikov starting point</div>
+  <div class="fen-box">r1bqkb1r/pp1p1ppp/2n1pn2/8/3NP1P1/2N5/PPP2PPP/R1BQKB1R b KQkq g3 4 6</div>
+
+  <div class="fen-label">After 5.c4 — Maróczy starting point</div>
+  <div class="fen-box">r1bqkb1r/pp1p1ppp/2n1pn2/8/2PNP3/8/PPP2PPP/RNBQKB1R b KQkq c3 0 5</div>
+
+  <div class="fen-label">Exchange CK Bxh7+ drill position</div>
+  <div class="fen-box">r3k2r/pp1q1ppp/2nbpn2/3p3b/3P1B2/2PB1N1P/PP1NQP2/R3K2R w KQkq - 2 11</div>
+
+  <p style="margin-top: 32px; font-size: 0.875rem; color: #57606a;">
+    <a href="../austin-prep.html">← Austin Prep Index</a>
+    &nbsp;·&nbsp;
+    <a href="naycc2026-gm-brief.html">GM Brief</a>
+    &nbsp;·&nbsp;
+    <a href="naycc2026-cheatsheet.html">Tournament Cheatsheet</a>
+    &nbsp;·&nbsp;
+    <a href="opening-novelty-trees.html">Opening Novelty Trees</a>
+  </p>
+
+  <p style="font-size: 0.8rem; color: #8c959f; margin-top: 12px;">
+    Created Nov 2, 2026 · Pre-NAYCC coaching plan for Vadim Razin sessions · Three sessions, Nov 3–8, 2026
+  </p>
+
+</div>
+</body>
+</html>
