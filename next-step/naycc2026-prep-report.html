@@ -806,91 +806,98 @@ tbody tr:last-child td { border-bottom: none; }
 <div class="task-card">
   <div class="tc-head p1">
     <span class="badge b-critical">PRIORITY 2</span>
-    <span>Heye Gao (CM, 1968) — #3 seed (↓ from 2076), direct record 0W–2L–1D</span>
+    <span>Inti Dario Flores Ojeda (2011) — seed #4, +52 above Austin · Italian d4 squeeze as White · Taimanov O-O kingside as Black</span>
   </div>
   <div class="tc-body">
-    <p>Austin's worst head-to-head record (0W–2L–1D). Engine data reveals exactly where Heye is exploitable — and Austin's color role as White is the better scenario.</p>
+    <p>Inti jumped +256 FIDE in 13 months (1755 Oct 2025 → 2011 Nov 2026) — the fastest improver in the field. As seed #4, Austin could face him in R5–R6. At <strong>+52 pts above Austin (2011 vs 1959)</strong>, this is near-even on paper. Engine dataset (36 games, 90.6% avg, deep analysis) reveals one critical, engine-verified weakness: Inti's f4-e5 Sicilian system collapsed catastrophically (14 blunders, 7 mistakes, 12 inaccuracies) when Black's queenside passers dismantled White's position in Queretaro R6. Austin's Taimanov directly recreates that collapse scenario.</p>
 
-    <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Engine-Backed Weakness Analysis (34 classical games)</h4>
+    <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Engine-Backed Weakness Analysis (36 games, 90.6% avg)</h4>
     <table style="font-size:0.875rem;margin:0 0 16px;">
       <thead>
-        <tr><th>Weakness</th><th>Evidence</th><th>Austin Exploit</th></tr>
+        <tr><th>Weakness</th><th>Engine Evidence</th><th>Austin's Exploit</th></tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>Black catastrophic one-move collapse</strong></td>
-          <td>RCM R3 vs Kot (2166): <strong>Nb4?? CPL 620</strong> from -0.08 (near-equal); PAM R9 vs Rodriguez (1971): <strong>Kg8?? CPL 392</strong> from 0.00; PAM R7 vs Diaz Guerrero (2209): <strong>Qe7?? CPL 504</strong> from -0.19. Three collapses from effectively equal positions.</td>
-          <td>Force sharp positions as White — one-move calculation errors are Heye's recurring Black failure mode when under tactical pressure.</td>
+          <td><strong>f4-e5 Sicilian system collapses vs ...b4/...bxc3 queenside passers</strong></td>
+          <td>Queretaro R6 (B43 Kan as White vs De Alba 1825, 90.2% acc): <strong>14 blunders, 7 mistakes, 12 inaccuracies</strong> — worst game in dataset. Inti's f4 prep (<code>6.Bd3 b5 7.Qe2 8.Bd2 9.f4</code>) fell apart after Black's <code>...b4 → ...bxc3</code> created connected queenside passers. Only classical loss as White in Queretaro.</td>
+          <td>Austin's Taimanov (1...c5 2...e6 3...Nc6 5...a6) puts Inti into B43/B45 territory. Push <code>...b5-b4</code> before Inti stabilizes. The connected passer structure after ...bxc3 is Inti's documented destruction scenario — 14 blunders in one game.</td>
         </tr>
         <tr>
-          <td><strong>Black record 39% vs White 62.5%</strong></td>
-          <td>5W/4D/9L as Black (avg 92.6%) vs 10W/2D/4L as White (avg 94.5%). Last 6 Black games: 5 losses including to players below Heye's own rating (Rodriguez 1971, Kot 2166).</td>
-          <td>Austin as White (1.e4) is the correct color role — force Heye to defend as Black where he has the dataset's weakest record.</td>
+          <td><strong>Accuracy drop vs 2000+ (positional space squeeze)</strong></td>
+          <td>Agua R1 (Ruy Lopez as Black vs CM Lopez Calderon ~2200): Inti's only classical game vs clearly stronger opposition. White played d4 at move 18, building central space — Inti went passive and accuracy dropped below dataset average.</td>
+          <td>Italian d4 squeeze plan: <code>7.Re1 → 8.h3! → 9.Nbd2 → 10.Nf1 → 11.Ng3 → 12.d4!</code> The h3 prevents ...Bg4/...Nf4. Ng3 pressures f5/h5. When d4 arrives with Inti's pieces already passive, the Agua R1 pattern plays out — Inti converts into passive defense, accuracy drops.</td>
         </tr>
         <tr>
-          <td><strong>Blunder window moves 20–30 as Black</strong></td>
-          <td>PAM R7: two blunders at move 24 (Qe7?? CPL 504) and move 28 (Qxf7?? CPL 531). PAM R9: Kg8?? at move 23 (CPL 392). RCM R3: Nb4?? around move 22 (CPL 620). All catastrophic collapses from equal occurred before move 30.</td>
-          <td>Austin's tactical shots (exchange sac, ...Ne4, Bxh7+) must land in the 20–30 move window. Do not wait for "a better position."</td>
+          <td><strong>O-O-O in tactical positions turns game around 180°</strong></td>
+          <td>Copa R4 (French C10 as White): Inti castled queenside but ran into time trouble and gave away material. Queretaro R6 (B43): his f4 system is specifically designed to attack a queenside-castled Black king. In the dataset game, De Alba played 11...O-O-O?? and gave Inti an instant +3.0 positional advantage.</td>
+          <td>Austin MUST castle kingside (O-O) in ALL Taimanov lines vs Inti — without exception. O-O redirects the attack and enables the ...b5-b4 queenside counterplay. O-O-O is the exact scenario Inti's preparation expects and exploits.</td>
         </tr>
         <tr>
-          <td><strong>Loses as Black to near-equal/lower rated</strong></td>
-          <td>PAM R9: lost to Rodriguez rated 1971 (Heye was 2065, -94 pts). RCM R3: lost to Kot rated 2166 (effectively same level). Both losses as Black from balanced positions via single blunder.</td>
-          <td>Austin at 1959 is only 9 pts below Heye (1968) — near-equal — exactly the "underestimated lower-rated opponent" scenario Heye has failed to handle as Black.</td>
+          <td><strong>Time trouble in deep calculation positions</strong></td>
+          <td>Copa Blitz: 0:06 remaining by move 24. Queretaro R6 classical: <strong>3:47 remaining on move 12 vs opponent's 49:18</strong> — Inti consumed 46 minutes in 12 moves. He calculates deeply but very slowly, consistently running into time pressure in critical phases.</td>
+          <td>Force complex tactical positions requiring long calculation chains. Austin should invest time in moves 12–20 to find the sharpest continuations — Inti's clock will run down first, degrading his calculation in the decisive phase.</td>
         </tr>
         <tr>
-          <td><strong>B58 Sicilian as White unreliable</strong></td>
-          <td>CC G267162 (White, B58): 87.5% accuracy, 1 blunder (Bf1?? CPL 1000 allowing mate) in 30 moves. Ontario R5 French C16: 88.2%, 2 blunders. Heye's White accuracy drops sharply in sharp tactical systems.</td>
-          <td>Austin as Black: play 1...c5 Sicilian to steer toward Heye's shakier Sicilian White systems (87.5–91.1%) rather than his Italian comfort zone (95–99%).</td>
-        </tr>
-        <tr>
-          <td><strong>Italian/endgame is Heye's ceiling</strong></td>
-          <td>RCM R8 vs Plotkin (2282): 97.4% in 107-move Italian endgame. RCM R9 vs Moses (2234): 97.8%, CPL 6. These near-perfect games are exclusively long Italian/Ruy Lopez endgames as White or Black.</td>
-          <td>Keep complications in the middlegame — once the position reaches a technical endgame, Heye's ceiling is 97%+ accuracy. The time to win is moves 20–35, not later.</td>
+          <td><strong>⚠️ DANGER: Tactical piece activity (Nf4! fork, Nd5 exchange sac)</strong></td>
+          <td>Queretaro R1 (Italian C54 as Black): Inti found <code>...Nf4!</code> exploiting a kingside weakness when White gave him piece activity, then converted cleanly. Copa R6 (Sicilian Dragon as White): Nd5/Nxf6+ exchange sacrifice, won convincingly. Inti is tactically sharp when pieces are active.</td>
+          <td>Deny piece activity at all costs. Play h3 early in the Italian (prevents ...Bg4 pin and ...Nf4 fork square). Execute ...b5-b4 queenside pressure before Inti's f4-f5 push locks the kingside. The d4 squeeze keeps Inti passive — that is the goal.</td>
         </tr>
       </tbody>
     </table>
 
-    <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Austin Strength → Heye Weakness Bridge</h4>
+    <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Austin Strength → Inti Weakness Bridge</h4>
     <table style="font-size:0.875rem;margin:0 0 16px;">
       <thead>
-        <tr><th>Austin's Strength (documented)</th><th>Heye's Weakness (engine-backed)</th><th>Bridge</th></tr>
+        <tr><th>Austin's Strength (documented)</th><th>Inti's Weakness (engine-backed)</th><th>Bridge</th></tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>Quick tactical attacks in open positions</strong> — Bxh7+! executions in chess4win 2026; 17-move attack patterns; exchange sac to open lines</td>
-          <td>Black catastrophic one-move collapse — Nb4?? CPL 620, Kg8?? CPL 392, Qe7?? CPL 504, all from near-equal positions (eval −0.08 to 0.00)</td>
-          <td>Force sharp complications as White — Heye's Black defense is structurally fragile under tactical pressure. Austin's attacking style manufactures exactly the crisis Heye cannot handle as Black.</td>
+          <td><strong>Italian Classical + IQP positional mastery</strong> — IQP d4 squeeze documented as Austin's strength; d5 control, e-file pressure; NAYCC and PAM Italian prep</td>
+          <td>Accuracy drop vs 2000+ / space squeeze — Agua R1: went passive under d4 central pressure from CM (~2200); below-average accuracy in only classical game vs clearly stronger opposition</td>
+          <td>Austin's Italian d4 squeeze (Re1 → h3 → Nbd2-Nf1-Ng3 → d4) directly replicates the plan that beat Inti in his only classical game vs a clearly stronger player. Structural exploit with direct engine evidence.</td>
         </tr>
         <tr>
-          <td><strong>Sicilian Taimanov/Kan as Black</strong> — Austin's developing Black weapon (online study; no rated OTB Taimanov yet); ...b5/...Bb7/...Rc8 counter-attack patterns studied online</td>
-          <td>B58/Scheveningen as White only 87.5% accuracy — allowed mating combination in 30 moves (CC G267162, Bf1?? CPL 1000); Italian as White 95–99%</td>
-          <td>1...c5 Sicilian forces Heye away from Italian comfort zone (95–99%) into B58 territory (87.5%). Austin's developing Taimanov/Kan is still the right strategic choice here; Heye at his shakiest as White.</td>
+          <td><strong>Sicilian Taimanov ...b5/...b4 queenside counterplay</strong> — Austin's developing Black weapon; ...b5-b4-bxc3 passer plan studied and practiced</td>
+          <td>f4-e5 system collapses vs ...b4/...bxc3 — Queretaro R6 B43: 14B/7M/12I (90.2% acc) when Black created connected queenside passers</td>
+          <td>Austin's Taimanov targets B43/B45 territory and the ...b5-b4-bxc3 plan directly recreates Inti's worst documented collapse. This is the highest-probability exploit in Austin's entire NAYCC preparation.</td>
         </tr>
         <tr>
-          <td><strong>Underdog pressure in near-equal positions</strong> — Austin's best results come from sharp imbalanced play vs higher-rated opponents</td>
-          <td>39% score as Black — loses to near-equal/lower rated (Rodriguez 1971, Kot 2166). Last 6 Black games: 5 losses.</td>
-          <td>Austin at 1959 is only 9 pts below Heye (1968) — near-equal — exactly the profile that has beaten Heye repeatedly. The head-to-head record (0W–2L–1D) was from before this engine analysis revealed the exploitable pattern.</td>
+          <td><strong>Direct conversion / tactical aggression</strong> — Austin's best results are 17–30 move wins; Bxh7+ executions; exchange sacrifice patterns</td>
+          <td>Over-presses when ahead — Queretaro R5 (vs 1692-rated): had +6.9 eval, pressed too hard in time trouble, only drew. Inti fights back hard when behind, creating swindle opportunities.</td>
+          <td>When Austin gains a clear advantage, convert directly without allowing complications. Austin's quick-conversion attacking style prevents the "Inti swindle" from a lost position — which is a real danger given Inti's fighting style.</td>
         </tr>
       </tbody>
     </table>
 
     <ul>
-      <li><strong>Exploit #1: Sharp Sicilian as Black</strong> — play 1...c5 vs Heye's 1.e4 to reach B58/Scheveningen territory (87.5–91.1% Heye accuracy) rather than Italian (95–99%). Heye allowed a mating combination in 30 moves in G267162.</li>
-      <li><strong>Exploit #2: Tactical detonation moves 22–28</strong> — Heye's three worst Black collapses all happened by move 28. Austin's ...Ne4 jump or exchange sacrifice pattern must arrive in this window. PAM R7 (Qe7?? move 24, CPL 504) is the prototype.</li>
-      <li><strong>Exploit #3: You are the "lower-rated underdog"</strong> — Heye consistently underperforms vs near-equal Black opponents and has lost to players below 1971. Austin at 1959 is exactly the profile. Play confidently; psychological pressure works in Austin's favor here.</li>
+      <li><strong>Exploit #1: Italian d4 positional squeeze (Austin as White)</strong> — Full tabiya: <code>1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.c3 Nf6 5.d3 d6 6.O-O O-O 7.Re1 8.h3! 9.Nbd2 10.Nf1 11.Ng3 12.d4!</code> — h3 prevents ...Bg4/...Nf4 fork; Ng3 pressures f5/h5. Wait until Inti's pieces are passively placed before d4. Direct replication of the Agua R1 (CM vs Inti) model: central space → passive defense → accuracy drop → convert.</li>
+      <li><strong>Exploit #2: Taimanov ...b5-b4-bxc3 queenside passers (Austin as Black)</strong> — After <code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 a6 6.Bd3</code> (Inti's B43 system), play <code>6...Nf6 7.O-O Be7 8.Kh1 O-O</code> — castle <strong>KINGSIDE</strong>. Push <code>...b5 → b4</code> before Inti plays f5. After <code>...bxc3</code>, the connected c/d queenside passers are Inti's documented destruction scenario (14B/7M/12I, Queretaro R6). This is the single highest-priority exploit in all of Austin's NAYCC prep.</li>
+      <li><strong>Exploit #3: NEVER O-O-O — kingside only (critical binary decision)</strong> — Inti's f4 system is specifically designed to attack a queenside-castled Black king. In Queretaro R6, De Alba played O-O-O?? and immediately gave Inti +3.0. Austin's O-O + ...b5-b4 redirects the attack completely and puts Inti in his worst-documented structural scenario. This is not a preference — it's a binary choice that determines whether Austin is walking into Inti's preparation or out of it.</li>
     </ul>
 
-    <div class="callout callout-red"><strong>DO NOT:</strong> Allow simplification to Italian pawn endgame (Heye 97%+ accuracy in 100-move endgames); play quiet positional chess where Black slowly equalizes (Heye's strength); enter a rook endgame from an Italian structure where Heye has proven he can grind for 150 moves.</div>
-    <div class="callout callout-green"><strong>EXECUTE BEFORE MOVE 30:</strong> All three of Heye's catastrophic Black blunders (Nb4?? CPL 620, Kg8?? CPL 392, Qe7?? CPL 504) landed before move 30. Create sharp, multi-threat positions in the middlegame. If Austin has a tactical shot available at move 22–28, take it — Heye's Black defense becomes unreliable exactly there.</div>
+    <div class="callout callout-red"><strong>DO NOT:</strong> (1) Castle queenside in any Taimanov line vs Inti — De Alba's O-O-O gave Inti +3.0 instantly in Queretaro R6. (2) Give Inti free piece activity in the Italian — h3 must be played before releasing central tension to prevent ...Bg4/...Nf4. (3) Rush d4 in the Italian before building the full squeeze (Re1-h3-Nbd2-Nf1-Ng3) — premature d4 allows ...d5 counterplay while Inti's pieces are still active.</div>
+
+    <div class="callout callout-green"><strong>KINGSIDE ONLY (O-O), THEN ...b5-b4:</strong> In every Taimanov line vs Inti, the plan is: castle O-O → push ...b5 → push ...b4 → play ...bxc3. This recreates the exact position structure where Inti produced his worst-ever classical game (14B/7M/12I). Don't deviate — this is the highest-probability exploit in Austin's entire field.</div>
 
     <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Opening Preparation</h4>
     <ul>
-      <li><strong>Austin as White (1.e4):</strong> Heye plays Slav as Black vs 1.d4, but vs 1.e4 expect 1...e5 or 1...c6. Use Austin's normal Exchange CK (4.Bd3) vs Caro-Kann or Rossolimo/Open vs Sicilian. Key goal: reach a <em>sharp tactical</em> structure by move 12. Heye's White Italian accuracy is 95–99%; his Black accuracy in tactical positions is 87–92%. Force complications early — do not let the position become a slow Italian symmetrical build-up.</li>
-      <li><strong>Austin as Black vs Heye's 1.e4 Italian:</strong> Play <strong>1...c5 Sicilian</strong> — Austin's developing Taimanov/Kan (see Taimanov status note above before this game). This forces Heye into B58/Scheveningen territory (87.5–91.1% accuracy) rather than his safe Italian structure (95–99%). In CC G267162, Heye allowed a mating combination in 30 moves as White in a B58. Avoid 1...e5 Italian structures — that is exactly Heye's home base where he plays near-perfect 95%+ accuracy.</li>
-      <li><strong>Direct record context:</strong> Austin is 0W–2L–1D vs Heye — the worst record among analyzed opponents. Both losses came from opening prep gaps and middlegame oversights (per Austin's own assessment in qa.md). This analysis shows <em>when</em> to strike: Heye's Black catastrophic blunders at moves 22–28. Austin's previous losses did not reach those critical moments with advantage — the prep fix is creating tactical pressure earlier.</li>
+      <li><strong>Austin as White vs Inti's 1...e5:</strong> Play <strong>Italian Classical:</strong> <code>1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.c3 Nf6 5.d3 d6 6.O-O O-O 7.Re1</code> → <code>8.h3! 9.Nbd2 10.Nf1 11.Ng3 12.d4!</code> The h3 prophylaxis is mandatory before releasing tension. Do NOT rush d4 before Ng3. If Inti plays <code>7...d5!?</code> central break: <code>8.exd5 Nxd5 9.Nxe5 Nxe5 10.Rxe5 Nf6 11.d4</code> — maintain central activity. Also prepared: Ruy Lopez <code>3.Bb5 a6 4.Ba4 Nf6 5.O-O b5 6.Bb3 Bc5 7.c3 d6 8.d4</code> — same d4 squeeze model, reaches Inti's Agua R1 structural weakness from a different path.</li>
+      <li><strong>Austin as Black vs Inti's 1.e4 Open Sicilian:</strong> Play <strong>Taimanov: <code>1...c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 a6</code></strong>. vs <code>6.Bd3</code> (Inti's B43 f4 system): <code>6...Nf6 7.O-O Be7 8.Kh1 O-O</code> → castle kingside → push <code>...b5 → b4 → bxc3</code>. vs <code>6.Be3</code> (English Attack): <code>6...Qc7 7.Bd3 Nf6 8.O-O Be7 9.f4 d6 10.Kh1 O-O → 11...Nxd4 12.Bxd4 b5</code>. vs <code>5.Nb5</code> Löwenthal trick: <code>5...a6 6.Nd6+ Bxd6 7.Qxd6 Qf6!</code> equalizes cleanly. In all lines, castle kingside and launch ...b5-b4 queenside pressure.</li>
+      <li><strong>Critical reminder — O-O vs O-O-O is the game:</strong> Every Taimanov line vs Inti ends with O-O (never O-O-O) + ...b5 + ...b4. Inti's f4 system is designed to attack a queenside-castled Black king — Austin's kingside castle with queenside counterplay turns the game 180 degrees against him. This single decision is binary: correct (O-O + ...b5-b4) or incorrect (O-O-O, losing instantly). There is no middle ground.</li>
     </ul>
 
-    <div class="callout callout-blue"><strong>⚠️ Worst head-to-head record (0W–2L–1D) but engine data shows a clear exploit path.</strong> Heye's 39% Black record and catastrophic single-move collapses (CPL 392–620) from balanced positions are exactly Austin's opportunity. Austin at 1959 is the profile of opponent Heye routinely loses to as Black. Deep prep: <a href="../matchup/matchup-heye-gm.html">matchup-heye-gm.html</a></div>
+    <div class="callout callout-blue"><strong>⚠️ Seed #4, +52 above Austin — highest-rated active threat in the NAYCC 2026 field (after Zachary).</strong> Inti's engine dataset (90.6% avg, 36 games) shows one specific, reproducible collapse: B43 f4-system (14B/7M/12I, Queretaro R6) when queenside passers appear. Austin's Taimanov ...b5-b4 directly triggers this collapse. The Italian d4 squeeze targets Inti's only classical loss vs stronger opposition. Both plans have direct engine evidence. GM battle plan: <a href="../matchup/matchup-inti-gm.html">matchup-inti-gm.html</a> · Deep analysis: <a href="../matchup/matchup-inti-deep.html">matchup-inti-deep.html</a></div>
+  </div>
+</div>
+
+<div class="task-card">
+  <div class="tc-head p4" style="opacity:0.5;">
+    <span class="badge" style="background:#888;color:#fff;">NOT IN FIELD</span>
+    <span><s>Heye Gao (CM, 1968)</s> — moved to another section at NAYCC 2026</span>
+  </div>
+  <div class="tc-body" style="opacity:0.5;">
+    <p>Heye Gao has moved to another section. Full pipeline still available: <a href="../matchup/matchup-heye-gm.html">matchup-heye-gm.html</a>.</p>
+
   </div>
 </div>
 
@@ -1436,6 +1443,69 @@ tbody tr:last-child td { border-bottom: none; }
     </ul>
 
     <div class="callout callout-blue"><strong>Austin +50 above Emerson — must-win game.</strong> Emerson's Black record (37%, 4W–9L–6D) and CK weakness (1W–6L–2D) make this the highest-probability favorable matchup for Austin among all 14 analyzed opponents. Exchange CK 4.Bd3 with the h4-h5 attack is Austin's best-prepared attacking scheme vs Emerson's weakest opening. This is Austin's clearest full-point opportunity. Deep prep: <a href="../matchup/matchup-emerson-deep.html">matchup-emerson-deep.html</a></div>
+  </div>
+</div>
+
+<div class="task-card">
+  <div class="tc-head p4">
+    <span class="badge b-medium">PRIORITY 8</span>
+    <span>Zhuoyuan Wu (1890) — seed #10, Austin +69 above · Analysis in progress</span>
+  </div>
+  <div class="tc-body">
+    <p>Austin is +69 above Zhuoyuan (1959 vs 1890 FIDE) — a must-win game. Engine deep analysis (46 games, <strong>91.9% avg accuracy</strong>) shows a solid but not elite player. His largest sample is SnoopChess cross-tournament games (32 games, 91.3% avg); his best-performing classical event was World Schools 2026 (6 games, 93.0% avg). Opening-specific repertoire analysis is in progress — white/black matchup HTML pages are pending.</p>
+
+    <h4 style="margin:16px 0 8px;font-size:0.93rem;color:#1f2328;">Engine Accuracy Summary (46 games, deep analysis)</h4>
+    <table style="font-size:0.875rem;margin:0 0 16px;">
+      <thead>
+        <tr><th>Tournament</th><th>Games</th><th>Avg Acc%</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>SnoopChess Mixed (2024–2026)</td>
+          <td>32</td>
+          <td>91.3%</td>
+          <td>Largest sample — cross-tournament online games</td>
+        </tr>
+        <tr>
+          <td>World Schools 2026</td>
+          <td>6</td>
+          <td>93.0%</td>
+          <td>Most recent strong classical event — most relevant sample</td>
+        </tr>
+        <tr>
+          <td>53rd Capps Memorial 2025</td>
+          <td>4</td>
+          <td>91.8%</td>
+          <td>Classical OTB</td>
+        </tr>
+        <tr>
+          <td>59th Stamer Memorial 2025</td>
+          <td>2</td>
+          <td>93.2%</td>
+          <td>Classical OTB</td>
+        </tr>
+        <tr>
+          <td>24th Addison Memorial 2025</td>
+          <td>2</td>
+          <td>97.8%</td>
+          <td>Small sample — outlier high; 2 games only</td>
+        </tr>
+        <tr>
+          <td><strong>Overall</strong></td>
+          <td><strong>46</strong></td>
+          <td><strong>91.9%</strong></td>
+          <td>Full weighted average</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ul>
+      <li><strong>Austin is the favorite (+69 FIDE)</strong> — this is a must-win game for Austin's tournament score. Zhuoyuan's 91.9% overall accuracy is within Austin's documented attacking range (Austin's games vs near-equal opponents produce 92%+ in winning games). This should not be treated as a free point, but Austin enters as the clear favorite.</li>
+      <li><strong>World Schools 2026 (93.0%, 6 games)</strong> is the most relevant recent sample — suggests Zhuoyuan is performing at 93% in strong classical OTB events. His SnoopChess base (91.3%) is lower, consistent with online vs OTB accuracy differential. Adjust expectations upward from the 91.9% average.</li>
+      <li><strong>Game plan: Austin's standard repertoire.</strong> Play 1.e4 with full preparation depth. Specific opening exploits, blunder pattern analysis, and color-specific prep will be added as the white/black matchup HTML pages are completed. Do not enter this game under-prepared — treat as a serious game requiring standard tournament preparation.</li>
+    </ul>
+
+    <div class="callout callout-blue"><strong>Must-win game (+69 FIDE above Austin). Full opening-specific analysis in progress.</strong> Deep analysis (46 games): <a href="../matchup/matchup-zhuoyuan-deep.html">matchup-zhuoyuan-deep.html</a> (in progress)</div>
   </div>
 </div>
 
