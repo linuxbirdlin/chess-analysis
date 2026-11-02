@@ -1,6 +1,6 @@
 # Austin Lin vs Tarun Sankar — Matchup Preparation
 
-**Austin:** ~1865–1968 FIDE, 1.e4 exclusively, tactical/combinational style
+**Austin:** 1959 FIDE (Nov 2026), 1.e4 exclusively, tactical/combinational style
 **Tarun:** 1984 FIDE (Nov 2026; peak 2002), fast improver, English (1.c4) White, Sicilian (1...c5) Black
 
 **Direct record:** No prior encounter
@@ -12,7 +12,7 @@
 ### What to Expect
 
 Tarun plays the Sicilian in **100% of recorded games** vs 1.e4. His most recent games (Oct 2026) show:
-- 2.Nf3 Nc6 (Old Sicilian — main move at current 1965 FIDE rating)
+- 2.Nf3 Nc6 (Old Sicilian — main move at current 1984 FIDE rating)
 - After 3.Bb5 (Rossolimo): **3...Nf6 4.Bxc6 dxc6** — accepts doubled pawns, plays ...g6 ...Bg7 fianchetto
 
 This was directly observed in 5th Skyline R4 (vs Lin Benjamin 2099): 1.e4 c5 2.Na3 Nc6 3.Bb5 Nf6 4.Bxc6 dxc6 5.d3 g6 6.c3 Bg7. Black played actively with ...b6 ...Ng4 ...h6 creating a complex middlegame.
@@ -47,7 +47,7 @@ After 4.Bxc6 dxc6, Tarun wants ...g6 ...Bg7 with the long diagonal. Austin shoul
 Tarun's c6-c5 pawn structure has structural damage: the c5-pawn is backward after ...dxc6, and the c6-pawn is isolated. Austin should target c5 in endgames by controlling the d-square and probing with a Nd4 or a4-a5 type attack.
 
 **3. Tarun has shown a critical blunder pattern**
-In 5th Skyline R4, Tarun blundered on move 14 (**e4??**) when he had a winning position (−2.0 eval), flipping the game to +1.65 for White. This suggests Tarun can panic under pressure. Austin should create maximum complexity and not simplify — the "winning moment" for Austin may come from Tarun's own error, not Austin's attack.
+In 5th Skyline R4, Tarun blundered on move 15 (**e4??**) when he had a winning position (−2.0 eval), flipping the game to +1.65 for White. This suggests Tarun can panic under pressure. Austin should create maximum complexity and not simplify — the "winning moment" for Austin may come from Tarun's own error, not Austin's attack.
 
 **4. Practical alert: Sicilian Black aggression**
 Tarun plays combatively (the ...b6, ...Ng4, ...h6 sequence in the Skyline game shows he creates counterplay aggressively). Austin should not expect a passive defense — Tarun will generate queenside and central threats. Austin's advantage is being the player setting the agenda with 1.e4.
