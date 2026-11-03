@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fernando Cortes Medina — Opening Deviation Map</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header {
+      border-bottom: 3px solid #2d7d46;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 { margin: 0 0 8px; font-size: 1.85rem; }
+    .doc-header .meta {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      font-size: 0.9rem; color: #57606a;
+    }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link {
+      display: inline-block; margin-top: 14px;
+      font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.3rem; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.05rem; color: #2d7d46; margin: 24px 0 6px; }
+
+    .legend {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px;
+      padding: 14px 18px; margin-bottom: 32px; font-size: 0.85rem;
+    }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin: 0 0 24px; }
+    th { text-align: left; padding: 8px 12px; background: #f6f8fa; border-bottom: 2px solid #d0d7de; font-weight: 600; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eaeef2; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    td.opening-name { font-weight: 600; }
+    td.color-cell { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+    .color-w { color: #9a6700; }
+    .color-b { color: #0969da; }
+    .highlight-row { background: #fffbeb; }
+
+    .system-card {
+      border: 1px solid #d0d7de; border-radius: 8px;
+      margin-bottom: 28px; overflow: hidden;
+    }
+    .system-card.key-card { border-color: #2d7d46; }
+    .system-card-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      background: #f6f8fa; padding: 12px 18px; border-bottom: 1px solid #d0d7de;
+    }
+    .system-card.key-card .system-card-header { background: #f0fff4; border-bottom-color: #2d7d46; }
+    .system-card-header h3 { margin: 0; font-size: 1rem; color: #1f2328; }
+    .system-card-header .game-count { font-size: 0.8rem; color: #57606a; }
+    .system-card-body { padding: 16px 18px; }
+
+    .trail-label { font-size: 0.75rem; font-weight: 600; color: #57606a; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .move-trail { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 16px; align-items: center; }
+
+    .chip {
+      display: inline-flex; align-items: center;
+      padding: 3px 8px; border-radius: 4px;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.4;
+      cursor: default;
+    }
+    .chip-opp   { background: #f0f0f0; color: #6e7781; border: 1px solid #d0d7de; }
+    .chip-book  { background: #dafbe1; color: #1a7f37; border: 1px solid #2d7d46; }
+    .chip-good  { background: #ddf4ff; color: #0550ae; border: 1px solid #0969da; }
+    .chip-side  { background: #fff3cd; color: #7d4e00; border: 1px solid #d4a017; }
+    .chip-rare  { background: #ffd8d3; color: #a4000f; border: 1px solid #cf222e; }
+    .chip-novel { background: #eee8ff; color: #5a1e96; border: 1px solid #8250df; }
+    .chip-flag  { font-size: 0.65rem; margin-left: 4px; }
+
+    .dev-list { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+    .dev-row {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 9px 12px; border-radius: 6px; font-size: 0.85rem; line-height: 1.5;
+    }
+    .dev-row.level-side  { background: #fff8e8; border-left: 3px solid #d4a017; }
+    .dev-row.level-rare  { background: #fff0ee; border-left: 3px solid #cf222e; }
+    .dev-row.level-novel { background: #f3ecff; border-left: 3px solid #8250df; }
+    .dev-row.level-book  { background: #f0fff4; border-left: 3px solid #2d7d46; }
+    .dev-row .dev-move { font-family: monospace; font-weight: 700; min-width: 90px; flex-shrink: 0; }
+    .dev-row .dev-detail { color: #57606a; }
+    .dev-row .dev-detail strong { color: #1f2328; }
+    .dev-row .dev-detail em { font-style: normal; color: #1f2328; font-weight: 600; }
+
+    .austin-note {
+      background: #f0fff4; border: 1px solid #2d7d46; border-radius: 6px;
+      padding: 12px 16px; margin-top: 16px; font-size: 0.875rem;
+    }
+    .austin-note .note-label {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: #2d7d46; margin-bottom: 4px;
+    }
+
+    .small-sample {
+      display: inline-block; font-size: 0.75rem; color: #9a6700;
+      background: #fff3cd; border: 1px solid #d4a017; border-radius: 4px;
+      padding: 1px 7px; margin-left: 8px; font-weight: 600;
+    }
+
+    .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+    @media (max-width: 580px) { .insight-grid { grid-template-columns: 1fr; } }
+    .insight-card {
+      border: 1px solid #d0d7de; border-radius: 6px; padding: 14px 16px; font-size: 0.875rem;
+    }
+    .insight-card h4 { margin: 0 0 8px; font-size: 0.9rem; color: #2d7d46; }
+    .insight-card ul { margin: 0; padding-left: 18px; }
+    .insight-card li { margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Header ───────────────────────────────────────────────────── -->
+  <div class="doc-header">
+    <h1>Fernando Cortes Medina — Opening Deviation Map</h1>
+    <div class="meta">
+      <span><strong>Player:</strong> Fernando Cortes Medina · 2085 FIDE (Nov 2026) · MEX</span>
+      <span><strong>Games analyzed:</strong> 35 (17 as White, 18 as Black)</span>
+      <span><strong>Database:</strong> Lichess Masters (FIDE 2300+)</span>
+      <span><strong>Generated:</strong> Nov 2, 2026</span>
+    </div>
+    <a href="../austin-prep.html" class="back-link">← Back to Prep Index</a>
+  </div>
+
+  <!-- ── Legend ──────────────────────────────────────────────────── -->
+  <div class="legend">
+    <strong style="font-size:0.8rem;text-transform:uppercase;letter-spacing:.04em;color:#57606a;margin-right:4px;">Fernando's moves:</strong>
+    <span class="legend-item"><span class="chip chip-book" style="font-size:.75rem;padding:2px 7px;">e4</span> <span>Top masters move</span></span>
+    <span class="legend-item"><span class="chip chip-good" style="font-size:.75rem;padding:2px 7px;">Qd2</span> <span>2nd–3rd choice (≥20%)</span></span>
+    <span class="legend-item"><span class="chip chip-side" style="font-size:.75rem;padding:2px 7px;">Rc8</span> <span>Minor sideline (5–19%)</span></span>
+    <span class="legend-item"><span class="chip chip-rare" style="font-size:.75rem;padding:2px 7px;">f3</span> <span>Rare / personal prep (&lt;5%)</span></span>
+    <span class="legend-item"><span class="chip chip-novel" style="font-size:.75rem;padding:2px 7px;">d4</span> <span>Novelty (not in master DB)</span></span>
+    <span class="legend-item"><span class="chip chip-opp" style="font-size:.75rem;padding:2px 7px;">Nf6</span> <span>Opponent move</span></span>
+  </div>
+
+  <!-- ── Summary table ───────────────────────────────────────────── -->
+  <h2>Deviation Summary</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Opening System</th>
+        <th>Color</th>
+        <th>Games</th>
+        <th>First Deviation</th>
+        <th>Fernando's Move vs Book</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="opening-name">English Attack vs Najdorf — 6.f3 order</td>
+        <td class="color-cell color-w">White</td>
+        <td>5</td>
+        <td>Move 6</td>
+        <td><strong>6.f3</strong> (6%) before Be3 — aggressive move order; 10.h4 storm over 10.a4</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Sveshnikov — fully booked main line</td>
+        <td class="color-cell color-w">White</td>
+        <td>2</td>
+        <td>No deviation</td>
+        <td>All 10 moves match top masters choice — deeply prepared</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Reti g3 vs Queen's Indian</td>
+        <td class="color-cell color-w">White</td>
+        <td>1</td>
+        <td>Move 7</td>
+        <td>Minor (d4 vs Re1, Qc2 vs Bd2) — <em>small sample</em></td>
+      </tr>
+      <tr class="highlight-row">
+        <td class="opening-name">French Advance — Rc8 preparation ★</td>
+        <td class="color-cell color-b">Black</td>
+        <td>6</td>
+        <td>Move 6</td>
+        <td><strong>6...Rc8</strong> (7%) vs Nge7 (63%); <strong>7...cxd4</strong> (5%) vs a6 (48%)</td>
+      </tr>
+      <tr>
+        <td class="opening-name">vs English — 1...e5 with Be6 sideline</td>
+        <td class="color-cell color-b">Black</td>
+        <td>2</td>
+        <td>Move 5</td>
+        <td><strong>5...Be6</strong> (2%) vs Nb6 (93%) — unusual bishop development</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Sicilian Kan a6 — deep novelties</td>
+        <td class="color-cell color-b">Black</td>
+        <td>2</td>
+        <td>Move 2</td>
+        <td><strong>2...a6</strong> (1%) O'Kelly; personal novelties from move 7 onward</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       AS WHITE
+  ════════════════════════════════════════════════════════════════ -->
+  <h2>As White (1.e4 Open Sicilian)</h2>
+
+  <!-- System 1: English Attack vs Najdorf 6.f3 -->
+  <div class="system-card key-card">
+    <div class="system-card-header">
+      <h3>English Attack vs Najdorf — 6.f3 move order &nbsp;<small style="color:#57606a;font-weight:400;">ECO B90/B94</small></h3>
+      <span class="game-count">5 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-book" title="Book: e4 (45%)">1.e4</span>
+        <span class="chip chip-opp">1…c5</span>
+        <span class="chip chip-book" title="Book: Nf3 (83%)">2.Nf3</span>
+        <span class="chip chip-opp">2…d6</span>
+        <span class="chip chip-book" title="Book: d4 (81%)">3.d4</span>
+        <span class="chip chip-opp">3…cxd4</span>
+        <span class="chip chip-book" title="Book: Nxd4 (96%)">4.Nxd4</span>
+        <span class="chip chip-opp">4…Nf6</span>
+        <span class="chip chip-book" title="Book: Nc3 (98%)">5.Nc3</span>
+        <span class="chip chip-opp">5…a6</span>
+        <span class="chip chip-rare" title="Fernando: 6% | Book: Be3 (33%), Bg5 (20%), Be2 (13%)">6.f3 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">6…e6</span>
+        <span class="chip chip-book" title="Book: Be3 (95%)">7.Be3</span>
+        <span class="chip chip-opp">7…Nbd7</span>
+        <span class="chip chip-good" title="Fernando: 35% | Book: g4 (64%), Qd2 (35%)">8.Qd2</span>
+        <span class="chip chip-opp">8…b5</span>
+        <span class="chip chip-book" title="Book: g4 (76%)">9.g4</span>
+        <span class="chip chip-opp">9…Nb6</span>
+        <span class="chip chip-rare" title="Fernando: 0% | Book: a4 (43%), O-O-O (21%), Qf2 (20%)">10.h4 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">10…Nfd7</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-rare">
+          <span class="dev-move">6. f3</span>
+          <span class="dev-detail"><em>Specific move order.</em> Standard English Attack plays <strong>6.Be3</strong> (33%) first, then f3 later. Fernando inverts: <strong>6.f3</strong> (6%) before Be3. The reason is concrete: after 6.Be3, Black can immediately play 6...Ng4 attacking the bishop. With 6.f3 first, that knight move is impossible — the f3 pawn covers g4. Fernando trades one tempo of development for eliminating Black's sharpest response. After 7.Be3, the position is identical to the main line but Black cannot have played ...Ng4.</span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">8. Qd2</span>
+          <span class="dev-detail">After 7.Be3, the main English Attack plays <strong>8.g4</strong> (64%) immediately to start the kingside attack. Fernando plays <strong>8.Qd2</strong> (35%) first — connecting rooks and preparing queenside castling before launching g4. This is a legitimate secondary move order, not a deviation per se.</span>
+        </div>
+        <div class="dev-row level-rare">
+          <span class="dev-move">10. h4</span>
+          <span class="dev-detail"><em>Aggressive pawn storm preference.</em> Book plays <strong>10.a4</strong> (43%) — prophylaxis against Black's …b4 queenside counterplay — or <strong>10.O-O-O</strong> (21%). Fernando plays <strong>10.h4</strong> (rank 7, ~0% at master level), pushing the h-pawn immediately to accelerate the h4-h5 attack. This confirms a pure attack mentality: Fernando prioritizes kingside aggression over queenside safety. He has prepared specific lines where the h4 thrust works tactically.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note (playing Black vs Fernando)</div>
+        Austin plays the Caro-Kann vs 1.e4, so this Sicilian line is not directly relevant. However if Austin ever adopts the Sicilian, Fernando's 6.f3 move order is a concrete challenge: <strong>do not plan ...Ng4</strong> — it's pre-empted. Austin should prepare the 6.f3 e6 lines specifically (the Trunk shows Black plays 6...e6). Fernando will follow with Be3→Qd2→g4→h4 storm — Austin must be ready to counter the kingside attack with ...b5→...b4 queenside counterplay.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 2: Sveshnikov -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Sveshnikov — fully booked main line &nbsp;<small style="color:#57606a;font-weight:400;">ECO B33</small></h3>
+      <span class="game-count">2 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-book" title="Book: e4 (45%)">1.e4</span>
+        <span class="chip chip-opp">1…c5</span>
+        <span class="chip chip-book" title="Book: Nf3 (83%)">2.Nf3</span>
+        <span class="chip chip-opp">2…Nc6</span>
+        <span class="chip chip-book" title="Book: d4 (58%)">3.d4</span>
+        <span class="chip chip-opp">3…cxd4</span>
+        <span class="chip chip-book" title="Book: Nxd4 (100%)">4.Nxd4</span>
+        <span class="chip chip-opp">4…Nf6</span>
+        <span class="chip chip-book" title="Book: Nc3 (100%)">5.Nc3</span>
+        <span class="chip chip-opp">5…e5</span>
+        <span class="chip chip-book" title="Book: Ndb5 (98%)">6.Ndb5</span>
+        <span class="chip chip-opp">6…d6</span>
+        <span class="chip chip-book" title="Book: Bg5 (83%)">7.Bg5</span>
+        <span class="chip chip-opp">7…a6</span>
+        <span class="chip chip-book" title="Book: Na3 (97%)">8.Na3</span>
+        <span class="chip chip-opp">8…b5</span>
+        <span class="chip chip-book" title="Book: Nd5 (57%)">9.Nd5</span>
+        <span class="chip chip-opp">9…Be7</span>
+        <span class="chip chip-book" title="Book: Bxf6 (96%)">10.Bxf6</span>
+        <span class="chip chip-opp">10…Bxf6</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-book">
+          <span class="dev-move">Moves 1–10</span>
+          <span class="dev-detail"><em>Completely booked.</em> All 10 Fernando moves match the top masters choice. The Sveshnikov main line (Ndb5 → Bg5 → Na3 → Nd5 → Bxf6) is one of the most deeply analyzed lines in chess theory — Fernando has memorized it precisely. He will not deviate from book in this line until at least move 11+.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Not directly relevant (Austin plays Caro-Kann). If Austin ever plays 1...c5, avoid 2...Nc6 → Fernando's Sveshnikov preparation is impeccable through 10+ moves. The Rossolimo (2.Nf3 Nc6 3.Bb5) sidesteps the Sveshnikov entirely.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 3: Reti -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Reti g3 vs Queen's Indian &nbsp;<small style="color:#57606a;font-weight:400;">ECO A04/A15</small>
+        <span class="small-sample">1 game only</span>
+      </h3>
+      <span class="game-count">1 game · small sample, treat as suggestive only</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Single-game trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-side" title="Fernando: 10% | Book: e4 (45%)">1.Nf3</span>
+        <span class="chip chip-opp">1…Nf6</span>
+        <span class="chip chip-good" title="Fernando: 27% | Book: c4 (60%), g3 (27%)">2.g3</span>
+        <span class="chip chip-opp">2…b6</span>
+        <span class="chip chip-book" title="Book: Bg2 (95%)">3.Bg2</span>
+        <span class="chip chip-opp">3…Bb7</span>
+        <span class="chip chip-book" title="Book: O-O (77%)">4.O-O</span>
+        <span class="chip chip-opp">4…e6</span>
+        <span class="chip chip-book" title="Book: c4 (56%)">5.c4</span>
+        <span class="chip chip-opp">5…Be7</span>
+        <span class="chip chip-book" title="Book: Nc3 (48%)">6.Nc3</span>
+        <span class="chip chip-opp">6…O-O</span>
+        <span class="chip chip-good" title="Fernando: 32% | Book: Re1 (55%), d4 (32%)">7.d4</span>
+        <span class="chip chip-opp">7…Ne4</span>
+        <span class="chip chip-good" title="Fernando: 36% | Book: Bd2 (43%), Qc2 (36%)">8.Qc2</span>
+        <span class="chip chip-opp">8…Nxc3</span>
+        <span class="chip chip-book" title="Book: Qxc3 (96%)">9.Qxc3</span>
+        <span class="chip chip-opp">9…Be4</span>
+        <span class="chip chip-book" title="Book: Rd1 (30%)">10.Rd1</span>
+        <span class="chip chip-opp">10…d5</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">7. d4 · 8. Qc2</span>
+          <span class="dev-detail">Minor deviations in a line with very few master games. At move 7 (book: Re1 55%), Fernando plays d4 immediately. At move 8 (book: Bd2 43%), he uses Qc2 to recapture after ...Nxc3. These are reasonable alternatives, not preparation. With only 1 game in the sample, this line is likely not part of Fernando's core repertoire.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       AS BLACK
+  ════════════════════════════════════════════════════════════════ -->
+  <h2>As Black (French Defence — primary weapon)</h2>
+
+  <!-- System 4: French Advance Rc8 — KEY for Austin -->
+  <div class="system-card key-card">
+    <div class="system-card-header">
+      <h3>French Advance — Bd7 + Rc8 preparation ★ &nbsp;<small style="color:#57606a;font-weight:400;">ECO C02</small></h3>
+      <span class="game-count">6 games (largest sample) · directly relevant vs Austin's 3.e5</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk (White: e4 d4 e5 c3 Nf3 Be2 O-O)</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.e4</span>
+        <span class="chip chip-good" title="Fernando: 12% | Book: c5 (46%), e5 (24%), e6 (12%)">1…e6</span>
+        <span class="chip chip-opp">2.d4</span>
+        <span class="chip chip-book" title="Book: d5 (99%)">2…d5</span>
+        <span class="chip chip-opp">3.e5</span>
+        <span class="chip chip-book" title="Book: c5 (96%)">3…c5</span>
+        <span class="chip chip-opp">4.c3</span>
+        <span class="chip chip-book" title="Book: Nc6 (73%)">4…Nc6</span>
+        <span class="chip chip-opp">5.Nf3</span>
+        <span class="chip chip-book" title="Book: Bd7 (46%), Qb6 (41%) — Fernando's choice is book-equal">5…Bd7</span>
+        <span class="chip chip-opp">6.Be2</span>
+        <span class="chip chip-side" title="Fernando: 7% | Book: Nge7 (63%), f6 (19%), Rc8 (7%)">6…Rc8 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">7.O-O</span>
+        <span class="chip chip-rare" title="Fernando: 5% | Book: a6 (48%), h6 (23%), Nge7 (18%)">7…cxd4 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">8.cxd4</span>
+        <span class="chip chip-book" title="Book: Nge7 (86%)">8…Nge7</span>
+        <span class="chip chip-opp">9.Nc3</span>
+        <span class="chip chip-book" title="Book: Nf5 (43%) or Ng6 (43%)">9…Nf5</span>
+        <span class="chip chip-opp">10.Bg5</span>
+        <span class="chip chip-book" title="Book: Qb6 (83%)">10…Qb6</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">5…Bd7</span>
+          <span class="dev-detail">After 5.Nf3, the main alternatives are <strong>5…Qb6</strong> (41%, attacking d4 and b2) and <strong>5…Bd7</strong> (46%). Fernando consistently chooses 5…Bd7 — a waiting move that prepares ...Rc8 and ...cxd4 without committing the queen. This is the Euwe–Keres system.</span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">6…Rc8</span>
+          <span class="dev-detail"><em>Fernando's signature Black move.</em> Book's dominant move is <strong>6…Nge7</strong> (63%) — developing the knight toward f5. Fernando plays <strong>6…Rc8</strong> (7%) first, activating the rook on the c-file before advancing the knight. The rook immediately targets the c3 pawn square and prepares to be active after ...cxd4 (when the c-file opens). This is a prepared move order — Rc8 before Nge7 delays the knight development deliberately.</span>
+        </div>
+        <div class="dev-row level-rare">
+          <span class="dev-move">7…cxd4</span>
+          <span class="dev-detail"><em>Immediate capture, c-file pressure.</em> Book plays <strong>7…a6</strong> (48%) first — gaining space and stopping White knight intrusions. Fernando instead captures immediately with <strong>7…cxd4</strong> (5%), opening the c-file while his rook is already on c8. After 8.cxd4, the Rc8 is now an active piece eyeing c3–c2. The sequence Bd7→Rc8→cxd4 is Fernando's personal move order to generate concrete queenside pressure before White consolidates.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note (playing White, Advanced French 3.e5)</div>
+        <strong>This is the most important line for Austin.</strong> Austin plays 3.e5 against the French. After 3...c5 4.c3 Nc6 5.Nf3 Bd7 6.Be2, Fernando will play <strong>6...Rc8</strong> — not the standard 6...Nge7. Austin needs to have a specific plan for 6...Rc8. After 7.O-O (trunk), Fernando plays 7...cxd4 opening the c-file immediately. Key preparation points:
+        <br><br>
+        After 7...cxd4 8.cxd4: consider 9.Nc3 or 9.Nbd2. The c3 square is White's weak point — Fernando's whole setup targets it with Rc8+Nc6. Austin should avoid placing a pawn on c3 if it can be attacked.
+        <br><br>
+        Alternative: consider 7.a3 (preparing b4 to block queenside) or 7.Nbd2 before castling to maintain the c3 pawn.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 5: vs English Be6 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>vs English — 1...e5 with Be6 sideline &nbsp;<small style="color:#57606a;font-weight:400;">ECO A20</small>
+        <span class="small-sample">2 games</span>
+      </h3>
+      <span class="game-count">2 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk (White: c4 g3 Bg2 cxd5 Nc3 Nf3 d3 O-O Bd2 Rc1)</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.c4</span>
+        <span class="chip chip-good" title="Fernando: 25% | Book: Nf6 (28%), e5 (25%)">1…e5</span>
+        <span class="chip chip-opp">2.g3</span>
+        <span class="chip chip-book" title="Book: Nf6 (55%)">2…Nf6</span>
+        <span class="chip chip-opp">3.Bg2</span>
+        <span class="chip chip-book" title="Book: d5 (47%)">3…d5</span>
+        <span class="chip chip-opp">4.cxd5</span>
+        <span class="chip chip-book" title="Book: Nxd5 (100%)">4…Nxd5</span>
+        <span class="chip chip-opp">5.Nc3</span>
+        <span class="chip chip-rare" title="Fernando: 2% | Book: Nb6 (93%), Ne7 (2%), Be6 (2%)">5…Be6 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">6.Nf3</span>
+        <span class="chip chip-book" title="Book: Nc6 (98%)">6…Nc6</span>
+        <span class="chip chip-opp">7.d3</span>
+        <span class="chip chip-book" title="Book: Be7 (83%)">7…Be7</span>
+        <span class="chip chip-opp">8.O-O</span>
+        <span class="chip chip-book" title="Book: O-O (93%)">8…O-O</span>
+        <span class="chip chip-opp">9.Bd2</span>
+        <span class="chip chip-side" title="Fernando: 9% | Book: Qd7 (43%), Nb6 (24%), f6 (9%)">9…f6</span>
+        <span class="chip chip-opp">10.Rc1</span>
+        <span class="chip chip-book" title="Book: Qd7 (50%)">10…Qd7</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-rare">
+          <span class="dev-move">5…Be6</span>
+          <span class="dev-detail">After Nc3 attacks the centralized d5 knight, book retreats <strong>5…Nb6</strong> (93%) to safety. Fernando plays the unusual <strong>5…Be6</strong> (2%), leaving the knight on d5 and developing the dark-squared bishop to challenge White's potential d4 advance. This is a rare but coherent choice — the bishop on e6 controls d5 indirectly and eyeing c4 if White ever plays d4. Requires preparation of the resulting unbalanced position.</span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">9…f6</span>
+          <span class="dev-detail">After White's Bd2, book centralizes with <strong>9…Qd7</strong> (43%) or retreats the knight with <strong>9…Nb6</strong> (24%). Fernando plays <strong>9…f6</strong> (9%) — a preparatory push to support an ...e4 central advance. This reveals Fernando's intention: ...e5→f6→e4 pawn storm in the center.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- System 6: Sicilian Kan a6 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Sicilian Kan / O'Kelly — 2...a6 deep novelties &nbsp;<small style="color:#57606a;font-weight:400;">ECO B02/B15</small>
+        <span class="small-sample">2 games</span>
+      </h3>
+      <span class="game-count">2 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk (White: e4 Nf3 d4 Nxd4 Nc3 Nf3 Bd3 Nxe5 a3 b4)</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.e4</span>
+        <span class="chip chip-book" title="Book: c5 (46%)">1…c5</span>
+        <span class="chip chip-opp">2.Nf3</span>
+        <span class="chip chip-rare" title="Fernando: 1% | Book: d6 (46%), Nc6 (27%), e6 (23%)">2…a6 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">3.d4</span>
+        <span class="chip chip-book" title="Book: cxd4 (100%)">3…cxd4</span>
+        <span class="chip chip-opp">4.Nxd4</span>
+        <span class="chip chip-book" title="Book: Nf6 (79%)">4…Nf6</span>
+        <span class="chip chip-opp">5.Nc3</span>
+        <span class="chip chip-book" title="Book: e5 (91%)">5…e5</span>
+        <span class="chip chip-opp">6.Nf3</span>
+        <span class="chip chip-book" title="Book: Bb4 (72%)">6…Bb4</span>
+        <span class="chip chip-opp">7.Bd3</span>
+        <span class="chip chip-good" title="Fernando: 33% | Book: d6 (67%), d5 (33%)">7…d5</span>
+        <span class="chip chip-opp">8.Nxe5</span>
+        <span class="chip chip-novel" title="Novelty — not in master DB">8…d4 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">9.a3</span>
+        <span class="chip chip-novel" title="Novelty">9…Ba5 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">10.b4</span>
+        <span class="chip chip-novel" title="Novelty">10…Bc7 <span class="chip-flag">★</span></span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-rare">
+          <span class="dev-move">2…a6</span>
+          <span class="dev-detail">After 2.Nf3, only 1% of master games continue with <strong>2…a6</strong> — this is the <em>O'Kelly Variation</em>. The idea is to play 2…a6 before deciding on d6/Nc6/e6, preventing Bb5 lines. Against 3.d4 cxd4 4.Nxd4, the resulting position transposes toward a Kan Sicilian setup. Fernando uses a6 to steer toward specific known positions while keeping White's options limited.</span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">8…d4 · 9…Ba5 · 10…Bc7</span>
+          <span class="dev-detail"><em>Three consecutive novelties.</em> After White plays 8.Nxe5, Fernando's 8…d4 (pushing the pawn immediately), 9…Ba5 (avoiding capture, dancing the bishop), and 10…Bc7 (retreating to safety) are entirely outside the master database. This is a deep personal preparation — Fernando has analyzed a specific tactical sequence where Black's advanced d-pawn and active pieces compensate for the sacrificed e5 pawn. Treat this as prepared home analysis.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays the Rossolimo (1.e4 c5 2.Nf3 Nc6 3.Bb5) which sidesteps the Kan/O'Kelly entirely. If Fernando plays 2...a6, Austin plays 3.Bb5 (Rossolimo vs ...a6 — still valid) or 3.c3 to maintain the c4 square. Austin's Rossolimo preparation is the correct tool here.
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Synthesis ─────────────────────────────────────────────── -->
+  <h2>What This Means for Austin</h2>
+
+  <div class="insight-grid">
+    <div class="insight-card">
+      <h4>Fernando as White — What to Expect</h4>
+      <ul>
+        <li><strong>1.e4 is his main weapon</strong> — aggressive Open Sicilian player. Austin plays Caro-Kann (1...c6) which leads to different Fernando preparation than shown here.</li>
+        <li>Fernando is an <strong>English Attack specialist</strong> with the f3+Be3+g4+h4 kingside storm. He plays h4 instead of a4 prophylaxis — pure attack mentality.</li>
+        <li>Fernando's Sveshnikov preparation is <strong>flawless through 10 moves</strong>. He is a well-prepared theoretical player who will not get caught in opening traps.</li>
+        <li>Fernando plays <strong>concrete, tactical chess</strong> — the English Attack and Sveshnikov are both sharp, double-edged systems. He is not a positional slow-build player.</li>
+      </ul>
+    </div>
+    <div class="insight-card">
+      <h4>Fernando as Black — What to Expect</h4>
+      <ul>
+        <li><strong>French Defence is his primary weapon vs 1.e4.</strong> Austin plays the Advanced French (3.e5) — this is the direct matchup line.</li>
+        <li>In the Advanced French, Fernando plays <strong>5...Bd7 → 6...Rc8 → 7...cxd4</strong>. This is a prepared Rc8 system — Austin must know how to respond to Rc8 specifically.</li>
+        <li>The Rc8 move activates the rook before ...Nge7, creating immediate c-file pressure. Fernando's plan: open the c-file and target White's c3–c4 pawn chain.</li>
+        <li>Fernando also has <strong>deep novelties in the Kan Sicilian</strong> (moves 8–10 are personal analysis). Treat him as a prepared opponent who studies specific positions.</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="margin-top:24px;font-size:0.8rem;color:#57606a;border-top:1px solid #d0d7de;padding-top:16px;">
+    Data: Lichess Masters database (FIDE 2300+ OTB games) via <code>explorer.lichess.ovh/masters</code> ·
+    Games parsed from <code>pgnlib/Cortes Medina, Fernando.pgn</code> (35 games, 7 tournaments) ·
+    Trunk = plurality-voted most-played continuation · Generated Nov 2, 2026
+  </p>
+
+</div>
+</body>
+</html>
