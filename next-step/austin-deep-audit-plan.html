@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Austin — Deep Audit Plan · Game Reviews, Drills, Prep, Cheat Sheets</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    color: #1f2328;
+    background: #f6f8fa;
+  }
+  .page { max-width: 960px; margin: 0 auto; background: #fff; padding: 48px 56px 72px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+  @media(max-width:680px){ .page { padding: 24px 18px 48px; } }
+
+  .doc-header { border-bottom: 4px solid #1a3a6e; padding-bottom: 20px; margin-bottom: 36px; }
+  .doc-header h1 { margin: 0 0 4px; font-size: 1.8rem; color: #1a3a6e; }
+  .doc-header .sub { font-size: 0.95rem; color: #57606a; margin: 0 0 8px; }
+  .doc-header .meta { font-size: 0.82rem; color: #57606a; display: flex; flex-wrap: wrap; gap: 14px; margin-top: 6px; }
+  .back-link { display: inline-block; margin-top: 10px; font-size: 0.85rem; color: #1a3a6e; text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+
+  h2 {
+    font-size: 1.1rem; color: #fff; background: #1a3a6e;
+    margin: 44px 0 16px; padding: 9px 16px; border-radius: 5px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  h2 .sec { font-size: 0.68rem; font-weight: 700; letter-spacing: .08em; background: rgba(255,255,255,.25); padding: 2px 8px; border-radius: 3px; text-transform: uppercase; }
+  h3 { font-size: 1rem; color: #1a3a6e; margin: 24px 0 8px; }
+  h4 { font-size: 0.88rem; font-weight: 700; color: #1f2328; margin: 16px 0 6px; }
+  p { margin: 0 0 10px; }
+  ul, ol { margin: 6px 0 12px; padding-left: 1.5em; }
+  li { margin-bottom: 4px; }
+  a { color: #1a3a6e; }
+  code {
+    font-family: "SFMono-Regular",Consolas,Menlo,monospace;
+    font-size: 0.85em; background: #f0f4f8; border: 1px solid #d0d7de;
+    border-radius: 3px; padding: 1px 5px;
+  }
+  strong { font-weight: 600; }
+
+  /* ── callouts ── */
+  .callout { border-radius: 5px; padding: 11px 16px; margin: 12px 0; font-size: 0.91rem; line-height: 1.55; }
+  .c-red   { background: #fff0f0; border-left: 4px solid #cf2222; color: #5a0000; }
+  .c-green { background: #dafbe1; border-left: 4px solid #2d7d46; color: #1a4731; }
+  .c-gold  { background: #fff8e6; border-left: 4px solid #c08000; color: #5a3800; }
+  .c-blue  { background: #eaf2ff; border-left: 4px solid #1a3a6e; color: #1a3a6e; }
+
+  /* ── audit item cards ── */
+  .audit-card {
+    border: 1px solid #d0d7de; border-radius: 7px;
+    margin: 14px 0; overflow: hidden;
+  }
+  .audit-head {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 16px; font-weight: 600; font-size: 0.92rem;
+  }
+  .audit-head .sev {
+    font-size: 0.7rem; font-weight: 700; padding: 2px 8px;
+    border-radius: 3px; text-transform: uppercase; letter-spacing: .05em;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .sev-critical { background: #cf2222; color: #fff; }
+  .sev-important { background: #e07020; color: #fff; }
+  .sev-minor { background: #2d7d46; color: #fff; }
+  .sev-verify { background: #1a3a6e; color: #fff; }
+
+  .head-critical { background: #fff0f0; }
+  .head-important { background: #fff4e6; }
+  .head-minor { background: #dafbe1; }
+  .head-verify { background: #eaf2ff; }
+
+  .audit-body { padding: 12px 18px 14px; font-size: 0.88rem; }
+  .audit-body p { margin: 0 0 8px; }
+
+  /* ── Lichess API blocks ── */
+  .api-block {
+    background: #1b1f24; color: #adbac7;
+    border-radius: 6px; padding: 11px 16px;
+    font-family: "SFMono-Regular",Consolas,Menlo,monospace;
+    font-size: 0.82rem; line-height: 1.9;
+    margin: 10px 0;
+    overflow-x: auto;
+  }
+  .api-block .url { color: #79c0ff; }
+  .api-block .comment { color: #56d364; font-style: italic; }
+  .api-block .label { color: #d2a8ff; font-family: sans-serif; font-size: 0.78rem; }
+
+  /* ── fix spec ── */
+  .fix-spec {
+    background: #f6f8fa; border: 1px solid #d0d7de;
+    border-radius: 5px; padding: 10px 14px; margin: 10px 0;
+    font-size: 0.87rem;
+  }
+  .fix-spec .old { color: #cf2222; }
+  .fix-spec .new { color: #2d7d46; font-weight: 600; }
+
+  /* ── summary tables ── */
+  table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 12px 0 20px; }
+  thead th { background: #1a3a6e; color: #fff; padding: 8px 12px; text-align: left; }
+  tbody tr:nth-child(odd) { background: #f6f8fa; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid #d0d7de; vertical-align: top; }
+  tbody tr:last-child td { border-bottom: none; }
+
+  .tag { display: inline-block; padding: 1px 7px; border-radius: 10px; font-size: 0.72rem; font-weight: 700; }
+  .t-crit { background: #fff0f0; color: #cf2222; border: 1px solid #e8c0c0; }
+  .t-imp  { background: #fff4e6; color: #a05000; border: 1px solid #e8c090; }
+  .t-min  { background: #dafbe1; color: #1a4731; border: 1px solid #90d0a0; }
+  .t-ver  { background: #eaf2ff; color: #1a3a6e; border: 1px solid #b0ccf0; }
+  .t-done { background: #f0f4ff; color: #57606a; border: 1px solid #d0d7de; }
+
+  .section-divider { border: none; border-top: 2px solid #d0d7de; margin: 40px 0; }
+
+  .lichess-btn {
+    display: inline-block; background: #1a3a6e; color: #fff;
+    text-decoration: none; padding: 5px 12px; border-radius: 4px;
+    font-size: 0.82rem; font-weight: 600; margin: 3px 4px 3px 0;
+  }
+  .lichess-btn:hover { background: #154360; }
+  .lichess-btn.green { background: #2d7d46; }
+
+  .phase-badge {
+    display: inline-block; background: #1a3a6e; color: #fff;
+    font-size: 0.72rem; font-weight: 700; padding: 3px 10px;
+    border-radius: 3px; letter-spacing: .05em; text-transform: uppercase;
+    margin-right: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>Austin Lin — Deep Audit Plan</h1>
+    <p class="sub">Game reviews · weakness drills · preparation plans · cheat sheets · all chess positions verified via Lichess API</p>
+    <div class="meta">
+      <span><strong>Scope:</strong> All Austin-facing documents in next-step/, austin/, matchup/ (engine data: Stockfish movetime-3000)</span>
+      <span><strong>Approach:</strong> Every FEN fetched via <code>explorer.lichess.ovh/masters?play=</code> before any fix is written</span>
+      <span><strong>Generated:</strong> Nov 3, 2026</span>
+    </div>
+    <a class="back-link" href="../austin-prep.html">← Prep Index</a>
+  </div>
+
+  <!-- ── CONFIRMED PRE-AUDIT FINDINGS ── -->
+  <div class="callout c-red">
+    <strong>Pre-read scan found 4 confirmed bugs — fix these before running the full audit.</strong>
+    These are structural errors in the drill documents that would give Austin wrong positions to study from.
+    All require Lichess verification before committing a fix.
+  </div>
+
+  <h2><span class="sec">Pre-Audit</span> Confirmed Bugs Found in Pre-Read</h2>
+
+  <!-- BUG 1 -->
+  <div class="audit-card">
+    <div class="audit-head head-critical">
+      <span class="sev sev-critical">🔴 Critical</span>
+      <span>Lucena variant FEN has no Black King — illegal chess position</span>
+    </div>
+    <div class="audit-body">
+      <p><strong>File:</strong> <code>next-step/austin-endgame-drills.html</code> · line 140<br>
+         <strong>Impact:</strong> Lichess will reject this FEN. If Austin sets it up on a physical board, the position is impossible (missing a king) — the drill cannot be run.</p>
+      <div class="fix-spec">
+        <div class="old">BAD: <code>8/6P1/8/8/8/5K2/r7/6R1 w - - 0 1</code><br>
+          (White: Kg3, Rg1, Pg7 · Black: Ra2 · <strong>no Black King present</strong>)</div>
+      </div>
+      <h4>Step 1 — Determine correct Black King square via Lichess:</h4>
+      <div class="api-block">
+<span class="label">What we want:</span> Lucena variant, king cut off on the <em>short side</em>, g-file pawn<br>
+<span class="label">Standard textbook setup — White: Kg5, Rg1, Pg7 / Black: Kh7, Ra2:</span><br>
+<span class="url">https://lichess.org/analysis/standard/8/6PK/8/8/8/8/r7/6R1_w_-_-_0_1</span>
+<br><br>
+<span class="label">Alternative — White: Kf5, Rg1, Pg7 / Black: Kg8, Ra2 (King on long side):</span><br>
+<span class="url">https://lichess.org/analysis/standard/6k1/6P1/8/5K2/8/8/r7/6R1_w_-_-_0_1</span>
+<br><br>
+<span class="comment"># Verify which FEN matches the drill description: "king cut off on the short side (the pawn's file)"</span><br>
+<span class="comment"># The drill says "1.Kf4!" is the winning move — so White King must start on f3, not f5</span><br>
+<span class="comment"># Fix: add a Black King at h8 (plausible cut-off position) and verify via Lichess:</span><br>
+<span class="url">https://lichess.org/analysis/standard/7k/6P1/8/8/8/5K2/r7/6R1_w_-_-_0_1</span>
+      </div>
+      <p><strong>Fix:</strong> Add Black King h8. Verify the resulting position at the URL above — confirm Kf4! is winning, confirm Pg7 is correctly placed, confirm Ra2 is Black's rook. If Lichess analysis confirms winning for White after 1.Kf4, update the FEN line in the file.</p>
+    </div>
+  </div>
+
+  <!-- BUG 2 -->
+  <div class="audit-card">
+    <div class="audit-head head-critical">
+      <span class="sev sev-critical">🔴 Critical</span>
+      <span>Philidor drill FEN missing Black's Rook — defeats the entire purpose of the drill</span>
+    </div>
+    <div class="audit-body">
+      <p><strong>File:</strong> <code>next-step/austin-endgame-drills.html</code> · lines 162–168<br>
+         <strong>Impact:</strong> Without Black's rook the position is trivially winning for White (Rd1 and promote). The Philidor defense technique — 6th rank rook, back-rank switch — cannot be practiced. The drill is useless as written.</p>
+      <div class="fix-spec">
+        <div class="old">BAD first FEN (line 163): <code>8/8/8/4kp2/8/4K3/8/R7 w - - 0 1</code><br>
+          (Black King e5, Black pawn f5 — no White pawn, wrong structure entirely)</div>
+        <div class="old">BAD "corrected" FEN (line 168): <code>8/8/4k3/4P3/4K3/8/8/R7 w - - 0 1</code><br>
+          (White: Ke4, Re1→Ra1, Pe5 / Black: Ke6 · <strong>Black Rook completely absent</strong>)</div>
+      </div>
+      <h4>Step 1 — Get the correct Philidor starting position via Lichess:</h4>
+      <div class="api-block">
+<span class="label">Standard Philidor draw position — Phase 1 start (pawn on e5, Black to play Ra6):</span><br>
+<span class="url">https://lichess.org/analysis/standard/8/8/4k3/4P3/4K3/8/r7/R7_b_-_-_0_1</span>
+<br><span class="comment"># Black: Ke6, Ra2 · White: Ke4, Ra1, Pe5 · Black to move (play Ra6 = Philidor trigger)</span>
+<br><br>
+<span class="label">Or the more classical textbook position (rook already on 6th rank):</span><br>
+<span class="url">https://lichess.org/analysis/standard/8/8/r3k3/4P3/4K3/8/8/R7_b_-_-_0_1</span>
+<br><span class="comment"># Black: Ke6, Ra6 · White: Ke4, Ra1, Pe5 · Black to move (hold the position)</span>
+<br><br>
+<span class="label">Also verify Phase 2 trigger — pawn on e6:</span><br>
+<span class="url">https://lichess.org/analysis/standard/8/8/4Pk2/8/4K3/8/r7/R7_b_-_-_0_1</span>
+<br><span class="comment"># White: Ke4, Ra1, Pe6 · Black: Kf6, Ra2 · Black to play Ra1! (back-rank switch)</span>
+      </div>
+      <p><strong>Fix:</strong> Replace both FEN lines in the drill card with the verified FEN. Confirm: (a) both kings present, (b) both rooks present, (c) the White pawn is on e5 (Phase 1) or e6 (Phase 2), (d) the position is actually drawable with correct Philidor play. Use the Lichess engine to confirm Black holds with Ra6 → Phase 1 and Ra1! → Phase 2.</p>
+    </div>
+  </div>
+
+  <!-- BUG 3 -->
+  <div class="audit-card">
+    <div class="audit-head head-critical">
+      <span class="sev sev-critical">🔴 Critical</span>
+      <span>Lucena rule-box mnemonic contradicts the actual drill sequence</span>
+    </div>
+    <div class="audit-body">
+      <p><strong>File:</strong> <code>next-step/austin-endgame-drills.html</code> · line 104<br>
+         <strong>Impact:</strong> Austin reads the rule box first — it will give him a wrong first move. He will play Re1 (the rule box) and stumble into the stalemate trap the drill explicitly warns about one line below.</p>
+      <div class="fix-spec">
+        <div class="old">WRONG (line 104): <code>THE 4-STEP BRIDGE: Re1 → Re4 → Kb8 shield → Rg4 → Rg1/Rg8 deliver</code><br>
+          ("Re1" is explicitly labelled a stalemate trap in the steps below)</div>
+        <div class="new">CORRECT: <code>THE 4-STEP BRIDGE: Rc4! (4th rank) → Kb6 (king out) → Re4! (absorb check) → b8=Q</code></div>
+      </div>
+      <p>The mnemonic should use the actual winning first move (<code>Rc4!</code>) not a losing alternative. Also "Rg4" and "Rg1/Rg8" don't apply to this b-file pawn position — those are names from a different Lucena variant. Verify the exact pawn file and adapt the mnemonic accordingly.</p>
+    </div>
+  </div>
+
+  <!-- BUG 4 -->
+  <div class="audit-card">
+    <div class="audit-head head-important">
+      <span class="sev sev-important">🟡 Important</span>
+      <span>austin-tactics.html Pattern 1 Lichess FEN links need verification — confirm positions are correct after Bxh7+</span>
+    </div>
+    <div class="audit-body">
+      <p><strong>File:</strong> <code>next-step/austin-tactics.html</code> · lines 398, 412<br>
+         <strong>Note:</strong> These are Lichess analysis links embedded in href attributes — they will display regardless of whether the FEN is right. The position displayed could differ from what the move sequence claims.</p>
+      <h4>Step 1 — Verify the setup position FEN (before Bxh7+):</h4>
+      <p>Move sequence: 1.e4 c6 2.d4 d5 3.exd5 cxd5 4.Bd3 Nc6 5.c3 Qc7 6.h3 e6 7.Nf3 Bd6 8.O-O Nge7 9.Re1 O-O</p>
+      <div class="api-block">
+<span class="label">Verify via Lichess masters explorer (trace moves, get FEN):</span><br>
+<span class="url">https://explorer.lichess.ovh/masters?play=e2e4,c7c6,d2d4,d7d5,e4d5,c6d5,f1d3,b8c6,c2c3,d8c7,h2h3,e7e6,g1f3,f8d6,e1g1,g8e7,e1e1,e8g8</span>
+<br><span class="comment"># Note: Re1 is already on e1 from castling — confirm exact sequence. Adjust UCI notation if needed.</span>
+<br><span class="comment"># Compare returned FEN to: r1b2rk1/ppq1nppp/2nbp3/3p4/3P4/2PB1N1P/PP3PP1/RNBQR1K1</span>
+      </div>
+      <h4>Step 2 — Verify post-Ng5+ position FEN (line 412):</h4>
+      <div class="api-block">
+<span class="label">Claimed FEN after 10.Bxh7+ Kxh7 11.Ng5+:</span><br>
+<span class="url">https://lichess.org/analysis/standard/r1b2r2/ppq1nppk/2nbp3/3p2N1/3P4/2P4P/PP3PP1/RNBQR1K1_b_-_-_1_11</span>
+<br><span class="comment"># Confirm: Black King on h7, White Ng5, Bd3 gone (sacrificed), Black h7 pawn gone</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- ── SECTION 1: GAME REVIEWS ── -->
+  <h2><span class="sec">Section 1</span> Austin's Game Reviews — 3 Tournament Sets</h2>
+
+  <p>Three review pairs to audit: NAYCC 2025, PAM 2026, Personal Study. Both <code>review.html</code> (standard) and <code>review-deep.html</code> (engine-backed) for each.</p>
+
+  <div class="callout c-blue">
+    <strong>Primary source of truth for accuracy data:</strong> <code>scripts/analysis-results.json</code> (NAYCC/PAM/personal study combined) and <code>scripts/study-pt5-results.json</code> (personal study Stockfish deep). Cross-reference every accuracy figure in the HTML against these JSON files. A figure that doesn't appear in the JSON was not engine-verified.
+  </div>
+
+  <h3>1A — NAYCC 2025 · <code>austin/naycc2025/</code></h3>
+
+  <div class="audit-card">
+    <div class="audit-head head-important">
+      <span class="sev sev-important">🟡 Important</span>
+      <span>Verify all critical-moment FEN positions against actual game PGN files (9 games)</span>
+    </div>
+    <div class="audit-body">
+      <ul>
+        <li>For each "key moment" position shown in <code>review.html</code> and <code>review-deep.html</code>, extract the FEN from the surrounding move sequence in the PGN file (<code>austin/naycc2025/game_*.pgn</code>).</li>
+        <li>Verify FEN via Lichess: <code>https://lichess.org/analysis/standard/{FEN}</code> — confirm piece placement matches the game state at that move.</li>
+        <li>Specifically re-check the NAYCC R3 vs Chitta "N4g3+! sac" position, NAYCC R2 vs Verma "Bxh2+!" position, and NAYCC R4 vs Justin endgame position — these are the most cited positions in prep materials and most likely to have been transcribed from memory.</li>
+      </ul>
+      <div class="api-block">
+<span class="label">Template for each critical-moment verification:</span><br>
+<span class="url">https://explorer.lichess.ovh/masters?play={uci_moves_to_position}</span>
+<span class="comment"> ← returns authoritative FEN</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-minor">
+      <span class="sev sev-minor">🟢 Minor</span>
+      <span>Check that all 9 game results and accuracy tables match the engine JSON</span>
+    </div>
+    <div class="audit-body">
+      <p>Open <code>scripts/analysis-results.json</code> — find each NAYCC 2025 game by White/Black name. Verify: accuracy %, CPL, blunder count in <code>review-deep.html</code> match the JSON values exactly. A stale figure from an earlier analysis run is invisible to the reader but undermines Austin's self-assessment.</p>
+    </div>
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-important">
+      <span class="sev sev-important">🟡 Important</span>
+      <span>NAYCC R4 vs Justin Huang: annotated endgame line — verify move legality via Lichess</span>
+    </div>
+    <div class="audit-body">
+      <p>Austin's most important NAYCC game. Any annotated line in the review referencing White's winning endgame technique must be traced move-by-move.</p>
+      <div class="api-block">
+<span class="label">Fetch game PGN, then trace to endgame position and verify:</span><br>
+<span class="url">https://explorer.lichess.ovh/masters?play={first_N_moves_of_game_as_UCI}</span>
+<span class="comment"> ← replace {first_N_moves} with the actual moves from the PGN</span>
+      </div>
+    </div>
+  </div>
+
+  <h3>1B — PAM 2026 · <code>austin/pam2026/</code></h3>
+
+  <div class="audit-card">
+    <div class="audit-head head-important">
+      <span class="sev sev-important">🟡 Important</span>
+      <span>PAM R7 vs Fernandez Herrera: verify the opening trap sequence (B45 Taimanov 6...Bc5?? → Bc7! trap)</span>
+    </div>
+    <div class="audit-body">
+      <p>This is Austin's most critical theory failure — the sequence <code>5.Nc3 Nc6 6.Ndb5 Bc5?? 7.Bf4 O-O 8.Bc7! Qe7 9.Bd6 Bxd6 10.Qxd6</code> is cited in multiple prep documents. It <strong>must be traced exactly</strong> via Lichess to confirm every move is legal and the bishop trap actually works as described.</p>
+      <div class="api-block">
+<span class="label">Trace the full sequence via Lichess masters explorer:</span><br>
+<span class="url">https://explorer.lichess.ovh/masters?play=e2e4,c7c5,g1f3,e7e6,d2d4,c5d4,f3d4,b8c6,b1c3,g8f6,d4b5,f8c5,c1f4,e8g8,f4c7</span>
+<br><span class="comment"># Confirm Bc7 is legal (bishop to c7) — verify it actually traps the queen or creates decisive threat</span>
+<br><span class="comment"># Also verify the correct defense: 6.Ndb5 → 6...d6! (not Bc5)</span>
+<span class="url">https://explorer.lichess.ovh/masters?play=e2e4,c7c5,g1f3,e7e6,d2d4,c5d4,f3d4,b8c6,b1c3,g8f6,d4b5,d7d6</span>
+<br><span class="comment"># Verify 6...d6 is book (it should be the main line) — get top-move stats</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-important">
+      <span class="sev sev-important">🟡 Important</span>
+      <span>PAM R5 vs Vinales: verify the endgame position where 21...Bxe4?? lost — confirm exact move and eval</span>
+    </div>
+    <div class="audit-body">
+      <p><code>analysis-results.json</code> should have PAM R5 entry. Confirm: (a) blunder at move 21 is Black's Bxe4, (b) accuracy figures, (c) the annotated "correct" alternative. Then verify any position FEN shown in the review against the PGN game file.</p>
+    </div>
+  </div>
+
+  <h3>1C — Personal Study · <code>austin/personal-study/</code></h3>
+
+  <div class="audit-card">
+    <div class="audit-head head-important">
+      <span class="sev sev-important">🟡 Important</span>
+      <span>study-pt5-results.json: cross-reference top 5 critical-moment positions in review-deep.html</span>
+    </div>
+    <div class="audit-body">
+      <p>The personal study review covers 29–33 games. For the top 5 most-cited critical moments in <code>review-deep.html</code>:</p>
+      <ol>
+        <li>Find the exact game and move in <code>scripts/study-pt5-results.json</code></li>
+        <li>Extract the FEN at that move from the PGN (use the <code>fen</code> field if present in the JSON, otherwise trace the move sequence)</li>
+        <li>Verify the position via Lichess: <code>https://lichess.org/analysis/standard/{FEN}</code></li>
+        <li>Confirm that the "best move" annotation matches what Stockfish at movetime-3000 returned in the JSON</li>
+      </ol>
+      <div class="api-block">
+<span class="label">Priority games to verify (highest-impact or most cited in prep materials):</span><br>
+<span class="comment"># 1. vs Zachary Liu (B46): move 67 K+P endgame — what was the critical split between draw and loss?</span>
+<span class="comment"># 2. vs Heye Gao (C54): move 53 position — what exact piece arrangement let White dominate?</span>
+<span class="comment"># 3. vs Warren Feng (B13): move 23 — confirm 23.Nh5?? is genuinely losing and Nh5 gxh5 Rxe6 is the line</span>
+<span class="comment"># 4. vs IM Vettesse (B90): move 17 — Ncb1 retreat vs Rf3 — which engine recommends?</span>
+<span class="comment"># 5. vs Malakhovets (B13): Bxh7+ at move 10 — confirm trigger FEN is exactly as in austin-tactics.html</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-minor">
+      <span class="sev sev-minor">🟢 Minor</span>
+      <span>Confirm Thanksgiving 2026 games (chess4win-thanksgiving2026.pgn) are reflected in review.html</span>
+    </div>
+    <div class="audit-body">
+      <p><code>austin/personal-study/chess4win-thanksgiving2026.pgn</code> may contain games not in the current <code>review.html</code>. Check: how many games are in this PGN? Are they in the review? If not, note as a gap.</p>
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- ── SECTION 2: WEAKNESS DRILLS ── -->
+  <h2><span class="sec">Section 2</span> Weakness Drills — Tactics Library &amp; Endgame Pack</h2>
+
+  <h3>2A — Tactical Pattern Library · <code>next-step/austin-tactics.html</code></h3>
+
+  <div class="callout c-gold">
+    <strong>5 patterns, 8 FEN-based Lichess analysis links.</strong> All 8 links need to be opened and confirmed: does the board position shown match the annotated position in the text? A wrong FEN here gives Austin the wrong position to study.
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-verify">
+      <span class="sev sev-verify">🔵 Verify</span>
+      <span>Pattern 1 — Greek Gift: verify setup FEN and post-Ng5+ FEN (2 links)</span>
+    </div>
+    <div class="audit-body">
+      <h4>Verify setup position (line 398): Exchange CK after 9...O-O, White to play Bxh7+</h4>
+      <div class="api-block">
+<span class="url">https://explorer.lichess.ovh/masters?play=e2e4,c7c6,d2d4,d7d5,e4d5,c6d5,f1d3,b8c6,c2c3,d8c7,h2h3,e7e6,g1f3,f8d6,e1g1,g8e7,g1h1,e8g8</span>
+<br><span class="comment"># Expected FEN: r1b2rk1/ppq1nppp/2nbp3/3p4/3P4/2PB1N1P/PP3PP1/RNBQR1K1 w - - 6 10</span>
+<br><span class="comment"># If Lichess returns a different FEN, the Lichess link in the HTML is wrong</span>
+      </div>
+      <a class="lichess-btn" href="https://lichess.org/analysis/r1b2rk1/ppq1nppp/2nbp3/3p4/3P4/2PB1N1P/PP3PP1/RNBQR1K1_w_-_-_6_10" target="_blank">♟ Open Setup FEN in Lichess</a>
+      <h4>Verify post-Ng5+ position (line 412): after 10.Bxh7+ Kxh7 11.Ng5+</h4>
+      <div class="api-block">
+<span class="url">https://explorer.lichess.ovh/masters?play=e2e4,c7c6,d2d4,d7d5,e4d5,c6d5,f1d3,b8c6,c2c3,d8c7,h2h3,e7e6,g1f3,f8d6,e1g1,g8e7,g1h1,e8g8,d3h7,h8h7,f3g5</span>
+<br><span class="comment"># Expected FEN: r1b2r2/ppq1nppk/2nbp3/3p2N1/3P4/2P4P/PP3PP1/RNBQR1K1 b - - 1 11</span>
+<br><span class="comment"># Confirm: Black King h7 ✓ · White Ng5 ✓ · Bd3 gone (sac'd) ✓</span>
+      </div>
+      <a class="lichess-btn" href="https://lichess.org/analysis/r1b2r2/ppq1nppk/2nbp3/3p2N1/3P4/2P4P/PP3PP1/RNBQR1K1_b_-_-_1_11" target="_blank">♟ Open Post-Ng5+ FEN in Lichess</a>
+    </div>
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-verify">
+      <span class="sev sev-verify">🔵 Verify</span>
+      <span>Pattern 2 — h4-h5 Storm: verify Maróczy position FEN at move 12 (1 link)</span>
+    </div>
+    <div class="audit-body">
+      <p>Move sequence: 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6 5.c4 Qc7 6.Nc3 Nc6 7.Be3 Nf6 8.a3 Be7 9.Be2 O-O 10.Rc1 Nxd4 11.Bxd4 d6 12.h4</p>
+      <div class="api-block">
+<span class="url">https://explorer.lichess.ovh/masters?play=e2e4,c7c5,g1f3,e7e6,d2d4,c5d4,f3d4,a7a6,c2c4,d8c7,b1c3,b8c6,c1e3,g8f6,a2a3,f8e7,f1e2,e8g8,a1c1,c6d4,e3d4,d7d6,h2h4</span>
+<br><span class="comment"># Expected: r1b2rk1/1pq1bppp/p2ppn2/8/2PBP2P/P1N5/1P2BPP1/2RQK2R b K - 0 12</span>
+<br><span class="comment"># Confirm castling rights — White has not yet castled (Re1→Rc1 move was Rc1 not castling)</span>
+      </div>
+      <a class="lichess-btn" href="https://lichess.org/analysis/r1b2rk1/1pq1bppp/p2ppn2/8/2PBP2P/P1N5/1P2BPP1/2RQK2R_b_K_-_0_12" target="_blank">♟ Open h4-h5 FEN in Lichess</a>
+      <p><strong>Note:</strong> White played Rc1 (not castled) — the castling rights flag <code>K</code> in the FEN means White can still castle kingside. Verify this is correct.</p>
+    </div>
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-verify">
+      <span class="sev sev-verify">🔵 Verify</span>
+      <span>Pattern 3 — IQP Knight Storm: verify 2 FENs (Ncxe4 trigger + Ne2 domination)</span>
+    </div>
+    <div class="audit-body">
+      <h4>Setup position (line 494): after 18...Nc5, White plays 19.Qc4 — Black to play Ncxe4!</h4>
+      <div class="api-block">
+<span class="url">https://explorer.lichess.ovh/masters?play=d2d4,g8f6,c2c4,e7e6,b1c3,f8b4,e2e3,e8g8,f1d3,d7d5,a2a3,b4c3,b2c3,b7b6,g1f3,c8a6,c4d5,e6d5,d3a6,b8a6,d1d3,d8c8,e1g1,c7c5,c3c4,a6c5,f1e1,f8e8,e3e4,d5e4,f3e4,c5d4,c3d4</span>
+<br><span class="comment"># This is 17.fxe4 cxd4 18.cxd4 Nc5 — then 19.Qc4 (White's move not in the trace)</span>
+<br><span class="comment"># Trace up through 18...Nc5, confirm FEN, then manually check White plays Qd3→Qc4</span>
+      </div>
+      <a class="lichess-btn green" href="https://lichess.org/analysis/3rr1k1/pq3ppp/1p3n2/2n5/2QPP3/P7/3N2PP/R1B1R1K1_b_-_-_2_19" target="_blank">♟ Open Ncxe4! position in Lichess</a>
+      <h4>Knight domination FEN (line 506): after 24...Ne4 — two knights on e4 and e2</h4>
+      <a class="lichess-btn green" href="https://lichess.org/analysis/4r1k1/pq3ppp/1p6/8/3Pn3/P4N2/4n1PP/R1B2Q1K_w_-_-_4_25" target="_blank">♟ Open knight domination FEN in Lichess</a>
+      <div class="api-block">
+<span class="comment"># Confirm: Black Nc3→e4 and Ne2 both present · White king h1 (not g1, moved after check)</span>
+<span class="comment"># Confirm FEN rank-by-rank: rank 4 = d4 pawn + e4 black knight · rank 2 = e2 black knight + g2/h2 pawns</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-verify">
+      <span class="sev sev-verify">🔵 Verify</span>
+      <span>Pattern 4 — Rook Battery: verify Rf3 setup FEN (1 link)</span>
+    </div>
+    <div class="audit-body">
+      <p>Move sequence: 1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.e3 O-O 5.Bd2 b6 6.Nf3 Bb7 7.Bd3 d5 8.cxd5 exd5 9.Rc1 a6 10.O-O Bd6 11.Ne5 c5 12.f4 Nc6 13.Ne2 Ne4 14.Rf3</p>
+      <div class="api-block">
+<span class="url">https://explorer.lichess.ovh/masters?play=d2d4,g8f6,c2c4,e7e6,b1c3,f8b4,e2e3,e8g8,c1d2,b7b6,g1f3,c8b7,f1d3,d7d5,c4d5,e6d5,a1c1,a7a6,e1g1,f8d6,c3e5,c7c5,f2f4,b8c6,f3e2,f6e4,f1f3</span>
+<br><span class="comment"># Expected: r2q1rk1/1b3ppp/ppnb4/2ppN3/3PnP2/3BPR2/PP1BN1PP/2RQ2K1 b - - 4 14</span>
+      </div>
+      <a class="lichess-btn" style="background:#6b3fa0;" href="https://lichess.org/analysis/r2q1rk1/1b3ppp/ppnb4/2ppN3/3PnP2/3BPR2/PP1BN1PP/2RQ2K1_b_-_-_4_14" target="_blank">♟ Open Rf3 position in Lichess</a>
+    </div>
+  </div>
+
+  <h3>2B — Endgame Drill Pack · <code>next-step/austin-endgame-drills.html</code></h3>
+
+  <div class="callout c-red">
+    <strong>Three FEN errors confirmed in pre-read (see Pre-Audit section above).</strong> Implement those fixes before doing any other endgame review.
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-important">
+      <span class="sev sev-important">🟡 Important</span>
+      <span>After fixing Philidor FEN — verify the drawn/winning sequences are accurate</span>
+    </div>
+    <div class="audit-body">
+      <p>Once the correct Philidor FEN is in place, verify the move sequences cited:</p>
+      <ul>
+        <li>Phase 1: <code>...Ra6!</code> hold → <code>e6</code> trigger → <code>...Ra1!</code> switch. Trace via Lichess.</li>
+        <li>Phase 2: check-giving sequence <code>Ke7 Rf7+ Ke8 Rf1 Rxf1</code> — verify this is genuinely a draw (stalemate or perpetual as claimed).</li>
+        <li>Warning: "Ke7 Rf7+ Ke8 Rf1 Rxf1 draw" — is this actually correct? Trace this sequence in Lichess engine to confirm it's not losing for Black.</li>
+      </ul>
+      <div class="api-block">
+<span class="label">After getting the correct Philidor Phase 2 FEN, verify the drawing line:</span><br>
+<span class="url">https://lichess.org/analysis/standard/{CORRECT_PHILIDOR_FEN_PHASE2}</span>
+<span class="comment"> ← paste verified FEN here, look at engine eval after Ra1!</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-important">
+      <span class="sev sev-important">🟡 Important</span>
+      <span>Loss analysis positions — verify the 3 specific position descriptions against the actual PGN games</span>
+    </div>
+    <div class="audit-body">
+      <p>Three loss positions are annotated: NAYCC R7 vs Beegala (move ~47–50), NAYCC R9 vs Li (moves 44–50), PAM R5 vs Vinales (moves 32–35). Each has a specific move sequence cited.</p>
+      <p><strong>For each:</strong> Pull the game PGN file, trace to the cited move number, generate the FEN, and verify via Lichess that the annotated "mistake" and "correct" moves are accurate. The Stockfish JSON should have the CPL for each of these moves.</p>
+      <div class="api-block">
+<span class="comment"># NAYCC R7 — game file: austin/naycc2025/game_263449.pgn (or nearby game IDs)</span>
+<span class="comment"># Trace to move 47, extract FEN, check Stockfish eval for the passive ...Bd8 vs active ...Be7 line</span>
+<br>
+<span class="comment"># PAM R5 — game file: austin/pam2026/round5.pgn</span>
+<span class="comment"># Trace to move 32, verify the claim "28.c5! was better" — is c5 actually better than the played move?</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- ── SECTION 3: OPENING NOVELTY TREES ── -->
+  <h2><span class="sec">Section 3</span> Opening Novelty Trees · <code>next-step/opening-novelty-trees.html</code></h2>
+
+  <div class="audit-card">
+    <div class="audit-head head-verify">
+      <span class="sev sev-verify">🔵 Verify</span>
+      <span>Taimanov tabiya and Maróczy Bind FENs — verify against Lichess masters explorer</span>
+    </div>
+    <div class="audit-body">
+      <p>The novelty trees contain opening move sequences and branch points. The most critical positions for NAYCC 2026:</p>
+      <div class="api-block">
+<span class="label">Taimanov tabiya (after 5.Nc3 Nf6):</span><br>
+<span class="url">https://explorer.lichess.ovh/masters?play=e2e4,c7c5,g1f3,e7e6,d2d4,c5d4,f3d4,b8c6,b1c3,g8f6</span>
+<br><span class="comment"># Expected FEN: r1bqkb1r/pp1p1ppp/2n1pn2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 3 6</span>
+<br><span class="comment"># Get top White moves at this position (confirm 6.Be3, 6.g4/Batrikov, 6.Ndb5, 6.c4/Maroc are listed)</span>
+<br><br>
+<span class="label">Maróczy Bind tabiya (after 5.Nc3 Nf6 6.c4):</span><br>
+<span class="url">https://explorer.lichess.ovh/masters?play=e2e4,c7c5,g1f3,e7e6,d2d4,c5d4,f3d4,b8c6,b1c3,g8f6,c2c4</span>
+<br><span class="comment"># Expected FEN: r1bqkb1r/pp1p1ppp/2n1pn2/8/2PNP3/2N5/PPP2PPP/R1BQKB1R b KQkq - 0 6</span>
+<br><span class="comment"># This was the FEN corrected in vadim-sessions.html — confirm it matches</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-verify">
+      <span class="sev sev-verify">🔵 Verify</span>
+      <span>Advance French novelty tree — verify 6.a3 → 7.b4! branch position (Austin's White weapon vs Asher)</span>
+    </div>
+    <div class="audit-body">
+      <p>Austin's primary French weapon: 1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 Qb6 6.a3 → 7.b4!</p>
+      <div class="api-block">
+<span class="url">https://explorer.lichess.ovh/masters?play=e2e4,e7e6,d2d4,d7d5,e4e5,c7c5,c2c3,b8c6,g1f3,d8b6,a2a3</span>
+<br><span class="comment"># Get: position after 6.a3 — what does White typically play next? Confirm b4 is a real option</span>
+<br><span class="comment"># Check frequency of b4 vs other 7th moves (Be2, Bd3, b3)</span>
+<br><span class="comment"># If b4 has &lt;10% frequency, note Austin's prep relies on a rare side-line — update the tree's annotation</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-important">
+      <span class="sev sev-important">🟡 Important</span>
+      <span>Nimzo-Indian Bxc3+ tree — verify the ...Ba6 exchange variation tabiya FEN</span>
+    </div>
+    <div class="audit-body">
+      <p>Austin's primary Black weapon. The key tabiya: 1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.e3 O-O 5.Bd3 d5 6.a3 Bxc3+ 7.bxc3 b6</p>
+      <div class="api-block">
+<span class="url">https://explorer.lichess.ovh/masters?play=d2d4,g8f6,c2c4,e7e6,b1c3,f8b4,e2e3,e8g8,f1d3,d7d5,a2a3,b4c3,b2c3,b7b6</span>
+<br><span class="comment"># Get stats and top-moves at the tabiya after 7...b6</span>
+<br><span class="comment"># Expected: White plays 8.Nf3 most commonly. Confirm the tree covers the main line.</span>
+<br><span class="comment"># Also check if 8.Qc2 (the aggressive sideline) is covered in the novelty tree</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- ── SECTION 4: CHEAT SHEETS ── -->
+  <h2><span class="sec">Section 4</span> Cheat Sheets · <code>next-step/naycc2026-cheatsheet.html</code></h2>
+
+  <div class="callout c-gold">
+    <strong>The cheat sheet is the most time-pressured document — read at the board in 30 seconds.</strong> Every move recommendation must be verified to be both legal and accurate. One wrong recommendation at the board is a disaster.
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-critical">
+      <span class="sev sev-critical">🔴 Critical</span>
+      <span>Verify every opening recommendation is consistent with the full matchup files</span>
+    </div>
+    <div class="audit-body">
+      <p>Cross-reference each card in the cheatsheet against <code>matchup/matchup-{name}-white.html</code> and <code>matchup/matchup-{name}-black.html</code>. Specifically check:</p>
+      <table>
+        <thead><tr><th>Opponent</th><th>Cheatsheet White Rec</th><th>Verify against matchup file</th></tr></thead>
+        <tbody>
+          <tr><td>Zachary Liu</td><td>Open Sicilian English Attack 6.Be3 7.f3 8.g4</td><td>matchup-zachary-white.html — confirm not Rossolimo</td></tr>
+          <tr><td>Leo Jackson</td><td>Advance French 3.e5 (NOT Tarrasch)</td><td>matchup-leo-white.html — confirm Advance is recommendation</td></tr>
+          <tr><td>Justin Huang</td><td>(check current card)</td><td>matchup-justin-white.html — last encounter was 2025</td></tr>
+          <tr><td>Inti Flores Ojeda</td><td>(check current card)</td><td>matchup-inti-white.html — Open Sicilian + French Rubinstein</td></tr>
+          <tr><td>Asher Chodniewicz</td><td>(check current card)</td><td>matchup-asher-white.html — Advance French 6.a3 7.b4!</td></tr>
+        </tbody>
+      </table>
+      <p>Any card where the cheatsheet says X but the matchup file says Y is a contradiction that must be resolved. The matchup file (with full analysis) takes precedence.</p>
+    </div>
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-critical">
+      <span class="sev sev-critical">🔴 Critical</span>
+      <span>Check that all 17 NAYCC 2026 opponents have cards — verify against official roster (Nov 1 FIDE list)</span>
+    </div>
+    <div class="audit-body">
+      <p>CLAUDE.md lists 17 analyzed opponents. The cheatsheet should have a card for each. Known changes since original creation:</p>
+      <ul>
+        <li>✅ Daniel Joshua Lee — marked as "MOVED TO U18" (verified in existing cheatsheet)</li>
+        <li>✅ Heye Gao — may be marked as moved to other section</li>
+        <li>❓ <strong>Asher Chodniewicz</strong> — added Nov 2026. Does the cheatsheet have an Asher card?</li>
+        <li>❓ <strong>Inti Flores Ojeda</strong> — added as seed #4. Does the cheatsheet have an Inti card?</li>
+        <li>❓ <strong>Zhuoyuan Wu</strong> — seed #10. Does the cheatsheet have a Zhuoyuan card?</li>
+      </ul>
+      <p>If any recently-added opponent is missing a card, create it following the existing card format with the same tier classification used in <code>naycc2026-gm-brief.html</code>.</p>
+    </div>
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-important">
+      <span class="sev sev-important">🟡 Important</span>
+      <span>Verify Leo Jackson Black recommendation: Bogo-Indian 4...Qe7! is the correct move (not 4...Bxd2+)</span>
+    </div>
+    <div class="audit-body">
+      <p>The cheatsheet says: vs Leo's 1.d4 Catalan → <code>1...Nf6 2...e6 3...Bb4+ 4.Bd2 → 4...Qe7!</code>.</p>
+      <div class="api-block">
+<span class="label">Verify this is a real and sound recommendation via Lichess masters:</span><br>
+<span class="url">https://explorer.lichess.ovh/masters?play=d2d4,g8f6,g1f3,e7e6,g2g3,f8b4,c1d2</span>
+<br><span class="comment"># Get the top moves after 4.Bd2 — is 4...Qe7 among them? What % frequency? What's the evaluation?</span>
+<br><span class="comment"># If 4...Qe7 is &lt;5% in masters, note it as a personal sideline choice with a reason</span>
+<br><span class="comment"># Also check 4...a5 (another common Bogo response) to understand the comparison</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-important">
+      <span class="sev sev-important">🟡 Important</span>
+      <span>Verify Taimanov 6.Ndb5 → 6...d6! is correctly stated for all Sicilian-playing opponents</span>
+    </div>
+    <div class="audit-body">
+      <p>This rule (<code>6.Ndb5 → 6...d6! automatic</code>) must appear in every card where Austin plays Black vs an opponent who plays 1.e4. Check: does each relevant card reference this rule or link to the drill? Opponents playing 1.e4 against Austin at NAYCC: Zachary (no — he plays 1.Nf3), Inti (yes), Asher (uses Be3+Bd3 — less likely Ndb5 but possible), Fernando (plays 1.e4), Pranav (plays 1.e4).</p>
+      <div class="api-block">
+<span class="label">Verify 6.Ndb5 d6! is book (the main line) at this position:</span><br>
+<span class="url">https://explorer.lichess.ovh/masters?play=e2e4,c7c5,g1f3,e7e6,d2d4,c5d4,f3d4,b8c6,b1c3,g8f6,d4b5</span>
+<br><span class="comment"># Check: is d7d6 the top move? What % of masters games? Get the book top-3 moves after 6.Ndb5</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- ── SECTION 5: PREP PLANS (VADIM + GM BRIEF) ── -->
+  <h2><span class="sec">Section 5</span> Prep Plans — Vadim Sessions &amp; GM Brief</h2>
+
+  <h3>5A — Vadim Coaching Sessions · <code>next-step/vadim-sessions.html</code></h3>
+
+  <div class="callout c-green">
+    <strong>7 fixes applied Nov 2026</strong> (opponent count, Asher addition, Maróczy move order, 2 FEN corrections). The document is recently audited. The remaining items are focused verification tasks.
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-verify">
+      <span class="sev sev-verify">🔵 Verify</span>
+      <span>Batrikov Variation (6.g4) drill plan — verify defensive structure 6...d6 7.g5 Nd7 8.Be3 a6</span>
+    </div>
+    <div class="audit-body">
+      <p>The vadim-sessions.html references the Batrikov Variation as an emergency drill: <code>6.g4 → 6...d6 → 7.g5 Nd7 → 8.Be3 a6 → ...b5 counter</code>. This sequence must be verified — is 6.g4 actually possible here? Is 6...d6 the correct response? Does the sequence reach the claimed position?</p>
+      <div class="api-block">
+<span class="label">Trace the Batrikov Variation from Taimanov tabiya:</span><br>
+<span class="url">https://explorer.lichess.ovh/masters?play=e2e4,c7c5,g1f3,e7e6,d2d4,c5d4,f3d4,b8c6,b1c3,g8f6,d4g4</span>
+<br><span class="comment"># Wait — Nd4 moving to g4? Confirm 6.g4 is actually Ng4 (illegal, knight on d4 can't reach g4)</span>
+<br><span class="comment"># OR: is it 5.Nc3 Nf6 6.g4 (pawn push)? Trace this:</span>
+<span class="url">https://explorer.lichess.ovh/masters?play=e2e4,c7c5,g1f3,e7e6,d2d4,c5d4,f3d4,b8c6,b1c3,g8f6,g2g4</span>
+<br><span class="comment"># Confirm 6.g4 (pawn) is what's meant, verify 6...d6 is the correct defensive response</span>
+<br><span class="comment"># Check eval at the position: is Black comfortable after the recommended line?</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-verify">
+      <span class="sev sev-verify">🔵 Verify</span>
+      <span>Session 1 Drill B — Taimanov 6.Be3 → Bb4! verify move is legal and correct</span>
+    </div>
+    <div class="audit-body">
+      <p>Vadim sessions says: "Drill B (6.Be3 → Bb4!) is the exact drill for the Asher game." Verify 6...Bb4 is a real and sound response to 6.Be3 in the Taimanov.</p>
+      <div class="api-block">
+<span class="url">https://explorer.lichess.ovh/masters?play=e2e4,c7c5,g1f3,e7e6,d2d4,c5d4,f3d4,b8c6,b1c3,g8f6,c1e3</span>
+<br><span class="comment"># Get top Black moves after 6.Be3 — is Bb4 among them? What is the main line (Bb4 vs d5 vs a6)?</span>
+<br><span class="comment"># Austin's specific plan after 6.Be3 Bb4 — what does he do next? Verify the plan leads to a sound position.</span>
+      </div>
+    </div>
+  </div>
+
+  <h3>5B — GM Strategic Brief · <code>next-step/naycc2026-gm-brief.html</code></h3>
+
+  <div class="audit-card">
+    <div class="audit-head head-critical">
+      <span class="sev sev-critical">🔴 Critical</span>
+      <span>Verify all ratings match Nov 1 FIDE list — check tier labels (must-win / must-draw / prize-game)</span>
+    </div>
+    <div class="audit-body">
+      <p>The GM brief sets Austin's risk tier for each opponent. A wrong rating changes the tier and affects game-day psychology. From CLAUDE.md (Nov 1 authoritative values):</p>
+      <table>
+        <thead><tr><th>Opponent</th><th>Nov 1 FIDE</th><th>Gap to Austin (1959)</th><th>Expected Tier</th></tr></thead>
+        <tbody>
+          <tr><td>Zachary Liu</td><td>2185</td><td>–226</td><td>Prize game (upset)</td></tr>
+          <tr><td>Leo Jackson</td><td>2081</td><td>–122</td><td>Prize game (upset)</td></tr>
+          <tr><td>Justin Huang</td><td>2010</td><td>–51</td><td>Must-draw or upset</td></tr>
+          <tr><td>Inti Flores Ojeda</td><td>2011</td><td>–52</td><td>Must-draw or upset</td></tr>
+          <tr><td>Fernando Cortes</td><td>2085</td><td>–126</td><td>Prize game (upset)</td></tr>
+          <tr><td>Aarush Ajith</td><td>1943</td><td>+16</td><td>Must-win</td></tr>
+          <tr><td>Emerson Johnson</td><td>1909</td><td>+50</td><td>Must-win</td></tr>
+          <tr><td>Tarun Sankar</td><td>1984</td><td>–25</td><td>Must-draw</td></tr>
+          <tr><td>Pranav Santhosh</td><td>1922</td><td>+37</td><td>Must-win</td></tr>
+          <tr><td>Zhuoyuan Wu</td><td>1890</td><td>+69</td><td>Must-win</td></tr>
+          <tr><td>Asher Chodniewicz</td><td>1884</td><td>+75</td><td>Must-win</td></tr>
+          <tr><td>Pablo De Alba</td><td>1873</td><td>+86</td><td>Must-win</td></tr>
+          <tr><td>Joel Jeyaraj</td><td>1813</td><td>+146</td><td>Must-win</td></tr>
+          <tr><td>Yaen Saenz</td><td>1841</td><td>+118</td><td>Must-win</td></tr>
+          <tr><td>Daniel H. Gamboa</td><td>1753</td><td>+206</td><td>Must-win</td></tr>
+        </tbody>
+      </table>
+      <p>Read <code>naycc2026-gm-brief.html</code>, find every inline rating figure and tier label, and verify against this table. Flag any mismatch.</p>
+    </div>
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-important">
+      <span class="sev sev-important">🟡 Important</span>
+      <span>Verify Asher is in the "must-win" tile and has a prep summary in the brief</span>
+    </div>
+    <div class="audit-body">
+      <p>Asher Chodniewicz (1884 FIDE, +75 gap) was added Nov 2026. The GM brief should show:</p>
+      <ul>
+        <li>Asher listed in the must-win section alongside Aarush, Emerson, Tarun, Zhuoyuan</li>
+        <li>Brief noting: White weapon = Advance French 3.e5 6.a3 7.b4! · Black weapon = Taimanov vs Be3+Bd3 system</li>
+        <li>Link to <code>matchup-asher-gm.html</code></li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- ── SECTION 6: MATCHUP FILES SWEEP ── -->
+  <h2><span class="sec">Section 6</span> Matchup Files — Cross-File Consistency Sweep (17 Opponents)</h2>
+
+  <div class="callout c-blue">
+    <strong>This section is a targeted sweep, not a full re-audit of every matchup file.</strong>
+    Focus on three specific risk vectors across all 17 opponents in parallel.
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-critical">
+      <span class="sev sev-critical">🔴 Critical</span>
+      <span>Sweep: check that all 17 opponent ratings match Nov 1 FIDE list across all matchup files</span>
+    </div>
+    <div class="audit-body">
+      <p>Each matchup file has a subtitle and/or profile grid showing the opponent's rating. If any file shows a pre-Nov-1 rating (e.g. "Justin Huang 2093" instead of "2010"), the gap calculation is wrong and the tier label may be wrong.</p>
+      <p><strong>Priority corrections (largest rating changes since Sep 2026):</strong></p>
+      <ul>
+        <li>Justin Huang: was 2093 → now 2010 (–83 pts). Any file showing 2093 needs updating.</li>
+        <li>Heye Gao: was ~2028–2099 → now 1968 (moved section anyway).</li>
+        <li>Daniel Joshua Lee: was 1942 Apr 2026, surged to 2191 Sep 2026, now 2165 Nov 2026 (moved to U18).</li>
+        <li>Leo Jackson: check current FIDE vs what matchup files show.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-important">
+      <span class="sev sev-important">🟡 Important</span>
+      <span>Sweep: verify 6.Ndb5 → d6! rule is present in every Black matchup for 1.e4 opponents</span>
+    </div>
+    <div class="audit-body">
+      <p>This is Austin's most critical opening rule. It should appear in the "warn-box" or "rule-card" of every matchup-{name}-black.html where the opponent plays 1.e4. Search all relevant black matchup files:</p>
+      <div class="api-block">
+<span class="label">Quick check — grep for the rule across all Black matchup files:</span><br>
+<code style="color:#adbac7;">grep -l "Ndb5\|6\.Ndb5\|ndb5" matchup/matchup-*-black.html</code>
+<br><span class="comment"># Files NOT in the output are missing this rule. Add a warn-box to each missing file.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="audit-card">
+    <div class="audit-head head-minor">
+      <span class="sev sev-minor">🟢 Minor</span>
+      <span>Sweep: confirm Deviation Map nav links are present in all matchup files that have deviation maps</span>
+    </div>
+    <div class="audit-body">
+      <p>Deviation maps exist for: Zachary, Fernando, Aarush, Emerson, Leo, Tarun, Yaen, Pablo, Asher. Each corresponding <code>matchup-{name}-white.html</code> and <code>matchup-{name}-black.html</code> should have a link to <code>opening-deviation-{name}.html</code>.</p>
+      <div class="api-block">
+<span class="label">Check which matchup files are missing the deviation map link:</span><br>
+<code style="color:#adbac7;">grep -L "opening-deviation" matchup/matchup-zachary-white.html matchup/matchup-zachary-black.html matchup/matchup-fernando-white.html matchup/matchup-fernando-black.html matchup/matchup-asher-white.html matchup/matchup-asher-black.html</code>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider"/>
+
+  <!-- ── IMPLEMENTATION ROADMAP ── -->
+  <h2><span class="sec">Roadmap</span> Implementation Order and Time Budget</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Task</th>
+        <th>File</th>
+        <th>Est. Time</th>
+        <th>Priority</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Fix Lucena variant FEN (add Black King)</td>
+        <td>austin-endgame-drills.html</td>
+        <td>15 min (includes Lichess verify)</td>
+        <td><span class="tag t-crit">🔴 Critical</span></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Fix Philidor FENs (add Black Rook, fix structure)</td>
+        <td>austin-endgame-drills.html</td>
+        <td>30 min (includes sequence verify)</td>
+        <td><span class="tag t-crit">🔴 Critical</span></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Fix Lucena rule-box mnemonic</td>
+        <td>austin-endgame-drills.html</td>
+        <td>10 min</td>
+        <td><span class="tag t-crit">🔴 Critical</span></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Verify 8 tactics FEN links (Pattern 1–4)</td>
+        <td>austin-tactics.html</td>
+        <td>45 min (all Lichess fetches)</td>
+        <td><span class="tag t-ver">🔵 Verify</span></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Verify PAM R7 Taimanov trap sequence legality</td>
+        <td>austin/pam2026/review-deep.html</td>
+        <td>20 min</td>
+        <td><span class="tag t-imp">🟡 Important</span></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Check cheatsheet has cards for Asher, Inti, Zhuoyuan</td>
+        <td>next-step/naycc2026-cheatsheet.html</td>
+        <td>30 min (add missing cards)</td>
+        <td><span class="tag t-crit">🔴 Critical</span></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Cross-check cheatsheet recommendations vs matchup files</td>
+        <td>cheatsheet + 15 matchup files</td>
+        <td>45 min</td>
+        <td><span class="tag t-imp">🟡 Important</span></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Verify GM brief tier labels match Nov 1 FIDE ratings</td>
+        <td>naycc2026-gm-brief.html</td>
+        <td>30 min</td>
+        <td><span class="tag t-crit">🔴 Critical</span></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Verify opening novelty tree FENs (Taimanov tabiya, Nimzo, Advance French)</td>
+        <td>opening-novelty-trees.html</td>
+        <td>30 min</td>
+        <td><span class="tag t-ver">🔵 Verify</span></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Sweep all 17 matchup files for rating currency and 6.Ndb5 rule</td>
+        <td>matchup/ directory</td>
+        <td>60 min</td>
+        <td><span class="tag t-imp">🟡 Important</span></td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>Cross-reference 3 game review-deep.html files against Stockfish JSON</td>
+        <td>naycc2025/, pam2026/, personal-study/</td>
+        <td>60 min</td>
+        <td><span class="tag t-imp">🟡 Important</span></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Verify Batrikov Variation (6.g4) drill sequence in vadim-sessions.html</td>
+        <td>vadim-sessions.html</td>
+        <td>20 min</td>
+        <td><span class="tag t-ver">🔵 Verify</span></td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>Verify Bogo-Indian 4...Qe7! frequency and soundness via Lichess</td>
+        <td>naycc2026-cheatsheet.html (Leo card)</td>
+        <td>20 min</td>
+        <td><span class="tag t-imp">🟡 Important</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout c-red">
+    <strong>Total estimated time: ~6–7 hours</strong> · Run items 1–3 in the next Vadim session (these are drills Austin is actively using and the errors could be practiced-in). Items 4–8 before NAYCC tournament day. Items 9–13 are verifications that strengthen the prep but do not create active harm if deferred.
+  </div>
+
+  <div class="callout c-blue">
+    <strong>Lichess verification protocol for every chess position touched in this audit:</strong>
+    <ol style="margin:8px 0 0 1.3em;">
+      <li>Trace move sequence: <code>https://explorer.lichess.ovh/masters?play={uci_moves}</code> → get authoritative FEN</li>
+      <li>Confirm position visually: <code>https://lichess.org/analysis/standard/{FEN}</code> → board check</li>
+      <li>Only write the FEN to the file after both steps confirm it</li>
+      <li>Never derive a FEN by counting pieces manually</li>
+    </ol>
+  </div>
+
+  <p style="font-size:0.8rem;color:#57606a;text-align:center;margin-top:36px;">
+    Austin Lin Deep Audit Plan · Generated Nov 3, 2026 · Engine data: Stockfish movetime-3000 ·
+    <a href="../austin-prep.html">← Prep Index</a>
+  </p>
+
+</div>
+</body>
+</html>
