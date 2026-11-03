@@ -101,7 +101,7 @@
         White to move and win.
       </div>
 
-      <div class="rule-box">THE 4-STEP BRIDGE: Re1 → Re4 → Kb8 shield → Rg4 → Rg1/Rg8 deliver</div>
+      <div class="rule-box">THE 4-STEP BRIDGE: Rc4! (4th rank shield) → Kb6 (king escapes) → Re4! (absorb last check) → b8=Q</div>
 
       <h4>Correct winning sequence:</h4>
       <ol class="seq">
@@ -136,14 +136,15 @@
     <div class="drill-body">
       <p>If your king is cut off on the short side (the pawn's file), the bridge-building plan still applies but the rook goes to the long side first (at least 3 files away from the pawn). This is the most common real-game version.</p>
       <div class="pos-block">
-        <div class="lbl">FEN (Lucena variant — king cut off on e-file)</div>
-        8/6P1/8/8/8/5K2/r7/6R1 w - - 0 1
+        <div class="lbl">FEN (Lucena variant — g-pawn, Black King cut off on h-file)</div>
+        8/6P1/7k/8/8/5K2/r7/6R1 w - - 0 1
         <br><br>
         White: King f3, Pawn g7, Rook g1<br>
-        Black: Rook a2<br>
-        White to move and win.
+        Black: King h6, Rook a2<br>
+        White to move and win.<br><br>
+        <a href="https://lichess.org/analysis/8/6P1/7k/8/8/5K2/r7/6R1_w_-_-_0_1" target="_blank" style="color:#1a3a6e;font-size:0.82rem;">♟ Open in Lichess Analysis</a>
       </div>
-      <p><strong>Key idea:</strong> <code>1.Kf4!</code> then bring the king toward the pawn while the rook builds the bridge on the 4th rank (<code>Rg4</code>). If Black gives side checks, interpose when you've gained enough ground. The technique is the same as the standard position.</p>
+      <p><strong>Key idea:</strong> <code>1.Kf4!</code> then march the king toward g5, using the rook to block Black's side checks from the a-file. The technique is identical to the standard b-file Lucena — build the shield on the 4th rank (<code>Rg4</code>), absorb the last check, and promote.</p>
     </div>
   </div>
 
@@ -159,14 +160,22 @@
     </div>
     <div class="drill-body">
       <div class="pos-block">
-        <div class="lbl">FEN (standard Philidor — White pawn on e5)</div>
-        8/8/8/4kp2/8/4K3/8/R7 w - - 0 1
+        <div class="lbl">Phase 1 FEN — Pawn on e5, Black to move (drill: find Ra6!)</div>
+        r7/8/4k3/4P3/4K3/8/8/R7 b - - 0 1
         <br><br>
-        <strong>Corrected Philidor setup:</strong><br>
-        White: King e4, Rook a1, Pawn e5<br>
-        Black: King e6, Rook a8<br>
-        FEN: 8/8/4k3/4P3/4K3/8/8/R7 w - - 0 1<br>
-        White to move — Black holds with correct play.
+        White: King e4, Pawn e5, Rook a1<br>
+        Black: King e6, Rook a8 · Black to move<br>
+        Correct: <strong>1...Ra6!</strong> — rook to 6th rank, cuts off White King.<br><br>
+        <a href="https://lichess.org/analysis/r7/8/4k3/4P3/4K3/8/8/R7_b_-_-_0_1" target="_blank" style="color:#1a3a6e;font-size:0.82rem;">♟ Phase 1 in Lichess</a>
+      </div>
+      <div class="pos-block" style="margin-top:10px;">
+        <div class="lbl">Phase 2 FEN — Pawn has reached e6, Black to move (drill: find Ra1!)</div>
+        8/8/4Pk2/8/4K3/8/r7/R7 b - - 0 1
+        <br><br>
+        White: King e4, Pawn e6, Rook a1<br>
+        Black: King f6, Rook a2 · Black to move<br>
+        Correct: <strong>1...Ra1!</strong> — switch to back rank, give side checks forever.<br><br>
+        <a href="https://lichess.org/analysis/8/8/4Pk2/8/4K3/8/r7/R7_b_-_-_0_1" target="_blank" style="color:#1a3a6e;font-size:0.82rem;">♟ Phase 2 in Lichess</a>
       </div>
 
       <div class="rule-box">THE TRIGGER: Pawn on 5th or below → HOLD 6th rank. Pawn reaches 6th → SWITCH to back rank.</div>
