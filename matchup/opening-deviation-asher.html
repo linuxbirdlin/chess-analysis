@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asher Chodniewicz — Opening Deviation Map</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header {
+      border-bottom: 3px solid #2d7d46;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 { margin: 0 0 8px; font-size: 1.85rem; }
+    .doc-header .meta {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      font-size: 0.9rem; color: #57606a;
+    }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link {
+      display: inline-block; margin-top: 14px;
+      font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.3rem; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.05rem; color: #2d7d46; margin: 24px 0 6px; }
+
+    /* Legend */
+    .legend {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px;
+      padding: 14px 18px; margin-bottom: 32px; font-size: 0.85rem;
+    }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    /* Summary table */
+    table { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin: 0 0 24px; }
+    th { text-align: left; padding: 8px 12px; background: #f6f8fa; border-bottom: 2px solid #d0d7de; font-weight: 600; color: #1f2328; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eaeef2; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    td.opening-name { font-weight: 600; }
+    td.color-cell { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+    .color-w { color: #9a6700; }
+    .color-b { color: #0969da; }
+
+    /* System cards */
+    .system-card {
+      border: 1px solid #d0d7de; border-radius: 8px;
+      margin-bottom: 28px; overflow: hidden;
+    }
+    .system-card-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      background: #f6f8fa; padding: 12px 18px; border-bottom: 1px solid #d0d7de;
+    }
+    .system-card-header h3 { margin: 0; font-size: 1rem; color: #1f2328; }
+    .system-card-header .game-count { font-size: 0.8rem; color: #57606a; }
+    .system-card-body { padding: 16px 18px; }
+
+    /* Move trail */
+    .trail-label { font-size: 0.75rem; font-weight: 600; color: #57606a; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .move-trail { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 16px; align-items: center; }
+    .move-sep { color: #d0d7de; font-size: 0.75rem; margin: 0 1px; user-select: none; }
+
+    .chip {
+      display: inline-flex; align-items: center;
+      padding: 3px 8px; border-radius: 4px;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.4;
+      cursor: default; position: relative;
+    }
+    .chip-opp   { background: #f0f0f0; color: #6e7781; border: 1px solid #d0d7de; }
+    .chip-book  { background: #dafbe1; color: #1a7f37; border: 1px solid #2d7d46; }
+    .chip-good  { background: #ddf4ff; color: #0550ae; border: 1px solid #0969da; }
+    .chip-side  { background: #fff3cd; color: #7d4e00; border: 1px solid #d4a017; }
+    .chip-rare  { background: #ffd8d3; color: #a4000f; border: 1px solid #cf222e; }
+    .chip-novel { background: #eee8ff; color: #5a1e96; border: 1px solid #8250df; }
+
+    .chip-flag { font-size: 0.65rem; margin-left: 4px; }
+
+    /* Deviation callouts */
+    .dev-list { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+    .dev-row {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 9px 12px; border-radius: 6px; font-size: 0.85rem; line-height: 1.5;
+    }
+    .dev-row.level-side  { background: #fff8e8; border-left: 3px solid #d4a017; }
+    .dev-row.level-rare  { background: #fff0ee; border-left: 3px solid #cf222e; }
+    .dev-row.level-novel { background: #f3ecff; border-left: 3px solid #8250df; }
+
+    .dev-row .dev-move { font-family: monospace; font-weight: 700; min-width: 90px; flex-shrink: 0; }
+    .dev-row .dev-detail { color: #57606a; }
+    .dev-row .dev-detail strong { color: #1f2328; }
+    .dev-row .dev-detail em { font-style: normal; color: #1f2328; font-weight: 600; }
+
+    /* Austin notes */
+    .austin-note {
+      background: #f0fff4; border: 1px solid #2d7d46; border-radius: 6px;
+      padding: 12px 16px; margin-top: 16px; font-size: 0.875rem;
+    }
+    .austin-note .note-label {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: #2d7d46; margin-bottom: 4px;
+    }
+
+    /* Insight box */
+    .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+    @media (max-width: 580px) { .insight-grid { grid-template-columns: 1fr; } }
+    .insight-card {
+      border: 1px solid #d0d7de; border-radius: 6px;
+      padding: 14px 16px; font-size: 0.875rem;
+    }
+    .insight-card h4 { margin: 0 0 8px; font-size: 0.9rem; color: #2d7d46; }
+    .insight-card ul { margin: 0; padding-left: 18px; }
+    .insight-card li { margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Header ───────────────────────────────────────────────────── -->
+  <div class="doc-header">
+    <h1>Asher Chodniewicz — Opening Deviation Map</h1>
+    <div class="meta">
+      <span><strong>Player:</strong> Asher Chodniewicz · 1884 FIDE (Nov 2026) · USA (Texas)</span>
+      <span><strong>Games analyzed:</strong> 34 (15 as White, 19 as Black)</span>
+      <span><strong>Database:</strong> Lichess Masters (FIDE 2300+)</span>
+      <span><strong>Generated:</strong> Nov 3, 2026</span>
+    </div>
+    <a href="../austin-prep.html" class="back-link">← Back to Prep Index</a>
+  </div>
+
+  <!-- ── Legend ──────────────────────────────────────────────────── -->
+  <div class="legend">
+    <strong style="font-size:0.8rem;text-transform:uppercase;letter-spacing:.04em;color:#57606a;margin-right:4px;">Asher's moves:</strong>
+    <span class="legend-item"><span class="chip chip-book" style="font-size:.75rem;padding:2px 7px;">e4</span> <span>Top masters move</span></span>
+    <span class="legend-item"><span class="chip chip-good" style="font-size:.75rem;padding:2px 7px;">Bd3</span> <span>2nd–3rd choice (≥20%)</span></span>
+    <span class="legend-item"><span class="chip chip-side" style="font-size:.75rem;padding:2px 7px;">Bg5</span> <span>Minor sideline (5–19%)</span></span>
+    <span class="legend-item"><span class="chip chip-rare" style="font-size:.75rem;padding:2px 7px;">Nc3</span> <span>Rare / personal prep (&lt;5%)</span></span>
+    <span class="legend-item"><span class="chip chip-novel" style="font-size:.75rem;padding:2px 7px;">Be3</span> <span>Novelty (not in master DB)</span></span>
+    <span class="legend-item"><span class="chip chip-opp" style="font-size:.75rem;padding:2px 7px;">e6</span> <span>Opponent move</span></span>
+  </div>
+
+  <!-- ── Summary table ───────────────────────────────────────────── -->
+  <h2>Deviation Summary</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Opening System</th>
+        <th>Color</th>
+        <th>Games</th>
+        <th>First Deviation</th>
+        <th>Asher's Move vs Book</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="opening-name">Open Sicilian vs Kan/Taimanov (e6)</td>
+        <td class="color-cell color-w">White</td>
+        <td>6</td>
+        <td>Move 7</td>
+        <td><strong>7.Bd3</strong> (18%) vs Qd2 (39%) — no f3/Qd2 English Attack</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Classical Sicilian Bg5 f4 vs Najdorf (d6)</td>
+        <td class="color-cell color-w">White</td>
+        <td>3</td>
+        <td>Move 6</td>
+        <td><strong>6.Bg5</strong> (20%) vs Be3 (33%) — Classical, not English Attack</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Vienna / Three Knights (2.Nc3 vs 1…e5)</td>
+        <td class="color-cell color-w">White</td>
+        <td>2</td>
+        <td>Move 2 (system choice)</td>
+        <td><strong>2.Nc3</strong> (3%) vs Nf3 (92%) — rare personal preparation</td>
+      </tr>
+      <tr>
+        <td class="opening-name">French Defense — Rubinstein with …Nbd7</td>
+        <td class="color-cell color-b">Black</td>
+        <td>8</td>
+        <td>Move 1 (system choice)</td>
+        <td>1…e6 (12%) — repertoire choice; key: <strong>5…Nbd7</strong> (33%) vs Be7 (66%)</td>
+      </tr>
+      <tr>
+        <td class="opening-name">KID/Grünfeld vs early b4 (d4 Nf6 Nf3 g6)</td>
+        <td class="color-cell color-b">Black</td>
+        <td>2</td>
+        <td>Move 3</td>
+        <td><strong>3…d5</strong> (3%) vs Bg7 (89%) — immediate Grünfeld; off-book from move 4</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Réti response — d5/dxc4 Catalan accept</td>
+        <td class="color-cell color-b">Black</td>
+        <td>2</td>
+        <td>Move 5</td>
+        <td><strong>5…d5</strong> (21%) vs d6 (54%); <strong>6…dxc4</strong> (9%) vs c6 (63%)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       AS WHITE
+  ════════════════════════════════════════════════════════════════ -->
+  <h2>As White (1.e4 Open Sicilian)</h2>
+
+  <!-- System 1: Open Sicilian vs e6 (Kan/Taimanov) -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Open Sicilian — Be3/Bd3 system vs Kan/Taimanov &nbsp;<small style="color:#57606a;font-weight:400;">ECO B40/B41</small></h3>
+      <span class="game-count">6 games (largest White sample) · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-book" title="Asher: 45% | Book: e4 (45%), d4 (36%), Nf3 (10%)">1.e4</span>
+        <span class="chip chip-opp">1…c5</span>
+        <span class="chip chip-book" title="Book: Nf3 (83%)">2.Nf3</span>
+        <span class="chip chip-opp">2…e6</span>
+        <span class="chip chip-book" title="Book: d4 (72%)">3.d4</span>
+        <span class="chip chip-opp">3…cxd4</span>
+        <span class="chip chip-book" title="Book: Nxd4 (100%)">4.Nxd4</span>
+        <span class="chip chip-opp">4…Nc6</span>
+        <span class="chip chip-book" title="Book: Nc3 (86%)">5.Nc3</span>
+        <span class="chip chip-opp">5…Qc7</span>
+        <span class="chip chip-book" title="Book: Be3 (47%), Be2 (26%), g3 (15%)">6.Be3</span>
+        <span class="chip chip-opp">6…a6</span>
+        <span class="chip chip-good" title="Asher: 18% | Book: Qd2 (39%), Bd3 (18%), Qf3 (17%)">7.Bd3 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">7…b5</span>
+        <span class="chip chip-good" title="Asher: 41% | Book: Nxc6 (49%), O-O (41%), f4 (5%)">8.O-O <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">8…Bb7</span>
+        <span class="chip chip-good" title="Asher: 22% | Book: Qe2 (28%), Nxc6 (22%), Kh1 (21%)">9.Nxc6 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">9…Bxc6</span>
+        <span class="chip chip-rare" title="Asher: 8% | Book: Qe2 (58%), Re1 (25%), f4 (8%) [db:12]">10.a3 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">10…Nf6</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">7. Bd3</span>
+          <span class="dev-detail"><em>Key personal choice.</em> After the Be3 Sicilian setup, masters most often play <strong>7.Qd2</strong> (39%) — the English Attack setup heading for 0-0-0 and kingside attack. Asher instead plays <strong>7.Bd3</strong> (18%), keeping the king short-side. This avoids the sharp 0-0-0 lines entirely: Asher is playing a solid, central Be3/Bd3 system, not the sharp Qd2/f3/0-0-0 English Attack. Austin's Taimanov preparation centers on the English Attack — if Asher plays Bd3/O-O, Austin will be in slightly less-prepared territory.</span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">8. O-O</span>
+          <span class="dev-detail">After Black's …b5, masters most often play <strong>8.Nxc6</strong> (49%) to trade the d4 knight before …b4 kicks it. Asher castles with <strong>8.O-O</strong> (41%) — a small but meaningful move-order preference, delaying the exchange. After 8.O-O Bb7 9.Nxc6 Bxc6, the position is similar but Black has …Bb7 developed before the exchange, which is slightly more active for Black.</span>
+        </div>
+        <div class="dev-row level-rare">
+          <span class="dev-move">10. a3</span>
+          <span class="dev-detail"><em>Personal preparation.</em> Only 12 master games exist at this exact position. Book plays <strong>10.Qe2</strong> (58%) to pressure e5/d5. Asher's <strong>10.a3</strong> (8%) is a prophylactic flank move — preventing …b4 and preparing queenside expansion. At this depth, Asher is working from personal preparation rather than following a well-trodden path.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note (playing Black vs Asher's Open Sicilian)</div>
+        Austin's Taimanov plan (1…c5 2…e6 4…Nc6) is the right choice. Note that Asher plays <strong>Be3 + Bd3 + O-O</strong>, NOT the main English Attack (Qd2/f3/0-0-0). After 7.Bd3 O-O Austin gets a solid position with counterplay via …b5/…Bb7. If Austin is prepared for Qd2 lines specifically, study the Be3/Bd3 system too — move 10 is barely charted territory.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 2: Classical Sicilian Bg5 vs d6 Najdorf -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Classical Sicilian — Bg5/f4 vs Najdorf (…d6) &nbsp;<small style="color:#57606a;font-weight:400;">ECO B57/B58</small></h3>
+      <span class="game-count">3 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-book" title="Book: e4 (45%)">1.e4</span>
+        <span class="chip chip-opp">1…c5</span>
+        <span class="chip chip-book" title="Book: Nf3 (83%)">2.Nf3</span>
+        <span class="chip chip-opp">2…d6</span>
+        <span class="chip chip-book" title="Book: d4 (81%)">3.d4</span>
+        <span class="chip chip-opp">3…cxd4</span>
+        <span class="chip chip-book" title="Book: Nxd4 (96%)">4.Nxd4</span>
+        <span class="chip chip-opp">4…Nf6</span>
+        <span class="chip chip-book" title="Book: Nc3 (98%)">5.Nc3</span>
+        <span class="chip chip-opp">5…a6</span>
+        <span class="chip chip-good" title="Asher: 20% | Book: Be3 (33%), Bg5 (20%), Be2 (13%)">6.Bg5 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">6…e6</span>
+        <span class="chip chip-book" title="Book: f4 (89%)">7.f4</span>
+        <span class="chip chip-opp">7…h6</span>
+        <span class="chip chip-book" title="Book: Bh4 (97%)">8.Bh4</span>
+        <span class="chip chip-opp">8…Qb6</span>
+        <span class="chip chip-book" title="Book: a3 (60%), Qd2 (33%), Qd3 (5%)">9.a3</span>
+        <span class="chip chip-opp">9…Nc6</span>
+        <span class="chip chip-book" title="Book: Bf2 (100%) [db:132]">10.Bf2</span>
+        <span class="chip chip-opp">10…Qc7</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">6. Bg5</span>
+          <span class="dev-detail"><em>Repertoire split.</em> Against 5…a6 (Najdorf), masters most often play <strong>6.Be3</strong> (33%, English Attack), followed by <strong>6.Bg5</strong> (20%, Classical). Asher specifically plays the <strong>Classical Bg5</strong> against …d6, while playing Be3 against …e6. This is a system-specific split — Asher avoids the English Attack vs Najdorf and instead enters the Classical Poisoned Pawn territory. After 7.f4 h6 8.Bh4 Qb6 9.a3 Nc6 10.Bf2, Asher is following well-established Classical theory and the position matches the master database perfectly from move 7 onward.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note (if playing Najdorf/d6 Sicilian)</div>
+        Austin's default is the Taimanov (…e6 …Nc6), but if the game reaches a …d6 Najdorf position, expect <strong>6.Bg5</strong> (Classical), NOT the English Attack Be3. After 7.f4 h6 8.Bh4, theory centers on the …Qb6 line (as Asher faces). Austin should know 8…Qb6 9.a3 Nc6 10.Bf2 Qc7 — the resulting position is sharp but charted. Asher is well-prepared here through move 10+.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 3: Vienna / Three Knights -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Vienna Game / Three Knights — 2.Nc3 vs 1…e5 &nbsp;<small style="color:#57606a;font-weight:400;">ECO C25/C46</small></h3>
+      <span class="game-count">2 games (thin sample) · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-book" title="Book: e4 (45%)">1.e4</span>
+        <span class="chip chip-opp">1…e5</span>
+        <span class="chip chip-rare" title="Asher: 3% | Book: Nf3 (92%), Bc4 (3%), Nc3 (3%)">2.Nc3 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">2…Nf6</span>
+        <span class="chip chip-good" title="Asher: 24% | Book: g3 (35%), Bc4 (24%), f4 (18%)">3.Bc4</span>
+        <span class="chip chip-opp">3…Bc5</span>
+        <span class="chip chip-side" title="Asher: 9% | Book: d3 (81%), Nf3 (9%), f4 (6%)">4.Nf3 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">4…d6</span>
+        <span class="chip chip-book" title="Book: d3 (42%)">5.d3</span>
+        <span class="chip chip-opp">5…c6</span>
+        <span class="chip chip-book" title="Book: O-O (44%)">6.O-O</span>
+        <span class="chip chip-opp">6…O-O</span>
+        <span class="chip chip-rare" title="Asher: 6% | Book: a4 (22%), Bb3 (22%), h3 (22%) [db:32]">7.a3 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">7…Bb6</span>
+        <span class="chip chip-book" title="Book: h3 (100%) [db:1]">8.h3</span>
+        <span class="chip chip-opp">8…h6</span>
+        <span class="chip chip-novel" title="Novelty — not in master DB | Book: Re1 (100%) [db:1]">9.Be3 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">9…Bc7</span>
+        <span class="chip chip-novel" title="Novelty — no master games at this position">10.d4 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">10…exd4</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-rare">
+          <span class="dev-move">2. Nc3</span>
+          <span class="dev-detail"><em>Key system choice.</em> Masters play <strong>2.Nf3</strong> (92%) — the standard Ruy Lopez/Italian route. Asher's <strong>2.Nc3</strong> (only 3% of masters) commits to the <strong>Vienna Game</strong>, avoiding all Ruy Lopez and Italian theory. The Vienna allows f4 attacks or a transposition to Three Knights (Nf3 later). This is a deliberate repertoire deviation to sidestep Austin's Ruy Lopez preparation.</span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">4. Nf3</span>
+          <span class="dev-detail">After 3.Bc4 Bc5 (Three Knights setup), masters heavily prefer <strong>4.d3</strong> (81%) to anchor the center. Asher plays <strong>4.Nf3</strong> (9%) — adding the third knight to the board before committing to d3. After 5.d3 c6 6.O-O O-O, the position is a slow Three Knights / Italian hybrid.</span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">9. Be3 · 10. d4</span>
+          <span class="dev-detail"><em>Deep personal preparation.</em> From move 9, there are no master games at this exact position. Asher plays Be3 (developing) followed by d4 (central break) — standard Vienna expansion logic but in an uncharted position. These two games were his TX State Amateur 2026 games (he lost both), suggesting this line has not yet succeeded at the adult 1900+ level.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note (if Asher plays 2.Nc3 vs 1…e5)</div>
+        Austin should not be surprised by 2.Nc3. After 1.e4 e5 2.Nc3, the standard response is <strong>2…Nf6</strong> (Three Knights) or <strong>2…Bc5</strong> (Vienna). Both are playable — Austin's tactical style suits the Vienna/Three Knights complications. If Asher plays 3.Bc4 Bc5 4.Nf3 → slow Italian hybrid, Austin can aim for …d5 counterplay. Note: Asher's two Vienna games were losses at TX State — he may have abandoned this line after NAYCC.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       AS BLACK
+  ════════════════════════════════════════════════════════════════ -->
+  <h2>As Black (French Defense primary)</h2>
+
+  <!-- System 4: French Defense Rubinstein Nd7 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>French Defense — Rubinstein with …Nbd7 &nbsp;<small style="color:#57606a;font-weight:400;">ECO C10</small></h3>
+      <span class="game-count">8 games (largest Black sample) · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.e4</span>
+        <span class="chip chip-side" title="Asher: 12% | Book: c5 (46%), e5 (24%), e6 (12%) — repertoire choice, not a mistake">1…e6 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">2.d4</span>
+        <span class="chip chip-book" title="Book: d5 (99%)">2…d5</span>
+        <span class="chip chip-opp">3.Nc3</span>
+        <span class="chip chip-good" title="Asher: 44% | Book: Bb4 (45%), Nf6 (44%), dxe4 (8%)">3…Nf6</span>
+        <span class="chip chip-opp">4.Bg5</span>
+        <span class="chip chip-book" title="Book: dxe4 (44%), Bb4 (28%), Be7 (27%)">4…dxe4</span>
+        <span class="chip chip-opp">5.Nxe4</span>
+        <span class="chip chip-good" title="Asher: 33% | Book: Be7 (66%), Nbd7 (33%) — key personal choice">5…Nbd7 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">6.Nf3</span>
+        <span class="chip chip-good" title="Asher: 34% | Book: h6 (65%), Be7 (34%)">6…Be7</span>
+        <span class="chip chip-opp">7.Nxf6+</span>
+        <span class="chip chip-good" title="Asher: 22% | Book: Bxf6 (77%), Nxf6 (22%)">7…Nxf6</span>
+        <span class="chip chip-opp">8.Bd3</span>
+        <span class="chip chip-side" title="Asher: 14% | Book: O-O (36%), c5 (35%), h6 (14%)">8…h6 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">9.Bf4</span>
+        <span class="chip chip-book" title="Book: c5 (67%) [db:3]">9…c5</span>
+        <span class="chip chip-opp">10.O-O</span>
+        <span class="chip chip-novel" title="Novelty — no master games at this position">10…cxd4 <span class="chip-flag">★</span></span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">1…e6 (system)</span>
+          <span class="dev-detail">Masters play <strong>1…c5</strong> (46%) most often — Asher's <strong>1…e6</strong> (12%) is his French Defense repertoire choice, not a deviation in the negative sense. The chip rating reflects masters' overall preference, not quality. This is Asher's primary defensive system.</span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">5…Nbd7</span>
+          <span class="dev-detail"><em>Defining personal choice.</em> After the Rubinstein exchange (4…dxe4 5.Nxe4), masters heavily prefer <strong>5…Be7</strong> (66%), which develops the bishop toward kingside castling. Asher instead plays <strong>5…Nbd7</strong> (33%) — the Rubinstein …Nd7 variation. This keeps the d-file open longer, supports e5 ideas, and delays bishop development. Asher has used this in at least 5 of his 8 French games (vs Kawin Sayi, Austin John, Kandikayala Srikar, and others). This is his <em>most-prepared</em> Black territory.</span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">7…Nxf6 (vs Bxf6)</span>
+          <span class="dev-detail">After White trades on f6, masters recapture <strong>7…Bxf6</strong> (77%) — maintaining the bishop and controlling the center. Asher recaptures <strong>7…Nxf6</strong> (22%), keeping the knight active. After 8.Bd3 h6 9.Bf4, Asher has …c5 challenging the center. The Nxf6 recapture is well-established at 22% so this is a personal preference, not a mistake.</span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">10…cxd4</span>
+          <span class="dev-detail"><em>Deep personal preparation.</em> No master games exist at this position. After O-O, Asher immediately challenges White's d4 with …cxd4 — a thematic French counterplay idea. Asher is working entirely from personal preparation from move 10 onward in this variation.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note (playing White vs Asher's French)</div>
+        Austin's recommended weapon is the <strong>Advanced French (3.e5)</strong> — see matchup-asher-white.html. However if Austin plays 3.Nc3 and Asher plays 3…Nf6 4.Bg5 dxe4 (Rubinstein), expect <strong>5…Nbd7</strong> (not 5…Be7). After 6.Nf3 Be7 7.Nxf6+ Nxf6 8.Bd3 h6 9.Bf4 c5, Austin needs to be ready to fight in a complex middlegame. The 5…Nbd7 line is Asher's home territory — the Advance French avoids all of this.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 5: KID/Grünfeld vs early b4 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>KID/Grünfeld vs early b4 — immediate d5 &nbsp;<small style="color:#57606a;font-weight:400;">ECO E60/D80</small></h3>
+      <span class="game-count">2 games (thin sample) · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.d4</span>
+        <span class="chip chip-book" title="Book: Nf6 (61%)">1…Nf6</span>
+        <span class="chip chip-opp">2.Nf3</span>
+        <span class="chip chip-book" title="Book: g6 (38%)">2…g6</span>
+        <span class="chip chip-opp">3.b4</span>
+        <span class="chip chip-rare" title="Asher: 3% | Book: Bg7 (89%), c6 (3%), d5 (3%) [db:116]">3…d5 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">4.Bb2</span>
+        <span class="chip chip-novel" title="Novelty — no master games (db:0)">4…Bg7 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">5.e3</span>
+        <span class="chip chip-book" title="Book: O-O (81%)">5…O-O</span>
+        <span class="chip chip-opp">6.Be2</span>
+        <span class="chip chip-novel" title="Novelty — no master games at this depth">6…Nbd7 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">7.Nbd2</span>
+        <span class="chip chip-novel" title="Novelty">7…Nb6 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">8.O-O</span>
+        <span class="chip chip-novel" title="Novelty">8…Bf5 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">9.a4</span>
+        <span class="chip chip-novel" title="Novelty">9…a5 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">10.b5</span>
+        <span class="chip chip-novel" title="Novelty">10…h6 <span class="chip-flag">★</span></span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-rare">
+          <span class="dev-move">3…d5</span>
+          <span class="dev-detail"><em>Immediate Grünfeld challenge.</em> After White's unusual 3.b4, masters heavily play <strong>3…Bg7</strong> (89%) — continuing the KID/Grünfeld fianchetto. Asher instead responds with <strong>3…d5</strong> (3%) — a direct central counter, declining the fianchetto in favor of immediate central control. This is a Grünfeld-like response to the unusual b4 system. The position goes off masters' radar immediately from move 4.</span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">Moves 4–10</span>
+          <span class="dev-detail"><em>Completely uncharted.</em> From 4…Bg7 onward, there are zero or near-zero master games at each position. Asher follows with …Nbd7 → …Nb6 → …Bf5 → …a5 — a flexible setup targeting White's b4/b5 pawn advance. This is highly individualized preparation, likely worked out from these specific games against Ruppert and Sanepalli. Sample size is too small for reliable conclusions.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays 1.e4, so this system (vs 1.d4) is <strong>not directly relevant</strong>. If Austin faces a d4 player in another round and Asher is watching, this gives a small clue: Asher is willing to deviate early vs unusual setups. For the main matchup, ignore this line.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 6: Réti response d5/dxc4 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Réti Response — d5/dxc4 Catalan-accept &nbsp;<small style="color:#57606a;font-weight:400;">ECO A09/D04</small></h3>
+      <span class="game-count">2 games (thin sample) · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.Nf3</span>
+        <span class="chip chip-book" title="Book: Nf6 (46%)">1…Nf6</span>
+        <span class="chip chip-opp">2.g3</span>
+        <span class="chip chip-book" title="Book: g6 (42%)">2…g6</span>
+        <span class="chip chip-opp">3.b3</span>
+        <span class="chip chip-book" title="Book: Bg7 (92%)">3…Bg7</span>
+        <span class="chip chip-opp">4.Bb2</span>
+        <span class="chip chip-book" title="Book: O-O (60%)">4…O-O</span>
+        <span class="chip chip-opp">5.Bg2</span>
+        <span class="chip chip-good" title="Asher: 21% | Book: d6 (54%), d5 (21%), c5 (21%)">5…d5 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">6.c4</span>
+        <span class="chip chip-rare" title="Asher: 9% | Book: c6 (63%), c5 (11%), dxc4 (9%)">6…dxc4 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">7.bxc4</span>
+        <span class="chip chip-book" title="Book: c5 (96%)">7…c5</span>
+        <span class="chip chip-opp">8.O-O</span>
+        <span class="chip chip-book" title="Book: Nc6 (94%)">8…Nc6</span>
+        <span class="chip chip-opp">9.d3</span>
+        <span class="chip chip-rare" title="Asher: 5% | Book: Bd7 (21%), Rb8 (16%), Bf5 (15%) [db:109]">9…Re8 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">10.Ne5</span>
+        <span class="chip chip-book" title="Book: Qb6 (50%) [db:2]">10…Qb6</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">5…d5</span>
+          <span class="dev-detail">After 5.Bg2, masters most often play <strong>5…d6</strong> (54%) — KID-style slow development. Asher plays <strong>5…d5</strong> (21%), immediately challenging the center in Grünfeld fashion. This forces the issue: after 6.c4 dxc4 7.bxc4 c5, Asher accepts an isolated c4 pawn for White in exchange for active piece play.</span>
+        </div>
+        <div class="dev-row level-rare">
+          <span class="dev-move">6…dxc4</span>
+          <span class="dev-detail">After 6.c4, masters overwhelmingly play <strong>6…c6</strong> (63%) — holding the center solidly. Asher instead immediately captures with <strong>6…dxc4</strong> (9%) — going into an open Catalan-style position. After 7.bxc4 c5 8.O-O Nc6, Black has active development but conceded the center. This is an aggressive approach that creates immediate imbalances.</span>
+        </div>
+        <div class="dev-row level-rare">
+          <span class="dev-move">9…Re8</span>
+          <span class="dev-detail">After 9.d3, masters play <strong>9…Bd7</strong> (21%), <strong>9…Rb8</strong> (16%), or <strong>9…Bf5</strong> (15%) — all developing moves. Asher's <strong>9…Re8</strong> (5%) is the 8th most common move — a prophylactic rook lift, preventing Ne5-f7 or supporting a future e5 advance. Unusual but not unsound.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays 1.e4, not 1.Nf3, so this system is <strong>not directly relevant</strong>. It does confirm Asher's general style as Black vs fianchetto systems: he meets the Réti/Catalan with early …d5 and active central counterplay rather than patient KID development. Useful if Austin's opponent is Asher in a game Austin watches before their encounter.
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Synthesis ─────────────────────────────────────────────── -->
+  <h2>What This Means for Austin</h2>
+
+  <div class="insight-grid">
+    <div class="insight-card">
+      <h4>Asher as White — What to Expect</h4>
+      <ul>
+        <li><strong>1.e4 Open Sicilian always</strong> (Nf3 + d4). No Alapin, no Grand Prix, no Rossolimo as primary weapon.</li>
+        <li>vs 1…e6 (Taimanov): <strong>Be3/Bd3/O-O</strong> — NOT the English Attack Qd2/f3/0-0-0. Austin's Taimanov prep should include Be3 lines too.</li>
+        <li>vs 1…d6 (Najdorf): <strong>Bg5 Classical</strong> (not English Attack). After 7.f4 8.Bh4, well-prepared through move 10.</li>
+        <li>vs 1…e5: <strong>Vienna 2.Nc3</strong> (only 3% of masters). Asher has lost both Vienna games at TX State — may not repeat this line.</li>
+      </ul>
+    </div>
+    <div class="insight-card">
+      <h4>Asher as Black — What to Expect</h4>
+      <ul>
+        <li>vs 1.e4: <strong>French Defense (1…e6)</strong> always. Primarily Rubinstein (dxe4) with …Nbd7 variation.</li>
+        <li>vs 1.d4: KID/Grünfeld fianchetto (Nf6/g6/Bg7/d5) — but thin sample. Goes off-book very early when White plays unusual systems (e.g., b4).</li>
+        <li>vs 1.Nf3: Meets with …Nf6/g6/Bg7 fianchetto, then <strong>active …d5/dxc4</strong> counterplay — Catalan accept style.</li>
+        <li>Key finding: Asher's French (5…Nbd7 Rubinstein) is his most-prepared and most-common territory. Austin's Advance French (3.e5) sidesteps this entirely.</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="margin-top:24px;font-size:0.8rem;color:#57606a;border-top:1px solid #d0d7de;padding-top:16px;">
+    Data: Lichess Masters database (FIDE 2300+ OTB games) via <code>explorer.lichess.ovh/masters</code> ·
+    Games parsed from <code>pgnlib/Chodniewicz, Asher.pgn</code> (34 games, 7 tournaments) ·
+    Trunk = plurality-voted most-played continuation · Generated Nov 3, 2026
+  </p>
+
+</div>
+</body>
+</html>
