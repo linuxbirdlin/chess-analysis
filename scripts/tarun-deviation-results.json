@@ -1,0 +1,2349 @@
+[
+  {
+    "label": "c4 c5 Nf3 Nc6",
+    "color": "white",
+    "gameCount": 3,
+    "steps": [
+      {
+        "i": 0,
+        "moveNum": 1,
+        "move": "c4",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "e4",
+            "count": 1309466,
+            "pct": 45
+          },
+          "bookTop3": [
+            {
+              "san": "e4",
+              "count": 1309466,
+              "pct": 45
+            },
+            {
+              "san": "d4",
+              "count": 1029878,
+              "pct": 36
+            },
+            {
+              "san": "Nf3",
+              "count": 292957,
+              "pct": 10
+            }
+          ],
+          "playerRank": 3,
+          "playerPct": 7,
+          "totalGames": 2879587,
+          "isDeviation": true,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 1,
+        "moveNum": 1,
+        "move": "c5",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 2,
+        "moveNum": 2,
+        "move": "Nf3",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "Nf3",
+            "count": 10870,
+            "pct": 49
+          },
+          "bookTop3": [
+            {
+              "san": "Nf3",
+              "count": 10870,
+              "pct": 49
+            },
+            {
+              "san": "Nc3",
+              "count": 6277,
+              "pct": 28
+            },
+            {
+              "san": "g3",
+              "count": 4777,
+              "pct": 22
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 49,
+          "totalGames": 22207,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 3,
+        "moveNum": 2,
+        "move": "Nc6",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 4,
+        "moveNum": 3,
+        "move": "d4",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 67,
+        "bookData": {
+          "bookTop": {
+            "san": "Nc3",
+            "count": 6832,
+            "pct": 50
+          },
+          "bookTop3": [
+            {
+              "san": "Nc3",
+              "count": 6832,
+              "pct": 50
+            },
+            {
+              "san": "d4",
+              "count": 4571,
+              "pct": 33
+            },
+            {
+              "san": "g3",
+              "count": 1605,
+              "pct": 12
+            }
+          ],
+          "playerRank": 1,
+          "playerPct": 33,
+          "totalGames": 13668,
+          "isDeviation": true,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 5,
+        "moveNum": 3,
+        "move": "cxd4",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 6,
+        "moveNum": 4,
+        "move": "Nxd4",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "Nxd4",
+            "count": 4557,
+            "pct": 100
+          },
+          "bookTop3": [
+            {
+              "san": "Nxd4",
+              "count": 4557,
+              "pct": 100
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 100,
+          "totalGames": 4557,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 7,
+        "moveNum": 4,
+        "move": "g6",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 8,
+        "moveNum": 5,
+        "move": "e4",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "e4",
+            "count": 1601,
+            "pct": 89
+          },
+          "bookTop3": [
+            {
+              "san": "e4",
+              "count": 1601,
+              "pct": 89
+            },
+            {
+              "san": "g3",
+              "count": 80,
+              "pct": 4
+            },
+            {
+              "san": "Nc3",
+              "count": 74,
+              "pct": 4
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 89,
+          "totalGames": 1808,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 9,
+        "moveNum": 5,
+        "move": "Nf6",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 10,
+        "moveNum": 6,
+        "move": "Nc3",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "Nc3",
+            "count": 5046,
+            "pct": 100
+          },
+          "bookTop3": [
+            {
+              "san": "Nc3",
+              "count": 5046,
+              "pct": 100
+            },
+            {
+              "san": "Nxc6",
+              "count": 2,
+              "pct": 0
+            },
+            {
+              "san": "Be3",
+              "count": 2,
+              "pct": 0
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 100,
+          "totalGames": 5051,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 11,
+        "moveNum": 6,
+        "move": "d6",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 12,
+        "moveNum": 7,
+        "move": "Be2",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "Be2",
+            "count": 3777,
+            "pct": 80
+          },
+          "bookTop3": [
+            {
+              "san": "Be2",
+              "count": 3777,
+              "pct": 80
+            },
+            {
+              "san": "Nc2",
+              "count": 483,
+              "pct": 10
+            },
+            {
+              "san": "f3",
+              "count": 437,
+              "pct": 9
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 80,
+          "totalGames": 4730,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 13,
+        "moveNum": 7,
+        "move": "Nxd4",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 14,
+        "moveNum": 8,
+        "move": "Qxd4",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "Qxd4",
+            "count": 3081,
+            "pct": 100
+          },
+          "bookTop3": [
+            {
+              "san": "Qxd4",
+              "count": 3081,
+              "pct": 100
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 100,
+          "totalGames": 3081,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 15,
+        "moveNum": 8,
+        "move": "Bg7",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 16,
+        "moveNum": 9,
+        "move": "O-O",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "Be3",
+            "count": 2210,
+            "pct": 58
+          },
+          "bookTop3": [
+            {
+              "san": "Be3",
+              "count": 2210,
+              "pct": 58
+            },
+            {
+              "san": "Bg5",
+              "count": 960,
+              "pct": 25
+            },
+            {
+              "san": "O-O",
+              "count": 567,
+              "pct": 15
+            }
+          ],
+          "playerRank": 2,
+          "playerPct": 15,
+          "totalGames": 3783,
+          "isDeviation": true,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 17,
+        "moveNum": 9,
+        "move": "O-O",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 18,
+        "moveNum": 10,
+        "move": "Qd3",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "Qd3",
+            "count": 287,
+            "pct": 51
+          },
+          "bookTop3": [
+            {
+              "san": "Qd3",
+              "count": 287,
+              "pct": 51
+            },
+            {
+              "san": "Qe3",
+              "count": 133,
+              "pct": 23
+            },
+            {
+              "san": "Bg5",
+              "count": 89,
+              "pct": 16
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 51,
+          "totalGames": 568,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 19,
+        "moveNum": 10,
+        "move": "Be6",
+        "color": "opponent",
+        "isZacharyTurn": false
+      }
+    ],
+    "firstDeviationIdx": 0,
+    "examples": [
+      "Sankar, Tarun vs Hanein, Avri",
+      "Sankar,Tarun vs Peed,Grant",
+      "Sankar,Tarun vs Jackson,Cayden"
+    ]
+  },
+  {
+    "label": "c4 f5 Nc3 Nf6",
+    "color": "white",
+    "gameCount": 2,
+    "steps": [
+      {
+        "i": 0,
+        "moveNum": 1,
+        "move": "c4",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "e4",
+            "count": 1309466,
+            "pct": 45
+          },
+          "bookTop3": [
+            {
+              "san": "e4",
+              "count": 1309466,
+              "pct": 45
+            },
+            {
+              "san": "d4",
+              "count": 1029878,
+              "pct": 36
+            },
+            {
+              "san": "Nf3",
+              "count": 292957,
+              "pct": 10
+            }
+          ],
+          "playerRank": 3,
+          "playerPct": 7,
+          "totalGames": 2879587,
+          "isDeviation": true,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 1,
+        "moveNum": 1,
+        "move": "f5",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 2,
+        "moveNum": 2,
+        "move": "Nc3",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "g3",
+            "count": 1581,
+            "pct": 34
+          },
+          "bookTop3": [
+            {
+              "san": "g3",
+              "count": 1581,
+              "pct": 34
+            },
+            {
+              "san": "Nc3",
+              "count": 1164,
+              "pct": 25
+            },
+            {
+              "san": "Nf3",
+              "count": 997,
+              "pct": 21
+            }
+          ],
+          "playerRank": 1,
+          "playerPct": 25,
+          "totalGames": 4679,
+          "isDeviation": true,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 3,
+        "moveNum": 2,
+        "move": "Nf6",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 4,
+        "moveNum": 3,
+        "move": "g3",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "g3",
+            "count": 740,
+            "pct": 65
+          },
+          "bookTop3": [
+            {
+              "san": "g3",
+              "count": 740,
+              "pct": 65
+            },
+            {
+              "san": "d4",
+              "count": 205,
+              "pct": 18
+            },
+            {
+              "san": "Nf3",
+              "count": 120,
+              "pct": 11
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 65,
+          "totalGames": 1132,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 5,
+        "moveNum": 3,
+        "move": "e6",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 6,
+        "moveNum": 4,
+        "move": "Bg2",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "Bg2",
+            "count": 135,
+            "pct": 98
+          },
+          "bookTop3": [
+            {
+              "san": "Bg2",
+              "count": 135,
+              "pct": 98
+            },
+            {
+              "san": "Nf3",
+              "count": 3,
+              "pct": 2
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 98,
+          "totalGames": 138,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 7,
+        "moveNum": 4,
+        "move": "d5",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 8,
+        "moveNum": 5,
+        "move": "d4",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "d4",
+            "count": 31,
+            "pct": 39
+          },
+          "bookTop3": [
+            {
+              "san": "d4",
+              "count": 31,
+              "pct": 39
+            },
+            {
+              "san": "cxd5",
+              "count": 26,
+              "pct": 33
+            },
+            {
+              "san": "Nf3",
+              "count": 13,
+              "pct": 16
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 39,
+          "totalGames": 79,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 9,
+        "moveNum": 5,
+        "move": "c6",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 10,
+        "moveNum": 6,
+        "move": "c5",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "Nf3",
+            "count": 128,
+            "pct": 51
+          },
+          "bookTop3": [
+            {
+              "san": "Nf3",
+              "count": 128,
+              "pct": 51
+            },
+            {
+              "san": "Nh3",
+              "count": 79,
+              "pct": 31
+            },
+            {
+              "san": "Bf4",
+              "count": 10,
+              "pct": 4
+            }
+          ],
+          "playerRank": -1,
+          "playerPct": 0,
+          "totalGames": 253,
+          "isDeviation": true,
+          "isNovelty": true
+        }
+      },
+      {
+        "i": 11,
+        "moveNum": 6,
+        "move": "Nbd7",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 12,
+        "moveNum": 7,
+        "move": "a3",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": null,
+          "bookTop3": [],
+          "playerRank": -1,
+          "playerPct": 0,
+          "totalGames": 0,
+          "isDeviation": true,
+          "isNovelty": true
+        }
+      },
+      {
+        "i": 13,
+        "moveNum": 7,
+        "move": "b6",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 14,
+        "moveNum": 8,
+        "move": "b4",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": null,
+          "bookTop3": [],
+          "playerRank": -1,
+          "playerPct": 0,
+          "totalGames": 0,
+          "isDeviation": true,
+          "isNovelty": true
+        }
+      },
+      {
+        "i": 15,
+        "moveNum": 8,
+        "move": "a5",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 16,
+        "moveNum": 9,
+        "move": "Rb1",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": null,
+          "bookTop3": [],
+          "playerRank": -1,
+          "playerPct": 0,
+          "totalGames": 0,
+          "isDeviation": true,
+          "isNovelty": true
+        }
+      },
+      {
+        "i": 17,
+        "moveNum": 9,
+        "move": "axb4",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 18,
+        "moveNum": 10,
+        "move": "axb4",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": null,
+          "bookTop3": [],
+          "playerRank": -1,
+          "playerPct": 0,
+          "totalGames": 0,
+          "isDeviation": true,
+          "isNovelty": true
+        }
+      },
+      {
+        "i": 19,
+        "moveNum": 10,
+        "move": "bxc5",
+        "color": "opponent",
+        "isZacharyTurn": false
+      }
+    ],
+    "firstDeviationIdx": 0,
+    "examples": [
+      "Sankar, Tarun vs Vazelakis, Dimitrios",
+      "Sankar, Tarun vs Kurpiewski, Slawomir"
+    ]
+  },
+  {
+    "label": "c4 e6 Nc3 Nf6",
+    "color": "white",
+    "gameCount": 2,
+    "steps": [
+      {
+        "i": 0,
+        "moveNum": 1,
+        "move": "c4",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "e4",
+            "count": 1309466,
+            "pct": 45
+          },
+          "bookTop3": [
+            {
+              "san": "e4",
+              "count": 1309466,
+              "pct": 45
+            },
+            {
+              "san": "d4",
+              "count": 1029878,
+              "pct": 36
+            },
+            {
+              "san": "Nf3",
+              "count": 292957,
+              "pct": 10
+            }
+          ],
+          "playerRank": 3,
+          "playerPct": 7,
+          "totalGames": 2879587,
+          "isDeviation": true,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 1,
+        "moveNum": 1,
+        "move": "e6",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 2,
+        "moveNum": 2,
+        "move": "Nc3",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "Nf3",
+            "count": 10665,
+            "pct": 35
+          },
+          "bookTop3": [
+            {
+              "san": "Nf3",
+              "count": 10665,
+              "pct": 35
+            },
+            {
+              "san": "Nc3",
+              "count": 9663,
+              "pct": 31
+            },
+            {
+              "san": "g3",
+              "count": 7073,
+              "pct": 23
+            }
+          ],
+          "playerRank": 1,
+          "playerPct": 31,
+          "totalGames": 30908,
+          "isDeviation": true,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 3,
+        "moveNum": 2,
+        "move": "Nf6",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 4,
+        "moveNum": 3,
+        "move": "e4",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "e4",
+            "count": 3546,
+            "pct": 51
+          },
+          "bookTop3": [
+            {
+              "san": "e4",
+              "count": 3546,
+              "pct": 51
+            },
+            {
+              "san": "Nf3",
+              "count": 2236,
+              "pct": 32
+            },
+            {
+              "san": "d4",
+              "count": 1049,
+              "pct": 15
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 51,
+          "totalGames": 7020,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 5,
+        "moveNum": 3,
+        "move": "c5",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 6,
+        "moveNum": 4,
+        "move": "e5",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "e5",
+            "count": 788,
+            "pct": 75
+          },
+          "bookTop3": [
+            {
+              "san": "e5",
+              "count": 788,
+              "pct": 75
+            },
+            {
+              "san": "Nf3",
+              "count": 188,
+              "pct": 18
+            },
+            {
+              "san": "f4",
+              "count": 32,
+              "pct": 3
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 75,
+          "totalGames": 1047,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 7,
+        "moveNum": 4,
+        "move": "Ng8",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 8,
+        "moveNum": 5,
+        "move": "Qg4",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "Nf3",
+            "count": 545,
+            "pct": 69
+          },
+          "bookTop3": [
+            {
+              "san": "Nf3",
+              "count": 545,
+              "pct": 69
+            },
+            {
+              "san": "d4",
+              "count": 227,
+              "pct": 29
+            },
+            {
+              "san": "f4",
+              "count": 13,
+              "pct": 2
+            }
+          ],
+          "playerRank": -1,
+          "playerPct": 0,
+          "totalGames": 788,
+          "isDeviation": true,
+          "isNovelty": true
+        }
+      },
+      {
+        "i": 9,
+        "moveNum": 5,
+        "move": "Nc6",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 10,
+        "moveNum": 6,
+        "move": "Nf3",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": null,
+          "bookTop3": [],
+          "playerRank": -1,
+          "playerPct": 0,
+          "totalGames": 0,
+          "isDeviation": true,
+          "isNovelty": true
+        }
+      },
+      {
+        "i": 11,
+        "moveNum": 6,
+        "move": "Nh6",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 12,
+        "moveNum": 7,
+        "move": "Qe4",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": null,
+          "bookTop3": [],
+          "playerRank": -1,
+          "playerPct": 0,
+          "totalGames": 0,
+          "isDeviation": true,
+          "isNovelty": true
+        }
+      },
+      {
+        "i": 13,
+        "moveNum": 7,
+        "move": "d6",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 14,
+        "moveNum": 8,
+        "move": "Be2",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": null,
+          "bookTop3": [],
+          "playerRank": -1,
+          "playerPct": 0,
+          "totalGames": 0,
+          "isDeviation": true,
+          "isNovelty": true
+        }
+      },
+      {
+        "i": 15,
+        "moveNum": 8,
+        "move": "Nf5",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 16,
+        "moveNum": 9,
+        "move": "O-O",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": null,
+          "bookTop3": [],
+          "playerRank": -1,
+          "playerPct": 0,
+          "totalGames": 0,
+          "isDeviation": true,
+          "isNovelty": true
+        }
+      },
+      {
+        "i": 17,
+        "moveNum": 9,
+        "move": "Nfd4",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 18,
+        "moveNum": 10,
+        "move": "exd6",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": null,
+          "bookTop3": [],
+          "playerRank": -1,
+          "playerPct": 0,
+          "totalGames": 0,
+          "isDeviation": true,
+          "isNovelty": true
+        }
+      },
+      {
+        "i": 19,
+        "moveNum": 10,
+        "move": "f5",
+        "color": "opponent",
+        "isZacharyTurn": false
+      }
+    ],
+    "firstDeviationIdx": 0,
+    "examples": [
+      "Sankar,Tarun vs Fus,Jakub",
+      "Sankar, Tarun vs Fus, Jakub"
+    ]
+  },
+  {
+    "label": "d4 d5 c4 dxc4",
+    "color": "black",
+    "gameCount": 2,
+    "steps": [
+      {
+        "i": 0,
+        "moveNum": 1,
+        "move": "d4",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 1,
+        "moveNum": 1,
+        "move": "d5",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "Nf6",
+            "count": 626798,
+            "pct": 61
+          },
+          "bookTop3": [
+            {
+              "san": "Nf6",
+              "count": 626798,
+              "pct": 61
+            },
+            {
+              "san": "d5",
+              "count": 265859,
+              "pct": 26
+            },
+            {
+              "san": "e6",
+              "count": 41667,
+              "pct": 4
+            }
+          ],
+          "playerRank": 1,
+          "playerPct": 26,
+          "totalGames": 1029878,
+          "isDeviation": true,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 2,
+        "moveNum": 2,
+        "move": "c4",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 3,
+        "moveNum": 2,
+        "move": "dxc4",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "c6",
+            "count": 101143,
+            "pct": 49
+          },
+          "bookTop3": [
+            {
+              "san": "c6",
+              "count": 101143,
+              "pct": 49
+            },
+            {
+              "san": "e6",
+              "count": 72218,
+              "pct": 35
+            },
+            {
+              "san": "dxc4",
+              "count": 24225,
+              "pct": 12
+            }
+          ],
+          "playerRank": 2,
+          "playerPct": 12,
+          "totalGames": 204463,
+          "isDeviation": true,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 4,
+        "moveNum": 3,
+        "move": "Nf3",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 5,
+        "moveNum": 3,
+        "move": "Nf6",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "Nf6",
+            "count": 8699,
+            "pct": 69
+          },
+          "bookTop3": [
+            {
+              "san": "Nf6",
+              "count": 8699,
+              "pct": 69
+            },
+            {
+              "san": "a6",
+              "count": 2063,
+              "pct": 16
+            },
+            {
+              "san": "c5",
+              "count": 831,
+              "pct": 7
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 69,
+          "totalGames": 12522,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 6,
+        "moveNum": 4,
+        "move": "e3",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 7,
+        "moveNum": 4,
+        "move": "e6",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "e6",
+            "count": 8431,
+            "pct": 70
+          },
+          "bookTop3": [
+            {
+              "san": "e6",
+              "count": 8431,
+              "pct": 70
+            },
+            {
+              "san": "Bg4",
+              "count": 1802,
+              "pct": 15
+            },
+            {
+              "san": "a6",
+              "count": 810,
+              "pct": 7
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 70,
+          "totalGames": 12051,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 8,
+        "moveNum": 5,
+        "move": "Bxc4",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 9,
+        "moveNum": 5,
+        "move": "a6",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "c5",
+            "count": 8407,
+            "pct": 72
+          },
+          "bookTop3": [
+            {
+              "san": "c5",
+              "count": 8407,
+              "pct": 72
+            },
+            {
+              "san": "a6",
+              "count": 3131,
+              "pct": 27
+            },
+            {
+              "san": "Be7",
+              "count": 62,
+              "pct": 1
+            }
+          ],
+          "playerRank": 1,
+          "playerPct": 27,
+          "totalGames": 11633,
+          "isDeviation": true,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 10,
+        "moveNum": 6,
+        "move": "O-O",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 11,
+        "moveNum": 6,
+        "move": "b5",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "c5",
+            "count": 2555,
+            "pct": 72
+          },
+          "bookTop3": [
+            {
+              "san": "c5",
+              "count": 2555,
+              "pct": 72
+            },
+            {
+              "san": "b5",
+              "count": 648,
+              "pct": 18
+            },
+            {
+              "san": "Nbd7",
+              "count": 257,
+              "pct": 7
+            }
+          ],
+          "playerRank": 1,
+          "playerPct": 18,
+          "totalGames": 3529,
+          "isDeviation": true,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 12,
+        "moveNum": 7,
+        "move": "Be2",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 13,
+        "moveNum": 7,
+        "move": "Bb7",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "Bb7",
+            "count": 195,
+            "pct": 83
+          },
+          "bookTop3": [
+            {
+              "san": "Bb7",
+              "count": 195,
+              "pct": 83
+            },
+            {
+              "san": "Nbd7",
+              "count": 33,
+              "pct": 14
+            },
+            {
+              "san": "c5",
+              "count": 7,
+              "pct": 3
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 83,
+          "totalGames": 236,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 14,
+        "moveNum": 8,
+        "move": "b3",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 15,
+        "moveNum": 8,
+        "move": "c5",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "Nbd7",
+            "count": 34,
+            "pct": 76
+          },
+          "bookTop3": [
+            {
+              "san": "Nbd7",
+              "count": 34,
+              "pct": 76
+            },
+            {
+              "san": "c5",
+              "count": 7,
+              "pct": 16
+            },
+            {
+              "san": "Be7",
+              "count": 4,
+              "pct": 9
+            }
+          ],
+          "playerRank": 1,
+          "playerPct": 16,
+          "totalGames": 45,
+          "isDeviation": true,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 16,
+        "moveNum": 9,
+        "move": "Bb2",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 17,
+        "moveNum": 9,
+        "move": "Nbd7",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "Nbd7",
+            "count": 78,
+            "pct": 92
+          },
+          "bookTop3": [
+            {
+              "san": "Nbd7",
+              "count": 78,
+              "pct": 92
+            },
+            {
+              "san": "cxd4",
+              "count": 3,
+              "pct": 4
+            },
+            {
+              "san": "Nc6",
+              "count": 3,
+              "pct": 4
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 92,
+          "totalGames": 85,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 18,
+        "moveNum": 10,
+        "move": "a4",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 19,
+        "moveNum": 10,
+        "move": "cxd4",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "b4",
+            "count": 72,
+            "pct": 76
+          },
+          "bookTop3": [
+            {
+              "san": "b4",
+              "count": 72,
+              "pct": 76
+            },
+            {
+              "san": "bxa4",
+              "count": 22,
+              "pct": 23
+            },
+            {
+              "san": "Qb6",
+              "count": 1,
+              "pct": 1
+            }
+          ],
+          "playerRank": -1,
+          "playerPct": 0,
+          "totalGames": 95,
+          "isDeviation": true,
+          "isNovelty": true
+        }
+      }
+    ],
+    "firstDeviationIdx": 1,
+    "examples": [
+      "Dilanian,G vs Sankar, Tarun",
+      "Hebbar,Eshaan vs Sankar,Tarun"
+    ]
+  },
+  {
+    "label": "e4 c5 Nf3 e6",
+    "color": "black",
+    "gameCount": 2,
+    "steps": [
+      {
+        "i": 0,
+        "moveNum": 1,
+        "move": "e4",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 1,
+        "moveNum": 1,
+        "move": "c5",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "c5",
+            "count": 601092,
+            "pct": 46
+          },
+          "bookTop3": [
+            {
+              "san": "c5",
+              "count": 601092,
+              "pct": 46
+            },
+            {
+              "san": "e5",
+              "count": 314452,
+              "pct": 24
+            },
+            {
+              "san": "e6",
+              "count": 153056,
+              "pct": 12
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 46,
+          "totalGames": 1309466,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 2,
+        "moveNum": 2,
+        "move": "Nf3",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 3,
+        "moveNum": 2,
+        "move": "e6",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "d6",
+            "count": 231081,
+            "pct": 46
+          },
+          "bookTop3": [
+            {
+              "san": "d6",
+              "count": 231081,
+              "pct": 46
+            },
+            {
+              "san": "Nc6",
+              "count": 134924,
+              "pct": 27
+            },
+            {
+              "san": "e6",
+              "count": 115260,
+              "pct": 23
+            }
+          ],
+          "playerRank": 2,
+          "playerPct": 23,
+          "totalGames": 500813,
+          "isDeviation": true,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 4,
+        "moveNum": 3,
+        "move": "b3",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 5,
+        "moveNum": 3,
+        "move": "a6",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "b6",
+            "count": 1314,
+            "pct": 30
+          },
+          "bookTop3": [
+            {
+              "san": "b6",
+              "count": 1314,
+              "pct": 30
+            },
+            {
+              "san": "Nc6",
+              "count": 859,
+              "pct": 20
+            },
+            {
+              "san": "a6",
+              "count": 814,
+              "pct": 19
+            }
+          ],
+          "playerRank": 2,
+          "playerPct": 19,
+          "totalGames": 4311,
+          "isDeviation": true,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 6,
+        "moveNum": 4,
+        "move": "Bb2",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 7,
+        "moveNum": 4,
+        "move": "d5",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "Nc6",
+            "count": 524,
+            "pct": 71
+          },
+          "bookTop3": [
+            {
+              "san": "Nc6",
+              "count": 524,
+              "pct": 71
+            },
+            {
+              "san": "d6",
+              "count": 106,
+              "pct": 14
+            },
+            {
+              "san": "d5",
+              "count": 71,
+              "pct": 10
+            }
+          ],
+          "playerRank": 2,
+          "playerPct": 10,
+          "totalGames": 735,
+          "isDeviation": true,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 8,
+        "moveNum": 5,
+        "move": "exd5",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 9,
+        "moveNum": 5,
+        "move": "exd5",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "exd5",
+            "count": 66,
+            "pct": 99
+          },
+          "bookTop3": [
+            {
+              "san": "exd5",
+              "count": 66,
+              "pct": 99
+            },
+            {
+              "san": "Qxd5",
+              "count": 1,
+              "pct": 1
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 99,
+          "totalGames": 67,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 10,
+        "moveNum": 6,
+        "move": "d4",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 11,
+        "moveNum": 6,
+        "move": "Nf6",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "Nf6",
+            "count": 33,
+            "pct": 94
+          },
+          "bookTop3": [
+            {
+              "san": "Nf6",
+              "count": 33,
+              "pct": 94
+            },
+            {
+              "san": "cxd4",
+              "count": 2,
+              "pct": 6
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 94,
+          "totalGames": 35,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 12,
+        "moveNum": 7,
+        "move": "Be2",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 13,
+        "moveNum": 7,
+        "move": "Be7",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "Nc6",
+            "count": 8,
+            "pct": 57
+          },
+          "bookTop3": [
+            {
+              "san": "Nc6",
+              "count": 8,
+              "pct": 57
+            },
+            {
+              "san": "Be7",
+              "count": 5,
+              "pct": 36
+            },
+            {
+              "san": "Bd6",
+              "count": 1,
+              "pct": 7
+            }
+          ],
+          "playerRank": 1,
+          "playerPct": 36,
+          "totalGames": 14,
+          "isDeviation": true,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 14,
+        "moveNum": 8,
+        "move": "O-O",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 15,
+        "moveNum": 8,
+        "move": "O-O",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "O-O",
+            "count": 6,
+            "pct": 100
+          },
+          "bookTop3": [
+            {
+              "san": "O-O",
+              "count": 6,
+              "pct": 100
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 100,
+          "totalGames": 6,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 16,
+        "moveNum": 9,
+        "move": "Nbd2",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 17,
+        "moveNum": 9,
+        "move": "Nc6",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": null,
+          "bookTop3": [],
+          "playerRank": -1,
+          "playerPct": 0,
+          "totalGames": 0,
+          "isDeviation": true,
+          "isNovelty": true
+        }
+      },
+      {
+        "i": 18,
+        "moveNum": 10,
+        "move": "c4",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 19,
+        "moveNum": 10,
+        "move": "Be6",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": null,
+          "bookTop3": [],
+          "playerRank": -1,
+          "playerPct": 0,
+          "totalGames": 0,
+          "isDeviation": true,
+          "isNovelty": true
+        }
+      }
+    ],
+    "firstDeviationIdx": 3,
+    "examples": [
+      "Pyrig,Roman vs Sankar,Tarun",
+      "Pyrih, Roman vs Sankar, Tarun"
+    ]
+  },
+  {
+    "label": "e4 c5 Nf3 Nc6",
+    "color": "black",
+    "gameCount": 1,
+    "steps": [
+      {
+        "i": 0,
+        "moveNum": 1,
+        "move": "e4",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 1,
+        "moveNum": 1,
+        "move": "c5",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "c5",
+            "count": 601092,
+            "pct": 46
+          },
+          "bookTop3": [
+            {
+              "san": "c5",
+              "count": 601092,
+              "pct": 46
+            },
+            {
+              "san": "e5",
+              "count": 314452,
+              "pct": 24
+            },
+            {
+              "san": "e6",
+              "count": 153056,
+              "pct": 12
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 46,
+          "totalGames": 1309466,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 2,
+        "moveNum": 2,
+        "move": "Nf3",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 3,
+        "moveNum": 2,
+        "move": "Nc6",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "d6",
+            "count": 231081,
+            "pct": 46
+          },
+          "bookTop3": [
+            {
+              "san": "d6",
+              "count": 231081,
+              "pct": 46
+            },
+            {
+              "san": "Nc6",
+              "count": 134924,
+              "pct": 27
+            },
+            {
+              "san": "e6",
+              "count": 115260,
+              "pct": 23
+            }
+          ],
+          "playerRank": 1,
+          "playerPct": 27,
+          "totalGames": 500813,
+          "isDeviation": true,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 4,
+        "moveNum": 3,
+        "move": "Bc4",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 5,
+        "moveNum": 3,
+        "move": "e6",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "e6",
+            "count": 307,
+            "pct": 65
+          },
+          "bookTop3": [
+            {
+              "san": "e6",
+              "count": 307,
+              "pct": 65
+            },
+            {
+              "san": "d6",
+              "count": 60,
+              "pct": 13
+            },
+            {
+              "san": "g6",
+              "count": 46,
+              "pct": 10
+            }
+          ],
+          "playerRank": 0,
+          "playerPct": 65,
+          "totalGames": 472,
+          "isDeviation": false,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 6,
+        "moveNum": 4,
+        "move": "O-O",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 7,
+        "moveNum": 4,
+        "move": "d5",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "a6",
+            "count": 74,
+            "pct": 34
+          },
+          "bookTop3": [
+            {
+              "san": "a6",
+              "count": 74,
+              "pct": 34
+            },
+            {
+              "san": "Nf6",
+              "count": 67,
+              "pct": 31
+            },
+            {
+              "san": "d5",
+              "count": 44,
+              "pct": 20
+            }
+          ],
+          "playerRank": 2,
+          "playerPct": 20,
+          "totalGames": 216,
+          "isDeviation": true,
+          "isNovelty": false
+        }
+      },
+      {
+        "i": 8,
+        "moveNum": 5,
+        "move": "Bb5",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 9,
+        "moveNum": 5,
+        "move": "a6",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": {
+            "san": "dxe4",
+            "count": 12,
+            "pct": 55
+          },
+          "bookTop3": [
+            {
+              "san": "dxe4",
+              "count": 12,
+              "pct": 55
+            },
+            {
+              "san": "Nf6",
+              "count": 7,
+              "pct": 32
+            },
+            {
+              "san": "Bd6",
+              "count": 3,
+              "pct": 14
+            }
+          ],
+          "playerRank": -1,
+          "playerPct": 0,
+          "totalGames": 22,
+          "isDeviation": true,
+          "isNovelty": true
+        }
+      },
+      {
+        "i": 10,
+        "moveNum": 6,
+        "move": "Bxc6+",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 11,
+        "moveNum": 6,
+        "move": "bxc6",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": null,
+          "bookTop3": [],
+          "playerRank": -1,
+          "playerPct": 0,
+          "totalGames": 0,
+          "isDeviation": true,
+          "isNovelty": true
+        }
+      },
+      {
+        "i": 12,
+        "moveNum": 7,
+        "move": "e5",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 13,
+        "moveNum": 7,
+        "move": "Ne7",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": null,
+          "bookTop3": [],
+          "playerRank": -1,
+          "playerPct": 0,
+          "totalGames": 0,
+          "isDeviation": true,
+          "isNovelty": true
+        }
+      },
+      {
+        "i": 14,
+        "moveNum": 8,
+        "move": "d3",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 15,
+        "moveNum": 8,
+        "move": "Ng6",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": null,
+          "bookTop3": [],
+          "playerRank": -1,
+          "playerPct": 0,
+          "totalGames": 0,
+          "isDeviation": true,
+          "isNovelty": true
+        }
+      },
+      {
+        "i": 16,
+        "moveNum": 9,
+        "move": "c4",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 17,
+        "moveNum": 9,
+        "move": "Be7",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": null,
+          "bookTop3": [],
+          "playerRank": -1,
+          "playerPct": 0,
+          "totalGames": 0,
+          "isDeviation": true,
+          "isNovelty": true
+        }
+      },
+      {
+        "i": 18,
+        "moveNum": 10,
+        "move": "Qe2",
+        "color": "opponent",
+        "isZacharyTurn": false
+      },
+      {
+        "i": 19,
+        "moveNum": 10,
+        "move": "O-O",
+        "color": "tarun",
+        "isZacharyTurn": true,
+        "agreementPct": 100,
+        "bookData": {
+          "bookTop": null,
+          "bookTop3": [],
+          "playerRank": -1,
+          "playerPct": 0,
+          "totalGames": 0,
+          "isDeviation": true,
+          "isNovelty": true
+        }
+      }
+    ],
+    "firstDeviationIdx": 3,
+    "examples": [
+      "Le-Tran, Leo vs Sankar, Tarun"
+    ]
+  }
+]

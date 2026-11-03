@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarun Sankar — Opening Deviation Map</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header {
+      border-bottom: 3px solid #2d7d46;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 { margin: 0 0 8px; font-size: 1.85rem; }
+    .doc-header .meta {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      font-size: 0.9rem; color: #57606a;
+    }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link {
+      display: inline-block; margin-top: 14px;
+      font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.3rem; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.05rem; color: #2d7d46; margin: 24px 0 6px; }
+
+    .sample-warning {
+      background: #fff8c5; border: 1px solid #d4a017; border-radius: 6px;
+      padding: 12px 16px; margin-bottom: 24px; font-size: 0.875rem;
+    }
+    .sample-warning strong { color: #7d4e00; }
+
+    /* Legend */
+    .legend {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px;
+      padding: 14px 18px; margin-bottom: 32px; font-size: 0.85rem;
+    }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    /* Summary table */
+    table { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin: 0 0 24px; }
+    th { text-align: left; padding: 8px 12px; background: #f6f8fa; border-bottom: 2px solid #d0d7de; font-weight: 600; color: #1f2328; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eaeef2; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    td.opening-name { font-weight: 600; }
+    td.color-cell { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+    .color-w { color: #9a6700; }
+    .color-b { color: #0969da; }
+
+    /* System cards */
+    .system-card {
+      border: 1px solid #d0d7de; border-radius: 8px;
+      margin-bottom: 28px; overflow: hidden;
+    }
+    .system-card-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      background: #f6f8fa; padding: 12px 18px; border-bottom: 1px solid #d0d7de;
+    }
+    .system-card-header h3 { margin: 0; font-size: 1rem; color: #1f2328; }
+    .system-card-header .game-count { font-size: 0.8rem; color: #57606a; }
+    .system-card-body { padding: 16px 18px; }
+
+    /* Move trail */
+    .trail-label { font-size: 0.75rem; font-weight: 600; color: #57606a; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .move-trail { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 16px; align-items: center; }
+
+    .chip {
+      display: inline-flex; align-items: center;
+      padding: 3px 8px; border-radius: 4px;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.4;
+      cursor: default;
+    }
+    .chip-opp   { background: #f0f0f0; color: #6e7781; border: 1px solid #d0d7de; }
+    .chip-book  { background: #dafbe1; color: #1a7f37; border: 1px solid #2d7d46; }
+    .chip-good  { background: #ddf4ff; color: #0550ae; border: 1px solid #0969da; }
+    .chip-side  { background: #fff3cd; color: #7d4e00; border: 1px solid #d4a017; }
+    .chip-rare  { background: #ffd8d3; color: #a4000f; border: 1px solid #cf222e; }
+    .chip-novel { background: #eee8ff; color: #5a1e96; border: 1px solid #8250df; }
+
+    .chip-flag { font-size: 0.65rem; margin-left: 4px; }
+
+    /* Deviation callouts */
+    .dev-list { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+    .dev-row {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 9px 12px; border-radius: 6px; font-size: 0.85rem; line-height: 1.5;
+    }
+    .dev-row.level-side  { background: #fff8e8; border-left: 3px solid #d4a017; }
+    .dev-row.level-rare  { background: #fff0ee; border-left: 3px solid #cf222e; }
+    .dev-row.level-novel { background: #f3ecff; border-left: 3px solid #8250df; }
+
+    .dev-row .dev-move { font-family: monospace; font-weight: 700; min-width: 90px; flex-shrink: 0; }
+    .dev-row .dev-detail { color: #57606a; }
+    .dev-row .dev-detail strong { color: #1f2328; }
+    .dev-row .dev-detail em { font-style: normal; color: #1f2328; font-weight: 600; }
+
+    /* Austin notes */
+    .austin-note {
+      background: #f0fff4; border: 1px solid #2d7d46; border-radius: 6px;
+      padding: 12px 16px; margin-top: 16px; font-size: 0.875rem;
+    }
+    .austin-note .note-label {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: #2d7d46; margin-bottom: 4px;
+    }
+
+    /* Insight grid */
+    .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+    @media (max-width: 580px) { .insight-grid { grid-template-columns: 1fr; } }
+    .insight-card {
+      border: 1px solid #d0d7de; border-radius: 6px;
+      padding: 14px 16px; font-size: 0.875rem;
+    }
+    .insight-card h4 { margin: 0 0 8px; font-size: 0.9rem; color: #2d7d46; }
+    .insight-card ul { margin: 0; padding-left: 18px; }
+    .insight-card li { margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Header ───────────────────────────────────────────────────── -->
+  <div class="doc-header">
+    <h1>Tarun Sankar — Opening Deviation Map</h1>
+    <div class="meta">
+      <span><strong>Player:</strong> Tarun Sankar · 1984 FIDE (Nov 2026; peak 2002)</span>
+      <span><strong>Games analyzed:</strong> 26 (13 as White, 13 as Black)</span>
+      <span><strong>Database:</strong> Lichess Masters (FIDE 2300+)</span>
+      <span><strong>Generated:</strong> Nov 2, 2026</span>
+    </div>
+    <a href="../austin-prep.html" class="back-link">← Back to Prep Index</a>
+  </div>
+
+  <!-- ── Sample warning ──────────────────────────────────────────── -->
+  <div class="sample-warning">
+    <strong>Small sample (26 games total, 13 per color).</strong> Top systems have only 2–3 games each. The trunk analysis is still reliable for identifying Tarun's opening repertoire and preferences, but chip classifications at moves 8–10 may not survive a larger sample. The key novelties (Sys 2, Sys 3) are confirmed across multiple games.
+  </div>
+
+  <!-- ── Legend ──────────────────────────────────────────────────── -->
+  <div class="legend">
+    <strong style="font-size:0.8rem;text-transform:uppercase;letter-spacing:.04em;color:#57606a;margin-right:4px;">Tarun's moves:</strong>
+    <span class="legend-item"><span class="chip chip-book" style="font-size:.75rem;padding:2px 7px;">e4</span> <span>Top masters move</span></span>
+    <span class="legend-item"><span class="chip chip-good" style="font-size:.75rem;padding:2px 7px;">Nf3</span> <span>2nd–3rd choice (≥20%)</span></span>
+    <span class="legend-item"><span class="chip chip-side" style="font-size:.75rem;padding:2px 7px;">g3</span> <span>Minor sideline (5–19%)</span></span>
+    <span class="legend-item"><span class="chip chip-rare" style="font-size:.75rem;padding:2px 7px;">Qb3</span> <span>Rare / personal prep (&lt;5%)</span></span>
+    <span class="legend-item"><span class="chip chip-novel" style="font-size:.75rem;padding:2px 7px;">Qg4</span> <span>Novelty (not in master DB)</span></span>
+    <span class="legend-item"><span class="chip chip-opp" style="font-size:.75rem;padding:2px 7px;">Nf6</span> <span>Opponent move</span></span>
+  </div>
+
+  <!-- ── Summary table ───────────────────────────────────────────── -->
+  <h2>Deviation Summary</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Opening System</th>
+        <th>Color</th>
+        <th>Games</th>
+        <th>First Deviation</th>
+        <th>Tarun's Move vs Book</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="opening-name">Symmetrical English → Maróczy Bind (A34)</td>
+        <td class="color-cell color-w">White</td>
+        <td>3</td>
+        <td>Move 1</td>
+        <td><code>1.c4</code> (7%) then <code>9.O-O</code> (15%) vs <code>Be3</code> (58%)</td>
+      </tr>
+      <tr>
+        <td class="opening-name">English vs Dutch — 6.c5! queenside squeeze (A11)</td>
+        <td class="color-cell color-w">White</td>
+        <td>2</td>
+        <td>Move 6 ★</td>
+        <td><code>c5</code> novel → full novelty chain a3/b4/Rb1</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Mikenas Attack — 5.Qg4! queen sortie (A21)</td>
+        <td class="color-cell color-w">White</td>
+        <td>2</td>
+        <td>Move 5 ★★</td>
+        <td><code>Qg4</code> novel (book=Nf3 69%) → 6 consecutive novelties</td>
+      </tr>
+      <tr>
+        <td class="opening-name">QGA with 5…a6 6…b5 pawn hold (D24)</td>
+        <td class="color-cell color-b">Black</td>
+        <td>2</td>
+        <td>Move 1</td>
+        <td><code>dxc4</code> (12%) QGA; <code>a6</code> (27%) + <code>b5</code> (18%) pawn hold; <code>cxd4</code> novel at move 10</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Sicilian e6 vs Nimzo-Larsen — 3…a6 + 4…d5 (B40)</td>
+        <td class="color-cell color-b">Black</td>
+        <td>2</td>
+        <td>Move 3</td>
+        <td><code>a6</code> (19%) + <code>d5</code> (10%) aggressive central break</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Sicilian Nc6 standard line (B40)</td>
+        <td class="color-cell color-b">Black</td>
+        <td>1</td>
+        <td>Move 5 ★</td>
+        <td><code>a6</code> novel after <code>Nd4 d5 dxc6</code> — deeply novel from move 5</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <h2>As White</h2>
+
+  <!-- System 1: Maróczy Bind -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Symmetrical English → Maróczy Bind <small style="color:#57606a;font-weight:400;">A34</small></h3>
+      <span class="game-count">3 games · trunk depth 20 · main system</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-side" title="Tarun: 7% | Book: e4 (45%) d4 (36%) Nf3 (10%) c4 (7%)">1.c4<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">1...c5</span>
+        <span class="chip chip-book" title="Tarun: 49% | Book: Nf3 (49%)">2.Nf3</span>
+        <span class="chip chip-opp">2...Nc6</span>
+        <span class="chip chip-good" title="Tarun: 33% | Book: Nc3 (50%) d4 (33%) — enters Maróczy">3.d4</span>
+        <span class="chip chip-opp">3...cxd4</span>
+        <span class="chip chip-book" title="Tarun: 100% | Only move">4.Nxd4</span>
+        <span class="chip chip-opp">4...g6</span>
+        <span class="chip chip-book" title="Tarun: 89% | Book: e4 (89%)">5.e4</span>
+        <span class="chip chip-opp">5...Nf6</span>
+        <span class="chip chip-book" title="Tarun: 100% | Book: Nc3 (100%)">6.Nc3</span>
+        <span class="chip chip-opp">6...d6</span>
+        <span class="chip chip-book" title="Tarun: 80% | Book: Be2 (80%)">7.Be2</span>
+        <span class="chip chip-opp">7...Nxd4</span>
+        <span class="chip chip-book" title="Tarun: 100% | Only move">8.Qxd4</span>
+        <span class="chip chip-opp">8...Bg7</span>
+        <span class="chip chip-side" title="Tarun: 15% | Book: Be3 (58%) Bg5 (25%) O-O (15%) — delays Be3">9.O-O<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">9...O-O</span>
+        <span class="chip chip-book" title="Tarun: 51% | Book: Qd3 (51%)">10.Qd3</span>
+        <span class="chip chip-opp">10...Be6</span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">1. c4</span>
+          <span class="dev-detail">
+            <em>English Opening — Tarun's universal first move.</em> Masters play <strong>e4</strong> (45%) or <strong>d4</strong> (36%); Tarun's <strong>c4</strong> (7%) is a consistent English player's choice across all his White games. He never plays 1.e4 or 1.d4 as his primary weapon — this pattern holds across the full 13-game White sample. Austin will face 1.c4 in every game against Tarun as Black.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">9. O-O</span>
+          <span class="dev-detail">
+            <em>Maróczy Bind move-order twist — O-O before Be3.</em> After 8.Qxd4 Bg7, masters almost always play <strong>Be3</strong> (58%) or <strong>Bg5</strong> (25%) immediately. Tarun's <strong>O-O</strong> (15%) delays the bishop development, castling first and deferring the question of Be3 or Bg5. This avoids early ...Ng4 ideas (if Be3 is played, Black can try ...Ng4 to exchange the bishop). After 9.O-O O-O 10.Qd3, Tarun will play Be3 next — the position is identical to the standard Maróczy Bind, just with one move-order change.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays 1.e4 as White — this system is relevant when Austin is Black. From matchup-tarun.html: if Austin plays 1...c5 2.Nf3 Nc6 against Tarun's English, Tarun may enter the Maróczy via 3.d4. Austin's best bet against the Maróczy Bind as Black is the Accelerated Dragon setup (2...g6 before ...Nc6 to avoid the Bind) or playing 2...Nf6 → Queen's Indian type structures. The O-O move order means Austin can play ...Ng4 after 9.O-O O-O to force 10.Be3 on Austin's terms — but Tarun likely knows this. Main Austin-White matchup: Austin plays 1.e4 → Tarun's Sicilian systems 4–6 are the priority.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 2: English vs Dutch 6.c5! -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>English vs Dutch — 6.c5! queenside squeeze <small style="color:#57606a;font-weight:400;">A11</small></h3>
+      <span class="game-count">2 games · novel from move 6 · full novelty chain</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-side" title="Tarun: 7%">1.c4<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">1...f5</span>
+        <span class="chip chip-good" title="Tarun: 25% | Book: g3 (34%) Nc3 (25%) Nf3 (21%)">2.Nc3</span>
+        <span class="chip chip-opp">2...Nf6</span>
+        <span class="chip chip-book" title="Tarun: 65% | Book: g3 (65%)">3.g3</span>
+        <span class="chip chip-opp">3...e6</span>
+        <span class="chip chip-book" title="Tarun: 98% | Book: Bg2 (98%)">4.Bg2</span>
+        <span class="chip chip-opp">4...d5</span>
+        <span class="chip chip-book" title="Tarun: 39% | Book: d4 (39%)">5.d4</span>
+        <span class="chip chip-opp">5...c6</span>
+        <span class="chip chip-novel" title="Tarun: novel | Book: Nf3 (51%) Nh3 (31%) — spatial grab">6.c5!<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">6...Nbd7</span>
+        <span class="chip chip-novel" title="Tarun: novel | No master games">7.a3<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">7...b6</span>
+        <span class="chip chip-novel" title="Tarun: novel">8.b4<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">8...a5</span>
+        <span class="chip chip-novel" title="Tarun: novel">9.Rb1<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">9...axb4</span>
+        <span class="chip chip-novel" title="Tarun: novel">10.axb4<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">10...bxc5</span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-novel">
+          <span class="dev-move">6. c5!</span>
+          <span class="dev-detail">
+            <em>Aggressive queenside space grab — no master precedent.</em> After the standard Stonewall-English setup (1.c4 f5 2.Nc3 Nf6 3.g3 e6 4.Bg2 d5 5.d4 c6), masters play <strong>Nf3</strong> (51%) or <strong>Nh3</strong> (31%) to continue development. Tarun's <strong>c5!</strong> is not in the database — a pawn lunge to grab queenside space before completing development. After 6...Nbd7 7.a3 b6 8.b4 — this is a full queenside expansion plan: c5 clamps the queenside, a3-b4 attacks the Black queenside immediately. Black's 8...a5 tries to counter, but 9.Rb1 prepares the axb4/bxc5 exchanges to open lines for the b1 rook. This is a deeply prepared personal variation — Tarun played this in two separate tournaments (Grand Circuit, Skyline 2026).
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin does not play the Dutch Defense (1.c4 f5), so this system is unlikely to arise in a direct matchup unless Austin experiments. If Austin plays 1...f5 vs Tarun's English and allows Tarun to reach the 5.d4 c6 position, expect 6.c5! — Tarun has this fully prepared and the novelty chain runs at least 10 moves deep. The counter was 8...a5 (both opponents tried this), then bxc5 eventually opens the b-file. However: **Austin's main Tarun-Black plan is 1...Nf6 → Mikenas response or Catalan-English**, not the Dutch. This system is low priority for direct prep.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 3: Mikenas 5.Qg4! -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Mikenas Attack — 5.Qg4! novelty queen sortie <small style="color:#57606a;font-weight:400;">A21</small></h3>
+      <span class="game-count">2 games · novel from move 5 · Austin's CRITICAL threat</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-side" title="Tarun: 7%">1.c4<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">1...e6</span>
+        <span class="chip chip-good" title="Tarun: 31% | Book: Nf3 (35%) Nc3 (31%) g3 (23%)">2.Nc3</span>
+        <span class="chip chip-opp">2...Nf6</span>
+        <span class="chip chip-book" title="Tarun: 51% | Book: e4 (51%)">3.e4</span>
+        <span class="chip chip-opp">3...c5</span>
+        <span class="chip chip-book" title="Tarun: 75% | Book: e5 (75%)">4.e5</span>
+        <span class="chip chip-opp">4...Ng8</span>
+        <span class="chip chip-novel" title="Tarun: novel | Book: Nf3 (69%) d4 (29%) — queen sortie!">5.Qg4!<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">5...Nc6</span>
+        <span class="chip chip-novel" title="Tarun: novel">6.Nf3<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">6...Nh6</span>
+        <span class="chip chip-novel" title="Tarun: novel">7.Qe4<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">7...d6</span>
+        <span class="chip chip-novel" title="Tarun: novel">8.Be2<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">8...Nf5</span>
+        <span class="chip chip-novel" title="Tarun: novel">9.O-O<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">9...Nfd4</span>
+        <span class="chip chip-novel" title="Tarun: novel">10.exd6<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">10...f5</span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-novel">
+          <span class="dev-move">5. Qg4!</span>
+          <span class="dev-detail">
+            <em>Novel queen sortie — most dangerous of Tarun's White weapons.</em> The standard Mikenas Attack continues with <strong>Nf3</strong> (69%) or <strong>d4</strong> (29%) — solid development. Tarun's <strong>Qg4!</strong> is not in the master database at all: the queen lunges to g4 after 4.e5 Ng8, attacking g7 and creating immediate threats before completing development. After 5...Nc6 (Black defends g7 with the knight) 6.Nf3 Nh6 7.Qe4 — the queen relocates to e4 where it's well-centralized and still points at h7. The Nh6 (Black's knight) is awkwardly placed on the rim. 8.Be2 9.O-O 10.exd6 — White successfully opens the d6 pawn and gets comfortable development. This is Tarun's personal prepared weapon in the Mikenas that he has refined across two games vs IMs (Fus, 2419 FIDE). <strong>Austin must be specifically prepared for 5.Qg4 if playing 1.c4 e6 Nf3 2.Nc3 Nf6 3.e4 c5 4.e5.</strong>
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        <strong>This is Austin's #1 preparation priority as Black vs Tarun's English.</strong> From matchup-tarun.html: the recommended Austin-Black line is 1.c4 Nf6 2.Nc3 e6 → if 3.e4 (Mikenas), play 3...c5 4.e5 Ng8. Now prepare specifically for 5.Qg4!: after 5...Nc6 6.Nf3 Nh6 7.Qe4, Black should NOT play ...d6 immediately (Tarun is prepared here). Instead try <strong>5...g6!</strong> (defends g7 with a pawn rather than ...Nc6) — after 5...g6 6.Nf3, Black has ...Bg7 coming and the queen on g4 becomes an overextended target. Alternatively, <strong>5...d6</strong> is an immediate challenge to the e5 pawn: 5...d6 6.exd6 Bxd6 and Black has rapid development. The key is: don't play into Tarun's 5...Nc6 6...Nh6 line where Qg4-Qe4 has been working — surprise him with a different response on move 5. Tarun blunders severely under time pressure (6 blunders in multiple games) — the Qg4 system is novel enough that he may run his own clock calculating it.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <h2>As Black</h2>
+
+  <!-- System 4: QGA a6/b5 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>QGA with 5…a6 6…b5 pawn hold <small style="color:#57606a;font-weight:400;">D24</small></h3>
+      <span class="game-count">2 games · pawn hold variation · novel at move 10</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.d4</span>
+        <span class="chip chip-good" title="Tarun: 26% | Book: Nf6 (61%) d5 (26%) — enters QGD structure">1...d5</span>
+        <span class="chip chip-opp">2.c4</span>
+        <span class="chip chip-side" title="Tarun: 12% | Book: c6 (49%) e6 (35%) dxc4 (12%) — QGA">2...dxc4</span>
+        <span class="chip chip-opp">3.Nf3</span>
+        <span class="chip chip-book" title="Tarun: 69% | Book: Nf6 (69%)">3...Nf6</span>
+        <span class="chip chip-opp">4.e3</span>
+        <span class="chip chip-book" title="Tarun: 70% | Book: e6 (70%)">4...e6</span>
+        <span class="chip chip-opp">5.Bxc4</span>
+        <span class="chip chip-good" title="Tarun: 27% | Book: c5 (72%) a6 (27%) — pawn hold start">5...a6</span>
+        <span class="chip chip-opp">6.O-O</span>
+        <span class="chip chip-side" title="Tarun: 18% | Book: c5 (72%) b5 (18%) — holds the c4 pawn">6...b5</span>
+        <span class="chip chip-opp">7.Be2</span>
+        <span class="chip chip-book" title="Tarun: 83% | Book: Bb7 (83%)">7...Bb7</span>
+        <span class="chip chip-opp">8.b3</span>
+        <span class="chip chip-side" title="Tarun: 16% | Book: Nbd7 (76%) c5 (16%) — central break">8...c5</span>
+        <span class="chip chip-opp">9.Bb2</span>
+        <span class="chip chip-book" title="Tarun: 92% | Book: Nbd7 (92%)">9...Nbd7</span>
+        <span class="chip chip-opp">10.a4</span>
+        <span class="chip chip-novel" title="Tarun: novel | Book: b4 (76%) bxa4 (23%) — no master games">10...cxd4!<span class="chip-flag">★</span></span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">2... dxc4</span>
+          <span class="dev-detail">
+            <em>Queen's Gambit Accepted — an aggressive pawn grab.</em> Masters mostly stay solid with <strong>c6</strong> (49%) or <strong>e6</strong> (35%). Tarun's <strong>dxc4</strong> (12%) accepts the gambit, taking the c4 pawn and planning to hold it. This is the QGA — an active choice that creates imbalanced positions immediately. Tarun plays it in both games here (vs Dilanian and vs Hebbar).
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">5... a6</span>
+          <span class="dev-detail">
+            <em>Pawn hold variation — keeps the c4 pawn.</em> After taking on c4 and developing naturally (3...Nf6 4...e6), masters usually return the c4 pawn with <strong>c5</strong> (72%). Tarun's <strong>a6</strong> (27%) is the start of the Linares variation — Black prepares to hold the extra pawn with 6...b5. This gives Black a queenside majority but creates a weakness on b5. This is a well-known positional system where Black fights to keep the c4 pawn advantage.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">6... b5</span>
+          <span class="dev-detail">
+            <em>Completing the pawn hold.</em> Masters again prefer <strong>c5</strong> (72%) to just give back the pawn. Tarun's <strong>b5</strong> (18%) anchors the a6/b5 pawn chain — now the c4 pawn is firmly held. White must find a way to undermine b5 (via a4 usually).
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">8... c5</span>
+          <span class="dev-detail">
+            <em>Counter-attack in the center.</em> After White plays b3 to undermine b5, Tarun hits back with 8...c5 (16% vs Nbd7 76%) — a pawn break to fight for central space before White consolidates. This is less common than the solid Nbd7, but creates sharper counterplay.
+          </span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">10... cxd4</span>
+          <span class="dev-detail">
+            <em>Novel pawn release — no master precedent.</em> After 10.a4 (White attacks b5), masters hold with <strong>b4</strong> (76%) or trade queenside with <strong>bxa4</strong> (23%). Tarun's <strong>cxd4</strong> is not in the database — releasing the central tension at this specific moment when White has just played a4. After 10...cxd4 11.Bxd4 (or exd4), Black has given up the c4 pawn but gotten active piece play with the center opened. This may be Tarun's prepared response to the specific 10.a4 challenge.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays 1.e4, not 1.d4, so this QGA vs 1.d4 system won't arise in the direct matchup. However, it reveals Tarun's strategic preferences as Black: he likes to <em>grab pawns and hold them</em> (dxc4 + a6 + b5 pawn chain) rather than returning them for development. This same combative pawn-grab instinct appears in his Sicilian systems. As Austin's White vs 1.e4 c5: expect Tarun to play aggressively and grab space if given the chance.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 5: Sicilian e6 vs Nimzo-Larsen -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Sicilian e6 vs Nimzo-Larsen — 3…a6 + 4…d5 push <small style="color:#57606a;font-weight:400;">B40</small></h3>
+      <span class="game-count">2 games · aggressive central break vs b3 systems</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.e4</span>
+        <span class="chip chip-book" title="Tarun: 46% | Book: c5 (46%) — Sicilian">1...c5</span>
+        <span class="chip chip-opp">2.Nf3</span>
+        <span class="chip chip-good" title="Tarun: 23% | Book: d6 (46%) Nc6 (27%) e6 (23%) — keeps flexibility">2...e6</span>
+        <span class="chip chip-opp">3.b3</span>
+        <span class="chip chip-side" title="Tarun: 19% | Book: b6 (30%) Nc6 (20%) a6 (19%) — prevents Bb5">3...a6</span>
+        <span class="chip chip-opp">4.Bb2</span>
+        <span class="chip chip-side" title="Tarun: 10% | Book: Nc6 (71%) d6 (14%) d5 (10%) — central strike">4...d5!</span>
+        <span class="chip chip-opp">5.exd5</span>
+        <span class="chip chip-book" title="Tarun: 99% | Book: exd5 (99%)">5...exd5</span>
+        <span class="chip chip-opp">6.d4</span>
+        <span class="chip chip-book" title="Tarun: 94% | Book: Nf6 (94%)">6...Nf6</span>
+        <span class="chip chip-opp">7.Be2</span>
+        <span class="chip chip-good" title="Tarun: 36% | Book: Nc6 (57%) Be7 (36%) — bishop development">7...Be7</span>
+        <span class="chip chip-opp">8.O-O</span>
+        <span class="chip chip-book" title="Tarun: 100% | Only move at this depth">8...O-O</span>
+        <span class="chip chip-opp">9.Nbd2</span>
+        <span class="chip chip-novel" title="Tarun: novel | No master games at this position">9...Nc6<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">9...Be6</span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">3... a6</span>
+          <span class="dev-detail">
+            <em>Prophylaxis against Bb5 — unusual in Nimzo-Larsen.</em> After White's fianchetto with 3.b3 Bb2, masters play <strong>b6</strong> (30%) or <strong>Nc6</strong> (20%) to develop. Tarun's <strong>a6</strong> (19%) is a flexible prophylactic move — preventing any Bb5 ideas and preparing ...b5 later. It's a solid Kan-Sicilian instinct: before anything else, prevent White from pinning the pieces.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">4... d5!</span>
+          <span class="dev-detail">
+            <em>Aggressive central counter-strike.</em> After 4.Bb2, masters develop with <strong>Nc6</strong> (71%) or <strong>d6</strong> (14%). Tarun's immediate <strong>d5</strong> (10%) is a fighting response — Black challenges the center at once rather than waiting. After 5.exd5 exd5 6.d4 cxd4?? (Black shouldn't take), White gets the IQP position. But Tarun plays 6...Nf6 7.Be2 Be7 8.O-O O-O — Black has an IQP on d5 with good piece activity and the Bb2 biting on nothing useful (the c3-h8 diagonal is closed by Black's d5 pawn). This is Tarun's aggressive, pawn-grab-and-counterplay style.
+          </span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">9... Nc6</span>
+          <span class="dev-detail">
+            <em>Novel development — no master precedent at this depth.</em> The position after 1.e4 c5 2.Nf3 e6 3.b3 a6 4.Bb2 d5 5.exd5 exd5 6.d4 Nf6 7.Be2 Be7 8.O-O O-O 9.Nbd2 has zero master games. Tarun plays 9...Nc6 here — standard development with the central knight. This is Tarun's personal preparation in a rare position that arises from the 3.b3 Nimzo-Larsen vs Sicilian e6.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays 1.e4 and does NOT play the Nimzo-Larsen (3.b3). So this specific system won't arise from Austin's side. However, it shows Tarun's Black habits when facing 1.e4 c5: he plays <strong>2...e6</strong> as a flexible Sicilian, keeps his options open before committing to ...d6 or ...Nc6, and will play an early ...d5 central break when White allows it. This informs Austin's prep: if Austin plays the standard 2.Nf3 and then 3.d4, Tarun will enter the Open Sicilian. From the matchup: Tarun plays Sicilian as Black vs 1.e4. Austin's plan is 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 → the Kan Sicilian territory where Austin should use his Rossolimo/English Attack patterns (Be3, f3, Qd2/O-O-O setup).
+      </div>
+    </div>
+  </div>
+
+  <!-- System 6: Sicilian Nc6 (1 game) -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Sicilian Nc6 — novel from move 5 <small style="color:#57606a;font-weight:400;">B40</small></h3>
+      <span class="game-count">1 game · ⚠ single game — confirm with new games</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Trunk (1-game sample)</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.e4</span>
+        <span class="chip chip-book" title="Tarun: 46%">1...c5</span>
+        <span class="chip chip-opp">2.Nf3</span>
+        <span class="chip chip-good" title="Tarun: 23% | Book: d6 (46%) Nc6 (27%) e6 (23%)">2...e6</span>
+        <span class="chip chip-opp">3.d4</span>
+        <span class="chip chip-book" title="Tarun: 100%">3...cxd4</span>
+        <span class="chip chip-opp">4.Nxd4</span>
+        <span class="chip chip-good" title="Tarun: 31% | Book: a6 (34%) Nc6 (31%) — enters Kan/Taimanov">4...Nc6</span>
+        <span class="chip chip-opp">5.Nc3</span>
+        <span class="chip chip-novel" title="Tarun: novel | Opens with ...a6 despite Nc6 being played — preparation">5...a6!?<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">6.Nxc6</span>
+        <span class="chip chip-novel" title="Tarun: novel">6...Ne7<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">7.Nd5</span>
+        <span class="chip chip-novel" title="Tarun: novel">7...Ng6<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">8.Nb4</span>
+        <span class="chip chip-novel" title="Tarun: novel">8...Be7<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">9.Nbc2</span>
+        <span class="chip chip-novel" title="Tarun: novel">9...O-O<span class="chip-flag">★</span></span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-novel">
+          <span class="dev-move">5... a6!</span>
+          <span class="dev-detail">
+            <em>Novel response — Kan instinct after Taimanov.</em> After 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 (entering Taimanov B47), masters play moves like <strong>Nf3</strong>, <strong>Be3</strong>, or <strong>Bc4</strong>. After 5.Nc3, the book response is various — but Tarun plays 5...a6 even after having developed ...Nc6 already. This is a Kan-instinct: he wants to play ...a6 regardless of the position. The subsequent Ne7-Ng6 knight maneuver is also fully novel — Tarun retreats and reroutes after White trades on c6, creating an unusual piece configuration. Single-game sample only.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        One game only — treat as tentative. But the pattern is consistent with sys 5: Tarun plays early ...a6 in the Sicilian regardless of whether he's played ...Nc6. This confirms a Kan/Taimanov hybrid approach — Tarun uses ...a6 prophylactically and keeps knight options flexible with ...Ne7-Ng6 maneuvers. Austin's 1.e4 → Sicilian plan should be the Kan/Taimanov response: 3.d4 cxd4 4.Nxd4 → if 4...Nc6 (Taimanov), play 5.Nc3 and be ready for 5...a6 and unusual Ng6 maneuvers. Austin's English Attack (Be3, f3, Qd2, O-O-O) or Maróczy-type setups against the Kan will both arise.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <h2>Preparation Insights</h2>
+  <div class="insight-grid">
+    <div class="insight-card">
+      <h4>Austin's action items</h4>
+      <ul>
+        <li><strong>As Black vs 1.c4 Mikenas: know 5.Qg4!</strong> If 1.c4 Nf6 2.Nc3 e6 3.e4 c5 4.e5 Ng8 — Tarun plays 5.Qg4! (novel). Prepare <strong>5...g6!</strong> or <strong>5...d6</strong> to challenge the e5 pawn immediately. Do NOT play 5...Nc6 6...Nh6 — Tarun is prepared here. The queen on g4 becomes overextended after 5...g6 6.Nf3 Bg7.</li>
+        <li><strong>As White vs Sicilian: play English Attack.</strong> After 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 — Tarun enters either Kan (4...a6) or Taimanov (4...Nc6 then ...a6). Austin's English Attack setup (Be3, f3, Qd2, O-O-O) is well-tested and Austin has preparation here. Tarun's ...d5 breaks are his main counterplay — prevent or control them.</li>
+        <li><strong>Avoid symmetrical English as Black.</strong> If Austin plays 1...c5 (Symmetrical), Tarun reaches the Maróczy Bind (3.d4 → Maróczy) where he's most comfortable. Play 1...Nf6 instead to keep more flexibility.</li>
+        <li><strong>Force complications after move 12.</strong> Tarun has 6 documented blunders across the grand circuit and skyline games. He makes critical errors when calculating complex positions under time pressure. Don't trade off into clear endgames — keep the position sharp.</li>
+      </ul>
+    </div>
+    <div class="insight-card">
+      <h4>Tarun's patterns</h4>
+      <ul>
+        <li><strong>1.c4 universally</strong> — 100% English player as White. Never 1.e4 or 1.d4. Austin faces the English in every game as Black.</li>
+        <li><strong>Deep personal prep in English</strong> — Mikenas 5.Qg4! and Dutch 6.c5! are both fully novel from the deviation point and run 5+ moves into the unknown. Tarun has spent significant prep time on these lines.</li>
+        <li><strong>Pawn-grab instinct as Black</strong> — QGA (takes c4 pawn), ...a6/b5 hold, early ...d5 breaks. Tarun plays aggressively for material and space as Black.</li>
+        <li><strong>Kan-instinct in Sicilian</strong> — early ...a6 regardless of structure (...Nc6 then ...a6, or just ...a6 directly). The ...Ne7-Ng6 rerouting is a personal motif.</li>
+        <li><strong>Time pressure collapse</strong> — 6 blunders in multiple tournaments. Novelty chains run his clock down in calculation-heavy positions. Both 5.Qg4 and 6.c5 are designed to put opponents in unknown territory — Austin can do the same.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
