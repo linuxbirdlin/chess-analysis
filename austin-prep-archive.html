@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Austin Lin — Archive Reports</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f0f3f7;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 72px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+      min-height: 100vh;
+    }
+
+    @media (max-width: 700px) { .page { padding: 24px 18px 48px; } }
+
+    .hero {
+      border-bottom: 3px solid #57606a;
+      padding-bottom: 20px;
+      margin-bottom: 36px;
+    }
+    .hero h1 { margin: 0 0 8px; font-size: 1.8rem; color: #1f2328; }
+    .hero p { margin: 0; font-size: 0.9rem; color: #57606a; }
+    .hero .back-link {
+      display: inline-block; margin-top: 12px;
+      font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 600;
+    }
+    .hero .back-link:hover { text-decoration: underline; }
+
+    .section-heading {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #57606a;
+      margin: 40px 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-heading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #d0d7de;
+    }
+
+    hr { border: none; border-top: 1px solid #d0d7de; margin: 40px 0; }
+
+    /* Review cards */
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .review-card {
+      display: flex; flex-direction: column;
+      background: #fff; border: 1px solid #d0d7de; border-radius: 8px;
+      padding: 16px 18px; text-decoration: none; color: inherit;
+      transition: box-shadow 0.15s, border-color 0.15s;
+    }
+    .review-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.09); border-color: #57606a; }
+    .review-card .rc-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #57606a; margin-bottom: 4px; }
+    .review-card .rc-title { font-size: 1.05rem; font-weight: 700; color: #1f2328; margin-bottom: 4px; }
+    .review-card .rc-sub { font-size: 0.82rem; color: #57606a; flex: 1; }
+    .review-card .rc-cta { font-size: 0.8rem; font-weight: 600; color: #2d7d46; margin-top: 10px; }
+
+    /* Opponent archive blocks */
+    .opp-archive {
+      border: 1px solid #d0d7de; border-radius: 8px;
+      margin-bottom: 20px; overflow: hidden;
+    }
+    .opp-archive-header {
+      background: #f6f8fa; padding: 10px 18px;
+      border-bottom: 1px solid #d0d7de;
+      display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+    }
+    .opp-archive-header .opp-name { font-weight: 700; font-size: 1rem; }
+    .opp-archive-header .opp-meta { font-size: 0.82rem; color: #57606a; }
+    .opp-archive-links { padding: 12px 18px; display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .arch-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 12px; border-radius: 6px; font-size: 0.84rem;
+      text-decoration: none; border: 1px solid #d0d7de; color: #444d56;
+      background: #f6f8fa; transition: background 0.12s, border-color 0.12s;
+    }
+    .arch-link:hover { background: #eaeef2; border-color: #57606a; color: #1f2328; }
+    .arch-link.warn { background: #fffbf0; border-color: #d97706; color: #92400e; }
+    .arch-link.warn:hover { background: #fff3cd; }
+    .arch-link.pgn { background: #f6f8fa; border-color: #6e7781; }
+
+    /* Training cards */
+    .training-card {
+      display: block; padding: 18px 22px; margin-bottom: 14px;
+      border: 1.5px solid #d0d7de; border-radius: 8px;
+      text-decoration: none; color: inherit;
+      background: #fafafa;
+      transition: box-shadow 0.15s;
+    }
+    .training-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .training-card .tc-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #57606a; margin-bottom: 4px; }
+    .training-card .tc-title { font-size: 1.05rem; font-weight: 700; color: #1f2328; margin-bottom: 4px; }
+    .training-card .tc-sub { font-size: 0.86rem; color: #57606a; }
+    .training-card .tc-cta { font-size: 0.85rem; font-weight: 600; color: #57606a; margin-top: 10px; }
+
+    .archive-note {
+      background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px;
+      padding: 10px 16px; font-size: 0.85rem; color: #57606a;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <h1>Austin Lin — Archive Reports</h1>
+    <p>Standard (non-deep) game reviews, per-tournament opponent data, and older training resources. Active prep materials are on the main index.</p>
+    <a class="back-link" href="austin-prep.html">← Back to Preparation Index</a>
+  </div>
+
+  <!-- ── Austin Standard Reviews ───────────────────────────────── -->
+  <div class="section-heading">Austin's Game Reviews — Standard (non-deep)</div>
+  <div class="archive-note">The deep IM-level reviews remain on the main index. These are the standard automated reviews for quick game-by-game reference.</div>
+  <div class="review-grid">
+
+    <a class="review-card" href="austin/naycc2025/review.html">
+      <div class="rc-label">Tournament Review</div>
+      <div class="rc-title">NAYCC 2025</div>
+      <div class="rc-sub">Kingston · 9 rounds · Rating 1968<br>Result: <strong>4W – 5L</strong></div>
+      <div class="rc-cta">View review →</div>
+    </a>
+
+    <a class="review-card" href="austin/pam2026/review.html">
+      <div class="rc-label">Tournament Review</div>
+      <div class="rc-title">PAM 2026</div>
+      <div class="rc-sub">Pan-American Youth · 9 rounds · Rating 1865<br>Result: <strong>3W – 2L – 2D</strong></div>
+      <div class="rc-cta">View review →</div>
+    </a>
+
+    <a class="review-card" href="austin/personal-study/review.html">
+      <div class="rc-label">Study Review</div>
+      <div class="rc-title">Personal Study Pt.5</div>
+      <div class="rc-sub">Lichess study · 32 games · Depth 18<br>Avg accuracy: <strong>90.3%</strong></div>
+      <div class="rc-cta">View review →</div>
+    </a>
+
+  </div>
+
+  <hr />
+
+  <!-- ── Opponent Tournament Data ──────────────────────────────── -->
+  <div class="section-heading">Opponent Raw Tournament Data</div>
+  <div class="archive-note">Per-tournament review pages and flagged game notes. The core matchup prep (Matchup Plan, Deep Analysis, White/Black pages, GM Battle Plan) lives on the main index.</div>
+
+  <!-- Zachary -->
+  <div class="opp-archive" id="zachary">
+    <div class="opp-archive-header">
+      <span class="opp-name">Zachary Liu</span>
+      <span class="opp-meta">CM · 2185 FIDE · 47 games · 6 tournaments</span>
+    </div>
+    <div class="opp-archive-links">
+      <a class="arch-link warn" href="opponents/zachary/review.html">⚠ All 34 games — 79% acc in Sicilian blowups</a>
+      <a class="arch-link warn pgn" href="opponents/zachary/canadaopen2026/allrounds.pgn">⚠ Canada Open 2026 PGN — 2 White losses (Reti/CK Bd3); Benko Gambit confirmed Black weapon</a>
+    </div>
+  </div>
+
+  <!-- Fernando -->
+  <div class="opp-archive" id="fernando">
+    <div class="opp-archive-header">
+      <span class="opp-name">Fernando Cortes Medina</span>
+      <span class="opp-meta">CM · 2085 FIDE · 39 games · 7 tournaments</span>
+    </div>
+    <div class="opp-archive-links">
+      <a class="arch-link" href="fernando-analysis.html">Full Player Analysis (28 games)</a>
+    </div>
+  </div>
+
+  <!-- Aarush -->
+  <div class="opp-archive" id="aarush">
+    <div class="opp-archive-header">
+      <span class="opp-name">Aarush Ajith</span>
+      <span class="opp-meta">1943 FIDE · 30 games · 5 tournaments</span>
+    </div>
+    <div class="opp-archive-links">
+      <a class="arch-link" href="opponents/aarush/canadaclosed2026/review.html">Canada Closed (9 games, 90.6% acc)</a>
+      <a class="arch-link" href="opponents/aarush/pamschool2026/review.html">PAM School (2 games)</a>
+      <a class="arch-link warn" href="opponents/aarush/pam2026/review.html">⚠ PAM 2026 — 1W–3L as White; 4W–1L Black; 5W–4L overall (91.6% avg)</a>
+      <a class="arch-link warn" href="opponents/aarush/torontoopen2026/review.html">⚠ Toronto Open — Qb4?? from winning</a>
+      <a class="arch-link warn pgn" href="opponents/aarush/canadaopen2026/round3.pgn">⚠ Canada Open 2026 PGN — 0W–5L–4D (2/9); drew vs 1912, 1839 as White</a>
+    </div>
+  </div>
+
+  <!-- Justin -->
+  <div class="opp-archive" id="justin">
+    <div class="opp-archive-header">
+      <span class="opp-name">Justin Huang</span>
+      <span class="opp-meta">2010 FIDE · 30 games · 5 tournaments · Other section at NAYCC 2026</span>
+    </div>
+    <div class="opp-archive-links">
+      <a class="arch-link" href="opponents/justin/review.html">All 30 Games →</a>
+      <a class="arch-link" href="opponents/justin/pamschool2026/review.html">PAM School 2026 (5 games)</a>
+      <a class="arch-link warn" href="opponents/justin/torontoopen2026/review.html">⚠ Toronto Open 2026 — Sicilian sighting</a>
+      <a class="arch-link" href="opponents/justin/canadaopen2026/review.html">Canada Open 2026 (3 games)</a>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- ── Older Training Resources ──────────────────────────────── -->
+  <div class="section-heading">Older Training Resources</div>
+  <div class="archive-note">Superseded by the 2026 Weakness Analysis and Opening Novelty Trees on the main index.</div>
+
+  <a class="training-card" href="austin/endgame-drills.html">
+    <div class="tc-label">Endgame Drill Set — 2025</div>
+    <div class="tc-title">Lucena / Philidor + 3 Game Positions</div>
+    <div class="tc-sub">Positions from NAYCC R7, R9, PAM R5 (2025 games). Superseded by the 2026 Weakness Analysis which uses engine-verified data from 48 games.</div>
+    <div class="tc-cta">Open older drill set →</div>
+  </a>
+
+  <a class="training-card" href="austin/opening-theory-check.html">
+    <div class="tc-label">Opening Theory Check — 2026</div>
+    <div class="tc-title">4 Theory Deviations (NAYCC + PAM)</div>
+    <div class="tc-sub">C02 French 10.Qg4! gap · B47 Taimanov 6...d6! fix · C58 Two Knights · Maróczy tempo · 6 clean openings confirmed. Superseded by the Opening Novelty Trees page.</div>
+    <div class="tc-cta">Open theory check →</div>
+  </a>
+
+</div>
+</body>
+</html>
