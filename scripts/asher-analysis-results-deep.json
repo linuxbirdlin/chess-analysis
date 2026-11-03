@@ -1,0 +1,1567 @@
+{
+  "TX Fall FIDE 2026": {
+    "R3_RuizCast": {
+      "prColor": "white",
+      "opponent": "Ruiz Castillo, Joshua D",
+      "oppElo": 2526,
+      "result": "0-1",
+      "prResult": "loss",
+      "eco": "B96",
+      "event": "Texas Fall FIDE",
+      "tournKey": "TX Fall FIDE 2026",
+      "date": "2026.10.18",
+      "roundKey": "R3",
+      "prAccuracy": 93.5,
+      "oppAccuracy": 95.5,
+      "avgCPL": 61,
+      "blunders": 2,
+      "mistakes": 3,
+      "inaccuracies": 13,
+      "movesAnalyzed": 74,
+      "criticalMoments": [
+        {
+          "moveNum": 73,
+          "san": "Kf3",
+          "bestMove": "h6+",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-13.44",
+          "evalAfter": "-56.83"
+        },
+        {
+          "moveNum": 74,
+          "san": "Ra6",
+          "bestMove": "Ra7+",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-81.74",
+          "evalAfter": "-#"
+        },
+        {
+          "moveNum": 69,
+          "san": "Rh8+",
+          "bestMove": "Ke5",
+          "cpl": 241,
+          "classification": "mistake",
+          "evalBefore": "-7.16",
+          "evalAfter": "-9.57"
+        }
+      ]
+    },
+    "R4_ReyesOsh": {
+      "prColor": "black",
+      "opponent": "Reyes, Oshrie Jhames",
+      "oppElo": 1868,
+      "result": "1-0",
+      "prResult": "loss",
+      "eco": "B20",
+      "event": "Texas Fall FIDE",
+      "tournKey": "TX Fall FIDE 2026",
+      "date": "2026.10.18",
+      "roundKey": "R4",
+      "prAccuracy": 89.2,
+      "oppAccuracy": 92,
+      "avgCPL": 66,
+      "blunders": 2,
+      "mistakes": 4,
+      "inaccuracies": 12,
+      "movesAnalyzed": 55,
+      "criticalMoments": [
+        {
+          "moveNum": 54,
+          "san": "Kc4",
+          "bestMove": "Ke4",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-13.83",
+          "evalAfter": "-91.65"
+        },
+        {
+          "moveNum": 43,
+          "san": "Kxc4",
+          "bestMove": "Bxg3",
+          "cpl": 543,
+          "classification": "blunder",
+          "evalBefore": "+0.00",
+          "evalAfter": "-5.43"
+        },
+        {
+          "moveNum": 56,
+          "san": "Kxa6",
+          "bestMove": "Bh2",
+          "cpl": 265,
+          "classification": "mistake",
+          "evalBefore": "-89.00",
+          "evalAfter": "-91.65"
+        }
+      ]
+    },
+    "R5_Sunagatu": {
+      "prColor": "white",
+      "opponent": "Sunagatullin, Mark",
+      "oppElo": 1708,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "E05",
+      "event": "Texas Fall FIDE",
+      "tournKey": "TX Fall FIDE 2026",
+      "date": "2026.10.18",
+      "roundKey": "R5",
+      "prAccuracy": 96.8,
+      "oppAccuracy": 91.9,
+      "avgCPL": 15,
+      "blunders": 0,
+      "mistakes": 2,
+      "inaccuracies": 1,
+      "movesAnalyzed": 38,
+      "criticalMoments": [
+        {
+          "moveNum": 26,
+          "san": "Kg2",
+          "bestMove": "Qd7",
+          "cpl": 159,
+          "classification": "mistake",
+          "evalBefore": "+6.31",
+          "evalAfter": "+4.72"
+        },
+        {
+          "moveNum": 29,
+          "san": "Rb2",
+          "bestMove": "Rcc2",
+          "cpl": 159,
+          "classification": "mistake",
+          "evalBefore": "+7.24",
+          "evalAfter": "+5.65"
+        },
+        {
+          "moveNum": 28,
+          "san": "Qxe5",
+          "bestMove": "Qxb6",
+          "cpl": 60,
+          "classification": "inaccuracy",
+          "evalBefore": "+7.52",
+          "evalAfter": "+6.92"
+        }
+      ]
+    }
+  },
+  "SW Open 2026": {
+    "R07_JohnsonE": {
+      "prColor": "black",
+      "opponent": "Johnson, Emerson Aurelius",
+      "oppElo": 0,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "event": "92nd Southwest Open | Champ/Amateur",
+      "tournKey": "SW Open 2026",
+      "date": "2026.09.08",
+      "roundKey": "R07",
+      "prAccuracy": 89.9,
+      "oppAccuracy": 89.7,
+      "avgCPL": 32,
+      "blunders": 1,
+      "mistakes": 2,
+      "inaccuracies": 6,
+      "movesAnalyzed": 58,
+      "criticalMoments": [
+        {
+          "moveNum": 42,
+          "san": "Nc7",
+          "bestMove": "f5",
+          "cpl": 424,
+          "classification": "blunder",
+          "evalBefore": "+6.98",
+          "evalAfter": "+2.74"
+        },
+        {
+          "moveNum": 26,
+          "san": "Kg7",
+          "bestMove": "b4",
+          "cpl": 203,
+          "classification": "mistake",
+          "evalBefore": "+3.36",
+          "evalAfter": "+1.33"
+        },
+        {
+          "moveNum": 44,
+          "san": "Bb7",
+          "bestMove": "h4+",
+          "cpl": 153,
+          "classification": "mistake",
+          "evalBefore": "+2.25",
+          "evalAfter": "+0.72"
+        }
+      ]
+    },
+    "R05_SureshKa": {
+      "prColor": "black",
+      "opponent": "Suresh, Kawin Sayi",
+      "oppElo": 0,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "event": "92nd Southwest Open | Champ/Amateur",
+      "tournKey": "SW Open 2026",
+      "date": "2026.09.07",
+      "roundKey": "R05",
+      "prAccuracy": 91.6,
+      "oppAccuracy": 91.6,
+      "avgCPL": 28,
+      "blunders": 2,
+      "mistakes": 3,
+      "inaccuracies": 7,
+      "movesAnalyzed": 106,
+      "criticalMoments": [
+        {
+          "moveNum": 63,
+          "san": "Bd8",
+          "bestMove": "Kd7",
+          "cpl": 671,
+          "classification": "blunder",
+          "evalBefore": "+6.99",
+          "evalAfter": "+0.28"
+        },
+        {
+          "moveNum": 43,
+          "san": "Rc8",
+          "bestMove": "Rxd3+",
+          "cpl": 320,
+          "classification": "blunder",
+          "evalBefore": "+3.20",
+          "evalAfter": "+0.00"
+        },
+        {
+          "moveNum": 45,
+          "san": "Rh8",
+          "bestMove": "Bb8",
+          "cpl": 282,
+          "classification": "mistake",
+          "evalBefore": "+2.82",
+          "evalAfter": "+0.00"
+        }
+      ]
+    },
+    "R06_Ndengang": {
+      "prColor": "white",
+      "opponent": "Ndengang, Aviel Alanyengi",
+      "oppElo": 1528,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "?",
+      "event": "92nd Southwest Open | Champ/Amateur",
+      "tournKey": "SW Open 2026",
+      "date": "2026.09.07",
+      "roundKey": "R06",
+      "prAccuracy": 94.3,
+      "oppAccuracy": 88.8,
+      "avgCPL": 22,
+      "blunders": 0,
+      "mistakes": 1,
+      "inaccuracies": 4,
+      "movesAnalyzed": 31,
+      "criticalMoments": [
+        {
+          "moveNum": 27,
+          "san": "Qe1",
+          "bestMove": "Qf4",
+          "cpl": 197,
+          "classification": "mistake",
+          "evalBefore": "+6.11",
+          "evalAfter": "+4.14"
+        },
+        {
+          "moveNum": 26,
+          "san": "Ra1",
+          "bestMove": "Qd4",
+          "cpl": 129,
+          "classification": "inaccuracy",
+          "evalBefore": "+6.56",
+          "evalAfter": "+5.27"
+        },
+        {
+          "moveNum": 17,
+          "san": "Qd2",
+          "bestMove": "Qf3",
+          "cpl": 111,
+          "classification": "inaccuracy",
+          "evalBefore": "+1.00",
+          "evalAfter": "-0.11"
+        }
+      ]
+    },
+    "R03_JohnAust": {
+      "prColor": "black",
+      "opponent": "John, Austin",
+      "oppElo": 0,
+      "result": "1-0",
+      "prResult": "loss",
+      "eco": "?",
+      "event": "92nd Southwest Open | Champ/Amateur",
+      "tournKey": "SW Open 2026",
+      "date": "2026.09.06",
+      "roundKey": "R03",
+      "prAccuracy": 72.2,
+      "oppAccuracy": 77.7,
+      "avgCPL": 96,
+      "blunders": 4,
+      "mistakes": 1,
+      "inaccuracies": 1,
+      "movesAnalyzed": 31,
+      "criticalMoments": [
+        {
+          "moveNum": 29,
+          "san": "Ke5",
+          "bestMove": "Rd2",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "+4.45",
+          "evalAfter": "-#"
+        },
+        {
+          "moveNum": 24,
+          "san": "Qc6",
+          "bestMove": "Rf7",
+          "cpl": 704,
+          "classification": "blunder",
+          "evalBefore": "+7.04",
+          "evalAfter": "+0.00"
+        },
+        {
+          "moveNum": 28,
+          "san": "Ke4",
+          "bestMove": "Kf4",
+          "cpl": 532,
+          "classification": "blunder",
+          "evalBefore": "+0.00",
+          "evalAfter": "-5.32"
+        }
+      ]
+    },
+    "R04_NiAlan": {
+      "prColor": "white",
+      "opponent": "Ni, Alan",
+      "oppElo": 1869,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "?",
+      "event": "92nd Southwest Open | Champ/Amateur",
+      "tournKey": "SW Open 2026",
+      "date": "2026.09.06",
+      "roundKey": "R04",
+      "prAccuracy": 96,
+      "oppAccuracy": 89.7,
+      "avgCPL": 10,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 1,
+      "movesAnalyzed": 32,
+      "criticalMoments": [
+        {
+          "moveNum": 3,
+          "san": "Qe2",
+          "bestMove": "d4",
+          "cpl": 52,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.38",
+          "evalAfter": "-0.14"
+        }
+      ]
+    },
+    "R01_Kandikay": {
+      "prColor": "black",
+      "opponent": "Kandikayala, Srikar",
+      "oppElo": 0,
+      "result": "1-0",
+      "prResult": "loss",
+      "eco": "?",
+      "event": "92nd Southwest Open | Champ/Amateur",
+      "tournKey": "SW Open 2026",
+      "date": "2026.09.05",
+      "roundKey": "R01",
+      "prAccuracy": 88.3,
+      "oppAccuracy": 92.9,
+      "avgCPL": 44,
+      "blunders": 1,
+      "mistakes": 2,
+      "inaccuracies": 0,
+      "movesAnalyzed": 41,
+      "criticalMoments": [
+        {
+          "moveNum": 41,
+          "san": "Qc6",
+          "bestMove": "Qb5",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "+0.00",
+          "evalAfter": "-11.09"
+        },
+        {
+          "moveNum": 37,
+          "san": "h5",
+          "bestMove": "g5",
+          "cpl": 263,
+          "classification": "mistake",
+          "evalBefore": "+2.63",
+          "evalAfter": "+0.00"
+        },
+        {
+          "moveNum": 36,
+          "san": "Qd8",
+          "bestMove": "g5",
+          "cpl": 204,
+          "classification": "mistake",
+          "evalBefore": "+3.19",
+          "evalAfter": "+1.15"
+        }
+      ]
+    },
+    "R02_FourzanR": {
+      "prColor": "white",
+      "opponent": "Fourzan, Raynaldo",
+      "oppElo": 0,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "?",
+      "event": "92nd Southwest Open | Champ/Amateur",
+      "tournKey": "SW Open 2026",
+      "date": "2026.09.05",
+      "roundKey": "R02",
+      "prAccuracy": 91.4,
+      "oppAccuracy": 87.5,
+      "avgCPL": 24,
+      "blunders": 0,
+      "mistakes": 3,
+      "inaccuracies": 3,
+      "movesAnalyzed": 47,
+      "criticalMoments": [
+        {
+          "moveNum": 15,
+          "san": "f3",
+          "bestMove": "Nd5",
+          "cpl": 240,
+          "classification": "mistake",
+          "evalBefore": "+2.40",
+          "evalAfter": "+0.00"
+        },
+        {
+          "moveNum": 28,
+          "san": "Rd3",
+          "bestMove": "Qe3",
+          "cpl": 178,
+          "classification": "mistake",
+          "evalBefore": "-1.20",
+          "evalAfter": "-2.98"
+        },
+        {
+          "moveNum": 27,
+          "san": "Bf2",
+          "bestMove": "Qf3",
+          "cpl": 155,
+          "classification": "mistake",
+          "evalBefore": "-0.14",
+          "evalAfter": "-1.69"
+        }
+      ]
+    }
+  },
+  "TX State Amateur 2026": {
+    "R06_RuppertT": {
+      "prColor": "black",
+      "opponent": "Ruppert, Thomas Joseph",
+      "oppElo": 1736,
+      "result": "1-0",
+      "prResult": "loss",
+      "eco": "?",
+      "event": "MainIndex | 81st Texas State & Amateur Championship",
+      "tournKey": "TX State Amateur 2026",
+      "date": "2026.05.25",
+      "roundKey": "R06",
+      "prAccuracy": 91.5,
+      "oppAccuracy": 96.5,
+      "avgCPL": 88,
+      "blunders": 3,
+      "mistakes": 2,
+      "inaccuracies": 8,
+      "movesAnalyzed": 35,
+      "criticalMoments": [
+        {
+          "moveNum": 33,
+          "san": "Kxg6",
+          "bestMove": "Qxe5",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-16.07",
+          "evalAfter": "-#"
+        },
+        {
+          "moveNum": 30,
+          "san": "Bh6",
+          "bestMove": "Nh6",
+          "cpl": 454,
+          "classification": "blunder",
+          "evalBefore": "-10.48",
+          "evalAfter": "-15.02"
+        },
+        {
+          "moveNum": 24,
+          "san": "Ng6",
+          "bestMove": "Bg6",
+          "cpl": 373,
+          "classification": "blunder",
+          "evalBefore": "-4.26",
+          "evalAfter": "-7.99"
+        }
+      ]
+    },
+    "R07_AloisTad": {
+      "prColor": "black",
+      "opponent": "Alois Tadiwa Chipfurutse",
+      "oppElo": 0,
+      "result": "0-1",
+      "prResult": "win",
+      "eco": "?",
+      "event": "MainIndex | 81st Texas State & Amateur Championship",
+      "tournKey": "TX State Amateur 2026",
+      "date": "2026.05.25",
+      "roundKey": "R07",
+      "prAccuracy": 90.5,
+      "oppAccuracy": 87.5,
+      "avgCPL": 32,
+      "blunders": 2,
+      "mistakes": 1,
+      "inaccuracies": 4,
+      "movesAnalyzed": 62,
+      "criticalMoments": [
+        {
+          "moveNum": 46,
+          "san": "Kxa3",
+          "bestMove": "Kc3",
+          "cpl": 757,
+          "classification": "blunder",
+          "evalBefore": "+7.57",
+          "evalAfter": "+0.00"
+        },
+        {
+          "moveNum": 43,
+          "san": "Kc2",
+          "bestMove": "f5",
+          "cpl": 469,
+          "classification": "blunder",
+          "evalBefore": "+5.40",
+          "evalAfter": "+0.71"
+        },
+        {
+          "moveNum": 20,
+          "san": "Nc4",
+          "bestMove": "Bxc3",
+          "cpl": 229,
+          "classification": "mistake",
+          "evalBefore": "+2.43",
+          "evalAfter": "+0.14"
+        }
+      ]
+    },
+    "R03_MysoreAb": {
+      "prColor": "black",
+      "opponent": "Mysore, Abhinav Naveen",
+      "oppElo": 1975,
+      "result": "1-0",
+      "prResult": "loss",
+      "eco": "?",
+      "event": "MainIndex | 81st Texas State & Amateur Championship",
+      "tournKey": "TX State Amateur 2026",
+      "date": "2026.05.24",
+      "roundKey": "R03",
+      "prAccuracy": 95,
+      "oppAccuracy": 98.1,
+      "avgCPL": 115,
+      "blunders": 6,
+      "mistakes": 5,
+      "inaccuracies": 6,
+      "movesAnalyzed": 62,
+      "criticalMoments": [
+        {
+          "moveNum": 24,
+          "san": "Nc4",
+          "bestMove": "Red8",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-13.47",
+          "evalAfter": "-#"
+        },
+        {
+          "moveNum": 37,
+          "san": "Rc2",
+          "bestMove": "Kf6",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-8.67",
+          "evalAfter": "-#"
+        },
+        {
+          "moveNum": 42,
+          "san": "Kd8",
+          "bestMove": "Kf8",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-51.71",
+          "evalAfter": "-92.37"
+        }
+      ]
+    },
+    "R04_WalkerLo": {
+      "prColor": "white",
+      "opponent": "Walker, Locke Scovell",
+      "oppElo": 1758,
+      "result": "0-1",
+      "prResult": "loss",
+      "eco": "?",
+      "event": "MainIndex | 81st Texas State & Amateur Championship",
+      "tournKey": "TX State Amateur 2026",
+      "date": "2026.05.24",
+      "roundKey": "R04",
+      "prAccuracy": 88.2,
+      "oppAccuracy": 95.3,
+      "avgCPL": 74,
+      "blunders": 2,
+      "mistakes": 1,
+      "inaccuracies": 4,
+      "movesAnalyzed": 29,
+      "criticalMoments": [
+        {
+          "moveNum": 25,
+          "san": "Nxd5",
+          "bestMove": "Nxe4",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-8.39",
+          "evalAfter": "-#"
+        },
+        {
+          "moveNum": 22,
+          "san": "Bxd5",
+          "bestMove": "Ne2",
+          "cpl": 403,
+          "classification": "blunder",
+          "evalBefore": "-0.33",
+          "evalAfter": "-4.36"
+        },
+        {
+          "moveNum": 24,
+          "san": "b4",
+          "bestMove": "Nxb5",
+          "cpl": 168,
+          "classification": "mistake",
+          "evalBefore": "-6.22",
+          "evalAfter": "-7.90"
+        }
+      ]
+    },
+    "R01_ZhengZha": {
+      "prColor": "black",
+      "opponent": "Zheng, Zhaoxiong",
+      "oppElo": 2092,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "event": "MainIndex | 81st Texas State & Amateur Championship",
+      "tournKey": "TX State Amateur 2026",
+      "date": "2026.05.23",
+      "roundKey": "R01",
+      "prAccuracy": 80.6,
+      "oppAccuracy": 80.7,
+      "avgCPL": 73,
+      "blunders": 6,
+      "mistakes": 1,
+      "inaccuracies": 8,
+      "movesAnalyzed": 74,
+      "criticalMoments": [
+        {
+          "moveNum": 62,
+          "san": "Ne6",
+          "bestMove": "Kc7",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "+10.21",
+          "evalAfter": "+0.00"
+        },
+        {
+          "moveNum": 63,
+          "san": "Kc5",
+          "bestMove": "Nc5+",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "+91.62",
+          "evalAfter": "+0.00"
+        },
+        {
+          "moveNum": 53,
+          "san": "Ne5",
+          "bestMove": "Nb6",
+          "cpl": 618,
+          "classification": "blunder",
+          "evalBefore": "+0.00",
+          "evalAfter": "-6.18"
+        }
+      ]
+    },
+    "R02_Manchand": {
+      "prColor": "white",
+      "opponent": "Manchanda, Advik",
+      "oppElo": 1949,
+      "result": "0-1",
+      "prResult": "loss",
+      "eco": "?",
+      "event": "MainIndex | 81st Texas State & Amateur Championship",
+      "tournKey": "TX State Amateur 2026",
+      "date": "2026.05.23",
+      "roundKey": "R02",
+      "prAccuracy": 79.1,
+      "oppAccuracy": 84.8,
+      "avgCPL": 101,
+      "blunders": 4,
+      "mistakes": 1,
+      "inaccuracies": 2,
+      "movesAnalyzed": 31,
+      "criticalMoments": [
+        {
+          "moveNum": 28,
+          "san": "Bc5",
+          "bestMove": "Qe5",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-4.66",
+          "evalAfter": "-#"
+        },
+        {
+          "moveNum": 19,
+          "san": "Nd2",
+          "bestMove": "Bxc5",
+          "cpl": 572,
+          "classification": "blunder",
+          "evalBefore": "+5.87",
+          "evalAfter": "+0.15"
+        },
+        {
+          "moveNum": 9,
+          "san": "Be5",
+          "bestMove": "Ne2",
+          "cpl": 511,
+          "classification": "blunder",
+          "evalBefore": "+0.15",
+          "evalAfter": "-4.96"
+        }
+      ]
+    }
+  },
+  "Natl MS K-8 2026": {
+    "R03_LinBryan": {
+      "prColor": "black",
+      "opponent": "Lin, Bryan Enming",
+      "oppElo": 2371,
+      "result": "1-0",
+      "prResult": "loss",
+      "eco": "?",
+      "event": "MainIndex | 2026 National Middle School (K-8) Championships",
+      "tournKey": "Natl MS K-8 2026",
+      "date": "2026.05.16",
+      "roundKey": "R03",
+      "prAccuracy": 89.5,
+      "oppAccuracy": 93.2,
+      "avgCPL": 80,
+      "blunders": 2,
+      "mistakes": 4,
+      "inaccuracies": 10,
+      "movesAnalyzed": 45,
+      "criticalMoments": [
+        {
+          "moveNum": 45,
+          "san": "Re7",
+          "bestMove": "Qe7",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-12.79",
+          "evalAfter": "-26.75"
+        },
+        {
+          "moveNum": 35,
+          "san": "Bf7",
+          "bestMove": "Bxb5",
+          "cpl": 461,
+          "classification": "blunder",
+          "evalBefore": "-3.63",
+          "evalAfter": "-8.24"
+        },
+        {
+          "moveNum": 42,
+          "san": "Qa6",
+          "bestMove": "Qd8",
+          "cpl": 272,
+          "classification": "mistake",
+          "evalBefore": "-9.85",
+          "evalAfter": "-12.57"
+        }
+      ]
+    }
+  },
+  "2026 Texas Scholastic “Super State” Championship | Middle School Champ": {
+    "R04_Sanepall": {
+      "prColor": "black",
+      "opponent": "Sanepalli, Guna Ar",
+      "oppElo": 1837,
+      "result": "*",
+      "prResult": "?",
+      "eco": "?",
+      "event": "2026 Texas Scholastic “Super State” Championship | Middle School Champ",
+      "tournKey": "2026 Texas Scholastic “Super State” Championship | Middle School Champ",
+      "date": "2026.03.08",
+      "roundKey": "R04",
+      "prAccuracy": 98.9,
+      "oppAccuracy": 92.7,
+      "avgCPL": 15,
+      "blunders": 0,
+      "mistakes": 1,
+      "inaccuracies": 2,
+      "movesAnalyzed": 31,
+      "criticalMoments": [
+        {
+          "moveNum": 29,
+          "san": "Qg6",
+          "bestMove": "Qh6",
+          "cpl": 219,
+          "classification": "mistake",
+          "evalBefore": "+11.22",
+          "evalAfter": "+9.03"
+        },
+        {
+          "moveNum": 30,
+          "san": "f5",
+          "bestMove": "Qh6",
+          "cpl": 101,
+          "classification": "inaccuracy",
+          "evalBefore": "+10.04",
+          "evalAfter": "+9.03"
+        },
+        {
+          "moveNum": 23,
+          "san": "Be3",
+          "bestMove": "d3",
+          "cpl": 54,
+          "classification": "inaccuracy",
+          "evalBefore": "+8.04",
+          "evalAfter": "+7.50"
+        }
+      ]
+    },
+    "R05_NiAlan": {
+      "prColor": "white",
+      "opponent": "Ni, Alan",
+      "oppElo": 1816,
+      "result": "0-1",
+      "prResult": "loss",
+      "eco": "?",
+      "event": "2026 Texas Scholastic “Super State” Championship | Middle School Champ",
+      "tournKey": "2026 Texas Scholastic “Super State” Championship | Middle School Champ",
+      "date": "2026.03.08",
+      "roundKey": "R05",
+      "prAccuracy": 84,
+      "oppAccuracy": 90.9,
+      "avgCPL": 50,
+      "blunders": 1,
+      "mistakes": 1,
+      "inaccuracies": 2,
+      "movesAnalyzed": 29,
+      "criticalMoments": [
+        {
+          "moveNum": 26,
+          "san": "Re8+",
+          "bestMove": "Rc6+",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "+21.44",
+          "evalAfter": "-8.19"
+        },
+        {
+          "moveNum": 29,
+          "san": "Qd5+",
+          "bestMove": "Qf3+",
+          "cpl": 171,
+          "classification": "mistake",
+          "evalBefore": "-8.65",
+          "evalAfter": "-10.36"
+        },
+        {
+          "moveNum": 28,
+          "san": "Qf5+",
+          "bestMove": "Qf5+",
+          "cpl": 89,
+          "classification": "inaccuracy",
+          "evalBefore": "-9.02",
+          "evalAfter": "-9.91"
+        }
+      ]
+    },
+    "R06_RoweWatt": {
+      "prColor": "black",
+      "opponent": "Rowe-Watters, Chauncey",
+      "oppElo": 1447,
+      "result": "0-1",
+      "prResult": "win",
+      "eco": "?",
+      "event": "2026 Texas Scholastic “Super State” Championship | Middle School Champ",
+      "tournKey": "2026 Texas Scholastic “Super State” Championship | Middle School Champ",
+      "date": "2026.03.08",
+      "roundKey": "R06",
+      "prAccuracy": 96.8,
+      "oppAccuracy": 89.3,
+      "avgCPL": 9,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 1,
+      "movesAnalyzed": 25,
+      "criticalMoments": [
+        {
+          "moveNum": 10,
+          "san": "Nb4",
+          "bestMove": "Bg4",
+          "cpl": 61,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.28",
+          "evalAfter": "-0.33"
+        }
+      ]
+    },
+    "R07_SeelamTa": {
+      "prColor": "black",
+      "opponent": "Seelam, Tanish",
+      "oppElo": 1740,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "event": "2026 Texas Scholastic “Super State” Championship | Middle School Champ",
+      "tournKey": "2026 Texas Scholastic “Super State” Championship | Middle School Champ",
+      "date": "2026.03.08",
+      "roundKey": "R07",
+      "prAccuracy": 94.5,
+      "oppAccuracy": 94.6,
+      "avgCPL": 14,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 2,
+      "movesAnalyzed": 21,
+      "criticalMoments": [
+        {
+          "moveNum": 17,
+          "san": "Bf8",
+          "bestMove": "Qd8",
+          "cpl": 89,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.76",
+          "evalAfter": "-0.13"
+        },
+        {
+          "moveNum": 11,
+          "san": "a5",
+          "bestMove": "d4",
+          "cpl": 67,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.54",
+          "evalAfter": "-0.13"
+        }
+      ]
+    },
+    "R01_SriramNa": {
+      "prColor": "black",
+      "opponent": "Sriram, Navya",
+      "oppElo": 1482,
+      "result": "0-1",
+      "prResult": "win",
+      "eco": "?",
+      "event": "2026 Texas Scholastic “Super State” Championship | Middle School Champ",
+      "tournKey": "2026 Texas Scholastic “Super State” Championship | Middle School Champ",
+      "date": "2026.03.07",
+      "roundKey": "R01",
+      "prAccuracy": 92,
+      "oppAccuracy": 89.4,
+      "avgCPL": 28,
+      "blunders": 1,
+      "mistakes": 2,
+      "inaccuracies": 4,
+      "movesAnalyzed": 64,
+      "criticalMoments": [
+        {
+          "moveNum": 15,
+          "san": "Nxe5",
+          "bestMove": "Rfc8",
+          "cpl": 606,
+          "classification": "blunder",
+          "evalBefore": "+0.57",
+          "evalAfter": "-5.49"
+        },
+        {
+          "moveNum": 32,
+          "san": "Bf8",
+          "bestMove": "f6",
+          "cpl": 170,
+          "classification": "mistake",
+          "evalBefore": "-3.51",
+          "evalAfter": "-5.21"
+        },
+        {
+          "moveNum": 43,
+          "san": "Ra4",
+          "bestMove": "Rxc2",
+          "cpl": 158,
+          "classification": "mistake",
+          "evalBefore": "+1.58",
+          "evalAfter": "+0.00"
+        }
+      ]
+    },
+    "R02_EllisonJ": {
+      "prColor": "white",
+      "opponent": "Ellison, Jacob",
+      "oppElo": 1636,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "?",
+      "event": "2026 Texas Scholastic “Super State” Championship | Middle School Champ",
+      "tournKey": "2026 Texas Scholastic “Super State” Championship | Middle School Champ",
+      "date": "2026.03.07",
+      "roundKey": "R02",
+      "prAccuracy": 95.8,
+      "oppAccuracy": 91.7,
+      "avgCPL": 24,
+      "blunders": 0,
+      "mistakes": 1,
+      "inaccuracies": 5,
+      "movesAnalyzed": 47,
+      "criticalMoments": [
+        {
+          "moveNum": 16,
+          "san": "Bxa6",
+          "bestMove": "Bc5",
+          "cpl": 177,
+          "classification": "mistake",
+          "evalBefore": "+6.72",
+          "evalAfter": "+4.95"
+        },
+        {
+          "moveNum": 42,
+          "san": "a6",
+          "bestMove": "Kd3",
+          "cpl": 148,
+          "classification": "inaccuracy",
+          "evalBefore": "+9.03",
+          "evalAfter": "+7.55"
+        },
+        {
+          "moveNum": 17,
+          "san": "Bc5",
+          "bestMove": "exd5",
+          "cpl": 121,
+          "classification": "inaccuracy",
+          "evalBefore": "+7.18",
+          "evalAfter": "+5.97"
+        }
+      ]
+    },
+    "R03_TanoaRyl": {
+      "prColor": "white",
+      "opponent": "Tanoa, Rylie",
+      "oppElo": 1223,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "?",
+      "event": "2026 Texas Scholastic “Super State” Championship | Middle School Champ",
+      "tournKey": "2026 Texas Scholastic “Super State” Championship | Middle School Champ",
+      "date": "2026.03.07",
+      "roundKey": "R03",
+      "prAccuracy": 98.2,
+      "oppAccuracy": 93.1,
+      "avgCPL": 8,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 1,
+      "movesAnalyzed": 36,
+      "criticalMoments": [
+        {
+          "moveNum": 26,
+          "san": "Bb6",
+          "bestMove": "Rc7+",
+          "cpl": 68,
+          "classification": "inaccuracy",
+          "evalBefore": "+8.53",
+          "evalAfter": "+7.85"
+        }
+      ]
+    }
+  },
+  "AGCA Summer 2025": {
+    "R8_GundamRo": {
+      "prColor": "black",
+      "opponent": "Gundam, Rohit",
+      "oppElo": 2071,
+      "result": "1-0",
+      "prResult": "loss",
+      "eco": "D90",
+      "event": "Round 8: Gundam, Rohit - Chodniewicz, Asher",
+      "tournKey": "AGCA Summer 2025",
+      "date": "2025.06.15",
+      "roundKey": "R8",
+      "prAccuracy": 92.5,
+      "oppAccuracy": 95.3,
+      "avgCPL": 55,
+      "blunders": 2,
+      "mistakes": 3,
+      "inaccuracies": 7,
+      "movesAnalyzed": 57,
+      "criticalMoments": [
+        {
+          "moveNum": 51,
+          "san": "Bxh3",
+          "bestMove": "Kg6",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-76.52",
+          "evalAfter": "-#"
+        },
+        {
+          "moveNum": 48,
+          "san": "Bxc8",
+          "bestMove": "Bxc8",
+          "cpl": 450,
+          "classification": "blunder",
+          "evalBefore": "-10.38",
+          "evalAfter": "-14.88"
+        },
+        {
+          "moveNum": 45,
+          "san": "Rc8",
+          "bestMove": "Ba8",
+          "cpl": 264,
+          "classification": "mistake",
+          "evalBefore": "-5.03",
+          "evalAfter": "-7.67"
+        }
+      ]
+    },
+    "R9_KaulKrri": {
+      "prColor": "white",
+      "opponent": "Kaul, Krrish",
+      "oppElo": 1729,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "B44",
+      "event": "Round 9: Chodniewicz, Asher - Kaul, Krrish",
+      "tournKey": "AGCA Summer 2025",
+      "date": "2025.06.15",
+      "roundKey": "R9",
+      "prAccuracy": 93.8,
+      "oppAccuracy": 86.7,
+      "avgCPL": 18,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 3,
+      "movesAnalyzed": 27,
+      "criticalMoments": [
+        {
+          "moveNum": 13,
+          "san": "Bg5",
+          "bestMove": "exd5",
+          "cpl": 126,
+          "classification": "inaccuracy",
+          "evalBefore": "+1.40",
+          "evalAfter": "+0.14"
+        },
+        {
+          "moveNum": 24,
+          "san": "f5",
+          "bestMove": "Qh6+",
+          "cpl": 100,
+          "classification": "inaccuracy",
+          "evalBefore": "+6.88",
+          "evalAfter": "+5.88"
+        },
+        {
+          "moveNum": 14,
+          "san": "e5",
+          "bestMove": "exd5",
+          "cpl": 84,
+          "classification": "inaccuracy",
+          "evalBefore": "+1.31",
+          "evalAfter": "+0.47"
+        }
+      ]
+    },
+    "R6_LanKaiZh": {
+      "prColor": "black",
+      "opponent": "Lan, Kai Zhou",
+      "oppElo": 1682,
+      "result": "0-1",
+      "prResult": "win",
+      "eco": "C11",
+      "event": "Round 6: Lan, Kai Zhou - Chodniewicz, Asher",
+      "tournKey": "AGCA Summer 2025",
+      "date": "2025.06.14",
+      "roundKey": "R6",
+      "prAccuracy": 89.8,
+      "oppAccuracy": 84.4,
+      "avgCPL": 32,
+      "blunders": 1,
+      "mistakes": 2,
+      "inaccuracies": 1,
+      "movesAnalyzed": 34,
+      "criticalMoments": [
+        {
+          "moveNum": 16,
+          "san": "cxb4",
+          "bestMove": "Qxb4",
+          "cpl": 314,
+          "classification": "blunder",
+          "evalBefore": "-1.04",
+          "evalAfter": "-4.18"
+        },
+        {
+          "moveNum": 32,
+          "san": "a3",
+          "bestMove": "Rc8",
+          "cpl": 283,
+          "classification": "mistake",
+          "evalBefore": "+3.67",
+          "evalAfter": "+0.84"
+        },
+        {
+          "moveNum": 31,
+          "san": "Rab8",
+          "bestMove": "h5",
+          "cpl": 257,
+          "classification": "mistake",
+          "evalBefore": "+4.69",
+          "evalAfter": "+2.12"
+        }
+      ]
+    },
+    "R7_LonieCha": {
+      "prColor": "white",
+      "opponent": "Lonie, Chase Rugby",
+      "oppElo": 1818,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "C87",
+      "event": "Round 7: Chodniewicz, Asher - Lonie, Chase Rugby",
+      "tournKey": "AGCA Summer 2025",
+      "date": "2025.06.14",
+      "roundKey": "R7",
+      "prAccuracy": 94.2,
+      "oppAccuracy": 90.4,
+      "avgCPL": 51,
+      "blunders": 1,
+      "mistakes": 1,
+      "inaccuracies": 10,
+      "movesAnalyzed": 44,
+      "criticalMoments": [
+        {
+          "moveNum": 44,
+          "san": "Rxd5",
+          "bestMove": "Rf1+",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "+20.41",
+          "evalAfter": "+9.83"
+        },
+        {
+          "moveNum": 20,
+          "san": "b3",
+          "bestMove": "Ba4",
+          "cpl": 165,
+          "classification": "mistake",
+          "evalBefore": "+6.53",
+          "evalAfter": "+4.88"
+        },
+        {
+          "moveNum": 25,
+          "san": "hxg5",
+          "bestMove": "c6",
+          "cpl": 105,
+          "classification": "inaccuracy",
+          "evalBefore": "+7.50",
+          "evalAfter": "+6.45"
+        }
+      ]
+    },
+    "R4_BatesEva": {
+      "prColor": "black",
+      "opponent": "Bates, Evan",
+      "oppElo": 1953,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "C02",
+      "event": "Round 4: Bates, Evan - Chodniewicz, Asher",
+      "tournKey": "AGCA Summer 2025",
+      "date": "2025.06.13",
+      "roundKey": "R4",
+      "prAccuracy": 90.7,
+      "oppAccuracy": 90.8,
+      "avgCPL": 29,
+      "blunders": 2,
+      "mistakes": 4,
+      "inaccuracies": 2,
+      "movesAnalyzed": 73,
+      "criticalMoments": [
+        {
+          "moveNum": 47,
+          "san": "Rab6",
+          "bestMove": "Rb3+",
+          "cpl": 472,
+          "classification": "blunder",
+          "evalBefore": "+4.98",
+          "evalAfter": "+0.26"
+        },
+        {
+          "moveNum": 46,
+          "san": "Rb4",
+          "bestMove": "Rab6",
+          "cpl": 439,
+          "classification": "blunder",
+          "evalBefore": "+4.98",
+          "evalAfter": "+0.59"
+        },
+        {
+          "moveNum": 24,
+          "san": "Rhb8",
+          "bestMove": "Bd3",
+          "cpl": 229,
+          "classification": "mistake",
+          "evalBefore": "-0.13",
+          "evalAfter": "-2.42"
+        }
+      ]
+    },
+    "R5_JosephJu": {
+      "prColor": "white",
+      "opponent": "Joseph, Julian",
+      "oppElo": 1790,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "B90",
+      "event": "Round 5: Chodniewicz, Asher - Joseph, Julian",
+      "tournKey": "AGCA Summer 2025",
+      "date": "2025.06.13",
+      "roundKey": "R5",
+      "prAccuracy": 91.9,
+      "oppAccuracy": 88,
+      "avgCPL": 56,
+      "blunders": 2,
+      "mistakes": 3,
+      "inaccuracies": 2,
+      "movesAnalyzed": 43,
+      "criticalMoments": [
+        {
+          "moveNum": 40,
+          "san": "Rd6",
+          "bestMove": "Qf5",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "#",
+          "evalAfter": "+14.81"
+        },
+        {
+          "moveNum": 31,
+          "san": "Nge2",
+          "bestMove": "Nc6",
+          "cpl": 317,
+          "classification": "blunder",
+          "evalBefore": "+7.83",
+          "evalAfter": "+4.66"
+        },
+        {
+          "moveNum": 28,
+          "san": "Bc3",
+          "bestMove": "e5",
+          "cpl": 208,
+          "classification": "mistake",
+          "evalBefore": "+7.97",
+          "evalAfter": "+5.89"
+        }
+      ]
+    },
+    "R1_JohnsonE": {
+      "prColor": "black",
+      "opponent": "Johnson, Emerson Aurelius",
+      "oppElo": 1698,
+      "result": "0-1",
+      "prResult": "win",
+      "eco": "C04",
+      "event": "Round 1: Johnson, Emerson Aurelius - Chodniewicz, Asher",
+      "tournKey": "AGCA Summer 2025",
+      "date": "2025.06.12",
+      "roundKey": "R1",
+      "prAccuracy": 97.2,
+      "oppAccuracy": 90.2,
+      "avgCPL": 10,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 2,
+      "movesAnalyzed": 30,
+      "criticalMoments": [
+        {
+          "moveNum": 4,
+          "san": "Nc6",
+          "bestMove": "c5",
+          "cpl": 60,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.31",
+          "evalAfter": "-0.91"
+        },
+        {
+          "moveNum": 21,
+          "san": "Qxe5",
+          "bestMove": "Qxe5",
+          "cpl": 53,
+          "classification": "inaccuracy",
+          "evalBefore": "+12.48",
+          "evalAfter": "+11.95"
+        }
+      ]
+    },
+    "R2_ZolidisE": {
+      "prColor": "black",
+      "opponent": "Zolidis, Eric",
+      "oppElo": 1672,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "A45",
+      "event": "Round 2: Zolidis, Eric - Chodniewicz, Asher",
+      "tournKey": "AGCA Summer 2025",
+      "date": "2025.06.12",
+      "roundKey": "R2",
+      "prAccuracy": 92.7,
+      "oppAccuracy": 92.3,
+      "avgCPL": 20,
+      "blunders": 0,
+      "mistakes": 1,
+      "inaccuracies": 1,
+      "movesAnalyzed": 24,
+      "criticalMoments": [
+        {
+          "moveNum": 24,
+          "san": "Bxe4",
+          "bestMove": "Bc7",
+          "cpl": 223,
+          "classification": "mistake",
+          "evalBefore": "+2.38",
+          "evalAfter": "+0.15"
+        },
+        {
+          "moveNum": 23,
+          "san": "Bb6",
+          "bestMove": "Rad8",
+          "cpl": 107,
+          "classification": "inaccuracy",
+          "evalBefore": "+3.17",
+          "evalAfter": "+2.10"
+        }
+      ]
+    },
+    "R3_AlbertCo": {
+      "prColor": "white",
+      "opponent": "Albert, Colin B",
+      "oppElo": 2044,
+      "result": "0-1",
+      "prResult": "loss",
+      "eco": "B40",
+      "event": "Round 3: Chodniewicz, Asher - Albert, Colin B",
+      "tournKey": "AGCA Summer 2025",
+      "date": "2025.06.12",
+      "roundKey": "R3",
+      "prAccuracy": 89.8,
+      "oppAccuracy": 97.1,
+      "avgCPL": 81,
+      "blunders": 2,
+      "mistakes": 1,
+      "inaccuracies": 2,
+      "movesAnalyzed": 24,
+      "criticalMoments": [
+        {
+          "moveNum": 24,
+          "san": "d6",
+          "bestMove": "gxf4",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-10.43",
+          "evalAfter": "-#"
+        },
+        {
+          "moveNum": 16,
+          "san": "Qh3",
+          "bestMove": "Bc7",
+          "cpl": 360,
+          "classification": "blunder",
+          "evalBefore": "-0.13",
+          "evalAfter": "-3.73"
+        },
+        {
+          "moveNum": 20,
+          "san": "Ne4",
+          "bestMove": "Qh8+",
+          "cpl": 190,
+          "classification": "mistake",
+          "evalBefore": "-6.89",
+          "evalAfter": "-8.79"
+        }
+      ]
+    }
+  },
+  "SuperNationals 2025": {
+    "R02_Tikhomir": {
+      "prColor": "white",
+      "opponent": "Tikhomirov, Matthew",
+      "oppElo": 1960,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "event": "U.S. SuperNationals Chess Championships 2025 | Elementary School",
+      "tournKey": "SuperNationals 2025",
+      "date": "2025.05.10",
+      "roundKey": "R02",
+      "prAccuracy": 88.6,
+      "oppAccuracy": 87.7,
+      "avgCPL": 35,
+      "blunders": 0,
+      "mistakes": 2,
+      "inaccuracies": 3,
+      "movesAnalyzed": 23,
+      "criticalMoments": [
+        {
+          "moveNum": 12,
+          "san": "Bh6",
+          "bestMove": "Bc4",
+          "cpl": 175,
+          "classification": "mistake",
+          "evalBefore": "+3.38",
+          "evalAfter": "+1.63"
+        },
+        {
+          "moveNum": 19,
+          "san": "c4",
+          "bestMove": "Rfd1",
+          "cpl": 156,
+          "classification": "mistake",
+          "evalBefore": "+3.13",
+          "evalAfter": "+1.57"
+        },
+        {
+          "moveNum": 22,
+          "san": "b3",
+          "bestMove": "h3",
+          "cpl": 132,
+          "classification": "inaccuracy",
+          "evalBefore": "+2.93",
+          "evalAfter": "+1.61"
+        }
+      ]
+    }
+  }
+}

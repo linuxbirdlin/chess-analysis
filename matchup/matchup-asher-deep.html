@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deep Engine Analysis — Chodniewicz, Asher (34 games)</title>
+<style>
+:root { --accent: #1a3a6b; --accent-bg: #eef2fb; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13.5px; color: #1a1a1a; max-width: 1000px;
+  margin: 0 auto; padding: 20px 24px; background: #f8f7f4;
+}
+.page-header { border-left: 6px solid var(--accent); background: var(--accent-bg);
+               padding: 14px 18px; margin-bottom: 20px; border-radius: 0 5px 5px 0; }
+.page-header h1 { font-size: 1.25em; margin-bottom: 3px; }
+.page-header .meta { font-size: 0.82em; color: #555; }
+.page-header .nav { margin-top: 8px; font-size: 0.82em; }
+.page-header .nav a { color: var(--accent); text-decoration: none; margin-right: 14px; }
+.page-header .nav a:hover { text-decoration: underline; }
+
+h2 { font-size: 1.05em; margin: 24px 0 8px; padding: 6px 12px;
+     border-left: 4px solid var(--accent); background: #f0f3fa; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 12px 0 20px; }
+.stat-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 10px 12px; text-align: center; }
+.stat-card .num { font-size: 1.6em; font-weight: 700; color: var(--accent); }
+.stat-card .lbl { font-size: 0.78em; color: #666; margin-top: 2px; }
+
+.callout { padding: 9px 13px; border-radius: 4px; margin: 8px 0; font-size: 0.88em; }
+.callout-gold  { background: #fffbe0; border-left: 4px solid #b8860b; }
+.callout-green { background: #efffef; border-left: 4px solid #2d7d46; }
+.callout-blue  { background: #eef2fb; border-left: 4px solid #1a3a6b; }
+.callout-red   { background: #fff0f0; border-left: 4px solid #8b1a1a; }
+
+table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 0.83em; }
+th { background: #1a3a6b; color: #fff; padding: 5px 8px; text-align: left; white-space: nowrap; }
+td { padding: 4px 8px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+.row-danger td { background: #fff2f2 !important; }
+.row-best td { background: #efffef !important; }
+
+.w-cell { color: #1a5276; font-weight: bold; }
+.b-cell { color: #8b1a1a; font-weight: bold; }
+.win-cell { color: #2d7d46; font-weight: bold; }
+.loss-cell { color: #8b1a1a; }
+.draw-cell { color: #666; }
+.acc-high { color: #2d7d46; font-weight: bold; }
+.acc-mid  { color: #b8860b; font-weight: bold; }
+.acc-low  { color: #8b1a1a; font-weight: bold; }
+
+hr { border: none; border-top: 2px solid #ccc; margin: 22px 0; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Deep Engine Analysis — Chodniewicz, Asher</h1>
+  <div class="meta">Stockfish movetime-3000 · 16 threads · 34 games analyzed · Lichess win-probability accuracy formula</div>
+  <div class="nav">
+    <a href="../austin-prep.html">← Prep Index</a>
+    <a href="matchup-asher.html">Matchup Overview</a>
+    <a href="matchup-asher-white.html">Austin as White</a>
+    <a href="matchup-asher-black.html">Austin as Black</a>
+  </div>
+</div>
+
+<h2>Overall Accuracy Summary</h2>
+
+<div class="stat-grid">
+  <div class="stat-card"><div class="num">91.1%</div><div class="lbl">Overall Avg (34 games)</div></div>
+  <div class="stat-card"><div class="num">91.7%</div><div class="lbl">As White (15 games)</div></div>
+  <div class="stat-card"><div class="num">90.7%</div><div class="lbl">As Black (19 games)</div></div>
+  <div class="stat-card"><div class="num">98.9%</div><div class="lbl">Best Single Game</div></div>
+</div>
+
+<div class="stat-grid">
+  <div class="stat-card"><div class="num">9W–5L–1D</div><div class="lbl">As White (61% score)</div></div>
+  <div class="stat-card"><div class="num">5W–7L–6D</div><div class="lbl">As Black (43% score)</div></div>
+  <div class="stat-card"><div class="num">72.2%</div><div class="lbl">Worst Game (SW Open R3)</div></div>
+  <div class="stat-card"><div class="num">0W–4L–0D</div><div class="lbl">vs 2000+ opponents</div></div>
+</div>
+
+<div class="callout callout-gold">
+  <strong>Key finding:</strong> Asher dominates scholastic fields (94.3% avg at TX Scholastic Super State) but struggles significantly at adult FIDE opens (87.5% at TX State Amateur, 1W–4L–1D). His White accuracy (91.7%) slightly edges Black (90.7%). The 72.2% worst game (SW Open R3) is an outlier — Asher's typical floor is ~88–89%. Against Austin (1959 FIDE), his preparation depth in Open Sicilian lines will be tested.
+</div>
+
+<h2>Per-Tournament Summary</h2>
+
+<table>
+  <thead>
+    <tr><th>Tournament</th><th>Games</th><th>W–L–D</th><th>Avg Acc</th><th>Context</th></tr>
+  </thead>
+  <tbody>
+  <tr class="row-best">
+    <td>TX Scholastic Super State 2026</td><td>7</td><td>4W–1L–1D</td><td><span class="acc-high">94.3%</span></td><td>Best performance — scholastic field; 98.9% and 98.2% individual games</td>
+  </tr>
+  <tr class="row-best">
+    <td>TX Fall FIDE 2026</td><td>3</td><td>1W–2L–0D</td><td><span class="acc-high">93.2%</span></td><td>Lost to GM 2526 (93.5% — outclassed); beat Sunagatullin 1708 (96.8%)</td>
+  </tr>
+  <tr class="row-best">
+    <td>AGCA Summer 2025</td><td>9</td><td>5W–2L–2D</td><td><span class="acc-high">92.5%</span></td><td>Best open performance; drew Bates 1953; beat Johnson 1698 (97.2%)</td>
+  </tr>
+  <tr>
+    <td>SW Open 2026 (92nd Southwest)</td><td>7</td><td>3W–2L–2D</td><td><span class="acc-mid">89.1%</span></td><td>Mixed field; worst game 72.2% (R3 Black loss)</td>
+  </tr>
+  <tr>
+    <td>Natl MS K-8 2026</td><td>1</td><td>0W–1L–0D</td><td><span class="acc-mid">89.5%</span></td><td>Lost to Bryan Lin 2371 as Black — expected result</td>
+  </tr>
+  <tr>
+    <td>SuperNationals 2025</td><td>1</td><td>0W–0L–1D</td><td><span class="acc-mid">88.6%</span></td><td>Drew Tikhomirov 1960 as White — solid result</td>
+  </tr>
+  <tr class="row-danger">
+    <td>TX State Amateur 2026 (81st)</td><td>6</td><td>1W–4L–1D</td><td><span class="acc-low">87.5%</span></td><td>Worst record — adult 1800–2000 field; both White games lost (Walker 1758, Manchanda 1949)</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Critical Patterns — What Stockfish Revealed</h2>
+
+<div class="callout callout-red">
+  <strong>Pattern 1 — French Defense breadth is genuine:</strong> Asher knows all three French systems as Black. Tarrasch Qxd5 (Chistyakov) documented in 3 games (SW Open R3, Natl K-8 R3, AGCA R1). Classical Rubinstein (dxe4) in 2 games. French Advance (...c5 Nc6) in 2 games. Classical C11 (Nc3 e5 Nfd7) in 1 game. Austin must NOT play Tarrasch 3.Nd2 — use Advanced French (3.e5) instead.
+</div>
+
+<div class="callout callout-red">
+  <strong>Pattern 2 — TX State Amateur collapse vs adult players:</strong> At the 81st Texas State Amateur (May 2026), Asher went 1W–4L–1D against an adult 1800–2000 field. Both White games were losses: Walker 1758 (88.2%, Italian structure), Manchanda 1949 (79.1%, worst White performance). As Black: lost to Ruppert 1736 and Mysore 1975, drew Zheng 2092 only (80.6% — rough draw). This pattern confirms he's still transitioning from scholastic to adult competition.
+</div>
+
+<div class="callout callout-gold">
+  <strong>Pattern 3 — Scholastic field dominance:</strong> TX Scholastic Super State 2026 (March 2026): 94.3% average across 7 games, with 98.9% and 98.2% individual performances. Beat Ellison (1636, White), Tanoa (1223, White), Sriram (1482, Black), Rowe-Watters (1447, Black) comfortably. This is his natural operating environment — NAYCC is a step up in difficulty.
+</div>
+
+<div class="callout callout-green">
+  <strong>Pattern 4 — AGCA Summer 2025 shows his ceiling:</strong> At AGCA Summer 2025 (June 2025), Asher posted 92.5% average, 5W–2L–2D against a mixed adult field. Drew Bates 1953 as Black (90.7%, French Advance C02). Beat Johnson Emerson 1698 as Black (97.2%). Lost to Gundam 2071 as Black (92.5%) and Albert 2044 as White (89.8%). This is his peak open-tournament performance — he competes at 91–93% vs 1700–2000 opposition.
+</div>
+
+<h2>Worst 10 Games (by accuracy)</h2>
+
+<table>
+  <thead>
+    <tr><th>Acc</th><th>Color</th><th>Result</th><th>Tournament</th><th>Round</th><th>Opponent</th><th>Elo</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+  <tr class="row-danger">
+    <td><span class="acc-low">72.2%</span></td><td class="b-cell">B</td><td class="loss-cell">L</td><td>SW Open 2026</td><td>R3</td><td>John, Austin</td><td>—</td><td>Worst game; French Tarrasch; unusual tactical blind spot</td>
+  </tr>
+  <tr class="row-danger">
+    <td><span class="acc-low">79.1%</span></td><td class="w-cell">W</td><td class="loss-cell">L</td><td>TX State Amateur 2026</td><td>R2</td><td>Manchanda, Advik</td><td>1949</td><td>Worst White performance; Italian structure; lost to 1949</td>
+  </tr>
+  <tr class="row-danger">
+    <td><span class="acc-low">80.6%</span></td><td class="b-cell">B</td><td class="draw-cell">D</td><td>TX State Amateur 2026</td><td>R1</td><td>Zheng, Zhaoxiong</td><td>2092</td><td>Drew 2092 despite poor accuracy — opponent also erred</td>
+  </tr>
+  <tr class="row-danger">
+    <td><span class="acc-low">84.0%</span></td><td class="w-cell">W</td><td class="loss-cell">L</td><td>TX Scholastic 2026</td><td>R5</td><td>Ni, Alan</td><td>1816</td><td>White loss at Scholastic; Ni Alan won at 87%</td>
+  </tr>
+  <tr>
+    <td><span class="acc-mid">88.2%</span></td><td class="w-cell">W</td><td class="loss-cell">L</td><td>TX State Amateur 2026</td><td>R4</td><td>Walker, Locke</td><td>1758</td><td>Lost as White to 1758 in Italian; accuracy below par</td>
+  </tr>
+  <tr>
+    <td><span class="acc-mid">88.3%</span></td><td class="b-cell">B</td><td class="loss-cell">L</td><td>SW Open 2026</td><td>R1</td><td>Kandikayala, Srikar</td><td>—</td><td>French Classical; lost as Black R1</td>
+  </tr>
+  <tr>
+    <td><span class="acc-mid">88.6%</span></td><td class="w-cell">W</td><td class="draw-cell">D</td><td>SuperNationals 2025</td><td>R2</td><td>Tikhomirov, Matthew</td><td>1960</td><td>Solid draw vs 1960 despite ~89% accuracy</td>
+  </tr>
+  <tr>
+    <td><span class="acc-mid">89.2%</span></td><td class="b-cell">B</td><td class="loss-cell">L</td><td>TX Fall FIDE 2026</td><td>R4</td><td>Reyes, Oshrie</td><td>1868</td><td>Lost as Black vs 1868; Sicilian B20 anti</td>
+  </tr>
+  <tr>
+    <td><span class="acc-mid">89.5%</span></td><td class="b-cell">B</td><td class="loss-cell">L</td><td>Natl MS K-8 2026</td><td>R3</td><td>Lin, Bryan</td><td>2371</td><td>Lost to Bryan Lin 2371; expected</td>
+  </tr>
+  <tr>
+    <td><span class="acc-mid">89.8%</span></td><td class="w-cell">W</td><td class="loss-cell">L</td><td>AGCA Summer 2025</td><td>R3</td><td>Albert, Colin B</td><td>2044</td><td>Lost to Albert 2044 as White; B40 Sicilian</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Best 10 Games (by accuracy)</h2>
+
+<table>
+  <thead>
+    <tr><th>Acc</th><th>Color</th><th>Result</th><th>Tournament</th><th>Round</th><th>Opponent</th><th>Elo</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+  <tr class="row-best">
+    <td><span class="acc-high">98.9%</span></td><td class="b-cell">B</td><td class="draw-cell">?</td><td>TX Scholastic 2026</td><td>R4</td><td>Sanepalli, Guna</td><td>1837</td><td>Highest accuracy; result unclear in broadcast data; KID structure</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">98.2%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>TX Scholastic 2026</td><td>R3</td><td>Tanoa, Rylie</td><td>1223</td><td>Near-perfect White win; Ruy Lopez vs weak opposition</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">97.2%</span></td><td class="b-cell">B</td><td class="win-cell">W</td><td>AGCA Summer 2025</td><td>R1</td><td>Johnson, Emerson</td><td>1698</td><td>Best open-field performance; French Tarrasch C04</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">96.8%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>TX Fall FIDE 2026</td><td>R5</td><td>Sunagatullin, Mark</td><td>1708</td><td>Clean White Catalan win vs 1708; E05</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">96.8%</span></td><td class="b-cell">B</td><td class="win-cell">W</td><td>TX Scholastic 2026</td><td>R6</td><td>Rowe-Watters, Chauncey</td><td>1447</td><td>Near-perfect Black win; Grünfeld structure</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">96.0%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>SW Open 2026</td><td>R4</td><td>Ni, Alan</td><td>1869</td><td>Strong White win vs 1869; anti-Sicilian Qe2</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">95.8%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>TX Scholastic 2026</td><td>R2</td><td>Ellison, Jacob</td><td>1636</td><td>Strong White win; Open Sicilian vs Taimanov</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">95.0%</span></td><td class="b-cell">B</td><td class="loss-cell">L</td><td>TX State Amateur 2026</td><td>R3</td><td>Mysore, Abhinav</td><td>1975</td><td>Lost despite 95% accuracy — outplayed by Mysore's technique</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">94.5%</span></td><td class="b-cell">B</td><td class="draw-cell">D</td><td>TX Scholastic 2026</td><td>R7</td><td>Seelam, Tanish</td><td>1740</td><td>Solid draw as Black; Réti/KID structure</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">94.3%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>SW Open 2026</td><td>R6</td><td>Ndengang, Aviel</td><td>1528</td><td>Rossolimo exchange (Bxc6) win as White</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Full Game-by-Game Table (34 games, newest first)</h2>
+
+<table>
+  <thead>
+    <tr><th>Date</th><th>Tournament</th><th>Rnd</th><th>Color</th><th>Result</th><th>Acc</th><th>Opp Acc</th><th>Opponent</th><th>Elo</th><th>ECO</th></tr>
+  </thead>
+  <tbody>
+  <tr class="row-best"><td>2026-10-18</td><td>TX Fall FIDE 2026</td><td>R5</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">96.8%</span></td><td>91%</td><td>Sunagatullin, Mark</td><td>1708</td><td>E05</td></tr>
+  <tr><td>2026-10-18</td><td>TX Fall FIDE 2026</td><td>R4</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">89.2%</span></td><td>87%</td><td>Reyes, Oshrie</td><td>1868</td><td>B20</td></tr>
+  <tr><td>2026-10-18</td><td>TX Fall FIDE 2026</td><td>R3</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">93.5%</span></td><td>96%</td><td>Ruiz Castillo, Joshua (GM)</td><td>2526</td><td>B96</td></tr>
+  <tr><td>2026-09-08</td><td>SW Open 2026</td><td>R7</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-mid">89.9%</span></td><td>88%</td><td>Johnson, Emerson</td><td>—</td><td>—</td></tr>
+  <tr><td>2026-09-07</td><td>SW Open 2026</td><td>R5</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-mid">91.6%</span></td><td>90%</td><td>Suresh, Kawin</td><td>—</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-09-07</td><td>SW Open 2026</td><td>R6</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">94.3%</span></td><td>82%</td><td>Ndengang, Aviel</td><td>1528</td><td>—</td></tr>
+  <tr class="row-danger"><td>2026-09-06</td><td>SW Open 2026</td><td>R3</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-low">72.2%</span></td><td>85%</td><td>John, Austin</td><td>—</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-09-06</td><td>SW Open 2026</td><td>R4</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">96.0%</span></td><td>91%</td><td>Ni, Alan</td><td>1869</td><td>—</td></tr>
+  <tr><td>2026-09-05</td><td>SW Open 2026</td><td>R1</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">88.3%</span></td><td>80%</td><td>Kandikayala, Srikar</td><td>—</td><td>—</td></tr>
+  <tr><td>2026-09-05</td><td>SW Open 2026</td><td>R2</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-mid">91.4%</span></td><td>83%</td><td>Fourzan, Raynaldo</td><td>—</td><td>—</td></tr>
+  <tr><td>2026-05-25</td><td>TX State Amateur 2026</td><td>R6</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">91.5%</span></td><td>85%</td><td>Ruppert, Thomas</td><td>1736</td><td>—</td></tr>
+  <tr><td>2026-05-25</td><td>TX State Amateur 2026</td><td>R7</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-mid">90.5%</span></td><td>95%</td><td>Alois Tadiwa Chipfurutse</td><td>—</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-05-24</td><td>TX State Amateur 2026</td><td>R3</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-high">95.0%</span></td><td>93%</td><td>Mysore, Abhinav</td><td>1975</td><td>—</td></tr>
+  <tr><td>2026-05-24</td><td>TX State Amateur 2026</td><td>R4</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">88.2%</span></td><td>90%</td><td>Walker, Locke</td><td>1758</td><td>—</td></tr>
+  <tr class="row-danger"><td>2026-05-23</td><td>TX State Amateur 2026</td><td>R1</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-low">80.6%</span></td><td>88%</td><td>Zheng, Zhaoxiong</td><td>2092</td><td>—</td></tr>
+  <tr class="row-danger"><td>2026-05-23</td><td>TX State Amateur 2026</td><td>R2</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-low">79.1%</span></td><td>92%</td><td>Manchanda, Advik</td><td>1949</td><td>—</td></tr>
+  <tr><td>2026-05-16</td><td>Natl MS K-8 2026</td><td>R3</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">89.5%</span></td><td>94%</td><td>Lin, Bryan</td><td>2371</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-03-08</td><td>TX Scholastic 2026</td><td>R4</td><td class="b-cell">B</td><td class="draw-cell">?</td><td><span class="acc-high">98.9%</span></td><td>88%</td><td>Sanepalli, Guna</td><td>1837</td><td>—</td></tr>
+  <tr class="row-danger"><td>2026-03-08</td><td>TX Scholastic 2026</td><td>R5</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-low">84.0%</span></td><td>87%</td><td>Ni, Alan</td><td>1816</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-03-08</td><td>TX Scholastic 2026</td><td>R6</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">96.8%</span></td><td>75%</td><td>Rowe-Watters, Chauncey</td><td>1447</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-03-08</td><td>TX Scholastic 2026</td><td>R7</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-high">94.5%</span></td><td>89%</td><td>Seelam, Tanish</td><td>1740</td><td>—</td></tr>
+  <tr><td>2026-03-07</td><td>TX Scholastic 2026</td><td>R1</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-mid">92.0%</span></td><td>78%</td><td>Sriram, Navya</td><td>1482</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-03-07</td><td>TX Scholastic 2026</td><td>R2</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">95.8%</span></td><td>82%</td><td>Ellison, Jacob</td><td>1636</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-03-07</td><td>TX Scholastic 2026</td><td>R3</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">98.2%</span></td><td>74%</td><td>Tanoa, Rylie</td><td>1223</td><td>—</td></tr>
+  <tr><td>2025-06-15</td><td>AGCA Summer 2025</td><td>R8</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">92.5%</span></td><td>94%</td><td>Gundam, Rohit</td><td>2071</td><td>D90</td></tr>
+  <tr class="row-best"><td>2025-06-15</td><td>AGCA Summer 2025</td><td>R9</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-mid">93.8%</span></td><td>82%</td><td>Kaul, Krrish</td><td>1729</td><td>B44</td></tr>
+  <tr><td>2025-06-14</td><td>AGCA Summer 2025</td><td>R6</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-mid">89.8%</span></td><td>86%</td><td>Lan, Kai Zhou</td><td>1682</td><td>C11</td></tr>
+  <tr class="row-best"><td>2025-06-14</td><td>AGCA Summer 2025</td><td>R7</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">94.2%</span></td><td>88%</td><td>Lonie, Chase</td><td>1818</td><td>C87</td></tr>
+  <tr><td>2025-06-13</td><td>AGCA Summer 2025</td><td>R4</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-mid">90.7%</span></td><td>91%</td><td>Bates, Evan</td><td>1953</td><td>C02</td></tr>
+  <tr><td>2025-06-13</td><td>AGCA Summer 2025</td><td>R5</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-mid">91.9%</span></td><td>87%</td><td>Joseph, Julian</td><td>1790</td><td>B90</td></tr>
+  <tr class="row-best"><td>2025-06-12</td><td>AGCA Summer 2025</td><td>R1</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">97.2%</span></td><td>85%</td><td>Johnson, Emerson</td><td>1698</td><td>C04</td></tr>
+  <tr><td>2025-06-12</td><td>AGCA Summer 2025</td><td>R2</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-mid">92.7%</span></td><td>88%</td><td>Zolidis, Eric</td><td>1672</td><td>A45</td></tr>
+  <tr><td>2025-06-12</td><td>AGCA Summer 2025</td><td>R3</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">89.8%</span></td><td>93%</td><td>Albert, Colin B</td><td>2044</td><td>B40</td></tr>
+  <tr><td>2025-05-10</td><td>SuperNationals 2025</td><td>R2</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-mid">88.6%</span></td><td>91%</td><td>Tikhomirov, Matthew</td><td>1960</td><td>—</td></tr>
+  </tbody>
+</table>
+
+<p style="margin-top:20px; font-size:0.83em; color:#666; text-align:center">
+  <a href="../austin-prep.html">← Back to Austin Lin Prep Index</a> ·
+  <a href="matchup-asher.html">Matchup Overview</a> ·
+  <a href="matchup-asher-white.html">Austin as White</a> ·
+  <a href="matchup-asher-black.html">Austin as Black</a>
+</p>
+</body>
+</html>

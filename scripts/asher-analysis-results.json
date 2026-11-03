@@ -1,0 +1,52 @@
+{
+  "TX Fall FIDE 2026": {
+    "R3_RuizCast": {
+      "prColor": "white",
+      "opponent": "Ruiz Castillo, Joshua D",
+      "oppElo": 2526,
+      "result": "0-1",
+      "prResult": "loss",
+      "eco": "B96",
+      "event": "Texas Fall FIDE",
+      "tournKey": "TX Fall FIDE 2026",
+      "date": "2026.10.18",
+      "roundKey": "R3",
+      "prAccuracy": 94,
+      "oppAccuracy": 95.7,
+      "avgCPL": 43,
+      "blunders": 1,
+      "mistakes": 2,
+      "inaccuracies": 12,
+      "movesAnalyzed": 74,
+      "criticalMoments": [
+        {
+          "moveNum": 74,
+          "san": "Ra6",
+          "bestMove": "h6+",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-12.88",
+          "evalAfter": "-#"
+        },
+        {
+          "moveNum": 73,
+          "san": "Kf3",
+          "bestMove": "h6+",
+          "cpl": 262,
+          "classification": "mistake",
+          "evalBefore": "-9.82",
+          "evalAfter": "-12.44"
+        },
+        {
+          "moveNum": 22,
+          "san": "Be1",
+          "bestMove": "Qxc4",
+          "cpl": 188,
+          "classification": "mistake",
+          "evalBefore": "-1.89",
+          "evalAfter": "-3.77"
+        }
+      ]
+    }
+  }
+}

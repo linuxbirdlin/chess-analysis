@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Austin as Black vs Chodniewicz, Asher</title>
+<style>
+:root {
+  --accent: #1a5276; --accent-bg: #eaf4fb; --accent-border: #a8c8e8;
+  --accent-dark: #0d3a5c;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px; color: #1a1a1a; max-width: 900px;
+  margin: 0 auto; padding: 24px; background: #f8f7f4;
+}
+.doc-header {
+  border-left: 6px solid var(--accent); background: var(--accent-bg);
+  padding: 16px 20px; margin-bottom: 24px; border-radius: 0 6px 6px 0;
+}
+.doc-header h1 { font-size: 1.35em; margin-bottom: 4px; }
+.doc-header .meta { font-size: 0.82em; color: #555; }
+.doc-header .nav-links { margin-top: 10px; font-size: 0.82em; }
+.doc-header .nav-links a { color: var(--accent); text-decoration: none; margin-right: 16px; }
+.doc-header .nav-links a:hover { text-decoration: underline; }
+
+h2 { font-size: 1.1em; margin: 28px 0 10px; padding-left: 10px;
+     border-left: 4px solid var(--accent); }
+h3 { font-size: 0.95em; margin: 16px 0 6px; color: #333; }
+
+.profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+.profile-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.profile-card h3 { margin-top: 0; font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.04em; color: #555; }
+.profile-card p, .profile-card li { font-size: 0.88em; margin-bottom: 3px; }
+.profile-card ul { padding-left: 16px; margin-top: 4px; }
+
+.callout { padding: 10px 14px; border-radius: 4px; margin: 10px 0; font-size: 0.9em; }
+.callout-blue   { background: var(--accent-bg); border-left: 4px solid var(--accent); }
+.callout-gold   { background: #fffbe0; border-left: 4px solid #b8860b; }
+.callout-green  { background: #efffef; border-left: 4px solid #2d7d46; }
+.callout-danger { background: #fff0f0; border-left: 4px solid #8b1a1a; }
+
+.move-line {
+  background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+  padding: 8px 12px; margin: 6px 0; font-size: 0.91em; line-height: 1.9;
+  font-family: "Georgia", serif;
+}
+.mv-a { color: #1a5276; font-weight: bold; }
+.mv-z { color: #8b1a1a; font-weight: bold; }
+.key-move { background: var(--accent-bg); border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.note { color: #555; font-style: italic; font-size: 0.87em; }
+
+.var-card { margin: 8px 0; border: 1px solid var(--accent-border); border-radius: 5px; overflow: hidden; }
+.var-header { background: var(--accent-bg); padding: 7px 14px; font-weight: bold; font-size: 0.88em; display: flex; align-items: center; gap: 8px; }
+.var-label { background: var(--accent); color: #fff; border-radius: 3px; padding: 1px 7px; font-size: 0.78em; font-weight: 700; }
+.var-body { padding: 10px 14px; background: #fff; font-size: 0.88em; }
+.var-moves { display: block; font-family: "Courier New", monospace; font-size: 0.88em;
+             background: #f5f5f0; border-radius: 3px; padding: 7px 10px; margin: 6px 0; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.87em; }
+th { background: #1a5276; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+
+.rule-card { background: #fff; border: 1px solid var(--accent-border); border-radius: 5px;
+             padding: 12px 16px; margin: 8px 0; display: flex; align-items: flex-start; gap: 12px; }
+.rule-num { min-width: 28px; height: 28px; background: var(--accent); color: #fff;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.85em; font-weight: 700; }
+.rule-body { flex: 1; font-size: 0.88em; }
+.rule-body strong { display: block; margin-bottom: 3px; }
+
+.cheat-card { background: #fff; border: 2px solid #b8860b; border-radius: 6px; padding: 14px 18px; margin: 10px 0; }
+.cheat-card h3 { font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.04em; color: #b8860b; margin-bottom: 8px; margin-top: 0; }
+.cheat-moves { display: block; font-family: "Courier New", monospace; font-size: 0.9em;
+               background: #fafaf0; border: 1px solid #e0d8a0; border-radius: 4px;
+               padding: 8px 12px; margin: 6px 0; }
+
+hr { border: none; border-top: 2px solid #ddd; margin: 28px 0; }
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <h1>Austin as Black vs Chodniewicz, Asher</h1>
+  <div class="meta">Asher rating: 1884 FIDE (Nov 2026) · 34 games in dataset · No direct encounter</div>
+  <div class="nav-links">
+    <a href="../austin-prep.html">← Prep Index</a>
+    <a href="matchup-asher.html">Matchup Overview</a>
+    <a href="matchup-asher-white.html">Austin as White →</a>
+    <a href="matchup-asher-deep.html">Deep Analysis →</a>
+  </div>
+</div>
+
+<h2>§1 — Opponent Profile (as White)</h2>
+
+<div class="profile-grid">
+  <div class="profile-card">
+    <h3>Asher's White Repertoire</h3>
+    <ul>
+      <li><strong>Primary:</strong> 1.e4 in 14/15 White games</li>
+      <li>vs Sicilian: Open Sicilian (2.Nf3 + 3.d4) — all Sicilian types</li>
+      <li>vs 1…e5: Ruy Lopez (Bb5) or Italian (Nc3+Bc4) — both used</li>
+      <li>Rossolimo (Bb5 Bxc6): used once vs 1528</li>
+      <li>Anti-Sicilian Qe2: used once vs Ni 1869</li>
+      <li>Exception: 1.d4 Catalan (g3) vs Sunagatullin 1708</li>
+    </ul>
+  </div>
+  <div class="profile-card">
+    <h3>Key White Patterns</h3>
+    <ul>
+      <li>Open Sicilian is his most-practiced White setup</li>
+      <li>Lost to Albert 2044 as White (B40 Open Sicilian); lost to GM 2526</li>
+      <li>Both Italian games lost at TX State Amateur (Walker 1758, Manchanda 1949)</li>
+      <li>Ruy Lopez wins: Lonie 1818 (AGCA R7, 94.2%), Tanoa 1223</li>
+      <li>White accuracy: 79.1%–96.8% range (avg ~91.7%)</li>
+    </ul>
+  </div>
+</div>
+
+<h2>§2 — What to Expect: Open Sicilian</h2>
+
+<div class="callout callout-blue">
+  <strong>Asher plays Open Sicilian consistently.</strong> Against Austin's Sicilian (1…c5), Asher will play 2.Nf3 then d4 cxd4 Nxd4 — entering main Open Sicilian territory. He does NOT use the Grand Prix Attack (f4), Alapin (2.c3), or regular Bb5+ Rossolimo as his primary system. Austin should stay in familiar Sicilian territory — this is Austin's home ground.
+</div>
+
+<table>
+  <thead><tr><th>Asher's move</th><th>Frequency</th><th>Austin's plan</th></tr></thead>
+  <tbody>
+  <tr><td>1.e4 c5 2.Nf3 d4 Nxd4 (Open Sicilian)</td><td>Primary — all Sicilian types</td><td>Taimanov (2…e6 4…Nc6) — familiar territory</td></tr>
+  <tr><td>1.e4 c5 2.Nf3 3.Bb5+ (Rossolimo)</td><td>Once documented (vs 1528)</td><td>3…Nd7 or 3…d6 — solid, standard responses</td></tr>
+  <tr><td>1.e4 c5 2.Nf3 e6 3.Qe2 (Anti-Sicilian)</td><td>Once documented (vs Ni 1869)</td><td>3…Nc6 4.c3 d5 — central break</td></tr>
+  <tr><td>1.e4 e5 (if Austin plays 1…e5)</td><td>Ruy Lopez or Italian</td><td>AVOID — stay with Sicilian 1…c5</td></tr>
+  </tbody>
+</table>
+
+<h2>§3 — Recommended Defense: Taimanov Sicilian (B46)</h2>
+
+<div class="callout callout-green">
+  <strong>Recommended:</strong> Taimanov Sicilian. Austin plays 1…c5, Asher enters Open Sicilian, Austin plays 2…e6 then 4…Nc6 (Taimanov B46). Asher's Open Sicilian preparation depth hits its ceiling around 1900+ — Austin at 1959 FIDE should be out of Asher's prep by move 12–15. Austin's Sicilian preparation is his strength.
+</div>
+
+<h3>Main Line: Taimanov (B46)</h3>
+<div class="move-line">
+  <span class="mv-z">Asher:</span> 1.e4 <span class="mv-a">c5</span>
+  2.Nf3 <span class="mv-a">e6</span>
+  3.d4 <span class="mv-a">cxd4</span>
+  4.Nxd4 <span class="key-move">Nc6</span>
+  <span class="note">— Taimanov Sicilian. Austin retains flexibility: can play ...a6 (Kan-Taimanov hybrid), ...Nf6 Scheveningen, or ...Qc7 systems.</span>
+</div>
+
+<div class="var-card">
+  <div class="var-header"><span class="var-label">LINE A</span> 5.Nc3 a6 — Kan-Taimanov hybrid</div>
+  <div class="var-body">
+    <code class="var-moves">5.Nc3 a6 6.Be2 (or 6.Be3) Nf6 7.O-O d6 8.Be3 Qc7 → queenside play</code>
+    <p>After 5…a6: Austin plays the Kan-Taimanov hybrid. Plan: …d6, …Be7, …O-O, then …b5 queenside expansion with …Rc8 and …Bb7. This is Austin's well-practiced Sicilian structure from multiple opponent preparations. Asher's exact continuation from here is unlikely to be deeply prepared.</p>
+  </div>
+</div>
+
+<div class="var-card">
+  <div class="var-header"><span class="var-label">LINE B</span> 5.Nc3 Nf6 — Scheveningen setup</div>
+  <div class="var-body">
+    <code class="var-moves">5.Nc3 Nf6 6.Ndb5 d6 7.Bf4 e5 8.Bg5 a6 9.Na3 b5 → dynamic play</code>
+    <p>After 5…Nf6: Asher plays Ndb5 to pressure d6. Austin responds …d6 7.Bf4 e5 8.Bg5 — sharp Sveshnikov-like positions. Austin's tactical instincts shine in these imbalanced middlegames.</p>
+  </div>
+</div>
+
+<div class="var-card">
+  <div class="var-header"><span class="var-label">LINE C</span> If Asher plays 5.Nb5 — pressure on d6</div>
+  <div class="var-body">
+    <code class="var-moves">4.Nxd4 Nc6 5.Nb5 d6 6.c4 Nf6 7.N1c3 a6 8.Na3 → Maróczy Bind</code>
+    <p>If Asher plays 5.Nb5 (Maróczy Bind territory): Austin plays …d6 …Nf6 …a6 …Na3. The Maróczy Bind is a known system — Austin has prepared this vs Daniel Lee who specializes in it. Comfortable territory.</p>
+  </div>
+</div>
+
+<h2>§4 — Anti-Sicilian Responses</h2>
+
+<h3>If Asher plays Rossolimo (3.Bb5+)</h3>
+<div class="move-line">
+  <span class="mv-z">Asher:</span> 1.e4 <span class="mv-a">c5</span> 2.Nf3 <span class="mv-a">e6</span> 3.Bb5+ <span class="key-move">Nd7!</span>
+  <span class="note">— Solid: ...Nd7 keeps the knight flexible; avoids ...Nc6 blocking d-pawn. After 4.O-O Ngf6 5.Re1 Be7: solid position. Asher used Bb5 Bxc6 exchange once (vs 1528) — probably not deeply prepared at Austin's level.</span>
+</div>
+
+<h3>If Asher plays Anti-Sicilian Qe2 (documented once)</h3>
+<div class="move-line">
+  <span class="mv-z">Asher:</span> 1.e4 <span class="mv-a">c5</span> 2.Nf3 <span class="mv-a">e6</span> 3.Qe2 <span class="key-move">Nc6</span> 4.c3 <span class="key-move">d5!</span>
+  <span class="note">— Central break. After 4.c3 d5 5.exd5 exd5: open position with active pieces. Austin knows this structure. Asher's Qe2 appears rare and probably not deeply prepared.</span>
+</div>
+
+<h2>§5 — Key Rules for the Game</h2>
+
+<div class="rule-card">
+  <div class="rule-num">1</div>
+  <div class="rule-body">
+    <strong>Don't play 1…e5 (Ruy Lopez territory)</strong>
+    Asher's AGCA R7 win vs Lonie (1818, C87 Ruy Lopez) at 94.2% accuracy shows he's comfortable in the Ruy Lopez as White. His Open Sicilian is less deep. Austin's Sicilian is his weapon — use it.
+  </div>
+</div>
+
+<div class="rule-card">
+  <div class="rule-num">2</div>
+  <div class="rule-body">
+    <strong>Asher's Open Sicilian White has limits at 2000+</strong>
+    He lost to Albert 2044 (B40, AGCA R3) and GM Ruiz Castillo 2526 (B96) as White. At Austin's level (1959), Asher's Open Sicilian preparation may run out by move 12–15. Steer toward sharp, theory-heavy positions where Austin's depth advantage shows.
+  </div>
+</div>
+
+<div class="rule-card">
+  <div class="rule-num">3</div>
+  <div class="rule-body">
+    <strong>Queenside counterplay is Austin's plan</strong>
+    In Taimanov/Kan structures: …a6, …b5, …Rc8, …Bb7 — this is Austin's practiced queenside attack. Asher's Open Sicilian White setup doesn't have a specific anti-queenside plan; standard White plans (kingside attack) are more common. Austin should reach the type of position where …b4 creates concrete threats.
+  </div>
+</div>
+
+<div class="rule-card">
+  <div class="rule-num">4</div>
+  <div class="rule-body">
+    <strong>Be alert to the Italian / Ruy Lopez if Asher deviates</strong>
+    On the off-chance Asher plays 1.e4 with non-Sicilian continuation: if Austin plays 1…c5 and Asher uses 2.Nc3 (Two Knights) or 2.f4 (Grand Prix), Austin should play …e6 …d6 standard Sicilian structure and not panic. These are less-prepared variations for Asher.
+  </div>
+</div>
+
+<h2>§6 — Cheat Sheet</h2>
+
+<div class="cheat-card">
+  <h3>Day-of Quick Reference — Austin as Black vs Asher</h3>
+  <p><strong>After 1.e4:</strong></p>
+  <code class="cheat-moves">PRIMARY:  1…c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 (Taimanov B46)
+           → 5.Nc3 a6 (Kan-Taimanov hybrid, queenside play)
+           → or 5.Nc3 Nf6 6.Ndb5 d6 (Scheveningen/dynamic)
+
+ROSSOLIMO: 3.Bb5+ Nd7 (solid, flexible)
+
+Qe2 ANTI: 3.Qe2 Nc6 4.c3 d5! (central break)
+
+AVOID:    1…e5 (opens Ruy Lopez — Asher's White strength)</code>
+  <p style="margin-top:8px;"><strong>Key reminder:</strong> Stay in Sicilian territory. Asher's Open Sicilian preparation has a depth ceiling around 1900+. Austin at 1959 FIDE should emerge from the opening with familiar positions.</p>
+</div>
+
+<hr />
+<p style="text-align:center; font-size:0.83em; color:#666;">
+  <a href="../austin-prep.html">← Prep Index</a> ·
+  <a href="matchup-asher.html">Matchup Overview</a> ·
+  <a href="matchup-asher-white.html">Austin as White →</a> ·
+  <a href="matchup-asher-deep.html">Deep Analysis →</a>
+</p>
+</body>
+</html>

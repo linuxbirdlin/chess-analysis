@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Austin as White vs Chodniewicz, Asher</title>
+<style>
+:root {
+  --accent: #2d7d46; --accent-bg: #f0faf4; --accent-border: #b6d9c3;
+  --accent-dark: #1a4731;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px; color: #1a1a1a; max-width: 900px;
+  margin: 0 auto; padding: 24px; background: #f8f7f4;
+}
+.doc-header {
+  border-left: 6px solid var(--accent); background: var(--accent-bg);
+  padding: 16px 20px; margin-bottom: 24px; border-radius: 0 6px 6px 0;
+}
+.doc-header h1 { font-size: 1.35em; margin-bottom: 4px; }
+.doc-header .meta { font-size: 0.82em; color: #555; }
+.doc-header .nav-links { margin-top: 10px; font-size: 0.82em; }
+.doc-header .nav-links a { color: var(--accent); text-decoration: none; margin-right: 16px; }
+.doc-header .nav-links a:hover { text-decoration: underline; }
+
+h2 { font-size: 1.1em; margin: 28px 0 10px; padding-left: 10px;
+     border-left: 4px solid var(--accent); }
+h3 { font-size: 0.95em; margin: 16px 0 6px; color: #333; }
+
+.profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+.profile-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.profile-card h3 { margin-top: 0; font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.04em; color: #555; }
+.profile-card p, .profile-card li { font-size: 0.88em; margin-bottom: 3px; }
+.profile-card ul { padding-left: 16px; margin-top: 4px; }
+
+.callout { padding: 10px 14px; border-radius: 4px; margin: 10px 0; font-size: 0.9em; }
+.callout-green  { background: #efffef; border-left: 4px solid var(--accent); }
+.callout-gold   { background: #fffbe0; border-left: 4px solid #b8860b; }
+.callout-blue   { background: #eef4ff; border-left: 4px solid #1a4a8b; }
+.callout-danger { background: #fff0f0; border-left: 4px solid #8b1a1a; }
+
+.move-line {
+  background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+  padding: 8px 12px; margin: 6px 0; font-size: 0.91em; line-height: 1.9;
+  font-family: "Georgia", serif;
+}
+.mv-a { color: #2d7d46; font-weight: bold; }
+.mv-z { color: #1a5276; font-weight: bold; }
+.key-move { background: #eef4ff; border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.note { color: #555; font-style: italic; font-size: 0.87em; }
+
+.var-card { margin: 8px 0; border: 1px solid var(--accent-border); border-radius: 5px; overflow: hidden; }
+.var-header { background: var(--accent-bg); padding: 7px 14px; font-weight: bold; font-size: 0.88em; display: flex; align-items: center; gap: 8px; }
+.var-label { background: var(--accent); color: #fff; border-radius: 3px; padding: 1px 7px; font-size: 0.78em; font-weight: 700; }
+.var-body { padding: 10px 14px; background: #fff; font-size: 0.88em; }
+.var-moves { display: block; font-family: "Courier New", monospace; font-size: 0.88em;
+             background: #f5f5f0; border-radius: 3px; padding: 7px 10px; margin: 6px 0; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.87em; }
+th { background: #2d7d46; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+
+.rule-card { background: #fff; border: 1px solid var(--accent-border); border-radius: 5px;
+             padding: 12px 16px; margin: 8px 0; display: flex; align-items: flex-start; gap: 12px; }
+.rule-num { min-width: 28px; height: 28px; background: var(--accent); color: #fff;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.85em; font-weight: 700; }
+.rule-body { flex: 1; font-size: 0.88em; }
+.rule-body strong { display: block; margin-bottom: 3px; }
+
+.cheat-card { background: #fff; border: 2px solid #b8860b; border-radius: 6px; padding: 14px 18px; margin: 10px 0; }
+.cheat-card h3 { font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.04em; color: #b8860b; margin-bottom: 8px; margin-top: 0; }
+.cheat-moves { display: block; font-family: "Courier New", monospace; font-size: 0.9em;
+               background: #fafaf0; border: 1px solid #e0d8a0; border-radius: 4px;
+               padding: 8px 12px; margin: 6px 0; }
+
+hr { border: none; border-top: 2px solid #ddd; margin: 28px 0; }
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <h1>Austin as White vs Chodniewicz, Asher</h1>
+  <div class="meta">Asher rating: 1884 FIDE (Nov 2026) · 34 games in dataset · No direct encounter</div>
+  <div class="nav-links">
+    <a href="../austin-prep.html">← Prep Index</a>
+    <a href="matchup-asher.html">Matchup Overview</a>
+    <a href="matchup-asher-black.html">Austin as Black →</a>
+    <a href="matchup-asher-deep.html">Deep Analysis →</a>
+  </div>
+</div>
+
+<h2>§1 — Opponent Profile (as Black)</h2>
+
+<div class="profile-grid">
+  <div class="profile-card">
+    <h3>Asher's Black Repertoire vs 1.e4</h3>
+    <ul>
+      <li><strong>Primary:</strong> French Defense (1…e6) — all three systems</li>
+      <li>Tarrasch Qxd5 (Chistyakov): documented in 3+ games</li>
+      <li>Classical Rubinstein (dxe4 ...Nd7): 2 documented games</li>
+      <li>French Advance (...c5 Nc6): 2 documented games</li>
+      <li>Classical C11 (Nc3 e5 Nfd7): 1 documented game</li>
+      <li><strong>Secondary:</strong> Sicilian (1...c5) in 2 games vs anti-Sicilian setups</li>
+    </ul>
+  </div>
+  <div class="profile-card">
+    <h3>Key Patterns to Know</h3>
+    <ul>
+      <li>French is genuinely well-prepared — not just one system</li>
+      <li>Tarrasch Qxd5 (3.Nd2 c5 4.exd5 Qxd5) is his most-documented</li>
+      <li>Advance with ...c5 played vs Sriram (1482) and Bates (1953, draw)</li>
+      <li>Rubinstein after 3.Nc3 dxe4 — solid equalizing setup</li>
+      <li>Black accuracy range: 72.2% worst – 98.9% best</li>
+    </ul>
+  </div>
+</div>
+
+<h2>§2 — The Critical Decision: Which French System?</h2>
+
+<div class="callout callout-danger">
+  <strong>Do NOT play Tarrasch (3.Nd2).</strong> Asher plays the Chistyakov variation (3…c5 4.exd5 Qxd5) in multiple games — vs John Austin (SW Open R3), vs Bryan Lin (Natl K-8 R3), vs Emerson Johnson (AGCA R1). This is his most-practiced French territory. The Tarrasch Qxd5 gives Black rapid development and queen activity — the exact structure where Asher is most comfortable.
+</div>
+
+<table>
+  <thead><tr><th>Austin's choice</th><th>Asher's response</th><th>Verdict</th></tr></thead>
+  <tbody>
+  <tr><td>3.e5 (Advance)</td><td>...c5 4.c3 Nc6 — standard; Asher knows this (vs Sriram, Bates)</td><td>✓ Recommended — tension maintained, Austin's style</td></tr>
+  <tr><td>3.exd5 (Exchange)</td><td>...exd5 symmetric — Asher less prepared here</td><td>✓ Backup — safe, sidesteps all French prep</td></tr>
+  <tr><td>3.Nd2 (Tarrasch)</td><td>3…c5 4.exd5 Qxd5 (Chistyakov) — Asher's HOME territory</td><td>✗ Avoid — giving Asher his best-prepared position</td></tr>
+  <tr><td>3.Nc3 (Classical)</td><td>3…Nf6 4.Bg5 dxe4 (Rubinstein) or 4.e5 Nfd7 — known</td><td>~ Secondary — Asher knows Rubinstein; avoid unless prepared</td></tr>
+  </tbody>
+</table>
+
+<h2>§3 — Recommended Weapon: Advanced French (3.e5)</h2>
+
+<div class="callout callout-green">
+  <strong>Recommended:</strong> Advanced French 3.e5. Austin knows this system — it creates asymmetric pawn chains, avoids Asher's Tarrasch preparation, and suits Austin's tactical attacking style. Asher plays the standard ...c5 Nc6 response, which is well-known territory for both, but Austin's sharper attacking plans in the Advance give genuine winning chances.
+</div>
+
+<h3>Main Line: Advance French with 6.a3</h3>
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">e6</span>
+  2.d4 <span class="mv-z">d5</span>
+  3.e5 <span class="mv-z">c5</span>
+  4.c3 <span class="mv-z">Nc6</span>
+  5.Nf3 <span class="mv-z">Qb6</span>
+  <span class="key-move">6.a3</span>
+  <span class="note">— Prepares b4 to gain queenside space and prevent ...Nh6-f5. Sharp attacking play begins.</span>
+</div>
+
+<div class="var-card">
+  <div class="var-header"><span class="var-label">MAIN A</span> 6…Nh6 7.b4 cxb4 8.axb4 Nxb4 9.Bd3 — most common sharp line</div>
+  <div class="var-body">
+    <code class="var-moves">6.a3 Nh6 7.b4 cxb4 8.axb4 Nxb4 9.Bd3 Bd7 10.O-O Nc6 11.Ba3!</code>
+    <p>After 11.Ba3: White threatens Bb2 and Nc3 with powerful pressure. Black's Nb4 is unstable and must retreat. Austin gets open lines for attack and the bishop pair. This is sharp, concrete play that suits Austin's tactical strengths.</p>
+  </div>
+</div>
+
+<div class="var-card">
+  <div class="var-header"><span class="var-label">MAIN B</span> 6.Be2 — classical Advance development</div>
+  <div class="var-body">
+    <code class="var-moves">6.Be2 cxd4 7.cxd4 Nge7 8.Nc3 Nf5 9.Na4 Qd8 10.O-O Be7</code>
+    <p>After 6.Be2: White develops classically, maintaining the e5 pawn chain. Plan is f4-f5 kingside attack or c4 break to open center. Asher will likely play ...Nge7 ...Nf5 to pressure d4. Austin can meet with Na4 to drive back the queen or allow complications on the queenside.</p>
+  </div>
+</div>
+
+<div class="var-card">
+  <div class="var-header"><span class="var-label">SIDELINE</span> After 3.e5 if Asher plays 3…Qb6 early (rare) or 3…Bd7</div>
+  <div class="var-body">
+    <code class="var-moves">3.e5 Bd7 4.Nf3 Bb5 5.Bd3 Bxd3 6.Qxd3 c5 7.c3 Nc6 8.O-O</code>
+    <p>If Asher plays 3…Bd7 (rare): Austin develops naturally, maintains pawn chain. This sideline is less tested for Asher and Austin has good development.</p>
+  </div>
+</div>
+
+<h2>§4 — Backup System: Exchange French (3.exd5)</h2>
+
+<div class="callout callout-gold">
+  <strong>Backup option:</strong> Exchange French sidesteps ALL of Asher's French preparation — Tarrasch, Rubinstein, Advance. The resulting symmetric position requires Austin to win through technique and piece activity. Use this if unsure of specific Advance lines or wanting a lower-complexity game.
+</div>
+
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">e6</span>
+  2.d4 <span class="mv-z">d5</span>
+  <span class="key-move">3.exd5</span> <span class="mv-z">exd5</span>
+  4.Bd3 <span class="mv-z">Nf6</span>
+  5.Nf3 <span class="mv-z">Bd6</span>
+  6.O-O <span class="mv-z">O-O</span>
+  <span class="note">— Symmetric IQP structure. White plays Nc3-Ne5 or minority attack plan. Austin should know the standard plans in this structure.</span>
+</div>
+
+<h2>§5 — Key Tactical Rules for the Game</h2>
+
+<div class="rule-card">
+  <div class="rule-num">1</div>
+  <div class="rule-body">
+    <strong>3.e5 — not 3.Nd2</strong>
+    Never play 3.Nd2. The Chistyakov (3.Nd2 c5 4.exd5 Qxd5) is Asher's most-played French. He's comfortable in it. 3.e5 creates imbalances immediately.
+  </div>
+</div>
+
+<div class="rule-card">
+  <div class="rule-num">2</div>
+  <div class="rule-body">
+    <strong>Keep complications high — Asher had a 72.2% disaster game</strong>
+    SW Open R3 (Black vs John Austin) produced Asher's worst game (72.2%). The cause was unexpected tactical complications. Don't simplify to drawish endgames — keep the position sharp and tactical.
+  </div>
+</div>
+
+<div class="rule-card">
+  <div class="rule-num">3</div>
+  <div class="rule-body">
+    <strong>Asher is solid but not unbeatable in the Advance</strong>
+    He drew Bates (1953) in French Advance C02 at 90.7% accuracy — a good result for him. But Bates was the aggressor; Austin should take the initiative earlier. The 6.a3 line with b4! is sharper than what Bates likely played.
+  </div>
+</div>
+
+<div class="rule-card">
+  <div class="rule-num">4</div>
+  <div class="rule-body">
+    <strong>Austin's rating edge is real — don't over-respect Asher</strong>
+    At +75 rating, Austin should play for the win. The Advance French with 6.a3 sharp lines give genuine attacking chances. Exchange French gives a solid ½–point floor. Prefer 6.a3 Advance for maximum winning chances.
+  </div>
+</div>
+
+<h2>§6 — Cheat Sheet</h2>
+
+<div class="cheat-card">
+  <h3>Day-of Quick Reference — Austin as White vs Asher</h3>
+  <p><strong>After 1.e4 e6:</strong></p>
+  <code class="cheat-moves">PRIMARY: 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 Qb6 6.a3 → 7.b4! (sharp)
+  or 6.Be2 (classical Advance, safer)
+
+BACKUP:  2.d4 d5 3.exd5 exd5 4.Bd3 Nf6 5.Nf3 (Exchange — safe draw option)
+
+AVOID:   Never play 3.Nd2 (Tarrasch) — Asher's home territory</code>
+  <p style="margin-top:8px;"><strong>Key reminder:</strong> Asher plays French Tarrasch Qxd5 (Chistyakov) in 3+ games. Skip 3.Nd2 entirely. The Advance 3.e5 is your weapon.</p>
+</div>
+
+<hr />
+<p style="text-align:center; font-size:0.83em; color:#666;">
+  <a href="../austin-prep.html">← Prep Index</a> ·
+  <a href="matchup-asher.html">Matchup Overview</a> ·
+  <a href="matchup-asher-black.html">Austin as Black →</a> ·
+  <a href="matchup-asher-deep.html">Deep Analysis →</a>
+</p>
+</body>
+</html>
