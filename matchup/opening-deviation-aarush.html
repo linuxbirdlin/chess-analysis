@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aarush Ajith — Opening Deviation Map</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header {
+      border-bottom: 3px solid #2d7d46;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 { margin: 0 0 8px; font-size: 1.85rem; }
+    .doc-header .meta {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      font-size: 0.9rem; color: #57606a;
+    }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link {
+      display: inline-block; margin-top: 14px;
+      font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.3rem; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.05rem; color: #2d7d46; margin: 24px 0 6px; }
+
+    /* Legend */
+    .legend {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px;
+      padding: 14px 18px; margin-bottom: 32px; font-size: 0.85rem;
+    }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    /* Summary table */
+    table { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin: 0 0 24px; }
+    th { text-align: left; padding: 8px 12px; background: #f6f8fa; border-bottom: 2px solid #d0d7de; font-weight: 600; color: #1f2328; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eaeef2; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    td.opening-name { font-weight: 600; }
+    td.color-cell { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+    .color-w { color: #9a6700; }
+    .color-b { color: #0969da; }
+
+    /* System cards */
+    .system-card {
+      border: 1px solid #d0d7de; border-radius: 8px;
+      margin-bottom: 28px; overflow: hidden;
+    }
+    .system-card-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      background: #f6f8fa; padding: 12px 18px; border-bottom: 1px solid #d0d7de;
+    }
+    .system-card-header h3 { margin: 0; font-size: 1rem; color: #1f2328; }
+    .system-card-header .game-count { font-size: 0.8rem; color: #57606a; }
+    .system-card-body { padding: 16px 18px; }
+
+    /* Move trail */
+    .trail-label { font-size: 0.75rem; font-weight: 600; color: #57606a; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .move-trail { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 16px; align-items: center; }
+
+    .chip {
+      display: inline-flex; align-items: center;
+      padding: 3px 8px; border-radius: 4px;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.4;
+      cursor: default;
+    }
+    .chip-opp   { background: #f0f0f0; color: #6e7781; border: 1px solid #d0d7de; }
+    .chip-book  { background: #dafbe1; color: #1a7f37; border: 1px solid #2d7d46; }
+    .chip-good  { background: #ddf4ff; color: #0550ae; border: 1px solid #0969da; }
+    .chip-side  { background: #fff3cd; color: #7d4e00; border: 1px solid #d4a017; }
+    .chip-rare  { background: #ffd8d3; color: #a4000f; border: 1px solid #cf222e; }
+    .chip-novel { background: #eee8ff; color: #5a1e96; border: 1px solid #8250df; }
+
+    .chip-flag { font-size: 0.65rem; margin-left: 4px; }
+
+    /* Deviation callouts */
+    .dev-list { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+    .dev-row {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 9px 12px; border-radius: 6px; font-size: 0.85rem; line-height: 1.5;
+    }
+    .dev-row.level-side  { background: #fff8e8; border-left: 3px solid #d4a017; }
+    .dev-row.level-rare  { background: #fff0ee; border-left: 3px solid #cf222e; }
+    .dev-row.level-novel { background: #f3ecff; border-left: 3px solid #8250df; }
+
+    .dev-row .dev-move { font-family: monospace; font-weight: 700; min-width: 90px; flex-shrink: 0; }
+    .dev-row .dev-detail { color: #57606a; }
+    .dev-row .dev-detail strong { color: #1f2328; }
+    .dev-row .dev-detail em { font-style: normal; color: #1f2328; font-weight: 600; }
+
+    /* Austin notes */
+    .austin-note {
+      background: #f0fff4; border: 1px solid #2d7d46; border-radius: 6px;
+      padding: 12px 16px; margin-top: 16px; font-size: 0.875rem;
+    }
+    .austin-note .note-label {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: #2d7d46; margin-bottom: 4px;
+    }
+
+    /* Insight grid */
+    .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+    @media (max-width: 580px) { .insight-grid { grid-template-columns: 1fr; } }
+    .insight-card {
+      border: 1px solid #d0d7de; border-radius: 6px;
+      padding: 14px 16px; font-size: 0.875rem;
+    }
+    .insight-card h4 { margin: 0 0 8px; font-size: 0.9rem; color: #2d7d46; }
+    .insight-card ul { margin: 0; padding-left: 18px; }
+    .insight-card li { margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Header ───────────────────────────────────────────────────── -->
+  <div class="doc-header">
+    <h1>Aarush Ajith — Opening Deviation Map</h1>
+    <div class="meta">
+      <span><strong>Player:</strong> Aarush Ajith · 1943 FIDE (Nov 2026)</span>
+      <span><strong>Games analyzed:</strong> 33 (16 as White, 17 as Black)</span>
+      <span><strong>Database:</strong> Lichess Masters (FIDE 2300+)</span>
+      <span><strong>Generated:</strong> Nov 2, 2026</span>
+    </div>
+    <a href="../austin-prep.html" class="back-link">← Back to Prep Index</a>
+  </div>
+
+  <!-- ── Legend ──────────────────────────────────────────────────── -->
+  <div class="legend">
+    <strong style="font-size:0.8rem;text-transform:uppercase;letter-spacing:.04em;color:#57606a;margin-right:4px;">Aarush's moves:</strong>
+    <span class="legend-item"><span class="chip chip-book" style="font-size:.75rem;padding:2px 7px;">e4</span> <span>Top masters move</span></span>
+    <span class="legend-item"><span class="chip chip-good" style="font-size:.75rem;padding:2px 7px;">Nf3</span> <span>2nd–3rd choice (≥20%)</span></span>
+    <span class="legend-item"><span class="chip chip-side" style="font-size:.75rem;padding:2px 7px;">g3</span> <span>Minor sideline (5–19%)</span></span>
+    <span class="legend-item"><span class="chip chip-rare" style="font-size:.75rem;padding:2px 7px;">Qb3</span> <span>Rare / personal prep (&lt;5%)</span></span>
+    <span class="legend-item"><span class="chip chip-novel" style="font-size:.75rem;padding:2px 7px;">O-O</span> <span>Novelty (not in master DB)</span></span>
+    <span class="legend-item"><span class="chip chip-opp" style="font-size:.75rem;padding:2px 7px;">Nf6</span> <span>Opponent move</span></span>
+  </div>
+
+  <!-- ── Summary table ───────────────────────────────────────────── -->
+  <h2>Deviation Summary</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Opening System</th>
+        <th>Color</th>
+        <th>Games</th>
+        <th>First Deviation</th>
+        <th>Aarush's Move vs Book</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="opening-name">Bogo-Catalan — 5.Nbd2 → novel from move 7 (E09)</td>
+        <td class="color-cell color-w">White</td>
+        <td>8</td>
+        <td>Move 3</td>
+        <td><code>Nbd2</code> (7%) → chain of ★ novelties from move 7</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Catalan Fianchetto vs KID/Dragon (E68)</td>
+        <td class="color-cell color-w">White</td>
+        <td>3</td>
+        <td>Move 3</td>
+        <td><code>g3</code> (9%) vs <code>Nc3</code> (80%)</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Catalan vs Slav — 5.Qb3 (D11/D12)</td>
+        <td class="color-cell color-w">White</td>
+        <td>3</td>
+        <td>Move 3 ⚑</td>
+        <td><code>g3</code> (0%) vs Slav; <code>Qb3</code> (4%) aggressive queen</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Sicilian Najdorf English Attack — …h5 anti-g4 (B90)</td>
+        <td class="color-cell color-b">Black</td>
+        <td>7</td>
+        <td>Move 7</td>
+        <td><code>h5</code> (17%) vs <code>O-O</code> (70%) — prevents g4-g5 attack</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Grünfeld / KID vs 1.d4 Nf3 (E65)</td>
+        <td class="color-cell color-b">Black</td>
+        <td>4</td>
+        <td>Move 9 ★</td>
+        <td><code>Nxe5</code> → <code>Ng4</code> novel chain from move 9</td>
+      </tr>
+      <tr>
+        <td class="opening-name">KID vs 1.d4 c4 — …c5 Benko flavor (E62)</td>
+        <td class="color-cell color-b">Black</td>
+        <td>2</td>
+        <td>Move 6</td>
+        <td><code>c5</code> (7%) vs <code>Nc6</code> (41%) — Benko-type pawn push</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <h2>As White</h2>
+
+  <!-- System 1: Bogo-Catalan Nbd2 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Bogo-Catalan — 5.Nbd2 system <small style="color:#57606a;font-weight:400;">E09</small></h3>
+      <span class="game-count">8 games · trunk depth 20 · novel from move 7</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-good" title="Aarush: 36% | Book: e4 (45%) d4 (36%) — 1.d4 confirmed">1.d4</span>
+        <span class="chip chip-opp">1...Nf6</span>
+        <span class="chip chip-book" title="Aarush: 72% | Book: c4 (72%)">2.c4</span>
+        <span class="chip chip-opp">2...e6</span>
+        <span class="chip chip-side" title="Aarush: 12% | Book: Nf3 (48%) Nc3 (40%) g3 (12%)">3.g3<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">3...d5</span>
+        <span class="chip chip-good" title="Aarush: 45% | Book: Bg2 (55%) Nf3 (45%) — delays fianchetto">4.Nf3</span>
+        <span class="chip chip-opp">4...Bb4+</span>
+        <span class="chip chip-side" title="Aarush: 7% | Book: Bd2 (91%) Nbd2 (7%) — avoids bishop exchange">5.Nbd2<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">5...O-O</span>
+        <span class="chip chip-book" title="Aarush: 87% | Book: Bg2 (87%)">6.Bg2</span>
+        <span class="chip chip-opp">6...Qe7</span>
+        <span class="chip chip-novel" title="Aarush: novel | No master games after this position">7.O-O<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">7...Rd8</span>
+        <span class="chip chip-novel" title="Aarush: novel">8.Qc2<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">8...Bxd2</span>
+        <span class="chip chip-novel" title="Aarush: novel">9.Bxd2<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">9...Ne4</span>
+        <span class="chip chip-novel" title="Aarush: novel">10.e3<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">10...Nc6</span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">3. g3</span>
+          <span class="dev-detail">
+            <em>Catalan fianchetto — universal system.</em> Masters most often develop with <strong>Nf3</strong> (48%) or <strong>Nc3</strong> (40%); Aarush's <strong>g3</strong> (12%) commits to the fianchetto setup before knowing Black's structure. This is consistent across ALL of Aarush's White games — g3 appears in every system (vs e6, g6, and c6 alike). He is a pure Catalan player who fianchettoes regardless of Black's response.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">5. Nbd2</span>
+          <span class="dev-detail">
+            <em>Bogo-Catalan sideline — avoids piece exchange.</em> After 4...Bb4+ (Bogo check), masters almost always play <strong>Bd2</strong> (91%) — exchanging bishops, relieving the check simply. Aarush's <strong>Nbd2</strong> (7%) blocks the check with the knight, keeping his dark-squared bishop pair intact and avoiding giving Black the bishop pair. The knight on d2 is temporary — after 8...Bxd2 9.Bxd2, White recaptures with the bishop (not the queen), making the queen-retake on d2 unavailable and the position structurally unusual. All subsequent moves from move 7 are <em>not in the master database</em> — Aarush is in completely personal prep territory.
+          </span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">7. O-O → 10. e3 (chain)</span>
+          <span class="dev-detail">
+            <em>Full novelty chain — 4 consecutive moves with zero master precedent.</em> After 6.Bg2 Qe7 7.O-O Rd8 8.Qc2 Bxd2 9.Bxd2 Ne4 10.e3 — this entire sequence is Aarush's personal preparation. The position after 9.Bxd2 leaves White with Bg2 and Bd2 (two bishops on open diagonals but no knight on f3 temporarily), while Black has ...Ne4 strongly placed. Aarush has fully prepared this line across 8 games.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays the Nimzo-Indian (1.d4 Nf6 2.c4 e6 3.Nc3 Bb4) as Black — but Aarush never plays 3.Nc3, so the Nimzo doesn't arise. Instead, Aarush plays 3.g3, steering to this Bogo-Catalan structure. From matchup-aarush.html: Austin should play the <strong>Catalan Open 4...dxc4</strong> after 1.d4 Nf6 2.c4 e6 3.g3 d5 4.Nf3 or 4.Bg2. If Aarush delays Nf3 and plays 3.g3 d5 4.Nf3 Bb4+ 5.Nbd2 — Austin should NOT play the trunk line with 5...O-O → 6...Qe7 (Aarush is prepared here). Instead break with <strong>5...c5!</strong> immediately: if 6.a3, play 6...Bxd2+ 7.Nxd2 cxd4 8.exd4 (or 8.Nxd4) d4! — grabbing the center. This sidesteps Aarush's prepared novelty chain entirely. The Catalan Open dxc4 plan is confirmed to work against Aarush by the PAM R5 game vs Gao, Heye where he drifted badly.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 2: Catalan vs KID -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Catalan Fianchetto vs KID / Dragon setup <small style="color:#57606a;font-weight:400;">E68</small></h3>
+      <span class="game-count">3 games · trunk depth 20</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-good" title="Aarush: 36%">1.d4</span>
+        <span class="chip chip-opp">1...Nf6</span>
+        <span class="chip chip-book" title="Aarush: 72%">2.c4</span>
+        <span class="chip chip-opp">2...g6</span>
+        <span class="chip chip-side" title="Aarush: 9% | Book: Nc3 (80%) g3 (9%) Nf3 (8%)">3.g3<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">3...Bg7</span>
+        <span class="chip chip-book" title="Aarush: 99%">4.Bg2</span>
+        <span class="chip chip-opp">4...O-O</span>
+        <span class="chip chip-good" title="Aarush: 22% | Book: Nc3 (77%) Nf3 (22%) — delays Nc3">5.Nf3</span>
+        <span class="chip chip-opp">5...d6</span>
+        <span class="chip chip-book" title="Aarush: 73%">6.O-O</span>
+        <span class="chip chip-opp">6...Nbd7</span>
+        <span class="chip chip-book" title="Aarush: 81%">7.Nc3</span>
+        <span class="chip chip-opp">7...e5</span>
+        <span class="chip chip-book" title="Aarush: 66%">8.e4</span>
+        <span class="chip chip-opp">8...exd4</span>
+        <span class="chip chip-book" title="Aarush: 100%">9.Nxd4</span>
+        <span class="chip chip-opp">9...c6</span>
+        <span class="chip chip-book" title="Aarush: 78%">10.h3</span>
+        <span class="chip chip-opp">10...Qb6</span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">3. g3</span>
+          <span class="dev-detail">
+            <em>Catalan fianchetto vs KID — sideline.</em> Masters usually play <strong>Nc3</strong> (80%) to enter the standard KID (with e4 coming). Aarush's <strong>g3</strong> (9%) refuses the KID and instead builds a Catalan/King's Fianchetto setup — White gets Bg2 but delays e4 and Nc3. After 4.Bg2 O-O 5.Nf3 d6 6.O-O Nbd7 7.Nc3 e5 8.e4 exd4 9.Nxd4 — the position resembles a reversed KID where White has the Catalan bishop but Black gets full KID pawn structure. Aarush gets the Bg2 long diagonal pointing toward h1 in exchange for giving Black a solid KID setup.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">5. Nf3 (not Nc3)</span>
+          <span class="dev-detail">
+            <em>Delayed knight deployment.</em> Standard is <strong>Nc3</strong> (77%) to support e4. Aarush's <strong>Nf3</strong> (22%) delays Nc3, keeping the option of d5 expansion with Nb1-c3 or keeping the c3-square for a pawn. After 5...d6 6.O-O 7.Nc3, Aarush gets to Nc3 anyway — the 5.Nf3 move order is a small variation that avoids early ...Ng4 ideas before the bishop is on g2.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays Sicilian vs 1.e4, not KID vs 1.d4. But if Austin wants to vary: from matchup-aarush.html, Austin should play the Catalan Open (4...dxc4) as the primary Black weapon against Aarush's 1.d4. Against the g3 Catalan vs g6 setup, Austin would need the King's Indian or Grünfeld (1.d4 Nf6 2.c4 g6) — low priority since Austin's main Aarush-Black weapon is the e6/d5 Catalan Open.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 3: Catalan vs Slav -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Catalan vs Slav — 5.Qb3 aggressive queen <small style="color:#57606a;font-weight:400;">D11/D12</small></h3>
+      <span class="game-count">3 games · trunk depth 20</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-good" title="Aarush: 36%">1.d4</span>
+        <span class="chip chip-opp">1...d5</span>
+        <span class="chip chip-book" title="Aarush: 77%">2.c4</span>
+        <span class="chip chip-opp">2...c6</span>
+        <span class="chip chip-rare" title="Aarush: 0% | Book: Nf3 (65%) Nc3 (24%) cxd5 (8%) — very rare vs Slav">3.g3<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">3...Nf6</span>
+        <span class="chip chip-good" title="Aarush: 25% | Book: Bg2 (61%) Nf3 (25%) cxd5 (6%)">4.Nf3</span>
+        <span class="chip chip-opp">4...Bf5</span>
+        <span class="chip chip-rare" title="Aarush: 4% | Book: Nc3 (76%) Bg2 (17%) Qb3 (4%) — queen sortie">5.Qb3<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">5...Qb6</span>
+        <span class="chip chip-book" title="Aarush: 43% | Book: c5 (43%)">6.c5</span>
+        <span class="chip chip-opp">6...Qxb3</span>
+        <span class="chip chip-book" title="Aarush: 100%">7.axb3</span>
+        <span class="chip chip-opp">7...e6</span>
+        <span class="chip chip-good" title="Aarush: 33% | Book: Nbd2 (33%) Nc3 (33%) e3 (33%) — equal options">8.Nc3</span>
+        <span class="chip chip-opp">8...Be7</span>
+        <span class="chip chip-book" title="Aarush: 51%">9.Bf4</span>
+        <span class="chip chip-opp">9...a6</span>
+        <span class="chip chip-novel" title="Aarush: novel | Book: b4 (50%) e3 (50%)">10.h3<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">10...O-O</span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-rare">
+          <span class="dev-move">3. g3 (vs Slav)</span>
+          <span class="dev-detail">
+            <em>Catalan fianchetto vs Slav — extremely rare.</em> Masters almost never play 3.g3 vs the Slav — standard is <strong>Nf3</strong> (65%) or <strong>Nc3</strong> (24%). Aarush plays g3 regardless of what Black plays — vs e6, vs g6, and now vs c6. The Catalan setup vs Slav is an unusual weapon: White builds the Bg2 long diagonal but Black has already played ...c6 protecting d5, making it harder for White to justify c4 without exchanging.
+          </span>
+        </div>
+        <div class="dev-row level-rare">
+          <span class="dev-move">5. Qb3</span>
+          <span class="dev-detail">
+            <em>Aggressive queen sortie — challenges b7 and d5 simultaneously.</em> Masters prefer <strong>Nc3</strong> (76%). Aarush's <strong>Qb3</strong> (4%) attacks b7 while putting pressure on d5. After 5...Qb6 (forced queen trade), 6.c5 gains space and 7.axb3 gives White an open a-file and b3-b4 queenside expansion potential. This is a prepared sideline that forces early queen exchange and transforms to a positional game with a space advantage on the queenside. Aarush has played this against 3 opponents, suggesting prepared theory.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin doesn't play the Slav as Black (Austin's Nimzo/Sicilian repertoire won't encounter this). However, Aarush's pattern is clear: <strong>he always plays 3.g3 regardless of Black's structure</strong>. If Austin plays the Nimzo setup (1...Nf6 2...e6 → 3.g3 d5 4.Nf3/Bg2), Austin should head for the Bogo-Catalan (4...Bb4+ or 4...dxc4) and avoid the 5.Nbd2 trunk line with ...Qe7 Rd8. The main Austin-Black recommendation remains: Catalan Open with 4...dxc4 + ...a6/b5 pawn-hold plan.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <h2>As Black</h2>
+
+  <!-- System 4: Sicilian Najdorf ...h5 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Sicilian Najdorf English Attack — …h5 anti-g4 <small style="color:#57606a;font-weight:400;">B90</small></h3>
+      <span class="game-count">7 games · trunk depth 20</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.e4</span>
+        <span class="chip chip-book" title="Aarush: 46% | Book: c5 (46%) — confirmed Sicilian">1...c5</span>
+        <span class="chip chip-opp">2.Nf3</span>
+        <span class="chip chip-book" title="Aarush: 46% | Book: d6 (46%)">2...d6</span>
+        <span class="chip chip-opp">3.d4</span>
+        <span class="chip chip-book" title="Aarush: 96%">3...cxd4</span>
+        <span class="chip chip-opp">4.Nxd4</span>
+        <span class="chip chip-book" title="Aarush: 100%">4...Nf6</span>
+        <span class="chip chip-opp">5.Nc3</span>
+        <span class="chip chip-book" title="Aarush: 71% | Book: a6 (71%)">5...a6</span>
+        <span class="chip chip-opp">6.Be3</span>
+        <span class="chip chip-book" title="Aarush: 71% | Book: e5 (71%) — English Attack reply">6...e5</span>
+        <span class="chip chip-opp">7.Nb3</span>
+        <span class="chip chip-side" title="Aarush: 15% | Book: Be6 (85%) Be7 (15%)">7...Be7<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">8.f3</span>
+        <span class="chip chip-book" title="Aarush: 88% | Book: Be6 (88%)">8...Be6</span>
+        <span class="chip chip-opp">9.Qd2</span>
+        <span class="chip chip-side" title="Aarush: 17% | Book: O-O (70%) h5 (17%) Nbd7 (12%) — anti-g4 weapon">9...h5!<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">10.Nd5</span>
+        <span class="chip chip-book" title="Aarush: 91%">10...Nxd5</span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">7... Be7</span>
+          <span class="dev-detail">
+            <em>Bishop delay — keeps flexibility.</em> Masters prefer <strong>Be6</strong> (85%) immediately. Aarush's <strong>Be7</strong> (15%) postpones the bishop to e6, possibly waiting to see if White plays f3 before committing. After 8.f3, Aarush plays 8...Be6 anyway — so this is a one-move delay that avoids the Be6 Qd2 lines where White might play f4-f5 immediately before Black is ready.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">9... h5!</span>
+          <span class="dev-detail">
+            <em>Anti-English-Attack weapon — prevents g4-g5 pawn storm.</em> Masters usually play <strong>O-O</strong> (70%). Aarush's <strong>h5</strong> (17%) is a prepared anti-attack move. When White plans Qd2 → O-O-O → g4-g5-g6 kingside storm, Black's ...h5 prevents g4 entirely. Black keeps the king in the center and may play ...h4 to open the h-file for counterplay. This is Aarush's studied anti-English Attack preparation — he has played it in multiple Najdorf games (Canada Closed R2, R8). Austin should be ready for this response instead of the typical O-O kingside castle.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        <strong>Austin plays 1.e4 → Aarush's Najdorf (1...c5 2...d6 3...a6) is the direct matchup structure.</strong> From matchup-aarush.html: play <strong>6.h4</strong> (NOT 6.Be3 English Attack). Austin's direct encounter used 6.h3 and lost. The data shows Aarush is 0W–3L against direct h4 attacks across the dataset. With <strong>6.h4</strong>, the position is: 1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.h4 — this bypasses the Be3/Nb3/f3/Qd2/O-O-O English Attack sequence entirely and goes for direct h4-h5 pressure. Aarush's 9...h5 anti-English-Attack weapon is irrelevant vs 6.h4 — Austin's h-pawn is already on h4 creating its own attack. If Austin plays 6.Be3 (English Attack), be prepared for 9...h5 — White should then play 10.Nd5 (as in the trunk) or 10.O-O-O and NOT try g4 immediately since h5 stops it.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 5: Grünfeld/KGD novel chain -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Grünfeld / KID vs 1.d4 Nf3 — novel endgame chain <small style="color:#57606a;font-weight:400;">E65</small></h3>
+      <span class="game-count">4 games · trunk depth 20 · novel from move 9</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.d4</span>
+        <span class="chip chip-book" title="Aarush: 61%">1...Nf6</span>
+        <span class="chip chip-opp">2.Nf3</span>
+        <span class="chip chip-book" title="Aarush: 38%">2...g6</span>
+        <span class="chip chip-opp">3.g3</span>
+        <span class="chip chip-book" title="Aarush: 49% | Book: d5 (49%)">3...d5</span>
+        <span class="chip chip-opp">4.Bg2</span>
+        <span class="chip chip-book" title="Aarush: 95%">4...Bg7</span>
+        <span class="chip chip-opp">5.O-O</span>
+        <span class="chip chip-book" title="Aarush: 67%">5...O-O</span>
+        <span class="chip chip-opp">6.c3</span>
+        <span class="chip chip-book" title="Aarush: 43%">6...c6</span>
+        <span class="chip chip-opp">7.Nbd2</span>
+        <span class="chip chip-book" title="Aarush: 28%">7...Nbd7</span>
+        <span class="chip chip-opp">8.Re1</span>
+        <span class="chip chip-book" title="Aarush: 24%">8...e5</span>
+        <span class="chip chip-opp">9.e4</span>
+        <span class="chip chip-novel" title="Aarush: novel | No master games">9...Nxe5<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">10.Nxe5</span>
+        <span class="chip chip-novel" title="Aarush: novel">10...Ng4<span class="chip-flag">★</span></span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-novel">
+          <span class="dev-move">9... Nxe5 → 10... Ng4</span>
+          <span class="dev-detail">
+            <em>Novel knight maneuver — no master precedent.</em> After 9.e4 (White pushes to close the center), Aarush plays 9...Nxe5!? (sacrificing a pawn or creating tactical complications) then 10...Ng4 after 10.Nxe5 — the Ng4 attacks f2 and creates unbalanced piece play. No master games exist in this position (db=0). This is personal prep territory from move 9 — Aarush likely has studied this line in a Grünfeld/KGD tabiya. The 4-game sample suggests it's a prepared repertoire line.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays 1.e4, so this 1.d4 Nf3 structure won't arise unless Austin's opponent plays 1.d4. If Austin faces Aarush with Austin as Black vs 1.d4: the matchup recommends the Catalan Open (1...Nf6 2.c4 e6 3.g3 d5 4.Nf3 dxc4 or 4.Bg2 dxc4). This Grünfeld-type system (1...Nf6 2...g6 3...d5) is Aarush's counter-weapon vs 1.d4 Nf3 players (without c4). Lower priority than the main Catalan-Open Austin-Black plan.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 6: KID Benko-type -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>KID vs 1.d4 c4 — …c5 Benko-flavor <small style="color:#57606a;font-weight:400;">E62</small></h3>
+      <span class="game-count">2 games · ⚠ small sample</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk (2 games)</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.d4</span>
+        <span class="chip chip-book" title="Aarush: 61%">1...Nf6</span>
+        <span class="chip chip-opp">2.c4</span>
+        <span class="chip chip-good" title="Aarush: 33% | Book: e6 (54%) g6 (33%) — KID setup">2...g6</span>
+        <span class="chip chip-opp">3.Nc3</span>
+        <span class="chip chip-book" title="Aarush: 77%">3...Bg7</span>
+        <span class="chip chip-opp">4.e4</span>
+        <span class="chip chip-book" title="Aarush: 66%">4...O-O</span>
+        <span class="chip chip-opp">5.Nf3</span>
+        <span class="chip chip-book" title="Aarush: 88%">5...d6</span>
+        <span class="chip chip-opp">6.Be2</span>
+        <span class="chip chip-side" title="Aarush: 7% | Book: Nc6 (41%) Nbd7 (34%) c6 (15%) c5 (7%)">6...c5!?<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">7.dxc5</span>
+        <span class="chip chip-book" title="Aarush: 60%">7...e6</span>
+        <span class="chip chip-opp">8.cxd6</span>
+        <span class="chip chip-book" title="Aarush: 91%">8...exd5</span>
+        <span class="chip chip-opp">9.O-O</span>
+        <span class="chip chip-good" title="Aarush: 28% | Book: Re8 (53%) a6 (28%)">9...a6</span>
+        <span class="chip chip-opp">10.Bg5</span>
+        <span class="chip chip-good" title="Aarush: 43% | Book: Nbd7 (55%) Re8 (43%)">10...Re8</span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">6... c5</span>
+          <span class="dev-detail">
+            <em>Benko-type pawn push in KID.</em> Standard KID moves at this point are <strong>Nc6</strong> (41%) or <strong>Nbd7</strong> (34%). Aarush's <strong>c5</strong> (7%) is an unusual tempo-breaking push — after 7.dxc5 dxc5 (or 7...e6 8.cxd6), Black trades the d-pawn to get queenside counterplay with the c-pawn. This is a non-standard KID deviation: Aarush's personal weapon to imbalance the position rather than play the standard KID middlegame structures.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays 1.e4 so this KID structure is irrelevant for direct Austin vs Aarush play. Note the pattern: Aarush uses ...c5 to create imbalances in KID positions, consistent with his general style as Black — he prefers dynamic counterplay (c5, h5, Nxe5 novelties) over solid development. Low priority.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <h2>Preparation Insights</h2>
+  <div class="insight-grid">
+    <div class="insight-card">
+      <h4>Austin's action items</h4>
+      <ul>
+        <li><strong>As White vs Najdorf: play 6.h4.</strong> Aarush is 0W–3L against the h4 pawn storm. His 9...h5 anti-English-Attack weapon is only relevant vs 6.Be3 — the 6.h4 system bypasses it entirely. Study h4-h5 attack to move 15+.</li>
+        <li><strong>As Black vs Catalan: play 4...dxc4.</strong> If Aarush plays 3.g3 d5 4.Nf3, take the c-pawn and hold it with ...a6/...b5. Aarush's Catalan Open handling has produced 3 documented blunders/mistakes in the PAM R5 game.</li>
+        <li><strong>Avoid 5.Nbd2 trunk line.</strong> If the Bogo-Catalan arises (4...Bb4+), avoid 5...O-O → Qe7 → Rd8 — Aarush is prepared here with 8 games. Instead play 5...c5! to break the center immediately and sidestep his preparation.</li>
+        <li><strong>vs 6.Be3 English Attack: prepare for 9...h5.</strong> If Austin must play English Attack, don't try g4 after Qd2 — Aarush's h5 stops it. Instead play 10.Nd5 (as in trunk) and simplify favorably.</li>
+      </ul>
+    </div>
+    <div class="insight-card">
+      <h4>Aarush's patterns</h4>
+      <ul>
+        <li><strong>1.d4 + g3 universally</strong> — plays Catalan fianchetto against every Black setup (e6, g6, c6). Never deviates from 1.d4 c4 g3 structure. Austin's main defense is the e6/d5 Catalan Open.</li>
+        <li><strong>Nimzo-Indian avoidance</strong> — never plays 3.Nc3, preventing Austin's Bb4+ Nimzo entirely. Austin's Nimzo preparation is useless here.</li>
+        <li><strong>Prepared novelty chains</strong> — Systems 1 (move 7) and 5 (move 9) both go novel. Aarush has deep personal prep in specific positions. Sidestep them rather than following the trunk.</li>
+        <li><strong>Time pressure collapses</strong> — Aarush blundered Qb4?? from a +6 winning position in Toronto R6. AGCA R5: 5 blunders in one game. His preparation is deep but his clock management is unreliable. Create complexity after move 12.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
