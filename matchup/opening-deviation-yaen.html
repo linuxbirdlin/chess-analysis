@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yaen Saenz Cabrera — Opening Deviation Map</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; font-size:16px; line-height:1.7; color:#1f2328; background:#f6f8fa; }
+    .page { max-width:900px; margin:0 auto; background:#fff; padding:48px 56px 64px; box-shadow:0 1px 4px rgba(0,0,0,.1); }
+    @media(max-width:680px){.page{padding:24px 20px 40px;}}
+    .doc-header { border-bottom:3px solid #2d7d46; padding-bottom:20px; margin-bottom:32px; }
+    .doc-header h1 { margin:0 0 8px; font-size:1.85rem; }
+    .doc-header .meta { display:flex; flex-wrap:wrap; gap:16px; font-size:.9rem; color:#57606a; }
+    .doc-header .back-link { display:inline-block; margin-top:14px; font-size:.875rem; color:#2d7d46; text-decoration:none; font-weight:500; }
+    .doc-header .back-link:hover { text-decoration:underline; }
+    h2 { font-size:1.3rem; margin:40px 0 12px; padding-bottom:6px; border-bottom:1px solid #d0d7de; }
+    h3 { font-size:1.05rem; color:#2d7d46; margin:24px 0 6px; }
+    .legend { display:flex; flex-wrap:wrap; gap:12px; background:#f6f8fa; border:1px solid #d0d7de; border-radius:6px; padding:14px 18px; margin-bottom:32px; font-size:.85rem; }
+    .legend-item { display:flex; align-items:center; gap:6px; }
+    table { width:100%; border-collapse:collapse; font-size:.875rem; margin:0 0 24px; }
+    th { text-align:left; padding:8px 12px; background:#f6f8fa; border-bottom:2px solid #d0d7de; font-weight:600; color:#1f2328; }
+    td { padding:7px 12px; border-bottom:1px solid #eaeef2; vertical-align:top; }
+    tr:last-child td { border-bottom:none; }
+    td.color-cell { font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em; }
+    .color-w { color:#9a6700; }
+    .color-b { color:#0969da; }
+    .system-card { border:1px solid #d0d7de; border-radius:8px; margin-bottom:28px; overflow:hidden; }
+    .system-card-header { display:flex; justify-content:space-between; align-items:baseline; background:#f6f8fa; padding:12px 18px; border-bottom:1px solid #d0d7de; }
+    .system-card-header h3 { margin:0; font-size:1rem; color:#1f2328; }
+    .system-card-header .game-count { font-size:.8rem; color:#57606a; }
+    .system-card-body { padding:16px 18px; }
+    .trail-label { font-size:.75rem; font-weight:600; color:#57606a; text-transform:uppercase; letter-spacing:.05em; margin-bottom:8px; }
+    .move-trail { display:flex; flex-wrap:wrap; gap:4px; margin-bottom:16px; align-items:center; }
+    .chip { display:inline-flex; align-items:center; padding:3px 8px; border-radius:4px; font-family:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace; font-size:.8rem; font-weight:600; line-height:1.4; cursor:default; }
+    .chip-opp   { background:#f0f0f0; color:#6e7781; border:1px solid #d0d7de; }
+    .chip-book  { background:#dafbe1; color:#1a7f37; border:1px solid #2d7d46; }
+    .chip-good  { background:#ddf4ff; color:#0550ae; border:1px solid #0969da; }
+    .chip-side  { background:#fff3cd; color:#7d4e00; border:1px solid #d4a017; }
+    .chip-rare  { background:#ffd8d3; color:#a4000f; border:1px solid #cf222e; }
+    .chip-novel { background:#eee8ff; color:#5a1e96; border:1px solid #8250df; }
+    .chip-flag { font-size:.65rem; margin-left:4px; }
+    .dev-list { display:flex; flex-direction:column; gap:6px; margin-top:4px; }
+    .dev-row { display:flex; gap:10px; align-items:flex-start; padding:9px 12px; border-radius:6px; font-size:.85rem; line-height:1.5; }
+    .dev-row.level-side  { background:#fff8e8; border-left:3px solid #d4a017; }
+    .dev-row.level-rare  { background:#fff0ee; border-left:3px solid #cf222e; }
+    .dev-row.level-novel { background:#f3ecff; border-left:3px solid #8250df; }
+    .dev-row .dev-move { font-family:monospace; font-weight:700; min-width:90px; flex-shrink:0; }
+    .dev-row .dev-detail { color:#57606a; }
+    .dev-row .dev-detail strong { color:#1f2328; }
+    .dev-row .dev-detail em { font-style:normal; color:#1f2328; font-weight:600; }
+    .austin-note { background:#f0fff4; border:1px solid #2d7d46; border-radius:6px; padding:12px 16px; margin-top:16px; font-size:.875rem; }
+    .austin-note .note-label { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:#2d7d46; margin-bottom:4px; }
+    .insight-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:8px; }
+    @media(max-width:580px){.insight-grid{grid-template-columns:1fr;}}
+    .insight-card { border:1px solid #d0d7de; border-radius:6px; padding:14px 16px; font-size:.875rem; }
+    .insight-card h4 { margin:0 0 8px; font-size:.9rem; color:#2d7d46; }
+    .insight-card ul { margin:0; padding-left:18px; }
+    .insight-card li { margin-bottom:5px; }
+    .warning-banner { background:#fff8e8; border:1px solid #d4a017; border-radius:6px; padding:10px 16px; margin-bottom:20px; font-size:.85rem; color:#7d4e00; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Header ─────────────────────────────────────────────────── -->
+  <div class="doc-header">
+    <h1>Yaen Saenz Cabrera — Opening Deviation Map</h1>
+    <div class="meta">
+      <span><strong>Player:</strong> Yaen Saenz Cabrera · 1841 FIDE (Nov 2026)</span>
+      <span><strong>Games analyzed:</strong> 64 (34 as White, 30 as Black)</span>
+      <span><strong>Database:</strong> Lichess Masters (FIDE 2300+)</span>
+      <span><strong>Generated:</strong> Nov 3, 2026</span>
+    </div>
+    <a href="../austin-prep.html" class="back-link">← Back to Prep Index</a>
+  </div>
+
+  <!-- ── Legend ─────────────────────────────────────────────────── -->
+  <div class="legend">
+    <strong style="font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:#57606a;margin-right:4px;">Yaen's moves:</strong>
+    <span class="legend-item"><span class="chip chip-book" style="font-size:.75rem;padding:2px 7px;">e4</span> <span>Top masters move</span></span>
+    <span class="legend-item"><span class="chip chip-good" style="font-size:.75rem;padding:2px 7px;">Nc6</span> <span>2nd–3rd choice (≥20%)</span></span>
+    <span class="legend-item"><span class="chip chip-side" style="font-size:.75rem;padding:2px 7px;">d4</span> <span>Minor sideline (5–19%)</span></span>
+    <span class="legend-item"><span class="chip chip-rare" style="font-size:.75rem;padding:2px 7px;">c4</span> <span>Rare / personal prep (&lt;5%)</span></span>
+    <span class="legend-item"><span class="chip chip-novel" style="font-size:.75rem;padding:2px 7px;">Bd3</span> <span>Novelty (not in master DB)</span></span>
+    <span class="legend-item"><span class="chip chip-opp" style="font-size:.75rem;padding:2px 7px;">e5</span> <span>Opponent move</span></span>
+  </div>
+
+  <!-- ── Summary table ──────────────────────────────────────────── -->
+  <h2>Deviation Summary</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Opening System</th>
+        <th>Color</th>
+        <th>Games</th>
+        <th>First Deviation</th>
+        <th>Yaen's Move vs Book</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Scotch — Nb3/c4 Maróczy bind setup (C45)</strong></td>
+        <td class="color-cell color-w">White</td>
+        <td>12</td>
+        <td>Move 3</td>
+        <td><code>d4</code> (3%) Scotch vs <code>Bb5</code> (65%) Ruy; then <code>Nb3</code> (8%) + <code>c4</code> (3%) → novel from move 7</td>
+      </tr>
+      <tr>
+        <td><strong>French Advance — early Nd2 after c3 (C02)</strong></td>
+        <td class="color-cell color-w">White</td>
+        <td>5</td>
+        <td>Move 3</td>
+        <td><code>e5</code> Advance (21%) vs <code>Nc3</code> (51%); <code>Nd2</code> (5%) vs <code>dxc5</code> (61%) → novel from move 7</td>
+      </tr>
+      <tr>
+        <td><strong>Anti-Najdorf 6.a4 → a5 novelty (B90)</strong></td>
+        <td class="color-cell color-w">White</td>
+        <td>4</td>
+        <td>Move 6</td>
+        <td><code>a4</code> (&lt;3%) vs <code>Be3</code> (33%); <code>Nb3</code> + <code>Be3</code> + <code>a5</code> novel</td>
+      </tr>
+      <tr>
+        <td><strong>Sicilian Löwenthal/Kalashnikov — 4…e5 (B32)</strong></td>
+        <td class="color-cell color-b">Black</td>
+        <td>8</td>
+        <td>Move 4 ⚑</td>
+        <td><code>e5</code> (3%) Löwenthal vs <code>Nf6</code> (58%); <code>Nf6</code> (5%) vs <code>b5</code> (53%); <code>Be7</code> (2%) rare</td>
+      </tr>
+      <tr>
+        <td><strong>QGD Meran setup — delayed …Be7 (D47)</strong></td>
+        <td class="color-cell color-b">Black</td>
+        <td>5</td>
+        <td>Move 5</td>
+        <td><code>Be7</code> (4%) vs <code>h6</code> (63%); novel <code>b6/Bb7</code> fianchetto chain from move 9</td>
+      </tr>
+      <tr>
+        <td><strong>Italian Giuoco Piano — …Be6/fxe6 plan (C54)</strong></td>
+        <td class="color-cell color-b">Black</td>
+        <td>4</td>
+        <td>Move 8</td>
+        <td><code>Be6</code> (4%) vs <code>Bb6</code> (55%); <code>fxe6</code> novel pawn capture</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <h2>As White</h2>
+
+  <!-- System 1: Scotch Nb3/c4 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Scotch Game — Nb3/c4 Maróczy bind setup <small style="color:#57606a;font-weight:400;">C45</small></h3>
+      <span class="game-count">12 games · Yaen's primary White weapon · novel from move 7</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-book" title="Yaen: 45%">1.e4</span>
+        <span class="chip chip-opp">1...e5</span>
+        <span class="chip chip-book" title="Yaen: 92%">2.Nf3</span>
+        <span class="chip chip-opp">2...Nc6</span>
+        <span class="chip chip-side" title="Yaen: ~3% | Book: Bb5 (65%) — Scotch sidesteps Ruy Lopez entirely">3.d4<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">3...exd4</span>
+        <span class="chip chip-book" title="Yaen: 84%">4.Nxd4</span>
+        <span class="chip chip-opp">4...Nf6</span>
+        <span class="chip chip-side" title="Yaen: ~8% | Book: Be3 (37%) Nc3 (27%) — retreats knight early">5.Nb3</span>
+        <span class="chip chip-opp">5...d6</span>
+        <span class="chip chip-rare" title="Yaen: ~3% | Book: Nc3 (76%) — creates Maróczy bind structure">6.c4<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">6...Be7</span>
+        <span class="chip chip-novel" title="Yaen: novel | Book: Nc3 (67%)">7.Bd3<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">7...O-O</span>
+        <span class="chip chip-novel" title="Yaen: novel [db:0]">8.O-O<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">8...Na5</span>
+        <span class="chip chip-novel" title="Yaen: novel [db:0]">9.Bg5<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">9...Nxb3</span>
+        <span class="chip chip-novel" title="Yaen: novel [db:0]">10.Bh4<span class="chip-flag">★</span></span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">3. d4</span>
+          <span class="dev-detail">
+            <em>Scotch Game — sidesteps the Ruy Lopez entirely.</em> Masters overwhelmingly prefer <strong>Bb5</strong> (65%) for the Ruy Lopez, the most theoretical 1.e4 e5 system. Yaen's <strong>d4</strong> (Scotch, ~3% at this level) is a deliberate choice to avoid Ruy Lopez theory while entering the Scotch (C45), which leads to open, tactical positions. The Scotch has independent theoretical battles but is less popular at master level; here it signals Yaen prefers his own preparation over mainstream Ruy theory.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">5. Nb3</span>
+          <span class="dev-detail">
+            <em>Rare knight retreat — sets up the c4 bind.</em> After 4.Nxd4 Nf6, the standard response is <strong>Be3</strong> (37%) or <strong>Nc3</strong> (27%). Yaen's <strong>Nb3</strong> (~8%) retreats the d4 knight immediately to b3 — unusual because it removes the centralized knight prematurely. The reason becomes clear on the next move: Nb3 clears d4 so that c4 can establish a Maróczy-style bind, where c4+e4 control the d5 square and cramp Black's queenside expansion.
+          </span>
+        </div>
+        <div class="dev-row level-rare">
+          <span class="dev-move">6. c4</span>
+          <span class="dev-detail">
+            <em>Maróczy bind in the Scotch — personal home preparation.</em> Masters almost always develop with <strong>Nc3</strong> (76%). Yaen's <strong>c4</strong> (~3%) creates the c4+e4 pawn center known as the Maróczy Bind — usually seen in the Sicilian. After 6.c4, the d5 square becomes very strong for White and Black's queenside expansion (especially ...b5) is permanently restricted. The pawn structure (c4/e4 vs d6/e5) gives White long-term positional pressure but requires precise follow-up.
+          </span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">7. Bd3 → 9. Bg5 → 10. Bh4</span>
+          <span class="dev-detail">
+            <em>Full novelty chain — Yaen's personal system from move 7.</em> At 6 games in the master DB, there is no established theory after 6.c4. Yaen's continuation 7.Bd3 (instead of Nc3) followed by 8.O-O, 9.Bg5 (pinning Black's knight on f6), and then 10.Bh4 (maintaining the pin while retreating from possible ...h6 challenges) is a personal preparation that Yaen has developed and used across all 12 games in this system. The bishop maneuver Bd3→Bg5→Bh4 is a concrete prepared line, not an improvisation.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        <strong>This system will NOT arise in Austin vs Yaen.</strong> Austin plays <strong>1...c5</strong> (Sicilian) vs 1.e4 — not 1...e5. Yaen's Scotch weapon only applies against 1...e5 players. Austin will never face 3.d4 exd4 4.Nxd4 in this matchup because he doesn't play 1...e5. When Austin plays White, Yaen (who plays 1...c5 as Black) will reach the Sicilian, not the Scotch.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 2: French Advance Nd2 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>French Advance — early Nd2 after c3 <small style="color:#57606a;font-weight:400;">C02</small></h3>
+      <span class="game-count">5 games · small sample</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="warning-banner">⚠ Small sample (5 games) — treat as indicative, not definitive. Individual game choices may skew the trunk.</div>
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-book" title="Yaen: 45%">1.e4</span>
+        <span class="chip chip-opp">1...e6</span>
+        <span class="chip chip-book" title="Yaen: 90%">2.d4</span>
+        <span class="chip chip-opp">2...d5</span>
+        <span class="chip chip-side" title="Yaen: ~21% | Book: Nc3 (51%) exd5 (24%) — French Advance">3.e5<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">3...c5</span>
+        <span class="chip chip-book" title="Yaen: 95%">4.c3</span>
+        <span class="chip chip-opp">4...Nc6</span>
+        <span class="chip chip-side" title="Yaen: ~5% | Book: dxc5 (61%) Nf3 (29%) — avoids standard Advance tabiya">5.Nd2<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">5...Qb6</span>
+        <span class="chip chip-book" title="Yaen: 100% [db:1]">6.Ngf3</span>
+        <span class="chip chip-opp">6...cxd4</span>
+        <span class="chip chip-novel" title="Yaen: novel [db:0]">7.cxd4<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">7...Nxd4</span>
+        <span class="chip chip-novel" title="Yaen: novel [db:0]">8.Nb3<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">8...Bb4+</span>
+        <span class="chip chip-novel" title="Yaen: novel [db:0]">9.Nbd2<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">9...Nxf3+</span>
+        <span class="chip chip-novel" title="Yaen: novel [db:0]">10.Nxf3<span class="chip-flag">★</span></span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">3. e5</span>
+          <span class="dev-detail">
+            <em>French Advance — avoids the Classical French complications.</em> Masters prefer <strong>Nc3</strong> (51%, Classical French) or <strong>exd5</strong> (24%, Exchange). Yaen's <strong>e5</strong> (~21%) is the Advance variation — White grabs space immediately on move 3, leading to a pawn chain (c3/d4/e5) with Black attacking it via ...c5/...Nc6/...Qb6.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">5. Nd2</span>
+          <span class="dev-detail">
+            <em>Unusual knight development — avoids the main Advance tabiya.</em> The standard French Advance move 5 is <strong>dxc5</strong> (61%, taking the pawn) or <strong>Nf3</strong> (29%). Yaen's <strong>Nd2</strong> (~5%) develops the queen's knight to d2 instead of f3 — keeping the c3 pawn supported and allowing Ngf3 later. This avoids the heavily analyzed 5.Nf3 lines where Black has concrete counterplay worked out. After 5.Nd2 Qb6 6.Ngf3 cxd4 7.cxd4, Yaen enters the full Advance with both knights developed, but via an unusual move order.
+          </span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">7. cxd4 → 8. Nb3 → 10. Nxf3</span>
+          <span class="dev-detail">
+            <em>Full novelty sequence after the center opens.</em> After 6...cxd4 opens the center, Yaen's 7.cxd4 (recapturing with the pawn, accepting an IQP) followed by 8.Nb3 (repositioning the queen's knight) is not in the master database. The follow-up 9.Nbd2 (allowing a king-side interpose after ...Bb4+ check) and 10.Nxf3 (recapturing after ...Nxf3+) is a concrete prepared sequence. This represents Yaen's personal French Advance preparation from the unusual 5.Nd2 starting point.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays Sicilian vs 1.e4, not the French, so this system won't arise in the direct matchup. Low relevance. If Austin ever plays 1...e6 against Yaen (unlikely), the Advance 3.e5 is Yaen's known weapon — prepare the standard Sveshnikov-inspired counter ...c5/...Nc6/...Qb6 which targets the d4 pawn directly.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 3: Anti-Najdorf 6.a4 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Anti-Najdorf — 6.a4 queenside freeze + a5 novelty <small style="color:#57606a;font-weight:400;">B90</small></h3>
+      <span class="game-count">4 games · small sample · does not apply to Austin</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="warning-banner">⚠ Small sample (4 games) and low direct relevance — Austin plays 1...c5 with 2...Nc6 (Sveshnikov) not 2...d6 (Najdorf). This system shows Yaen's preparation against ...d6 setups only.</div>
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-book">1.e4</span>
+        <span class="chip chip-opp">1...c5</span>
+        <span class="chip chip-book">2.Nf3</span>
+        <span class="chip chip-opp">2...d6</span>
+        <span class="chip chip-book">3.d4</span>
+        <span class="chip chip-opp">3...cxd4</span>
+        <span class="chip chip-book">4.Nxd4</span>
+        <span class="chip chip-opp">4...Nf6</span>
+        <span class="chip chip-book">5.Nc3</span>
+        <span class="chip chip-opp">5...a6</span>
+        <span class="chip chip-rare" title="Yaen: &lt;3% | Book: Be3 (33%) Be2 (20%) f3 (19%) — extremely rare Anti-Najdorf">6.a4<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">6...Nc6</span>
+        <span class="chip chip-side" title="Yaen: ~9% | Book: Nf3 (85%) — retreats to b3 early">7.Nb3</span>
+        <span class="chip chip-opp">7...e5</span>
+        <span class="chip chip-side" title="Yaen: ~5% | Book: Be2 (69%) — develops bishop to e3 with queenside follow-up">8.Be3</span>
+        <span class="chip chip-opp">8...Be6</span>
+        <span class="chip chip-novel" title="Yaen: novel | Book: Be2 (83%)">9.a5<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">9...Bxb3</span>
+        <span class="chip chip-novel" title="Yaen: novel [db:0]">10.Be2<span class="chip-flag">★</span></span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-rare">
+          <span class="dev-move">6. a4</span>
+          <span class="dev-detail">
+            <em>Extremely rare Anti-Najdorf — prevents ...b5 permanently.</em> After 5...a6 (Najdorf), masters play <strong>Be3</strong> (33%, English Attack), <strong>Be2</strong> (20%, Classical), or <strong>f3</strong> (19%, English Attack setup). Yaen's <strong>a4</strong> (rank 9, &lt;3%) immediately counters Black's ...a6 by pushing a4 — this prevents ...b5 queenside expansion entirely. The a4 pawn clamps the queenside before Black can play the thematic Najdorf ...b5 break. Very unusual but principled.
+          </span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">9. a5!</span>
+          <span class="dev-detail">
+            <em>Advancing to a5 — locks in the queenside clamp.</em> After 7.Nb3 e5 8.Be3 Be6, the follow-up 9.a5 advances the a-pawn to a5, permanently establishing the queenside bind. Black's queenside knight will be forced away from c6/a5 approaches, and the b6 square becomes a permanent outpost for White pieces. After 9...Bxb3 10.Be2, Yaen has exchanged the b3 knight for Black's bishop but holds the bind with a5 and strong e3 bishop. This is a fully personal preparation — no master games reach this position.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays <strong>1...c5 2...Nc6</strong> (Sveshnikov/Löwenthal route), not 2...d6 (Najdorf). Yaen's 6.a4 Anti-Najdorf only applies after 2...d6 5...a6. This system will NOT arise against Austin. When Austin plays 1...c5, Yaen will face Yaen's Scotch (which doesn't work vs Sicilian) or Open Sicilian — Austin should play his standard 2...Nc6 setup.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <h2>As Black</h2>
+
+  <!-- System 4: Sveshnikov 4...e5 — DIRECT MATCHUP -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Sicilian Löwenthal/Kalashnikov — 4…e5 Sveshnikov setup <small style="color:#57606a;font-weight:400;">B32</small></h3>
+      <span class="game-count">8 games · DIRECT MATCHUP system · Austin plays Rossolimo to sidestep</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.e4</span>
+        <span class="chip chip-book" title="Yaen: 46%">1...c5</span>
+        <span class="chip chip-opp">2.Nf3</span>
+        <span class="chip chip-good" title="Yaen: ~28% | Book: d6 (46%) — Nc6 Sveshnikov/Löwenthal route">2...Nc6</span>
+        <span class="chip chip-opp">3.d4</span>
+        <span class="chip chip-book" title="Yaen: 100%">3...cxd4</span>
+        <span class="chip chip-opp">4.Nxd4</span>
+        <span class="chip chip-side" title="Yaen: ~3% | Book: Nf6 (58%) Bc5 (17%) — Löwenthal/Kalashnikov! e5 grabs center">4...e5<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">5.Nb5</span>
+        <span class="chip chip-book" title="Yaen: 85%">5...d6</span>
+        <span class="chip chip-opp">6.N1c3</span>
+        <span class="chip chip-book" title="Yaen: 96%">6...a6</span>
+        <span class="chip chip-opp">7.Na3</span>
+        <span class="chip chip-side" title="Yaen: ~5% | Book: b5 (53%) Nf6 (22%) — delays standard queenside break">7...Nf6<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">8.Bg5</span>
+        <span class="chip chip-rare" title="Yaen: ~2% | Book: b5 (96%) — very rare, keeps flexibility">8...Be7</span>
+        <span class="chip chip-opp">9.Bxf6</span>
+        <span class="chip chip-book" title="Yaen: 84%">9...Bxf6</span>
+        <span class="chip chip-opp">10.Nd5</span>
+        <span class="chip chip-novel" title="Yaen: novel [db:10]">10...Be7<span class="chip-flag">★</span></span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">4... e5</span>
+          <span class="dev-detail">
+            <em>Löwenthal/Kalashnikov — aggressive central pawn grab.</em> Masters most often play <strong>Nf6</strong> (58%) to develop and hit e4, or <strong>Bc5</strong> (17%) for piece activity. Yaen's <strong>e5</strong> (~3%) immediately grabs the center with the Löwenthal (B32) or Kalashnikov (B32/B33) — forcing 5.Nb5 d6 and entering the Sveshnikov-related structure. The e5 push gives Black a strong center but creates the d5 outpost for White. Yaen has 8 games in this system — it is clearly a prepared repertoire choice, not an improvisation.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">7... Nf6</span>
+          <span class="dev-detail">
+            <em>Delays the thematic ...b5 — personal deviation from Sveshnikov main line.</em> After 7.Na3 (the knight regroups), the overwhelming master choice is <strong>b5</strong> (53%) — the standard Sveshnikov queenside break that gives Black central counterplay. Yaen's <strong>Nf6</strong> (~5%) instead develops the knight, delaying ...b5. This is Yaen's personal preparation: avoiding the main Sveshnikov tabiya in favor of piece development first. It keeps options open for later ...b5 or ...Nd4/...Ne4 maneuvers.
+          </span>
+        </div>
+        <div class="dev-row level-rare">
+          <span class="dev-move">8... Be7</span>
+          <span class="dev-detail">
+            <em>Very rare bishop development — retains flexibility instead of taking space.</em> After 8.Bg5 (White pins), masters almost universally play <strong>b5</strong> (96%) — the queenside counterplay is so thematic it's nearly forced. Yaen's <strong>Be7</strong> (~2%) develops the bishop first, tolerating the pin on Nf6. After 9.Bxf6 Bxf6 (forced recapture), Yaen has the bishop pair but weakened the kingside pawn structure. This is highly personal preparation — only Yaen uses this in this specific position.
+          </span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">10... Be7</span>
+          <span class="dev-detail">
+            <em>Novelty — bishop retreats after forced recapture sequence.</em> After 10.Nd5 (White's knight goes to the strong d5 outpost), masters prefer other moves in the small database. Yaen's <strong>Be7</strong> (novel, not in master DB at this specific position) re-centralizes the bishop and prepares to castle, completing the prepared plan: ...e5 → ...d6 → ...a6 → ...Nf6 → ...Be7 → ...Bxf6 → ...Be7, a complete personal preparation designed to handle the Sveshnikov/Löwenthal structure on Yaen's own terms.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        <strong>This is the direct matchup system.</strong> When Austin plays White (1.e4), Yaen responds 1...c5 2...Nc6 — the Sveshnikov/Löwenthal setup is Yaen's prepared territory with 8 games. Austin's key weapon: <strong>play Rossolimo (3.Bb5) instead of 3.d4.</strong> After 1.e4 c5 2.Nf3 Nc6, Austin should play 3.Bb5 — this completely sidesteps Yaen's 4...e5 Löwenthal preparation. Yaen is prepared specifically in the Open Sicilian (3.d4 cxd4 4.Nxd4 Nc6 5.Nb5 d6 → e5); the Rossolimo forces a completely different structure (after 3.Bb5 the knight on c6 gets challenged directly) where Yaen has no prepared repertoire. The Bxc6 exchange after 3.Bb5 d6 4.Bxc6+ bxc6 creates Black's doubled c-pawns — a structural weakness Yaen hasn't prepared against.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 5: QGD Meran b6 fianchetto -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>QGD Meran setup — delayed …Be7 + …b6/Bb7 fianchetto <small style="color:#57606a;font-weight:400;">D47</small></h3>
+      <span class="game-count">5 games · vs 1.d4 systems</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.d4</span>
+        <span class="chip chip-good" title="Yaen: ~26% | Book: Nf6 (61%) — d5 vs 1.d4">1...d5</span>
+        <span class="chip chip-opp">2.c4</span>
+        <span class="chip chip-good" title="Yaen: ~20% | Book: c6 (49%) — e6 enters QGD territory">2...e6</span>
+        <span class="chip chip-opp">3.Nc3</span>
+        <span class="chip chip-book" title="Yaen: 41%">3...Nf6</span>
+        <span class="chip chip-opp">4.e3</span>
+        <span class="chip chip-good" title="Yaen: Meran — c6 sets up the Meran structure">4...c6</span>
+        <span class="chip chip-opp">5.Nf3</span>
+        <span class="chip chip-side" title="Yaen: ~4% | Book: h6 (63%) dxc4 (15%) — unusual bishop development early">5...Be7<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">6.Bd3</span>
+        <span class="chip chip-good" title="Yaen: ~48%">6...O-O</span>
+        <span class="chip chip-opp">7.O-O</span>
+        <span class="chip chip-good" title="Yaen: ~14%">7...h6</span>
+        <span class="chip chip-opp">8.e4</span>
+        <span class="chip chip-book" title="Yaen: 67%">8...Nbd7</span>
+        <span class="chip chip-opp">9.e5</span>
+        <span class="chip chip-novel" title="Yaen: novel [db:0]">9...b6<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">10.Qe2</span>
+        <span class="chip chip-novel" title="Yaen: novel [db:0]">10...Bb7<span class="chip-flag">★</span></span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">5... Be7</span>
+          <span class="dev-detail">
+            <em>Early bishop development — delays the thematic …dxc4 or …h6.</em> After 4...c6 5.Nf3, masters most often play <strong>h6</strong> (63%) to prevent Bg5 pins, or <strong>dxc4</strong> (15%) to grab the pawn immediately. Yaen's <strong>Be7</strong> (~4%) develops the bishop first — a quieter, more flexible approach. This delays the central confrontation and keeps more options open for the pawn structure later.
+          </span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">9... b6 → 10... Bb7</span>
+          <span class="dev-detail">
+            <em>Queenside fianchetto — long-term bishop activation after White's e5 push.</em> After 9.e5 (White grabs central space), no master games exist from this position. Yaen's <strong>b6</strong> followed by <strong>Bb7</strong> creates a fianchetto on the long diagonal — the Bb7 aims at White's e4/e5 pawn chain from a distance while Black prepares ...c5 to challenge White's central dominance. This is a logical strategic plan but entirely in Yaen's personal preparation territory.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays 1.e4, not 1.d4, so this QGD Meran system won't appear in the direct matchup. It shows Yaen's Black setup vs d4 players: solid Meran structure with a queenside fianchetto plan (b6/Bb7). Low direct relevance — it does confirm Yaen plays solid, principled chess as Black against positional systems.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 6: Italian Be6/fxe6 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Italian Giuoco Piano — …Be6 bishop + …fxe6 pawn recapture <small style="color:#57606a;font-weight:400;">C54</small></h3>
+      <span class="game-count">4 games · vs 1.e4 e5 Nc3 setups · small sample</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="warning-banner">⚠ Small sample (4 games). Yaen rarely plays 1...e5; this system arises when opponents choose 1.e4 and Yaen deviates with 1...e5 in specific matchups.</div>
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.e4</span>
+        <span class="chip chip-good" title="Yaen: ~24% — secondary weapon vs 1.e4">1...e5</span>
+        <span class="chip chip-opp">2.Nf3</span>
+        <span class="chip chip-book" title="Yaen: 86%">2...Nc6</span>
+        <span class="chip chip-opp">3.Bc4</span>
+        <span class="chip chip-book" title="Yaen: 52%">3...Bc5</span>
+        <span class="chip chip-opp">4.c3</span>
+        <span class="chip chip-book" title="Yaen: 83%">4...Nf6</span>
+        <span class="chip chip-opp">5.d4</span>
+        <span class="chip chip-book" title="Yaen: 45%">5...d6</span>
+        <span class="chip chip-opp">6.Bb3</span>
+        <span class="chip chip-book" title="Yaen: 41%">6...h6</span>
+        <span class="chip chip-opp">7.O-O</span>
+        <span class="chip chip-book" title="Yaen: 46%">7...O-O</span>
+        <span class="chip chip-opp">8.Nbd2</span>
+        <span class="chip chip-rare" title="Yaen: ~4% | Book: Bb6 (55%) Re8 (17%) — unusual bishop placement">8...Be6<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">9.Bxe6</span>
+        <span class="chip chip-book" title="Yaen: 100% [db:3]">9...Bb6</span>
+        <span class="chip chip-opp">10.Bxe6</span>
+        <span class="chip chip-novel" title="Yaen: novel [db:0] — fxe6 not dxe6">10...fxe6<span class="chip-flag">★</span></span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-rare">
+          <span class="dev-move">8... Be6</span>
+          <span class="dev-detail">
+            <em>Bishop develops to e6 — targeting White's Bc4/Bb3 bishop.</em> After 8.Nbd2 (White develops toward d1), masters prefer <strong>Bb6</strong> (55%, retreating to the safe b6 diagonal) or <strong>Re8</strong> (17%, centralizing the rook). Yaen's <strong>Be6</strong> (~4%) attacks White's bishop directly — forcing 9.Bxe6. This is a principled exchange offer: give up the c5 bishop to get rid of White's well-placed Bb3 and reach the 10...fxe6 recapture.
+          </span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">10... fxe6</span>
+          <span class="dev-detail">
+            <em>Novelty — recapturing with the f-pawn to open the f-file.</em> After the double bishop exchange (9.Bxe6 Bb6 10.Bxe6), masters would recapture with the d-pawn (dxe6) to maintain central pawn structure. Yaen's <strong>fxe6</strong> opens the f-file — giving the rook on f8 immediate activity and creating a semi-open f-file that can be used for ...Rf6-Rg6 kingside attacks. This recapture creates an f6 outpost weakness but maximizes piece activity. It is fully novel — Yaen's personal preparation.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Yaen plays 1...c5 (Sicilian) as the primary Black response vs 1.e4, not 1...e5. This Italian system arises only in a subset of Yaen's games. Austin's 1.e4 will be met with 1...c5 → Sveshnikov/Löwenthal by Yaen (see Black Sys 4 above). The Italian system is secondary context only.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <h2>Preparation Insights</h2>
+  <div class="insight-grid">
+    <div class="insight-card">
+      <h4>Austin's action items</h4>
+      <ul>
+        <li><strong>Play Rossolimo (3.Bb5) as White.</strong> Yaen's entire Black preparation is built around the Open Sicilian (3.d4 cxd4 4.Nxd4 Nc6 5.Nb5 d6 e5 — B32/B33 Sveshnikov). After 3.Bb5, this preparation is immediately irrelevant. Yaen has no recorded games in Rossolimo structures as Black.</li>
+        <li><strong>Exchange on c6 (Bxc6+) if Rossolimo.</strong> After 3.Bb5 g6 (or 3...d6), the 4.Bxc6+ exchange creates doubled c-pawns. Yaen's queenside structure becomes a long-term weakness — Austin should target the c6/c5 pawns in the endgame.</li>
+        <li><strong>Know the Scotch threat for Yaen's other opponents.</strong> Yaen's Scotch (3.d4 Scotch + 5.Nb3 + 6.c4) is deeply prepared vs 1...e5 players. Austin doesn't play 1...e5 so this is irrelevant for the direct matchup but confirms Yaen's White preparation is very deep in 1.e4 e5 lines.</li>
+        <li><strong>Sicilian as Black vs Yaen's 1.e4.</strong> Austin plays 1...c5. Yaen uses English Attack (f3/Be3/Qd2) as White in Sicilians — Austin should steer into the Dragon counter-attack (1...c5 2...d6 3...g6) where Austin has preparation and Yaen's English Attack can be met with ...Ng4 plans.</li>
+      </ul>
+    </div>
+    <div class="insight-card">
+      <h4>Yaen's patterns</h4>
+      <ul>
+        <li><strong>Deep 1.e4 e5 preparation as White.</strong> The Scotch Nb3/c4 system (12 games) is fully personal from move 7 — Yaen has worked out the Bd3/Bg5/Bh4 bishop maneuver across a large sample. Against 1...e5 players, Yaen is dangerous and well-prepared.</li>
+        <li><strong>Aggressive Sicilian player as Black.</strong> Yaen's 4...e5 Löwenthal/Kalashnikov (8 games) with personal deviations at moves 7 and 8 shows deep study. The specific 7...Nf6 + 8...Be7 chain avoids all main Sveshnikov tabiya analysis.</li>
+        <li><strong>Rating inconsistency (1899→1715→1841).</strong> Rapid/blitz: 6 losses; classical games are more solid. Yaen blunders under time pressure. Austin should play for complex late middlegames to induce time trouble.</li>
+        <li><strong>Personal novelty chains.</strong> All 3 White systems and 2 of 3 Black systems go novel before move 10. Yaen does extensive personal preparation and avoids mainstream theory across the board.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
