@@ -11,7 +11,7 @@ This project helps **Austin Lin** prepare for competitive chess tournaments by:
 2. Analyzing potential opponents' games
 3. Generating matchup-specific preparation plans
 
-Opponents analyzed to date: **Justin Huang, Aarush Ajith, Zachary Liu, Heye Gao, Fernando Cortes Medina, Pranav Santhosh, Emerson Johnson, Leo Jackson, Tarun Sankar, Daniel Hernandez Gamboa, Yaen Saenz Cabrera, Daniel Joshua Lee, Pablo Elliot De Alba Boudreau, Joel Ethan Jeyaraj, Inti Dario Flores Ojeda, Zhuoyuan Wu, Asher Chodniewicz** — full pipeline complete for all 17 opponents. Note: Heye Gao and Daniel Joshua Lee moved to other sections at NAYCC 2026 (Nov 1 roster); Inti Flores Ojeda added (seed #4, 2011 FIDE, MEX). Zhuoyuan Wu (seed #10, 1890 FIDE, USA). Asher Chodniewicz (1884 FIDE, USA/Texas) — 34 games, deep analysis complete (movetime-3000), full pipeline including matchup-asher.html, deep, white, black HTMLs.
+Opponents analyzed to date: **Justin Huang, Aarush Ajith, Zachary Liu, Heye Gao, Fernando Cortes Medina, Pranav Santhosh, Emerson Johnson, Leo Jackson, Tarun Sankar, Daniel Hernandez Gamboa, Yaen Saenz Cabrera, Daniel Joshua Lee, Pablo Elliot De Alba Boudreau, Joel Ethan Jeyaraj, Inti Dario Flores Ojeda, Zhuoyuan Wu, Asher Chodniewicz** — full pipeline complete for all 17 opponents. Note: Heye Gao and Daniel Joshua Lee moved to other sections at NAYCC 2026 (Nov 1 roster); Inti Flores Ojeda added (seed #4, 2011 FIDE, MEX). Zhuoyuan Wu (seed #10, 1890 FIDE, USA). Asher Chodniewicz (1884 FIDE, USA/Texas) — NAYCC 2026 opponent added to roster Nov 2026. 34 games, deep analysis complete (movetime-3000), full pipeline including matchup-asher.html, deep, white, black HTMLs.
 
 ---
 
@@ -196,7 +196,7 @@ When a new opponent folder is added:
 | Joel Ethan Jeyaraj | 1813 FIDE (Nov 2026) / 2114 Lichess Blitz | 1.Nf3 → Nimzo-Larsen (2.b3 Bb2) PRIMARY; 1.d4/1.c4 secondary | Scandinavian Modern B01 (3...Nf6 ...g6 fianchetto) PRIMARY; Caro-Kann secondary | No encounter |
 | Inti Dario Flores Ojeda | 2011 FIDE (Nov 2026; +256 in 13 months; seed #4 NAYCC 2026) | 1.e4 Open Sicilian (Löwenthal B32, Modern Bc4 B35, f4-e5 B43); French Rubinstein C10; Caro-Kann exchange B15 | 1...e5 exclusively: Italian Giuoco Pianissimo C50/C54, Ruy Lopez Exchange C69, Ruy Lopez Morphy C77/C78; vs 1.d4: QGD solid D00 | No encounter |
 | Zhuoyuan Wu | 1890 FIDE (Nov 2026; seed #10 NAYCC 2026) | Sicilian (analysis complete) | Sicilian Accelerated Dragon B34/B73 | No encounter |
-| Asher Chodniewicz | 1884 FIDE (Nov 2026) · USA (Texas) | 1.e4 Open Sicilian Nxd4; Ruy Lopez/Italian vs 1...e5 | French Defense all systems (Tarrasch Qxd5 + Rubinstein + Advance); KID/Grünfeld fianchetto vs d4 | No encounter |
+| Asher Chodniewicz | 1884 FIDE (Nov 2026) · USA (Texas) · NAYCC 2026 (added Nov 2026) | 1.e4 Open Sicilian Nxd4; Ruy Lopez/Italian vs 1...e5 | French Defense all systems (Tarrasch Qxd5 + Rubinstein + Advance); KID/Grünfeld fianchetto vs d4 | No encounter |
 
 ---
 
