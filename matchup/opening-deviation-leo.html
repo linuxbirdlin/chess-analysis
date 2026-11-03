@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leo Jackson — Opening Deviation Map</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header {
+      border-bottom: 3px solid #2d7d46;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 { margin: 0 0 8px; font-size: 1.85rem; }
+    .doc-header .meta {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      font-size: 0.9rem; color: #57606a;
+    }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link {
+      display: inline-block; margin-top: 14px;
+      font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.3rem; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.05rem; color: #2d7d46; margin: 24px 0 6px; }
+
+    /* Legend */
+    .legend {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px;
+      padding: 14px 18px; margin-bottom: 32px; font-size: 0.85rem;
+    }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    /* Summary table */
+    table { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin: 0 0 24px; }
+    th { text-align: left; padding: 8px 12px; background: #f6f8fa; border-bottom: 2px solid #d0d7de; font-weight: 600; color: #1f2328; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eaeef2; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    td.opening-name { font-weight: 600; }
+    td.color-cell { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+    .color-w { color: #9a6700; }
+    .color-b { color: #0969da; }
+
+    /* System cards */
+    .system-card {
+      border: 1px solid #d0d7de; border-radius: 8px;
+      margin-bottom: 28px; overflow: hidden;
+    }
+    .system-card-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      background: #f6f8fa; padding: 12px 18px; border-bottom: 1px solid #d0d7de;
+    }
+    .system-card-header h3 { margin: 0; font-size: 1rem; color: #1f2328; }
+    .system-card-header .game-count { font-size: 0.8rem; color: #57606a; }
+    .system-card-body { padding: 16px 18px; }
+
+    /* Move trail */
+    .trail-label { font-size: 0.75rem; font-weight: 600; color: #57606a; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .move-trail { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 16px; align-items: center; }
+    .move-sep { color: #d0d7de; font-size: 0.75rem; margin: 0 1px; user-select: none; }
+
+    .chip {
+      display: inline-flex; align-items: center;
+      padding: 3px 8px; border-radius: 4px;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.4;
+      cursor: default; position: relative;
+    }
+    .chip-opp   { background: #f0f0f0; color: #6e7781; border: 1px solid #d0d7de; }
+    .chip-book  { background: #dafbe1; color: #1a7f37; border: 1px solid #2d7d46; }
+    .chip-good  { background: #ddf4ff; color: #0550ae; border: 1px solid #0969da; }
+    .chip-side  { background: #fff3cd; color: #7d4e00; border: 1px solid #d4a017; }
+    .chip-rare  { background: #ffd8d3; color: #a4000f; border: 1px solid #cf222e; }
+    .chip-novel { background: #eee8ff; color: #5a1e96; border: 1px solid #8250df; }
+
+    .chip-flag { font-size: 0.65rem; margin-left: 4px; }
+
+    /* Deviation callouts */
+    .dev-list { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+    .dev-row {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 9px 12px; border-radius: 6px; font-size: 0.85rem; line-height: 1.5;
+    }
+    .dev-row.level-side  { background: #fff8e8; border-left: 3px solid #d4a017; }
+    .dev-row.level-rare  { background: #fff0ee; border-left: 3px solid #cf222e; }
+    .dev-row.level-novel { background: #f3ecff; border-left: 3px solid #8250df; }
+
+    .dev-row .dev-move { font-family: monospace; font-weight: 700; min-width: 90px; flex-shrink: 0; }
+    .dev-row .dev-detail { color: #57606a; }
+    .dev-row .dev-detail strong { color: #1f2328; }
+    .dev-row .dev-detail em { font-style: normal; color: #1f2328; font-weight: 600; }
+
+    /* Austin notes */
+    .austin-note {
+      background: #f0fff4; border: 1px solid #2d7d46; border-radius: 6px;
+      padding: 12px 16px; margin-top: 16px; font-size: 0.875rem;
+    }
+    .austin-note .note-label {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: #2d7d46; margin-bottom: 4px;
+    }
+
+    /* Insight grid */
+    .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+    @media (max-width: 580px) { .insight-grid { grid-template-columns: 1fr; } }
+    .insight-card {
+      border: 1px solid #d0d7de; border-radius: 6px;
+      padding: 14px 16px; font-size: 0.875rem;
+    }
+    .insight-card h4 { margin: 0 0 8px; font-size: 0.9rem; color: #2d7d46; }
+    .insight-card ul { margin: 0; padding-left: 18px; }
+    .insight-card li { margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Header ───────────────────────────────────────────────────── -->
+  <div class="doc-header">
+    <h1>Leo Jackson — Opening Deviation Map</h1>
+    <div class="meta">
+      <span><strong>Player:</strong> Leo Daniel Olivera Jackson · 2081 FIDE (Nov 2026)</span>
+      <span><strong>Games analyzed:</strong> 61 (30 as White, 31 as Black)</span>
+      <span><strong>Database:</strong> Lichess Masters (FIDE 2300+)</span>
+      <span><strong>Generated:</strong> Nov 2, 2026</span>
+    </div>
+    <a href="../austin-prep.html" class="back-link">← Back to Prep Index</a>
+  </div>
+
+  <!-- ── Legend ──────────────────────────────────────────────────── -->
+  <div class="legend">
+    <strong style="font-size:0.8rem;text-transform:uppercase;letter-spacing:.04em;color:#57606a;margin-right:4px;">Leo's moves:</strong>
+    <span class="legend-item"><span class="chip chip-book" style="font-size:.75rem;padding:2px 7px;">e4</span> <span>Top masters move</span></span>
+    <span class="legend-item"><span class="chip chip-good" style="font-size:.75rem;padding:2px 7px;">Nf3</span> <span>2nd–3rd choice (≥20%)</span></span>
+    <span class="legend-item"><span class="chip chip-side" style="font-size:.75rem;padding:2px 7px;">d5</span> <span>Minor sideline (5–19%)</span></span>
+    <span class="legend-item"><span class="chip chip-rare" style="font-size:.75rem;padding:2px 7px;">g3</span> <span>Rare / personal prep (&lt;5%)</span></span>
+    <span class="legend-item"><span class="chip chip-novel" style="font-size:.75rem;padding:2px 7px;">Bd6</span> <span>Novelty (not in master DB)</span></span>
+    <span class="legend-item"><span class="chip chip-opp" style="font-size:.75rem;padding:2px 7px;">Nf6</span> <span>Opponent move</span></span>
+  </div>
+
+  <!-- ── Summary table ───────────────────────────────────────────── -->
+  <h2>Deviation Summary</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Opening System</th>
+        <th>Color</th>
+        <th>Games</th>
+        <th>First Deviation</th>
+        <th>Leo's Move vs Book</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="opening-name">Catalan — 3.Nf3 vs Queen's Indian (7.d5!)</td>
+        <td class="color-cell color-w">White</td>
+        <td>7</td>
+        <td>Move 7</td>
+        <td><strong>7.d5</strong> (10%) vs Nc3 (60%) — central space grab, Benoni structure</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Catalan vs QGD — 6.cxd5 novelty line</td>
+        <td class="color-cell color-w">White</td>
+        <td>6</td>
+        <td>Move 6 (novelty)</td>
+        <td><strong>6.cxd5</strong> (novelty) vs O-O (100%) — deep personal prep from move 6</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Catalan vs Slav — rare g3 system</td>
+        <td class="color-cell color-w">White</td>
+        <td>2</td>
+        <td>Move 4</td>
+        <td><strong>4.g3</strong> (2%) vs Nc3 (55%) — Catalan fianchetto vs Slav</td>
+      </tr>
+      <tr>
+        <td class="opening-name">French Defense — Tarrasch Chistyakov 3...c5 4...Qxd5</td>
+        <td class="color-cell color-b">Black</td>
+        <td>16</td>
+        <td>Move 1 (system choice)</td>
+        <td>1...e6 (12%) vs c5 (46%) — French vs Sicilian; deeply book-prepared from move 3</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Dutch/Bogo — 1...e6 2...f5 Bb4+ system</td>
+        <td class="color-cell color-b">Black</td>
+        <td>8</td>
+        <td>Move 1 (system choice)</td>
+        <td>1...e6 (4%) vs Nf6 (61%); <strong>4...Bb4+</strong> (10%) vs d5 (31%) — novelties from move 8</td>
+      </tr>
+      <tr>
+        <td class="opening-name">English — 1...e5 2...f5 sideline</td>
+        <td class="color-cell color-b">Black</td>
+        <td>2</td>
+        <td>Move 2</td>
+        <td><strong>2...f5</strong> (1%, novelty) vs Nf6 (57%) — rare, not Austin-relevant (Austin plays 1.e4)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       AS WHITE
+  ════════════════════════════════════════════════════════════════ -->
+  <h2>As White (Catalan — 1.d4 2.c4 3.Nf3 g3 Bg2)</h2>
+
+  <!-- System 1: Catalan vs Queen's Indian -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Catalan — 3.Nf3 vs Queen's Indian with 7.d5! &nbsp;<small style="color:#57606a;font-weight:400;">ECO E15/E16</small></h3>
+      <span class="game-count">7 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-good" title="Leo: 36% | Book: e4(45%), d4(36%), Nf3(10%)">1.d4</span>
+        <span class="chip chip-opp" title="Opponent">1…Nf6</span>
+        <span class="chip chip-book" title="Book: c4(72%)">2.c4</span>
+        <span class="chip chip-opp">2…e6</span>
+        <span class="chip chip-book" title="Book: Nf3(48%), Nc3(40%)">3.Nf3</span>
+        <span class="chip chip-opp">3…b6</span>
+        <span class="chip chip-book" title="Book: g3(62%)">4.g3</span>
+        <span class="chip chip-opp">4…Bb7</span>
+        <span class="chip chip-book" title="Book: Bg2(100%)">5.Bg2</span>
+        <span class="chip chip-opp">5…Be7</span>
+        <span class="chip chip-book" title="Book: O-O(75%)">6.O-O</span>
+        <span class="chip chip-opp">6…O-O</span>
+        <span class="chip chip-side" title="Leo: 10% | Book: Nc3(60%), Re1(25%), d5(10%)">7.d5 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">7…exd5</span>
+        <span class="chip chip-book" title="Book: Nh4(95%)">8.Nh4</span>
+        <span class="chip chip-opp">8…Ne4</span>
+        <span class="chip chip-book" title="Book: cxd5(97%)">9.cxd5</span>
+        <span class="chip chip-opp">9…Bxh4</span>
+        <span class="chip chip-book" title="Book: Bxe4(96%)">10.Bxe4</span>
+        <span class="chip chip-opp">10…Bf6</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">7. d5</span>
+          <span class="dev-detail"><em>Key central thrust.</em> Masters prefer <strong>Nc3</strong> (60%) or <strong>Re1</strong> (25%) to maintain flexibility. Leo's <strong>7.d5</strong> (10%) immediately claims central space — this transforms the position into a Catalan-Benoni hybrid with a passed pawn on d5. After 7...exd5 8.Nh4, Leo targets the fianchettoed bishop pair with Ng6, gaining the two bishops and an IQP-style pawn structure. This is a prepared attacking plan, not a positional drift.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note (playing Black)</div>
+        Leo prevents the Nimzo-Indian by playing 3.Nf3 — Austin cannot play 3...Bb4+. Prepare <strong>Queen's Indian: 3...b6 4.g3 Bb7 5.Bg2 Be7 6.O-O O-O</strong> and watch for 7.d5!. After 7.d5 exd5 8.Nh4, the position becomes sharp: White plans Ng6 winning the bishop pair. Black's best try is 8...Ne4 (as seen in the trunk) or 8...g6 to stop Ng6. Austin should know 8...Ne4 9.cxd5 Bxh4 10.Bxe4 Bf6 — Black has stopped the knight infiltration but White has the d-passer. Long technical endgame ahead.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 2: Catalan vs QGD novelty -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Catalan vs QGD — 6.cxd5 Early Exchange (Deep Novelty) &nbsp;<small style="color:#57606a;font-weight:400;">ECO D37/D38</small></h3>
+      <span class="game-count">6 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-good" title="Leo: 36% | Book: e4(45%), d4(36%)">1.d4</span>
+        <span class="chip chip-opp">1…d5</span>
+        <span class="chip chip-book" title="Book: c4(77%)">2.c4</span>
+        <span class="chip chip-opp">2…e6</span>
+        <span class="chip chip-good" title="Leo: 39% | Book: Nc3(59%), Nf3(39%) — prevents Nimzo">3.Nf3</span>
+        <span class="chip chip-opp">3…Nf6</span>
+        <span class="chip chip-good" title="Leo: 29% | Book: Nc3(62%), g3(29%)">4.g3</span>
+        <span class="chip chip-opp">4…Nbd7</span>
+        <span class="chip chip-book" title="Book: Bg2(87%)">5.Bg2</span>
+        <span class="chip chip-opp">5…c5</span>
+        <span class="chip chip-novel" title="Novelty — not in masters DB | Book: O-O(100%)">6.cxd5 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">6…exd5</span>
+        <span class="chip chip-novel" title="Novelty — not in masters DB">7.O-O <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">7…Bd6</span>
+        <span class="chip chip-novel" title="Novelty — not in masters DB">8.Nc3 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">8…Nb6</span>
+        <span class="chip chip-novel" title="Novelty — not in masters DB">9.Nb5 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">9…c4</span>
+        <span class="chip chip-novel" title="Novelty — not in masters DB">10.a4 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">10…a6</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">3. Nf3</span>
+          <span class="dev-detail"><em>Nimzo prevention.</em> Masters prefer <strong>Nc3</strong> (59%) which allows 3...Bb4 (Nimzo-Indian). Leo's consistent 3.Nf3 (39%) sidesteps Nimzo theory entirely. This is a deliberate system choice: Leo does not want to face the Nimzo-Indian Bxc3 structure.</span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">4. g3</span>
+          <span class="dev-detail"><em>Catalan setup confirmed.</em> Masters prefer <strong>Nc3</strong> (62%) in this position. Leo's <strong>4.g3</strong> (29%) commits to the Catalan bishop fianchetto — a long-range positional weapon along the a1–h8 diagonal. Once Bg2 is developed, the bishop targets d5 indirectly through Black's pawn structure.</span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">6. cxd5</span>
+          <span class="dev-detail"><em>Deep personal preparation.</em> Masters play <strong>O-O</strong> (100%) first — Leo's <strong>6.cxd5</strong> is not in the masters DB at all. After 6...exd5, Leo creates an IQP position for Black immediately, before castling. Then 8.Nc3, 9.Nb5! (threatening Nc7+), 10.a4 — this is a prepared tactical sequence. Nb5 threatens to fork on c7 or occupy d4. Leo has analyzed this deeply: every move from 6 onward is off-database territory.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note (playing Black)</div>
+        Against 1.d4 d5 2.c4 e6 3.Nf3 Nf6 4.g3, Austin's Nimzo-Indian is blocked. Consider <strong>4...Bb4+</strong> (Bogo-Indian) or <strong>4...dxc4</strong> (Open Catalan) to deviate before Leo's novelty on move 6. If Austin reaches the 5...c5 position, be ready for <strong>6.cxd5</strong> — don't expect O-O. After 6...exd5 7.O-O, the IQP position suits Leo's technical style. The 9.Nb5! threat is the key: ensure the c7 pawn is protected before developing. A safe response to 9.Nb5 is 9...c4 (as in the trunk game) and then ...a6 to chase the knight.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 3: Catalan vs Slav -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Catalan vs Slav — Rare 4.g3 System &nbsp;<small style="color:#57606a;font-weight:400;">ECO D12/A14</small></h3>
+      <span class="game-count">2 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <p style="font-size:0.85rem;color:#57606a;margin:0 0 12px;">Small sample (2 games). Pattern noted for awareness; not a confirmed prepared system.</p>
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-good" title="Leo: 36% | Book: e4(45%), d4(36%)">1.d4</span>
+        <span class="chip chip-opp">1…d5</span>
+        <span class="chip chip-book" title="Book: c4(77%)">2.c4</span>
+        <span class="chip chip-opp">2…c6</span>
+        <span class="chip chip-book" title="Book: Nf3(65%)">3.Nf3</span>
+        <span class="chip chip-opp">3…Nf6</span>
+        <span class="chip chip-rare" title="Leo: 2% | Book: Nc3(55%), e3(29%), Qc2(5%)">4.g3 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">4…Bg4</span>
+        <span class="chip chip-good" title="Leo: 26% | Book: Ne5(72%), Bg2(26%)">5.Bg2</span>
+        <span class="chip chip-opp">5…e6</span>
+        <span class="chip chip-book" title="Book: O-O(49%)">6.O-O</span>
+        <span class="chip chip-opp">6…Be7</span>
+        <span class="chip chip-book" title="Book: Nc3(38%)">7.Nc3</span>
+        <span class="chip chip-opp">7…O-O</span>
+        <span class="chip chip-novel" title="Novelty — not in masters DB | Book: Ne5(27%), Qb3(27%)">8.Nd2 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">8…Nbd7</span>
+        <span class="chip chip-book" title="Book: h3(33%)">9.h3</span>
+        <span class="chip chip-opp">9…Bf5</span>
+        <span class="chip chip-novel" title="Novelty — not in masters DB">10.f4 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">10…c5</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-rare">
+          <span class="dev-move">4. g3</span>
+          <span class="dev-detail"><em>Very rare vs Slav.</em> Masters prefer <strong>Nc3</strong> (55%) or <strong>e3</strong> (29%) — the Slav typically demands concrete development. Leo's <strong>4.g3</strong> (2%) applies Catalan style to the Slav — unusual and gives Black a comfortable position with 4...Bg4 pinning the knight before the bishop is fianchettoed. This may be a prepared sideline or simply habit-forming Catalan instincts.</span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">8. Nd2</span>
+          <span class="dev-detail"><em>Personal prep — knight reroute to e4/f3.</em> No master games at this depth. After 7.Nc3 O-O, Leo reroutes with <strong>8.Nd2</strong> (vs masters' Ne5 27% / Qb3 27%), likely planning Nd2-f1-e3 or Nd2-f3-e5. The follow-up 10.f4 (novelty) signals a kingside advance — Leo prepares e4 or a direct f4–f5 attack on the fianchettoed structure.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note (playing Black)</div>
+        Only 2 games in this system. If Austin reaches 1.d4 d5 2.c4 c6 3.Nf3 Nf6 4.g3, continue normally with <strong>4...Bf5</strong> or <strong>4...Bg4</strong> — the Catalan bishop on g2 is less effective vs the Slav structure. Black has comfortable play after the pin 4...Bg4. Austin is unlikely to reach this system if he prepares 3...Nf6 with a Nimzo/Queen's Indian setup from the start, since Leo will avoid the Slav.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       AS BLACK
+  ════════════════════════════════════════════════════════════════ -->
+  <h2>As Black (French Defense primary · Dutch/Bogo secondary)</h2>
+
+  <!-- System 4: French Tarrasch Chistyakov -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>French Defense — Tarrasch Chistyakov (3...c5 4...Qxd5) &nbsp;<small style="color:#57606a;font-weight:400;">ECO C07/C08</small></h3>
+      <span class="game-count">16 games · trunk depth 10 · <strong style="color:#1a7f37;">Austin directly relevant (1.e4 → French)</strong></span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.e4</span>
+        <span class="chip chip-side" title="Leo: 12% | Book: c5(46%), e5(24%), e6(12%) — French system choice">1…e6</span>
+        <span class="chip chip-opp">2.d4</span>
+        <span class="chip chip-book" title="Book: d5(99%)">2…d5</span>
+        <span class="chip chip-opp">3.Nd2</span>
+        <span class="chip chip-book" title="Book: c5(36%) — Tarrasch Chistyakov">3…c5</span>
+        <span class="chip chip-opp">4.exd5</span>
+        <span class="chip chip-book" title="Book: Qxd5(59%) — Chistyakov variation">4…Qxd5</span>
+        <span class="chip chip-opp">5.Ngf3</span>
+        <span class="chip chip-book" title="Book: cxd4(99%)">5…cxd4</span>
+        <span class="chip chip-opp">6.g3</span>
+        <span class="chip chip-book" title="Book: Nc6(47%)">6…Nc6</span>
+        <span class="chip chip-opp">7.Bg2</span>
+        <span class="chip chip-book" title="Book: Qb5(75%)">7…Qb5</span>
+        <span class="chip chip-opp">8.a4</span>
+        <span class="chip chip-book" title="Book: Qa6(100%)">8…Qa6</span>
+        <span class="chip chip-opp">9.Bf1</span>
+        <span class="chip chip-book" title="Book: Qa5(83%)">9…Qa5</span>
+        <span class="chip chip-opp">10.Bg2</span>
+        <span class="chip chip-good" title="Leo: 50% | Book: e5(50%), Qa6(50%) — even split">10…Qa6</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">1…e6</span>
+          <span class="dev-detail"><em>System choice: French vs Sicilian.</em> Masters most often play <strong>c5</strong> (46%) or <strong>e5</strong> (24%) vs 1.e4. Leo's consistent <strong>1...e6</strong> (12%) is a deliberate repertoire choice — the French Defense. This is not a mistake; it is Leo's entire Black weapon vs 1.e4 (100% of recorded 1.e4 games).</span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">10…Qa6</span>
+          <span class="dev-detail"><em>Minor deviation at depth.</em> At move 10 there is an even split: <strong>e5</strong> (50%) vs <strong>Qa6</strong> (50%) in masters play. Leo plays Qa6, continuing the queen maneuver rather than advancing the pawn. This position is deep into personal preparation — both moves are well-tested at the top level.</span>
+        </div>
+      </div>
+      <p style="font-size:0.85rem;color:#57606a;margin:12px 0 6px;">Moves 2–9 are all <span class="chip chip-book" style="font-size:0.75rem;padding:2px 6px;">book</span> — Leo plays the principal line perfectly. No exploitable preparation gaps until at least move 10.</p>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note (playing White)</div>
+        Austin plays 1.e4 and his Tarrasch (3.Nd2) runs directly into Leo's best-prepared line. The Chistyakov 3...c5 4.exd5 Qxd5 gives Leo comfortable play and he has 16 games in this system — he knows it cold. Key recommendations:
+        <ul style="margin:6px 0 0;padding-left:18px;font-size:0.875rem;">
+          <li>If Austin plays 3.Nd2: expect 3...c5 4.exd5 Qxd5 5.Ngf3 cxd4 — then avoid the g3/Bg2 setup seen in the trunk (it allows the queen maneuver Qb5→Qa6→Qa5→Qa6). Austin should look at <strong>6.Bc4</strong> or <strong>6.Nc4</strong> instead.</li>
+          <li>If Austin wants to avoid Chistyakov: consider <strong>3.e5</strong> (Advance French) where Leo plays 3...c5 4.c3 Qa5 — Austin is better prepared in the Advance.</li>
+          <li>The queen on a5/a6 is not misplaced — it pressures a2 and controls the a-file indirectly. Austin must keep an eye on it, but it also means Leo's queen is far from the kingside battle.</li>
+          <li>At move 10 the critical question is Austin's setup — make sure to reach this position with concrete plans, not just general Catalan style.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- System 5: Dutch/Bogo -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Dutch/Bogo Hybrid — 1...e6 2...f5 4...Bb4+ System &nbsp;<small style="color:#57606a;font-weight:400;">ECO A83/A10</small></h3>
+      <span class="game-count">8 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <p style="font-size:0.85rem;color:#57606a;margin:0 0 12px;">Austin plays 1.e4, so this system (vs 1.d4/1.c4) is relevant only if Austin faces Leo's Black with 1.d4 — which won't happen at NAYCC since Austin always plays 1.e4. Documented for completeness.</p>
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.d4</span>
+        <span class="chip chip-rare" title="Leo: 4% | Book: Nf6(61%), d5(26%), e6(4%) — unusual move order">1…e6 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">2.c4</span>
+        <span class="chip chip-side" title="Leo: 19% | Book: Nf6(33%), f5(19%) — Dutch setup">2…f5</span>
+        <span class="chip chip-opp">3.g3</span>
+        <span class="chip chip-book" title="Book: Nf6(98%)">3…Nf6</span>
+        <span class="chip chip-opp">4.Bg2</span>
+        <span class="chip chip-side" title="Leo: 10% | Book: d5(31%), c6(29%), Be7(28%)">4…Bb4+ <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">5.Nd2</span>
+        <span class="chip chip-book" title="Book: O-O(80%)">5…O-O</span>
+        <span class="chip chip-opp">6.Nf3</span>
+        <span class="chip chip-side" title="Leo: 14% | Book: d6(44%), a5(16%), b6(15%)">6…d5 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">7.O-O</span>
+        <span class="chip chip-book" title="Book: c6(74%)">7…c6</span>
+        <span class="chip chip-opp">8.a3</span>
+        <span class="chip chip-novel" title="Novelty — not in masters DB">8…Bd6 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">9.Ne5</span>
+        <span class="chip chip-novel" title="Novelty — not in masters DB">9…Bxe5! <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">10.dxe5</span>
+        <span class="chip chip-novel" title="Novelty — not in masters DB">10…Ne4 <span class="chip-flag">★</span></span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-rare">
+          <span class="dev-move">1…e6</span>
+          <span class="dev-detail"><em>Unusual Dutch move order.</em> Masters play <strong>Nf6</strong> (61%) or <strong>d5</strong> (26%) vs 1.d4. Leo's <strong>1...e6</strong> (4%) is a rare transpositional device — it delays showing the Dutch structure (f5) to prevent White from choosing an anti-Dutch setup before Black commits. By playing e6 first, Leo avoids lines like 2.Bg5 (anti-Dutch stonewall attack) and 2.Nc3 (direct anti-Dutch).</span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">4…Bb4+</span>
+          <span class="dev-detail"><em>Bogo-Indian check in Dutch structure.</em> Masters prefer <strong>d5</strong> (31%), <strong>c6</strong> (29%), or <strong>Be7</strong> (28%). Leo's <strong>4...Bb4+</strong> (10%) forces White to block with Nd2 (as in the trunk), which blocks White's own Nc3 development. This Bogo-Indian idea in the Dutch structure is a creative preparation — the bishop on b4 creates pin pressure while the f5 pawn secures the center.</span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">6…d5</span>
+          <span class="dev-detail"><em>Central counter-thrust.</em> Masters prefer <strong>d6</strong> (44%) in Dutch structures. Leo's <strong>6...d5</strong> (14%) claims the center aggressively — choosing a Dutch Stonewall-type formation (f5 + d5 pawns) that locks the position. This restricts White's Catalan bishop on g2.</span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">8…Bd6</span>
+          <span class="dev-detail"><em>Bishop sacrifice preparation.</em> No master games at this depth. Leo plays <strong>8...Bd6</strong> targeting the e5 square, then sacrifices the bishop immediately: <strong>9...Bxe5!</strong> 10.dxe5 <strong>10...Ne4</strong>. This is a prepared piece sacrifice — Black gives up the bishop pair for central control (Ne4, f5 pawn). The Ne4 outpost plus the f5 pawn creates long-term compensation. Leo has analyzed this continuation thoroughly.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays 1.e4 so this system will not arise with Austin as White. If Austin ever plays 1.d4 against Leo (e.g., a blitz game), be aware of the 1...e6 2...f5 Bb4+ move order and the prepared Bxe5 sacrifice from move 9.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 6: English -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>English — 1...e5 2...f5 (Small sample, Austin-irrelevant) &nbsp;<small style="color:#57606a;font-weight:400;">ECO A22/A23</small></h3>
+      <span class="game-count">2 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <p style="font-size:0.85rem;color:#57606a;margin:0;">Only 2 games. Austin plays 1.e4, not 1.c4, so this system will not arise. <strong>Not a prep priority.</strong> The 2...f5 response (1% in DB, novelty) shows Leo applies his Dutch/f5 instinct vs English too.</p>
+    </div>
+  </div>
+
+  <!-- ── Key Insights ──────────────────────────────────────────────── -->
+  <h2>Key Preparation Insights</h2>
+  <div class="insight-grid">
+    <div class="insight-card">
+      <h4>Exploit as Austin (White)</h4>
+      <ul>
+        <li>Leo's French Chistyakov (3...c5 4...Qxd5) is his best-prepared Black line — <strong>Austin should consider avoiding Tarrasch (3.Nd2)</strong> in favor of Advance French (3.e5 → 3...c5 4.c3 Qa5), where Austin is more comfortable.</li>
+        <li>If staying in Tarrasch: use <strong>6.Bc4</strong> (not 6.g3 as seen in the trunk) — it targets d5 and avoids the queen maneuver Qb5–Qa6 becoming effective.</li>
+        <li>Leo's queen wanders (Qb5→Qa6→Qa5→Qa6) — it's temporarily active but disconnected from the kingside. Kingside expansion (h4/h5) may be more effective while the queen is "on vacation."</li>
+      </ul>
+    </div>
+    <div class="insight-card">
+      <h4>Prepare against (Austin Black)</h4>
+      <ul>
+        <li>Leo plays <strong>3.Nf3</strong> consistently — <strong>Austin's Nimzo-Indian is blocked</strong>. Prepare Queen's Indian: 3...b6 4.g3 Bb7 5.Bg2 Be7 6.O-O O-O.</li>
+        <li>Watch for <strong>7.d5!</strong> in the Open Catalan position — it creates a Benoni-type structure with a d-passer. Know 8...Ne4 response.</li>
+        <li>Against the QGD line (3...Nf6 4...Nbd7 5...c5), expect <strong>6.cxd5 novelty</strong> — avoid playing 5...c5 by choosing a different 5th move (5...Be7 or 5...dxc4 earlier).</li>
+        <li>Leo is an <strong>endgame specialist</strong> — avoid trading into technical drawn endgames against his technique. Keep the game sharp and middlegame-focused.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
