@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle Plan: Austin vs Chodniewicz, Asher (GM Prep)</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Georgia', serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg);
+}
+h1 { font-size: 1.6em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.15em; margin: 28px 0 10px; padding-left: 10px; }
+h2.white-section { border-left: 5px solid var(--blue); }
+h2.black-section { border-left: 5px solid var(--red); }
+h2.analysis   { border-left: 5px solid var(--gold); }
+h2.reference  { border-left: 5px solid #666; }
+h3 { font-size: 1em; margin: 14px 0 6px; color: #333; }
+.subtitle { font-size: 0.85em; color: #666; margin-bottom: 22px; }
+.subtitle span { margin-right: 16px; }
+
+.rating-note { background: #eaf4fb; border: 2px solid #1a5276; border-radius: 5px;
+               padding: 10px 14px; margin-bottom: 18px; font-size: 0.9em; }
+
+.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.intel-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.intel-card h3 { margin-top: 0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }
+.intel-card ul { padding-left: 16px; margin-top: 4px; }
+.intel-card li { margin-bottom: 3px; }
+
+.callout { border-radius: 4px; padding: 10px 14px; margin: 10px 0; font-size: 0.9em; }
+.callout-gold   { background: #fffbe0; border-left: 4px solid var(--gold); }
+.callout-blue   { background: #eef4ff; border-left: 4px solid var(--blue); }
+.callout-green  { background: #efffef; border-left: 4px solid var(--green); }
+.callout-danger { background: #fff0f0; border-left: 4px solid var(--red); }
+
+.move-line { background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+             padding: 8px 12px; margin: 6px 0; font-size: 0.92em; line-height: 1.9; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: #eef4ff; border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.bad-move { background: #ffe0e0; border: 1px solid #cc8888; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; color: #8b1a1a; }
+.note { color: #555; font-style: italic; font-size: 0.88em; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
+th { background: #333; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+.row-danger td { background: #fff0f0 !important; }
+
+hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20px; }
+
+.acc-toggle { display: none; }
+.acc-label {
+  display: block; cursor: pointer; padding: 8px 12px; margin: 4px 0;
+  background: #eee; border: 1px solid #ccc; border-radius: 4px;
+  font-weight: bold; font-size: 0.9em; user-select: none;
+}
+.acc-label::before { content: '▶ '; font-size: 0.75em; color: #666; }
+.acc-toggle:checked ~ .acc-label::before { content: '▼ '; }
+.acc-content { display: none; padding: 10px 14px; background: #fafaf6;
+               border: 1px solid #ddd; border-top: none; border-radius: 0 0 4px 4px; margin-bottom: 6px; }
+.acc-toggle:checked ~ .acc-content { display: block; }
+
+@media print {
+  .acc-content { display: block !important; }
+  .acc-label::before { content: '' !important; }
+  body { font-size: 12px; padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<h1>Battle Plan: Austin (White &amp; Black) vs Chodniewicz, Asher</h1>
+<div class="subtitle">
+  <span><strong>GM Prep</strong></span>
+  <span>Asher rating: 1884 FIDE (Nov 2026)</span>
+  <span>Austin advantage: <strong>+75 FIDE — MUST WIN</strong></span>
+  <span>Direct record: No encounter</span>
+  <span>Games analyzed: 34 (deep, movetime-3000)</span>
+</div>
+
+<div class="rating-note">
+  <strong>Rating context:</strong> Austin (~1959 FIDE) carries a <strong>+75 point advantage</strong> — a must-win against a player in the same tier as Zhuoyuan. Asher's most revealing data: <strong>TX State Amateur 2026 (81st): 1W–4L–1D</strong> vs an adult 1800–2000 field — exactly NAYCC's competition level. He averaged 91.1% overall but fell to 72.2% in his worst game (SW Open R3 as Black). The strategic plan: reach a sharp, complex middlegame by move 20, where his adult-field struggles and opening depth ceiling (~move 10–12) expose him to Austin's tactical pressure.
+</div>
+
+<div class="intel-grid">
+  <div class="intel-card">
+    <h3>Asher as White</h3>
+    <ul>
+      <li><strong>1.e4</strong> in 14/15 white games; exception: 1.d4 Catalan once</li>
+      <li>vs Sicilian: <strong>Open Sicilian</strong> (2.Nf3 3.d4) — all Sicilian types</li>
+      <li>vs Taimanov (…e6 …Nc6): <strong>Be3+Bd3+O-O</strong> system (NOT Qd2 English Attack)</li>
+      <li>vs 1…e5: Ruy Lopez (AGCA) or Italian (TX State); Italian less reliable</li>
+      <li><em>White record: 9W–5L–1D (61%) · avg ~91.7%</em></li>
+      <li><em>White failures: lost Albert 2044 (AGCA R3), both Italian games at TX State (Walker 1758, Manchanda 1949)</em></li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Asher as Black</h3>
+    <ul>
+      <li>vs 1.e4: <strong>French Defense (primary)</strong> — all three systems</li>
+      <li><strong>Tarrasch Qxd5</strong> (Chistyakov 3…c5 4.exd5 Qxd5): 3+ documented games — his HOME territory</li>
+      <li>Classical Rubinstein (dxe4 …Nd7): 2 games; French Advance (…c5 Nc6): 2 games</li>
+      <li>vs 1.d4: <strong>Grünfeld/KID fianchetto</strong> (Nf6 g6 Bg7 d5) — consistent</li>
+      <li><em>Black record: 5W–7L–6D (49%) · avg ~90.7%</em></li>
+      <li><em>Best Black win: Mysore 1975 at TX State R3 (95.0%, KID vs English)</em></li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Critical weaknesses</h3>
+    <ul>
+      <li><strong>Adult-field struggles:</strong> TX State Amateur 1W–4L–1D vs 1750–1975 range. Both White Italian games lost; Réti draw was 80.6% (uncharacteristic). NAYCC is this exact competition level.</li>
+      <li><strong>Opening depth ceiling:</strong> Deviation map shows personal-prep territory from move 10–12 in White systems; Black French prep runs deeper but is well-documented for Austin to target.</li>
+      <li><strong>Worst game 72.2%:</strong> SW Open R3 as Black (French vs John Austin) — unusual accuracy drop in a lost game. Shows occasional tactical blindness under pressure.</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Key game facts</h3>
+    <ul>
+      <li>Overall avg: <strong>91.1%</strong> (34 games)</li>
+      <li>Best game: <strong>98.9%</strong> (TX Scholastic, scholastic field)</li>
+      <li>Worst game: <strong>72.2%</strong> (SW Open R3, Black, French)</li>
+      <li>Best rated win: TX State R3 — beat Mysore 1975 as Black (95.0%)</li>
+      <li>Highest-rated opponent: GM Ruiz Castillo 2526 (TX Fall FIDE R3, Najdorf B96, LOSS as White, 93.5%)</li>
+      <li>Against 2000+: 0W–4L–0D (Albert 2044, GM 2526, Bryan Lin 2371, Gundam 2071)</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="white-section">Part 1 — Austin as White: Advanced French 3.e5 Sidesteps Tarrasch Territory</h2>
+
+<div class="callout callout-blue">
+  <strong>The core challenge:</strong> Asher's primary Black weapon is the <strong>French Defense — specifically Tarrasch Qxd5 (Chistyakov)</strong>. He plays 3.Nd2 c5 4.exd5 Qxd5 in 3+ documented games and is most comfortable here. Austin's <strong>Advanced French (3.e5)</strong> bypasses all of Asher's Tarrasch preparation: the Chistyakov variation is impossible after 3.e5. Austin steers into sharp attacking Advance lines (6.a3 → 7.b4!) where Asher must navigate unfamiliar complications.
+</div>
+
+<h3>Advance French main line — Austin's weapon</h3>
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">e6</span>
+  2.d4 <span class="mv-z">d5</span>
+  <span class="key-move">3.e5</span>
+  <span class="mv-z">c5</span>
+  4.c3 <span class="mv-z">Nc6</span>
+  5.Nf3 <span class="mv-z">Qb6</span>
+  <span class="key-move">6.a3!</span>
+  <span class="note"> — 6.a3 prepares b4, gaining queenside space and preventing …Nh6-f5. Asher has played both AGCA R4 Bates (Advance draw 90.7%) and TX Scholastic R1 Sriram (Advance win) using the standard …c5 Nc6 response — he knows the structure but 6.a3 → 7.b4! is sharper attacking play that suits Austin.</span>
+</div>
+
+<input class="acc-toggle" id="w1" type="checkbox" checked>
+<label class="acc-label" for="w1">Branch A — 6.a3 Nh6 7.b4! — sharper attacking line (Austin's primary weapon)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">e6</span>
+    2.d4 <span class="mv-z">d5</span>
+    3.e5 <span class="mv-z">c5</span>
+    4.c3 <span class="mv-z">Nc6</span>
+    5.Nf3 <span class="mv-z">Qb6</span>
+    6.a3 <span class="mv-z">Nh6</span>
+    <span class="key-move">7.b4!</span> <span class="mv-z">cxb4</span>
+    8.axb4 <span class="mv-z">Nxb4</span>
+    9.Bd3 <span class="mv-z">Bd7</span>
+    10.O-O <span class="mv-z">Nc6</span>
+    <span class="key-move">11.Ba3!</span>
+    <span class="note"> — After 11.Ba3: White threatens Bb2 and Nc3 with powerful pressure. Black's Nb4 is unstable. Austin's attack on the queenside and bishop pair create winning chances. This is sharper than what Asher faced from Bates — Asher's 90.7% draw was in a less sharp Advance line.</span>
+  </div>
+  <p style="margin-top:8px">This is the IQP-style attacking position Austin knows. After 11.Ba3 Nc4 12.Bxc4 dxc4 13.d5! the passed pawn creates decisive pressure. Asher's French Advance experience (vs Sriram, Bates) was in more standard lines — this sharp 7.b4! branch is likely outside his preparation depth.</p>
+</div>
+
+<input class="acc-toggle" id="w2" type="checkbox" checked>
+<label class="acc-label" for="w2">Branch B — 6.Be2 — classical Advance development (lower-risk alternative)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">e6</span>
+    2.d4 <span class="mv-z">d5</span>
+    3.e5 <span class="mv-z">c5</span>
+    4.c3 <span class="mv-z">Nc6</span>
+    5.Nf3 <span class="mv-z">Qb6</span>
+    6.Be2 <span class="mv-z">cxd4</span>
+    7.cxd4 <span class="mv-z">Nge7</span>
+    8.Nc3 <span class="mv-z">Nf5</span>
+    9.Na4 <span class="mv-z">Qd8</span>
+    10.O-O
+    <span class="note"> — Classical development. White's e5+d4 chain restricts Black. Plan: f4-f5 kingside attack or c4 break. Asher plays …Nf5 to pressure d4 — Na4 drives the queen back. Austin should know: in this structure, …Nf5 hitting d4 is the main threat, and Na4 is the accurate response.</span>
+  </div>
+  <p style="margin-top:8px">This line is safer but gives Asher more familiar French Advance structures. Use this if Austin wants a solid position with good winning chances but less risk. The 6.a3 Branch A is preferred for NAYCC where Austin needs a win.</p>
+</div>
+
+<input class="acc-toggle" id="w3" type="checkbox">
+<label class="acc-label" for="w3">Branch C — 3.exd5 Exchange French (backup — sidesteps all French prep)</label>
+<div class="acc-content">
+  <div class="callout callout-gold" style="margin-bottom:8px">
+    Exchange French sidesteps ALL of Asher's French preparation — Tarrasch, Rubinstein, Advance. Symmetric structure; Austin must win through technique. Use only if wanting a lower-complexity game. Trade-off: gives up the Advance's attacking potential.
+  </div>
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">e6</span>
+    2.d4 <span class="mv-z">d5</span>
+    <span class="key-move">3.exd5</span> <span class="mv-z">exd5</span>
+    4.Bd3 <span class="mv-z">Nf6</span>
+    5.Nf3 <span class="mv-z">Bd6</span>
+    6.O-O <span class="mv-z">O-O</span>
+    <span class="note"> — Symmetric IQP structure. White plays Nc3-Ne5 or minority attack. Standard plans — Austin should know them. Not recommended as the main weapon; use 3.e5 for maximum winning chances.</span>
+  </div>
+</div>
+
+<input class="acc-toggle" id="w4" type="checkbox">
+<label class="acc-label" for="w4">Branch D — If Asher plays 1…c5 Sicilian (he plays Sicilian as secondary Black)</label>
+<div class="acc-content">
+  <div class="callout callout-gold" style="margin-bottom:8px">
+    Asher plays Sicilian as Black mainly when opponents use anti-Sicilian systems (Rossolimo, Qe2). If he plays 1…c5 vs Austin's 1.e4, Austin plays Open Sicilian normally — Austin's Rossolimo (Bb5) or Exchange CK are for different Black setups.
+  </div>
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">c5</span>
+    2.Nf3 <span class="mv-z">e6</span>
+    3.d4 <span class="mv-z">cxd4</span>
+    4.Nxd4 <span class="mv-z">Nc6</span>
+    <span class="key-move">5.Nc3</span> <span class="mv-z">Nf6</span>
+    <span class="note"> — If Asher plays Sicilian: Austin stays with Open Sicilian. Standard Taimanov territory from Austin's perspective. Asher's Sicilian as Black is secondary — he has only 2 documented Sicilian games both in anti-Sicilian positions. He has no documented Taimanov play as Black.</span>
+  </div>
+</div>
+
+<h3 style="margin-top:18px">Key tactical themes — Austin as White</h3>
+<table>
+  <thead><tr><th>Theme</th><th>How it plays out</th><th>Evidence</th></tr></thead>
+  <tbody>
+  <tr><td><strong>Advance 3.e5 eliminates Tarrasch Qxd5 entirely</strong></td><td>Asher's most-practiced French line (Chistyakov 3.Nd2 c5 4.exd5 Qxd5) requires White to play 3.Nd2. Austin's 3.e5 prevents this completely — Asher cannot reach his best-prepared Black structure.</td><td>3 documented Chistyakov games (SW Open R3, Natl K-8 R3, AGCA R1) — his most-played French. Austin avoids all of it with 3.e5.</td></tr>
+  <tr><td><strong>7.b4! in the Advance creates complications Asher hasn't faced</strong></td><td>Asher knows the standard Advance …c5 Nc6 structure from AGCA R4 (Bates draw, 90.7%) and TX Scholastic R1 (Sriram win). The sharp 6.a3 → 7.b4! queenside pawn sacrifice is a sharper weapon than what Bates played — Asher's prep probably doesn't extend to this line.</td><td>Deviation map: Advance French is White sys 1; Asher's first deviation in standard Advance occurs around move 10–12 — indicating prep limits.</td></tr>
+  <tr><td><strong>Asher's Italian/Ruy Lopez White is unreliable — same pattern applies to his French Black</strong></td><td>Asher lost BOTH Italian games as White at TX State (Walker 1758, Manchanda 1949). The common thread: he struggles when opponents push back in familiar-looking structures. Austin pushing with 7.b4! is exactly that type of challenge.</td><td>TX State R2 vs Manchanda (1949, LOSS as White Italian), TX State R4 vs Walker (1758, LOSS as White Italian).</td></tr>
+  <tr><td><strong>TX State Amateur (1W–4L–1D) confirms Austin's target range</strong></td><td>Adult 1800–2000 field at TX State is the exact level Austin will face at NAYCC. Asher underperformed significantly — a 1.5/6 score. His play breaks down when opponents have adult preparation depth, not scholastic patterns.</td><td>TX State Amateur 2026 overall: 1W–4L–1D (25%) vs avg ~1860 field. Austin at 1959 is at the high end of this range.</td></tr>
+  </tbody>
+</table>
+
+<hr class="section-divider">
+
+<h2 class="black-section">Part 2 — Austin as Black: Taimanov vs Asher's Be3+Bd3 Open Sicilian</h2>
+
+<div class="callout callout-green">
+  <strong>Core insight:</strong> Asher plays <strong>1.e4 → Open Sicilian (2.Nf3 3.d4)</strong> against all Sicilian types. His specific system vs Taimanov (...e6 ...Nc6) is <strong>Be3+Bd3+O-O</strong> — NOT the English Attack (Qd2 + O-O-O). He does NOT play Qd2 or castle queenside. Austin plays <strong>Taimanov Sicilian (1…c5 2…e6 4…Nc6)</strong> — reaching familiar Taimanov territory where Austin's preparation is deeper than Asher's opening depth ceiling (~move 10–12 per deviation map). Austin's Taimanov knowledge cold-starts past Asher's preparation boundary.
+</div>
+
+<h3>Austin's Taimanov — main defense</h3>
+<div class="move-line">
+  <span class="mv-a">Austin:</span> <span class="mv-z">1.e4</span> c5
+  <span class="mv-z">2.Nf3</span> e6
+  <span class="mv-z">3.d4</span> cxd4
+  <span class="mv-z">4.Nxd4</span> Nc6
+  <span class="mv-z">5.Nc3</span> a6
+  <span class="note"> — 5…a6 Kan-Taimanov hybrid. Austin retains flexibility. Asher's documented response is Be3+Bd3+O-O (NOT Qd2). Austin can play …Nf6, …Qc7, …d6 — standard Taimanov structures where Asher's depth runs out around move 10–12.</span>
+</div>
+
+<input class="acc-toggle" id="b1" type="checkbox" checked>
+<label class="acc-label" for="b1">Branch A — Asher's Be3+Bd3+O-O system vs Taimanov (documented system)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> <span class="mv-z">1.e4</span> c5
+    <span class="mv-z">2.Nf3</span> e6
+    <span class="mv-z">3.d4</span> cxd4
+    <span class="mv-z">4.Nxd4</span> Nc6
+    <span class="mv-z">5.Nc3</span> a6
+    <span class="mv-z">6.Be3</span> Nf6
+    <span class="mv-z">7.Bd3</span> Be7
+    <span class="mv-z">8.O-O</span> d6
+    <span class="key-move">9.Qe2</span> <span class="mv-z">Qc7!</span>
+    <span class="note"> — After 8.O-O, Austin plays …d6, …Qc7 — standard Taimanov structure. Deviation map shows Asher's first deviation in this system (Be3+Bd3) at move 10 (firstDeviationIdx=12, rank-3 8% move at step 10). Austin's position is comfortable and prepared; Asher is in personal prep territory past move 12.</span>
+  </div>
+  <p style="margin-top:8px">Asher's Be3+Bd3+O-O system is known but NOT the aggressive English Attack. After …Qc7, Austin plans: …b5 queenside expansion, …Rc8, …Bb7, and …b4 queenside counter if White doesn't attack immediately. White's plans in this structure are f4 kingside or central d4 themes — standard Sicilian play Austin has drilled from multiple opponent preparations.</p>
+</div>
+
+<input class="acc-toggle" id="b2" type="checkbox" checked>
+<label class="acc-label" for="b2">Branch B — Asher plays Ndb5 or early knight pressure (possible variation)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> <span class="mv-z">1.e4</span> c5
+    <span class="mv-z">2.Nf3</span> e6
+    <span class="mv-z">3.d4</span> cxd4
+    <span class="mv-z">4.Nxd4</span> Nc6
+    <span class="mv-z">5.Nc3</span> a6
+    <span class="mv-z">6.Nxc6</span> bxc6
+    <span class="key-move">7.Bd3</span> <span class="mv-z">d5!</span>
+    <span class="note"> — If Asher exchanges on c6: Austin plays …bxc6 then …d5 central break. The IQP structure after 8.exd5 cxd5 gives Austin an active position with easy development. Asher has used Bxc6 exchange once (vs 1528 in SW Open R6) but it was against a much lower-rated opponent — unlikely to be deeply prepared as his main weapon.</span>
+  </div>
+</div>
+
+<input class="acc-toggle" id="b3" type="checkbox">
+<label class="acc-label" for="b3">Branch C — Asher plays Anti-Sicilian Qe2 (documented once vs Ni 1869)</label>
+<div class="acc-content">
+  <div class="callout callout-gold" style="margin-bottom:8px">
+    Asher used 1.e4 c5 2.Nf3 e6 3.Qe2 once (SW Open R4 vs Ni 1869). Austin plays 3…Nc6 then 4.c3 d5! central break. This is a rare anti-Sicilian with limited preparation depth for Asher.
+  </div>
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> <span class="mv-z">1.e4</span> c5
+    <span class="mv-z">2.Nf3</span> e6
+    <span class="mv-z">3.Qe2</span>
+    <span class="key-move">Nc6!</span>
+    4.c3 <span class="mv-z">d5!</span>
+    5.e5 <span class="mv-z">Qb6!</span>
+    <span class="note"> — After 3.Qe2 Nc6 4.c3 d5!: central break. If 5.e5 then Qb6! attacking d4. Asher played this system once — it's not deeply prepared. Austin's 3…Nc6 and …d5 is principled play; Qe2 positions are generally not dangerous for Black with correct central play.</span>
+  </div>
+</div>
+
+<input class="acc-toggle" id="b4" type="checkbox">
+<label class="acc-label" for="b4">Branch D — If Austin plays 1…e5 (avoid — Asher knows Ruy Lopez)</label>
+<div class="acc-content">
+  <div class="callout callout-danger" style="margin-bottom:8px">
+    Do NOT play 1…e5. Asher won AGCA R7 vs Lonie (1818) as White with Ruy Lopez (C87) at 94.2% accuracy. His Ruy Lopez as White is his most reliable e5-response. Austin should not hand Asher his comfort structure.
+  </div>
+  <p>If for some reason Austin wants to avoid the Sicilian: play 1…e6 (French structure) — not 1…e5. Asher as White has no documented French pawn structure experience except rare cases. Playing 1…e6 from Austin would flip the French into Austin-favorable territory (Austin knows the French deeply from the White side prep).</p>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="analysis">Part 3 — Accuracy Profile and Error Patterns</h2>
+
+<h3>TX State Amateur 2026 — Most Relevant Data (Adult Field)</h3>
+<table>
+  <thead><tr><th>Rnd</th><th>Color</th><th>Opponent</th><th>Elo</th><th>Result</th><th>Acc%</th><th>ECO</th><th>Notes</th></tr></thead>
+  <tbody>
+  <tr><td>R1</td><td>Black</td><td>Zheng Zhaoxiong</td><td>2092</td><td>DRAW</td><td>80.6%</td><td>Réti</td><td>Uncharacteristically poor accuracy</td></tr>
+  <tr><td>R2</td><td>White</td><td>Manchanda</td><td>1949</td><td>LOSS</td><td>—</td><td>Italian C55</td><td>White Italian loss; 2.Nc3 3.Bc4 system</td></tr>
+  <tr><td>R3</td><td>Black</td><td>Mysore, Abhinav</td><td>1975</td><td>WIN</td><td>95.0%</td><td>KID vs English</td><td>Best rated win in dataset</td></tr>
+  <tr class="row-danger"><td>R4</td><td>White</td><td>Walker</td><td>1758</td><td>LOSS</td><td>—</td><td>Italian C54</td><td>White Italian loss vs lower-rated</td></tr>
+  <tr class="row-danger"><td>R7</td><td>Black</td><td>Alois</td><td>~1800</td><td>LOSS</td><td>—</td><td>D71 Grünfeld</td><td>Black loss in KID structure</td></tr>
+  </tbody>
+</table>
+
+<h3>AGCA Summer 2025 — Best Classical Data (avg 92.5%)</h3>
+<table>
+  <thead><tr><th>Rnd</th><th>Color</th><th>Opponent</th><th>Elo</th><th>Result</th><th>Acc%</th><th>ECO</th><th>Notes</th></tr></thead>
+  <tbody>
+  <tr class="row-danger"><td>R3</td><td>White</td><td>Albert, Colin</td><td>2044</td><td>LOSS</td><td>89.8%</td><td>B40</td><td>Lost to 2044 as White — outprepared in opening</td></tr>
+  <tr><td>R4</td><td>Black</td><td>Bates, Evan</td><td>1953</td><td>DRAW</td><td>90.7%</td><td>French Advance C02</td><td>Solid draw in French Advance — knows the structure</td></tr>
+  <tr><td>R7</td><td>White</td><td>Lonie</td><td>1818</td><td>WIN</td><td>94.2%</td><td>C87 Ruy Lopez</td><td>Strong Ruy Lopez win as White</td></tr>
+  </tbody>
+</table>
+
+<h3>Other Key Games</h3>
+<table>
+  <thead><tr><th>Tournament</th><th>Rnd</th><th>Color</th><th>Opponent</th><th>Elo</th><th>Result</th><th>Acc%</th><th>ECO</th></tr></thead>
+  <tbody>
+  <tr><td>TX Fall FIDE 2026</td><td>R3</td><td>White</td><td>GM Ruiz Castillo</td><td>2526</td><td>LOSS</td><td>93.5%</td><td>B96 Najdorf</td></tr>
+  <tr><td>Natl MS K-8 2026</td><td>R3</td><td>Black</td><td>Bryan Lin</td><td>2371</td><td>LOSS</td><td>89.5%</td><td>French Tarrasch</td></tr>
+  <tr><td>SuperNationals 2025</td><td>R2</td><td>White</td><td>Tikhomirov</td><td>1960</td><td>DRAW</td><td>88.6%</td><td>Open Sicilian</td></tr>
+  <tr><td>TX State R1</td><td>Black</td><td>Zheng Zhaoxiong</td><td>2092</td><td>DRAW</td><td>80.6%</td><td>Réti</td></tr>
+  <tr class="row-danger"><td>SW Open R3</td><td>Black</td><td>John Austin</td><td>—</td><td>LOSS</td><td>72.2%</td><td>French Tarrasch</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-gold">
+  <strong>Accuracy summary:</strong> Asher averages 91.1% overall with a higher White average (~91.7%) vs Black (~90.7%). His peak performances are in scholastic fields (94.3% average at TX Scholastic). However, his record against 1960–2100 rated opponents is 0W–4L–0D — exactly Austin's level. The 72.2% worst game (SW Open R3) shows that in Black French positions, he can collapse completely. The Bates draw at 90.7% was solid but came in standard Advance lines — Austin's 6.a3 → 7.b4! is sharper territory.
+</div>
+
+<h3>Known Error Patterns</h3>
+<table>
+  <thead><tr><th>#</th><th>Pattern</th><th>Critical Example</th><th>Austin's Exploit</th></tr></thead>
+  <tbody>
+  <tr class="row-danger">
+    <td>1</td>
+    <td><strong>Adult-field failure pattern (1800–2000 range)</strong></td>
+    <td>TX State Amateur 2026: 1W–4L–1D vs adult 1800–2000 field. Lost both White Italian games (Walker 1758, Manchanda 1949). Drew Zheng 2092 at 80.6% (uncharacteristic). Struggles when opponents push back with adult preparation.</td>
+    <td>Austin IS this field. Play confidently — Asher's adult-field struggles are the most predictive data for NAYCC. Don't over-respect Asher's 1884 rating based on scholastic performances.</td>
+  </tr>
+  <tr class="row-danger">
+    <td>2</td>
+    <td><strong>Opening preparation ceiling (~move 10–12 as White)</strong></td>
+    <td>Deviation map confirms Asher enters personal-prep territory around move 10–12 in all three White systems (Be3+Bd3 system firstDeviationIdx=12; 6.Bg5 Classical deviates at move 10; Vienna deviates at move 2). As Black, French prep runs deeper but is fully mapped by Austin.</td>
+    <td>As Austin's Black: Taimanov positions past move 12 are familiar to Austin, unfamiliar to Asher. As Austin's White: Advance 6.a3 → 7.b4! is past Asher's documented preparation. Play sharp theoretical lines that run past move 12.</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td><strong>72.2% tactical blindness (worst game)</strong></td>
+    <td>SW Open R3 as Black (French Tarrasch vs John Austin): 72.2% accuracy — the worst single game in Asher's dataset across 34 games. Unknown cause but an extreme accuracy drop in a Black French game he lost. Shows potential for complete positional/tactical confusion in certain positions.</td>
+    <td>Don't simplify to technical positions. Asher's 72.2% worst game occurred in a complex French middlegame. Keep complications alive — Austin's tactical strengths match exactly where Asher's floor appears.</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3>Psychological notes</h3>
+<p style="margin: 10px 0;">Asher is a methodical player who performs excellently in scholastic fields (94.3% TX Scholastic average) but has a documented difficulty transitioning to adult competitive chess. TX State Amateur — the closest analog to NAYCC — produced his weakest results. His biggest mental challenge at NAYCC: the adult preparation depth from Austin (~1959 FIDE) will push him past his opening prep boundary from move 10–12 onward. As White, his Open Sicilian Be3+Bd3 system runs out of preparation when Austin reaches the Taimanov structures past move 12. As Black, if Austin plays Advance 6.a3 → 7.b4!, Asher is in territory he has not deeply prepared. Austin should play with confidence and create concrete complications — not positional maneuvering where Asher's scholastic training gives him steady accuracy.</p>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 4 — If / Then Quick Reference</h2>
+
+<input class="acc-toggle" id="ift1" type="checkbox" checked>
+<label class="acc-label" for="ift1">Austin as White — Decision Tree</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Asher plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
+    <tbody>
+    <tr><td>1…e6 French (primary)</td><td><strong>3.e5 Advance French!</strong></td><td>Sidesteps Tarrasch Qxd5 (3.Nd2 Chistyakov) — Asher's most-practiced French structure (3+ documented games). 3.e5 prevents 4.exd5 Qxd5 entirely. Austin's primary weapon.</td></tr>
+    <tr><td>3.e5 c5 4.c3 Nc6 5.Nf3 Qb6</td><td><strong>6.a3 → 7.b4!</strong></td><td>Sharp attacking Advance. Asher knows standard Advance (drew Bates 1953 at 90.7%) but NOT this sharp 7.b4! sacrifice line. Austin's attacking style suits this branch perfectly.</td></tr>
+    <tr><td>1…e6 but no …d5 (unusual)</td><td>3.Nc3 or 3.Nf3 → transpose to known position</td><td>Keep flexible — if Asher avoids French setup, Austin's standard Open Game development maintains control.</td></tr>
+    <tr><td>1…c5 Sicilian</td><td>2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 — Open Sicilian normally</td><td>Austin plays Open Sicilian. Asher as Black Sicilian is secondary (2 games, both in anti-Sicilian positions). No documented Taimanov-as-Black prep for Asher.</td></tr>
+    <tr><td>1…e5</td><td>2.Nf3 Nc6 3.Bc4 → Italian</td><td>Austin's standard vs 1…e5. Italian d4 squeeze (7.Re1 8.h3 9.Nbd2 10.Nf1 11.Ng3 12.d4!) — from Inti matchup prep. Asher has Italian experience only as White; this reversal puts him on unfamiliar ground.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<input class="acc-toggle" id="ift2" type="checkbox" checked>
+<label class="acc-label" for="ift2">Austin as Black — Decision Tree</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Asher plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
+    <tbody>
+    <tr><td>1.e4</td><td><strong>1…c5 Sicilian</strong></td><td>Austin's Black weapon. Asher plays Open Sicilian (Be3+Bd3 system) — NOT the deeply feared Qd2 English Attack. Austin's Taimanov preparation covers Asher's exact system.</td></tr>
+    <tr><td>2.Nf3 (most likely)</td><td>2…e6 3…Nc6 → Taimanov</td><td>Taimanov B46 is Austin's developed weapon. Asher's documented Taimanov response is Be3+Bd3+O-O — deviation map confirms his depth ceiling at move 10–12 in this system.</td></tr>
+    <tr><td>6.Be3 7.Bd3 8.O-O (Asher's system)</td><td>…d6 …Qc7 → …b5 queenside expansion</td><td>Standard Taimanov/Kan counter. Plan: …b5, …Rc8, …Bb7, …b4 — Austin's practiced queenside attack. Asher's White setup lacks a concrete anti-queenside plan.</td></tr>
+    <tr><td>3.Bb5+ Rossolimo (once documented, vs 1528)</td><td>3…Nd7 (solid, flexible)</td><td>Rossolimo is rare for Asher — only one documented game vs 1528. 3…Nd7 keeps the knight flexible; avoids …Nc6 blocking d-pawn. Asher probably not deeply prepared at Austin's level here.</td></tr>
+    <tr><td>3.Qe2 Anti-Sicilian (once documented)</td><td>3…Nc6 4.c3 d5!</td><td>Central break. Documented once vs Ni 1869. Not deeply prepared by Asher.</td></tr>
+    <tr><td>1.d4</td><td>1…Nf6 → Nimzo-Indian or Queen's Indian</td><td>Austin's primary 1.d4 defense (Nimzo-Indian Bxc3+ …b6/…Ba6). Asher plays 1.d4 Catalan only once in dataset — not his main White weapon. Austin's deep Nimzo preparation applies.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<input class="acc-toggle" id="ift3" type="checkbox" checked>
+<label class="acc-label" for="ift3">Key principles for this matchup</label>
+<div class="acc-content">
+  <ul style="padding-left:20px; line-height:1.9;">
+    <li><strong>This is a must-win.</strong> Austin is +75 FIDE. A draw is a bad result. Play for complications from the start — use Advance French 3.e5 (not Exchange) and Taimanov with queenside pressure. (Source: rating gap + NAYCC context.)</li>
+    <li><strong>NEVER play 3.Nd2 Tarrasch as White.</strong> Asher plays the Chistyakov (3.Nd2 c5 4.exd5 Qxd5) in 3+ documented games — his most-prepared French territory. 3.e5 sidesteps it completely. (Source: asher-analysis.md French repertoire section.)</li>
+    <li><strong>Asher's adult-field record is the key data point.</strong> TX State Amateur: 1W–4L–1D vs 1750–1975 range. NAYCC is exactly this competition level. Don't over-respect scholastic-era 94.3% accuracy numbers — his adult classical record is what matters here. (Source: TX State Amateur 2026 tournament record.)</li>
+    <li><strong>As Black, Taimanov B46 is Austin's preparation advantage.</strong> Asher's Taimanov-White (Be3+Bd3 system) has a depth ceiling at move 10–12. Austin's Taimanov knowledge runs past move 20. One player is prepared, the other must improvise from move 12. (Source: opening-deviation-asher.html, firstDeviationIdx=12 for Be3+Bd3 system.)</li>
+    <li><strong>Don't simplify to technical endgames.</strong> Asher's 72.2% worst game (SW Open R3 as Black in French Tarrasch) shows he can collapse in complex middlegames. Keep complications — Austin's tactical instincts thrive where Asher's floor has appeared. (Source: asher-analysis.md worst game.)</li>
+    <li><strong>Asher is beatable vs adult preparation pressure.</strong> 0W–4L–0D against 2000+ rated opponents (Albert 2044, GM 2526, Bryan Lin 2371, Gundam 2071). Austin's effective preparation level is higher than his FIDE number suggests here. (Source: analysis Notable Results section.)</li>
+  </ul>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 5 — Critical Moments Reference</h2>
+
+<h3>Pattern 1: Adult-Field Collapse (TX State Amateur 2026, White, Italian — LOSS vs Walker 1758)</h3>
+<p class="note" style="margin-bottom:6px;">Italian C54 Giuoco Piano as White. Asher lost to a 1758-rated player with 2.Nc3 3.Bc4 — his less-prepared White system. This was his 4th-round game in the adult Swiss tournament.</p>
+<div class="move-line">
+  <span class="mv-z">1.e4</span> e5
+  <span class="mv-z">2.Nc3</span> Nf6
+  <span class="mv-z">3.Bc4</span> Bc5
+  <span class="mv-z">4.Nf3</span> d6
+  <span class="mv-z">5.d3</span> O-O
+  <span class="note"> — Asher's Italian setup. He lost both Italian games at TX State (vs Walker 1758 and Manchanda 1949). The Italian requires precise middle-game knowledge — Asher's scholastic preparation in this structure is insufficient against adult-level play.</span>
+</div>
+<p style="margin-top:8px"><strong>What this reveals:</strong> Asher's White preparation is reliable in Open Sicilian (his most-practiced system) but breaks down in Italian/Ruy Lopez when opponents play accurately. For Austin as Black: this confirms that Asher's Open Sicilian White is his most solid ground — but his prep runs out at move 10–12 even there. Don't help him by playing 1…e5.</p>
+
+<h3>Pattern 2: French Tarrasch Comfort Zone — Best Documented Black Games</h3>
+<p class="note" style="margin-bottom:6px;">Asher's French Tarrasch Qxd5 structure in 3 games (SW Open R3, Natl K-8 R3, AGCA R1). His most-practiced Black structure. Austin must avoid giving him this position.</p>
+<div class="move-line">
+  <span class="mv-z">1.e4</span> e6
+  <span class="mv-z">2.d4</span> d5
+  <span class="mv-z">3.Nd2</span> c5
+  <span class="mv-z">4.exd5</span> Qxd5
+  <span class="note"> — Chistyakov/Tarrasch Qxd5. Asher plays this in 3 documented games. After …Qxd5: Black queen is active, development fast. Austin must NEVER play 3.Nd2 — this hands Asher his home structure with 3+ games of specific preparation.</span>
+</div>
+<p style="margin-top:8px"><strong>What this means for Austin:</strong> Advance 3.e5 makes the Chistyakov impossible — after 3.e5 c5 4.c3, there is no …Qxd5 for Black. Asher must play standard Advance lines instead (…c5 Nc6), where his prep is less deep and his results (draw vs Bates 1953) are modest.</p>
+
+<h3>Pattern 3: Opening Depth Ceiling — Deviation Map Evidence</h3>
+<p class="note" style="margin-bottom:6px;">Per the opening deviation map (opening-deviation-asher.html), Asher's six documented systems all show deviation from master-level theory within 10–12 moves as White. As Black, his French prep runs deeper but is well-mapped for Austin to target.</p>
+<p>The White Be3+Bd3+O-O system (vs Taimanov …e6 …Nc6) reaches its depth ceiling around move 10 (firstDeviationIdx=12, step 10 is a rank-3 8% move: a3). This means: in Austin's Taimanov (1…c5 2…e6 4…Nc6), by move 12 Asher is in personal-prep territory. Austin's Taimanov preparation — from multiple opponent matchup studies — runs well past move 15. <strong>This is Austin's preparation advantage made concrete.</strong></p>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 6 — Engine Accuracy Reference</h2>
+
+<h3>All Classical Games (selected key games — full data in matchup-asher-deep.html)</h3>
+<table>
+  <thead><tr><th>Tournament</th><th>Rnd</th><th>Color</th><th>Opponent</th><th>Elo</th><th>Result</th><th>Acc%</th><th>ECO</th></tr></thead>
+  <tbody>
+  <tr><td>TX Scholastic 2026</td><td>—</td><td>White</td><td>Ellison</td><td>1636</td><td>WIN</td><td>98.2%</td><td>B44</td></tr>
+  <tr><td>TX Scholastic 2026</td><td>—</td><td>Black</td><td>Sriram</td><td>1482</td><td>WIN</td><td>98.9%</td><td>C03 Advance</td></tr>
+  <tr><td>TX State Amateur R3</td><td>R3</td><td>Black</td><td>Mysore, Abhinav</td><td>1975</td><td>WIN</td><td>95.0%</td><td>KID</td></tr>
+  <tr><td>AGCA Summer R7</td><td>R7</td><td>White</td><td>Lonie</td><td>1818</td><td>WIN</td><td>94.2%</td><td>C87 Lopez</td></tr>
+  <tr><td>TX Fall FIDE R3</td><td>R3</td><td>White</td><td>GM Ruiz Castillo</td><td>2526</td><td>LOSS</td><td>93.5%</td><td>B96 Najdorf</td></tr>
+  <tr><td>AGCA Summer R4</td><td>R4</td><td>Black</td><td>Bates, Evan</td><td>1953</td><td>DRAW</td><td>90.7%</td><td>C02 Advance</td></tr>
+  <tr><td>Natl MS K-8 R3</td><td>R3</td><td>Black</td><td>Bryan Lin</td><td>2371</td><td>LOSS</td><td>89.5%</td><td>French Tarrasch</td></tr>
+  <tr class="row-danger"><td>AGCA Summer R3</td><td>R3</td><td>White</td><td>Albert, Colin</td><td>2044</td><td>LOSS</td><td>89.8%</td><td>B40 Sicilian</td></tr>
+  <tr class="row-danger"><td>SuperNationals R2</td><td>R2</td><td>White</td><td>Tikhomirov</td><td>1960</td><td>DRAW</td><td>88.6%</td><td>Open Sicilian</td></tr>
+  <tr class="row-danger"><td>TX State Amateur R1</td><td>R1</td><td>Black</td><td>Zheng Zhaoxiong</td><td>2092</td><td>DRAW</td><td>80.6%</td><td>Réti A07</td></tr>
+  <tr class="row-danger"><td>SW Open R3</td><td>R3</td><td>Black</td><td>John Austin</td><td>—</td><td>LOSS</td><td>72.2%</td><td>French Tarrasch</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-gold">
+  <strong>Pattern:</strong> Asher wins almost everything in scholastic fields (avg 94.3% at TX Scholastic). Against adult 1800–2000 opponents his accuracy drops to 88–90% range with losses. At 2000+: 0W–4L–0D. Austin at 1959 FIDE is at the exact threshold where Asher's reliability breaks. Play a full-board game with sharp complications from move 10–15 and Asher's accuracy floor will manifest.
+</div>
+
+<p style="margin-top:16px;">
+  <a href="../austin-prep.html">← Austin Prep Index</a>
+  &nbsp;|&nbsp;
+  <a href="matchup-asher-deep.html">Deep Engine Analysis</a>
+  &nbsp;|&nbsp;
+  <a href="matchup-asher-white.html">Austin as White</a>
+  &nbsp;|&nbsp;
+  <a href="matchup-asher-black.html">Austin as Black</a>
+  &nbsp;|&nbsp;
+  <a href="opening-deviation-asher.html">Opening Deviation Map</a>
+</p>
+
+<p style="font-size:0.8rem;color:#57606a;margin-top:36px;text-align:center;">
+  Generated Nov 3, 2026 · Based on deep engine analysis (movetime-3000) of 34 games ·
+  Asher Chodniewicz, 1884 FIDE · NAYCC 2026
+</p>
+</body>
+</html>

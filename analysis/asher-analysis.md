@@ -37,7 +37,7 @@
 - **Drew Matthew Tikhomirov (1960)** — SuperNationals 2025 R2 as White, Open Sicilian, 88.6% accuracy
 - **Drew Evan Bates (1953)** — AGCA Summer 2025 R4 as Black, French Advance C02, 90.7% accuracy
 - **Beat Abhinav Mysore (1975)** — TX State Amateur R3 as Black, KID vs English, 95.0% accuracy — strongest rated win in dataset
-- **Beat Colin Albert (2044)?** — No: R3_AlbertCo was white LOSS at 89.8%. Asher lost to Albert (2044) as White.
+- **Lost to Colin Albert (2044)** — AGCA R3 as White, B40 Sicilian, 89.8% accuracy — outprepared by Albert's opening.
 - **SW Open R3 vs John Austin** — Black, LOSS, 72.2% — worst game in dataset; unusual accuracy drop
 
 ---
