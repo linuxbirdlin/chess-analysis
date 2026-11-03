@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zachary Liu — Opening Deviation Map</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header {
+      border-bottom: 3px solid #2d7d46;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 { margin: 0 0 8px; font-size: 1.85rem; }
+    .doc-header .meta {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      font-size: 0.9rem; color: #57606a;
+    }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link {
+      display: inline-block; margin-top: 14px;
+      font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.3rem; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.05rem; color: #2d7d46; margin: 24px 0 6px; }
+
+    /* Legend */
+    .legend {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px;
+      padding: 14px 18px; margin-bottom: 32px; font-size: 0.85rem;
+    }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    /* Summary table */
+    table { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin: 0 0 24px; }
+    th { text-align: left; padding: 8px 12px; background: #f6f8fa; border-bottom: 2px solid #d0d7de; font-weight: 600; color: #1f2328; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eaeef2; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    td.opening-name { font-weight: 600; }
+    td.color-cell { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+    .color-w { color: #9a6700; }
+    .color-b { color: #0969da; }
+
+    /* System cards */
+    .system-card {
+      border: 1px solid #d0d7de; border-radius: 8px;
+      margin-bottom: 28px; overflow: hidden;
+    }
+    .system-card-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      background: #f6f8fa; padding: 12px 18px; border-bottom: 1px solid #d0d7de;
+    }
+    .system-card-header h3 { margin: 0; font-size: 1rem; color: #1f2328; }
+    .system-card-header .game-count { font-size: 0.8rem; color: #57606a; }
+    .system-card-body { padding: 16px 18px; }
+
+    /* Move trail */
+    .trail-label { font-size: 0.75rem; font-weight: 600; color: #57606a; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .move-trail { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 16px; align-items: center; }
+    .move-sep { color: #d0d7de; font-size: 0.75rem; margin: 0 1px; user-select: none; }
+
+    .chip {
+      display: inline-flex; align-items: center;
+      padding: 3px 8px; border-radius: 4px;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.4;
+      cursor: default; position: relative;
+    }
+    .chip-opp   { background: #f0f0f0; color: #6e7781; border: 1px solid #d0d7de; }
+    .chip-book  { background: #dafbe1; color: #1a7f37; border: 1px solid #2d7d46; }
+    .chip-good  { background: #ddf4ff; color: #0550ae; border: 1px solid #0969da; }
+    .chip-side  { background: #fff3cd; color: #7d4e00; border: 1px solid #d4a017; }
+    .chip-rare  { background: #ffd8d3; color: #a4000f; border: 1px solid #cf222e; }
+    .chip-novel { background: #eee8ff; color: #5a1e96; border: 1px solid #8250df; }
+
+    .chip-flag { font-size: 0.65rem; margin-left: 4px; }
+
+    /* Deviation callouts */
+    .dev-list { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+    .dev-row {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 9px 12px; border-radius: 6px; font-size: 0.85rem; line-height: 1.5;
+    }
+    .dev-row.level-side  { background: #fff8e8; border-left: 3px solid #d4a017; }
+    .dev-row.level-rare  { background: #fff0ee; border-left: 3px solid #cf222e; }
+    .dev-row.level-novel { background: #f3ecff; border-left: 3px solid #8250df; }
+
+    .dev-row .dev-move { font-family: monospace; font-weight: 700; min-width: 90px; flex-shrink: 0; }
+    .dev-row .dev-detail { color: #57606a; }
+    .dev-row .dev-detail strong { color: #1f2328; }
+    .dev-row .dev-detail em { font-style: normal; color: #1f2328; font-weight: 600; }
+
+    /* Austin notes */
+    .austin-note {
+      background: #f0fff4; border: 1px solid #2d7d46; border-radius: 6px;
+      padding: 12px 16px; margin-top: 16px; font-size: 0.875rem;
+    }
+    .austin-note .note-label {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: #2d7d46; margin-bottom: 4px;
+    }
+
+    /* Insight box */
+    .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+    @media (max-width: 580px) { .insight-grid { grid-template-columns: 1fr; } }
+    .insight-card {
+      border: 1px solid #d0d7de; border-radius: 6px;
+      padding: 14px 16px; font-size: 0.875rem;
+    }
+    .insight-card h4 { margin: 0 0 8px; font-size: 0.9rem; color: #2d7d46; }
+    .insight-card ul { margin: 0; padding-left: 18px; }
+    .insight-card li { margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Header ───────────────────────────────────────────────────── -->
+  <div class="doc-header">
+    <h1>Zachary Liu — Opening Deviation Map</h1>
+    <div class="meta">
+      <span><strong>Player:</strong> Zachary Liu · CM · 2185 FIDE (Nov 2026)</span>
+      <span><strong>Games analyzed:</strong> 46 (22 as White, 24 as Black)</span>
+      <span><strong>Database:</strong> Lichess Masters (FIDE 2300+)</span>
+      <span><strong>Generated:</strong> Nov 2, 2026</span>
+    </div>
+    <a href="../austin-prep.html" class="back-link">← Back to Prep Index</a>
+  </div>
+
+  <!-- ── Legend ──────────────────────────────────────────────────── -->
+  <div class="legend">
+    <strong style="font-size:0.8rem;text-transform:uppercase;letter-spacing:.04em;color:#57606a;margin-right:4px;">Zachary's moves:</strong>
+    <span class="legend-item"><span class="chip chip-book" style="font-size:.75rem;padding:2px 7px;">e4</span> <span>Top masters move</span></span>
+    <span class="legend-item"><span class="chip chip-good" style="font-size:.75rem;padding:2px 7px;">Nc3</span> <span>2nd–3rd choice (≥20%)</span></span>
+    <span class="legend-item"><span class="chip chip-side" style="font-size:.75rem;padding:2px 7px;">b3</span> <span>Minor sideline (5–19%)</span></span>
+    <span class="legend-item"><span class="chip chip-rare" style="font-size:.75rem;padding:2px 7px;">a5</span> <span>Rare / personal prep (&lt;5%)</span></span>
+    <span class="legend-item"><span class="chip chip-novel" style="font-size:.75rem;padding:2px 7px;">Re1</span> <span>Novelty (not in master DB)</span></span>
+    <span class="legend-item"><span class="chip chip-opp" style="font-size:.75rem;padding:2px 7px;">Nf6</span> <span>Opponent move</span></span>
+  </div>
+
+  <!-- ── Summary table ───────────────────────────────────────────── -->
+  <h2>Deviation Summary</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Opening System</th>
+        <th>Color</th>
+        <th>Games</th>
+        <th>First Deviation</th>
+        <th>Zachary's Move vs Book</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="opening-name">Reti b3-Bb2 vs King's Indian</td>
+        <td class="color-cell color-w">White</td>
+        <td>3</td>
+        <td>Move 1 (system choice)</td>
+        <td>1.Nf3 (10%) vs 1.e4 (45%) → <strong>3.b3</strong> (5%) vs Nc3 (59%)</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Reti b3-Bb2 vs Indian e6</td>
+        <td class="color-cell color-w">White</td>
+        <td>3</td>
+        <td>Move 6</td>
+        <td><strong>6.b3</strong> (33%) vs 6.d4 (51%) — delays central push</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Reti vs Slav (Qb3 line)</td>
+        <td class="color-cell color-w">White</td>
+        <td>3</td>
+        <td>Move 2–3 (setup)</td>
+        <td>Moves 4–10 all on book after Bg2 — <strong>well-prepared line</strong></td>
+      </tr>
+      <tr>
+        <td class="opening-name">Taimanov Sicilian 5...a6</td>
+        <td class="color-cell color-b">Black</td>
+        <td>10</td>
+        <td>Move 5</td>
+        <td><strong>5...a6</strong> (17%) vs Qc7 (66%) + <strong>10...a5</strong> (novelty)</td>
+      </tr>
+      <tr>
+        <td class="opening-name">QGD Classical Be7</td>
+        <td class="color-cell color-b">Black</td>
+        <td>4</td>
+        <td>Move 4 &amp; 6</td>
+        <td><strong>4...Be7</strong> (28%) vs Bb4+; <strong>6...Nbd7</strong> (8%) vs dxc4</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Benko Gambit e6 variation</td>
+        <td class="color-cell color-b">Black</td>
+        <td>3</td>
+        <td>Move 2 &amp; 5</td>
+        <td><strong>5...e6</strong> (10%) vs g6 (45%) — sidesteps main Benko fianchetto</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       AS WHITE
+  ════════════════════════════════════════════════════════════════ -->
+  <h2>As White (Reti / English)</h2>
+
+  <!-- System 1: Reti vs KID -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Reti — b3-Bb2 vs King's Indian Defence &nbsp;<small style="color:#57606a;font-weight:400;">ECO A05/A07</small></h3>
+      <span class="game-count">3 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-side" title="Zachary: 10% | Book: e4 (45%), d4 (36%)">1.Nf3</span>
+        <span class="chip chip-opp" title="Opponent">1…Nf6</span>
+        <span class="chip chip-book" title="Book: c4 (60%)">2.c4</span>
+        <span class="chip chip-opp">2…g6</span>
+        <span class="chip chip-rare" title="Zachary: 5% | Book: Nc3 (59%), g3 (25%), d4 (8%)">3.b3 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">3…Bg7</span>
+        <span class="chip chip-book" title="Book: Bb2 (100%)">4.Bb2</span>
+        <span class="chip chip-opp">4…O-O</span>
+        <span class="chip chip-book" title="Book: g3 (79%)">5.g3</span>
+        <span class="chip chip-opp">5…d6</span>
+        <span class="chip chip-good" title="Zachary: 47% | Book: d4 (53%), Bg2 (47%)">6.Bg2</span>
+        <span class="chip chip-opp">6…c6</span>
+        <span class="chip chip-book" title="Book: O-O (49%)">7.O-O</span>
+        <span class="chip chip-opp">7…Nbd7</span>
+        <span class="chip chip-good" title="Zachary: 20% | Book: Nc3 (60%), d3 (20%), d4 (20%)">8.d3</span>
+        <span class="chip chip-opp">8…Re8</span>
+        <span class="chip chip-book" title="Book: Nbd2 (67%)">9.Nbd2</span>
+        <span class="chip chip-opp">9…a5</span>
+        <span class="chip chip-novel" title="Not in masters DB">10.a3 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">10…Qc7</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-rare">
+          <span class="dev-move">3. b3</span>
+          <span class="dev-detail"><em>Key system choice.</em> Masters play <strong>3.Nc3</strong> (59%) or <strong>3.g3</strong> (25%). Zachary's <strong>3.b3</strong> (5%) sets up the b3-Bb2 fianchetto — a slow, maneuvering Reti that avoids the sharp Nc3 lines. This is a personal repertoire choice, not a mistake.</span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">10. a3</span>
+          <span class="dev-detail"><em>Personal novelty.</em> No master games at this depth. Zachary is in prepared territory from move 10. Preparation likely extends several moves further.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note (playing Black)</div>
+        Expect 1.Nf3 → 2.c4 → 3.b3 Bb2 → g3 Bg2 — a slow setup that sidesteps sharp English/Reti theory. Zachary avoids 3.Nc3 (which could lead to King's Indian or Grünfeld theory Austin may prefer). The b3-Bb2 system tends to produce closed, maneuvering positions — consider 3…Bg7 4.Bb2 O-O 5.g3 c5 to steer toward dynamic pawn play.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 2: Reti vs Indian e6 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Reti — b3-Bb2 vs Indian Defence (e6) &nbsp;<small style="color:#57606a;font-weight:400;">ECO E00</small></h3>
+      <span class="game-count">3 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-side" title="Zachary: 10% | Book: e4 (45%), d4 (36%)">1.Nf3</span>
+        <span class="chip chip-opp">1…Nf6</span>
+        <span class="chip chip-book" title="Book: c4 (60%)">2.c4</span>
+        <span class="chip chip-opp">2…e6</span>
+        <span class="chip chip-book" title="Book: g3 (50%)">3.g3</span>
+        <span class="chip chip-opp">3…d5</span>
+        <span class="chip chip-book" title="Book: Bg2 (73%)">4.Bg2</span>
+        <span class="chip chip-opp">4…Bd6</span>
+        <span class="chip chip-book" title="Book: O-O (62%)">5.O-O</span>
+        <span class="chip chip-opp">5…O-O</span>
+        <span class="chip chip-good" title="Zachary: 33% | Book: d4 (51%), b3 (33%)">6.b3 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">6…Nc6</span>
+        <span class="chip chip-book" title="Book: Bb2 (69%)">7.Bb2</span>
+        <span class="chip chip-opp">7…d4</span>
+        <span class="chip chip-good" title="Zachary: 33% | Book: Nxd4 (33%), d3 (33%) — equal split">8.d3</span>
+        <span class="chip chip-opp">8…e5</span>
+        <span class="chip chip-novel" title="Not in masters DB | Book: Nbd2 (67%)">9.Re1 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">9…Re8</span>
+        <span class="chip chip-novel" title="Not in masters DB">10.e4 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">10…dxe3</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">6. b3</span>
+          <span class="dev-detail">Book prefers <strong>6.d4</strong> (51%) to take the center. Zachary delays with <strong>6.b3</strong> (33%) — same b3-Bb2 motif. After 6.b3 Black played 6…Nc6 and …d4, occupying the center Black is gifted. This is Zachary's consistent choice: fianchetto over early d4.</span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">9. Re1 · 10. e4</span>
+          <span class="dev-detail"><em>Deep personal preparation.</em> After Black occupies the center with …d4 and …e5, Zachary prepares a kingside counterattack with Re1 → e4. No master games at this depth — Zachary is working from memory past move 8.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        After 1.Nf3 Nf6 2.c4 e6, if Zachary plays 3.g3 d5 4.Bg2 → 6.b3, consider actively occupying the center: …Nc6 → …d4 → …e5 as in the trunk. Austin can accept the pawn space and let Zachary try to prove compensation. Watch for the e4 break at move 10.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 3: Reti vs Slav -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Reti vs Slav — Fianchetto + Qb3 line &nbsp;<small style="color:#57606a;font-weight:400;">ECO D10</small></h3>
+      <span class="game-count">3 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-side" title="Zachary: 10% | Book: e4 (45%)">1.Nf3</span>
+        <span class="chip chip-opp">1…d5</span>
+        <span class="chip chip-side" title="Zachary: 20% | Book: g3 (40%), d4 (30%)">2.c4</span>
+        <span class="chip chip-opp">2…c6</span>
+        <span class="chip chip-side" title="Zachary: 17% | Book: e3 (46%), d4 (20%)">3.g3</span>
+        <span class="chip chip-opp">3…Nf6</span>
+        <span class="chip chip-book" title="Book: Bg2 (75%)">4.Bg2</span>
+        <span class="chip chip-opp">4…Bf5</span>
+        <span class="chip chip-book" title="Book: cxd5 (45%)">5.cxd5</span>
+        <span class="chip chip-opp">5…cxd5</span>
+        <span class="chip chip-book" title="Book: Qb3 (94%)">6.Qb3</span>
+        <span class="chip chip-opp">6…Qc8</span>
+        <span class="chip chip-book" title="Book: Nc3 (94%)">7.Nc3</span>
+        <span class="chip chip-opp">7…e6</span>
+        <span class="chip chip-book" title="Book: d3 (73%)">8.d3</span>
+        <span class="chip chip-opp">8…Nc6</span>
+        <span class="chip chip-book" title="Book: Bf4 (53%)">9.Bf4</span>
+        <span class="chip chip-opp">9…Be7</span>
+        <span class="chip chip-book" title="Book: O-O (43%)">10.O-O</span>
+        <span class="chip chip-opp">10…O-O</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">Moves 1–3</span>
+          <span class="dev-detail">The Reti setup (1.Nf3 2.c4 3.g3) is slightly off the most-popular move at each step, but these are all well-established Reti moves — the database is just dominated by 1.e4 and 1.d4 players. Once in the fianchetto, <strong>moves 4–10 all match the top masters choice</strong>. Zachary is deeply booked in this line.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        This is Zachary's most theoretically prepared White line. After 1.Nf3 d5 2.c4 c6 3.g3 Nf6 4.Bg2 Bf5, the early Qb3 forces Black's queen to the awkward c8 square. If Austin reaches this line (e.g., playing the Slav), he should prepare the Qb3 response specifically — the …Qc8 …Nc6 …e6 formation is the main defensive setup.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       AS BLACK
+  ════════════════════════════════════════════════════════════════ -->
+  <h2>As Black</h2>
+
+  <!-- System 4: Taimanov Sicilian -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Taimanov Sicilian — 5…a6 variation &nbsp;<small style="color:#57606a;font-weight:400;">ECO B46</small></h3>
+      <span class="game-count">10 games (largest sample) · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk (10 games tracking)</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.e4</span>
+        <span class="chip chip-book" title="Book: c5 (46%)">1…c5</span>
+        <span class="chip chip-opp">2.Nf3</span>
+        <span class="chip chip-good" title="Zachary: 23% | Book: d6 (46%), Nc6 (27%), e6 (23%)">2…e6</span>
+        <span class="chip chip-opp">3.d4</span>
+        <span class="chip chip-book" title="Book: cxd4 (100%)">3…cxd4</span>
+        <span class="chip chip-opp">4.Nxd4</span>
+        <span class="chip chip-good" title="Zachary: 37% | Book: a6 (40%), Nc6 (37%), Nf6 (22%)">4…Nc6</span>
+        <span class="chip chip-opp">5.Nc3</span>
+        <span class="chip chip-rare" title="Zachary: 17% | Book: Qc7 (66%), a6 (17%), d6 (9%)">5…a6 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">6.Nxc6</span>
+        <span class="chip chip-book" title="Book: bxc6 (100%)">6…bxc6</span>
+        <span class="chip chip-opp">7.Bd3</span>
+        <span class="chip chip-book" title="Book: d5 (84%)">7…d5</span>
+        <span class="chip chip-opp">8.O-O</span>
+        <span class="chip chip-book" title="Book: Nf6 (89%)">8…Nf6</span>
+        <span class="chip chip-opp">9.Re1</span>
+        <span class="chip chip-book" title="Book: Be7 (81%)">9…Be7</span>
+        <span class="chip chip-opp">10.Bf4</span>
+        <span class="chip chip-novel" title="Not in master DB (32 games total) | Book: O-O (69%), Bb7 (25%)">10…a5 <span class="chip-flag">★</span></span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">2…e6 · 4…Nc6</span>
+          <span class="dev-detail">The move order 2…e6 → 4…Nc6 defines the <strong>Taimanov Sicilian</strong>. Book's top response is 2…d6 (Najdorf/Classical) but this is Zachary's deliberate system choice, not a deviation. 4…Nc6 (37%) is slightly behind the Kan's 4…a6 (40%) but well within mainstream.</span>
+        </div>
+        <div class="dev-row level-rare">
+          <span class="dev-move">5…a6</span>
+          <span class="dev-detail"><em>Key personal choice.</em> After 5.Nc3, masters play <strong>5…Qc7</strong> (66%) as the main Taimanov move — developing the queen and preventing Nc3-d5. Zachary delays the queen with <strong>5…a6</strong> (17%), which triggers the forced exchange 6.Nxc6 bxc6, doubling the c-pawns. The resulting structure (cxc6 + d5 + Nf6 + Be7) is the Taimanov exchange variation — solid but slightly passive. This is a prepared choice.</span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">10…a5</span>
+          <span class="dev-detail"><em>Personal novelty.</em> Only 32 master games exist at this position. Book continues <strong>10…O-O</strong> (69%). Zachary plays <strong>10…a5</strong> — a direct a-pawn push, likely preparing queenside counterplay (…Ba6 or …a4) before castling. This is deep individual preparation.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note (playing White)</div>
+        Austin plays the Rossolimo (1.e4 c5 2.Nf3 e6 3.Bb5) which sidesteps the Taimanov entirely — Austin never has to enter 3.d4. However if Austin wants to test Zachary's Taimanov knowledge, 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 leads to Zachary's prepared 5…a6 territory. The Rossolimo (3.Bb5) is the stronger practical choice since Zachary's Taimanov preparation is clearly deep.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 5: QGD Classical Be7 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>QGD Classical — 4…Be7 delayed capture &nbsp;<small style="color:#57606a;font-weight:400;">ECO D55/E00</small></h3>
+      <span class="game-count">4 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.d4</span>
+        <span class="chip chip-book" title="Book: Nf6 (61%)">1…Nf6</span>
+        <span class="chip chip-opp">2.c4</span>
+        <span class="chip chip-book" title="Book: e6 (54%)">2…e6</span>
+        <span class="chip chip-opp">3.Nf3</span>
+        <span class="chip chip-book" title="Book: d5 (38%)">3…d5</span>
+        <span class="chip chip-opp">4.g3</span>
+        <span class="chip chip-good" title="Zachary: 28% | Book: Bb4+ (34%), dxc4 (31%), Be7 (28%)">4…Be7 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">5.Bg2</span>
+        <span class="chip chip-book" title="Book: O-O (97%)">5…O-O</span>
+        <span class="chip chip-opp">6.O-O</span>
+        <span class="chip chip-rare" title="Zachary: 8% | Book: dxc4 (68%), c6 (16%), Nbd7 (8%)">6…Nbd7 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">7.Nc3</span>
+        <span class="chip chip-book" title="Book: dxc4 (54%)">7…dxc4</span>
+        <span class="chip chip-opp">8.e4</span>
+        <span class="chip chip-rare" title="Zachary: 10% | Book: c6 (32%), c5 (14%), b5 (14%)">8…Rb8 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">9.a4</span>
+        <span class="chip chip-book" title="Book: a6 (81%)">9…a6</span>
+        <span class="chip chip-opp">10.Bf4</span>
+        <span class="chip chip-novel" title="Not in masters DB | Book: b5 (75%)">10…Bb4 <span class="chip-flag">★</span></span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">4…Be7</span>
+          <span class="dev-detail">After White fianchettos with 4.g3, book's top moves are <strong>4…Bb4+</strong> (34%, Bogo-Indian) and <strong>4…dxc4</strong> (31%, Catalan accepted). Zachary plays <strong>4…Be7</strong> (28%) — a classical QGD approach that avoids the Nimzo/Bogo pin and keeps the structure solid. This is a deliberate style choice: no tactical complexity, just solid development.</span>
+        </div>
+        <div class="dev-row level-rare">
+          <span class="dev-move">6…Nbd7</span>
+          <span class="dev-detail"><em>Major deviation.</em> Masters play <strong>6…dxc4</strong> (68%) — capturing the pawn immediately while White's bishop is on g2. Zachary delays with <strong>6…Nbd7</strong> (8%), keeping the tension. This avoids the tactical Catalan-accepted lines entirely. After Nc3, he then plays 7…dxc4 — same capture, one move later, after the knight is committed to c3 (not d2). Subtle move-order game.</span>
+        </div>
+        <div class="dev-row level-rare">
+          <span class="dev-move">8…Rb8</span>
+          <span class="dev-detail">After White expands with e4, book plays <strong>8…c6</strong> (32%) to control d5. Zachary plays <strong>8…Rb8</strong> (10%) — a prophylactic rook move preparing queenside counterplay (…b5). This is a positional novelty rather than a mistake, but it signals that Zachary has specific preparation prepared for this exact position structure.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note (playing White)</div>
+        Austin doesn't typically play 1.d4 (he plays 1.e4 exclusively). However if Austin ever enters this position, Zachary avoids all Nimzo/Bogo pin structures and prefers quiet QGD setups. The key prep point: Zachary delays the Catalan capture (dxc4) with 6…Nbd7 — Austin can take note of the 6…Nbd7 move order when preparing against the Classical QGD motif.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 6: Benko Gambit -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Benko Gambit — e6 variation (non-fianchetto) &nbsp;<small style="color:#57606a;font-weight:400;">ECO A57/A58</small></h3>
+      <span class="game-count">3 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.d4</span>
+        <span class="chip chip-book" title="Book: Nf6 (61%)">1…Nf6</span>
+        <span class="chip chip-opp">2.c4</span>
+        <span class="chip chip-rare" title="Zachary: 8% | Book: e6 (54%), g6 (33%), c5 (8%)">2…c5 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">3.d5</span>
+        <span class="chip chip-book" title="Book: b5 (49%)">3…b5</span>
+        <span class="chip chip-opp">4.cxb5</span>
+        <span class="chip chip-book" title="Standard Benko Gambit">4…a6</span>
+        <span class="chip chip-opp">5.e3</span>
+        <span class="chip chip-rare" title="Zachary: 10% | Book: g6 (45%), axb5 (30%), Bb7 (12%)">5…e6 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">6.Nc3</span>
+        <span class="chip chip-book" title="Book: exd5 (76%)">6…exd5</span>
+        <span class="chip chip-opp">7.Nxd5</span>
+        <span class="chip chip-book" title="Book: Bb7 (86%)">7…Bb7</span>
+        <span class="chip chip-opp">8.Nxf6+</span>
+        <span class="chip chip-book" title="Only recapture">8…Qxf6</span>
+        <span class="chip chip-opp">9.Nf3</span>
+        <span class="chip chip-book" title="Book: Be7 (90%)">9…Be7</span>
+        <span class="chip chip-opp">10.a4</span>
+        <span class="chip chip-novel" title="DB too small for reliable assessment">10…O-O <span class="chip-flag">★</span></span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">2…c5</span>
+          <span class="dev-detail">After 2.c4, masters most often play <strong>2…e6</strong> (54%) or <strong>2…g6</strong> (33%). Zachary's <strong>2…c5</strong> (8%) signals the Benko intent — he wants to play …b5 gambit after White's d5. This is a deliberate gambit choice, not a deviation in the negative sense.</span>
+        </div>
+        <div class="dev-row level-rare">
+          <span class="dev-move">5…e6</span>
+          <span class="dev-detail"><em>Non-standard Benko approach.</em> The main Benko fianchetto plays <strong>5…g6</strong> (45%) → …Bg7, creating the classic Benko kingside pressure with an open b-file. Zachary instead plays <strong>5…e6</strong> (10%) — a more positional, non-fianchetto handling. After 5…e6 6.Nc3 exd5 7.Nxd5 Bb7 8.Nxf6+ Qxf6, Black has open files and strong bishops but no fianchetto kingside. This is a rare line that suggests Zachary specifically avoids the sharp main Benko.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note (playing White)</div>
+        Austin doesn't play 1.d4. This Benko system is irrelevant for direct matchup prep, but relevant if Austin's opponent changes their 1.d4 response — Zachary has shown he's willing to gambit with the Benko when facing 1.d4. The e6 variation avoids the main fianchetto theory and keeps the game more positional.
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Synthesis ─────────────────────────────────────────────── -->
+  <h2>What This Means for Austin</h2>
+
+  <div class="insight-grid">
+    <div class="insight-card">
+      <h4>Zachary as White — What to Expect</h4>
+      <ul>
+        <li><strong>1.Nf3 → 2.c4 → 3.b3/g3</strong> is his consistent repertoire. He will not play 1.e4 or 1.d4 directly.</li>
+        <li>The <strong>b3-Bb2 fianchetto</strong> (3.b3) is his key personal deviation — only 5% of masters play this. The resulting positions are slow and maneuvering.</li>
+        <li>He is <strong>deeply prepared in the Reti vs Slav Qb3 line</strong> — all moves 4–10 match the master database. Do not get into this line unprepared.</li>
+        <li>Against …e6 systems, he delays d4 indefinitely. Austin should <strong>seize the center actively</strong> with …d4 and …e5.</li>
+      </ul>
+    </div>
+    <div class="insight-card">
+      <h4>Zachary as Black — What to Expect</h4>
+      <ul>
+        <li>vs 1.e4: <strong>Taimanov Sicilian</strong> (2…e6 4…Nc6 5…a6) — Austin's Rossolimo (3.Bb5) is the right antidote; it sidesteps all of Zachary's Taimanov prep.</li>
+        <li>vs 1.d4: <strong>QGD Classical Be7</strong> with a delayed capture (6…Nbd7 before dxc4) — he avoids all tactical pin structures.</li>
+        <li>Zachary has <strong>personal novelties past move 8</strong> in the Taimanov (10…a5) and QGD (10…Bb4). He is a prepared player who studies positions deeply.</li>
+        <li>His Black style: <strong>solid and slightly passive</strong> — avoids Nimzo/Bogo pins, delays pawn captures. Aim for positions where Austin can create imbalances.</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="margin-top:24px;font-size:0.8rem;color:#57606a;border-top:1px solid #d0d7de;padding-top:16px;">
+    Data: Lichess Masters database (FIDE 2300+ OTB games) via <code>explorer.lichess.ovh/masters</code> ·
+    Games parsed from <code>pgnlib/Liu, Zachary Hankun.pgn</code> (46 games, 6 tournaments) ·
+    Trunk = plurality-voted most-played continuation · Generated Nov 2, 2026
+  </p>
+
+</div>
+</body>
+</html>

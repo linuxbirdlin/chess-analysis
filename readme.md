@@ -110,7 +110,8 @@ Created:
 These items are known gaps, tracked here for future sessions.
 
 - [ ] **Endgame drill set** — Compile Lucena/Philidor drill list from Austin's 3 endgame losses: NAYCC 2025 R7 (vs Beegala), NAYCC 2025 R9 (vs Li), PAM 2026 R5 (vs Vinales). Read each game, identify the critical endgame moment, write a study document.
-- [ ] **Opening theory check** — Use Lichess opening explorer API to find where Austin, Justin, and Pranav deviate from book theory in their main lines. Produce a deviation map.
+- [x] **Opening theory check (Zachary)** — Deviation map complete: `matchup/opening-deviation-zachary.html` · 6 systems (3W/3B), Lichess masters DB, trunk + deviation callouts. Script: `scripts/zachary-opening-deviation.js`. Template ready for Leo, Pranav, Austin.
+- [ ] **Opening theory check (Leo, Pranav, Austin)** — Run same pipeline: copy `zachary-opening-deviation.js`, update pgnlib path + player name filter, re-run, build HTML.
 - [ ] **Austin accuracy chart update** — Personal study games (29 games in `austin/personal-study/`) have accumulated; check if Stockfish analysis is current and update the accuracy chart in `austin-prep.html`.
 - [ ] **Daniel Hernandez newer games** — Dataset is stale (Aug 2026 latest). Search Chess-Results / FIDE calendar for Sep–Nov 2026 Mexican youth events to find new games.
 - [ ] **Blunder pattern tracking** — Cross-reference Austin's NAYCC 2025, PAM 2026, and personal study review files to extract recurring blunder types (e.g. king safety, time pressure, endgame navigation) into a formal tracking doc.
