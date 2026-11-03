@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emerson Johnson — Opening Deviation Map</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header {
+      border-bottom: 3px solid #2d7d46;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 { margin: 0 0 8px; font-size: 1.85rem; }
+    .doc-header .meta {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      font-size: 0.9rem; color: #57606a;
+    }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link {
+      display: inline-block; margin-top: 14px;
+      font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.3rem; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.05rem; color: #2d7d46; margin: 24px 0 6px; }
+
+    .mirror-note {
+      background: #fffbeb; border: 1px solid #b45309; border-radius: 6px;
+      padding: 12px 16px; margin-bottom: 16px; font-size: 0.875rem;
+    }
+    .mirror-note strong { color: #92400e; }
+
+    /* Legend */
+    .legend {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px;
+      padding: 14px 18px; margin-bottom: 32px; font-size: 0.85rem;
+    }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    /* Summary table */
+    table { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin: 0 0 24px; }
+    th { text-align: left; padding: 8px 12px; background: #f6f8fa; border-bottom: 2px solid #d0d7de; font-weight: 600; color: #1f2328; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eaeef2; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    td.opening-name { font-weight: 600; }
+    td.color-cell { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+    .color-w { color: #9a6700; }
+    .color-b { color: #0969da; }
+
+    /* System cards */
+    .system-card {
+      border: 1px solid #d0d7de; border-radius: 8px;
+      margin-bottom: 28px; overflow: hidden;
+    }
+    .system-card-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      background: #f6f8fa; padding: 12px 18px; border-bottom: 1px solid #d0d7de;
+    }
+    .system-card-header h3 { margin: 0; font-size: 1rem; color: #1f2328; }
+    .system-card-header .game-count { font-size: 0.8rem; color: #57606a; }
+    .system-card-body { padding: 16px 18px; }
+
+    /* Move trail */
+    .trail-label { font-size: 0.75rem; font-weight: 600; color: #57606a; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .move-trail { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 16px; align-items: center; }
+
+    .chip {
+      display: inline-flex; align-items: center;
+      padding: 3px 8px; border-radius: 4px;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.4;
+      cursor: default;
+    }
+    .chip-opp   { background: #f0f0f0; color: #6e7781; border: 1px solid #d0d7de; }
+    .chip-book  { background: #dafbe1; color: #1a7f37; border: 1px solid #2d7d46; }
+    .chip-good  { background: #ddf4ff; color: #0550ae; border: 1px solid #0969da; }
+    .chip-side  { background: #fff3cd; color: #7d4e00; border: 1px solid #d4a017; }
+    .chip-rare  { background: #ffd8d3; color: #a4000f; border: 1px solid #cf222e; }
+    .chip-novel { background: #eee8ff; color: #5a1e96; border: 1px solid #8250df; }
+
+    .chip-flag { font-size: 0.65rem; margin-left: 4px; }
+
+    /* Deviation callouts */
+    .dev-list { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+    .dev-row {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 9px 12px; border-radius: 6px; font-size: 0.85rem; line-height: 1.5;
+    }
+    .dev-row.level-side  { background: #fff8e8; border-left: 3px solid #d4a017; }
+    .dev-row.level-rare  { background: #fff0ee; border-left: 3px solid #cf222e; }
+    .dev-row.level-novel { background: #f3ecff; border-left: 3px solid #8250df; }
+
+    .dev-row .dev-move { font-family: monospace; font-weight: 700; min-width: 90px; flex-shrink: 0; }
+    .dev-row .dev-detail { color: #57606a; }
+    .dev-row .dev-detail strong { color: #1f2328; }
+    .dev-row .dev-detail em { font-style: normal; color: #1f2328; font-weight: 600; }
+
+    /* Austin notes */
+    .austin-note {
+      background: #f0fff4; border: 1px solid #2d7d46; border-radius: 6px;
+      padding: 12px 16px; margin-top: 16px; font-size: 0.875rem;
+    }
+    .austin-note .note-label {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: #2d7d46; margin-bottom: 4px;
+    }
+
+    /* Insight grid */
+    .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+    @media (max-width: 580px) { .insight-grid { grid-template-columns: 1fr; } }
+    .insight-card {
+      border: 1px solid #d0d7de; border-radius: 6px;
+      padding: 14px 16px; font-size: 0.875rem;
+    }
+    .insight-card h4 { margin: 0 0 8px; font-size: 0.9rem; color: #2d7d46; }
+    .insight-card ul { margin: 0; padding-left: 18px; }
+    .insight-card li { margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Header ───────────────────────────────────────────────────── -->
+  <div class="doc-header">
+    <h1>Emerson Johnson — Opening Deviation Map</h1>
+    <div class="meta">
+      <span><strong>Player:</strong> Emerson Johnson · 1909 FIDE / 2078 US (Nov 2026)</span>
+      <span><strong>Games analyzed:</strong> 40 (20 as White, 20 as Black)</span>
+      <span><strong>Database:</strong> Lichess Masters (FIDE 2300+)</span>
+      <span><strong>Generated:</strong> Nov 3, 2026</span>
+    </div>
+    <a href="../austin-prep.html" class="back-link">← Back to Prep Index</a>
+  </div>
+
+  <!-- ── Legend ──────────────────────────────────────────────────── -->
+  <div class="legend">
+    <strong style="font-size:0.8rem;text-transform:uppercase;letter-spacing:.04em;color:#57606a;margin-right:4px;">Emerson's moves:</strong>
+    <span class="legend-item"><span class="chip chip-book" style="font-size:.75rem;padding:2px 7px;">e4</span> <span>Top masters move</span></span>
+    <span class="legend-item"><span class="chip chip-good" style="font-size:.75rem;padding:2px 7px;">a4</span> <span>2nd–3rd choice (≥20%)</span></span>
+    <span class="legend-item"><span class="chip chip-side" style="font-size:.75rem;padding:2px 7px;">d3</span> <span>Minor sideline (5–19%)</span></span>
+    <span class="legend-item"><span class="chip chip-rare" style="font-size:.75rem;padding:2px 7px;">a6</span> <span>Rare / personal prep (&lt;5%)</span></span>
+    <span class="legend-item"><span class="chip chip-novel" style="font-size:.75rem;padding:2px 7px;">b5</span> <span>Novelty (not in master DB)</span></span>
+    <span class="legend-item"><span class="chip chip-opp" style="font-size:.75rem;padding:2px 7px;">Nf6</span> <span>Opponent move</span></span>
+  </div>
+
+  <!-- ── Summary table ───────────────────────────────────────────── -->
+  <h2>Deviation Summary</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Opening System</th>
+        <th>Color</th>
+        <th>Games</th>
+        <th>First Deviation</th>
+        <th>Emerson's Move vs Book</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="opening-name">Rossolimo Sicilian — slow Bb5+/c3/Qe2 setup (B51)</td>
+        <td class="color-cell color-w">White</td>
+        <td>4</td>
+        <td>Move 3</td>
+        <td><code>Bb5+</code> (12%) vs <code>d4</code> (81%); <code>c3</code> (12%) vs <code>d4</code> (35%)</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Ruy Lopez d3 Anti-Marshall — a4-a5 expansion (C88)</td>
+        <td class="color-cell color-w">White</td>
+        <td>4</td>
+        <td>Move 5</td>
+        <td><code>d3</code> (7%) vs <code>O-O</code> (87%); <code>a4</code> (24%) + <code>a5</code> (26%)</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Exchange Caro-Kann — 4.Bd3 with 7.Nd2 (B13)</td>
+        <td class="color-cell color-w">White</td>
+        <td>3</td>
+        <td>Move 3</td>
+        <td><code>exd5</code> (20%); <code>Bd3</code> (36%); <code>Nd2</code> (22%) vs <code>Nf3</code> (76%)</td>
+      </tr>
+      <tr>
+        <td class="opening-name">QGA with early …Bg4 (bishop hold) (D20)</td>
+        <td class="color-cell color-b">Black</td>
+        <td>4</td>
+        <td>Move 1</td>
+        <td><code>dxc4</code> (12%) QGA; <code>Bg4</code> (15%) vs <code>e6</code> (70%); <code>O-O</code> (18%) keeps bishop</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Caro-Kann Classical — 5…a6 + novel …b5/Ne7 chain (B12)</td>
+        <td class="color-cell color-b">Black</td>
+        <td>4</td>
+        <td>Move 5 ⚑</td>
+        <td><code>a6</code> (5%) vs <code>Nd7</code> (80%); <code>b5</code> + <code>Ne7</code> fully novel</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Caro-Kann vs Nc3 — Bronstein-Larsen …Bd6/…exf4/Qc7 (B12)</td>
+        <td class="color-cell color-b">Black</td>
+        <td>3</td>
+        <td>Move 8 ★</td>
+        <td><code>exf4</code> (6%) pawn grab; <code>Qc7</code> + <code>Be7</code> fully novel</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <h2>As White</h2>
+
+  <!-- System 1: Rossolimo Bb5+ c3 Qe2 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Rossolimo Sicilian — slow Bb5+/c3/Qe2 setup <small style="color:#57606a;font-weight:400;">B51</small></h3>
+      <span class="game-count">4 games · Austin's OWN weapon · mirror matchup</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="mirror-note">
+        <strong>Mirror alert:</strong> Both Austin and Emerson play the Rossolimo (3.Bb5+) as White vs the Sicilian. Emerson's specific line (3.Bb5+ Bd7 4.c3 Nf6 5.Qe2) is the "slow Rossolimo" — White keeps the bishop on the b5 diagonal and builds a center with Qe2 before castling. Austin plays the Rossolimo differently and knows these positions from the attacker's perspective.
+      </div>
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-book" title="Emerson: 45%">1.e4</span>
+        <span class="chip chip-opp">1...c5</span>
+        <span class="chip chip-book" title="Emerson: 83%">2.Nf3</span>
+        <span class="chip chip-opp">2...d6</span>
+        <span class="chip chip-side" title="Emerson: 12% | Book: d4 (81%) — Rossolimo vs Najdorf setup">3.Bb5+<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">3...Bd7</span>
+        <span class="chip chip-side" title="Emerson: 12% | Book: d4 (35%) O-O (33%) — keeps bishop, prepares center">4.c3</span>
+        <span class="chip chip-opp">4...Nf6</span>
+        <span class="chip chip-book" title="Emerson: 79% | Book: Qe2 (79%)">5.Qe2</span>
+        <span class="chip chip-opp">5...e5</span>
+        <span class="chip chip-book" title="Emerson: 99%">6.Ba4</span>
+        <span class="chip chip-opp">6...a6</span>
+        <span class="chip chip-book" title="Emerson: 100%">7.Bc2</span>
+        <span class="chip chip-opp">7...b5</span>
+        <span class="chip chip-book" title="Emerson: 67%">8.d4</span>
+        <span class="chip chip-opp">8...O-O</span>
+        <span class="chip chip-book" title="Emerson: 73%">9.O-O</span>
+        <span class="chip chip-opp">9...Re8</span>
+        <span class="chip chip-book" title="Emerson: 55%">10.Re1</span>
+        <span class="chip chip-opp">10...Bc6</span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">3. Bb5+</span>
+          <span class="dev-detail">
+            <em>Rossolimo — sidesteps Open Sicilian theory.</em> Masters most often play <strong>d4</strong> (81%) to enter the Open Sicilian. Emerson's <strong>Bb5+</strong> (12%) is the Rossolimo — a deliberate choice to avoid 4.Nxd4 theory. He uses it consistently across all 4 games in this system (d6 setups). The Rossolimo forces Black to deal with the bishop check immediately and creates different positional battles.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">4. c3</span>
+          <span class="dev-detail">
+            <em>"Slow Rossolimo" — bishop stays on b5 diagonal.</em> After 3.Bb5+ Bd7, the standard is <strong>Bxd7+</strong> or <strong>O-O</strong>. Emerson's <strong>c3</strong> (12%) keeps the bishop alive on the a4-e8 diagonal — after 5.Qe2 the bishop retreats to a4 (6.Ba4) then to c2 (7.Bc2), forming the "bishop maneuver" Bb5→Ba4→Bc2 to create a stable presence and prepare d4. This is a recognized theoretical line (B51 "slow Rossolimo") that Emerson has prepared deeply.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Emerson's Rossolimo will meet Austin's 1...c5 response. From matchup-emerson.html: Austin plays Sicilian and will face 3.Bb5+. If Emerson plays the specific 3.Bb5+ Bd7 4.c3 5.Qe2 line, Austin should know the theoretical response. After 4.c3 Nf6 5.Qe2 — Austin should avoid passive setups and play for ...e5 (as in the trunk) which gives Black a solid central presence. The Bc2 bishop is actually passively placed on c2 — Austin can target this with ...d5 breaks. The matchup analysis recommends 4...Nxd7 instead of 4...Qxd7 after any Bxd7+ exchange to keep the queen on the board for middlegame complexity.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 2: Ruy Lopez d3 a4-a5 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Ruy Lopez d3 Anti-Marshall — a4-a5 queenside expansion <small style="color:#57606a;font-weight:400;">C88</small></h3>
+      <span class="game-count">4 games · aggressive queenside squeeze</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-book" title="Emerson: 45%">1.e4</span>
+        <span class="chip chip-opp">1...e5</span>
+        <span class="chip chip-book" title="Emerson: 92%">2.Nf3</span>
+        <span class="chip chip-opp">2...Nc6</span>
+        <span class="chip chip-book" title="Emerson: 65%">3.Bb5</span>
+        <span class="chip chip-opp">3...a6</span>
+        <span class="chip chip-book" title="Emerson: 91%">4.Ba4</span>
+        <span class="chip chip-opp">4...Nf6</span>
+        <span class="chip chip-side" title="Emerson: 7% | Book: O-O (87%) d3 (7%) — Anti-Marshall, avoids 5.O-O e5 Marshall">5.d3</span>
+        <span class="chip chip-opp">5...d6</span>
+        <span class="chip chip-book" title="Emerson: 100%">6.Bb3</span>
+        <span class="chip chip-opp">6...Be7</span>
+        <span class="chip chip-good" title="Emerson: 24% | Book: O-O (53%) a4 (24%) — queenside expansion">7.a4</span>
+        <span class="chip chip-opp">7...b5</span>
+        <span class="chip chip-good" title="Emerson: 26% | Book: Nbd2 (39%) O-O (31%) a5 (26%) — pushes to a5!">8.a5</span>
+        <span class="chip chip-opp">8...O-O</span>
+        <span class="chip chip-book" title="Emerson: 88%">9.O-O</span>
+        <span class="chip chip-opp">9...Na7</span>
+        <span class="chip chip-book" title="Emerson: 78%">10.Nbd2</span>
+        <span class="chip chip-opp">10...c5</span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">5. d3</span>
+          <span class="dev-detail">
+            <em>Anti-Marshall setup — avoids the 5.O-O e5 Marshall Attack.</em> Masters overwhelmingly castle with <strong>O-O</strong> (87%) at this point. Emerson's <strong>d3</strong> (7%) sidesteps the Marshall Attack (5.O-O e5) by delaying castling. After 5.d3, if Black tries 5...O-O 6.O-O and then ...e5 Marshall, White is not obligated to play the Marshallated positions. The d3 system leads to a "Closed Ruy Lopez" type position where White slowly builds pressure.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">7. a4</span>
+          <span class="dev-detail">
+            <em>Queenside expansion — contests b5 before castling.</em> Masters typically castle first with <strong>O-O</strong> (53%). Emerson's <strong>a4</strong> (24%) immediately challenges Black's queenside — after 7...b5, Black must either allow a4-a5 space grab or defend. By playing a4 before castling, Emerson creates immediate queenside tension.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">8. a5!</span>
+          <span class="dev-detail">
+            <em>Locking in the queenside space.</em> After 7...b5, masters play <strong>Nbd2</strong> (39%) or castle. Emerson's <strong>a5</strong> (26%) advances to a5 immediately, permanently cramping Black's queenside. After 8.a5 O-O 9.O-O Na7 (knight must retreat to avoid the a5 pawn pushing further), Black's queenside knight is passive on a7. This is Emerson's prepared plan: d3 system + a4-a5 to clamp Black's queenside before the real middlegame begins.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays Sicilian vs 1.e4 (not 1...e5), so this Ruy Lopez system won't appear in a direct Austin vs Emerson game. However: if Austin needs a surprise weapon as Black vs 1.e4, and plays 1...e5, he should know about the 5.d3 Anti-Marshall and the a4-a5 squeeze coming. The recommended counter vs 7.a4: play 7...Rb8 (not 7...b5 which allows a5 to close the queenside) to keep the option of ...b5 on Black's own terms. Low direct matchup relevance.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 3: Exchange CK 4.Bd3 7.Nd2 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Exchange Caro-Kann — 4.Bd3 with 7.Nd2 <small style="color:#57606a;font-weight:400;">B13</small></h3>
+      <span class="game-count">3 games · Austin's system · Nd2 move-order twist</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="mirror-note">
+        <strong>Mirror alert:</strong> Emerson plays the same Exchange Caro-Kann 4.Bd3 as Austin. From the matchup: "Emerson knows the structure from the other side" — he's used this in tournament wins (Vadher, Karry) and a draw (Bates). The minor twist is 7.Nd2 instead of the standard 7.Nf3.
+      </div>
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-book" title="Emerson: 45%">1.e4</span>
+        <span class="chip chip-opp">1...c6</span>
+        <span class="chip chip-book" title="Emerson: 80%">2.d4</span>
+        <span class="chip chip-opp">2...d5</span>
+        <span class="chip chip-good" title="Emerson: 20% | Book: e5 (40%) Nc3 (24%)">3.exd5</span>
+        <span class="chip chip-opp">3...cxd5</span>
+        <span class="chip chip-good" title="Emerson: 36% | Book: c4 (57%) Bd3 (36%)">4.Bd3</span>
+        <span class="chip chip-opp">4...Nc6</span>
+        <span class="chip chip-book" title="Emerson: 99%">5.c3</span>
+        <span class="chip chip-opp">5...Qc7</span>
+        <span class="chip chip-book" title="Emerson: 65%">6.Bf4</span>
+        <span class="chip chip-opp">6...Bg4</span>
+        <span class="chip chip-good" title="Emerson: 22% | Book: Nf3 (76%) Nd2 (22%) — avoids early queen pressure">7.Nd2</span>
+        <span class="chip chip-opp">7...Bxd3</span>
+        <span class="chip chip-book" title="Emerson: 56%">8.Bxd6</span>
+        <span class="chip chip-opp">8...Nxd6</span>
+        <span class="chip chip-book" title="Emerson: 100%">9.Ngf3</span>
+        <span class="chip chip-opp">9...e6</span>
+        <span class="chip chip-book" title="Emerson: 81%">10.O-O</span>
+        <span class="chip chip-opp">10...Nge7</span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">3. exd5</span>
+          <span class="dev-detail">
+            <em>Exchange Caro-Kann — same as Austin's choice.</em> Masters prefer <strong>e5</strong> (40%) or <strong>Nc3</strong> (24%). Both Austin and Emerson play the Exchange (20%) — a shared preference for this quiet but structurally rich system.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">7. Nd2</span>
+          <span class="dev-detail">
+            <em>Knight to d2 — avoids early pin.</em> Masters strongly prefer <strong>Nf3</strong> (76%) to develop normally. After 6.Bf4 Bg4, Emerson's <strong>Nd2</strong> (22%) avoids placing the knight on f3 where it can be immediately pinned by ...Bg4. The Nd2 knight is temporarily passive but avoids the pin — after 7...Bxd3 8.Bxd6 Nxd6, the knight comes to gf3 (9.Ngf3) with a clean position. This is a minor but deliberate move-order choice to simplify the pin problem.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays 1.e4, not 1...c6, so this is Austin's White system meeting Emerson as Black. From the matchup: Austin plays the same Exchange CK 4.Bd3. There are <strong>zero recorded games</strong> of Emerson as Black in the B13 Exchange CK — Austin has a preparation advantage here. Emerson knows the structure from White's side but hasn't defended it against a prepared opponent. Austin should reach 4.Bd3 Nc6 5.c3 and play aggressively for kingside attack — Emerson's Exchange CK weaknesses as Black are undocumented, making his responses unprepared.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <h2>As Black</h2>
+
+  <!-- System 4: QGA ...Bg4 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>QGA with early …Bg4 bishop hold <small style="color:#57606a;font-weight:400;">D20</small></h3>
+      <span class="game-count">4 games · vs 1.d4 systems · bishop retention plan</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.d4</span>
+        <span class="chip chip-good" title="Emerson: 26% | Book: Nf6 (61%) d5 (26%)">1...d5</span>
+        <span class="chip chip-opp">2.c4</span>
+        <span class="chip chip-side" title="Emerson: 12% | Book: c6 (49%) e6 (35%) — QGA">2...dxc4</span>
+        <span class="chip chip-opp">3.Nf3</span>
+        <span class="chip chip-book" title="Emerson: 69%">3...Nf6</span>
+        <span class="chip chip-opp">4.e3</span>
+        <span class="chip chip-side" title="Emerson: 15% | Book: e6 (70%) Bg4 (15%) — pins the knight">4...Bg4</span>
+        <span class="chip chip-opp">5.Bxc4</span>
+        <span class="chip chip-book" title="Emerson: 100%">5...e6</span>
+        <span class="chip chip-opp">6.Nc3</span>
+        <span class="chip chip-good" title="Emerson: 20% | Book: Nbd7 (39%) a6 (38%) Nc6 (20%) — develops toward center">6...Nc6</span>
+        <span class="chip chip-opp">7.O-O</span>
+        <span class="chip chip-book" title="Emerson: 96%">7...Bh5</span>
+        <span class="chip chip-opp">8.Nxc6</span>
+        <span class="chip chip-book" title="Emerson: 63%">8...Bd6</span>
+        <span class="chip chip-opp">9.d5</span>
+        <span class="chip chip-side" title="Emerson: 18% | Book: Bxf3 (82%) O-O (18%) — keeps the bishop!">9...O-O<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">10.Nxc6</span>
+        <span class="chip chip-book" title="Emerson: 100%">10...bxc6</span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">2... dxc4</span>
+          <span class="dev-detail">
+            <em>Queen's Gambit Accepted — combative pawn grab.</em> Masters mostly stay solid with <strong>c6</strong> (49%) or <strong>e6</strong> (35%). Emerson's <strong>dxc4</strong> (12%) accepts the gambit and plans to use the pawn to create queenside activity. Combined with 4...Bg4 (pin on Nf3), this creates immediate piece activity.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">4... Bg4</span>
+          <span class="dev-detail">
+            <em>Early bishop pin — pressures Nf3 immediately.</em> Masters overwhelmingly play <strong>e6</strong> (70%) to solidify the position. Emerson's <strong>Bg4</strong> (15%) pins the Nf3 knight that is eyeing the c4 pawn. The plan: pin the knight with Bg4, develop actively, and use the bishop for long-term pressure on f3. This is Emerson's active preparation to avoid passive QGA positions.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">9... O-O</span>
+          <span class="dev-detail">
+            <em>Keeps the dark-squared bishop — rare choice.</em> After 9.d5 (White pushes to disrupt the Nc6), masters almost always play <strong>Bxf3</strong> (82%) — exchanging the bishop for the knight to avoid losing it. Emerson's <strong>O-O</strong> (18%) keeps the bishop alive on the h5-e8 diagonal instead of trading it. This is a principled piece-retention decision — Emerson values his dark-squared bishop and believes it will be useful long-term despite the d5 push.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays 1.e4, not 1.d4, so this QGA system won't arise in the direct matchup. It reveals Emerson's Black habits when facing d4: he grabs pawns (dxc4), pins pieces (Bg4), and retains his bishops (9...O-O instead of Bxf3). The same "material-grab + piece-activity" style will likely appear in Emerson's Caro-Kann games vs Austin.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 5: Caro-Kann ...a6 novel chain -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Caro-Kann Classical — 5…a6 + novel …b5/Ne7 chain <small style="color:#57606a;font-weight:400;">B12</small></h3>
+      <span class="game-count">4 games · direct Austin matchup · novel from move 9</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.e4</span>
+        <span class="chip chip-side" title="Emerson: 8% | Book: c5 (46%) e5 (24%)">1...c6</span>
+        <span class="chip chip-opp">2.d4</span>
+        <span class="chip chip-book" title="Emerson: 98%">2...d5</span>
+        <span class="chip chip-opp">3.exd5</span>
+        <span class="chip chip-book" title="Emerson: 78% | Book: Bf5 (78%)">3...Bf5</span>
+        <span class="chip chip-opp">4.Bd3</span>
+        <span class="chip chip-book" title="Emerson: 98%">4...e6</span>
+        <span class="chip chip-opp">5.Bxf5</span>
+        <span class="chip chip-side" title="Emerson: 5% | Book: Nd7 (80%) c5 (9%) — unusual prophylaxis">5...a6<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">6.Nf3</span>
+        <span class="chip chip-side" title="Emerson: 18% | Book: c5 (79%) — delays the standard break">6...Nd7</span>
+        <span class="chip chip-opp">7.O-O</span>
+        <span class="chip chip-book" title="Emerson: 80%">7...c5</span>
+        <span class="chip chip-opp">8.c3</span>
+        <span class="chip chip-book" title="Emerson: 57%">8...c4</span>
+        <span class="chip chip-opp">9.Be2</span>
+        <span class="chip chip-novel" title="Emerson: novel | Book: Ne7 (50%) h6 (25%)">9...b5!<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">9...Nb6</span>
+        <span class="chip chip-novel" title="Emerson: novel">10...Ne7<span class="chip-flag">★</span></span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">5... a6</span>
+          <span class="dev-detail">
+            <em>Unusual prophylaxis in Exchange CK — rare but principled.</em> After the Exchange CK (3.exd5 cxd5 4.Bd3 e6 5.Bxf5 exf5), masters develop with <strong>Nd7</strong> (80%) to control e5 and prepare ...c5. Emerson's <strong>a6</strong> (5%) is a prophylactic move — preventing any Nb5 ideas and preparing ...b5 queenside expansion. This is an unusual Caro-Kann treatment — the standard ...Nd7/...c5 plan has been replaced by slow queenside build-up.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">6... Nd7</span>
+          <span class="dev-detail">
+            <em>Delayed ...Nd7 — the standard move played one step later.</em> After 6.Nf3 (White develops), masters play <strong>c5</strong> (79%) for immediate central counterplay. Emerson's <strong>Nd7</strong> (18%) delays ...c5 by one move, developing the knight first. After 7...c5 8.c3 c4, Black has fixed the queenside pawn structure — the c4 pawn is a passed pawn-style clamp on c4.
+          </span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">9... b5! → 10... Ne7</span>
+          <span class="dev-detail">
+            <em>Full novelty chain — queenside expansion plan with no master precedent.</em> After 8...c4 9.Be2, masters play <strong>Ne7</strong> (50%) or <strong>h6</strong> (25%). Emerson's <strong>b5!</strong> is not in the database — the pawn grabs queenside space while the c4 pawn is already fixed. Then 10...Ne7 (also novel after the specific b5 move) continues developing. This is Emerson's personal CK preparation: ...a6 → ...Nd7 → ...c5 → ...c4 → ...b5 — a systematic queenside expansion plan built over 5 moves, all designed to create a locked queenside with Emerson controlling the c4/b5 square complex.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        <strong>This is the direct matchup system.</strong> Austin plays Exchange CK 4.Bd3 as White; Emerson plays Caro-Kann as Black. From matchup-emerson.html: Austin should stay in the Exchange CK — Emerson has 1W–6L–2D in CK positions vs 2000+ opponents. The critical moment is move 5: when Emerson plays the unusual 5...a6 (instead of standard Nd7), Austin should continue calmly with 6.Nf3 and NOT be thrown off by the unusual move order. After 7...c5 8.c3 c4 9.Be2 — if Emerson plays the novel 9...b5, Austin has 10.Nbd2 with plans to break with a4. The key: Austin already knows these Exchange CK structures better than Emerson does as Black (Emerson has zero recorded B13 games as Black). Play for kingside attack rather than queenside simplification.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 6: CK vs Nc3 Bronstein-Larsen exf4 Qc7 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Caro-Kann vs Nc3 — Bronstein-Larsen …exf4 + Qc7 novelty <small style="color:#57606a;font-weight:400;">B12</small></h3>
+      <span class="game-count">3 games · vs 1.e4 Nc3 setups · novel from move 9</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.e4</span>
+        <span class="chip chip-side" title="Emerson: 8%">1...c6</span>
+        <span class="chip chip-opp">2.Nc3</span>
+        <span class="chip chip-book" title="Emerson: 98%">2...d5</span>
+        <span class="chip chip-opp">3.d4</span>
+        <span class="chip chip-book" title="Emerson: 54%">3...d4</span>
+        <span class="chip chip-opp">4.e5</span>
+        <span class="chip chip-book" title="Emerson: 86%">4...e5</span>
+        <span class="chip chip-opp">5.f4</span>
+        <span class="chip chip-book" title="Emerson: 39%">5...Bd6</span>
+        <span class="chip chip-opp">6.Nf3</span>
+        <span class="chip chip-book" title="Emerson: 34%">6...c5</span>
+        <span class="chip chip-opp">7.Bd3</span>
+        <span class="chip chip-book" title="Emerson: 88%">7...Nc6</span>
+        <span class="chip chip-opp">8.fxe5</span>
+        <span class="chip chip-side" title="Emerson: 6% | Book: Nge7 (65%) Nf6 (12%) — pawn grab">8...exf4!?<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">9.Bxf4</span>
+        <span class="chip chip-novel" title="Emerson: novel | Book: f6 (100%) — queen comes out early">9...Qc7<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">10.?</span>
+        <span class="chip chip-novel" title="Emerson: novel">10...Be7<span class="chip-flag">★</span></span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">8... exf4!?</span>
+          <span class="dev-detail">
+            <em>Pawn grab in the Bronstein-Larsen — sharp piece-activity choice.</em> After 8.fxe5 (White takes the e5 pawn), masters almost always play <strong>Nge7</strong> (65%) to recapture with the knight and keep central control. Emerson's <strong>exf4</strong> (6%) instead grabs the f4 pawn — creating an imbalanced position where Black has an extra pawn but White has the e5 pawn and open lines. After 9.Bxf4, Emerson has an f-pawn but the position is sharp.
+          </span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">9... Qc7 → 10... Be7</span>
+          <span class="dev-detail">
+            <em>Novelty chain — queen to c7 before completing development.</em> After grabbing the f4 pawn, the only master game has Black playing <strong>f6</strong> (100%) to challenge e5. Emerson's <strong>Qc7</strong> is not in the database — an early queen activation that eyes the e5 pawn while preparing to castle. Then 10...Be7 completes bishop development. This is a prepared line that Emerson uses in the Bronstein-Larsen Caro-Kann — aggressive, non-standard, and fully personal prep from move 9.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays 1.e4 but usually answers Caro-Kann with the Exchange (3.exd5) rather than 2.Nc3. If Austin plays 2.Nc3, he risks encountering Emerson's Bronstein-Larsen (3.d4 d4 4.e5 e5) with the 8...exf4 pawn grab and novel Qc7 chain. Austin's best approach: stick to the Exchange CK (3.exd5) where Austin has deep preparation and Emerson is underprepared as Black. Avoid 2.Nc3 lines where Emerson has more prepared novelties.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <h2>Preparation Insights</h2>
+  <div class="insight-grid">
+    <div class="insight-card">
+      <h4>Austin's action items</h4>
+      <ul>
+        <li><strong>As White: play Exchange CK 4.Bd3.</strong> Emerson has zero recorded games as Black in B13 Exchange CK — he knows it from the White side but hasn't defended it. Austin's preparation advantage is significant here. Push for kingside attack after 5.c3 Nf3 Be3.</li>
+        <li><strong>Know the Exchange CK 5...a6 sideline.</strong> When Emerson plays 5...a6 (unusual, 5%), don't be thrown off. Continue 6.Nf3 → 7.O-O → queenside with c3, Nbd2. The novelty chain 9...b5 → 10...Ne7 can be met with 10.Nbd2 a4.</li>
+        <li><strong>As Black vs Rossolimo: keep the queen.</strong> Against Emerson's 3.Bb5+ Bd7 4.Bxd7+ line, play <strong>4...Nxd7</strong> instead of 4...Qxd7. Emerson wins long endgames (127-move WIM game) — maintain middlegame complexity with the queen.</li>
+        <li><strong>Avoid 2.Nc3 in the Caro-Kann.</strong> The Bronstein-Larsen (2.Nc3 d5 3.d4) gives Emerson prepared novelties (8...exf4, 9...Qc7). Austin's 3.exd5 Exchange is the right choice against Emerson's Caro-Kann.</li>
+      </ul>
+    </div>
+    <div class="insight-card">
+      <h4>Emerson's patterns</h4>
+      <ul>
+        <li><strong>1.e4 with Rossolimo and Exchange CK as White</strong> — mirrors Austin's own White repertoire. He knows the structures from the attacking side. His Rossolimo (3.Bb5+) uses the slow c3/Qe2/Bc2 bishop maneuver, not the immediate Bxd7+ exchange.</li>
+        <li><strong>Ruy Lopez d3 + a4-a5</strong> — when facing 1...e5, Emerson avoids the Marshall and immediately grabs queenside space. The a4-a5 plan is a prepared motif (4 games).</li>
+        <li><strong>Caro-Kann with queenside expansion as Black</strong> — ...a6 → ...b5 queenside push, pawn grabs with ...exf4. Emerson plays aggressively as Black in the CK despite his poor overall CK record (1W–6L–2D vs 2000+).</li>
+        <li><strong>Endgame specialist</strong> — 98.3% accuracy in the 193-move draw, best games are technical endgames. Austin must create complexity BEFORE reaching the endgame. Emerson's middlegame accuracy drops to 83–87% in sharp positions.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
