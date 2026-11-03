@@ -153,6 +153,13 @@ Only generate deviation callouts for non-book moves on the player's turn. Skip o
 
 ## Step 5 — Build the HTML
 
+**Before writing any FEN box:** The deviation script sources FENs from the Lichess masters API, so chip data is already verified. But if you are writing a `.fen-box` for a drill position or any position not directly in the JSON, verify it first using `/lichess-verify`:
+```
+https://explorer.lichess.ovh/masters?play={uci_moves}   ← get FEN from move sequence
+https://lichess.org/analysis/standard/{FEN}             ← confirm visually
+```
+Never hand-derive a FEN from first principles — the Vadim sessions audit produced two impossible FENs that way.
+
 Create `matchup/opening-deviation-{name}.html` using `matchup/opening-deviation-zachary.html` as the template. Swap:
 
 1. All occurrences of "Zachary Liu" → opponent display name
@@ -298,3 +305,4 @@ Place it alongside the existing matchup and deep analysis buttons for that oppon
 4. **Austin notes must be specific.** "Expect 1.e4 — be prepared" is useless. Name the exact variation, recommend a specific move, reference the matchup analysis.
 5. **The script takes ~2 minutes** — do not re-run if the JSON already exists from a prior run. Only re-run if new games have been added to pgnlib.
 6. **pgnlib path is case-sensitive** — match the exact filename in `pgnlib/` including spaces and commas (e.g., `Liu, Zachary Hankun.pgn`).
+7. **Never hand-derive FENs.** For any position added to the HTML that isn't directly sourced from the deviation JSON, verify via `/lichess-verify` before writing. The Vadim sessions audit produced two impossible FENs by manual derivation; Lichess is authoritative.

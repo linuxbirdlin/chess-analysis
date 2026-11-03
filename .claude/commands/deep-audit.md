@@ -67,6 +67,13 @@ Check every specific move recommendation across all files for:
 - Engine soundness: does the recommendation match the engine data in the JSON? If a "key move" has a high CPL in the JSON, flag it.
 - Move-order traps: does the recommended sequence contain a known move-order trap or transposition the opponent can exploit?
 
+**FEN and position verification (mandatory):** Before flagging or accepting any FEN in the prep files as correct, verify it against Lichess — never accept a FEN on trust or re-derive it from first principles. Use `/lichess-verify` or fetch directly:
+```
+https://explorer.lichess.ovh/masters?play={uci_moves}   ← returns authoritative FEN from move sequence
+https://lichess.org/analysis/standard/{FEN}             ← visual board check
+```
+Flag as 🔴 Critical any FEN where the piece placement does not match the stated position description (wrong side to move, impossible piece arrangement, wrong fullmove counter).
+
 **Dimension 2 — Rating and Gap Accuracy**
 - Cross-reference all rating figures against `CLAUDE.md` Key Player Profiles (which holds the authoritative Nov 1 FIDE values).
 - Check: subtitle rating, profile grid rating, inline mentions of "Austin at ~X", gap calculations (+/– N points), tier labels (must-win / must-draw / prize-game).
@@ -196,6 +203,8 @@ Report: how many issues were found, how many implemented, which files changed.
 **Surgical edits only.** Do not refactor or rewrite sections that are not broken. A bug fix does not justify surrounding cleanup.
 
 **Cite the game.** Every tactical claim, psychological note, and blunder pattern must cite a specific game (tournament + round, or game ID). Generic chess advice without citation is not preparation.
+
+**Verify positions via Lichess.** Never write or accept a FEN without checking it via the Lichess explorer API. See `/lichess-verify` for the exact calls. Hand-derived FENs have a track record of errors (impossible piece arrangements, wrong move counters) — Lichess is the ground truth.
 
 ---
 
