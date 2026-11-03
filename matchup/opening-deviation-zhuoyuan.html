@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zhuoyuan Wu — Opening Deviation Map</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header {
+      border-bottom: 3px solid #2d7d46;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 { margin: 0 0 8px; font-size: 1.85rem; }
+    .doc-header .meta {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      font-size: 0.9rem; color: #57606a;
+    }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link {
+      display: inline-block; margin-top: 14px;
+      font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.3rem; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.05rem; color: #2d7d46; margin: 24px 0 6px; }
+
+    .sample-warning {
+      background: #fff8c5; border: 1px solid #d4a017; border-radius: 6px;
+      padding: 12px 16px; margin-bottom: 24px; font-size: 0.875rem;
+    }
+    .sample-warning strong { color: #7d4e00; }
+
+    /* Legend */
+    .legend {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px;
+      padding: 14px 18px; margin-bottom: 32px; font-size: 0.85rem;
+    }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    /* Summary table */
+    table { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin: 0 0 24px; }
+    th { text-align: left; padding: 8px 12px; background: #f6f8fa; border-bottom: 2px solid #d0d7de; font-weight: 600; color: #1f2328; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eaeef2; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    td.opening-name { font-weight: 600; }
+    td.color-cell { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+    .color-w { color: #9a6700; }
+    .color-b { color: #0969da; }
+
+    /* System cards */
+    .system-card {
+      border: 1px solid #d0d7de; border-radius: 8px;
+      margin-bottom: 28px; overflow: hidden;
+    }
+    .system-card-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      background: #f6f8fa; padding: 12px 18px; border-bottom: 1px solid #d0d7de;
+    }
+    .system-card-header h3 { margin: 0; font-size: 1rem; color: #1f2328; }
+    .system-card-header .game-count { font-size: 0.8rem; color: #57606a; }
+    .system-card-body { padding: 16px 18px; }
+
+    /* Move trail */
+    .trail-label { font-size: 0.75rem; font-weight: 600; color: #57606a; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .move-trail { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 16px; align-items: center; }
+
+    .chip {
+      display: inline-flex; align-items: center;
+      padding: 3px 8px; border-radius: 4px;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.4;
+      cursor: default;
+    }
+    .chip-opp   { background: #f0f0f0; color: #6e7781; border: 1px solid #d0d7de; }
+    .chip-book  { background: #dafbe1; color: #1a7f37; border: 1px solid #2d7d46; }
+    .chip-good  { background: #ddf4ff; color: #0550ae; border: 1px solid #0969da; }
+    .chip-side  { background: #fff3cd; color: #7d4e00; border: 1px solid #d4a017; }
+    .chip-rare  { background: #ffd8d3; color: #a4000f; border: 1px solid #cf222e; }
+    .chip-novel { background: #eee8ff; color: #5a1e96; border: 1px solid #8250df; }
+
+    .chip-flag { font-size: 0.65rem; margin-left: 4px; }
+
+    /* Deviation callouts */
+    .dev-list { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+    .dev-row {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 9px 12px; border-radius: 6px; font-size: 0.85rem; line-height: 1.5;
+    }
+    .dev-row.level-side  { background: #fff8e8; border-left: 3px solid #d4a017; }
+    .dev-row.level-rare  { background: #fff0ee; border-left: 3px solid #cf222e; }
+    .dev-row.level-novel { background: #f3ecff; border-left: 3px solid #8250df; }
+
+    .dev-row .dev-move { font-family: monospace; font-weight: 700; min-width: 90px; flex-shrink: 0; }
+    .dev-row .dev-detail { color: #57606a; }
+    .dev-row .dev-detail strong { color: #1f2328; }
+    .dev-row .dev-detail em { font-style: normal; color: #1f2328; font-weight: 600; }
+
+    /* Austin notes */
+    .austin-note {
+      background: #f0fff4; border: 1px solid #2d7d46; border-radius: 6px;
+      padding: 12px 16px; margin-top: 16px; font-size: 0.875rem;
+    }
+    .austin-note .note-label {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: #2d7d46; margin-bottom: 4px;
+    }
+
+    /* Mirror callout */
+    .mirror-note {
+      background: #fffbeb; border: 1px solid #b45309; border-radius: 6px;
+      padding: 12px 16px; margin-bottom: 16px; font-size: 0.875rem;
+    }
+    .mirror-note strong { color: #92400e; }
+
+    /* Insight grid */
+    .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+    @media (max-width: 580px) { .insight-grid { grid-template-columns: 1fr; } }
+    .insight-card {
+      border: 1px solid #d0d7de; border-radius: 6px;
+      padding: 14px 16px; font-size: 0.875rem;
+    }
+    .insight-card h4 { margin: 0 0 8px; font-size: 0.9rem; color: #2d7d46; }
+    .insight-card ul { margin: 0; padding-left: 18px; }
+    .insight-card li { margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Header ───────────────────────────────────────────────────── -->
+  <div class="doc-header">
+    <h1>Zhuoyuan Wu — Opening Deviation Map</h1>
+    <div class="meta">
+      <span><strong>Player:</strong> Zhuoyuan Wu · 1890 FIDE (Nov 2026; seed #10 NAYCC 2026)</span>
+      <span><strong>Games analyzed:</strong> 27 (11 as White, 16 as Black)</span>
+      <span><strong>Database:</strong> Lichess Masters (FIDE 2300+)</span>
+      <span><strong>Generated:</strong> Nov 3, 2026</span>
+    </div>
+    <a href="../austin-prep.html" class="back-link">← Back to Prep Index</a>
+  </div>
+
+  <!-- ── Sample warning ──────────────────────────────────────────── -->
+  <div class="sample-warning">
+    <strong>Small sample (27 games, mostly school-team Lichess broadcasts).</strong> White systems have only 2–3 games each; White Sys 3 (Maróczy) is all book — no deviations. Black Sys 4 (Sicilian 5...Nc6) has 6 games and is the most reliable system. Treat 2-game systems as directional, not confirmed.
+  </div>
+
+  <!-- ── Legend ──────────────────────────────────────────────────── -->
+  <div class="legend">
+    <strong style="font-size:0.8rem;text-transform:uppercase;letter-spacing:.04em;color:#57606a;margin-right:4px;">Zhuoyuan's moves:</strong>
+    <span class="legend-item"><span class="chip chip-book" style="font-size:.75rem;padding:2px 7px;">e4</span> <span>Top masters move</span></span>
+    <span class="legend-item"><span class="chip chip-good" style="font-size:.75rem;padding:2px 7px;">Nd2</span> <span>2nd–3rd choice (≥20%)</span></span>
+    <span class="legend-item"><span class="chip chip-side" style="font-size:.75rem;padding:2px 7px;">a3</span> <span>Minor sideline (5–19%)</span></span>
+    <span class="legend-item"><span class="chip chip-rare" style="font-size:.75rem;padding:2px 7px;">h6</span> <span>Rare / personal prep (&lt;5%)</span></span>
+    <span class="legend-item"><span class="chip chip-novel" style="font-size:.75rem;padding:2px 7px;">Ne5</span> <span>Novelty (not in master DB)</span></span>
+    <span class="legend-item"><span class="chip chip-opp" style="font-size:.75rem;padding:2px 7px;">d5</span> <span>Opponent move</span></span>
+  </div>
+
+  <!-- ── Summary table ───────────────────────────────────────────── -->
+  <h2>Deviation Summary</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Opening System</th>
+        <th>Color</th>
+        <th>Games</th>
+        <th>First Deviation</th>
+        <th>Zhuoyuan's Move vs Book</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="opening-name">Exchange Caro-Kann — 4.Bd3 h3 system (B13)</td>
+        <td class="color-cell color-w">White</td>
+        <td>3</td>
+        <td>Move 3</td>
+        <td><code>exd5</code> (20%); <code>Bd3</code> (36%) vs Panov <code>c4</code> (57%); <code>h3</code> (24%) vs <code>Bf4</code> (65%)</td>
+      </tr>
+      <tr>
+        <td class="opening-name">French Tarrasch — c3+f4 kingside storm (C05)</td>
+        <td class="color-cell color-w">White</td>
+        <td>2</td>
+        <td>Move 3</td>
+        <td><code>Nd2</code> (31%); <code>c3</code> (27%) + <code>f4</code> (23%); <code>a3</code> (17%); <code>h4</code> (39%)</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Accelerated Dragon → Maróczy Bind — all book (B36)</td>
+        <td class="color-cell color-w">White</td>
+        <td>2</td>
+        <td>–</td>
+        <td>No deviations through move 10 — exact mainline theory</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Sicilian Classical 5…Nc6 + e6 + Be7 (B56)</td>
+        <td class="color-cell color-b">Black</td>
+        <td>6</td>
+        <td>Move 5</td>
+        <td><code>Nc6</code> (14%) vs Najdorf <code>a6</code> (71%); <code>Be7</code> (6%) vs <code>Bd7</code> (62%)</td>
+      </tr>
+      <tr>
+        <td class="opening-name">KID vs 1.Nf3/c4 — Ne5 novelty chain (E62)</td>
+        <td class="color-cell color-b">Black</td>
+        <td>3</td>
+        <td>Move 7 ★</td>
+        <td><code>Nbd7</code> (1%) then <code>Ne5</code> novel → full novelty chain</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Grünfeld Exchange — 7…h6 prophylaxis (D85)</td>
+        <td class="color-cell color-b">Black</td>
+        <td>2</td>
+        <td>Move 7 ⚑</td>
+        <td><code>h6</code> (1%) vs <code>c5</code> (92%) — rare prophylaxis</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <h2>As White</h2>
+
+  <!-- System 1: Exchange CK 4.Bd3 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Exchange Caro-Kann — 4.Bd3 h3 system <small style="color:#57606a;font-weight:400;">B13</small></h3>
+      <span class="game-count">3 games · Austin's OWN system · mirror matchup</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="mirror-note">
+        <strong>Mirror alert:</strong> Austin also plays the Exchange Caro-Kann 4.Bd3 as White. Both players use the same system — Austin knows these positions deeply from the White side. Zhuoyuan's experience here (0W–1L–1D in the recorded games, including a 5-blunder collapse vs 1969-rated Meneses) suggests he handles these positions worse under pressure than the theory depth implies.
+      </div>
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-book" title="Zhuoyuan: 45% | Book: e4 (45%)">1.e4</span>
+        <span class="chip chip-opp">1...c6</span>
+        <span class="chip chip-book" title="Zhuoyuan: 80% | Book: d4 (80%)">2.d4</span>
+        <span class="chip chip-opp">2...d5</span>
+        <span class="chip chip-good" title="Zhuoyuan: 20% | Book: e5 (40%) Nc3 (24%) exd5 (20%) — exchange variation">3.exd5</span>
+        <span class="chip chip-opp">3...cxd5</span>
+        <span class="chip chip-good" title="Zhuoyuan: 36% | Book: c4 (57%) Bd3 (36%) — Bd3 not Panov">4.Bd3</span>
+        <span class="chip chip-opp">4...Nc6</span>
+        <span class="chip chip-book" title="Zhuoyuan: 99% | Book: c3 (99%)">5.c3</span>
+        <span class="chip chip-opp">5...Qc7</span>
+        <span class="chip chip-good" title="Zhuoyuan: 24% | Book: Bf4 (65%) h3 (24%) — delays bishop">6.h3</span>
+        <span class="chip chip-opp">6...Bg4</span>
+        <span class="chip chip-book" title="Zhuoyuan: 100% | Only move">7.dxe5</span>
+        <span class="chip chip-opp">7...Bxd3</span>
+        <span class="chip chip-book" title="Zhuoyuan: 60% | Book: Nf3 (60%) Qe2 (27%)">8.Nf3</span>
+        <span class="chip chip-opp">8...Qxd3</span>
+        <span class="chip chip-book" title="Zhuoyuan: 100% | Only move">9.Qxd3</span>
+        <span class="chip chip-opp">9...Nxe5</span>
+        <span class="chip chip-book" title="Zhuoyuan: 95% | Book: O-O (95%)">10.O-O</span>
+        <span class="chip chip-opp">10...Nxf3+</span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">3. exd5</span>
+          <span class="dev-detail">
+            <em>Exchange Caro-Kann — sideline vs Advance.</em> Masters most often play <strong>e5</strong> (40%) or <strong>Nc3</strong> (24%). Zhuoyuan's <strong>exd5</strong> (20%) goes for the immediate exchange, entering a symmetrical structure. This is a consciously solid choice — White avoids the sharp Advance (e5) and gives Black a clear structure but a slightly passive position.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">4. Bd3</span>
+          <span class="dev-detail">
+            <em>Bd3 system — not the Panov Attack.</em> Masters strongly prefer <strong>c4</strong> (57%) — the Panov-Botvinnik Attack, which leads to IQP positions with active piece play. Zhuoyuan's <strong>Bd3</strong> (36%) avoids the Panov and develops the bishop solidly. After 5.c3, White prepares Ne2 and short castles — a quieter, positional approach. This is Austin's own White system in the Caro-Kann, confirming both players share the same White CK repertoire.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">6. h3</span>
+          <span class="dev-detail">
+            <em>Prophylactic h3 — delays bishop development.</em> Masters usually develop immediately with <strong>Bf4</strong> (65%). Zhuoyuan's <strong>h3</strong> (24%) first prevents ...Bg4 pins before pushing the bishop out. This is a solid, slow-build approach — after Black plays ...Bg4 anyway (hxg4 removes the bishop), White still gets the h-file for rook play. The resulting position after 7.dxe5 Bxd3 8.Nf3 is strategic and requires technical play.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays the Exchange Caro-Kann 4.Bd3 himself — he knows these positions from the White side better than almost any Black player. Against Zhuoyuan's same system: if Austin is Black against Zhuoyuan's CK, Austin should use his knowledge of the Bd3 system to exploit White's typical weaknesses. The analysis data shows Zhuoyuan crumbled in this exact CK structure (WS R5 vs 1969-rated Meneses — 5 blunders, loss from equal). Austin as Black can play the standard IQP structure (5...e6, develop pieces, create piece activity) and wait for Zhuoyuan's clock management to deteriorate.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 2: French Tarrasch c3+f4 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>French Tarrasch — c3+f4 kingside storm <small style="color:#57606a;font-weight:400;">C05</small></h3>
+      <span class="game-count">2 games · aggressive attacking setup · direct matchup relevant</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-book" title="Zhuoyuan: 45%">1.e4</span>
+        <span class="chip chip-opp">1...e6</span>
+        <span class="chip chip-book" title="Zhuoyuan: 90% | Book: d4 (90%)">2.d4</span>
+        <span class="chip chip-opp">2...d5</span>
+        <span class="chip chip-good" title="Zhuoyuan: 31% | Book: Nc3 (51%) Nd2 (31%) — Tarrasch avoids pin">3.Nd2</span>
+        <span class="chip chip-opp">3...Nf6</span>
+        <span class="chip chip-book" title="Zhuoyuan: 93% | Book: e5 (93%)">4.e5</span>
+        <span class="chip chip-opp">4...Nfd7</span>
+        <span class="chip chip-good" title="Zhuoyuan: 27% | Book: Bd3 (55%) c3 (27%) — pawn support">5.c3</span>
+        <span class="chip chip-opp">5...c5</span>
+        <span class="chip chip-good" title="Zhuoyuan: 23% | Book: Bd3 (73%) f4 (23%) — early f4!">6.f4</span>
+        <span class="chip chip-opp">6...Nc6</span>
+        <span class="chip chip-book" title="Zhuoyuan: 95% | Book: Ndf3 (95%)">7.Ndf3</span>
+        <span class="chip chip-opp">7...cxd4</span>
+        <span class="chip chip-book" title="Zhuoyuan: 97% | Book: cxd4 (97%)">8.cxd4</span>
+        <span class="chip chip-opp">8...Bb4+</span>
+        <span class="chip chip-side" title="Zhuoyuan: 17% | Book: g3 (50%) a3 (17%) — mysterious a3">9.a3</span>
+        <span class="chip chip-opp">9...Bxd2+</span>
+        <span class="chip chip-good" title="Zhuoyuan: 39% | Book: b4 (50%) h4 (39%) — kingside h-pawn push">10.h4</span>
+        <span class="chip chip-opp">10...Bc3</span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">3. Nd2</span>
+          <span class="dev-detail">
+            <em>Tarrasch — avoids the Nimzo pin.</em> Masters most often play <strong>Nc3</strong> (51%) — the Classical French. Zhuoyuan's <strong>Nd2</strong> (31%) is the Tarrasch Variation: the knight on d2 can't be pinned with ...Bb4. The Tarrasch leads to Pawn structures where White has an isolated pawn advantage and Black has the isolated d4 or c5 pawns. Zhuoyuan uses this as his anti-French weapon across both recorded games.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">5. c3</span>
+          <span class="dev-detail">
+            <em>Pawn support before Bd3 — solidifies e5.</em> Masters play <strong>Bd3</strong> (55%) immediately to develop the bishop and pressure c5. Zhuoyuan's <strong>c3</strong> (27%) first solidifies the pawn structure, protecting d4 and preparing Bd3 from a firmer base. After 5.c3 c5 6.f4 — the pawns on e5, f4, and c3 create a powerful pawn center. This is the Rubinstein-Tarrasch with f4 setup.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">6. f4!</span>
+          <span class="dev-detail">
+            <em>Early f4 — aggressive kingside attack preparation.</em> Masters strongly prefer <strong>Bd3</strong> (73%) for natural development. Zhuoyuan's <strong>f4</strong> (23%) is the aggressive approach — locking the center with e5+f4 creates a physical barrier against Black's counterplay and prepares f5 or h4-h5 pawn storm later. The analysis confirms this: WS R2 win vs 1691 saw "h4-h5 kingside storm." After 7.Ndf3 cxd4 8.cxd4 Bb4+ 9.a3 Bxd2+ 10.h4 — White is already preparing h4-h5.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">9. a3</span>
+          <span class="dev-detail">
+            <em>Prophylactic a3 — forces the bishop decision.</em> After 8.cxd4 Bb4+, masters usually play <strong>g3</strong> (50%) — blocking the check calmly. Zhuoyuan's <strong>a3</strong> (17%) forces the bishop to exchange on d2 (9...Bxd2+), then 10.h4 — White no longer has the bishop pair to worry about and can freely launch the h-pawn storm. This is a specific plan: a3 forces 9...Bxd2+, then White has a free hand for h4-h5.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays Advanced French as White (3.e5/3.Nd2) — this is a potential mirror again, but Austin faces Zhuoyuan's French Tarrasch as Black if Zhuoyuan plays 1.e4 e6. From the analysis: Austin does NOT play the French as Black (Austin plays Sicilian vs 1.e4). So this system won't arise in the direct Austin vs Zhuoyuan matchup unless Austin plays the French. <strong>Relevant only if Austin considers the French as a surprise option.</strong> If Austin faces the c3+f4 Tarrasch as Black: the key counter is ...c5 as quickly as possible (Black's standard counterplay), and after the queen trade on d3 (via ...Bxd2+), play for an endgame where Black's two bishops compensate for White's space. The 10.h4 pawn storm must be addressed immediately with ...h5 or ...g5 to neutralize it.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 3: Maróczy ALL BOOK -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Accelerated Dragon → Maróczy Bind — exact mainline <small style="color:#57606a;font-weight:400;">B36</small></h3>
+      <span class="game-count">2 games · all book through move 10 · no deviations</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk (all book)</div>
+      <div class="move-trail">
+        <span class="chip chip-book" title="Zhuoyuan: 45%">1.e4</span>
+        <span class="chip chip-opp">1...c5</span>
+        <span class="chip chip-book" title="Zhuoyuan: 83%">2.Nf3</span>
+        <span class="chip chip-opp">2...g6</span>
+        <span class="chip chip-book" title="Zhuoyuan: 65%">3.d4</span>
+        <span class="chip chip-opp">3...cxd4</span>
+        <span class="chip chip-book" title="Zhuoyuan: 76%">4.Nxd4</span>
+        <span class="chip chip-opp">4...Bg7</span>
+        <span class="chip chip-book" title="Zhuoyuan: 51% | Book: c4 (51%)">5.c4</span>
+        <span class="chip chip-opp">5...Nc6</span>
+        <span class="chip chip-book" title="Zhuoyuan: 93%">6.Be3</span>
+        <span class="chip chip-opp">6...Nf6</span>
+        <span class="chip chip-book" title="Zhuoyuan: 100%">7.Nc3</span>
+        <span class="chip chip-opp">7...Ng4</span>
+        <span class="chip chip-book" title="Zhuoyuan: 99%">8.Qxg4</span>
+        <span class="chip chip-opp">8...Nxe3</span>
+        <span class="chip chip-book" title="Zhuoyuan: 100%">9.Qd1</span>
+        <span class="chip chip-opp">9...Nxf1</span>
+        <span class="chip chip-book" title="Zhuoyuan: 58%">10.Bd3</span>
+        <span class="chip chip-opp">10...Ng3</span>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Zhuoyuan plays exact mainline Maróczy Bind theory — no deviations through move 10. This means he knows the Maróczy deeply as White. <strong>Austin should NOT enter the Accelerated Dragon (2...g6) as Black against Zhuoyuan</strong> — Zhuoyuan is prepared in this position and will have a theoretical edge. From the analysis: Austin plays Rossolimo (3.Bb5) against Zhuoyuan's Sicilian as White, which sidesteps the Dragon entirely. As Black: avoid 1...c5 2...g6 if Austin wants to dodge Zhuoyuan's prepared Maróczy. Instead, Austin's Taimanov (1...c5 2...Nc6) or Classical Sicilian structures are the right approach.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <h2>As Black</h2>
+
+  <!-- System 4: Sicilian Classical 5...Nc6 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Sicilian Classical — 5…Nc6 + e6 + Be7 <small style="color:#57606a;font-weight:400;">B56</small></h3>
+      <span class="game-count">6 games · main Black system · direct Austin matchup</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.e4</span>
+        <span class="chip chip-book" title="Zhuoyuan: 46% | Book: c5 (46%)">1...c5</span>
+        <span class="chip chip-opp">2.Nf3</span>
+        <span class="chip chip-book" title="Zhuoyuan: 46% | Book: d6 (46%)">2...d6</span>
+        <span class="chip chip-opp">3.d4</span>
+        <span class="chip chip-book" title="Zhuoyuan: 96%">3...cxd4</span>
+        <span class="chip chip-opp">4.Nxd4</span>
+        <span class="chip chip-book" title="Zhuoyuan: 100%">4...Nf6</span>
+        <span class="chip chip-opp">5.Nc3</span>
+        <span class="chip chip-side" title="Zhuoyuan: 14% | Book: a6 (71%) Nc6 (14%) — Classical not Najdorf">5...Nc6</span>
+        <span class="chip chip-opp">6.Be3</span>
+        <span class="chip chip-book" title="Zhuoyuan: 81% | Book: e6 (81%)">6...e6</span>
+        <span class="chip chip-opp">7.f3</span>
+        <span class="chip chip-book" title="Zhuoyuan: 70% | Book: a6 (70%)">7...a6</span>
+        <span class="chip chip-opp">8.Qd2</span>
+        <span class="chip chip-side" title="Zhuoyuan: 6% | Book: Bd7 (62%) h6 (28%) Be7 (6%) — keeps bishop flexible">8...Be7</span>
+        <span class="chip chip-opp">9.O-O-O</span>
+        <span class="chip chip-book" title="Zhuoyuan: 51% | Book: Bd7 (51%)">9...Bd7</span>
+        <span class="chip chip-opp">10.g4</span>
+        <span class="chip chip-book" title="Zhuoyuan: 95% | Book: b5 (95%)">10...b5</span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">5... Nc6</span>
+          <span class="dev-detail">
+            <em>Classical Sicilian — avoids Najdorf theory.</em> Masters overwhelmingly play <strong>a6</strong> (71%) — the Najdorf. Zhuoyuan's <strong>Nc6</strong> (14%) goes for the Classical Sicilian: less theoretical but gives Black immediate piece development. After ...Nc6 6.Be3 e6 7.f3 a6 8.Qd2 Be7 9.O-O-O, the position resembles the English Attack but with the Classical structure (Nc6 is already placed, a6 comes later). Zhuoyuan uses this across all 6 games in this system — it's his main Black weapon against 1.e4 Nf3 d4 Nxd4.
+          </span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">8... Be7</span>
+          <span class="dev-detail">
+            <em>Solid bishop development — keeps flexibility.</em> After 8.Qd2, masters most often play <strong>Bd7</strong> (62%) to prepare ...Rc8 and queenside counterplay, or <strong>h6</strong> (28%) as prophylaxis. Zhuoyuan's <strong>Be7</strong> (6%) keeps the bishop on the e7 square for king safety and potential castling. This sideline avoids the standard Bd7-Rc8 counterattack plan but gives Black a solid, defensive setup. After 9.O-O-O Bd7 — Zhuoyuan eventually plays Bd7 anyway, so Be7 was just a flexible move-order choice. It delays committing the bishop until seeing White's setup.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        <strong>This is the critical direct matchup system.</strong> Austin plays 1.e4 → Zhuoyuan plays 1...c5 2...d6 → enters Classical Sicilian 5...Nc6. From matchup analysis: Austin should play <strong>Rossolimo (3.Bb5)</strong> instead of 3.d4 to sidestep Zhuoyuan's prepared 5...Nc6 Classical. The Rossolimo forces Zhuoyuan into less-familiar territory — his Dragon/Classical preparation is most effective after 3.d4 opens up. If Austin plays 3.d4 anyway (Open Sicilian), he faces the Classical 5...Nc6 6.Be3 e6 structure. Austin's English Attack (f3, Qd2, O-O-O) is the right antidote: the trunk shows Zhuoyuan reaching 9...O-O-O g4 b5 which is the standard English Attack position where Austin has the kingside g4-g5 storm and Zhuoyuan has queenside counterplay. Austin's success rate in English Attack positions is documented in the matchup HTML.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 5: KID vs Nf3/c4 → Ne5 novelty -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>KID vs 1.Nf3/c4 — …Ne5 novelty sacrifice <small style="color:#57606a;font-weight:400;">E62</small></h3>
+      <span class="game-count">3 games · novel from move 8 · vs non-1.e4 systems</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.Nf3</span>
+        <span class="chip chip-book" title="Zhuoyuan: 46% | Book: Nf6 (46%)">1...Nf6</span>
+        <span class="chip chip-opp">2.c4</span>
+        <span class="chip chip-good" title="Zhuoyuan: 35% | Book: e6 (35%) g6 (35%) — KID fianchetto">2...g6</span>
+        <span class="chip chip-opp">3.g3</span>
+        <span class="chip chip-book" title="Zhuoyuan: 69%">3...Bg7</span>
+        <span class="chip chip-opp">4.d4</span>
+        <span class="chip chip-book" title="Zhuoyuan: 84%">4...d6</span>
+        <span class="chip chip-opp">5.Bg2</span>
+        <span class="chip chip-book" title="Zhuoyuan: 99%">5...O-O</span>
+        <span class="chip chip-opp">6.O-O</span>
+        <span class="chip chip-side" title="Zhuoyuan: 11% | Book: Bg4 (43%) e5 (22%) c5 (11%) — early c5 push">6...c5</span>
+        <span class="chip chip-opp">7.Nc3</span>
+        <span class="chip chip-rare" title="Zhuoyuan: 1% | Book: e6 (64%) e5 (13%) — very rare Nbd7">7...Nbd7<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">8.e4</span>
+        <span class="chip chip-novel" title="Zhuoyuan: novel | No master games at this position">8...Ne5!<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">9.Nxe5</span>
+        <span class="chip chip-novel" title="Zhuoyuan: novel">9...dxe5<span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">10.?</span>
+        <span class="chip chip-novel" title="Zhuoyuan: novel">10...e6<span class="chip-flag">★</span></span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">6... c5</span>
+          <span class="dev-detail">
+            <em>Early c5 push — Benoni-type counter.</em> Masters most often play <strong>Bg4</strong> (43%) or <strong>e5</strong> (22%). Zhuoyuan's <strong>c5</strong> (11%) is an early queenside counter — hitting White's d4 pawn before White has consolidated. After 7.Nc3 Nbd7, the c5 push prepares a Benoni-like structure.
+          </span>
+        </div>
+        <div class="dev-row level-rare">
+          <span class="dev-move">7... Nbd7</span>
+          <span class="dev-detail">
+            <em>Very rare knight development — sets up Ne5 novelty.</em> Masters heavily prefer <strong>e6</strong> (64%) or <strong>e5</strong> (13%) — central pawn breaks. Zhuoyuan's <strong>Nbd7</strong> (1%) is almost never played here. The knight is heading to e5 (8...Ne5!) — a prepared piece sacrifice. After 8.e4 Ne5 9.Nxe5 dxe5 — Black gives up the d6 pawn but gets a strong e5 pawn and piece activity. The 10...e6 continuation opens lines further.
+          </span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">8... Ne5! → 10... e6</span>
+          <span class="dev-detail">
+            <em>Full novelty chain — personal prepared piece sacrifice.</em> No master games found at this position. After 8...Ne5 9.Nxe5 dxe5 10.? e6 — Black gives the d6 pawn for a strong pawn duo (e5+e6) and active piece play with the Bg7 fianchetto and c5 counter. This is Zhuoyuan's personal preparation in a rare KID tabiya, used across 3 games vs 1.Nf3/c4 systems. The 3-game repetition confirms this is deliberate theory, not improvisation.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays 1.e4, not 1.Nf3/c4, so this KID system won't arise directly. However, it reveals Zhuoyuan's fianchetto habits as Black: g6/Bg7 against any English/Catalan setup, with personal novelty chains prepared. The Ne5 sacrifice is specifically designed to create chaos in known KID positions — consistent with Zhuoyuan's overall style of creating complex, tactical middlegames.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 6: Grünfeld 7...h6 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Grünfeld Exchange — 7…h6 rare prophylaxis <small style="color:#57606a;font-weight:400;">D85</small></h3>
+      <span class="game-count">2 games · vs 1.d4/c4 systems only</span>
+    </div>
+    <div class="system-card-body">
+
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.d4</span>
+        <span class="chip chip-book" title="Zhuoyuan: 61% | Book: Nf6 (61%)">1...Nf6</span>
+        <span class="chip chip-opp">2.c4</span>
+        <span class="chip chip-good" title="Zhuoyuan: 33% | Book: e6 (54%) g6 (33%) — KID/Grünfeld fianchetto">2...g6</span>
+        <span class="chip chip-opp">3.Nc3</span>
+        <span class="chip chip-good" title="Zhuoyuan: 35% | Book: Bg7 (65%) d5 (35%) — Grünfeld!">3...d5</span>
+        <span class="chip chip-opp">4.cxd5</span>
+        <span class="chip chip-book" title="Zhuoyuan: 100%">4...Nxd5</span>
+        <span class="chip chip-opp">5.e4</span>
+        <span class="chip chip-book" title="Zhuoyuan: 100%">5...Nxc3</span>
+        <span class="chip chip-opp">6.bxc3</span>
+        <span class="chip chip-book" title="Zhuoyuan: 97%">6...Bg7</span>
+        <span class="chip chip-opp">7.Nf3</span>
+        <span class="chip chip-rare" title="Zhuoyuan: 1% | Book: c5 (92%) O-O (7%) — very rare prophylaxis">7...h6!?<span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">8.Be2</span>
+        <span class="chip chip-book" title="Zhuoyuan: 100%">8...c5</span>
+        <span class="chip chip-opp">9.O-O</span>
+        <span class="chip chip-book" title="Zhuoyuan: 85%">9...Qa5</span>
+        <span class="chip chip-opp">10.Qd2</span>
+        <span class="chip chip-book" title="Zhuoyuan: 88%">10...cxd4</span>
+      </div>
+
+      <div class="dev-list">
+        <div class="dev-row level-rare">
+          <span class="dev-move">7... h6!?</span>
+          <span class="dev-detail">
+            <em>Rare prophylaxis — prevents Bg5 in the Grünfeld exchange.</em> After the standard Grünfeld exchange (1.d4 Nf6 2.c4 g6 3.Nc3 d5 4.cxd5 Nxd5 5.e4 Nxc3 6.bxc3 Bg7 7.Nf3), masters almost always continue with the immediate <strong>c5</strong> (92%) — Black's main counterplay against d4 and c3. Zhuoyuan's <strong>h6</strong> (1%) is extremely rare — the idea is to prevent Bg5 (which would pin the Nf6 or create pressure after ...c5 Nc6 Bg5). By playing h6 first, Black ensures that after 8.Be2 c5 9.O-O Qa5, there's no Bg5 pin. This is a subtle prophylactic move — Zhuoyuan delaying one tempo of counterplay to prevent a long-term positional problem. The position then normalizes: 9...Qa5 10.Qd2 cxd4 — back to mainline Grünfeld waters.
+          </span>
+        </div>
+      </div>
+
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note</div>
+        Austin plays 1.e4, not 1.d4, so the Grünfeld won't arise directly. This system confirms Zhuoyuan's Black profile: g6/Bg7 fianchetto in all systems (vs 1.d4, vs 1.c4, vs 1.Nf3), with careful prophylactic thinking (h6 preventing Bg5). Zhuoyuan thinks strategically before tactical complications. His WS R1 win vs 1690 with 97% accuracy in this Rapport-Jobava structure confirms he plays the g6 fianchetto with deep theoretical knowledge.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <h2>Preparation Insights</h2>
+  <div class="insight-grid">
+    <div class="insight-card">
+      <h4>Austin's action items</h4>
+      <ul>
+        <li><strong>As White: play Rossolimo (3.Bb5).</strong> After 1.e4 c5 2.Nf3 d6 3.Bb5+ — this sidesteps Zhuoyuan's prepared Classical 5...Nc6 system entirely. Zhuoyuan's 6-game Classical prep only applies after 3.d4. Rossolimo forces unfamiliar territory where Zhuoyuan's engine accuracy drops.</li>
+        <li><strong>If Open Sicilian: English Attack is correct.</strong> After 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 Nc6 6.Be3, Austin's f3/Qd2/O-O-O English Attack applies. Expect 6...e6 7.f3 a6 8.Qd2 Be7 — standard English Attack where Austin's preparation from matchup-zhuoyuan-white.html gives the specific lines.</li>
+        <li><strong>Do NOT enter the Maróczy or Dragon as Black.</strong> Zhuoyuan plays exact mainline Maróczy theory through move 10 as White. His strongest results as Black are also in Dragon structures. Avoid the fianchetto territory entirely.</li>
+        <li><strong>Against Zhuoyuan's Caro-Kann: exploit the known crumble point.</strong> Zhuoyuan collapsed in B13 Exchange CK vs 1969-rated Meneses (5 blunders). If Austin faces Zhuoyuan's CK as White (unlikely since Austin also plays CK), push for complications rather than simplification — Zhuoyuan's clock management fails in sharp CK positions.</li>
+      </ul>
+    </div>
+    <div class="insight-card">
+      <h4>Zhuoyuan's patterns</h4>
+      <ul>
+        <li><strong>1.e4 exclusively as White</strong> — plays CK Exchange 4.Bd3 (Austin's own system) and French Tarrasch with c3+f4 kingside storm. Maróczy Bind against Dragon setups.</li>
+        <li><strong>g6/Bg7 fianchetto universally as Black</strong> — Dragon vs 1.e4, KID/Grünfeld vs 1.d4/Nf3/c4. The g6 fianchetto is Zhuoyuan's universal Black setup regardless of opponent's first move.</li>
+        <li><strong>Classical Sicilian 5...Nc6, not Najdorf</strong> — delays ...a6 until after ...e6 Nc6 is developed. Main Black system vs 1.e4 with 6 games of data.</li>
+        <li><strong>Prophylactic player as Black</strong> — h6 in Grünfeld, Be7 delay in Sicilian. Zhuoyuan is strategic: he prevents long-term threats before creating counterplay.</li>
+        <li><strong>Time pressure blunder chains</strong> — 5 blunders in CK Exchange (WS R5 vs 1969), multiple collapses documented. Above ~1900 opposition, accuracy drops sharply. The Ne5 novelty in sys 5 also risks clock trouble in unfamiliar positions.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
