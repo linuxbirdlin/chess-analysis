@@ -182,7 +182,7 @@ When a new opponent folder is added:
 |---|---|---|---|---|
 | Justin Huang | 2010 (Nov 2026; was 2093 Sep 2026) | 1.d4 QGD/Semi-Slav | French + Sicilian | 0W–1L (NAYCC R4) |
 | Aarush Ajith | 1943 | 1.d4 | Sicilian Najdorf | No encounter |
-| Zachary Liu | 2185 | Reti/English | Sicilian | No encounter |
+| Zachary Liu | 2185 | Reti/English | Sicilian | 0W–1L (CYCC 2026, Austin White, B46) |
 | Heye Gao | 1968 (Nov 2026; was ~2028–2099) | Italian | Slav | 1D (Mar 2026) |
 | Fernando Cortes Medina | 2085 | 1.e4/1.c4 | French | No encounter |
 | Pranav Santhosh | 1922 | 1.e4 English Attack/Maróczy | Italian/Lopez | No encounter |
