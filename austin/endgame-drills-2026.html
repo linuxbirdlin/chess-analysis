@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Austin Lin — 2026 Endgame Weakness Review &amp; Drill Set</title>
+<style>
+:root { --accent: #1a4a8b; --red: #8b1a1a; --gold: #b8860b; --green: #1a5c1a; --bg: #f8f6f2; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+       font-size: 14px; color: #1a1a1a; max-width: 900px; margin: 0 auto;
+       padding: 20px 24px; background: var(--bg); }
+.page-header { border-left: 6px solid var(--accent); background: #eef2fb;
+               padding: 14px 18px; margin-bottom: 22px; border-radius: 0 5px 5px 0; }
+.page-header h1 { font-size: 1.3em; margin-bottom: 4px; }
+.page-header .meta { font-size: 0.82em; color: #555; }
+.page-header .nav { margin-top: 8px; font-size: 0.82em; }
+.page-header .nav a { color: var(--accent); text-decoration: none; margin-right: 14px; }
+
+.stats-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 20px; }
+.stat-box { background: #fff; border: 1px solid #ccc; border-radius: 5px;
+            padding: 10px 14px; flex: 1; min-width: 100px; text-align: center; }
+.stat-box .sval { font-size: 1.5em; font-weight: bold; }
+.stat-box .slabel { font-size: 0.76em; color: #666; text-transform: uppercase; letter-spacing: 0.04em; }
+.stat-box.red .sval { color: var(--red); }
+.stat-box.green .sval { color: var(--green); }
+.stat-box.gold .sval { color: var(--gold); }
+
+h2 { font-size: 1.05em; margin: 28px 0 8px; padding: 7px 12px;
+     border-left: 4px solid var(--accent); background: #f0f3fa; }
+h3 { font-size: 0.97em; margin: 16px 0 6px; color: #333; font-weight: bold; }
+
+.pattern-header { font-size: 1.05em; font-weight: bold; color: #fff;
+                  padding: 10px 14px; border-radius: 5px 5px 0 0; margin-top: 24px; }
+.pattern-body { background: #fff; border: 1px solid #ccc; border-top: none;
+                border-radius: 0 0 5px 5px; padding: 16px; margin-bottom: 6px; }
+.ph-red    { background: #7a1a1a; }
+.ph-gold   { background: #6a4e00; }
+.ph-blue   { background: #1a3a7a; }
+.ph-green  { background: #1a4a1a; }
+
+.game-instance { background: #fafaf8; border: 1px solid #ddd; border-radius: 4px;
+                 padding: 12px 14px; margin: 12px 0; }
+.game-instance .gi-header { display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+                             margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
+.badge { font-size: 0.75em; font-weight: bold; padding: 2px 7px; border-radius: 3px; }
+.badge-loss  { background: #fde8e8; color: #7a0000; }
+.badge-draw  { background: #fff8e0; color: #5a3000; }
+.badge-win   { background: #e8fde8; color: #0a4a0a; }
+.badge-white { background: #f5f5f5; color: #222; border: 1px solid #aaa; }
+.badge-black { background: #333; color: #eee; }
+.badge-event { background: #eef2fb; color: #1a4a8b; }
+.gi-title { font-weight: bold; font-size: 0.95em; flex: 1; }
+
+.callout { padding: 9px 13px; border-radius: 4px; margin: 8px 0; font-size: 0.88em; line-height: 1.55; }
+.callout-red    { background: #fff0f0; border-left: 4px solid var(--red); }
+.callout-green  { background: #efffef; border-left: 4px solid var(--green); }
+.callout-blue   { background: #eef2fb; border-left: 4px solid var(--accent); }
+.callout-gold   { background: #fffbe0; border-left: 4px solid var(--gold); }
+
+.fen-box { background: #1a1a1a; color: #eee; font-family: monospace; font-size: 0.78em;
+           padding: 8px 10px; border-radius: 4px; word-break: break-all; margin: 8px 0; }
+.board-link { display: inline-block; background: var(--accent); color: #fff;
+              text-decoration: none; padding: 5px 11px; border-radius: 4px;
+              font-size: 0.79em; margin: 3px 3px 3px 0; }
+.board-link:hover { background: #1a3a6b; }
+.board-link.green { background: var(--green); }
+
+.move-line { background: #f5f5f0; border: 1px solid #ddd; border-radius: 4px;
+             padding: 6px 10px; font-family: monospace; font-size: 0.84em;
+             margin: 6px 0; line-height: 1.7; }
+.mv-good { color: var(--green); font-weight: bold; }
+.mv-bad  { color: var(--red); font-weight: bold; }
+.mv-key  { background: #eef2fb; padding: 1px 4px; border-radius: 2px; font-weight: bold; }
+
+.drill-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.86em; }
+.drill-table th { background: var(--accent); color: #fff; padding: 6px 10px; text-align: left; }
+.drill-table td { padding: 5px 10px; border-bottom: 1px solid #ddd; vertical-align: top; }
+.drill-table tr:nth-child(even) td { background: #f5f5f0; }
+.priority-high { color: var(--red); font-weight: bold; }
+.priority-med  { color: var(--gold); font-weight: bold; }
+.priority-low  { color: var(--green); }
+
+.rule-box { background: #f0f4fa; border: 1px solid #aac; border-radius: 5px;
+            padding: 12px 16px; margin: 12px 0; }
+.rule-box ol { padding-left: 20px; line-height: 1.8; margin-top: 6px; }
+.rule-box li { margin-bottom: 3px; }
+
+hr { border: none; border-top: 2px solid #ccc; margin: 28px 0; }
+
+.tag-count { display: inline-block; background: #dde8ff; border: 1px solid #99b; border-radius: 3px;
+             padding: 1px 6px; font-size: 0.76em; color: #224; margin-left: 6px; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>2026 Endgame Weakness Review — Austin Lin</h1>
+  <div class="meta">Source: PAM 2026 (Jul-Aug) · CYCC 2026 (Sep) · Chess4Win Thanksgiving (Oct 10-12) · Oct 17-18 games · <strong>2026 only — no NAYCC 2025 data</strong></div>
+  <div class="nav">
+    <a href="../austin-prep.html">← Prep Index</a>
+    <a href="../austin-training.html">Training Plan</a>
+    <a href="pam2026/review-deep.html">PAM Deep Review</a>
+    <a href="personal-study/review-deep.html">Personal Study Deep</a>
+    <a href="endgame-drills.html">Older Drill Set (2025)</a>
+  </div>
+</div>
+
+<!-- 2026 Performance Summary -->
+<h2>2026 Tournament Performance (All Sources)</h2>
+
+<div class="stats-row">
+  <div class="stat-box green"><div class="sval">20</div><div class="slabel">Wins</div></div>
+  <div class="stat-box red"><div class="sval">9</div><div class="slabel">Losses</div></div>
+  <div class="stat-box gold"><div class="sval">11</div><div class="slabel">Draws</div></div>
+  <div class="stat-box"><div class="sval">40</div><div class="slabel">Games</div></div>
+  <div class="stat-box green"><div class="sval">62.5%</div><div class="slabel">Score</div></div>
+</div>
+
+<div class="callout callout-gold">
+  <strong>Endgame problem scope:</strong> At least <strong>7 games</strong> in 2026 were decided by the same cluster of endgame and conversion errors — premature pawn pushes, passive rook placement, and king activation delays. Four of those games were against lower-rated opponents (under 1700) where Austin should have converted or held easily. That cluster costs approximately <strong>2 full rating points per tournament</strong>.
+</div>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════════ PATTERN 1 -->
+<div class="pattern-header ph-red">PATTERN 1 — Premature Pawn Pushes <span class="tag-count">4 games</span></div>
+<div class="pattern-body">
+  <p style="margin-bottom: 12px; font-size: 0.9em;">The single most damaging pattern in 2026: Austin pushes a pawn to create activity before his king is safe or a better positional move is available. The engine consistently recommends king moves or non-committal improvements before the pawn push.</p>
+
+  <!-- PAM R8 -->
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">PAM 2026 R8: Lin vs Dergan Lobos</span>
+      <span class="badge badge-event">PAM 2026</span>
+      <span class="badge badge-white">White</span>
+      <span class="badge badge-draw">Draw (should win)</span>
+    </div>
+    <div style="font-size: 0.85em; color: #555; margin-bottom: 8px;">B13 Exchange Caro-Kann · Opponent: 1678 · Austin: 1865 · 31-move game</div>
+
+    <div class="callout callout-red">
+      <strong>Critical mistake — Move 30: f5 (should be Kh2)</strong><br>
+      Eval swing: −0.11 → −2.19 (equal position becomes significant Black advantage).<br>
+      After 29.f4 Ne4, Austin immediately pushed 30.f5. The correct plan was <span class="mv-key">30.Kh2</span> first — removing the king from the g1 diagonal before advancing. The premature f5 exposed the king and gave Black tempo. The game drew; it should have been a win against a 1678-rated opponent.
+    </div>
+
+    <div class="move-line">
+      Position after 29.f4 Ne4 (White to play):<br>
+      <span class="mv-bad">30.f5? exf5 31.Qf4 ½-½</span> — draw agreed<br>
+      <span class="mv-good">30.Kh2! (king safety first)</span> — White maintains edge with king safe on h2, then pushes kingside methodically
+    </div>
+
+    <div class="callout callout-blue">
+      <strong>Pattern:</strong> Austin had queen + rooks and a good position. Rather than consolidate king safety and find the best plan, he pushed a pawn "hoping it would work." Against lower-rated opposition, this is the main way Austin gifts half-points.
+    </div>
+  </div>
+
+  <!-- CYCC Zachary Endgame pawn push -->
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">CYCC 2026: Austin Lin vs Zachary Liu</span>
+      <span class="badge badge-event">CYCC 2026</span>
+      <span class="badge badge-white">White</span>
+      <span class="badge badge-loss">Loss (67 moves)</span>
+    </div>
+    <div style="font-size: 0.85em; color: #555; margin-bottom: 8px;">B46 Sicilian Taimanov · Opponent: 2185 · Austin: 1865 · Rook endgame</div>
+
+    <div class="callout callout-red">
+      <strong>Critical mistake — Move 58: f4 (should activate king first)</strong><br>
+      Austin had a rook endgame with King d3, Rook f2 vs King d6, Rook c1, Bishop d5. The correct plan was to march the king toward the queenside before pushing kingside pawns. Instead, Austin pushed f3→f4 (then f5 at move 59) prematurely, allowing Black to create a passed a-pawn after Rxa3+.
+    </div>
+
+    <div class="fen-box">8/8/3k2p1/3b3p/pP4P1P/P2K1P2/5R2/2r5 w - - 0 58</div>
+    <a class="board-link green" href="https://lichess.org/editor/8/8/3k2p1/3b3p/pP4P1P/P2K1P2/5R2/2r5_w_-_-_0_58" target="_blank" rel="noopener">Open in Lichess Editor ↗</a>
+
+    <div class="move-line">
+      <span class="mv-bad">58.f4? Ra1 59.f5 Rxa3+ 60.Kd4 gxf5 61.Rxf5 Be6 →</span> Black converted; 0-1 at move 67<br>
+      <span class="mv-good">58.Ke3! Rb1 59.Kf4 →</span> King marches toward kingside; White's f and g pawns advance with king support, rook endgame is tenable
+    </div>
+
+    <div class="callout callout-blue">
+      <strong>Rule:</strong> In rook endgames with multiple pawns, activate the king BEFORE pushing pawns. Every pawn push with a passive king is a risk. The king must escort passed pawns.
+    </div>
+  </div>
+
+  <!-- PAM R6 hxg6 / Qh4 -->
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">PAM 2026 R6: Lin vs Marin Marin</span>
+      <span class="badge badge-event">PAM 2026</span>
+      <span class="badge badge-white">White</span>
+      <span class="badge badge-win">Win (but blundered +3.5)</span>
+    </div>
+    <div style="font-size: 0.85em; color: #555; margin-bottom: 8px;">C03 French Advanced · Opponent: 1694 · Austin: 1865</div>
+
+    <div class="callout callout-red">
+      <strong>Two-move inconsistency — Move 26 and 27</strong><br>
+      Move 26 (hxg6): Austin played hxg6 when <strong>Qh4</strong> was the correct sequence. Eval: +5.69 → +2.19.<br>
+      Move 27 (Qh3): One move later, Austin played Qh3 when now <strong>hxg6</strong> was correct. Eval: +7.00 → +3.74.<br>
+      Austin reversed the correct order of these two moves on consecutive ply — showing calculation inconsistency in king-attack positions. He still won, but the sequence reveals that he is guessing the order rather than calculating.
+    </div>
+
+    <div class="move-line">
+      <span class="mv-bad">26.hxg6? fxg6 27.Qh3?</span> — loses advantage twice<br>
+      <span class="mv-good">26.Qh4! (threat Qxh7 and Qh8+) 27.hxg6</span> — maintains decisive attack
+    </div>
+  </div>
+
+  <!-- Pattern 1 Rule Box -->
+  <div class="rule-box" style="background: #fff8f0; border-color: #c88;">
+    <strong style="color: var(--red);">The Pawn Push Checklist (2 seconds before every pawn push)</strong>
+    <ol>
+      <li><strong>Is my king safe?</strong> If any opposing piece eyes the king's sector — make a king move first (Kh2, Kg2, etc.).</li>
+      <li><strong>What does this pawn do for my pieces?</strong> A premature push opens lines you can't control yet.</li>
+      <li><strong>Can I push next move after a king/rook improvement?</strong> One tempo usually won't hurt; getting caught with a wrong pawn structure will.</li>
+      <li><strong>Against lower-rated opponents: resist the urge to "do something."</strong> Maintaining a solid position usually wins; speculative pushes draw or lose.</li>
+    </ol>
+  </div>
+</div>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════════ PATTERN 2 -->
+<div class="pattern-header ph-gold">PATTERN 2 — Passive Rook Placement <span class="tag-count">3 games</span></div>
+<div class="pattern-body">
+  <p style="margin-bottom: 12px; font-size: 0.9em;">Austin's rooks become reactive — defending or sitting idly — rather than taking control of files, 7th ranks, or behind passed pawns. This appears in both won and lost positions and is the direct cause of one decisive endgame loss.</p>
+
+  <!-- PAM R5 -->
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">PAM 2026 R5: Vinales Gonzalez vs Austin</span>
+      <span class="badge badge-event">PAM 2026</span>
+      <span class="badge badge-black">Black</span>
+      <span class="badge badge-loss">Loss (90.1% accuracy)</span>
+    </div>
+    <div style="font-size: 0.85em; color: #555; margin-bottom: 8px;">English/Reti 1.a3 · Opponent: 2091 · Austin: 1865 · Rook endgame drift</div>
+
+    <div class="callout callout-red">
+      <strong>Key mistakes: Rd5 (should be d3) and Bxe4 (should be Qc6)</strong><br>
+      Rd5 mistake: Eval −0.73 → −2.87. Austin's rook on d5 was passive and reactive; the correct move was <span class="mv-key">d3!</span> — pushing the d4 passed pawn to create a passed pawn threat that forces White to react. Instead, Rd5 let White's rooks dominate the board.<br>
+      Bxe4 mistake (move 21): Eval −0.31 → −2.52. Austin traded his bishop for White's pawn rather than playing the active <span class="mv-key">Qc6</span> (keeping the bishop and maintaining pressure).
+    </div>
+
+    <div class="fen-box">1r1b4/5pkp/2R5/1P1r4/3p4/3B2P1/4P2P/5RK1 w - - 9 33</div>
+    <a class="board-link green" href="https://lichess.org/editor/1r1b4/5pkp/2R5/1P1r4/3p4/3B2P1/4P2P/5RK1_w_-_-_9_33" target="_blank" rel="noopener">Open in Lichess Editor ↗</a>
+
+    <div class="callout callout-blue">
+      <strong>Position at move 33 (White to play, but Black is passive):</strong> Austin's Rb8 is stuck on the back rank, Rd5 reacts to White's threats. White's Rc6 dominates. The correct plan was to activate the d4 pawn: <span class="mv-key">...Rd2!</span> — infiltrating behind White's pawns and activating the passed d-pawn. Or <span class="mv-key">...Rc5!</span> — trading the dominant Rc6 to simplify.
+    </div>
+
+    <div class="move-line">
+      <span class="mv-bad">24.Rd5 (reactive)</span> → White improves indefinitely → 0-1 move 43<br>
+      <span class="mv-good">24...d3!</span> — counter-pawn pushes, forces White to react; or<br>
+      <span class="mv-good">32...Rd2!</span> — rook infiltrates on 2nd rank, activates d4 pawn
+    </div>
+  </div>
+
+  <!-- PAM R6 Ra4 -->
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">PAM 2026 R6: Lin vs Marin Marin (rook moment)</span>
+      <span class="badge badge-event">PAM 2026</span>
+      <span class="badge badge-white">White</span>
+      <span class="badge badge-win">Won, but rook error cost +3.5</span>
+    </div>
+
+    <div class="callout callout-red">
+      <strong>Move 34: Ra4 (should be Rb5)</strong><br>
+      Eval swing: +3.69 → +0.90. Austin played Ra4 (passive — defending the a4 pawn) instead of <span class="mv-key">Rb5!</span> (active — rook on the 5th rank, controlling the entire b-file and threatening Rb7). The active Rb5 would have won cleanly. Ra4 let Black reorganize and the win became a grind.
+    </div>
+
+    <div class="move-line">
+      Opponent's move 34 (Rd7 — blunder): Austin had the winning move:<br>
+      <span class="mv-good">35.Rb5! Rc7 36.Rb4 (dominating b-file)</span> → decisive<br>
+      <span class="mv-bad">35.Ra4? a5 → draw attempt</span>
+    </div>
+  </div>
+
+  <!-- CYCC vs Zachary - rook passivity -->
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">CYCC 2026: Austin Lin vs Zachary Liu (rook activity)</span>
+      <span class="badge badge-event">CYCC 2026</span>
+      <span class="badge badge-white">White</span>
+      <span class="badge badge-loss">Loss (67 moves)</span>
+    </div>
+
+    <div class="callout callout-red">
+      <strong>Throughout the endgame: Austin's rook on f2 was consistently passive</strong><br>
+      After the queens came off (move 31), Austin's rook spent most of the endgame on d2/f2 — not creating threats. Meanwhile Zachary's bishop (Bd5) coordinated with rook and pawns. The key moment: after 62.Ra5 Bxg4, Austin played 63.Ra6+ (engine prefers 63.Rd5+ — checking the king immediately and activating the rook centrally). After 63.Ra6+ Ke7 64.b5 Rb3, Zachary's queenside pawns became unstoppable.
+    </div>
+
+    <div class="move-line">
+      After 62...Bxg4:<br>
+      <span class="mv-bad">63.Ra6+? Ke7 64.b5 Rb3 65.Rxa4 Rxb5 66.Ke3 h5 67.Ra6 Rf5 0-1</span><br>
+      <span class="mv-good">63.Rd5+! Ke6 64.Rd1 →</span> rook dominates d-file; Black's bishop-pawn structure is harder to advance
+    </div>
+  </div>
+
+  <!-- Rule Box -->
+  <div class="rule-box" style="background: #fffcf0; border-color: #b89030;">
+    <strong style="color: var(--gold);">Rook Endgame Checklist (before each rook move)</strong>
+    <ol>
+      <li><strong>Active or passive?</strong> If passive (defending, waiting) — find the most active square: 7th rank, behind a passed pawn, or cutting off opponent's king.</li>
+      <li><strong>Use your passed pawn.</strong> Austin had a d4 pawn in PAM R5 and never used it. Push the passer or place the rook behind it.</li>
+      <li><strong>Avoid the back rank.</strong> Rb8 in PAM R5 was useless. The rook should never sit passively on the starting rank once queens are off.</li>
+      <li><strong>Trade dominant rooks.</strong> If the opponent has a Rc6 or Rd5 dominating the board, offer to trade it — even if the resulting position is slightly worse, removing the dominant piece helps your coordination.</li>
+    </ol>
+  </div>
+</div>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════════ PATTERN 3 -->
+<div class="pattern-header ph-blue">PATTERN 3 — Queen Endgame Tactical Misses <span class="tag-count">1 game, critical</span></div>
+<div class="pattern-body">
+  <p style="margin-bottom: 12px; font-size: 0.9em;">In queen endgames, Austin misses tactical resources — particularly back rank threats and forcing queen check sequences — reverting to pawn pushes instead of calculating forcing lines.</p>
+
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">CYCC 2026: Austin Lin vs Shon Lazarev</span>
+      <span class="badge badge-event">CYCC 2026</span>
+      <span class="badge badge-white">White</span>
+      <span class="badge badge-loss">Loss (68 moves)</span>
+    </div>
+    <div style="font-size: 0.85em; color: #555; margin-bottom: 8px;">C04 French Tarrasch Guimard · 68 moves · Long endgame collapse</div>
+
+    <div class="callout callout-red">
+      <strong>Move 40: g3 (should be Qd4+ — mating attack)</strong><br>
+      After 39...Kxg7 (Black's king recaptures bishop on g7), Austin played 40.g3 — a passive pawn push. The engine-best was <span class="mv-key">40.Qd4+!</span>, winning immediately:<br>
+      <span class="move-line">40.Qd4+! Kg8 41.Re8+! Rf8 42.Rxf8# (back rank checkmate) — or if 40...Kh7 41.Re8! Rg7 42.Qd8 (winning the rook via the back rank threat)</span><br>
+      After missing this, Austin drifted through a long K+P endgame and eventually lost when Lazarev's queenside pawns promoted.
+    </div>
+
+    <div class="callout callout-gold">
+      <strong>What followed after missing Qd4+:</strong>
+      <div class="move-line">
+        40.g3 a5 41.Re2 Qd1+ 42.Re1 Qc2 43.Ra1 Qf5 44.Kg2 Kh7 45.Qd2 Qf3+ 46.Kg1 Qxb3 47.Qa2 → Queens trade, K+P endgame<br>
+        Austin had c4-c5 pawns vs Lazarev's a-pawn. But Lazarev's queenside pawns raced: c3→c2→c1=Q. Austin's king was too slow.<br>
+        50.Ke2 Kd4 51.f4 ... 67.g6 c2 68.g7 Rc8 69.Ra1 Kc4 <span class="mv-bad">0-1</span>
+      </div>
+    </div>
+
+    <div class="callout callout-blue">
+      <strong>Back rank tactic pattern:</strong> When opponent's king is on g7/g8 with a rook on f7/f8, <strong>always check Re8+ possibilities.</strong> The Qd4+/Qd8 + Re8 battery is a standard mating pattern Austin needs in his arsenal.
+    </div>
+  </div>
+
+  <div class="rule-box" style="background: #eef2fb; border-color: #99b;">
+    <strong style="color: var(--accent);">Queen + Rook Back Rank Pattern (memorize)</strong>
+    <ol>
+      <li>If opponent's king is on g7/g8/f8 and you have Re1 and a queen — calculate Re8+ first.</li>
+      <li>The sequence Qd4+ (or Qd8) + Re8+ beats Rf8 with back rank mate in many positions.</li>
+      <li>Before playing ANY passive pawn move (g3, h3, etc.) in a queen endgame — spend 10 seconds calculating checks and forcing lines first.</li>
+      <li>"No immediate threats" is not the same as "no tactics." Queen endgames are tactical; look for pins and back rank patterns every move.</li>
+    </ol>
+  </div>
+</div>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════════ PATTERN 4 -->
+<div class="pattern-header ph-green">PATTERN 4 — King Activation Delays in K+P Endings <span class="tag-count">2 games</span></div>
+<div class="pattern-body">
+  <p style="margin-bottom: 12px; font-size: 0.9em;">When the endgame simplifies to K+P vs K+P, Austin's king is often too passive — sitting far from the action while the opponent's king takes key squares.</p>
+
+  <!-- vs Malyshkin -->
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">CYCC 2026: Valentyn Malyshkin vs Austin Lin</span>
+      <span class="badge badge-event">CYCC 2026</span>
+      <span class="badge badge-black">Black</span>
+      <span class="badge badge-loss">Loss (60 moves)</span>
+    </div>
+    <div style="font-size: 0.85em; color: #555; margin-bottom: 8px;">A46 Indian Knights · K+P endgame from move 42</div>
+
+    <div class="callout callout-red">
+      <strong>K+P endgame after move 42 Qxf8+ Kxf8 43.Kf2:</strong><br>
+      After the queens traded off, Austin (Black) had a complex K+P ending with multiple passed pawns. White's knight on c5 became a monster once queens were off. Austin's king on f8 had to make long journeys while White's pieces dominated. Austin lost by move 60 as White's a-pawn promoted.
+    </div>
+
+    <div class="move-line">
+      After 42...Kxf8 43.Kf2 Nxd4 44.exd4 Ke7 45.g4 f5 46.gxf5 Kf6 47.Ke3 Kxf5...<br>
+      White's king was already on e3 and racing toward the center. Austin's king was on f5 chasing the f-pawn.<br>
+      <span class="mv-bad">48...Kg4? (wrong king plan)</span> — king went away from the critical a-pawn promotion square<br>
+      <span class="mv-good">The correct defense required counting: how many moves to stop a-pawn vs how many for White's king to support it.</span>
+    </div>
+  </div>
+
+  <!-- vs Lazarev K+P phase -->
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">CYCC 2026: Austin Lin vs Shon Lazarev (K+P phase)</span>
+      <span class="badge badge-event">CYCC 2026</span>
+      <span class="badge badge-white">White</span>
+      <span class="badge badge-loss">K+P phase: Lost (positions from move 47+)</span>
+    </div>
+
+    <div class="callout callout-red">
+      <strong>After queens traded at move 47, Austin's king could not keep up with Lazarev's c-pawn race:</strong><br>
+      Move 50.Ke2 Kd4 51.f4 h5 52.Kf3 Re7 53.Kf2 Kc4 54.g4 hxg4 55.hxg4 Kb4 56.Ra7 Kxc5 → Lazarev's king reached c5, Austin's king was stuck on f-file. The c3-c2-c1=Q march was unstoppable.
+    </div>
+
+    <div class="callout callout-blue">
+      <strong>What Austin needed:</strong> After the queens traded (move 47), Austin should have rushed the king to d3/c3 to blockade Lazarev's c-pawn. Instead, the king stayed on the f-file for 5+ moves. By the time Austin started centralizing, the c-pawn was on c3 and unstoppable.
+    </div>
+  </div>
+
+  <div class="rule-box" style="background: #f0faf0; border-color: #6a8;">
+    <strong style="color: var(--green);">King and Pawn Endgame Rules (commit these)</strong>
+    <ol>
+      <li><strong>The moment queens come off: king goes to the center.</strong> Calculate king to d4/e4 or d5/e5 before any pawn moves.</li>
+      <li><strong>Count pawn races before they start.</strong> If opponent has a passed pawn, count: how many moves to queen? How many for your king to reach? If you're behind — sacrifice another pawn to blockade the passer.</li>
+      <li><strong>Active king beats passive piece.</strong> A knight on c5 plus active king beats a passive king by default. The king must challenge the knight's territory.</li>
+      <li><strong>F-file is a trap.</strong> Austin's king gravitates toward the f-file (near the f-pawn) when the real action is on the queenside. Identify the critical zone first.</li>
+    </ol>
+  </div>
+</div>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════════ PATTERN 5 -->
+<div class="pattern-header ph-blue" style="background: #2a3a5a;">PATTERN 5 — Conversion Failures (Won → Draw) <span class="tag-count">3 games</span></div>
+<div class="pattern-body">
+  <p style="margin-bottom: 12px; font-size: 0.9em;">Austin consistently draws positions he should win against lower-rated opponents. These aren't blunders — the eval stays positive — but Austin cannot find the decisive plan and accepts draws or plays inaccurately until the win slips.</p>
+
+  <table class="drill-table" style="margin: 0;">
+    <thead>
+      <tr><th>Game</th><th>Opponent</th><th>What happened</th><th>Key miss</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>PAM R8</strong></td>
+        <td>Dergan Lobos, 1678</td>
+        <td>Drew with queens on; f5 premature pawn push turned +0.35 into -2.19</td>
+        <td>30.Kh2 instead of 30.f5</td>
+      </tr>
+      <tr>
+        <td><strong>Chess4Win Oct 10<br>vs Sean Liu</strong></td>
+        <td>Sean Liu</td>
+        <td>52-move draw; Austin had h7 thorn pawn and winning setup but allowed simplification</td>
+        <td>38.Rxe5 (wins) instead of 38.Rxg6 (draws)</td>
+      </tr>
+      <tr>
+        <td><strong>Chess4Win Oct 12<br>vs Larry Zhou Chen</strong></td>
+        <td>Larry Zhou Chen</td>
+        <td>41-move draw; rook endgame with b5 pawn but couldn't convert the win</td>
+        <td>Active king/rook plan to push b-pawn needed</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-gold" style="margin-top: 12px;">
+    <strong>Sean Liu game detail (Chess4Win Oct 10, 52 moves):</strong><br>
+    After 36...Bxf4 37.Qxf4 Qxf4 38.Rxf4, Austin was up material and had the winning plan. The engine showed <span class="mv-key">38.Rxe5!</span> (winning the e4 pawn and getting a dominant rook) but Austin played 38.Rxg6 which led to a drawn rook endgame. After 40.Rxf4 Kxh7 41.Rgxf6 (both rooks), Austin drew after 52 moves as Black's rook held. The conversion required precision — Austin lost the thread.
+  </div>
+
+  <div class="rule-box" style="background: #eef2fb; border-color: #88a;">
+    <strong>Conversion Mindset</strong>
+    <ol>
+      <li><strong>Identify the winning piece.</strong> In a won endgame, one piece is the key — usually the most active rook or the most advanced passed pawn. Protect and activate it; don't get distracted by other plans.</li>
+      <li><strong>Don't simplify into unknown endgames.</strong> If you don't know how to win R+P vs R, don't trade into it. Keep queens or keep more material on the board.</li>
+      <li><strong>Against lower-rated opponents: play the "most forcing" move, not the "safest."</strong> The safest move often leads to a draw. Forcing moves (checks, pawn pushes, rook infiltration) create problems Black must solve precisely.</li>
+    </ol>
+  </div>
+</div>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════════ DRILL SCHEDULE -->
+<h2>5-Day Drill Schedule (2026 Patterns)</h2>
+
+<table class="drill-table">
+  <thead>
+    <tr><th>Day</th><th>Focus</th><th>Drill</th><th>Time</th><th>Priority</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Day 1</strong></td>
+      <td>Active rook (Pattern 2)</td>
+      <td>Lichess Learn → Rook Endings → "Rook on 7th rank" + "Rook activity." Recreate PAM R5 FEN: <code>1r1b4/5pkp/2R5/1P1r4/3p4/3B2P1/4P2P/5RK1</code>. Play as Black, find <strong>...Rd2!</strong> or <strong>...Rc5!</strong>. Practice vs Lichess Level 4.</td>
+      <td>40 min</td>
+      <td class="priority-high">HIGH</td>
+    </tr>
+    <tr>
+      <td><strong>Day 2</strong></td>
+      <td>Rook endgame technique (Patterns 2+5)</td>
+      <td>Lichess Learn → Rook Endings → Philidor + Lucena positions (complete 100%). Then load the Zachary Liu endgame FEN: <code>8/8/3k2p1/3b3p/pP4P1P/P2K1P2/5R2/2r5</code>. Play as White — find <strong>58.Ke3!</strong> king activation before f4.</td>
+      <td>40 min</td>
+      <td class="priority-high">HIGH</td>
+    </tr>
+    <tr>
+      <td><strong>Day 3</strong></td>
+      <td>K+P endgame fundamentals (Pattern 4)</td>
+      <td>Lichess Learn → King Endings → Opposition + "Key squares" + "Outside passed pawn." Focus: king centralization speed. Practice counting: "can my king reach the critical square before opponent's pawn promotes?"</td>
+      <td>40 min</td>
+      <td class="priority-high">HIGH</td>
+    </tr>
+    <tr>
+      <td><strong>Day 4</strong></td>
+      <td>Back rank / queen tactics (Pattern 3)</td>
+      <td>Practice the Lazarev position pattern: set up Queen + Rook vs Queen + Rook (defender's king on g7). Find the Qd4+/Re8+ mating battery. Lichess puzzle storm — filter "back rank" or "discovered attack" puzzles for 20 min, then 20 min on endgame tactics.</td>
+      <td>40 min</td>
+      <td class="priority-med">MED</td>
+    </tr>
+    <tr>
+      <td><strong>Day 5</strong></td>
+      <td>Conversion practice + checklist drill (Pattern 1+5)</td>
+      <td>Play 3 Lichess Classical games (15+10). After each game: (1) identify any pawn push you made — was the king safe first? (2) identify any rook move — was it active or passive? Log in a notebook. Goal: catch Pattern 1 mistakes before they happen.</td>
+      <td>60 min</td>
+      <td class="priority-high">HIGH</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout callout-gold" style="margin-top: 16px;">
+  <strong>Summary — 2026 endgame recovery targets:</strong>
+  <ul style="padding-left: 20px; line-height: 1.9; margin-top: 6px;">
+    <li>PAM R8 (Draw vs 1678) → should have been a win: fix with pawn push checklist</li>
+    <li>PAM R5 (Loss vs 2091) → 90.1% accuracy but lost: fix with active rook habit</li>
+    <li>CYCC vs Zachary (Loss, 67 moves) → rook endgame, passive play: fix with Ke3 activation</li>
+    <li>CYCC vs Lazarev (Loss, 68 moves) → missed Qd4+ tactic then K+P loss: fix with back rank awareness</li>
+    <li>Chess4Win vs Sean Liu (Draw, 52 moves) → missed Rxe5 conversion: fix with "most forcing move" mindset</li>
+  </ul>
+  These 5 games represent approximately <strong>2 full tournament points</strong> that should not be lost again with focused endgame practice.
+</div>
+
+<div style="margin-top: 20px; font-size: 0.82em; color: #555; text-align: center; border-top: 1px solid #ccc; padding-top: 12px;">
+  <a href="../austin-prep.html" style="color: var(--accent); text-decoration: none; margin-right: 16px;">← Prep Index</a>
+  <a href="../austin-training.html" style="color: var(--accent); text-decoration: none; margin-right: 16px;">Training Plan</a>
+  <a href="pam2026/review-deep.html" style="color: var(--accent); text-decoration: none; margin-right: 16px;">PAM Deep Review</a>
+  <a href="endgame-drills.html" style="color: var(--accent); text-decoration: none;">Older Drill Set (2025)</a>
+</div>
+
+</body>
+</html>

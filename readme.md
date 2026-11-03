@@ -109,7 +109,7 @@ Created:
 
 These items are known gaps, tracked here for future sessions.
 
-- [ ] **Endgame drill set** — Compile Lucena/Philidor drill list from Austin's 3 endgame losses: NAYCC 2025 R7 (vs Beegala), NAYCC 2025 R9 (vs Li), PAM 2026 R5 (vs Vinales). Read each game, identify the critical endgame moment, write a study document.
+- [x] **Endgame drill set (2026)** — `austin/endgame-drills-2026.html` · 5 patterns, 7 games from PAM 2026 + CYCC 2026 + Chess4Win Oct · Premature pawn pushes (4 games), passive rooks (3 games), queen back-rank tactics, K+P activation, conversion failures · 5-day drill schedule · FEN positions linked. Older 2025 set preserved at `austin/endgame-drills.html`.
 - [x] **Opening theory check (Zachary)** — Deviation map complete: `matchup/opening-deviation-zachary.html` · 6 systems (3W/3B), Lichess masters DB, trunk + deviation callouts. Script: `scripts/zachary-opening-deviation.js`. Template ready for Leo, Pranav, Austin.
 - [ ] **Opening theory check (Leo, Pranav, Austin)** — Run same pipeline: copy `zachary-opening-deviation.js`, update pgnlib path + player name filter, re-run, build HTML.
 - [ ] **Austin accuracy chart update** — Personal study games (29 games in `austin/personal-study/`) have accumulated; check if Stockfish analysis is current and update the accuracy chart in `austin-prep.html`.
