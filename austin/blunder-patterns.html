@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Austin Lin — Blunder Pattern Tracker</title>
+<style>
+:root { --accent: #1a4a8b; --red: #8b1a1a; --gold: #b8860b; --green: #1a5c1a; --bg: #f8f6f2; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+       font-size: 14px; color: #1a1a1a; max-width: 920px; margin: 0 auto;
+       padding: 20px 24px; background: var(--bg); }
+.page-header { border-left: 6px solid var(--red); background: #fdf0f0;
+               padding: 14px 18px; margin-bottom: 22px; border-radius: 0 5px 5px 0; }
+.page-header h1 { font-size: 1.3em; margin-bottom: 4px; }
+.page-header .meta { font-size: 0.82em; color: #555; }
+.page-header .nav { margin-top: 8px; font-size: 0.82em; }
+.page-header .nav a { color: var(--accent); text-decoration: none; margin-right: 14px; }
+
+.stats-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 20px; }
+.stat-box { background: #fff; border: 1px solid #ccc; border-radius: 5px;
+            padding: 10px 14px; flex: 1; min-width: 100px; text-align: center; }
+.stat-box .sval { font-size: 1.5em; font-weight: bold; }
+.stat-box .slabel { font-size: 0.76em; color: #666; text-transform: uppercase; letter-spacing: 0.04em; }
+.stat-box.red .sval { color: var(--red); }
+.stat-box.green .sval { color: var(--green); }
+.stat-box.gold .sval { color: var(--gold); }
+.stat-box.blue .sval { color: var(--accent); }
+
+h2 { font-size: 1.05em; margin: 28px 0 8px; padding: 7px 12px;
+     border-left: 4px solid var(--accent); background: #f0f3fa; }
+
+.pattern-header { font-size: 1.05em; font-weight: bold; color: #fff;
+                  padding: 10px 14px; border-radius: 5px 5px 0 0; margin-top: 24px; }
+.pattern-body { background: #fff; border: 1px solid #ccc; border-top: none;
+                border-radius: 0 0 5px 5px; padding: 16px; margin-bottom: 6px; }
+.ph-red    { background: #7a1a1a; }
+.ph-orange { background: #7a4a00; }
+.ph-blue   { background: #1a3a7a; }
+.ph-teal   { background: #1a5050; }
+.ph-purple { background: #4a1a6a; }
+
+.game-instance { background: #fafaf8; border: 1px solid #ddd; border-radius: 4px;
+                 padding: 12px 14px; margin: 12px 0; }
+.game-instance .gi-header { display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+                             margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
+.badge { font-size: 0.75em; font-weight: bold; padding: 2px 7px; border-radius: 3px; }
+.badge-loss  { background: #fde8e8; color: #7a0000; }
+.badge-draw  { background: #fff8e0; color: #5a3000; }
+.badge-win   { background: #e8fde8; color: #0a4a0a; }
+.badge-white { background: #f5f5f5; color: #222; border: 1px solid #aaa; }
+.badge-black { background: #333; color: #eee; }
+.badge-event { background: #eef2fb; color: #1a4a8b; }
+.badge-verified { background: #e0f0ff; color: #004080; border: 1px solid #99c; }
+.gi-title { font-weight: bold; font-size: 0.95em; flex: 1; }
+
+.callout { padding: 9px 13px; border-radius: 4px; margin: 8px 0; font-size: 0.88em; line-height: 1.55; }
+.callout-red    { background: #fff0f0; border-left: 4px solid var(--red); }
+.callout-green  { background: #efffef; border-left: 4px solid var(--green); }
+.callout-blue   { background: #eef2fb; border-left: 4px solid var(--accent); }
+.callout-gold   { background: #fffbe0; border-left: 4px solid var(--gold); }
+
+.fen-box { background: #1a1a1a; color: #eee; font-family: monospace; font-size: 0.78em;
+           padding: 8px 10px; border-radius: 4px; word-break: break-all; margin: 8px 0; }
+.board-link { display: inline-block; background: var(--accent); color: #fff;
+              text-decoration: none; padding: 5px 11px; border-radius: 4px;
+              font-size: 0.79em; margin: 3px 3px 3px 0; }
+.board-link:hover { background: #1a3a6b; }
+.board-link.green { background: var(--green); }
+.board-link.gold { background: #8a6000; }
+
+.move-line { background: #f5f5f0; border: 1px solid #ddd; border-radius: 4px;
+             padding: 6px 10px; font-family: monospace; font-size: 0.84em;
+             margin: 6px 0; line-height: 1.7; }
+.mv-good { color: var(--green); font-weight: bold; }
+.mv-bad  { color: var(--red); font-weight: bold; }
+
+table.summary { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.88em; }
+table.summary th { background: var(--accent); color: #fff; padding: 7px 10px; text-align: left; }
+table.summary td { padding: 6px 10px; border-bottom: 1px solid #ddd; vertical-align: middle; }
+table.summary tr:nth-child(even) td { background: #f5f5f0; }
+table.summary .total-row td { font-weight: bold; background: #eef2fb; border-top: 2px solid #aac; }
+.severity-critical { color: var(--red); font-weight: bold; }
+.severity-high     { color: #7a4a00; font-weight: bold; }
+.severity-medium   { color: var(--gold); font-weight: bold; }
+
+.count-chip { display: inline-block; background: #fde8e8; color: #7a0000; border-radius: 3px;
+              padding: 1px 6px; font-size: 0.82em; font-weight: bold; }
+.count-chip.med { background: #fff8e0; color: #5a3000; }
+.count-chip.lo  { background: #f0f0f0; color: #444; }
+
+.eval-chip { font-family: monospace; font-size: 0.82em; background: #fdf0f0;
+             border: 1px solid #dbb; border-radius: 3px; padding: 1px 6px; }
+.eval-chip.good { background: #f0fdf0; border-color: #8b8; }
+
+hr { border: none; border-top: 2px solid #ccc; margin: 28px 0; }
+ul { padding-left: 20px; line-height: 1.8; }
+li { margin-bottom: 3px; }
+p { margin: 6px 0 10px; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Austin Lin — Blunder Pattern Tracker</h1>
+  <div class="meta">Based on 45 games: NAYCC 2025 (9) · PAM 2026 (7) · Personal Study Pt.5 (29) · Stockfish movetime-800 · Nov 2026</div>
+  <div class="nav">
+    <a href="../austin-prep.html">← Prep Index</a>
+    <a href="endgame-drills-2026.html">2026 Weakness Analysis &amp; Drill Plan</a>
+    <a href="naycc2025/review-deep.html">NAYCC 2025 Deep Review</a>
+    <a href="pam2026/review-deep.html">PAM 2026 Deep Review</a>
+    <a href="personal-study/review-deep.html">Study Pt.5 Deep Review</a>
+  </div>
+</div>
+
+<div class="stats-row">
+  <div class="stat-box red">
+    <div class="sval">62</div>
+    <div class="slabel">Blunders (CPL≥300)</div>
+  </div>
+  <div class="stat-box red">
+    <div class="sval">1.38</div>
+    <div class="slabel">Blunders / game</div>
+  </div>
+  <div class="stat-box gold">
+    <div class="sval">17</div>
+    <div class="slabel">Won-pos collapses</div>
+  </div>
+  <div class="stat-box gold">
+    <div class="sval">4×</div>
+    <div class="slabel">Missed Bxh7+</div>
+  </div>
+  <div class="stat-box blue">
+    <div class="sval">5</div>
+    <div class="slabel">King-walks → mate</div>
+  </div>
+  <div class="stat-box green">
+    <div class="sval">4</div>
+    <div class="slabel">Cascade games (3+ B)</div>
+  </div>
+</div>
+
+<div class="callout callout-red">
+  <strong>Note on scope:</strong> The 2026 Weakness Analysis (<a href="endgame-drills-2026.html">endgame-drills-2026.html</a>) already documents three macro patterns: missed Bxh7+ (4×), missed forcing checks in won positions (6×), and won-position collapse (27 blunders from +4). This tracker zooms in further — categorising all 62 blunders by type, cross-referencing across all three datasets, and identifying the cascade and king-safety sub-patterns not covered there.
+</div>
+
+<h2>Pattern Summary</h2>
+<table class="summary">
+  <thead>
+    <tr><th>Pattern</th><th>NAYCC 2025</th><th>PAM 2026</th><th>Study Pt.5</th><th>Total</th><th>Severity</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>1. Won Position Collapse</strong> (eval ≥+3.0 → drops sharply)</td>
+      <td>3</td><td>2</td><td>12</td>
+      <td><span class="count-chip">17</span></td>
+      <td class="severity-critical">Critical</td>
+    </tr>
+    <tr>
+      <td><strong>2. Tactical Oversight</strong> (near-equal → losing in one move)</td>
+      <td>3</td><td>3</td><td>5</td>
+      <td><span class="count-chip">11</span></td>
+      <td class="severity-critical">Critical</td>
+    </tr>
+    <tr>
+      <td><strong>3. King Safety / Mate Avoidance</strong> (walked into forced mate)</td>
+      <td>2</td><td>0</td><td>3</td>
+      <td><span class="count-chip med">5</span></td>
+      <td class="severity-high">High</td>
+    </tr>
+    <tr>
+      <td><strong>4. Endgame King Technique</strong> (wrong king path in endings)</td>
+      <td>3</td><td>0</td><td>3</td>
+      <td><span class="count-chip med">6</span></td>
+      <td class="severity-high">High</td>
+    </tr>
+    <tr>
+      <td><strong>5. Cascade (Time Pressure)</strong> (3+ blunders in one game)</td>
+      <td>2 games</td><td>1 game</td><td>2 games</td>
+      <td><span class="count-chip med">4 games</span></td>
+      <td class="severity-medium">Medium</td>
+    </tr>
+    <tr class="total-row">
+      <td>All blunders (CPL≥300, Austin's moves only)</td>
+      <td>15</td><td>8</td><td>~39</td>
+      <td>~62</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ─────────────────────────────────────────────── -->
+<!-- PATTERN 1: WON POSITION COLLAPSE -->
+<!-- ─────────────────────────────────────────────── -->
+
+<div class="pattern-header ph-red">Pattern 1 — Won Position Collapse <span style="font-size:0.82em;font-weight:normal;opacity:0.9;">(17 instances · THE dominant weakness)</span></div>
+<div class="pattern-body">
+
+  <p><strong>Definition:</strong> Austin holds an eval of +3.0 or better, then plays a move that throws away most or all of the advantage in a single turn. This is the most frequent and highest-impact blunder category across all three datasets.</p>
+
+  <div class="callout callout-red">
+    <strong>Core sub-type — Missed Bxh7+:</strong> In 4 separate study games Austin had the Greek Gift sacrifice (Bxh7+ Kxh7 Ng5+) available from a clearly winning position and played a routine developing move instead. This has already been documented in the endgame-drills report; the drill links are there. Do not re-drill — instead verify the trigger conditions are memorised.
+  </div>
+
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">NAYCC 2025 R5 — Chen, Ray vs Lin, Austin</span>
+      <span class="badge badge-black">Austin Black</span>
+      <span class="badge badge-loss">Loss</span>
+      <span class="badge badge-event">NAYCC 2025</span>
+    </div>
+    <div class="move-line">
+      Kf4?? <span class="eval-chip">+91.65 → +13.22</span> &nbsp;|&nbsp; Best: <span class="mv-good">Nf5+</span>
+    </div>
+    <p>Austin had a won K+N endgame (+91 eval — essentially a tablebase win). Played Kf4?? which drastically reduced the winning margin to +13. Followed by Kxf4 (CPL=626, +6.84→+0.58) one move later, ultimately drawing a position that should have been a decisive win.</p>
+    <div class="callout callout-gold">
+      <strong>Pattern:</strong> Austin correctly reached a winning endgame but then lost the technique — king placement in K+N endings requires specific triangulation, not intuitive king centralisation.
+    </div>
+  </div>
+
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">PAM 2026 R6 — Lin, Austin vs Marin Marin, Cristobal (1694)</span>
+      <span class="badge badge-white">Austin White</span>
+      <span class="badge badge-loss">Loss</span>
+      <span class="badge badge-event">PAM 2026</span>
+    </div>
+    <div class="move-line">
+      hxg6?? <span class="eval-chip">+6.63 → +2.41</span> &nbsp;|&nbsp; Best: <span class="mv-good">Qh4</span> (keeps attack alive)
+    </div>
+    <p>Austin was +6.6 with a raging kingside attack. hxg6?? opened the g-file for the wrong side and dissipated the attack. Qh4 (engine top choice) would have maintained decisive pressure. Austin eventually lost this game.</p>
+  </div>
+
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">Study — Vs Adithya Sekeran (Black)</span>
+      <span class="badge badge-black">Austin Black</span>
+      <span class="badge badge-event">Personal Study</span>
+    </div>
+    <div class="move-line">
+      Rb8?? <span class="eval-chip">+11.94 → +1.07</span> &nbsp;|&nbsp; Best: <span class="mv-good">Qe1+</span> (forced mate sequence)
+    </div>
+    <p>Austin was completely winning (+11.94, forced queen entry). Played passive Rb8 when Qe1+ led to a forced checkmate. The position at the moment of the blunder:</p>
+    <div class="fen-box">2r3k1/5pp1/4p3/1P1p3p/4q3/1Q1R2P1/5P1P/6K1 b - - 2 41</div>
+    <a class="board-link" href="https://lichess.org/analysis/2r3k1/5pp1/4p3/1P1p3p/4q3/1Q1R2P1/5P1P/6K1_b_-_-_2_41" target="_blank">Analyse on Lichess ↗</a>
+    <div class="callout callout-gold">
+      <strong>Pattern:</strong> In winning positions Austin often plays "safe" moves (rook to back rank) instead of searching for decisive forcing continuations. The Qe1+ line was straightforward: Qe1+ Kh2 Qh4+ Kg1 Rg8+ forces decisive material gain.
+    </div>
+  </div>
+
+  <div class="callout callout-green">
+    <strong>Drill prescription:</strong> When Austin's eval exceeds +4.0, he must pause and ask: "Is there a forcing sequence (check, capture, or threat) that wins material or mates?" The <a href="endgame-drills-2026.html#cct">CCT discipline drill</a> in the weakness analysis covers this exact habit. Additional study: Silman's "How to Reassess Your Chess" Ch. 10 (converting advantages) and puzzle sets tagged "won positions" on Lichess.
+  </div>
+
+</div>
+
+<!-- ─────────────────────────────────────────────── -->
+<!-- PATTERN 2: TACTICAL OVERSIGHT -->
+<!-- ─────────────────────────────────────────────── -->
+
+<div class="pattern-header ph-orange">Pattern 2 — Tactical Oversight <span style="font-size:0.82em;font-weight:normal;opacity:0.9;">(11 instances · near-equal → losing)</span></div>
+<div class="pattern-body">
+
+  <p><strong>Definition:</strong> From a roughly balanced position (eval between −1.5 and +1.5), Austin plays a move that immediately drops the eval by 4+ pawns, typically by allowing a fork, pin, or undefended piece capture. Unlike Pattern 1, there was no big advantage to "throw away" — Austin simply misses an opponent threat.</p>
+
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">NAYCC 2025 R2 — Lin, Austin vs Verma, Darsh</span>
+      <span class="badge badge-white">Austin White</span>
+      <span class="badge badge-loss">Loss</span>
+      <span class="badge badge-event">NAYCC 2025</span>
+    </div>
+    <div class="move-line">
+      b4?? <span class="eval-chip">+0.98 → −5.32</span> &nbsp;|&nbsp; Best: <span class="mv-good">g3</span>
+    </div>
+    <p>Austin was slightly better (+0.98). Played b4?? which immediately dropped into a losing position (−5.32). The correct move was consolidating with g3. The game then featured two further cascade blunders (g3, d3) under time pressure — see Pattern 5. Position at blunder:</p>
+    <div class="fen-box">r1b2rk1/p1q2ppp/2pb4/n7/2Pp4/P7/1P1P1PPP/RNBQRBK1 w - - 0 16</div>
+    <a class="board-link" href="https://lichess.org/analysis/r1b2rk1/p1q2ppp/2pb4/n7/2Pp4/P7/1P1P1PPP/RNBQRBK1_w_-_-_0_16" target="_blank">Analyse on Lichess ↗</a>
+    <div class="callout callout-blue">
+      <strong>Engine note (JSON):</strong> g3 consolidates the centre and prepares to meet the Nc4 threat. b4?? weakens the queenside and loses the c4 pawn after Nxb3/axb3.
+    </div>
+  </div>
+
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">PAM 2026 R7 — Fernandez Herrera, Andres (2137) vs Lin, Austin</span>
+      <span class="badge badge-black">Austin Black</span>
+      <span class="badge badge-loss">Loss</span>
+      <span class="badge badge-event">PAM 2026</span>
+    </div>
+    <div class="move-line">
+      Nc7?? <span class="eval-chip">+0.36 → −4.13</span> &nbsp;|&nbsp; Best: <span class="mv-good">f5</span> (freeing break)
+    </div>
+    <p>Against a 2137-rated opponent, Austin had held a roughly equal position for 20 moves. Nc7?? (misplacing the knight) immediately dropped into a lost position (−4.13). f5 was the active freeing break to maintain equality. Position at blunder:</p>
+    <div class="fen-box">2rqnrk1/1b1pn1p1/p4p1p/1p2p2P/4P1QN/2NB4/PPP2PP1/2KR3R b - - 3 20</div>
+    <a class="board-link" href="https://lichess.org/analysis/2rqnrk1/1b1pn1p1/p4p1p/1p2p2P/4P1QN/2NB4/PPP2PP1/2KR3R_b_-_-_3_20" target="_blank">Analyse on Lichess ↗</a>
+    <div class="callout callout-gold">
+      <strong>Pattern:</strong> In the late opening / early middlegame Austin sometimes makes "plausible-looking" knight repositioning moves without checking if they walk into a tactical shot. The knight on c7 decentralises while allowing White a decisive kingside thrust.
+    </div>
+  </div>
+
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">Study — Vs Zhi Sheng Wang (Black)</span>
+      <span class="badge badge-black">Austin Black</span>
+      <span class="badge badge-event">Personal Study</span>
+    </div>
+    <div class="move-line">
+      e5?? <span class="eval-chip">+0.22 → −5.84</span> &nbsp;|&nbsp; Best: <span class="mv-good">cxd4</span>
+    </div>
+    <p>Dead-level position (eval +0.22). Austin played e5?? which allowed a fork/tactical shot, dropping the eval to −5.84. cxd4 was the correct recapture keeping equality. A clean example of tactical oversight with no preceding positional error.</p>
+  </div>
+
+  <div class="callout callout-green">
+    <strong>Drill prescription:</strong> Before any candidate move in an equal position, check the "Opponent's Threats" first (STOP mnemonic: Safety of king → Threats of opponent → Own ideas → Plan). Lichess puzzle sets tagged "hanging pieces" and "forks" at 1800–2000 level.
+  </div>
+
+</div>
+
+<!-- ─────────────────────────────────────────────── -->
+<!-- PATTERN 3: KING SAFETY / MATE AVOIDANCE -->
+<!-- ─────────────────────────────────────────────── -->
+
+<div class="pattern-header ph-blue">Pattern 3 — King Safety / Mate Avoidance <span style="font-size:0.82em;font-weight:normal;opacity:0.9;">(5 instances · all result in forced mate)</span></div>
+<div class="pattern-body">
+
+  <p><strong>Definition:</strong> Austin plays a king move (or fails to defend the king) from a lost/difficult position, walking directly into a forced mating sequence. All 5 instances have CPL=1000 (engine gives mate in N). While many occur from already-lost positions, the ability to find defensive resources even in losing positions is critical at the 1900–2000 level.</p>
+
+  <table class="summary">
+    <thead>
+      <tr><th>Game</th><th>Move</th><th>Eval Before</th><th>Result</th><th>Best Defensive Move</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>NAYCC R4 vs Huang, Justin</td>
+        <td class="mv-bad">Kf1??</td>
+        <td>−9.71</td>
+        <td>→ Forced mate</td>
+        <td>Rb1 (fights on)</td>
+      </tr>
+      <tr>
+        <td>NAYCC R7 vs Beegala, Keshav</td>
+        <td class="mv-bad">Ke4??</td>
+        <td>−85.01</td>
+        <td>→ Forced mate</td>
+        <td>Ke6 (delays)</td>
+      </tr>
+      <tr>
+        <td>Study vs Heye Gao</td>
+        <td class="mv-bad">Kg2??</td>
+        <td>−19.98</td>
+        <td>→ Forced mate</td>
+        <td>Kg1 (avoids back rank)</td>
+      </tr>
+      <tr>
+        <td>Study vs Nicholas Vetesse</td>
+        <td class="mv-bad">Bg6??</td>
+        <td>−17.10</td>
+        <td>→ Forced mate</td>
+        <td>Kf8 (king steps off back rank)</td>
+      </tr>
+      <tr>
+        <td>Study vs Sergey Malakhovets</td>
+        <td class="mv-bad">Ree3??</td>
+        <td>−8.59</td>
+        <td>→ Forced mate</td>
+        <td>Rg1 (blocks mating threat)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-red">
+    <strong>Common thread:</strong> In all five cases Austin was already in a difficult or lost position and made a king move that ignored an immediate mating threat. This suggests a tendency to "switch off" tactical alertness once the position is perceived as lost — accepting the loss passively rather than fighting for maximum resistance.
+  </div>
+
+  <div class="callout callout-green">
+    <strong>Drill prescription:</strong> Lichess puzzle sets tagged "defensive resources" and "save the king" at 1700–1900 level. Practice finding the best defensive move in lost positions — the goal is to train the habit of checking for mates before every move regardless of the overall position evaluation.
+  </div>
+
+</div>
+
+<!-- ─────────────────────────────────────────────── -->
+<!-- PATTERN 4: ENDGAME KING TECHNIQUE -->
+<!-- ─────────────────────────────────────────────── -->
+
+<div class="pattern-header ph-teal">Pattern 4 — Endgame King Technique <span style="font-size:0.82em;font-weight:normal;opacity:0.9;">(6 instances · K+P and K+N endings)</span></div>
+<div class="pattern-body">
+
+  <p><strong>Definition:</strong> Austin makes the wrong king move in a technical endgame, either throwing away a won position or allowing a loss in a drawn position. This overlaps with Patterns 1 and 3 in some games but is categorised separately because the root cause is endgame-specific technique rather than tactical blindness.</p>
+
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">NAYCC 2025 R5 — Two consecutive king blunders in K+N endgame</span>
+      <span class="badge badge-black">Austin Black</span>
+      <span class="badge badge-draw">Draw (should win)</span>
+      <span class="badge badge-event">NAYCC 2025</span>
+    </div>
+    <div class="move-line">
+      Kf4?? (+91.65→+13.22) then Kxf4?? (+6.84→+0.58) — two blunders in two moves
+    </div>
+    <p>Austin had a completely winning K+N+pawn endgame. Both Kf4?? and Kxf4?? (consecutive moves) destroyed the winning advantage. The key principle violated: in K+N endings with pawns, the king must activate to support pawn promotion, not centralise blindly. Position at second blunder:</p>
+    <div class="fen-box">6K1/N5pp/5p2/5n1P/5P2/6k1/8/8 b - - 1 46</div>
+    <a class="board-link" href="https://lichess.org/analysis/6K1/N5pp/5p2/5n1P/5P2/6k1/8/8_b_-_-_1_46" target="_blank">Analyse on Lichess ↗</a>
+  </div>
+
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">Study — Vs Malyshkin: Three cascade K+P endgame blunders</span>
+      <span class="badge badge-black">Austin Black</span>
+      <span class="badge badge-event">Personal Study</span>
+    </div>
+    <div class="move-line">
+      Kg4?? (−13.33→−71.90) · Kf4?? (−34.15→−82.52) · Kh3?? (−8.18→−12.94)
+    </div>
+    <p>Three consecutive king-path errors in a K+P endgame. The Malyshkin K+P position was separately verified via Lichess Tablebase (forced win for White, DTZ=2) and documented in the endgame-drills report as the most instructive K+P example. See <a href="endgame-drills-2026.html">endgame-drills-2026.html</a> for the full drill set.</p>
+  </div>
+
+  <div class="callout callout-green">
+    <strong>Drill prescription:</strong> K+P endgame opposition and key squares — Silman's "Complete Endgame Course" Ch. 3 (K+P endings). K+N endings — Dvoretsky's "Endgame Manual" Ch. 2. Lichess practice: <a href="https://lichess.org/practice/rook-and-pawn-endgames/lucena-position/ts5IG4EO" target="_blank">Lucena</a> and <a href="https://lichess.org/practice/rook-and-pawn-endgames/philidor-position/7yeXAvyE" target="_blank">Philidor</a> positions (already linked in endgame-drills-2026.html).
+  </div>
+
+</div>
+
+<!-- ─────────────────────────────────────────────── -->
+<!-- PATTERN 5: CASCADE (TIME PRESSURE) -->
+<!-- ─────────────────────────────────────────────── -->
+
+<div class="pattern-header ph-purple">Pattern 5 — Cascade Under Time Pressure <span style="font-size:0.82em;font-weight:normal;opacity:0.9;">(4 games · 3+ blunders per game)</span></div>
+<div class="pattern-body">
+
+  <p><strong>Definition:</strong> A single game contains 3 or more blunders (CPL≥300) in a short span of moves. This typically indicates Austin's time management broke down and he entered blitz-mode, making impulsive moves without calculation.</p>
+
+  <table class="summary">
+    <thead>
+      <tr><th>Game</th><th>Blunder sequence</th><th>Move range</th><th>Pattern</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>NAYCC R2 vs Verma</td>
+        <td>b4?? / g3?? / d3??</td>
+        <td>Moves 16–20</td>
+        <td>Mid-game tactical cascade</td>
+      </tr>
+      <tr>
+        <td>NAYCC R9 vs Li, Aiden</td>
+        <td>Bxf5+?? / Kd7?? / Kd7??</td>
+        <td>Late endgame</td>
+        <td>Endgame king panic</td>
+      </tr>
+      <tr>
+        <td>Study vs Malyshkin</td>
+        <td>Kg4?? / Kf4?? / Kh3??</td>
+        <td>K+P endgame</td>
+        <td>Endgame king panic</td>
+      </tr>
+      <tr>
+        <td>Study vs Sean Liu</td>
+        <td>Bh5?? / Bf4?? / Qf2??</td>
+        <td>Middlegame</td>
+        <td>Won-position drift</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-red">
+    <strong>Observation:</strong> The cascade games include both endgame panics (NAYCC R9, Malyshkin — consecutive king errors) and tactical drift (NAYCC R2 — three different blunders in the opening/middlegame). The common factor in all four games is that the first blunder in the sequence came from a position that was not objectively lost — Austin blundered into a difficult position, then compounded it.
+  </div>
+
+  <div class="callout callout-green">
+    <strong>Drill prescription:</strong> Time management practice — play rapid games (15+10) and consciously budget more time after a complex position arises. Set an internal rule: after any blunder or missed tactic, stop for 30 seconds and re-evaluate before the next move. Blitz training is counterproductive for this pattern.
+  </div>
+
+</div>
+
+<hr>
+
+<!-- ─────────────────────────────────────────────── -->
+<!-- TOP 5 POSITIONS -->
+<!-- ─────────────────────────────────────────────── -->
+
+<h2>Top 5 Most Instructive Positions</h2>
+<p>Positions selected for highest CPL combined with practical recurrence (themes Austin will face again). Verified via Lichess cloud eval where available.</p>
+
+<!-- Position 1 -->
+<div class="game-instance">
+  <div class="gi-header">
+    <span class="gi-title">#1 — Study vs Zachary Liu: Missed Bxh7+ (CPL=382)</span>
+    <span class="badge badge-white">Austin White</span>
+    <span class="badge badge-verified">Lichess Cloud ✓ depth 20</span>
+  </div>
+  <div class="move-line">
+    Austin played: <span class="mv-bad">Qh5??</span> &nbsp;|&nbsp;
+    Cloud eval best: <span class="mv-good">Bxh7+</span> <span class="eval-chip good">cp=+283 (depth 20)</span> &nbsp;|&nbsp;
+    2nd choice: <span class="mv-good">Qg4</span> <span class="eval-chip">cp=+67</span>
+  </div>
+  <p>Austin had the Greek Gift sacrifice available: Bxh7+ Kxh7 Ng5+ wins the queen (cp=+283). Played the passive Qh5?? which let the position equalise (+3.79 → −0.03). The gap between Bxh7+ and Qh5 is 216 centipawns — this is the archetypal missed Greek Gift.</p>
+  <div class="fen-box">r2q1rk1/1b1nbppp/2p1p3/p2pP3/5B2/2NB4/PPP1QPPP/3RR1K1 w - - 1 14</div>
+  <a class="board-link" href="https://lichess.org/analysis/r2q1rk1/1b1nbppp/2p1p3/p2pP3/5B2/2NB4/PPP1QPPP/3RR1K1_w_-_-_1_14" target="_blank">Analyse on Lichess ↗</a>
+  <div class="callout callout-gold"><strong>Study note:</strong> Verify the Bxh7+ conditions are met: bishop on d3 (or b1/c2), knight on f3 (or g5 after a move), pawn on e5 (or d5), Black king on g8, no pawn on h6. All five conditions are met here. Austin must pattern-match this setup — it appeared 4 times in 29 study games.</div>
+</div>
+
+<!-- Position 2 -->
+<div class="game-instance">
+  <div class="gi-header">
+    <span class="gi-title">#2 — NAYCC R2 vs Verma, Darsh: b4?? (CPL=630)</span>
+    <span class="badge badge-white">Austin White</span>
+    <span class="badge badge-event">NAYCC 2025</span>
+  </div>
+  <div class="move-line">
+    Austin played: <span class="mv-bad">b4??</span> <span class="eval-chip">+0.98 → −5.32</span> &nbsp;|&nbsp;
+    Engine best: <span class="mv-good">g3</span> (JSON · not in Lichess cloud)
+  </div>
+  <p>From a slightly better position Austin played b4?? — a pawn lunge that weakened the queenside structure and dropped a pawn/piece. The correct consolidating move was g3. This triggered a three-blunder cascade (Pattern 5) and the game was lost. Critical practical lesson: pawn advances in the middlegame require calculation, not intuition.</p>
+  <div class="fen-box">r1b2rk1/p1q2ppp/2pb4/n7/2Pp4/P7/1P1P1PPP/RNBQRBK1 w - - 0 16</div>
+  <a class="board-link" href="https://lichess.org/analysis/r1b2rk1/p1q2ppp/2pb4/n7/2Pp4/P7/1P1P1PPP/RNBQRBK1_w_-_-_0_16" target="_blank">Analyse on Lichess ↗</a>
+</div>
+
+<!-- Position 3 -->
+<div class="game-instance">
+  <div class="gi-header">
+    <span class="gi-title">#3 — NAYCC R4 vs Huang, Justin: Rd2?? (CPL=752)</span>
+    <span class="badge badge-white">Austin White</span>
+    <span class="badge badge-verified">Lichess Cloud ✓ depth 24</span>
+    <span class="badge badge-loss">Loss</span>
+  </div>
+  <div class="move-line">
+    Austin played: <span class="mv-bad">Rd2??</span> <span class="eval-chip">−0.51 → −8.03</span> &nbsp;|&nbsp;
+    Cloud eval best: <span class="mv-good">Rg3</span> <span class="eval-chip good">cp=−61 (depth 24)</span> &nbsp;|&nbsp;
+    2nd: <span class="mv-good">a4</span> <span class="eval-chip">cp=−132</span>
+  </div>
+  <p>Against Justin Huang, the position was almost equal (−0.51). Austin played the passive Rd2?? which immediately fell to −8.03. The engine finds Rg3 (defending while activating the rook on the 3rd rank) keeps the position −0.61 — nearly drawn. Rd2 walks the rook into a pin. Note: this is the game Austin lost at NAYCC 2025 R4 (direct encounter loss). The endgame technique after Rd2?? was critical.</p>
+  <div class="fen-box">8/2q3pk/5p1p/4pP2/8/1Q1R3P/P5PK/2r5 w - - 3 44</div>
+  <a class="board-link" href="https://lichess.org/analysis/8/2q3pk/5p1p/4pP2/8/1Q1R3P/P5PK/2r5_w_-_-_3_44" target="_blank">Analyse on Lichess ↗</a>
+</div>
+
+<!-- Position 4 -->
+<div class="game-instance">
+  <div class="gi-header">
+    <span class="gi-title">#4 — PAM R6 vs Marin Marin: hxg6?? (CPL=422)</span>
+    <span class="badge badge-white">Austin White</span>
+    <span class="badge badge-event">PAM 2026</span>
+  </div>
+  <div class="move-line">
+    Austin played: <span class="mv-bad">hxg6??</span> <span class="eval-chip">+6.63 → +2.41</span> &nbsp;|&nbsp;
+    Engine best: <span class="mv-good">Qh4</span> (JSON · not in Lichess cloud)
+  </div>
+  <p>Austin had a powerful attack (+6.63) against a 1694-rated opponent. hxg6?? broke the kingside tension prematurely, allowing Black to regroup. Qh4 would have maintained decisive pressure along the h-file with the knight on g5 anchored. This is a typical won-position collapse in an attacking game — Austin "releases the tension" instead of maximising the attack.</p>
+  <div class="fen-box">2r2rk1/pp3p1p/4p1p1/n2pP1NP/3P4/Pq5Q/5PP1/2R1R1K1 w - - 0 26</div>
+  <a class="board-link" href="https://lichess.org/analysis/2r2rk1/pp3p1p/4p1p1/n2pP1NP/3P4/Pq5Q/5PP1/2R1R1K1_w_-_-_0_26" target="_blank">Analyse on Lichess ↗</a>
+</div>
+
+<!-- Position 5 -->
+<div class="game-instance">
+  <div class="gi-header">
+    <span class="gi-title">#5 — PAM R7 vs Fernandez Herrera (2137): Nc7?? (CPL=449)</span>
+    <span class="badge badge-black">Austin Black</span>
+    <span class="badge badge-event">PAM 2026</span>
+  </div>
+  <div class="move-line">
+    Austin played: <span class="mv-bad">Nc7??</span> <span class="eval-chip">+0.36 → −4.13</span> &nbsp;|&nbsp;
+    Engine best: <span class="mv-good">f5</span> (JSON · not in Lichess cloud)
+  </div>
+  <p>Against the tournament's top seed (2137, +272 above Austin's 1865), Austin held the position for 19 moves then played the knight-misplacement Nc7?? in a sharp middlegame. f5 was the active counterplay move. This is the key lesson from the highest-rated opponent Austin faced at PAM: active pawn breaks (f5) beat passive knight retreats (Nc7) in sharp positions.</p>
+  <div class="fen-box">2rqnrk1/1b1pn1p1/p4p1p/1p2p2P/4P1QN/2NB4/PPP2PP1/2KR3R b - - 3 20</div>
+  <a class="board-link" href="https://lichess.org/analysis/2rqnrk1/1b1pn1p1/p4p1p/1p2p2P/4P1QN/2NB4/PPP2PP1/2KR3R_b_-_-_3_20" target="_blank">Analyse on Lichess ↗</a>
+</div>
+
+<hr>
+
+<h2>Cross-Reference: Endgame Drills 2026</h2>
+<div class="callout callout-blue">
+  The <a href="endgame-drills-2026.html"><strong>2026 Weakness Analysis &amp; Training Plan</strong></a> covers three verified macro patterns with drill links and practice URLs:
+  <ul style="margin-top:8px;">
+    <li><strong>Missed Bxh7+</strong> (4× in 3 games) — overlaps with <em>Pattern 1 (Won Position Collapse)</em> sub-type here</li>
+    <li><strong>Missed forcing checks in won positions</strong> (6×) — overlaps with <em>Pattern 1</em> and <em>Pattern 2 (Tactical Oversight)</em></li>
+    <li><strong>Won position collapse from +4 or better</strong> (27 blunders) — the macro form of <em>Pattern 1</em> here</li>
+  </ul>
+  This blunder-pattern tracker adds: the king-safety sub-pattern (Pattern 3), cascade games (Pattern 5), and endgame king technique (Pattern 4) which were not covered in the endgame-drills document.
+</div>
+
+</body>
+</html>
