@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>NAYCC 2026 — Austin Pairing Forecast</title>
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.6;color:#1f2328;background:#f6f8fa}
+    .page{max-width:940px;margin:0 auto;background:#fff;padding:44px 52px 72px;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+    @media(max-width:680px){.page{padding:20px 16px 40px}}
+    .doc-header{border-bottom:3px solid #1a5276;padding-bottom:18px;margin-bottom:28px}
+    .doc-header h1{margin:0 0 4px;font-size:1.75rem;color:#1f2328}
+    .doc-header .subtitle{font-size:.95rem;color:#1a5276;font-weight:600;margin:0 0 8px}
+    .doc-header .meta{font-size:.85rem;color:#57606a}
+    .back-link{display:inline-block;margin-top:10px;font-size:.85rem;color:#1a5276;text-decoration:none;font-weight:500}
+    .back-link:hover{text-decoration:underline}
+    h2{font-size:1.15rem;color:#1f2328;margin:32px 0 10px;padding-bottom:5px;border-bottom:1px solid #d0d7de}
+    h3{font-size:.98rem;color:#1a5276;margin:16px 0 5px}
+    table{width:100%;border-collapse:collapse;font-size:.84rem;margin:10px 0 18px}
+    thead th{background:#1a5276;color:#fff;padding:7px 10px;text-align:left;font-weight:600}
+    tbody tr:nth-child(odd){background:#f6f8fa}
+    tbody td{padding:6px 10px;border-bottom:1px solid #d0d7de;vertical-align:top}
+    .round-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px;margin:14px 0}
+    .rcard{border-radius:8px;border:2px solid;overflow:hidden}
+    .rcard-head{padding:8px 14px;font-weight:700;font-size:.88rem;display:flex;justify-content:space-between;align-items:center}
+    .rcard-body{padding:10px 14px;font-size:.83rem}
+    .opp-row{display:flex;justify-content:space-between;margin-bottom:3px}
+    .opp-name{font-weight:600}
+    .opp-pct{color:#57606a;font-size:.78rem}
+    .badge{font-size:.7rem;padding:1px 7px;border-radius:10px;font-weight:600;white-space:nowrap}
+    .badge-prep{background:#dafbe1;color:#1a4731}
+    .badge-nop{background:#fff0f0;color:#7a0000}
+    .score-row{margin-top:8px;padding-top:6px;border-top:1px solid #d0d7de;font-size:.78rem;color:#57606a}
+    .bar-wrap{margin:4px 0}
+    .bar-label{font-size:.78rem;min-width:40px;display:inline-block}
+    .bar-outer{display:inline-block;width:220px;background:#eee;border-radius:3px;height:14px;vertical-align:middle}
+    .bar-inner{height:14px;border-radius:3px;background:#1a5276}
+    .bar-val{font-size:.78rem;margin-left:6px;color:#1f2328}
+    .prob-table{font-size:.85rem}
+    .highlight{background:#fff9db;font-weight:700}
+    .scenario-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:14px 0}
+    .scenario-box{border:1px solid #d0d7de;border-radius:8px;padding:14px;font-size:.83rem}
+    .scenario-box h4{margin:0 0 8px;font-size:.9rem}
+    .hot-head{background:#dafbe1;color:#1a4731;border-radius:6px;padding:4px 10px;margin-bottom:8px;font-weight:700;font-size:.8rem}
+    .slow-head{background:#fff0f0;color:#7a0000;border-radius:6px;padding:4px 10px;margin-bottom:8px;font-weight:700;font-size:.8rem}
+    .info-box{background:#eaf0f8;border-left:4px solid #1a5276;border-radius:0 6px 6px 0;padding:10px 15px;margin:10px 0;font-size:.86rem;color:#1a3a55}
+    .warn-box{background:#fff5f5;border-left:4px solid #cf2222;border-radius:0 6px 6px 0;padding:10px 15px;margin:10px 0;font-size:.86rem;color:#7a0000}
+    .stat-row{display:flex;gap:18px;flex-wrap:wrap;margin:10px 0}
+    .stat-card{border:1px solid #d0d7de;border-radius:8px;padding:10px 16px;text-align:center;min-width:110px}
+    .stat-big{font-size:1.6rem;font-weight:700;color:#1a5276}
+    .stat-label{font-size:.75rem;color:#57606a}
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="doc-header">
+    <h1>NAYCC 2026 — Austin Lin: Pairing Forecast</h1>
+    <div class="subtitle">Monte Carlo Swiss simulation · 20,000 iterations · 39 players · 9 rounds</div>
+    <div class="meta">Actual FIDE ratings (Nov 4, 2026) · FIDE Dutch Swiss system · Daniel Joshua Lee excluded (moving to U18)</div>
+    <a class="back-link" href="../austin-prep.html">← Back to Prep Index</a>
+  </div>
+
+  <h2>Summary</h2>
+  <div class="stat-row">
+    <div class="stat-card"><div class="stat-big">6.0/9</div><div class="stat-label">Median finish</div></div>
+    <div class="stat-card"><div class="stat-big">#6</div><div class="stat-label">Median rank</div></div>
+    <div class="stat-card"><div class="stat-big">24%</div><div class="stat-label">P(medal / top 3)</div></div>
+    <div class="stat-card"><div class="stat-big">57%</div><div class="stat-label">P(top 6)</div></div>
+  </div>
+  <div class="info-box">Austin is rated 6th in the field by actual FIDE (1959). The simulation projects a median finish of <strong>6.0/9, rank #6</strong> — comfortably in contention. A 7+ score places Austin in medal range.</div>
+
+  <h2>Section 1 — Player Field (39 players, ranked by actual FIDE)</h2>
+  <table><thead><tr><th>Rank</th><th>Name</th><th>Fed</th><th>FIDE</th><th>Gap vs Austin</th><th>Prep</th></tr></thead><tbody>
+    <tr><td>1</td><td>Liu, Zachary Hankun</td><td>CAN</td><td>2185</td><td style="color:#c0392b;font-weight:600">+226</td><td><span class="badge badge-prep">✓ prep</span></td></tr>
+    <tr><td>2</td><td>Cortes Medina, Fernando</td><td>MEX</td><td>2085</td><td style="color:#c0392b;font-weight:600">+126</td><td><span class="badge badge-prep">✓ prep</span></td></tr>
+    <tr><td>3</td><td>Jackson, Leo Daniel Olivera</td><td>USA</td><td>2081</td><td style="color:#c0392b;font-weight:600">+122</td><td><span class="badge badge-prep">✓ prep</span></td></tr>
+    <tr><td>4</td><td>Flores Ojeda, Inti Dario</td><td>MEX</td><td>2011</td><td style="color:#856404;font-weight:600">+52</td><td><span class="badge badge-prep">✓ prep</span></td></tr>
+    <tr><td>5</td><td>Sankar, Tarun</td><td>USA</td><td>1984</td><td style="color:#856404;font-weight:600">+25</td><td><span class="badge badge-prep">✓ prep</span></td></tr>
+    <tr style="font-weight:700;background:#eaf0f8"><td>6</td><td>Lin, Austin</td><td>CAN</td><td>1959</td><td style="color:#856404;font-weight:600">0</td><td><strong>← Austin</strong></td></tr>
+    <tr><td>7</td><td>Ajith, Aarush</td><td>CAN</td><td>1943</td><td style="color:#856404;font-weight:600">-16</td><td><span class="badge badge-prep">✓ prep</span></td></tr>
+    <tr><td>8</td><td>Santhosh, Pranav</td><td>USA</td><td>1922</td><td style="color:#856404;font-weight:600">-37</td><td><span class="badge badge-prep">✓ prep</span></td></tr>
+    <tr><td>9</td><td>Johnson, Emerson Aurelius</td><td>USA</td><td>1909</td><td style="color:#856404;font-weight:600">-50</td><td><span class="badge badge-prep">✓ prep</span></td></tr>
+    <tr><td>10</td><td>Wu, Zhuoyuan</td><td>USA</td><td>1890</td><td style="color:#856404;font-weight:600">-69</td><td><span class="badge badge-prep">✓ prep</span></td></tr>
+    <tr><td>11</td><td>Chodniewicz, Asher</td><td>USA</td><td>1884</td><td style="color:#856404;font-weight:600">-75</td><td><span class="badge badge-prep">✓ prep</span></td></tr>
+    <tr><td>12</td><td>De Alba Boudreau, Pablo Elliott</td><td>MEX</td><td>1873</td><td style="color:#856404;font-weight:600">-86</td><td><span class="badge badge-prep">✓ prep</span></td></tr>
+    <tr><td>13</td><td>Salazar Rodriguez, Benito</td><td>MEX</td><td>1869</td><td style="color:#856404;font-weight:600">-90</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>14</td><td>Saenz Cabrera, Yaen</td><td>MEX</td><td>1841</td><td style="color:#27ae60;font-weight:600">-118</td><td><span class="badge badge-prep">✓ prep</span></td></tr>
+    <tr><td>15</td><td>Jeyaraj, Joel Ethan</td><td>USA</td><td>1813</td><td style="color:#27ae60;font-weight:600">-146</td><td><span class="badge badge-prep">✓ prep</span></td></tr>
+    <tr><td>16</td><td>Olivo Diaz, Marco Cristofer</td><td>MEX</td><td>1790</td><td style="color:#27ae60;font-weight:600">-169</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>17</td><td>Ruiz Gastelum, Mateo</td><td>MEX</td><td>1765</td><td style="color:#27ae60;font-weight:600">-194</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>18</td><td>Hernandez Gamboa, Daniel</td><td>MEX</td><td>1753</td><td style="color:#27ae60;font-weight:600">-206</td><td><span class="badge badge-prep">✓ prep</span></td></tr>
+    <tr><td>19</td><td>Ortega Jacinto, Miguel Adolfo</td><td>MEX</td><td>1756</td><td style="color:#27ae60;font-weight:600">-203</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>20</td><td>Sanchez Cruz, Mateo</td><td>MEX</td><td>1734</td><td style="color:#27ae60;font-weight:600">-225</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>21</td><td>De Los Reyes Balandran, Cristian</td><td>MEX</td><td>1720</td><td style="color:#27ae60;font-weight:600">-239</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>22</td><td>Lou, Sining</td><td>CAN</td><td>1690</td><td style="color:#27ae60;font-weight:600">-269</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>23</td><td>Pacheco Penaloza, Jose Manuel</td><td>MEX</td><td>1661</td><td style="color:#27ae60;font-weight:600">-298</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>24</td><td>Balaji, Tanav</td><td>USA</td><td>1640</td><td style="color:#27ae60;font-weight:600">-319</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>25</td><td>Valdez Alvarez, Santino</td><td>MEX</td><td>1637</td><td style="color:#27ae60;font-weight:600">-322</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>26</td><td>Dominguez Alarcon, Erik Samuel</td><td>MEX</td><td>1630</td><td style="color:#27ae60;font-weight:600">-329</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>27</td><td>Szeto, Jordan</td><td>CAN</td><td>1622</td><td style="color:#27ae60;font-weight:600">-337</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>28</td><td>Rascon Peralta, Bolivar Ernesto</td><td>MEX</td><td>1608</td><td style="color:#27ae60;font-weight:600">-351</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>29</td><td>Hernandez Tierrafria, Christian Mateo</td><td>MEX</td><td>1579</td><td style="color:#27ae60;font-weight:600">-380</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>30</td><td>Yadatore, Neel</td><td>USA</td><td>1574</td><td style="color:#27ae60;font-weight:600">-385</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>31</td><td>Molina Ronquillo, Pablo</td><td>MEX</td><td>1568</td><td style="color:#27ae60;font-weight:600">-391</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>32</td><td>Dominguez Alvarez, Blas</td><td>MEX</td><td>1563</td><td style="color:#27ae60;font-weight:600">-396</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>33</td><td>Espinosa Guzman, Alfonso Naim</td><td>MEX</td><td>1555</td><td style="color:#27ae60;font-weight:600">-404</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>34</td><td>Bates, Dallin</td><td>USA</td><td>1558</td><td style="color:#27ae60;font-weight:600">-401</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>35</td><td>Madrigal Madrazo, Luis Xavier</td><td>MEX</td><td>1541</td><td style="color:#27ae60;font-weight:600">-418</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>36</td><td>Pshisva Abadi, Daniel</td><td>MEX</td><td>1533</td><td style="color:#27ae60;font-weight:600">-426</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>37</td><td>Leal Cordova, Pablo Ernesto</td><td>MEX</td><td>1400</td><td style="color:#27ae60;font-weight:600">-559</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>38</td><td>Santana, Evan Emil</td><td>MEX</td><td>1400</td><td style="color:#27ae60;font-weight:600">-559</td><td><span class="badge badge-nop">no prep</span></td></tr>
+    <tr><td>39</td><td>Zhang, Daniel Yunshu</td><td>USA</td><td>1400</td><td style="color:#27ae60;font-weight:600">-559</td><td><span class="badge badge-nop">no prep</span></td></tr>
+  </tbody></table>
+  <h2>Section 2 — Round-by-Round Forecast (Austin's View)</h2>
+  <div class="round-cards">
+    <div class="rcard" style="background:#f0fff4;border-color:#27ae60">
+      <div class="rcard-head" style="background:#27ae60;color:#fff"><span>Round 1</span><span style="font-size:.75rem">🟢 Favourite</span></div>
+      <div class="rcard-body">
+        <div class="opp-row"><span style="font-weight:700">1. Valdez Alvarez, Santino (1637)</span><span class="opp-pct">100%</span></div>
+        <div class="score-row">Expected score after R1: <strong>1.0</strong></div>
+      </div>
+    </div>
+    <div class="rcard" style="background:#f0fff4;border-color:#27ae60">
+      <div class="rcard-head" style="background:#27ae60;color:#fff"><span>Round 2</span><span style="font-size:.75rem">🟢 Favourite</span></div>
+      <div class="rcard-body">
+        <div class="opp-row"><span style="font-weight:700">1. Ortega Jacinto, Miguel Adolfo (1756)</span><span class="opp-pct">19%</span></div>
+        <div class="opp-row"><span style="color:#57606a">2. Ruiz Gastelum, Mateo (1765)</span><span class="opp-pct">17%</span></div>
+        <div class="opp-row"><span style="color:#57606a">3. Hernandez Gamboa, Daniel (1753)<span class="badge badge-prep" style="margin-left:4px">prep</span></span><span class="opp-pct">14%</span></div>
+        <div class="score-row">Expected score after R2: <strong>2.0</strong></div>
+      </div>
+    </div>
+    <div class="rcard" style="background:#fff0f0;border-color:#c0392b">
+      <div class="rcard-head" style="background:#c0392b;color:#fff"><span>Round 3</span><span style="font-size:.75rem">🔴 Underdog</span></div>
+      <div class="rcard-body">
+        <div class="opp-row"><span style="font-weight:700">1. Liu, Zachary Hankun (2185)<span class="badge badge-prep" style="margin-left:4px">prep</span></span><span class="opp-pct">10%</span></div>
+        <div class="opp-row"><span style="color:#57606a">2. De Alba Boudreau, Pablo Elliott (1873)<span class="badge badge-prep" style="margin-left:4px">prep</span></span><span class="opp-pct">6%</span></div>
+        <div class="opp-row"><span style="color:#57606a">3. Chodniewicz, Asher (1884)<span class="badge badge-prep" style="margin-left:4px">prep</span></span><span class="opp-pct">6%</span></div>
+        <div class="score-row">Expected score after R3: <strong>2.0</strong></div>
+      </div>
+    </div>
+    <div class="rcard" style="background:#f0fff4;border-color:#27ae60">
+      <div class="rcard-head" style="background:#27ae60;color:#fff"><span>Round 4</span><span style="font-size:.75rem">🟢 Favourite</span></div>
+      <div class="rcard-body">
+        <div class="opp-row"><span style="font-weight:700">1. Olivo Diaz, Marco Cristofer (1790)</span><span class="opp-pct">8%</span></div>
+        <div class="opp-row"><span style="color:#57606a">2. Ruiz Gastelum, Mateo (1765)</span><span class="opp-pct">8%</span></div>
+        <div class="opp-row"><span style="color:#57606a">3. Ortega Jacinto, Miguel Adolfo (1756)</span><span class="opp-pct">7%</span></div>
+        <div class="score-row">Expected score after R4: <strong>3.0</strong></div>
+      </div>
+    </div>
+    <div class="rcard" style="background:#fffbf0;border-color:#d4a017">
+      <div class="rcard-head" style="background:#d4a017;color:#fff"><span>Round 5</span><span style="font-size:.75rem">🟡 Even match</span></div>
+      <div class="rcard-body">
+        <div class="opp-row"><span style="font-weight:700">1. Salazar Rodriguez, Benito (1869)</span><span class="opp-pct">6%</span></div>
+        <div class="opp-row"><span style="color:#57606a">2. De Alba Boudreau, Pablo Elliott (1873)<span class="badge badge-prep" style="margin-left:4px">prep</span></span><span class="opp-pct">6%</span></div>
+        <div class="opp-row"><span style="color:#57606a">3. Liu, Zachary Hankun (2185)<span class="badge badge-prep" style="margin-left:4px">prep</span></span><span class="opp-pct">5%</span></div>
+        <div class="score-row">Expected score after R5: <strong>3.5</strong></div>
+      </div>
+    </div>
+    <div class="rcard" style="background:#fff0f0;border-color:#c0392b">
+      <div class="rcard-head" style="background:#c0392b;color:#fff"><span>Round 6</span><span style="font-size:.75rem">🔴 Underdog</span></div>
+      <div class="rcard-body">
+        <div class="opp-row"><span style="font-weight:700">1. Liu, Zachary Hankun (2185)<span class="badge badge-prep" style="margin-left:4px">prep</span></span><span class="opp-pct">9%</span></div>
+        <div class="opp-row"><span style="color:#57606a">2. Cortes Medina, Fernando (2085)<span class="badge badge-prep" style="margin-left:4px">prep</span></span><span class="opp-pct">7%</span></div>
+        <div class="opp-row"><span style="color:#57606a">3. Jackson, Leo Daniel Olivera (2081)<span class="badge badge-prep" style="margin-left:4px">prep</span></span><span class="opp-pct">6%</span></div>
+        <div class="score-row">Expected score after R6: <strong>4.0</strong></div>
+      </div>
+    </div>
+    <div class="rcard" style="background:#fff0f0;border-color:#c0392b">
+      <div class="rcard-head" style="background:#c0392b;color:#fff"><span>Round 7</span><span style="font-size:.75rem">🔴 Underdog</span></div>
+      <div class="rcard-body">
+        <div class="opp-row"><span style="font-weight:700">1. Liu, Zachary Hankun (2185)<span class="badge badge-prep" style="margin-left:4px">prep</span></span><span class="opp-pct">7%</span></div>
+        <div class="opp-row"><span style="color:#57606a">2. Salazar Rodriguez, Benito (1869)</span><span class="opp-pct">6%</span></div>
+        <div class="opp-row"><span style="color:#57606a">3. De Alba Boudreau, Pablo Elliott (1873)<span class="badge badge-prep" style="margin-left:4px">prep</span></span><span class="opp-pct">6%</span></div>
+        <div class="score-row">Expected score after R7: <strong>5.0</strong></div>
+      </div>
+    </div>
+    <div class="rcard" style="background:#fff0f0;border-color:#c0392b">
+      <div class="rcard-head" style="background:#c0392b;color:#fff"><span>Round 8</span><span style="font-size:.75rem">🔴 Underdog</span></div>
+      <div class="rcard-body">
+        <div class="opp-row"><span style="font-weight:700">1. Liu, Zachary Hankun (2185)<span class="badge badge-prep" style="margin-left:4px">prep</span></span><span class="opp-pct">7%</span></div>
+        <div class="opp-row"><span style="color:#57606a">2. Cortes Medina, Fernando (2085)<span class="badge badge-prep" style="margin-left:4px">prep</span></span><span class="opp-pct">7%</span></div>
+        <div class="opp-row"><span style="color:#57606a">3. Jackson, Leo Daniel Olivera (2081)<span class="badge badge-prep" style="margin-left:4px">prep</span></span><span class="opp-pct">6%</span></div>
+        <div class="score-row">Expected score after R8: <strong>5.0</strong></div>
+      </div>
+    </div>
+    <div class="rcard" style="background:#fff0f0;border-color:#c0392b">
+      <div class="rcard-head" style="background:#c0392b;color:#fff"><span>Round 9</span><span style="font-size:.75rem">🔴 Underdog</span></div>
+      <div class="rcard-body">
+        <div class="opp-row"><span style="font-weight:700">1. Liu, Zachary Hankun (2185)<span class="badge badge-prep" style="margin-left:4px">prep</span></span><span class="opp-pct">8%</span></div>
+        <div class="opp-row"><span style="color:#57606a">2. Cortes Medina, Fernando (2085)<span class="badge badge-prep" style="margin-left:4px">prep</span></span><span class="opp-pct">6%</span></div>
+        <div class="opp-row"><span style="color:#57606a">3. Jackson, Leo Daniel Olivera (2081)<span class="badge badge-prep" style="margin-left:4px">prep</span></span><span class="opp-pct">6%</span></div>
+        <div class="score-row">Expected score after R9: <strong>6.0</strong></div>
+      </div>
+    </div>
+  </div>
+  <h2>Section 3 — Projected Score Distribution</h2>
+  <table class="prob-table"><thead><tr><th>Score</th><th>Probability</th><th>Bar</th></tr></thead><tbody>
+    <tr><td>8.5/9</td><td>0.2%</td><td><div class="bar-outer"><div class="bar-inner" style="width:1px"></div></div></td></tr>
+    <tr><td>8.0/9</td><td>1.1%</td><td><div class="bar-outer"><div class="bar-inner" style="width:7px"></div></div></td></tr>
+    <tr><td>7.5/9</td><td>2.4%</td><td><div class="bar-outer"><div class="bar-inner" style="width:17px"></div></div></td></tr>
+    <tr><td>7.0/9</td><td>9.7%</td><td><div class="bar-outer"><div class="bar-inner" style="width:69px"></div></div></td></tr>
+    <tr><td>6.5/9</td><td>15.7%</td><td><div class="bar-outer"><div class="bar-inner" style="width:112px"></div></div></td></tr>
+    <tr class="highlight"><td>6.0/9</td><td>29.3%</td><td><div class="bar-outer"><div class="bar-inner" style="width:180px"></div></div></td></tr>
+    <tr><td>5.5/9</td><td>18.5%</td><td><div class="bar-outer"><div class="bar-inner" style="width:133px"></div></div></td></tr>
+    <tr><td>5.0/9</td><td>16.0%</td><td><div class="bar-outer"><div class="bar-inner" style="width:115px"></div></div></td></tr>
+    <tr><td>4.5/9</td><td>4.3%</td><td><div class="bar-outer"><div class="bar-inner" style="width:30px"></div></div></td></tr>
+    <tr><td>4.0/9</td><td>2.4%</td><td><div class="bar-outer"><div class="bar-inner" style="width:17px"></div></div></td></tr>
+    <tr><td>3.5/9</td><td>0.2%</td><td><div class="bar-outer"><div class="bar-inner" style="width:1px"></div></div></td></tr>
+    <tr><td>3.0/9</td><td>0.1%</td><td><div class="bar-outer"><div class="bar-inner" style="width:1px"></div></div></td></tr>
+  </tbody></table>
+  <div class="info-box">
+    <strong>Score thresholds:</strong>
+    P(≥7.5): <strong>3.8%</strong> &nbsp;|&nbsp;
+    P(≥7.0): <strong>13.5%</strong> &nbsp;|&nbsp;
+    P(≥6.5): <strong>29.2%</strong> &nbsp;|&nbsp;
+    P(≥6.0): <strong>58.5%</strong>
+  </div>
+  <h2>Section 4 — Key Match-ups to Prepare (by total frequency)</h2>
+  <table><thead><tr><th>Rank</th><th>Opponent</th><th>Rating</th><th>Freq (% of all rounds)</th><th>Prep status</th></tr></thead><tbody>
+    <tr><td>1</td><td>Valdez Alvarez, Santino</td><td>1637</td><td>12.6%</td><td><span class="badge badge-nop">⚠ no prep yet</span></td></tr>
+    <tr><td>2</td><td>Liu, Zachary Hankun</td><td>2185</td><td>5.7%</td><td><span class="badge badge-prep">✓ prep complete</span></td></tr>
+    <tr><td>3</td><td>Ortega Jacinto, Miguel Adolfo</td><td>1756</td><td>5.6%</td><td><span class="badge badge-nop">⚠ no prep yet</span></td></tr>
+    <tr><td>4</td><td>Ruiz Gastelum, Mateo</td><td>1765</td><td>5.4%</td><td><span class="badge badge-nop">⚠ no prep yet</span></td></tr>
+    <tr><td>5</td><td>Olivo Diaz, Marco Cristofer</td><td>1790</td><td>4.9%</td><td><span class="badge badge-nop">⚠ no prep yet</span></td></tr>
+    <tr><td>6</td><td>Hernandez Gamboa, Daniel</td><td>1753</td><td>4.7%</td><td><span class="badge badge-prep">✓ prep complete</span></td></tr>
+    <tr><td>7</td><td>Salazar Rodriguez, Benito</td><td>1869</td><td>4.2%</td><td><span class="badge badge-nop">⚠ no prep yet</span></td></tr>
+    <tr><td>8</td><td>Cortes Medina, Fernando</td><td>2085</td><td>4.1%</td><td><span class="badge badge-prep">✓ prep complete</span></td></tr>
+    <tr><td>9</td><td>Jeyaraj, Joel Ethan</td><td>1813</td><td>4.0%</td><td><span class="badge badge-prep">✓ prep complete</span></td></tr>
+    <tr><td>10</td><td>De Alba Boudreau, Pablo Elliott</td><td>1873</td><td>3.9%</td><td><span class="badge badge-prep">✓ prep complete</span></td></tr>
+  </tbody></table>
+  <h2>Section 5 — Scenario Analysis</h2>
+  <div class="info-box">Hot start (3.5+/4): 20% of simulations &nbsp;|&nbsp; Slow start (≤2/4): 21% of simulations</div>
+  <div class="scenario-grid">
+    <div class="scenario-box">
+      <div class="hot-head">🔥 Hot Start — 3.5+/4 after Round 4</div>
+      <div style="font-size:.75rem;color:#57606a;margin-bottom:6px">Occurs in 20% of simulations</div>
+      <div style="font-size:.8rem;margin:3px 0"><strong>R5:</strong> 
+Liu (2185) 15% | Jackson (2081) 11%
+</div>
+      <div style="font-size:.8rem;margin:3px 0"><strong>R6:</strong> 
+Liu (2185) 14% | Jackson (2081) 11%
+</div>
+      <div style="font-size:.8rem;margin:3px 0"><strong>R7:</strong> 
+Liu (2185) 13% | Jackson (2081) 11%
+</div>
+      <div style="font-size:.8rem;margin:3px 0"><strong>R8:</strong> 
+Liu (2185) 13% | Cortes Medina (2085) 10%
+</div>
+      <div style="font-size:.8rem;margin:3px 0"><strong>R9:</strong> 
+Liu (2185) 12% | Cortes Medina (2085) 9%
+</div>
+    </div>
+    <div class="scenario-box">
+      <div class="slow-head">🐢 Slow Start — ≤2/4 after Round 4</div>
+      <div style="font-size:.75rem;color:#57606a;margin-bottom:6px">Occurs in 21% of simulations</div>
+      <div style="font-size:.8rem;margin:3px 0"><strong>R5:</strong> 
+De Los Reyes Balandran (1720) 12% | Lou (1690) 11%
+</div>
+      <div style="font-size:.8rem;margin:3px 0"><strong>R6:</strong> 
+Olivo Diaz (1790) 8% | Ruiz Gastelum (1765) 8%
+</div>
+      <div style="font-size:.8rem;margin:3px 0"><strong>R7:</strong> 
+De Los Reyes Balandran (1720) 6% | Salazar Rodriguez (1869) 6%
+</div>
+      <div style="font-size:.8rem;margin:3px 0"><strong>R8:</strong> 
+Olivo Diaz (1790) 6% | Ruiz Gastelum (1765) 6%
+</div>
+      <div style="font-size:.8rem;margin:3px 0"><strong>R9:</strong> 
+De Alba Boudreau (1873) 6% | Salazar Rodriguez (1869) 6%
+</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
