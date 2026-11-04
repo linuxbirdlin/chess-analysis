@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NAYCC 2026 U14 — Player Field Report</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 15px; line-height: 1.6; color: #1f2328; background: #f6f8fa; }
+    .page { max-width: 980px; margin: 0 auto; background: #fff; padding: 44px 52px 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    @media (max-width: 700px) { .page { padding: 20px 16px 40px; } }
+
+    .doc-header { border-bottom: 3px solid #1a5276; padding-bottom: 20px; margin-bottom: 32px; }
+    .doc-header h1 { margin: 0 0 4px; font-size: 1.8rem; color: #1f2328; }
+    .doc-header .subtitle { font-size: 1rem; color: #1a5276; font-weight: 600; margin: 0 0 8px; }
+    .doc-header .meta { font-size: 0.85rem; color: #57606a; display: flex; gap: 20px; flex-wrap: wrap; }
+    .back-link { display: inline-block; margin-top: 10px; font-size: 0.875rem; color: #1a5276; text-decoration: none; font-weight: 500; }
+    .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.15rem; color: #1f2328; margin: 36px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1rem; color: #1a5276; margin: 20px 0 6px; }
+
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 16px 0 28px; }
+    .stat-card { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 8px; padding: 14px 16px; text-align: center; }
+    .stat-card .val { font-size: 1.6rem; font-weight: 700; color: #1a5276; }
+    .stat-card .lbl { font-size: 0.78rem; color: #57606a; margin-top: 2px; }
+    .stat-card.highlight { background: #eaf0f8; border-color: #1a5276; }
+    .stat-card.highlight .val { color: #1a5276; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 8px 0 24px; }
+    thead th { background: #1a5276; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; white-space: nowrap; }
+    thead th.right { text-align: right; }
+    tbody tr:nth-child(odd) { background: #f6f8fa; }
+    tbody tr:nth-child(even) { background: #fff; }
+    tbody tr.austin-row { background: #fff8e1 !important; font-weight: 600; }
+    tbody tr.moved-row { background: #fff0f0 !important; color: #999; text-decoration: line-through; }
+    tbody td { padding: 6px 10px; border-bottom: 1px solid #e8eaed; vertical-align: middle; }
+    tbody td.right { text-align: right; }
+
+    .diff-up   { color: #2d7d46; font-weight: 600; }
+    .diff-down { color: #cf2222; font-weight: 600; }
+    .diff-zero { color: #57606a; }
+
+    .badge { display: inline-block; font-size: 0.7rem; padding: 1px 7px; border-radius: 10px; font-weight: 600; white-space: nowrap; }
+    .badge-prep  { background: #dafbe1; color: #1a4731; border: 1px solid #2d7d46; }
+    .badge-noprep{ background: #fff0f0; color: #7a0000; border: 1px solid #cf2222; }
+    .badge-austin{ background: #fff8e1; color: #7a4f00; border: 1px solid #d4a017; }
+    .badge-moved { background: #f0f0f0; color: #666; border: 1px solid #ccc; }
+    .badge-fed   { font-size: 0.7rem; padding: 1px 6px; border-radius: 4px; font-weight: 600; }
+    .fed-CAN { background: #ff0000; color: #fff; }
+    .fed-USA { background: #002868; color: #fff; }
+    .fed-MEX { background: #006847; color: #fff; }
+
+    .tier-sep td { background: #eaf0f8 !important; font-size: 0.75rem; font-weight: 600; color: #1a5276; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 10px; }
+
+    .mover-card { border: 1px solid #d0d7de; border-radius: 8px; margin: 8px 0; overflow: hidden; }
+    .mover-card-head { background: #eaf0f8; padding: 8px 14px; font-weight: 600; font-size: 0.88rem; display: flex; justify-content: space-between; align-items: center; }
+    .mover-card-body { padding: 8px 14px; font-size: 0.85rem; color: #444; }
+
+    .info-box { background: #eaf0f8; border-left: 4px solid #1a5276; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 12px 0; font-size: 0.88rem; color: #1a3a55; }
+    .warn-box  { background: #fff5f5; border-left: 4px solid #cf2222; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 12px 0; font-size: 0.88rem; color: #7a0000; }
+    .tip-box   { background: #dafbe1; border-left: 4px solid #2d7d46; border-radius: 0 6px 6px 0; padding: 10px 16px; margin: 12px 0; font-size: 0.88rem; color: #1a4731; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 12px 0; }
+    @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+
+    .prep-section h4 { margin: 10px 0 4px; font-size: 0.88rem; color: #444; }
+    ul.prep-list { margin: 4px 0 10px; padding-left: 1.4em; }
+    ul.prep-list li { margin-bottom: 3px; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-header">
+    <h1>NAYCC 2026 U14 — Player Field Report</h1>
+    <div class="subtitle">North American Youth Chess Championship · Nov 10–17, 2026 · Mexico City</div>
+    <div class="meta">
+      <span><strong>Players:</strong> 39 active (Daniel Joshua Lee moved to U18)</span>
+      <span><strong>Format:</strong> 9-round Swiss · FIDE Dutch system · Swiss Manager</span>
+      <span><strong>Ratings source:</strong> Live FIDE profile scrape · Nov 4, 2026</span>
+      <span><strong>Austin's seed:</strong> #7 roster → <strong>#6 by actual FIDE</strong></span>
+    </div>
+    <a class="back-link" href="../austin-prep.html">← Back to Prep Index</a>
+  </div>
+
+  <!-- Summary stats -->
+  <div class="summary-grid">
+    <div class="stat-card highlight">
+      <div class="val">1959</div>
+      <div class="lbl">Austin FIDE (actual)</div>
+    </div>
+    <div class="stat-card">
+      <div class="val">#6</div>
+      <div class="lbl">Austin's rank by rating</div>
+    </div>
+    <div class="stat-card">
+      <div class="val">39</div>
+      <div class="lbl">Active players</div>
+    </div>
+    <div class="stat-card">
+      <div class="val">2185</div>
+      <div class="lbl">Top seed (Zachary Liu)</div>
+    </div>
+    <div class="stat-card">
+      <div class="val">+226</div>
+      <div class="lbl">Austin gap to #1</div>
+    </div>
+    <div class="stat-card">
+      <div class="val">13</div>
+      <div class="lbl">Opponents with prep</div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <strong>Roster vs actual FIDE:</strong> The official roster used the Nov 1 FIDE list. Several players gained or lost significant rating since then. Most notably Leo Jackson jumped +182 (roster #9 → actual #3 at 2081) and Tarun Sankar +96 (roster #11 → actual #5 at 1984). Austin himself is +45 over his roster seed (1914 → 1959).
+  </div>
+
+  <!-- Full field table -->
+  <h2>Full Player Field — Ranked by Actual FIDE Rating</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Fed</th>
+        <th class="right">Roster</th>
+        <th class="right">FIDE Now</th>
+        <th class="right">Δ</th>
+        <th>Prep</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="moved-row">
+        <td>—</td>
+        <td>Lee, Daniel Joshua <span style="font-size:0.75rem;font-style:italic">(moved to U18)</span></td>
+        <td><span class="badge badge-fed fed-CAN">CAN</span></td>
+        <td class="right">2111</td>
+        <td class="right">2165</td>
+        <td class="right diff-up">+54</td>
+        <td><span class="badge badge-moved">moved</span></td>
+      </tr>
+      <tr class="tier-sep"><td colspan="7">— Top tier (2000+) —</td></tr>
+      <tr>
+        <td>1</td>
+        <td>Liu, Zachary Hankun</td>
+        <td><span class="badge badge-fed fed-CAN">CAN</span></td>
+        <td class="right">2169</td>
+        <td class="right"><strong>2185</strong></td>
+        <td class="right diff-up">+16</td>
+        <td><span class="badge badge-prep">✓ prep</span></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Cortes Medina, Fernando</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">2072</td>
+        <td class="right"><strong>2085</strong></td>
+        <td class="right diff-up">+13</td>
+        <td><span class="badge badge-prep">✓ prep</span></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Jackson, Leo Daniel Olivera <span style="color:#c0392b;font-size:0.78rem;font-weight:700">▲+182</span></td>
+        <td><span class="badge badge-fed fed-USA">USA</span></td>
+        <td class="right">1899</td>
+        <td class="right"><strong>2081</strong></td>
+        <td class="right diff-up">+182</td>
+        <td><span class="badge badge-prep">✓ prep</span></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Flores Ojeda, Inti Dario</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">2005</td>
+        <td class="right"><strong>2011</strong></td>
+        <td class="right diff-up">+6</td>
+        <td><span class="badge badge-prep">✓ prep</span></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Sankar, Tarun <span style="color:#c0392b;font-size:0.78rem;font-weight:700">▲+96</span></td>
+        <td><span class="badge badge-fed fed-USA">USA</span></td>
+        <td class="right">1888</td>
+        <td class="right"><strong>1984</strong></td>
+        <td class="right diff-up">+96</td>
+        <td><span class="badge badge-prep">✓ prep</span></td>
+      </tr>
+      <tr class="austin-row">
+        <td>6 ★</td>
+        <td>Lin, Austin</td>
+        <td><span class="badge badge-fed fed-CAN">CAN</span></td>
+        <td class="right">1914</td>
+        <td class="right"><strong>1959</strong></td>
+        <td class="right diff-up">+45</td>
+        <td><span class="badge badge-austin">— Austin —</span></td>
+      </tr>
+      <tr class="tier-sep"><td colspan="7">— Strong competition (1900–1960) —</td></tr>
+      <tr>
+        <td>7</td>
+        <td>Ajith, Aarush <span style="color:#2d7d46;font-size:0.78rem;font-weight:700">▲+52</span></td>
+        <td><span class="badge badge-fed fed-CAN">CAN</span></td>
+        <td class="right">1891</td>
+        <td class="right"><strong>1943</strong></td>
+        <td class="right diff-up">+52</td>
+        <td><span class="badge badge-prep">✓ prep</span></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Santhosh, Pranav</td>
+        <td><span class="badge badge-fed fed-USA">USA</span></td>
+        <td class="right">1957</td>
+        <td class="right"><strong>1922</strong></td>
+        <td class="right diff-down">−35</td>
+        <td><span class="badge badge-prep">✓ prep</span></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Johnson, Emerson Aurelius</td>
+        <td><span class="badge badge-fed fed-USA">USA</span></td>
+        <td class="right">1905</td>
+        <td class="right"><strong>1909</strong></td>
+        <td class="right diff-up">+4</td>
+        <td><span class="badge badge-prep">✓ prep</span></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Wu, Zhuoyuan</td>
+        <td><span class="badge badge-fed fed-USA">USA</span></td>
+        <td class="right">1933</td>
+        <td class="right"><strong>1890</strong></td>
+        <td class="right diff-down">−43</td>
+        <td><span class="badge badge-prep">✓ prep</span></td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>Chodniewicz, Asher</td>
+        <td><span class="badge badge-fed fed-USA">USA</span></td>
+        <td class="right">1884</td>
+        <td class="right"><strong>1884</strong></td>
+        <td class="right diff-zero">0</td>
+        <td><span class="badge badge-prep">✓ prep</span></td>
+      </tr>
+      <tr class="tier-sep"><td colspan="7">— Mid field (1830–1880) —</td></tr>
+      <tr>
+        <td>12</td>
+        <td>De Alba Boudreau, Pablo Elliott</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">1835</td>
+        <td class="right"><strong>1873</strong></td>
+        <td class="right diff-up">+38</td>
+        <td><span class="badge badge-prep">✓ prep</span></td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>Salazar Rodriguez, Benito <span style="color:#c0392b;font-size:0.78rem;font-weight:700">▲+119</span></td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">1750</td>
+        <td class="right"><strong>1869</strong></td>
+        <td class="right diff-up">+119</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>Saenz Cabrera, Yaen</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">1841</td>
+        <td class="right"><strong>1841</strong></td>
+        <td class="right diff-zero">0</td>
+        <td><span class="badge badge-prep">✓ prep</span></td>
+      </tr>
+      <tr class="tier-sep"><td colspan="7">— Lower mid field (1700–1830) —</td></tr>
+      <tr>
+        <td>15</td>
+        <td>Jeyaraj, Joel Ethan</td>
+        <td><span class="badge badge-fed fed-USA">USA</span></td>
+        <td class="right">1813</td>
+        <td class="right"><strong>1813</strong></td>
+        <td class="right diff-zero">0</td>
+        <td><span class="badge badge-prep">✓ prep</span></td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>Olivo Diaz, Marco Cristofer</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">1758</td>
+        <td class="right"><strong>1790</strong></td>
+        <td class="right diff-up">+32</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td>Ruiz Gastelum, Mateo</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">1765</td>
+        <td class="right"><strong>1765</strong></td>
+        <td class="right diff-zero">0</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td>Hernandez Gamboa, Daniel</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">1844</td>
+        <td class="right"><strong>1753</strong></td>
+        <td class="right diff-down">−91</td>
+        <td><span class="badge badge-prep">✓ prep</span></td>
+      </tr>
+      <tr>
+        <td>19</td>
+        <td>Ortega Jacinto, Miguel Adolfo</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">1756</td>
+        <td class="right"><strong>1756</strong></td>
+        <td class="right diff-zero">0</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>20</td>
+        <td>Sanchez Cruz, Mateo</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">1730</td>
+        <td class="right"><strong>1734</strong></td>
+        <td class="right diff-up">+4</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>21</td>
+        <td>De Los Reyes Balandran, Cristian</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">1720</td>
+        <td class="right"><strong>1720</strong></td>
+        <td class="right diff-zero">0</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr class="tier-sep"><td colspan="7">— Lower field (≤1700) —</td></tr>
+      <tr>
+        <td>22</td>
+        <td>Lou, Sining</td>
+        <td><span class="badge badge-fed fed-CAN">CAN</span></td>
+        <td class="right">1667</td>
+        <td class="right"><strong>1690</strong></td>
+        <td class="right diff-up">+23</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>23</td>
+        <td>Pacheco Penaloza, Jose Manuel</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">1639</td>
+        <td class="right"><strong>1661</strong></td>
+        <td class="right diff-up">+22</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>24</td>
+        <td>Dominguez Alarcon, Erik Samuel</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">1638</td>
+        <td class="right"><strong>1630</strong></td>
+        <td class="right diff-down">−8</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>25</td>
+        <td>Valdez Alvarez, Santino</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">1637</td>
+        <td class="right"><strong>1637</strong></td>
+        <td class="right diff-zero">0</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>26</td>
+        <td>Szeto, Jordan</td>
+        <td><span class="badge badge-fed fed-CAN">CAN</span></td>
+        <td class="right">1604</td>
+        <td class="right"><strong>1622</strong></td>
+        <td class="right diff-up">+18</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>27</td>
+        <td>Rascon Peralta, Bolivar Ernesto</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">1629</td>
+        <td class="right"><strong>1608</strong></td>
+        <td class="right diff-down">−21</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>28</td>
+        <td>Yadatore, Neel</td>
+        <td><span class="badge badge-fed fed-USA">USA</span></td>
+        <td class="right">1541</td>
+        <td class="right"><strong>1574</strong></td>
+        <td class="right diff-up">+33</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>29</td>
+        <td>Molina Ronquillo, Pablo</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">1498</td>
+        <td class="right"><strong>1568</strong></td>
+        <td class="right diff-up">+70</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>30</td>
+        <td>Hernandez Tierrafria, Christian Mateo</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">1579</td>
+        <td class="right"><strong>1579</strong></td>
+        <td class="right diff-zero">0</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>31</td>
+        <td>Dominguez Alvarez, Blas</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">1563</td>
+        <td class="right"><strong>1563</strong></td>
+        <td class="right diff-zero">0</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>32</td>
+        <td>Espinosa Guzman, Alfonso Naim</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">1555</td>
+        <td class="right"><strong>1555</strong></td>
+        <td class="right diff-zero">0</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>33</td>
+        <td>Madrigal Madrazo, Luis Xavier</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">1541</td>
+        <td class="right"><strong>1541</strong></td>
+        <td class="right diff-zero">0</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>34</td>
+        <td>Pshisva Abadi, Daniel</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">1533</td>
+        <td class="right"><strong>1533</strong></td>
+        <td class="right diff-zero">0</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>35</td>
+        <td>Bates, Dallin</td>
+        <td><span class="badge badge-fed fed-USA">USA</span></td>
+        <td class="right">1579</td>
+        <td class="right"><strong>1558</strong></td>
+        <td class="right diff-down">−21</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>36</td>
+        <td>Balaji, Tanav</td>
+        <td><span class="badge badge-fed fed-USA">USA</span></td>
+        <td class="right">1737</td>
+        <td class="right"><strong>1640</strong></td>
+        <td class="right diff-down">−97</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>37</td>
+        <td>Leal Cordova, Pablo Ernesto</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">0</td>
+        <td class="right">—</td>
+        <td class="right diff-zero">—</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>38</td>
+        <td>Santana, Evan Emil</td>
+        <td><span class="badge badge-fed fed-MEX">MEX</span></td>
+        <td class="right">0</td>
+        <td class="right">—</td>
+        <td class="right diff-zero">—</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+      <tr>
+        <td>39</td>
+        <td>Zhang, Daniel Yunshu</td>
+        <td><span class="badge badge-fed fed-USA">USA</span></td>
+        <td class="right">0</td>
+        <td class="right">—</td>
+        <td class="right diff-zero">—</td>
+        <td><span class="badge badge-noprep">no prep</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Notable movers -->
+  <h2>Notable Rating Changes (Roster → Actual FIDE)</h2>
+
+  <div class="warn-box">
+    <strong>Biggest surprise — Leo Jackson:</strong> Roster #9 at 1899, actual FIDE <strong>2081</strong> (+182). Now the 3rd-highest rated player. Austin has full prep for Leo but the rating gap is much tighter than the roster implied (−122 vs Austin, not −60).
+  </div>
+
+  <div class="two-col">
+    <div>
+      <h3>▲ Major gainers</h3>
+      <div class="mover-card">
+        <div class="mover-card-head"><span>Jackson, Leo</span><span class="diff-up">+182 → 2081</span></div>
+        <div class="mover-card-body">Roster #9 → actual #3. Prep complete but threat level upgraded.</div>
+      </div>
+      <div class="mover-card">
+        <div class="mover-card-head"><span>Salazar Rodriguez, Benito</span><span class="diff-up">+119 → 1869</span></div>
+        <div class="mover-card-body">Was seeded #20 at 1750 — now rated nearly 1870. No prep exists. Possible mid-rounds opponent.</div>
+      </div>
+      <div class="mover-card">
+        <div class="mover-card-head"><span>Sankar, Tarun</span><span class="diff-up">+96 → 1984</span></div>
+        <div class="mover-card-body">Now just 25 pts below Austin. Full prep complete.</div>
+      </div>
+      <div class="mover-card">
+        <div class="mover-card-head"><span>Ajith, Aarush</span><span class="diff-up">+52 → 1943</span></div>
+        <div class="mover-card-body">Gap to Austin narrowed to 16 pts. Could meet as early as Round 5.</div>
+      </div>
+    </div>
+    <div>
+      <h3>▼ Major fallers</h3>
+      <div class="mover-card">
+        <div class="mover-card-head"><span>Balaji, Tanav</span><span class="diff-down">−97 → 1640</span></div>
+        <div class="mover-card-body">Roster #21 at 1737 — dropped nearly 100 pts. Low threat in Swiss floats.</div>
+      </div>
+      <div class="mover-card">
+        <div class="mover-card-head"><span>Hernandez Gamboa, Daniel</span><span class="diff-down">−91 → 1753</span></div>
+        <div class="mover-card-body">Roster #13 at 1844 — now ranks #18. Austin remains heavy favourite if paired.</div>
+      </div>
+      <div class="mover-card">
+        <div class="mover-card-head"><span>Wu, Zhuoyuan</span><span class="diff-down">−43 → 1890</span></div>
+        <div class="mover-card-body">Still within Austin's range; prep complete.</div>
+      </div>
+      <div class="mover-card">
+        <div class="mover-card-head"><span>Santhosh, Pranav</span><span class="diff-down">−35 → 1922</span></div>
+        <div class="mover-card-body">Gap to Austin narrowed from −43 to +37. Austin is now the higher-rated player.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Prep coverage -->
+  <h2>Prep Coverage vs Field</h2>
+
+  <div class="two-col">
+    <div class="prep-section">
+      <h4>✓ Prep complete (13 opponents)</h4>
+      <ul class="prep-list">
+        <li>Zachary Liu (2185) — full pipeline</li>
+        <li>Fernando Cortes Medina (2085) — full pipeline</li>
+        <li>Leo Jackson (2081) — full pipeline</li>
+        <li>Inti Flores Ojeda (2011) — full pipeline</li>
+        <li>Tarun Sankar (1984) — full pipeline</li>
+        <li>Aarush Ajith (1943) — full pipeline</li>
+        <li>Pranav Santhosh (1922) — full pipeline</li>
+        <li>Emerson Johnson (1909) — full pipeline</li>
+        <li>Zhuoyuan Wu (1890) — full pipeline</li>
+        <li>Asher Chodniewicz (1884) — full pipeline</li>
+        <li>Pablo De Alba Boudreau (1873) — full pipeline</li>
+        <li>Yaen Saenz Cabrera (1841) — full pipeline</li>
+        <li>Joel Ethan Jeyaraj (1813) — full pipeline</li>
+        <li>Daniel Hernandez Gamboa (1753) — full pipeline</li>
+      </ul>
+    </div>
+    <div class="prep-section">
+      <h4>⚠ No prep — watch list</h4>
+      <ul class="prep-list">
+        <li><strong>Salazar Rodriguez, Benito (1869)</strong> — jumped +119; potential R5–6 opponent</li>
+        <li>Olivo Diaz, Marco Cristofer (1790) — forecast top-5 opponent</li>
+        <li>Ruiz Gastelum, Mateo (1765) — forecast top-5 opponent</li>
+        <li>Ortega Jacinto, Miguel Adolfo (1756) — forecast top-5 opponent</li>
+        <li>Sanchez Cruz, Mateo (1734)</li>
+        <li>De Los Reyes Balandran, Cristian (1720)</li>
+        <li>Lou, Sining (1690)</li>
+        <li>Valdez Alvarez, Santino (1637) — <strong>likely R1 opponent</strong></li>
+        <li>+ 11 players rated ≤1630</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <strong>Prep gap priority:</strong> Salazar Rodriguez (1869, +119) is the highest-rated unprepped opponent and likely to appear in rounds 4–6. At least a quick opening check is worthwhile. Valdez Alvarez (1637) is almost certainly Austin's Round 1 opponent — verify his openings before the tournament.
+  </div>
+
+  <!-- Federation breakdown -->
+  <h2>Field Composition</h2>
+  <table style="max-width:420px">
+    <thead><tr><th>Federation</th><th class="right">Players</th><th class="right">Avg rating</th><th class="right">Top player</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge badge-fed fed-MEX">MEX</span> Mexico</td><td class="right">22</td><td class="right">1688</td><td class="right">2085 (Cortes)</td></tr>
+      <tr><td><span class="badge badge-fed fed-USA">USA</span> United States</td><td class="right">10</td><td class="right">1786</td><td class="right">2081 (Jackson)</td></tr>
+      <tr><td><span class="badge badge-fed fed-CAN">CAN</span> Canada</td><td class="right">7</td><td class="right">1870</td><td class="right">2185 (Liu)</td></tr>
+    </tbody>
+  </table>
+
+  <p style="font-size:0.8rem;color:#57606a;margin-top:32px">
+    Ratings sourced from live FIDE profile pages on Nov 4, 2026. Roster ratings from chess-results.com tnr1477753 (Nov 1 FIDE list). Daniel Joshua Lee (2165, CAN) excluded — moving to U18 section. Players with no published FIDE rating (seeds 38–40) shown as —.
+  </p>
+
+</div>
+</body>
+</html>
