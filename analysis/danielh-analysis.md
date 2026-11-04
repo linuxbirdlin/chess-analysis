@@ -4,7 +4,7 @@
 **Nationality:** Mexico  
 **Rating:** 1753 (Nov 2026; peaked 1767 Apr 2025)  
 **Age group:** Sub-14 (as of 2026)  
-**Tournaments in dataset:** Querétaro 2024 (Sub-12), Querétaro 2025 (Sub-12), Querétaro 2026 (Sub-14), Aguascalientes 2025 (Sub-13), Aguascalientes 2026, Copa Revolución 2024 (Sub-11)  
+**Tournaments in dataset:** Querétaro 2024 (Sub-12), Querétaro 2025 (Sub-12), Querétaro 2026 (Sub-14), Aguascalientes 2025 (Sub-13), Aguascalientes 2026 (Sub-13, 6 rounds), Copa Revolución 2024 (Sub-11)  
 
 ---
 
@@ -17,10 +17,10 @@
 | Querétaro (Sub-12) | 2025 | 1W–0L–0D | 0W–1L–0D | 1W–1L–0D | 85.0% |
 | Aguascalientes (Sub-13) | 2025 | 1W–0L–0D | 0W–1L–0D | 1W–1L–0D | 91.5% |
 | Querétaro (Sub-14) | 2026 | 0W–0L–1D | 0W–0L–1D | 0W–0L–2D | 89.3% |
-| Aguascalientes | 2026 | 0W–0L–1D | — | 0W–0L–1D | 90.3% |
-| **Total** | | **5W–0L–2D** | **0W–3L–2D** | **5W–3L–4D** | **90.4%** |
+| Aguascalientes (Sub-13) | 2026 | — | — | 4W–0L–2D | — |
+| **Total** | | **~9W–0L–~3D** | **~0W–3L–~3D** | **9W–3L–5D** | **90.4%** |
 
-*Score: 7/12 = 58.3% · White 91.1% avg (7g) · Black 89.3% avg (5g)*
+*Score: 5/6 at Aguascalientes 2026 (2nd place, perf 1972). With prior 11-game dataset: 9W–3L–5D · White 91.1% (7 engine-verified games) · Black 89.3% (5 engine-verified games). Note: Aguascalientes 2026 color breakdown and accuracy unavailable (only R4 PGN on hand).*
 
 ---
 
@@ -76,7 +76,7 @@ Daniel plays **1.e4** exclusively as White.
 1. **Prefers closed, structural games** — D00 London and Dutch Stonewall suggest comfort in slow-developing positions with clear pawn structures.
 2. **Solid but unambitious as Black** — Does not seek counterplay early; often plays `...Nbd7`, `...Be7`, `...O-O` without committing to a plan.
 3. **Sharp as White** — Willing to play aggressively (h4, g4 kingside storms) with Black pieces back on the board.
-4. **Rating decline in 2026** — From 1767 (April 2025) to 1692–1685 (March–August 2026) suggests recent form issues or playing in harder sections.
+4. **Rating recovery in late 2026** — Dropped from 1767 (Apr 2025) to 1685 (Aug 2026) via a tough section (Querétaro 2026 Sub-14), then bounced back strongly at Aguascalientes 2026 Sub-13: 5/6, 2nd place, performance 1972, +68 FIDE points. The recovery shows he competes well at his own age group.
 
 ---
 
@@ -92,10 +92,27 @@ Daniel plays **1.e4** exclusively as White.
 - **Result:** 0-1 (loss)
 - Daniel blundered `Nxe4??` (move 16) in a near-equal position, losing a piece for insufficient compensation. Eventually lost rook endgame. This upset loss (−207 rating differential) is his worst game in the dataset.
 
+### Aguascalientes 2026 R3 — Hernandez Gamboa vs Valdez Lomeli, Nicolas (1886 FIDE) — *PGN unavailable*
+- **Result:** 1–0 (Daniel wins)
+- Beat a 1886-rated opponent (+201 above Daniel's 1685 starting rating) — the biggest rated upset in his known record. Lichess broadcast round ID unavailable; game moves not on hand.
+
 ### Aguascalientes 2026 R4 — Hernandez Gamboa (White) vs Agama Hernandez CM (2003)
 - **ECO:** E35 Nimzo-Indian Classical, Noa Variation
 - **Result:** ½–½
 - Daniel as White in a Nimzo-Indian (Qc2 line). Managed complex middlegame with bishops of opposite colors and drew with CM opponent. Shows theoretical knowledge of classical Nimzo positions.
+
+### Aguascalientes 2026 Full Results (chess-results tnr1461072, Sub-13 section)
+
+| Rd | Opponent | Opp FIDE | Result | Notes |
+|---|---|---|---|---|
+| 1 | Santana, Gonzalez Nahum Abdiel | 0 (1593 nat) | **Win** | Unrated opponent |
+| 2 | Villanueva Garcia, Iker | 1428 | **Win** | |
+| 3 | Valdez Lomeli, Nicolas | 1886 | **Win** | +201 above Daniel — biggest upset in known record |
+| 4 | Agama Hernandez, Luis Fernando (CM) | 2003 | **Draw** | Game PGN on hand (anothergame.pgn) |
+| 5 | Camargo Ortega, Ricardo | 1568 | **Win** | |
+| 6 | Puentes Barragan, Cesar Alexandro | 1718 | **Draw** | |
+
+*Score: 5/6 · 2nd place · FIDE performance: 1972 · Rating change: +68 (1685→1753)*
 
 ### Querétaro 2026 R5 — Hernandez Gamboa (White) vs Flores Ojeda (1812)
 - **ECO:** D00 Accelerated London
@@ -127,8 +144,8 @@ Daniel plays **1.e4** exclusively as White.
 | Attribute | Assessment |
 |---|---|
 | Rating | 1753 (Nov 2026; peaked 1767 Apr 2025) |
-| Dataset | 12 games, 6 tournaments (2024–2026) |
-| Overall accuracy | 90.4% avg · White 91.1% (7g) · Black 89.3% (5g) |
+| Dataset | 17 games (11 engine-verified + 6 from Aguascalientes 2026), 6 tournaments (2024–2026) |
+| Overall accuracy | 90.4% avg engine-verified · White 91.1% (7g) · Black 89.3% (5g) |
 | Best game | 96.2% Aguascalientes 2025 R4 (White win) |
 | Worst game | 83.2% Querétaro 2025 R1 (White win despite low acc) |
 | White record | 5W–0L–2D — never lost as White in dataset |
@@ -137,6 +154,6 @@ Daniel plays **1.e4** exclusively as White.
 | White opening | 1.e4 (Exchange French, Philidor, Pirc B07, Taimanov) |
 | Black opening | English Symmetrical, Scotch Gambit defense, Four Knights, Dutch Stonewall |
 | Key weakness | Single-move collapses from equality as Black (Qd1??, Nxe4??, Rab8??) |
-| vs Higher-rated | Can draw; has drawn CM (2003) |
+| vs Higher-rated | Strong — beat 1886 (+201) and drew CM 2003 (+318) at Aguascalientes 2026 |
 | vs Lower-rated | Can lose — upset loss to 1560-rated Cadena (Four Knights) |
 | Overall threat level to Austin | Low-Moderate — 1753 FIDE, +206 below Austin; Black side exploitable |
