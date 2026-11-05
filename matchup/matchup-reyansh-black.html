@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Austin as Black vs Paragiri, Reyansh</title>
+<style>
+:root {
+  --accent: #1a5276; --accent-bg: #eaf4fb; --accent-border: #a8c8e8;
+  --accent-dark: #0d3a5c;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px; color: #1a1a1a; max-width: 900px;
+  margin: 0 auto; padding: 24px; background: #f8f7f4;
+}
+.doc-header {
+  border-left: 6px solid var(--accent); background: var(--accent-bg);
+  padding: 16px 20px; margin-bottom: 24px; border-radius: 0 6px 6px 0;
+}
+.doc-header h1 { font-size: 1.35em; margin-bottom: 4px; }
+.doc-header .meta { font-size: 0.82em; color: #555; }
+.doc-header .nav-links { margin-top: 10px; font-size: 0.82em; }
+.doc-header .nav-links a { color: var(--accent); text-decoration: none; margin-right: 16px; }
+.doc-header .nav-links a:hover { text-decoration: underline; }
+
+h2 { font-size: 1.1em; margin: 28px 0 10px; padding-left: 10px;
+     border-left: 4px solid var(--accent); }
+h3 { font-size: 0.95em; margin: 16px 0 6px; color: #333; }
+
+.profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+.profile-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.profile-card h3 { margin-top: 0; font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.04em; color: #555; }
+.profile-card p, .profile-card li { font-size: 0.88em; margin-bottom: 3px; }
+.profile-card ul { padding-left: 16px; margin-top: 4px; }
+
+.callout { padding: 10px 14px; border-radius: 4px; margin: 10px 0; font-size: 0.9em; }
+.callout-blue   { background: var(--accent-bg); border-left: 4px solid var(--accent); }
+.callout-gold   { background: #fffbe0; border-left: 4px solid #b8860b; }
+.callout-green  { background: #efffef; border-left: 4px solid #2d7d46; }
+.callout-danger { background: #fff0f0; border-left: 4px solid #8b1a1a; }
+
+.move-line {
+  background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+  padding: 8px 12px; margin: 6px 0; font-size: 0.91em; line-height: 1.9;
+  font-family: "Georgia", serif;
+}
+.mv-a { color: #1a5276; font-weight: bold; }
+.mv-z { color: #8b1a1a; font-weight: bold; }
+.key-move { background: var(--accent-bg); border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.bad-move { background: #ffe0e0; border: 1px solid #cc8888; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; color: #8b1a1a; }
+.note { color: #555; font-style: italic; font-size: 0.87em; }
+
+.var-card { margin: 8px 0; border: 1px solid var(--accent-border); border-radius: 5px; overflow: hidden; }
+.var-header { background: var(--accent-bg); padding: 7px 14px; font-weight: bold; font-size: 0.88em; display: flex; align-items: center; gap: 8px; }
+.var-label { background: var(--accent); color: #fff; border-radius: 3px; padding: 1px 7px; font-size: 0.78em; font-weight: 700; }
+.var-label-danger { background: #8b1a1a; color: #fff; border-radius: 3px; padding: 1px 7px; font-size: 0.78em; font-weight: 700; }
+.var-body { padding: 10px 14px; background: #fff; font-size: 0.88em; }
+.var-moves { display: block; font-family: "Courier New", monospace; font-size: 0.88em;
+             background: #f5f5f0; border-radius: 3px; padding: 7px 10px; margin: 6px 0; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.87em; }
+th { background: #1a5276; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+
+.rule-card { background: #fff; border: 1px solid var(--accent-border); border-radius: 5px;
+             padding: 12px 16px; margin: 8px 0; display: flex; align-items: flex-start; gap: 12px; }
+.rule-num { min-width: 28px; height: 28px; background: var(--accent); color: #fff;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.85em; font-weight: 700; }
+.rule-body { flex: 1; font-size: 0.88em; }
+.rule-body strong { display: block; margin-bottom: 3px; }
+
+.cheat-card { background: #fff; border: 2px solid #b8860b; border-radius: 6px; padding: 14px 18px; margin: 10px 0; }
+.cheat-card h3 { font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.04em; color: #b8860b; margin-bottom: 8px; margin-top: 0; }
+.cheat-moves { display: block; font-family: "Courier New", monospace; font-size: 0.9em;
+               background: #fafaf0; border: 1px solid #e0d8a0; border-radius: 4px;
+               padding: 8px 12px; margin: 6px 0; }
+
+hr { border: none; border-top: 2px solid #ddd; margin: 28px 0; }
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <h1>Austin as Black vs Paragiri, Reyansh</h1>
+  <div class="meta">Reyansh rating: 2067 FIDE (Nov 2026, seed #4) · 54 White games in dataset · No direct encounter · Austin is rating underdog (−108 FIDE)</div>
+  <div class="nav-links">
+    <a href="../austin-prep.html">← Prep Index</a>
+    <a href="matchup-reyansh.html">Matchup Overview</a>
+    <a href="matchup-reyansh-white.html">Austin as White →</a>
+    <a href="matchup-reyansh-deep.html">Deep Analysis →</a>
+    <a href="matchup-reyansh-gm.html">GM Battle Plan →</a>
+  </div>
+</div>
+
+<h2>§1 — Reyansh's White System</h2>
+
+<div class="profile-grid">
+  <div class="profile-card">
+    <h3>Reyansh's 1.e4 Repertoire</h3>
+    <ul>
+      <li><strong>1.e4 in 52/54 White games</strong> — almost exclusively</li>
+      <li>vs Sicilian 1...c5: Open Sicilian 2.Nf3 3.d4 <strong>always</strong></li>
+      <li>vs Accelerated Dragon (...Nc6 + 4...g6): <strong>5.c4 MARÓCZY BIND</strong> (8+ games)</li>
+      <li>vs Najdorf/Classical (...d6): 5.Nc3 standard</li>
+      <li>vs Taimanov/Kan (...e6): 5.Nc3 standard (NOT Maróczy)</li>
+      <li>vs 1...e5: Scotch 3.d4 (primary, 8/11 games)</li>
+      <li>vs Caro-Kann: Nc3 classical</li>
+    </ul>
+  </div>
+  <div class="profile-card">
+    <h3>The Maróczy Bind — Reyansh's Best System</h3>
+    <ul>
+      <li>Triggered by: 1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 <strong>g6</strong> 5.c4!</li>
+      <li>Reyansh has 8+ games: Nalakonda, Yenamandra, Petrov, Yi, Qi, Mokeeva, Natraj, Jin David</li>
+      <li>His depth in this system far exceeds his other setups</li>
+      <li>White denies d5 outpost, controls c5, squeezes Black's space</li>
+      <li><strong>Austin must NEVER reach this position</strong></li>
+    </ul>
+  </div>
+</div>
+
+<h2>§2 — The Critical Decision: Taimanov vs Accelerated Dragon</h2>
+
+<div class="callout callout-danger">
+  <strong>NEVER play 2...Nc6 then 4...g6.</strong> If Austin plays 1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 g6 — Reyansh plays 5.c4 MARÓCZY BIND. This is his most-practiced, best-prepared White system (8+ documented games). The Maróczy Bind structurally suffocates Black by denying the d5 square. Reyansh has demonstrated excellent handling of this structure against a range of opponents including IM-rated Petrov (2335). Do NOT go there.
+</div>
+
+<table>
+  <thead><tr><th>Austin's 2nd move</th><th>What Reyansh does</th><th>Verdict</th></tr></thead>
+  <tbody>
+  <tr><td><strong>2...e6 (Taimanov)</strong></td><td>3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 — standard, no Maróczy available</td><td>✓ <strong>RECOMMENDED</strong> — forces Reyansh into weaker territory</td></tr>
+  <tr><td>2...Nc6 then 4...g6</td><td>5.c4 Maróczy Bind! — his best White system (8+ games)</td><td>✗ AVOID — Reyansh's HOME territory</td></tr>
+  <tr><td>2...Nc6 then 4...e5 (Löwenthal)</td><td>5.Nb5 — known, but less practiced than Maróczy</td><td>~ Possible, but less tested</td></tr>
+  <tr><td>2...Nc6 then 4...d6 (Classical/Najdorf)</td><td>5.Nc3 — standard; Reyansh less specialized here</td><td>~ Backup option</td></tr>
+  </tbody>
+</table>
+
+<h2>§3 — Recommended Defense: Taimanov Sicilian (2...e6)</h2>
+
+<div class="callout callout-blue">
+  <strong>Play Taimanov: 1.e4 c5 2.Nf3 e6.</strong> The 2...e6 move-order permanently prevents the Maróczy Bind. After 3.d4 cxd4 4.Nxd4 Nc6, Reyansh plays 5.Nc3 — his standard non-specialized response. Austin is in familiar Taimanov territory where Reyansh has no rehearsed deep plan. This is Austin's preparation advantage: Reyansh's depth drops significantly in 5.Nc3 e6 lines vs his 5.c4 Maróczy territory.
+</div>
+
+<h3>Main Line: Taimanov 5...Qc7 (B47 Bastrikov — Lichess master consensus)</h3>
+<div class="move-line">
+  <span class="mv-z">Reyansh:</span> 1.e4 <span class="mv-a">c5</span>
+  2.Nf3 <span class="mv-a">e6</span>
+  3.d4 <span class="mv-a">cxd4</span>
+  4.Nxd4 <span class="mv-a">Nc6</span>
+  5.Nc3 <span class="key-move">Qc7</span>
+  <span class="note">— B47 Bastrikov variation. 5...Qc7 is the master main line (65% of games at 2000+ level). Protects the c5-square, prepares ...a6 and ...Nf6, avoids ...Nb5 tricks.</span>
+</div>
+
+<div class="var-card">
+  <div class="var-header"><span class="var-label">BRANCH A</span> 6.Be2 a6 7.0-0 Nf6 8.Be3 Be7 — Bastrikov classical</div>
+  <div class="var-body">
+    <code class="var-moves">5...Qc7 6.Be2 a6 7.0-0 Nf6 8.Be3 Be7 9.f4 d6 10.Qe1</code>
+    <p>After 5...Qc7 6.Be2, Austin plays 6...a6 (now safe — Nb5 is prevented by Qc7) then develops: ...Nf6, ...d6, ...Be7, ...0-0. Plan: ...b5 queenside expansion, ...Bb7, ...Nc6-e5 knight outpost. Reyansh has no documented deep preparation in B47 — his 5.Nc3 games are mostly vs other Sicilian setups. The Bastrikov is Carlsen/Nepomniachtchi territory and a theoretically sound system.</p>
+  </div>
+</div>
+
+<div class="var-card">
+  <div class="var-header"><span class="var-label">BRANCH B</span> 6.Be3 Nf6 — Bishop first</div>
+  <div class="var-body">
+    <code class="var-moves">5...Qc7 6.Be3 a6 7.Bd3 Nf6 8.0-0 d6 9.f4 Be7</code>
+    <p>After 6.Be3: White develops the bishop before castling. Austin plays ...a6, ...Nf6, ...d6, ...Be7, then castles. The plan remains the same: ...b5 queenside expansion to generate counterplay. Watch for f5 advance — Austin should prepare ...e5 or ...d5 to counter. If White plays f4-f5, Austin has ...e5 to close the center and transfer to queenside play.</p>
+  </div>
+</div>
+
+<div class="var-card">
+  <div class="var-header"><span class="var-label">BRANCH C</span> 6.g4 — Keres Attack (aggressive)</div>
+  <div class="var-body">
+    <code class="var-moves">5...Qc7 6.g4 a6 7.g5 d5! 8.exd5 Nxd5</code>
+    <p>If Reyansh plays 6.g4 (Keres Attack against Taimanov): Austin continues ...a6 or the central break ...d5! striking back immediately. After 8.exd5 Nxd5 9.Nxd5 exd5, Black has active piece play and the d5-pawn as a lever. Reyansh has no Keres Attack games documented vs Taimanov — if he plays it, he is improvising. Austin should be comfortable with the dynamic counterplay.</p>
+  </div>
+</div>
+
+<div class="var-card">
+  <div class="var-header"><span class="var-label">BACKUP</span> 5...a6 (B46 Kan-Taimanov hybrid)</div>
+  <div class="var-body">
+    <code class="var-moves">5...a6 6.Be2 Qc7 7.0-0 Nf6 8.Be3 Be7 9.f4 d6</code>
+    <p>Alternative secondary choice: 5...a6 (B46) — prevents Nb5, then plays ...Qc7 a move later. Slightly less forcing than B47 but still fully sound. In the Lichess masters database this is the second-most popular response (17% of games). Use as backup if Austin prefers the flexibility of ...a6 first.</p>
+  </div>
+</div>
+
+<div class="var-card">
+  <div class="var-header"><span class="var-label-danger">TRAP</span> The Maróczy Bind — what NOT to do</div>
+  <div class="var-body">
+    <code class="var-moves">1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 g6 → 5.c4! (Maróczy!) DANGER</code>
+    <p><strong>NEVER reach this position.</strong> If Austin plays 2...Nc6 and 4...g6, Reyansh plays 5.c4 — guaranteed. He has done this against Nalakonda (draw), Yenamandra (win), Petrov (draw vs 2335!), Yi Colin, Qi Jenny, Mokeeva, Natraj, Jin David — 8+ confirmed Maróczy games. The Maróczy Bind denies the d5 square permanently, squeezes Black's space, and Reyansh knows the plans deeply. His White accuracy (92.8%) is at its best in this system. 2...e6 is mandatory to prevent 5.c4.</p>
+  </div>
+</div>
+
+<h2>§4 — If Reyansh Deviates</h2>
+
+<table>
+  <thead><tr><th>Reyansh's deviation</th><th>Probability</th><th>Austin's response</th></tr></thead>
+  <tbody>
+  <tr><td>1.e4 (main)</td><td>Very high (~96%)</td><td>1...c5 2...e6 Taimanov as planned</td></tr>
+  <tr><td>1.d4 (rare)</td><td>Very low (~4%, 2/54 games only vs Biyiasas, Malanin)</td><td>Nimzo-Indian Bxc3+ with ...b6/...Ba6 — Austin's documented Black weapon</td></tr>
+  <tr><td>1.c4 (none)</td><td>Near zero</td><td>1...c5 or 1...e5 — symmetrical English or Reversed Sicilian</td></tr>
+  <tr><td>5.Bc4 (vs Taimanov)</td><td>Low</td><td>5...a6 6.Be3 plans — Bb3 is Bishop's typical retreat; Austin continues ...Nf6 ...d6 ...Be7</td></tr>
+  <tr><td>5.Ndb5 after 4...Nc6</td><td>Low</td><td>5...a6 6.Nd4 e5 7.Nb3 → standard positions; Austin has active d5 or e4 pawn breaks</td></tr>
+  </tbody>
+</table>
+
+<h2>§5 — Key Tactical Rules for the Game</h2>
+
+<div class="rule-card">
+  <div class="rule-num">1</div>
+  <div class="rule-body">
+    <strong>2...e6 — the critical move order</strong>
+    Always play 2...e6 (not 2...Nc6). This is the ONLY move that prevents the Maróczy Bind. Even if it feels unusual, 2...e6 leads to fully valid Taimanov territory where Reyansh has less depth.
+  </div>
+</div>
+
+<div class="rule-card">
+  <div class="rule-num">2</div>
+  <div class="rule-body">
+    <strong>4...Nc6 — not 4...a6 on move 4</strong>
+    After 4.Nxd4, play 4...Nc6 (Taimanov) rather than 4...a6 (Kan). Reyansh's response to pure Kan is less documented. Taimanov with 4...Nc6 is Austin's most direct territory.
+  </div>
+</div>
+
+<div class="rule-card">
+  <div class="rule-num">3</div>
+  <div class="rule-body">
+    <strong>...b5 queenside expansion is Austin's winning plan</strong>
+    In all Taimanov structures, Black's main counterplay is ...b5 (after ...a6 prepares it). Aim for ...b5-b4 to undermine White's c3 knight and open the c-file for rooks. This is standard Sicilian counterplay that Austin should know well.
+  </div>
+</div>
+
+<div class="rule-card">
+  <div class="rule-num">4</div>
+  <div class="rule-body">
+    <strong>Reyansh's Black accuracy (90.7%) shows he struggles as Black — Austin must match this as Black</strong>
+    Austin's preparation advantage is real, but Reyansh is 92.8% as White. Austin needs precision in the Taimanov. The Rossolimo (Austin as White) is the primary weapon — but Austin must hold his own as Black to maximize point expectations.
+  </div>
+</div>
+
+<h2>§6 — Cheat Sheet</h2>
+
+<div class="cheat-card">
+  <h3>Day-of Quick Reference — Austin as Black vs Reyansh</h3>
+  <p><strong>After 1.e4:</strong></p>
+  <code class="cheat-moves">PRIMARY:  1...c5 2.Nf3 e6! (TAIMANOV B47)
+            3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7!
+            → 6.Be2 a6 7.0-0 Nf6 8.Be3 Be7 (main line)
+            → ...d6, ...0-0, then ...b5! queenside expansion
+BACKUP:   5...a6 (B46) → 6.Be2 Qc7 7.0-0 Nf6 (transposes)
+
+NEVER:    1...c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 g6 → 5.c4 MARÓCZY TRAP!
+
+IF 1.d4:  Nimzo-Indian: 1...Nf6 2.c4 e6 3.Nc3 Bb4 4.e3 0-0 5.Bd3 d5 Bxc3+
+
+KEY:      2...e6 = no Maróczy possible. Never play ...Nc6 + ...g6 vs Reyansh.</code>
+  <p style="margin-top:8px;"><strong>Reyansh's Maróczy trap:</strong> If he gets 4.Nxd4 vs ...Nc6+...g6, he plays 5.c4 — guaranteed (8+ games). 2...e6 shuts this down completely.</p>
+</div>
+
+<hr />
+<p style="text-align:center; font-size:0.83em; color:#666;">
+  <a href="../austin-prep.html">← Prep Index</a> ·
+  <a href="matchup-reyansh.html">Matchup Overview</a> ·
+  <a href="matchup-reyansh-white.html">Austin as White →</a> ·
+  <a href="matchup-reyansh-deep.html">Deep Analysis →</a> ·
+  <a href="matchup-reyansh-gm.html">GM Battle Plan →</a>
+</p>
+</body>
+</html>

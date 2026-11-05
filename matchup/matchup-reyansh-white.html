@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Austin as White vs Paragiri, Reyansh</title>
+<style>
+:root {
+  --accent: #2d7d46; --accent-bg: #f0faf4; --accent-border: #b6d9c3;
+  --accent-dark: #1a4731;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px; color: #1a1a1a; max-width: 900px;
+  margin: 0 auto; padding: 24px; background: #f8f7f4;
+}
+.doc-header {
+  border-left: 6px solid var(--accent); background: var(--accent-bg);
+  padding: 16px 20px; margin-bottom: 24px; border-radius: 0 6px 6px 0;
+}
+.doc-header h1 { font-size: 1.35em; margin-bottom: 4px; }
+.doc-header .meta { font-size: 0.82em; color: #555; }
+.doc-header .nav-links { margin-top: 10px; font-size: 0.82em; }
+.doc-header .nav-links a { color: var(--accent); text-decoration: none; margin-right: 16px; }
+.doc-header .nav-links a:hover { text-decoration: underline; }
+
+h2 { font-size: 1.1em; margin: 28px 0 10px; padding-left: 10px;
+     border-left: 4px solid var(--accent); }
+h3 { font-size: 0.95em; margin: 16px 0 6px; color: #333; }
+
+.profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+.profile-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.profile-card h3 { margin-top: 0; font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.04em; color: #555; }
+.profile-card p, .profile-card li { font-size: 0.88em; margin-bottom: 3px; }
+.profile-card ul { padding-left: 16px; margin-top: 4px; }
+
+.callout { padding: 10px 14px; border-radius: 4px; margin: 10px 0; font-size: 0.9em; }
+.callout-green  { background: #efffef; border-left: 4px solid var(--accent); }
+.callout-gold   { background: #fffbe0; border-left: 4px solid #b8860b; }
+.callout-blue   { background: #eef4ff; border-left: 4px solid #1a4a8b; }
+.callout-danger { background: #fff0f0; border-left: 4px solid #8b1a1a; }
+
+.move-line {
+  background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+  padding: 8px 12px; margin: 6px 0; font-size: 0.91em; line-height: 1.9;
+  font-family: "Georgia", serif;
+}
+.mv-a { color: #2d7d46; font-weight: bold; }
+.mv-z { color: #1a5276; font-weight: bold; }
+.key-move { background: #eef4ff; border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.note { color: #555; font-style: italic; font-size: 0.87em; }
+
+.var-card { margin: 8px 0; border: 1px solid var(--accent-border); border-radius: 5px; overflow: hidden; }
+.var-header { background: var(--accent-bg); padding: 7px 14px; font-weight: bold; font-size: 0.88em; display: flex; align-items: center; gap: 8px; }
+.var-label { background: var(--accent); color: #fff; border-radius: 3px; padding: 1px 7px; font-size: 0.78em; font-weight: 700; }
+.var-body { padding: 10px 14px; background: #fff; font-size: 0.88em; }
+.var-moves { display: block; font-family: "Courier New", monospace; font-size: 0.88em;
+             background: #f5f5f0; border-radius: 3px; padding: 7px 10px; margin: 6px 0; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.87em; }
+th { background: #2d7d46; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+
+.rule-card { background: #fff; border: 1px solid var(--accent-border); border-radius: 5px;
+             padding: 12px 16px; margin: 8px 0; display: flex; align-items: flex-start; gap: 12px; }
+.rule-num { min-width: 28px; height: 28px; background: var(--accent); color: #fff;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.85em; font-weight: 700; }
+.rule-body { flex: 1; font-size: 0.88em; }
+.rule-body strong { display: block; margin-bottom: 3px; }
+
+.cheat-card { background: #fff; border: 2px solid #b8860b; border-radius: 6px; padding: 14px 18px; margin: 10px 0; }
+.cheat-card h3 { font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.04em; color: #b8860b; margin-bottom: 8px; margin-top: 0; }
+.cheat-moves { display: block; font-family: "Courier New", monospace; font-size: 0.9em;
+               background: #fafaf0; border: 1px solid #e0d8a0; border-radius: 4px;
+               padding: 8px 12px; margin: 6px 0; }
+
+hr { border: none; border-top: 2px solid #ddd; margin: 28px 0; }
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <h1>Austin as White vs Paragiri, Reyansh</h1>
+  <div class="meta">Reyansh rating: 2067 FIDE (Nov 2026, seed #4) · 104 games in dataset · No direct encounter · Austin is rating UNDERDOG (−108 FIDE)</div>
+  <div class="nav-links">
+    <a href="../austin-prep.html">← Prep Index</a>
+    <a href="matchup-reyansh.html">Matchup Overview</a>
+    <a href="matchup-reyansh-black.html">Austin as Black →</a>
+    <a href="matchup-reyansh-deep.html">Deep Analysis →</a>
+    <a href="matchup-reyansh-gm.html">GM Battle Plan →</a>
+  </div>
+</div>
+
+<h2>§1 — Opponent Profile (as Black)</h2>
+
+<div class="profile-grid">
+  <div class="profile-card">
+    <h3>Reyansh's Black Repertoire vs 1.e4</h3>
+    <ul>
+      <li><strong>ALWAYS 1...c5 Sicilian</strong> (29/29 games vs 1.e4)</li>
+      <li><strong>PRIMARY:</strong> Accelerated Dragon — 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 g6 (13+ games)</li>
+      <li><strong>vs Rossolimo (3.Bb5):</strong> 3...g6 fianchetto every time</li>
+      <li>Rossolimo record: <strong>0W–2L</strong> (vs Mulay May 2025, vs Atkeson Oct 2024)</li>
+      <li>vs Alapin (2.c3): Nf6 e5 counterplay</li>
+      <li>vs Italian/Bc4: 3...e6 structures</li>
+    </ul>
+  </div>
+  <div class="profile-card">
+    <h3>Critical Pattern: Rossolimo Weakness</h3>
+    <ul>
+      <li>Reyansh's entire Sicilian identity is built on Accelerated Dragon (...Nc6 + ...g6)</li>
+      <li>Rossolimo (3.Bb5) attacks that structure at move 3 — before he can set up</li>
+      <li>He responds 3...g6 in both documented games — a familiar structure, but one he has <strong>lost both times</strong></li>
+      <li>His Black accuracy range: 78% worst – 97% best</li>
+      <li>Black avg (90.7%) is 2.1% below his White (92.8%) — he struggles more as Black</li>
+    </ul>
+  </div>
+</div>
+
+<h2>§2 — The Core Decision: Rossolimo vs Open Sicilian</h2>
+
+<div class="callout callout-danger">
+  <strong>DO NOT play 2.Nf3 3.d4 (Open Sicilian).</strong> Reyansh plays the Accelerated Dragon in 13+ documented games — 1...c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 g6. He is deeply prepared in this structure. If Reyansh gets his Accelerated Dragon, Austin is fighting him on home turf. His White weapon (5.c4 Maróczy Bind) shows he understands these pawn structures deeply. Avoid giving him 3.d4.
+</div>
+
+<table>
+  <thead><tr><th>Austin's 3rd move</th><th>Reyansh's response</th><th>Verdict</th></tr></thead>
+  <tbody>
+  <tr><td><strong>3.Bb5 (Rossolimo)</strong></td><td>3...g6 (confirmed 2/2 games) → Black fianchetto</td><td>✓ <strong>RECOMMENDED</strong> — Reyansh 0-2 here</td></tr>
+  <tr><td>3.d4 (Open Sicilian)</td><td>3...cxd4 4.Nxd4 g6 (Accelerated Dragon) — his HOME territory (13+ games)</td><td>✗ AVOID — giving Reyansh best-prepared position</td></tr>
+  <tr><td>2.c3 (Alapin)</td><td>2...Nf6 3.e5 Nd5 counterplay</td><td>~ Backup — sidesteps prep but less decisive</td></tr>
+  </tbody>
+</table>
+
+<h2>§3 — Recommended Weapon: Rossolimo Sicilian (3.Bb5)</h2>
+
+<div class="callout callout-green">
+  <strong>Recommended:</strong> Rossolimo 3.Bb5. Reyansh responds 3...g6 (confirmed), Austin continues 4.0-0 Bg7 5.c3. Reyansh is <strong>0-2 in this exact structure</strong> — lost to Mulay (May 2025) and Atkeson (Oct 2024). The Rossolimo takes him off his Accelerated Dragon theory immediately at move 3, before he can establish his familiar ...Nc6/...g6 structure in a Maróczy context.
+</div>
+
+<h3>Main Line: Rossolimo with 5.c3</h3>
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">c5</span>
+  2.Nf3 <span class="mv-z">Nc6</span>
+  <span class="key-move">3.Bb5</span>
+  <span class="mv-z">g6</span>
+  4.0-0 <span class="mv-z">Bg7</span>
+  5.c3
+  <span class="note">— Reyansh's confirmed response in both Rossolimo games. Austin plays c3 to support d4 and build a strong center.</span>
+</div>
+
+<div class="var-card">
+  <div class="var-header"><span class="var-label">BRANCH A</span> 5...d6 6.d4 (most common — main line)</div>
+  <div class="var-body">
+    <code class="var-moves">5.c3 d6 6.d4 cxd4 7.cxd4 Bd7 8.Nc3 Nf6 9.Re1</code>
+    <p>After 9.Re1: White has a strong central pawn on d4, development advantage, and the e5 advance as a future break. The bishop on d7 is passively placed. Austin's plan: Nc3-d5 (knight outpost), or e5 break to open lines. Black's Bg7 is a long-term strength, but d6 is permanently cramped. This is the most concrete line — Austin should know 10.Be3 (solid) or 10.e5 dxe5 11.d5 (sharp thrust).</p>
+  </div>
+</div>
+
+<div class="var-card">
+  <div class="var-header"><span class="var-label">BRANCH B</span> 5...e5 — Reyansh tries to close the center</div>
+  <div class="var-body">
+    <code class="var-moves">5.c3 e5 6.d3 Nge7 7.Bd2 0-0 8.Na3 d6 9.Nc2</code>
+    <p>After 5...e5: Black fights for center space but gives up d5. Austin plays d3 (solid) and maneuvers Na3-c2-e3 to occupy d5. This becomes a slow strategic game — Austin should aim for f4 break to undermine e5. The Bg7 on the diagonal to e5 is eventually a target. Austin's superiority lies in the c3-d3 pawn structure giving a safe king and flexible piece play.</p>
+  </div>
+</div>
+
+<div class="var-card">
+  <div class="var-header"><span class="var-label">BRANCH C</span> 4.Bxc6 — Exchange Rossolimo (sharper)</div>
+  <div class="var-body">
+    <code class="var-moves">3.Bb5 g6 4.Bxc6 dxc6 5.d3 Nf6 6.Nc3 Bg7 7.h3</code>
+    <p>After 4.Bxc6: Austin gives up the bishop for knight, doubles Black's c-pawns, and gets a small but durable structural edge. The c4 square becomes a permanent outpost for White's knight. Black has the bishop pair and more space, but the doubled c-pawns are a chronic weakness. Austin should aim for Ne2-d4 to dominate the c-file and enter a favorable endgame. Use if you want maximum structural clarity.</p>
+  </div>
+</div>
+
+<div class="var-card">
+  <div class="var-header"><span class="var-label">SIDELINE</span> If Reyansh plays 2...e6 (unlikely — Kan-type)</div>
+  <div class="var-body">
+    <code class="var-moves">1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6 5.Nc3</code>
+    <p>Reyansh plays 1...c5 always, but responds with ...Nc6 +...g6 when given the opportunity. If he plays 2...e6 (Kan/Taimanov structure), Austin continues with standard Open Sicilian — 3.d4 cxd4 4.Nxd4 a6 5.Nc3 or 4...Nc6 5.Nc3. This is non-threatening territory for Austin. However, note that Reyansh is very unlikely to play 2...e6 as White — he saves that for his OWN responses when facing 1.e4 as Black (not an issue here).</p>
+  </div>
+</div>
+
+<h2>§4 — Reyansh's Rossolimo Game Evidence</h2>
+
+<table>
+  <thead><tr><th>Game</th><th>Opponent</th><th>Reyansh's result</th><th>Key moment</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Chess.com 2025.05 (Mulay)</td>
+    <td>Mulay, Vivan Prakash</td>
+    <td><strong>LOSS (87.0% acc)</strong></td>
+    <td>Rossolimo fianchetto — Reyansh reached 125 ply at 87% acc, 50 CPL avg; 4B+1M in Black — multiple errors</td>
+  </tr>
+  <tr>
+    <td>Chess.com 2024.12 (Atkeson)</td>
+    <td>Atkeson, Christopher Timothy</td>
+    <td><strong>LOSS (90.2% acc)</strong></td>
+    <td>Rossolimo — 137 ply, highest CPL game (141 avg CPL), 8B+5M+12I — worst error-density game in dataset</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="callout callout-gold">
+  <strong>Key insight from Atkeson game:</strong> The Atkeson loss had 141 CPL (average centipawn loss) — extraordinarily high. Reyansh accumulated 8 blunders + 5 mistakes + 12 inaccuracies in 137 moves. The Rossolimo clearly caused him sustained confusion throughout the game, not just one bad moment. This is a structural incompatibility, not a single tactical blunder.
+</div>
+
+<h2>§5 — Key Rules for the Game</h2>
+
+<div class="rule-card">
+  <div class="rule-num">1</div>
+  <div class="rule-body">
+    <strong>3.Bb5 — not 3.d4</strong>
+    Never enter the Open Sicilian with 3.d4. Reyansh plays Accelerated Dragon (4...g6) in 13+ documented games — it's his best-prepared Black territory. Rossolimo (3.Bb5) takes him off that at move 3.
+  </div>
+</div>
+
+<div class="rule-card">
+  <div class="rule-num">2</div>
+  <div class="rule-body">
+    <strong>Reyansh will play 3...g6 — be ready for 4.0-0 Bg7 5.c3</strong>
+    He responds 3...g6 in 100% of Rossolimo games. Don't castle queenside or play h4 — play solid 4.0-0 Bg7 5.c3 central build. Branch A (5...d6 6.d4) is the most common.
+  </div>
+</div>
+
+<div class="rule-card">
+  <div class="rule-num">3</div>
+  <div class="rule-body">
+    <strong>Keep complications high — Reyansh's Black error density rises under pressure</strong>
+    The Atkeson game (141 CPL, 8 blunders) shows Reyansh becomes accident-prone in complex Rossolimo positions. Don't simplify to drawish endgames — keep piece tension and avoid early exchanges.
+  </div>
+</div>
+
+<div class="rule-card">
+  <div class="rule-num">4</div>
+  <div class="rule-body">
+    <strong>Austin is the rating underdog — play for the win anyway</strong>
+    At −108 FIDE, Austin cannot afford a draw. The Rossolimo with 5.c3 d4 gives real winning chances with minimal downside. The 0-2 Rossolimo record shows this is exploitable regardless of the rating gap.
+  </div>
+</div>
+
+<div class="rule-card">
+  <div class="rule-num">5</div>
+  <div class="rule-body">
+    <strong>Avoid early queen exchanges or symmetric structures</strong>
+    Reyansh's Mechanics Institute record is 5W-0L-4D at 91.8% — he's rock solid in technical positions. Keep the position asymmetric and dynamic. The Bg7 + fianchetto structure gives him long-term defensive resources; attack before he consolidates.
+  </div>
+</div>
+
+<h2>§6 — Cheat Sheet</h2>
+
+<div class="cheat-card">
+  <h3>Day-of Quick Reference — Austin as White vs Reyansh</h3>
+  <p><strong>After 1.e4 c5 2.Nf3 Nc6:</strong></p>
+  <code class="cheat-moves">PRIMARY:  3.Bb5 g6 4.0-0 Bg7 5.c3 d6 6.d4! (Branch A — main line)
+            OR 5.c3 e5 6.d3 (Branch B — closed)
+            OR 4.Bxc6 dxc6 5.d3 (Exchange — structural edge)
+
+AVOID:    Never 3.d4 (Open Sicilian → Accelerated Dragon → Reyansh's HOME)
+
+REMINDER: Reyansh is 0-2 in Rossolimo fianchetto. He ALWAYS plays 3...g6.
+          After 5.c3 d6 6.d4 cxd4 7.cxd4 — aim for Nc3, Re1, e5 break.</code>
+  <p style="margin-top:8px;"><strong>If he plays 2...e6 (unlikely):</strong> 3.d4 cxd4 4.Nxd4 standard Open Sicilian — he doesn't have Maróczy in this position.</p>
+</div>
+
+<hr />
+<p style="text-align:center; font-size:0.83em; color:#666;">
+  <a href="../austin-prep.html">← Prep Index</a> ·
+  <a href="matchup-reyansh.html">Matchup Overview</a> ·
+  <a href="matchup-reyansh-black.html">Austin as Black →</a> ·
+  <a href="matchup-reyansh-deep.html">Deep Analysis →</a> ·
+  <a href="matchup-reyansh-gm.html">GM Battle Plan →</a>
+</p>
+</body>
+</html>

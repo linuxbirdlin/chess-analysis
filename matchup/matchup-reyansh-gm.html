@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle Plan: Austin vs Paragiri, Reyansh (GM Prep)</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Georgia', serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg);
+}
+h1 { font-size: 1.6em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.15em; margin: 28px 0 10px; padding-left: 10px; }
+h2.white-section { border-left: 5px solid var(--blue); }
+h2.black-section { border-left: 5px solid var(--red); }
+h2.analysis   { border-left: 5px solid var(--gold); }
+h2.reference  { border-left: 5px solid #666; }
+h3 { font-size: 1em; margin: 14px 0 6px; color: #333; }
+.subtitle { font-size: 0.85em; color: #666; margin-bottom: 22px; }
+.subtitle span { margin-right: 16px; }
+
+.rating-note { background: #eaf4fb; border: 2px solid #1a5276; border-radius: 5px;
+               padding: 10px 14px; margin-bottom: 18px; font-size: 0.9em; }
+
+.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.intel-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.intel-card h3 { margin-top: 0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }
+.intel-card ul { padding-left: 16px; margin-top: 4px; }
+.intel-card li { margin-bottom: 3px; }
+
+.callout { border-radius: 4px; padding: 10px 14px; margin: 10px 0; font-size: 0.9em; }
+.callout-gold   { background: #fffbe0; border-left: 4px solid var(--gold); }
+.callout-blue   { background: #eef4ff; border-left: 4px solid var(--blue); }
+.callout-green  { background: #efffef; border-left: 4px solid var(--green); }
+.callout-danger { background: #fff0f0; border-left: 4px solid var(--red); }
+
+.move-line { background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+             padding: 8px 12px; margin: 6px 0; font-size: 0.92em; line-height: 1.9; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: #eef4ff; border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.bad-move { background: #ffe0e0; border: 1px solid #cc8888; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; color: #8b1a1a; }
+.note { color: #555; font-style: italic; font-size: 0.88em; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
+th { background: #333; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+.row-danger td { background: #fff0f0 !important; }
+.row-good td { background: #efffef !important; }
+
+hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20px; }
+
+.acc-toggle { display: none; }
+.acc-label {
+  display: block; cursor: pointer; padding: 8px 12px; margin: 4px 0;
+  background: #eee; border: 1px solid #ccc; border-radius: 4px;
+  font-weight: bold; font-size: 0.9em; user-select: none;
+}
+.acc-label::before { content: '▶ '; font-size: 0.75em; color: #666; }
+.acc-toggle:checked ~ .acc-label::before { content: '▼ '; }
+.acc-content { display: none; padding: 10px 14px; background: #fafaf6;
+               border: 1px solid #ddd; border-top: none; border-radius: 0 0 4px 4px; margin-bottom: 6px; }
+.acc-toggle:checked ~ .acc-content { display: block; }
+
+@media print {
+  .acc-content { display: block !important; }
+  .acc-label::before { content: '' !important; }
+  body { font-size: 12px; padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<h1>Battle Plan: Austin (White &amp; Black) vs Paragiri, Reyansh</h1>
+<div class="subtitle">
+  <span><strong>GM Prep</strong></span>
+  <span>Reyansh: 2067 FIDE (seed #4 NAYCC 2026)</span>
+  <span>Austin: <strong>−108 FIDE underdog — must punch up</strong></span>
+  <span>No direct encounter</span>
+  <span>Games analyzed: 83 (deep, movetime-3000, 104 in pgnlib)</span>
+</div>
+
+<div class="rating-note">
+  <strong>Rating context:</strong> Austin (~1959 FIDE) faces a <strong>−108 FIDE disadvantage</strong> — the largest gap among NAYCC opponents outside of top-3 seeds. The strategic plan must be asymmetric: Austin cannot play "solid chess and hope for mistakes" — Reyansh averages 91.8% accuracy and is 92.8% as White. Austin needs PREPARATION EDGE, not just tactical sharpness. The opening preparation advantage is real: <strong>Rossolimo (0-2 Reyansh record)</strong> and <strong>Maróczy Bind trap avoidance</strong> are the two concrete edges that can tilt the match.
+</div>
+
+<div class="intel-grid">
+  <div class="intel-card">
+    <h3>Reyansh as White</h3>
+    <ul>
+      <li><strong>1.e4</strong> in 52/54 games — exclusively</li>
+      <li>vs Sicilian: Open Sicilian 2.Nf3 3.d4 always</li>
+      <li><strong>Maróczy Bind 5.c4 vs ...Nc6+...g6</strong> (8+ games, primary White weapon)</li>
+      <li>vs ...e6 (Taimanov): 5.Nc3 — standard, NOT Maróczy</li>
+      <li>vs 1...e5: Scotch 3.d4 (8/11 games), Italian secondary</li>
+      <li>vs French: Advanced 3.e5 c3; vs Caro: Nc3 classical</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Reyansh as Black</h3>
+    <ul>
+      <li><strong>Always 1...c5</strong> vs 1.e4 (29/29 games)</li>
+      <li><strong>Primary: Accelerated Dragon</strong> — 2.Nf3 Nc6 3.d4 g6 (13+ games)</li>
+      <li>vs Rossolimo (3.Bb5): 3...g6 — <strong>0W–2L</strong> (Mulay 2025, Atkeson 2024)</li>
+      <li>vs 1.d4: 1...d5 QGD/Semi-Slav always (11 games, 6W-3L-2D)</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Critical Weaknesses</h3>
+    <ul>
+      <li><strong>Rossolimo 0-2</strong> — structural unfamiliarity, high CPL in both games</li>
+      <li>Atkeson game: 141 CPL average (worst in dataset), 8 blunders</li>
+      <li>Black accuracy (90.7%) 2.1% below White — consistent pattern</li>
+      <li>Worst 3 games all as Black: 78%, 81.6%, 82.4%</li>
+      <li>vs 2000+ as Black: draws and losses (less dominant than as White)</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Key Game Facts</h3>
+    <ul>
+      <li>Best game: 98.8% vs Malanin (World Cup U10 R4)</li>
+      <li>Drew Petrov 2335, Virtanen 2276, Baghdasaryan 2263 (solid vs elite)</li>
+      <li>Lost to Bick 2350 — shows ceiling at near-IM strength</li>
+      <li>Lost to Zhuoyuan Wu (fellow NAYCC opp) as Black</li>
+      <li>Mechanics Institute: 5W-0L-4D — unbeaten in OTB club play</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider" />
+
+<h2 class="white-section">Part 1: Austin as White — Rossolimo Sicilian (3.Bb5)</h2>
+
+<div class="callout callout-blue">
+  <strong>Core challenge:</strong> Reyansh is deeply prepared in the Accelerated Dragon (5.c4 Maróczy Bind as White means he knows the pawn structures from both sides). Playing 3.d4 Open Sicilian gives him 4...g6 into familiar Accelerated Dragon/Maróczy territory. <strong>The Rossolimo (3.Bb5) cuts his preparation off immediately at move 3.</strong>
+</div>
+
+<input type="checkbox" id="w-branch-a" class="acc-toggle">
+<label for="w-branch-a" class="acc-label">Branch A (Main): 3.Bb5 g6 4.0-0 Bg7 5.c3 d6 6.d4 — Central Build</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">c5</span> 2.Nf3 <span class="mv-z">Nc6</span>
+    <span class="key-move">3.Bb5</span> <span class="mv-z">g6</span> 4.0-0 <span class="mv-z">Bg7</span>
+    5.c3 <span class="mv-z">d6</span> 6.d4 <span class="mv-z">cxd4</span> 7.cxd4 <span class="mv-z">Bd7</span>
+    8.Nc3 <span class="mv-z">Nf6</span> 9.Re1
+  </div>
+  <p><strong>Position assessment:</strong> White has a central pawn majority (e4, d4) and fluid development. Black's bishop on d7 is somewhat passive. Austin's plans:</p>
+  <ul style="padding-left:20px; margin:8px 0; font-size:0.9em;">
+    <li><strong>e5 break:</strong> After 9.Re1, prepare e5 with 10.e5 dxe5 11.d5 Nb8 12.Nc3 — White gains space, knight on b8 is misplaced</li>
+    <li><strong>Nc3-d5:</strong> Knight outpost on d5 after Nc3 if Black doesn't challenge with ...e5 or ...d5</li>
+    <li><strong>10.Be3 h3:</strong> Solid development, preventing ...Ng4 pin; then expand with Qd2, Bh6 targeting Bg7</li>
+  </ul>
+  <p><em>Key move to know: After 7.cxd4 — do NOT rush e5. Develop Nc3 first, then Re1 activates the rook on the e-file before committing to the break.</em></p>
+</div>
+
+<input type="checkbox" id="w-branch-b" class="acc-toggle">
+<label for="w-branch-b" class="acc-label">Branch B: 5.c3 e5 — Closed Rossolimo</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">c5</span> 2.Nf3 <span class="mv-z">Nc6</span>
+    3.Bb5 <span class="mv-z">g6</span> 4.0-0 <span class="mv-z">Bg7</span> 5.c3 <span class="mv-z">e5</span>
+    6.d3 <span class="mv-z">Nge7</span> 7.Bd2 <span class="mv-z">0-0</span> 8.Na3 <span class="mv-z">d6</span> 9.Nc2
+  </div>
+  <p>If Reyansh closes the center with 5...e5, Austin plays d3 (solid) and maneuvers Na3-c2-e3 to occupy d5. The f4 advance is a key plan — after preparation, f4 strikes at e5 and opens the f-file. Black's Bg7 is strong defensively, but the closed pawn structure neutralizes some of its diagonal power. Austin aims for a slow strategic game where piece maneuvering dominates.</p>
+</div>
+
+<input type="checkbox" id="w-branch-c" class="acc-toggle">
+<label for="w-branch-c" class="acc-label">Branch C: 4.Bxc6 — Exchange Rossolimo (structural edge)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">c5</span> 2.Nf3 <span class="mv-z">Nc6</span>
+    3.Bb5 <span class="mv-z">g6</span> <span class="key-move">4.Bxc6</span> <span class="mv-z">dxc6</span>
+    5.d3 <span class="mv-z">Nf6</span> 6.Nc3 <span class="mv-z">Bg7</span> 7.h3
+  </div>
+  <p>After 4.Bxc6: Austin gives up bishop pair in exchange for permanently doubled c-pawns. Black has more space and the bishop pair, but the c4-square becomes a permanent White outpost for a knight. Austin targets: Ne2-d4 to dominate the c-file, or Ne2-g3 for kingside play. The structural edge compounds in endgames. Use when wanting maximum clarity, but note that Reyansh may be more comfortable in this technical endgame style — his Mechanics Institute 5W-0L record suggests positional strength.</p>
+</div>
+
+<input type="checkbox" id="w-branch-d" class="acc-toggle">
+<label for="w-branch-d" class="acc-label">Branch D: If Reyansh doesn't play 1...c5 (extremely unlikely)</label>
+<div class="acc-content">
+  <p>Reyansh has played 1...c5 in 29/29 documented games vs 1.e4. If for any reason he deviates:</p>
+  <ul style="padding-left:20px; margin:8px 0; font-size:0.9em;">
+    <li><strong>1...e5:</strong> Austin plays 2.Nf3 Nc6 3.Bb5 (Ruy Lopez) — standard territory</li>
+    <li><strong>1...e6 (French):</strong> Austin plays Advanced French (3.e5) — his documented system</li>
+    <li><strong>1...c6 (Caro-Kann):</strong> Austin plays 2.d4 d5 3.Nc3 dxe4 4.Nxe4 (Exchange CK) — his known setup</li>
+  </ul>
+  <p>None of these are realistic — Reyansh's 1...c5 commitment is absolute in the database.</p>
+</div>
+
+<h3>Key Tactical Themes (Austin as White)</h3>
+<table>
+  <thead><tr><th>Theme</th><th>How to exploit</th><th>Game evidence</th></tr></thead>
+  <tbody>
+  <tr class="row-good"><td><strong>Rossolimo fianchetto structure</strong></td><td>d4 break, Re1 pressure on e-file, e5 advance</td><td>Reyansh 0-2; Atkeson game 141 CPL, 8 blunders</td></tr>
+  <tr><td>High CPL in complex positions</td><td>Keep tension on board; avoid liquidating to drawish endings</td><td>Mulay game (87% acc, 4B+1M); Atkeson (90.2%, 8B+5M)</td></tr>
+  <tr class="row-good"><td>Black accuracy (90.7%) is exploitable</td><td>Force asymmetric positions where Reyansh's errors accumulate</td><td>Black avg 2.1% below White; worst 3 games all as Black</td></tr>
+  <tr><td>No endgame concessions</td><td>Mechanics Institute OTB solid play — don't simplify to drawn rook endings</td><td>5W-0L-4D OTB suggests he draws out equals easily</td></tr>
+  </tbody>
+</table>
+
+<hr class="section-divider" />
+
+<h2 class="black-section">Part 2: Austin as Black — Taimanov + Maróczy Trap Avoidance</h2>
+
+<div class="callout callout-green">
+  <strong>Core insight:</strong> Reyansh's Maróczy Bind (5.c4 vs Accelerated Dragon ...Nc6+...g6) is his deepest, most-practiced White system. Playing 2...e6 (Taimanov) permanently prevents it. Reyansh's response to Taimanov (...e6) is standard 5.Nc3 — a system he has less depth in than his Maróczy territory. This move-order change (2...e6 instead of 2...Nc6) shifts the battle to Austin's preparation advantage.
+</div>
+
+<input type="checkbox" id="b-branch-a" class="acc-toggle" checked>
+<label for="b-branch-a" class="acc-label">Branch A (Main): Taimanov 2...e6 — Austin's recommended defense</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">Reyansh:</span> 1.e4 <span class="mv-a">c5</span>
+    2.Nf3 <span class="key-move">e6</span> 3.d4 <span class="mv-a">cxd4</span>
+    4.Nxd4 <span class="mv-a">Nc6</span> 5.Nc3 <span class="mv-a">a6</span>
+  </div>
+  <p><strong>After 5...a6 (Kan-Taimanov):</strong></p>
+  <ul style="padding-left:20px; margin:8px 0; font-size:0.9em;">
+    <li><strong>6.Be2 Qc7 7.0-0 Nf6 8.Be3 Be7:</strong> Main line. Austin aims for ...d6, then ...0-0, then ...b5 queenside expansion. After ...b5, Black plays ...Bb7, ...Nc6-e5 for knight outpost, and ...Rc8 rook activation.</li>
+    <li><strong>Key plan:</strong> ...b5-b4 undermines c3 knight; ...Qb6 challenges d4 knight; after White retreats Nxc6 or Ne2, Black has active queenside</li>
+    <li><strong>What NOT to do:</strong> Don't allow White to play f4-f5 without responding with ...e5 or ...d5 central counterplay</li>
+  </ul>
+  <p><em>2...e6 is mandatory — this single move-order change is the entire Black preparation strategy.</em></p>
+</div>
+
+<input type="checkbox" id="b-branch-b" class="acc-toggle">
+<label for="b-branch-b" class="acc-label">Branch B: THE TRAP — Maróczy Bind (DO NOT enter this)</label>
+<div class="acc-content">
+  <div class="callout callout-danger">
+    <strong>DANGER ZONE — Never reach this position:</strong>
+  </div>
+  <div class="move-line">
+    <span class="mv-z">Reyansh:</span> 1.e4 <span class="mv-a">c5</span>
+    2.Nf3 <span class="bad-move">Nc6??</span> 3.d4 <span class="mv-a">cxd4</span>
+    4.Nxd4 <span class="bad-move">g6??</span> <span class="mv-z">5.c4!</span>
+    <span class="note">— MARÓCZY BIND. Reyansh plays this in 8+ documented games.</span>
+  </div>
+  <p><strong>Why this is catastrophic:</strong></p>
+  <ul style="padding-left:20px; margin:8px 0; font-size:0.9em;">
+    <li>5.c4 establishes a pawn on e4+c4, denying d5 to Black's pieces forever</li>
+    <li>Reyansh's documented Maróczy opponents: Nalakonda 2090 (drew), Yenamandra (won), Petrov 2335 (drew), Yi Colin, Qi Jenny, Mokeeva, Natraj, Jin David = 8+ games with solid results</li>
+    <li>This is Reyansh's best-practiced White structure — his depth and familiarity far exceeds his other systems</li>
+    <li>Austin would be fighting Reyansh on his strongest home turf</li>
+  </ul>
+  <p><strong>Prevention:</strong> 2...e6 (not 2...Nc6) makes 5.c4 Maróczy impossible for the entire game.</p>
+</div>
+
+<input type="checkbox" id="b-branch-c" class="acc-toggle">
+<label for="b-branch-c" class="acc-label">Branch C: If Reyansh plays Keres Attack (6.g4 vs Taimanov) or deviates</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">Reyansh:</span> 1.e4 <span class="mv-a">c5</span>
+    2.Nf3 <span class="mv-a">e6</span> 3.d4 <span class="mv-a">cxd4</span>
+    4.Nxd4 <span class="mv-a">Nc6</span> 5.Nc3 <span class="mv-a">a6</span>
+    6.g4 <span class="key-move">Nge7!</span> 7.g5 <span class="mv-a">d5!</span>
+  </div>
+  <p>If Reyansh plays the Keres Attack (6.g4): Austin responds 6...Nge7 (not 6...h6 which weakens). After 7.g5 d5! strikes back in the center. This is a well-documented equalizing plan. Reyansh has zero documented Keres Attack games — if he plays it, he is improvising. Austin should be confident here. After 8.exd5 Nxd5 9.Nxd5 exd5, Black has active counterplay with the passed d-pawn and good piece activity.</p>
+</div>
+
+<hr class="section-divider" />
+
+<h2 class="analysis">Part 3: Accuracy Profile &amp; Error Patterns</h2>
+
+<h3>Key Games Reference</h3>
+<table>
+  <thead><tr><th>Tournament</th><th>Opponent</th><th>Color</th><th>Result</th><th>Accuracy</th><th>Notes</th></tr></thead>
+  <tbody>
+  <tr class="row-good"><td>World Cup U10 R4</td><td>Malanin (1677)</td><td>White</td><td>WIN</td><td>98.8%</td><td>Best game in dataset</td></tr>
+  <tr><td>Chess.com</td><td>Senthilkumar (Pranav)</td><td>White</td><td>DRAW</td><td>98.2%</td><td>Near-perfect draw vs NAYCC opponent</td></tr>
+  <tr><td>Sunnyvale R2</td><td>Petrov, Vladimir (2335)</td><td>Black</td><td>DRAW</td><td>95.8%</td><td>Excellent result vs near-IM strength</td></tr>
+  <tr><td>Sunnyvale R3</td><td>Virtanen, Teemu (2276)</td><td>White</td><td>DRAW</td><td>87.9%</td><td>White accuracy dip — 6 mistakes</td></tr>
+  <tr class="row-danger"><td>Chess.com (Atkeson)</td><td>Atkeson (Rossolimo)</td><td>Black</td><td>LOSS</td><td>90.2%</td><td>141 CPL avg, 8B+5M+12I — Rossolimo disaster</td></tr>
+  <tr class="row-danger"><td>Chess.com (Mulay)</td><td>Mulay (Rossolimo)</td><td>Black</td><td>LOSS</td><td>87.0%</td><td>50 CPL avg, 4B+1M — Rossolimo struggle</td></tr>
+  <tr class="row-danger"><td>Chess.com (Wu)</td><td>Wu, Zhuoyuan (NAYCC)</td><td>Black</td><td>LOSS</td><td>88.4%</td><td>Lost to fellow NAYCC opponent as Black</td></tr>
+  <tr><td>Online Broadcast</td><td>Baksi, Antariksh</td><td>White</td><td>DRAW</td><td>97.9%</td><td>Very solid White game (227 ply!)</td></tr>
+  </tbody>
+</table>
+
+<h3>Error Pattern Analysis</h3>
+<table>
+  <thead><tr><th>Pattern</th><th>Evidence</th><th>Austin's exploitation</th></tr></thead>
+  <tbody>
+  <tr class="row-danger"><td><strong>Rossolimo structural confusion</strong></td><td>0-2, 141 CPL + 87% in two games</td><td>Play Rossolimo as White — primary weapon</td></tr>
+  <tr class="row-danger"><td><strong>Black accuracy 90.7% vs White 92.8%</strong></td><td>Consistent 2.1% gap across 83 games</td><td>Play aggressively as White, solidly as Black</td></tr>
+  <tr><td>Complex positions generate blunders</td><td>Atkeson 8B; Mulay 4B; Ioseliani 5B in one game</td><td>Keep complications alive; avoid simplification</td></tr>
+  <tr><td>Long games cause accuracy drops</td><td>Several 100+ ply games with elevated CPL</td><td>Play for complex middlegames that last</td></tr>
+  </tbody>
+</table>
+
+<p style="margin-top:12px; font-size:0.9em;"><strong>Psychological notes:</strong> Reyansh's consistency (91.8% avg) across 83 games suggests he is mentally resilient and rarely tilts from a single mistake. Austin cannot count on a natural blunder — he must OUTPREPARE and OUTPLAY. The 0-2 Rossolimo record is structural, not random — the positions genuinely confuse him across multiple games. Exploiting opening preparation is the primary lever.</p>
+
+<hr class="section-divider" />
+
+<h2 class="reference">Part 4: If/Then Quick Reference</h2>
+
+<input type="checkbox" id="ifthen-white" class="acc-toggle" checked>
+<label for="ifthen-white" class="acc-label">Austin as White — Decision Tree</label>
+<div class="acc-content">
+<table>
+  <thead><tr><th>If Reyansh plays…</th><th>Austin plays…</th><th>Notes</th></tr></thead>
+  <tbody>
+  <tr class="row-good"><td>1...c5 (certain)</td><td>2.Nf3 Nc6 3.Bb5! (Rossolimo)</td><td>PRIMARY — he plays 3...g6</td></tr>
+  <tr class="row-good"><td>3...g6 (confirmed)</td><td>4.0-0 Bg7 5.c3</td><td>Both documented Rossolimo games</td></tr>
+  <tr><td>5...d6</td><td>6.d4 cxd4 7.cxd4 Bd7 8.Nc3 Nf6 9.Re1</td><td>Branch A main line</td></tr>
+  <tr><td>5...e5</td><td>6.d3 Nge7 7.Bd2 0-0 8.Na3</td><td>Branch B closed</td></tr>
+  <tr><td>3...e5 (uncommon)</td><td>4.0-0 Nge7 5.c3 d6 6.d4</td><td>Similar structures</td></tr>
+  <tr><td>3...d6 (no Nc6)</td><td>4.0-0 Bg7 5.c3 Nc6 6.d4</td><td>Standard development</td></tr>
+  <tr class="row-danger"><td>DO NOT let him play Accelerated Dragon</td><td>Never 3.d4 → 4.Nxd4 vs ...Nc6+...g6</td><td>Maróczy is HIS home</td></tr>
+  </tbody>
+</table>
+</div>
+
+<input type="checkbox" id="ifthen-black" class="acc-toggle" checked>
+<label for="ifthen-black" class="acc-label">Austin as Black — Decision Tree</label>
+<div class="acc-content">
+<table>
+  <thead><tr><th>If Reyansh plays…</th><th>Austin plays…</th><th>Notes</th></tr></thead>
+  <tbody>
+  <tr class="row-good"><td>1.e4</td><td>1...c5</td><td>Austin's documented Black weapon</td></tr>
+  <tr class="row-good"><td>2.Nf3</td><td><strong>2...e6!</strong> (NOT 2...Nc6)</td><td>CRITICAL — prevents Maróczy forever</td></tr>
+  <tr class="row-good"><td>3.d4 cxd4 4.Nxd4 Nc6 5.Nc3</td><td>5...a6 (Kan-Taimanov)</td><td>Main line — ...Qc7, ...Nf6, ...d6, ...Be7, ...0-0, ...b5</td></tr>
+  <tr><td>5.Bc4</td><td>5...a6 6.Be3 Nf6 7.Bb3</td><td>Solid; Austin knows these structures</td></tr>
+  <tr><td>6.g4 (Keres Attack)</td><td>6...Nge7 7.g5 d5!</td><td>Central counterplay; Reyansh no Keres games</td></tr>
+  <tr><td>1.d4 (very rare, 2/54)</td><td>1...Nf6 2.c4 e6 3.Nc3 Bb4 (Nimzo)</td><td>Austin's documented d4 response</td></tr>
+  <tr class="row-danger"><td>NEVER allow</td><td>2...Nc6 then 4...g6 = Maróczy!</td><td>His 8+ game Maróczy Bind</td></tr>
+  </tbody>
+</table>
+</div>
+
+<hr class="section-divider" />
+
+<h2 class="reference">Part 5: Critical Moments Reference</h2>
+
+<h3>Rossolimo Pattern (Reyansh as Black, Austin as White)</h3>
+<p style="font-size:0.9em; margin: 8px 0;">Both Rossolimo losses featured: high CPL (87% and 90.2% for Reyansh), multiple blunders, and sustained confusion throughout. The Atkeson game at 141 average CPL shows this is not a single tactical miss — Reyansh struggles with the positional demands of the Rossolimo fianchetto structure. Austin's plan (5.c3 d4) creates pressure on the d6 pawn and central space disadvantage for Black.</p>
+
+<h3>Maróczy Bind Pattern (Reyansh as White — DO NOT GIVE HIM THIS)</h3>
+<p style="font-size:0.9em; margin: 8px 0;">Reyansh's Maróczy results: vs Nalakonda 2090 (drew), vs Yenamandra (won at 97.7%), vs Petrov 2335 (drew at 95.8%), vs Yi Colin (won at 94.8%). He plays this with exceptional precision — 94-97% accuracy in Maróczy games vs opponents of all strengths. If Austin accidentally reaches 4.Nxd4 g6 5.c4, he is fighting Reyansh at near-peak performance.</p>
+
+<h3>Engine Accuracy Quick Reference</h3>
+<table>
+  <thead><tr><th>Scenario</th><th>Reyansh accuracy</th><th>Austin implication</th></tr></thead>
+  <tbody>
+  <tr><td>Reyansh as White (overall)</td><td>92.8%</td><td>Expect near-precise play; don't count on errors</td></tr>
+  <tr><td>Reyansh as Black (overall)</td><td>90.7%</td><td>More vulnerable; play sharpest positions</td></tr>
+  <tr class="row-danger"><td>Reyansh in Rossolimo (Black)</td><td>87-90% (2 games)</td><td>Austin's weapon — Rossolimo as White</td></tr>
+  <tr class="row-danger"><td>Reyansh's worst 3 Black games</td><td>78%, 81.6%, 82.4%</td><td>Complexity collapses him — keep it complicated</td></tr>
+  <tr><td>Reyansh in Maróczy (White)</td><td>94-97%</td><td>Avoid this at all costs as Black</td></tr>
+  <tr><td>vs 2000+ rated</td><td>1W-1L-3D</td><td>Competitive but beatable; Austin needs prep edge</td></tr>
+  </tbody>
+</table>
+
+<hr class="section-divider" />
+<p style="text-align:center; font-size:0.83em; color:#666;">
+  <a href="../austin-prep.html">← Prep Index</a> ·
+  <a href="matchup-reyansh.html">Matchup Overview</a> ·
+  <a href="matchup-reyansh-deep.html">Deep Analysis</a> ·
+  <a href="matchup-reyansh-white.html">Austin as White</a> ·
+  <a href="matchup-reyansh-black.html">Austin as Black</a>
+</p>
+</body>
+</html>

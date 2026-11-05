@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Austin vs Paragiri, Reyansh — Matchup</title>
+<style>
+:root {
+  --accent: #4a1a7a; --accent-bg: #f3eeff; --accent-border: #c4a8e8;
+  --accent-dark: #2d0a55;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px; color: #1a1a1a; max-width: 900px;
+  margin: 0 auto; padding: 24px; background: #f8f7f4;
+}
+.doc-header {
+  border-left: 6px solid var(--accent); background: var(--accent-bg);
+  padding: 16px 20px; margin-bottom: 24px; border-radius: 0 6px 6px 0;
+}
+.doc-header h1 { font-size: 1.35em; margin-bottom: 4px; }
+.doc-header .meta { font-size: 0.82em; color: #555; }
+.doc-header .nav-links { margin-top: 10px; font-size: 0.82em; }
+.doc-header .nav-links a { color: var(--accent); text-decoration: none; margin-right: 16px; }
+.doc-header .nav-links a:hover { text-decoration: underline; }
+
+h2 { font-size: 1.1em; margin: 28px 0 10px; padding-left: 10px;
+     border-left: 4px solid var(--accent); }
+h3 { font-size: 0.95em; margin: 16px 0 6px; color: #333; }
+
+.profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+.profile-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.profile-card h3 { margin-top: 0; font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.04em; color: #555; }
+.profile-card p, .profile-card li { font-size: 0.88em; margin-bottom: 3px; }
+.profile-card ul { padding-left: 16px; margin-top: 4px; }
+
+.callout { padding: 10px 14px; border-radius: 4px; margin: 10px 0; font-size: 0.9em; }
+.callout-purple { background: var(--accent-bg); border-left: 4px solid var(--accent); }
+.callout-gold   { background: #fffbe0; border-left: 4px solid #b8860b; }
+.callout-green  { background: #efffef; border-left: 4px solid #2d7d46; }
+.callout-blue   { background: #eef4ff; border-left: 4px solid #1a4a8b; }
+.callout-danger { background: #fff0f0; border-left: 4px solid #8b1a1a; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 10px 0; }
+.color-block { padding: 14px 16px; border-radius: 6px; }
+.color-block.white-block { background: #f0faf4; border: 1px solid #b6d9c3; }
+.color-block.black-block { background: #eaf4fb; border: 1px solid #a8c8e8; }
+.color-block h3 { margin-top: 0; font-size: 0.88em; font-weight: 700; margin-bottom: 8px; }
+.color-block ul { padding-left: 16px; }
+.color-block li { font-size: 0.87em; margin-bottom: 3px; }
+
+.move-line {
+  background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+  padding: 8px 12px; margin: 6px 0; font-size: 0.91em; line-height: 1.9;
+  font-family: "Georgia", serif;
+}
+.key-move { background: var(--accent-bg); border: 1px solid #c4a8e8; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.note { color: #555; font-style: italic; font-size: 0.87em; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.87em; }
+th { background: #4a1a7a; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+
+.cheat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0; }
+.cheat-cell { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.cheat-cell h3 { font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; margin-top: 0; }
+.cheat-cell.green-cell h3 { color: #2d7d46; border-bottom: 2px solid #b6d9c3; padding-bottom: 4px; }
+.cheat-cell.blue-cell h3 { color: #1a5276; border-bottom: 2px solid #a8c8e8; padding-bottom: 4px; }
+.cheat-cell li { font-size: 0.86em; margin-bottom: 4px; }
+.cheat-cell ul { padding-left: 16px; margin-top: 4px; }
+
+hr { border: none; border-top: 2px solid #ddd; margin: 28px 0; }
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <h1>Austin Lin vs Paragiri, Reyansh — Matchup Prep</h1>
+  <div class="meta">NAYCC 2026 · Reyansh: 2067 FIDE (seed #4, 2015-born, USA) · Austin: 1959 FIDE (−108 underdog) · 104 games in dataset · No direct encounter</div>
+  <div class="nav-links">
+    <a href="../austin-prep.html">← Prep Index</a>
+    <a href="matchup-reyansh-white.html">Austin as White →</a>
+    <a href="matchup-reyansh-black.html">Austin as Black →</a>
+    <a href="matchup-reyansh-deep.html">Deep Analysis →</a>
+    <a href="matchup-reyansh-gm.html">GM Battle Plan →</a>
+  </div>
+</div>
+
+<h2>Quick Profile: Reyansh Paragiri</h2>
+
+<div class="profile-grid">
+  <div class="profile-card">
+    <h3>Key Statistics</h3>
+    <ul>
+      <li><strong>FIDE Rating:</strong> 2067 (Nov 2026) · seed #4 NAYCC 2026</li>
+      <li><strong>Age:</strong> 2015-born (U11 class)</li>
+      <li><strong>Games analyzed:</strong> 83 (deep, movetime-3000); 104 in pgnlib</li>
+      <li><strong>Accuracy overall:</strong> 91.8% avg</li>
+      <li><strong>White accuracy:</strong> 92.8% (43 games)</li>
+      <li><strong>Black accuracy:</strong> 90.7% (40 games) — 2.1% gap</li>
+      <li><strong>Record (analyzed):</strong> 35W–18L–29D</li>
+    </ul>
+  </div>
+  <div class="profile-card">
+    <h3>Notable Tournament Results</h3>
+    <ul>
+      <li><strong>Sunnyvale 2026:</strong> 1W-1L-2D vs 2263–2350-rated players (92.9%)</li>
+      <li><strong>Mechanics Institute:</strong> 5W-0L-4D (unbeaten, 91.8%)</li>
+      <li><strong>World Cup U10 2025:</strong> 3W-1L (90.8%)</li>
+      <li><strong>vs 2000+:</strong> 1W-1L-3D — competitive but not dominant</li>
+      <li><strong>vs Zhuoyuan Wu (NAYCC opp):</strong> Lost as Black (88.4%)</li>
+      <li><strong>vs Pranav Santhosh (NAYCC opp):</strong> Drew as White 98.2%</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Opening Repertoire Summary</h2>
+
+<div class="two-col">
+  <div class="color-block white-block">
+    <h3>Reyansh as White (54 games)</h3>
+    <ul>
+      <li>1.e4 in 52/54 games (exclusively)</li>
+      <li>vs Sicilian: Open Sicilian 2.Nf3 3.d4 always</li>
+      <li><strong>vs ...Nc6 + ...g6: 5.c4 Maróczy Bind!</strong> (8+ games)</li>
+      <li>vs ...d6 + ...Nf6: 5.Nc3 Classical/Najdorf</li>
+      <li>vs ...e6: 5.Nc3 Taimanov (no Maróczy)</li>
+      <li>vs 1...e5: Scotch 3.d4 primary (8/11 games)</li>
+      <li>vs Caro-Kann: Nc3 classical</li>
+      <li>vs French: Advanced (3.e5 c3)</li>
+    </ul>
+  </div>
+  <div class="color-block black-block">
+    <h3>Reyansh as Black (50 games)</h3>
+    <ul>
+      <li>vs 1.e4: ALWAYS 1...c5 (29/29 games)</li>
+      <li><strong>PRIMARY: Accelerated Dragon</strong> — 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 g6 (13+ games)</li>
+      <li>vs Rossolimo (3.Bb5): 3...g6 fianchetto — <strong>0W-2L</strong></li>
+      <li>vs 1.d4: ALWAYS 1...d5 (QGD/Semi-Slav, 11 games, 6W-3L-2D)</li>
+      <li>vs 1.c4 / 1.Nf3: solid d5/e6 transposes</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Critical Matchup Insights</h2>
+
+<div class="callout callout-green">
+  <strong>Austin as White: Rossolimo 3.Bb5 is the weapon.</strong> After 1.e4 c5 2.Nf3 Nc6, Austin plays 3.Bb5. Reyansh responds 3...g6 (confirmed 2/2 games). Austin continues 4.0-0 Bg7 5.c3. Reyansh's Rossolimo record: <strong>0W–2L</strong> (vs Mulay May 2025, vs Atkeson Oct 2024). The Atkeson game showed 141 CPL average — his highest error density in the entire dataset. This is his most exploitable opening weakness.
+</div>
+
+<div class="callout callout-danger">
+  <strong>Austin as Black: NEVER play 2...Nc6 then 4...g6.</strong> If Austin plays 2...Nc6 3.d4 cxd4 4.Nxd4 g6, Reyansh plays 5.c4 MARÓCZY BIND — his best-prepared White system (8+ documented games vs a range of opponents). Austin must play 2...e6 (Taimanov) to prevent this trap. The Taimanov move order cuts off all Maróczy paths while keeping Austin in familiar Sicilian territory.
+</div>
+
+<h2>Austin as White — Summary Plan</h2>
+
+<div class="move-line">
+  1.e4 c5 2.Nf3 Nc6 <span class="key-move">3.Bb5</span> g6 4.0-0 Bg7 5.c3
+  <span class="note">— Reyansh's confirmed response (3...g6 both documented games). Main line: 5...Nf6 6.Re1 0-0 7.d4 (per Lichess masters: 78% of games at top level). Austin builds central pressure with d4.</span>
+</div>
+
+<table>
+  <thead><tr><th>Branch</th><th>Line</th><th>Plan</th></tr></thead>
+  <tbody>
+  <tr><td><strong>Main (A)</strong></td><td>5...Nf6 6.Re1 0-0 7.d4 cxd4 8.cxd4 d5</td><td>78% of master games; White has central space after d4; Anti-Rossolimo main line — Austin must know this deeply</td></tr>
+  <tr><td>Branch B</td><td>5...e5 6.d3 Nge7 7.Bd2 0-0 8.Na3</td><td>White scores 43% in masters; closed center; Na3-c2-e3 outpost on d5; f4 break</td></tr>
+  <tr><td>Branch C</td><td>5...d6 6.d4 cxd4 7.cxd4 Bd7 8.Nc3 Nf6</td><td>Rare (very few master games); central majority; pressure on d6 — White scores well</td></tr>
+  <tr><td>Exchange (D)</td><td>4.Bxc6 dxc6 5.d3 Nf6 6.Nc3</td><td>Alternative: double c-pawns; grind structural edge; Ne2-d4</td></tr>
+  </tbody>
+</table>
+
+<h2>Austin as Black — Summary Plan</h2>
+
+<div class="move-line">
+  1.e4 c5 2.Nf3 <span class="key-move">e6</span> 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 <span class="key-move">Qc7</span>
+  <span class="note">— Taimanov B47 Bastrikov (Lichess masters main line: 65% of games). 2...e6 prevents Maróczy. After 5.Nc3 Qc7: ...a6, ...Nf6, ...d6, ...Be7, ...0-0, then ...b5 queenside expansion.</span>
+</div>
+
+<table>
+  <thead><tr><th>Branch</th><th>Line</th><th>Plan</th></tr></thead>
+  <tbody>
+  <tr><td><strong>Main (A)</strong></td><td>5...Qc7 6.Be2 a6 7.0-0 Nf6 8.Be3 Be7</td><td>B47 Bastrikov main line; ...d6, ...0-0, ...b5 counterplay; solid Taimanov structure</td></tr>
+  <tr><td>Branch B</td><td>5...a6 6.Be3 Nf6 7.Bd3 d6 8.0-0 Be7</td><td>Same plan with early bishop development</td></tr>
+  <tr><td>Branch C</td><td>5...a6 6.g4 (Keres) → 6...Nge7 7.g5 d5!</td><td>Central counterplay; Reyansh no documented Keres games</td></tr>
+  <tr><td><strong>TRAP</strong></td><td>2...Nc6 3.d4 cxd4 4.Nxd4 g6 → 5.c4!</td><td>AVOID — Maróczy Bind, Reyansh's best system</td></tr>
+  </tbody>
+</table>
+
+<h2>Psychological Context</h2>
+
+<div class="callout callout-gold">
+  <strong>Austin is the rating underdog by 108 FIDE points.</strong> This is an unusual position — Austin typically plays as favorite against scholastic competition. Key psychological factors: (1) Reyansh's consistency (91.8% avg) means Austin cannot rely on natural Reyansh blunders; Austin must OUTPLAY him with preparation. (2) Reyansh's Black accuracy (90.7%) is his visible weakness — Austin playing sharp Rossolimo as White puts him in his weaker territory. (3) The 0-2 Rossolimo record is the strongest concrete edge Austin has — open positions with fianchettoed kings where Reyansh accumulates tactical errors.
+</div>
+
+<h2>Summary Cheat Sheet</h2>
+
+<div class="cheat-grid">
+  <div class="cheat-cell green-cell">
+    <h3>Austin as White</h3>
+    <ul>
+      <li>1.e4 c5 2.Nf3 Nc6 <strong>3.Bb5!</strong> (Rossolimo)</li>
+      <li>Reyansh plays 3...g6 (confirmed)</li>
+      <li>Continue: 4.0-0 Bg7 5.c3 d6 6.d4</li>
+      <li>Reyansh's record: 0W–2L in this line</li>
+      <li>AVOID: 3.d4 (gives Accelerated Dragon)</li>
+      <li>Goal: keep position sharp, avoid early queens off</li>
+    </ul>
+  </div>
+  <div class="cheat-cell blue-cell">
+    <h3>Austin as Black</h3>
+    <ul>
+      <li>1.e4 c5 2.Nf3 <strong>e6!</strong> (Taimanov — critical!)</li>
+      <li>3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 a6</li>
+      <li>Plan: ...Qc7, ...Nf6, ...d6, ...Be7, ...0-0, ...b5</li>
+      <li>NEVER: 2...Nc6 + 4...g6 → Maróczy Bind trap</li>
+      <li>If 1.d4: Nimzo-Indian Bxc3+ (Austin's weapon)</li>
+    </ul>
+  </div>
+</div>
+
+<hr />
+<p style="text-align:center; font-size:0.83em; color:#666;">
+  <a href="../austin-prep.html">← Prep Index</a> ·
+  <a href="matchup-reyansh-white.html">Austin as White →</a> ·
+  <a href="matchup-reyansh-black.html">Austin as Black →</a> ·
+  <a href="matchup-reyansh-deep.html">Deep Analysis →</a> ·
+  <a href="matchup-reyansh-gm.html">GM Battle Plan →</a>
+</p>
+</body>
+</html>
