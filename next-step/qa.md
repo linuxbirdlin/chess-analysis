@@ -42,19 +42,19 @@ Please expand — answer all 4:
 
 1. **Move order**: Do you play `1...c5 2...e6 3...Nc6` (Taimanov) or `1...c5 2...e6 3...a6` (Kan)? Or do you decide based on what White plays?
 
-   > *(answer here)*
+   > Obviously in general, it depends on what white plays. However against the typical moves, I actually play 1...c5 2...e6 3...cxd4 4...Nf6. I've recently begun trying out Taimanov.
 
 2. **English Attack depth**: When White plays `6.Be3 7.f3 8.g4` English Attack — do you know the `...b5 ...b4 ...Bb7 ...Rc8` queenside counterplay plan? How far does your preparation go — move 10? Move 15? Where do you start guessing?
 
-   > *(answer here)*
+   > As black, the setup I play is not good for white to play the english attack, and the counterplay against it is not on the queenside. As white, I basically only play the english attack against the dragon, so my knowledge is not too deep.
 
 3. **Maróczy Bind** (`5.c4` after `4.Nxd4`): Have you faced it? Do you know how to handle it?
 
-   > *(answer here)*
+   > No, as I have never played the Kan, and th Maroczy bind either doesn't work at all or is bad against the setups I play. Note: I do sometimes play Maroczy bind myself as white
 
 4. **Biggest preparation gap**: What position appears on the board where you are no longer sure what to do?
 
-   > *(answer here)*
+   > Usually early deviations like When I am black: 1.f4/a3/b3/g3, 1.e4 c5 2.Nc3/d3 When I am white: 1.e4 b6/g6, 1.e4 e5 Nf3 Nf6
 
 *Example of a complete answer: "I play 2...e6 3...Nc6 Taimanov. I know the English Attack plan through move 12 — b5, b4, Bb7, Rc8. I don't know the Maróczy Bind at all. My prep runs out around move 8 if White plays something unusual."*
 
@@ -68,15 +68,15 @@ Please expand — answer all 3:
 
 1. After `1.d4 Nf6 2.c4 e6 3.Nf3 Bb4+` — what do you do if White plays `4.Bd2`? And if White plays `4.Nbd2` instead?
 
-   > *(answer here)*
+   > Against Bd2, I play Qe7. Usually I'll try and exchange on d2 then play d6 and e5. Against Nbd2, it's around the same plan.
 
 2. After the most common `4.Bd2 Bxd2+ 5.Qxd2` — what is your plan? Do you play `...d5`, `...c5`, or `...b6` next?
 
-   > *(answer here)*
+   > I do not play Bxd2+. Again, my plan is Qe7, only after a while play Bxd2+, then play for d6 and e5.
 
 3. How many real games have you played with Bb4+ vs Catalan? Is this tested in actual games or just an idea?
 
-   > *(answer here)*
+   > I've played it around 5 times in classical tournaments. I've had good results with it.
 
 *Example of a complete answer: "After 4.Bd2 Bxd2+ 5.Qxd2 I play ...d5 then ...c5 IQP. I've played it 3-4 times online. I don't know what to do if White plays 4.Nbd2."*
 
@@ -88,17 +88,18 @@ Please expand — answer all 3:
 
 Please expand — answer all 3:
 
+
 1. `4...Nc6` (Taimanov) vs `4...a6` (Kan) — which feels more natural to you right now? Or are you genuinely unsure and want to pick one to commit to for NAYCC?
 
-   > *(answer here)*
+   > Again, I have played 4...Nf6 the most. I am only trying out Kan, and only played it once in tournament, so my knowledge on it is a bit superficial.
 
 2. **Keres Attack** (`6.g4` after `5.Nc3`): Have you faced it or studied it? The Keres Attack is aggressive and White gets strong kingside play quickly — do you know the main defensive plan?
 
-   > *(answer here)*
+   > No, because I have a lot of experience in the taimanov/kan.
 
 3. **Key rule for `6.Ndb5`** (the trap from PAM R7): After `5.Nc3 Nc6 6.Ndb5`, you MUST play `6...d6!` immediately — NOT `6...Bc5?` (which allows `8.Bc7!` trapping your queen path). Is this rule automatic for you now, or do you need to re-drill it?
 
-   > *(answer here)*
+   > Bc5 fits my style a bit more, as I do not like the sveshnikov (d6). It is not as bad as you think: d6 is around +0.2 to +0.3 for white, while Bc5 is around +0.4 to +0.5 for white, but is more interesting as black. However, Bf4 and Bc7 is something I do find annoying, which is why I am trying to learn more about Taimanov, so I can have multiple ideas. (Remember: I only played Taimanov ONCE!!! All games from PAM or others are all 4.Nf6 with IS NOT the taimanov)
 
 ---
 

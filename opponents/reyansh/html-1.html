@@ -1,0 +1,2234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!---->
+<script>chessData={"message":"not logged in"}</script>
+<html lang="en">
+<head>
+	<meta name="robots" content="noindex" />
+	<script type="text/javascript">
+	    (function(c,l,a,r,i,t,y){
+	        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+	        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+	        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+	    })(window, document, "clarity", "script", "vht1k0cie3");
+	</script>
+	<!-- Hotjar Tracking Code for snoop -->
+	<script>
+	    (function(h,o,t,j,a,r){
+	        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	        h._hjSettings={hjid:6466898,hjsv:6};
+	        a=o.getElementsByTagName('head')[0];
+	        r=o.createElement('script');r.async=1;
+	        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	        a.appendChild(r);
+	    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+  <!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-5QBLNQ6BVN"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	
+	  gtag('config', 'G-5QBLNQ6BVN');
+	</script>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/assets/images/favIcon.png">
+  <link rel="stylesheet" type="text/css" href="/assets/css/jquery_default_style3.css" />
+	<script
+		src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"
+		type="text/javascript"></script>	
+	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+	<link rel="Stylesheet"
+		href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"
+		type="text/css" />
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+  	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/additional-methods.js"></script>
+  	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Montserrat:400,700" rel="stylesheet"/>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet"/>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/assets/css/font-awesome4.7.0.min.css"/>
+	<link href="/assets/css/modal.css" rel="stylesheet">
+    <link href="/assets/css/slider-home.css" rel="stylesheet">
+    <link href="/assets/css/main.css?v=1" rel="stylesheet">
+    <link href="/assets/css/tour.css?v=3" rel="stylesheet">
+    <script src="/assets/js/tour.js?v=4"></script>
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" type="text/javascript"></script>
+	<script src="//cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.2/css/jquery.dataTables.css" />
+	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/select/1.2.7/css/select.bootstrap.min.css" />
+	<script src="/assets/js/global-bs4.js"></script>
+	<script src="/assets/js/authentication_chess.js"></script>
+	<script src="/assets/js/common.js"></script>
+	<script src="/assets/js/countries.js"></script>
+	<script src="//cdn.datatables.net/plug-ins/2.3.2/dataRender/ellipsis.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css" integrity="sha384-q94+BZtLrkL1/ohfjR8c6L+A6qzNH9R2hBLwyoAfu3i/WCvQjzL2RQJ3uNHDISdU" crossorigin="anonymous">
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+  	<script src="/assets/js/chessboard-1.0.0.min.js"></script>
+	<script src="/assets/js/boardEditor.js"></script>
+	<script src="/assets/js/boardControler.js" async></script>
+    <title>Find Chess Player Account</title>
+    <script src="/assets/js/highcharts.js"></script>
+	<script src="https://code.highcharts.com/10.3/modules/venn.js"></script>
+	<script src="https://code.highcharts.com/10.0/modules/data.js"></script>
+</head>
+<body style="background-color: #f9fafb;margin:0px;text-align:center;border-spacing: 0x;overflow: auto;">
+	<header id="nav" class="affix-top" data-toggle="affix">
+		<div class="container" style="padding:0px;border:0px">
+            <!--<div class="navbar">
+				  <div class="navbar-header">
+					<div class="pull-left">
+                        <div class="logo">
+                        	<a href="/" title="Chess Game Preparation Software">
+	                            <img src="/assets/images/snoopLogo.svg" width="91" height="34" alt="chess Game preparation Software - SnoopChess" class="logo_bright"/>
+	                            <img src="/assets/images/snoopLogo.svg" width="91" height="34" alt="chess Game preparation Software - SnoopChess" class="logo_dark"/>
+                            </a>
+                        </div>
+					</div>					
+				</div>-->
+				<nav class="navbar navbar-expand-lg navbar-light border-bottom-0">
+				  <a class="navbar-brand" title="Chess Game Preparation Software" href="https://www.snoopchess.com">
+					  <div class="logo">
+	                   	    <img src="/assets/images/snoopLogo.svg" width="91" height="34" alt="chess Game preparation Software - SnoopChess" class="logo_bright"/>
+	                        <img src="/assets/images/snoopLogo.svg" width="91" height="34" alt="chess Game preparation Software - SnoopChess" class="logo_dark"/>
+	                        <img src="/assets/images/darkSnoop.svg" alt="chess Game preparation Software - SnoopChess" class="logo_darkmode" style="display:none"/>
+	                   </div>
+                  </a>
+				  
+				  <div class="collapse navbar-collapse" id="navbarNav">
+				    <ul class="navbar-nav nav-pill-group">
+				      <li id="findUserNav" class="nav-item">
+				        <a class="nav-link" href="" onclick='if(isMobile){$(".navbar-toggler").click()};window.history.pushState(null, "Find User", "/snoop/dashboard.jsp?page=findUser");loadInnerPage(event);return false;'>Find User</a>
+				      </li>
+				      <li id="exploreNav" class="nav-item">
+				        <a class="nav-link" href="" onclick='if(isMobile){$(".navbar-toggler").click()};window.history.pushState(null, "Explore Player", "/snoop/dashboard.jsp?page=explore");loadInnerPage(event);return false;'>Explore Player</a>
+				      </li>
+				      <li id="prepNav" class="nav-item">
+				        <a class="nav-link" href="" onclick='if(isMobile){$(".navbar-toggler").click()};window.history.pushState(null, "Opening Prep", "/snoop/dashboard.jsp?page=prep");loadInnerPage(event);return false;'>Opening Prep</a>
+				      </li>
+				      <li id="trainNav" class="nav-item">
+				        <a class="nav-link" href="" onclick='if(isMobile){$(".navbar-toggler").click()};window.history.pushState(null, "Train", "/snoop/dashboard.jsp?page=train");loadInnerPage(event);return false;'>Train</a>
+				      </li>
+				    </ul>
+				  </div>
+					  <div id="guideTourBtn" class="nav-video-btn" title="Guided tour">
+							<i style="cursor: pointer;" class="fa fa-graduation-cap" onclick="if (typeof window.currentPageReplayTour === 'function') { window.currentPageReplayTour(); }"></i>
+					  </div>
+					  <button class="user-profile-btn" onclick="toggleMetricsPanel()">
+			            <img src="" alt="User avatar" class="user-avatar">
+			            <div class="avatar-initials avatar-sm avatar-teal">
+						  
+						</div>
+			            <span></span>
+			            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+			            </svg>
+			        </button>
+				  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				    <span class="navbar-toggler-icon"></span>
+				  </button>
+				</nav>
+
+				<!-- phone-only bottom navigation (icons: Phosphor duotone set) -->
+				<nav id="bottomNav">
+				  <a id="bnFindUser" href="" onclick='window.history.pushState(null, "Find User", "/snoop/dashboard.jsp?page=findUser");loadInnerPage(event);return false;'>
+				    <svg fill="currentColor" viewBox="0 0 256 256"><path d="M192 112L192 112Q192 128.50 185.75 143.25L185.75 143.25Q179.50 157.75 168.63 168.63Q157.75 179.50 143.25 185.75L143.25 185.75Q128.50 192 112 192L112 192Q95.50 192 80.75 185.75L80.75 185.75Q66.25 179.50 55.38 168.63Q44.50 157.75 38.25 143.25L38.25 143.25Q32 128.50 32 112L32 112Q32 95.50 38.25 80.75L38.25 80.75Q44.50 66.25 55.38 55.38Q66.25 44.50 80.75 38.25L80.75 38.25Q95.50 32 112 32L112 32L112 32Q128.50 32 143.25 38.25L143.25 38.25Q157.75 44.50 168.63 55.38Q179.50 66.25 185.75 80.75L185.75 80.75Q192 95.50 192 112L192 112Z" opacity="0.2"></path><path d="M229.75 218.25L229.75 218.25L179.50 168.25Q189.25 157 194.63 142.50Q200 128 200 111.75L200 111.75Q200 93.50 193.25 77.50L193.25 77.50Q186.25 61.50 174.25 49.50Q162.25 37.50 146.25 30.50L146.25 30.50Q130 23.50 111.75 23.50L111.75 23.50Q93.50 23.50 77.50 30.50L77.50 30.50Q61.50 37.50 49.50 49.50Q37.50 61.50 30.50 77.50L30.50 77.50Q23.75 93.50 23.75 111.75L23.75 111.75Q23.75 130 30.50 146.25L30.50 146.25Q37.50 162.25 49.50 174.25Q61.50 186.25 77.50 193L77.50 193Q93.50 200 111.75 200L111.75 200Q128 200 142.50 194.50Q157 189 168.50 179.50L168.50 179.50L168.25 179.50L218.25 229.75Q219.50 230.75 220.88 231.38Q222.25 232 224 232L224 232Q227.25 232 229.63 229.63Q232 227.25 232 224L232 224Q232 222.25 231.38 220.88Q230.75 219.50 229.75 218.25L229.75 218.25L229.75 218.25ZM40 112L40 112Q40 97 45.75 84L45.75 84Q51.25 70.75 61 61Q70.75 51.25 84 45.75L84 45.75Q97 40 112 40L112 40Q127 40 140 45.75L140 45.75Q153.25 51.25 163 61Q172.75 70.75 178.25 84L178.25 84Q184 97 184 112L184 112Q184 127 178.25 140L178.25 140Q172.75 153.25 163 163Q153.25 172.75 140 178.25L140 178.25Q127 184 112 184L112 184L112 184Q97 184 84 178.25L84 178.25Q71 172.75 61.13 162.88Q51.25 153 45.75 140L45.75 140Q40 127 40 112L40 112Z"></path></svg>
+				    Find User
+				  </a>
+				  <a id="bnExplore" href="" onclick='window.history.pushState(null, "Explore Player", "/snoop/dashboard.jsp?page=explore");loadInnerPage(event);return false;'>
+				    <svg fill="currentColor" viewBox="0 0 256 256"><path d="M128 32L128 32Q108 32 90.75 39.50L90.75 39.50Q73.25 47 60.13 60.13Q47 73.25 39.50 90.75L39.50 90.75Q32 108 32 128L32 128Q32 148 39.50 165.25L39.50 165.25Q47 182.75 60.13 195.88Q73.25 209 90.75 216.50L90.75 216.50Q108 224 128 224L128 224Q148 224 165.25 216.50L165.25 216.50Q182.75 209 195.88 195.88Q209 182.75 216.50 165.25L216.50 165.25Q224 148 224 128L224 128L224 128Q224 108 216.50 90.75L216.50 90.75Q209 73.25 195.88 60.13Q182.75 47 165.25 39.50L165.25 39.50Q148 32 128 32L128 32ZM176 80L144 144L80 176L112 112L176 80Z" opacity="0.2"></path><path d="M128 24L128 24Q106.50 24 87.50 32.25L87.50 32.25Q68.50 40.25 54.38 54.38Q40.25 68.50 32.25 87.50L32.25 87.50Q24 106.50 24 128L24 128Q24 149.50 32.25 168.50L32.25 168.50Q40.25 187.50 54.38 201.63Q68.50 215.75 87.50 223.75L87.50 223.75Q106.50 232 128 232L128 232Q149.50 232 168.50 223.75L168.50 223.75Q187.50 215.75 201.63 201.63Q215.75 187.50 223.75 168.50L223.75 168.50Q232 149.50 232 128L232 128L232 128Q232 106.50 223.75 87.50L223.75 87.50Q215.50 68.50 201.50 54.50Q187.50 40.50 168.50 32.25L168.50 32.25Q149.50 24 128 24L128 24ZM128 216L128 216Q109.75 216 93.75 209L93.75 209Q77.75 202.25 65.75 190.25Q53.75 178.25 47 162.25L47 162.25Q40 146.25 40 128L40 128Q40 109.75 47 93.75L47 93.75Q53.75 77.75 65.75 65.75Q77.75 53.75 93.75 47L93.75 47Q109.75 40 128 40L128 40Q146.25 40 162.25 47L162.25 47Q178.25 53.75 190.25 65.75Q202.25 77.75 209 93.75L209 93.75Q216 109.75 216 128L216 128L216 128Q216 146.25 209 162.25L209 162.25Q202.25 178.25 190.25 190.25Q178.25 202.25 162.25 209L162.25 209Q146.25 216 128 216L128 216L128 216ZM172.50 72.75L172.50 72.75L108.50 104.75Q107.25 105.50 106.38 106.38Q105.50 107.25 104.75 108.25L104.75 108.25L104.75 108.50L72.75 172.50Q72.50 173.25 72.25 174.13Q72 175 72 176L72 176Q72 179.25 74.38 181.63Q76.75 184 80 184L80 184Q80 184 80 184Q80 184 80 184L80 184L80 184Q81 184 81.88 183.75Q82.75 183.50 83.75 183.25L83.75 183.25L83.50 183.25L147.50 151.25Q148.75 150.50 149.63 149.63Q150.50 148.75 151.25 147.75L151.25 147.75L151.25 147.50L183.25 83.50Q183.50 82.75 183.75 81.88Q184 81 184 80L184 80Q184 76.75 181.63 74.38Q179.25 72 176 72L176 72Q175 72 174.13 72.25Q173.25 72.50 172.25 72.75L172.25 72.75L172.50 72.75ZM158.25 98L138 138L98 158L118 118L158.25 98Z"></path></svg>
+				    Explore Player
+				  </a>
+				  <a id="bnPrep" href="" onclick='window.history.pushState(null, "Opening Prep", "/snoop/dashboard.jsp?page=prep");loadInnerPage(event);return false;'>
+				    <svg fill="currentColor" viewBox="0 0 256 256"><path d="M64 112L64 112L64 144Q64 147.25 61.63 149.63Q59.25 152 56 152L56 152L56 152L24 152Q20.75 152 18.38 149.63Q16 147.25 16 144L16 144L16 144L16 112Q16 108.75 18.38 106.38Q20.75 104 24 104L24 104L24 104L56 104Q59.25 104 61.63 106.38Q64 108.75 64 112L64 112ZM208 40L208 40L160 40Q156.75 40 154.38 42.38Q152 44.75 152 48L152 48L152 48L152 96Q152 99.25 154.38 101.63Q156.75 104 160 104L160 104L160 104L208 104Q211.25 104 213.63 101.63Q216 99.25 216 96L216 96L216 96L216 48Q216 44.75 213.63 42.38Q211.25 40 208 40L208 40ZM208 152L208 152L160 152Q156.75 152 154.38 154.38Q152 156.75 152 160L152 160L152 160L152 208Q152 211.25 154.38 213.63Q156.75 216 160 216L160 216L160 216L208 216Q211.25 216 213.63 213.63Q216 211.25 216 208L216 208L216 208L216 160Q216 156.75 213.63 154.38Q211.25 152 208 152L208 152Z" opacity="0.2"></path><path d="M160 112L160 112L208 112Q214.75 112 219.38 107.38Q224 102.75 224 96L224 96L224 96L224 48Q224 41.25 219.38 36.63Q214.75 32 208 32L208 32L208 32L160 32Q153.25 32 148.63 36.63Q144 41.25 144 48L144 48L144 48L144 64L128 64Q118 64 111 71Q104 78 104 88L104 88L104 88L104 120L72 120L72 112Q72 105.25 67.38 100.63Q62.75 96 56 96L56 96L56 96L24 96Q17.25 96 12.63 100.63Q8 105.25 8 112L8 112L8 112L8 144Q8 150.75 12.63 155.38Q17.25 160 24 160L24 160L24 160L56 160Q62.75 160 67.38 155.38Q72 150.75 72 144L72 144L72 144L72 136L104 136L104 168Q104 178 111 185Q118 192 128 192L128 192L128 192L144 192L144 208Q144 214.75 148.63 219.38Q153.25 224 160 224L160 224L160 224L208 224Q214.75 224 219.38 219.38Q224 214.75 224 208L224 208L224 208L224 160Q224 153.25 219.38 148.63Q214.75 144 208 144L208 144L208 144L160 144Q153.25 144 148.63 148.63Q144 153.25 144 160L144 160L144 160L144 176L128 176Q124.75 176 122.38 173.63Q120 171.25 120 168L120 168L120 168L120 88Q120 84.75 122.38 82.38Q124.75 80 128 80L128 80L128 80L144 80L144 96Q144 102.75 148.63 107.38Q153.25 112 160 112L160 112ZM56 112L56 144L24 144L24 112L56 112ZM160 208L160 160L208 160L208 208L160 208ZM160 96L160 48L208 48L208 96L160 96Z"></path></svg>
+				    Opening Prep
+				  </a>
+				  <a id="bnTrain" href="" onclick='window.history.pushState(null, "Train", "/snoop/dashboard.jsp?page=train");loadInnerPage(event);return false;'>
+				    <svg fill="currentColor" viewBox="0 0 256 256"><path d="M96 64L96 64L96 192Q96 195.25 93.63 197.63Q91.25 200 88 200L88 200L88 200L64 200Q60.75 200 58.38 197.63Q56 195.25 56 192L56 192L56 192L56 64Q56 60.75 58.38 58.38Q60.75 56 64 56L64 56L64 56L88 56Q91.25 56 93.63 58.38Q96 60.75 96 64L96 64ZM192 56L192 56L168 56Q164.75 56 162.38 58.38Q160 60.75 160 64L160 64L160 64L160 192Q160 195.25 162.38 197.63Q164.75 200 168 200L168 200L168 200L192 200Q195.25 200 197.63 197.63Q200 195.25 200 192L200 192L200 192L200 64Q200 60.75 197.63 58.38Q195.25 56 192 56L192 56Z" opacity="0.2"></path><path d="M248 120L248 120L240 120L240 88Q240 81.25 235.38 76.63Q230.75 72 224 72L224 72L224 72L208 72L208 64Q208 57.25 203.38 52.63Q198.75 48 192 48L192 48L192 48L168 48Q161.25 48 156.63 52.63Q152 57.25 152 64L152 64L152 64L152 120L104 120L104 64Q104 57.25 99.38 52.63Q94.75 48 88 48L88 48L88 48L64 48Q57.25 48 52.63 52.63Q48 57.25 48 64L48 64L48 64L48 72L32 72Q25.25 72 20.63 76.63Q16 81.25 16 88L16 88L16 88L16 120L8 120Q4.75 120 2.38 122.38Q0 124.75 0 128L0 128Q0 131.25 2.38 133.63Q4.75 136 8 136L8 136L8 136L16 136L16 168Q16 174.75 20.63 179.38Q25.25 184 32 184L32 184L32 184L48 184L48 192Q48 198.75 52.63 203.38Q57.25 208 64 208L64 208L64 208L88 208Q94.75 208 99.38 203.38Q104 198.75 104 192L104 192L104 192L104 136L152 136L152 192Q152 198.75 156.63 203.38Q161.25 208 168 208L168 208L168 208L192 208Q198.75 208 203.38 203.38Q208 198.75 208 192L208 192L208 192L208 184L224 184Q230.75 184 235.38 179.38Q240 174.75 240 168L240 168L240 168L240 136L248 136Q251.25 136 253.63 133.63Q256 131.25 256 128L256 128Q256 124.75 253.63 122.38Q251.25 120 248 120L248 120ZM48 168L32 168L32 88L48 88L48 168ZM88 64L88 192L64 192L64 64L88 64ZM192 192L192 192L168 192L168 64L192 64L192 175.75Q192 175.75 192 175.88Q192 176 192 176L192 176Q192 176 192 176.13Q192 176.25 192 176.25L192 176.25L192 192ZM224 88L224 168L208 168L208 88L224 88Z"></path></svg>
+				    Train
+				  </a>
+				</nav>				
+				<!-- <div>
+	        		<div class="navbar-collapse collapse" id="header-collapse" style="display: flex;margin-top: 14px">
+						<ul class="nav navbar-nav nav-right" id="signedIn">
+				            <li><a id="hi" style="fontSize: 16px;"> </a></li>
+				            <li title="Log out"><a href="/snoop/servlet/DataSerializerServlet?screen=chess&action=signOut" rel="nofollow"><i class="fa fa-sign-out" ></i></a></li>
+				        </ul>
+					</div>
+				</div>
+			</div> --><!-- /.navbar -->
+		</div>
+	</header>
+	<!--/end navbar-->
+	<section class="header_cover">
+		<div class="container" style="padding:0px;border:0px">
+		</div>
+	</section>
+	<div class="panel-overlay" id="panelOverlay" onclick="toggleMetricsPanel()"></div>
+
+  <div class="metrics-panel" id="metricsPanel">
+    <div class="panel-user-header">
+      <img src="" alt="User avatar" class="panel-user-avatar">
+      <div class="avatar-initials avatar-md avatar-teal"></div>
+      <div class="panel-username"></div>
+    </div>
+    <div class="panel-current-plan">
+      <span class="plan-label">Current Plan</span>
+      <span class="plan-badge plan-badge-club" id="plan">Club</span>
+    </div>
+	<div class="panel-section-header">Plan Usage</div>
+    <div class="metrics-list">
+      <div class="metric-item">
+        <div class="metric-header">
+          <span class="metric-name">Searches</span>
+          <span class="metric-values" id="usedSearches"></span>
+        </div>
+        <div class="metric-bar">
+          <div class="metric-progress" id="usedSearchesPercent" style="width: 0%"></div>
+        </div>
+        <!-- paid plans: renew today (fresh period + counters) instead of waiting for the renewal date -->
+        <a href="#" class="metric-refill-link" id="metricRenewLink" style="display:none" onclick="startRenewNow();return false;">Renew now for fresh searches</a>
+      </div>
+
+      <div class="metric-item">
+        <div class="metric-header">
+          <span class="metric-name">Explorer Reports</span>
+          <span class="metric-values" id="usedExplorer">23/50</span>
+        </div>
+        <div class="metric-bar">
+          <div class="metric-progress" id="usedExplorerPercent" style="width: 46%"></div>
+        </div>
+      </div>
+
+      <!-- paid plans only (limit = the plan's searches); hidden on free, where the limit is 0 -->
+      <div class="metric-item" id="aiVerificationsMetric" style="display:none">
+        <div class="metric-header">
+          <span class="metric-name">AI Verifications</span>
+          <span class="metric-values" id="usedAiVerifications">0/0</span>
+        </div>
+        <div class="metric-bar">
+          <div class="metric-progress" id="usedAiVerificationsPercent" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div class="metric-item">
+        <div class="metric-header">
+          <span class="metric-name">Days Used</span>
+          <span class="metric-values"><span id="usedDays"></span>/<span id="periodDays">365</span></span>
+        </div>
+        <div class="metric-bar">
+          <div id="usedDaysPercent" class="metric-progress" style="width: 40%"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-actions">
+      <button class="panel-btn panel-btn-primary" data-bs-target="#pricingModal" data-bs-toggle="modal">Upgrade Account</button>
+      <a id="cancelSubLink" href="javascript:void(0)" onclick="confirmCancelSubscription()" style="display:none;font-size:12px;color:#6b7280;text-decoration:underline;margin-top:8px;text-align:center;">Cancel subscription</a>
+      <div id="cancelPendingNote" style="display:none;font-size:12px;color:#6b7280;margin-top:8px;text-align:center;">Cancellation scheduled &mdash; plan active until the end of the paid period, then switches to Free. No further charges.</div>
+    </div>
+
+    <div id="subAccountsSection" style="display:none;margin-top:4px;padding:0 1rem 1rem;border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb;">
+      <div class="panel-section-header">Sub-accounts (<span id="subAccountCount">0</span>/30)</div>
+      <ul id="subAccountList" style="list-style:none;padding:0;margin:8px 0;font-size:13px;"></ul>
+      <div style="display:flex;gap:6px;margin-top:8px;">
+        <input id="subUsername" type="text" placeholder="Username" class="form-control form-control-sm" style="flex:1;min-width:0;">
+        <input id="subPassword" type="password" placeholder="Password" class="form-control form-control-sm" style="flex:1;min-width:0;">
+        <button style="background:#14b8a6;color:white;border:none;border-radius:0.375rem;padding:0 10px;font-size:0.8rem;font-weight:600;cursor:pointer;white-space:nowrap;" onclick="addSubAccount()">Add</button>
+      </div>
+      <div id="subAccountError" style="color:#dc2626;font-size:12px;margin-top:4px;display:none;"></div>
+    </div>
+
+    <div class="panel-theme">
+      <span>Change theme</span>
+      <div class="theme-switch-row">
+        <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <label class="dm-switch">
+          <input type="checkbox" id="darkModeToggle">
+          <span class="dm-slider"></span>
+        </label>
+        <svg class="theme-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2z"/>
+          <path d="M5 16l.75 2.25L8 19l-2.25.75L5 22l-.75-2.25L2 19l2.25-.75L5 16z"/>
+          <path d="M19 2l.5 1.5L21 4l-1.5.5L19 6l-.5-1.5L17 4l1.5-.5L19 2z"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="panel-menu">
+      <a href="#" class="menu-item" onclick="toggleMetricsPanel();setTimeout(() => {
+    	  openContact();
+  			}, 1000);">
+        <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+        </svg>
+        <span>Support</span>
+      </a>
+      <a href="/snoop/terms.jsp" class="menu-item">
+        <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg>
+        <span>Terms of Service</span>
+      </a>
+      <a href="/snoop/servlet/DataSerializerServlet?screen=chess&action=signOut" class="menu-item">
+        <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+        </svg>
+        <span>Log Out</span>
+      </a>
+    </div>
+  </div>
+	<div id="innerPage">
+	</div>
+	<!-- Limit Reached Modal -->
+	  <div id="limitModal" class="limit-modal-overlay">
+	    <div class="limit-modal">
+	      <button class="limit-modal-close" onclick="closeLimitModal()">&times;</button>
+	      
+	      <div class="limit-modal-icon">
+	        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+	          <circle cx="12" cy="12" r="10"></circle>
+	          <path d="M12 8v4"></path>
+	          <circle cx="12" cy="16" r="0.5" fill="#f59e0b"></circle>
+	        </svg>
+	      </div>
+	      
+	      <h2 class="limit-modal-title">Search Limit Reached</h2>
+	      <p class="limit-modal-text">You've used all <strong><span id="usedSearchesInLimit">5</span> <span id="typeInLimit">searches</span></strong> included in your <span id="planInLimit">Free</span> plan this <span id="periodInLimit">year</span>.</p>
+	      
+	      <div class="limit-modal-usage">
+	        <div class="usage-bar-container">
+	          <div class="usage-bar-fill" style="width: 100%"></div>
+	        </div>
+	        <span class="usage-text">5 / 5 searches used</span>
+	      </div>
+	      
+	      <!-- early renewal offer - paid plans only (main account); filled in by updatePlanMeters -->
+	      <div class="limit-modal-refill" id="limitRenewSection" style="display:none">
+	        <p class="limit-refill-title">Don't want to wait?</p>
+	        <p class="limit-refill-text">Renew your <span class="renewPlanName">Club</span> plan today for <strong>$<span class="renewPrice">89</span></strong>: you get a fresh set of <strong><span class="renewSearches">60</span> searches</strong> and explorer reports right away, and a new <span class="renewPeriod">year</span> starts today (next renewal <span class="renewNextDate"></span>). The remaining days of your current period are replaced by the new one.</p>
+	        <button class="limit-btn-upgrade limit-btn-refill" id="limitRenewBtn" onclick="startRenewNow()">Renew now for $<span class="renewPrice">89</span></button>
+	        <p class="limit-refill-note" id="limitRenewNote"></p>
+	      </div>
+
+	      <div class="limit-modal-benefits" id="limitBenefits">
+	        <p>Upgrade to unlock:</p>
+	        <ul>
+	          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> More searches</li>
+	          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> See all matching players - nothing blurred</li>
+	          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> More explorer reports</li>
+	          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Advanced analytics</li>
+	        </ul>
+	      </div>
+	      
+	      <div class="limit-modal-actions">
+	        <button class="limit-btn-upgrade" id="limitUpgradeBtn" onclick="closeLimitModal(); openPricingModal();">View Plans & Upgrade</button>
+	        <button class="limit-btn-cancel" onclick="closeLimitModal()">Maybe Later</button>
+	      </div>
+	      
+	      <p class="limit-modal-reset">Your searches reset in <strong id="planResetDays">12</strong> days</p>
+	    </div>
+	  </div>
+	  <div class="modal" id="pricingModal" tabindex="-1">
+	  <div class="modal-dialog custom-modal" >
+	  	<div class="modal-content" style="max-width: 1800px">
+	  	  <div class="modal-header">
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body" id="pricingBody">
+	        <iframe id="pricingBodyIframe" loading="lazy" src="" frameborder="0" width="100%" height="500px" allowfullscreen></iframe>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"bd98a6f0db654f458bcf0211e3fc440b","r":1,"spa":2}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a55c3444fabdac40',t:'MTc5Mzg4NTMzMw=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a55c3444fabdac40',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<style>
+	.custom-modal {
+	  height: 90%; /* or any other percentage/pixel value */
+	  width: 90%;
+	  max-width:90%;
+	}
+
+	@media (max-width: 600px) {
+	  .custom-modal {
+	    width: 100%;
+	    max-width: 100%;
+	    height: 95%;
+	    margin: 0;
+	  }
+	  #pricingModal {
+	    padding-right: 0 !important;
+	  }
+	  #pricingModal .modal-dialog {
+	    margin: 2.5vh 0 0 0;
+	    width: 100vw;
+	    max-width: 100vw;
+	  }
+	  #pricingModal .modal-body {
+	    padding: 0;
+	  }
+	  #pricingModal .modal-content {
+	    box-shadow: none;
+	  }
+	}
+	
+	.custom-modal .modal-content {
+	  height: 100%; /* forces content to fill the dialog height */
+	}
+	
+	.custom-modal .modal-body {
+	  /* optional: adds scrollbar if content exceeds the body height */
+	  overflow-y: auto;
+	  /* optional: use calc() to adjust body height relative to fixed header/footer */
+	  /*max-height: calc(100% - 120px);*/ 
+	}
+	
+	#pricingBodyIframe
+	{
+		height: 99%;
+	}
+	#pricingModal .modal-header {background-color: white;}
+	
+	#addGameForm a{font-weight: 500}
+	.tooltip {
+		border-radius: 5px;
+	}
+	.tooltip > .tooltip-inner {background-color: white;border: 1px solid #908080;color:#585858;text-align:left;
+		max-width: 350px;
+	    /* If max-width does not work, try using width instead */
+	    width: 350px; 
+	}
+	.bs-tooltip-auto[x-placement^=top] .arrow::before, .bs-tooltip-top .arrow::before {
+		top: 0;
+		border-width: 0.4rem 0.4rem 0;
+		border-top-color: #585858;
+	}
+	.bs-tooltip-auto[x-placement^=left] .arrow::before, .bs-tooltip-left .arrow::before {
+		border-left-color: #585858;
+	}
+	.jTip{cursor:help}
+	
+	.form-group {
+	    margin-bottom: 15px;
+	    align-items: baseline;
+	    margin-right: 20px;
+	    display: flex;
+	}
+	.form-check-input:checked {
+	    background-color: #14b8a6;
+	    border-color: #14b8a6;
+	}
+	.form-switch .form-check-input
+	{
+		height: 20px;
+    	width: 40px;
+	}
+	table.dataTable th,
+	table.dataTable td {
+	    text-align: left;
+	    vertical-align: middle;
+	}
+	.searchSiteSelect{
+		height: 31px;
+	    padding: 6px !important;
+	    padding-top: 3px !important;
+	}
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #f9fafb;
+      color: #1f2937;
+      line-height: 1.6;
+      margin: 20px;
+      min-height:100vh;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      position: relative;
+      padding-bottom: 167px !important;
+      box-sizing: border-box;
+      -webkit-font-smoothing: inherit
+    }
+    .panel-section-header {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #6b7280;
+      padding: 16px 24px 0px;
+      margin: 0;
+      display: flex;
+    }
+    .card-title {
+	    font-size: 1.5rem;
+	    font-weight: 600;
+	    text-align: center;
+	    margin-bottom: 1.5rem;
+	    color: #374151;
+	}
+    .searchesTitleDiv
+    {
+    	background: #14b8a6;
+	    color: white;
+	    padding: 0.75rem 1rem;
+	    font-weight: 600;
+	    font-size: 0.875rem;
+	    display: flex;
+	    justify-content: space-between;
+	    align-items: center;
+    }
+    .login-modal .form-group {
+    	flex-wrap: wrap;
+    }
+    .btn-info {
+	    background: #14b8a6;
+	    color: white;
+	    border: none;
+	    padding: 0.5rem 1rem;
+	    border-radius: 0.375rem;
+	    cursor: pointer;
+	    font-size: 0.875rem;
+	    font-weight: 600;
+	    margin-top: 0.5rem;
+	    transition: background 0.2s;
+	}
+	.btn-warning
+	{
+		font-size: 0.875rem;
+	    font-weight: 600;
+	    color: #36454F;
+	}
+	.btn-info:hover {
+	    color: white;
+	    background-color: #0e8376;
+	    border-color: #0e8376;
+	}
+	.btn-info:active {
+	    color: #000;
+	    background-color: #0e8376;
+	    border-color: #0e8376;
+	}
+	.btn-info:focus {
+	    color: #000;
+	    background-color: #0e8376;
+	    border-color: #0e8376;
+	}
+	.resultsDiv
+    {
+    	overflow-x:auto;
+    	clear: both;
+    }
+    .modal-header .btn-close {
+    	font-size: x-small;
+    	margin-right:3px;
+    }
+    a 
+    {
+    	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;    	
+    }
+    .form-group input, .form-group select, .form-group textarea {
+	    width: 100%;
+	    padding: 8px;
+	    border: 1px solid #ccc;
+	    border-radius: 4px;
+	}
+    .chessForm label.errorModal {
+	    color: red;
+	    font-size: 13px;
+	    padding: 10px;
+	}
+	.chessForm input.errorModal {
+	    border: 1px solid #ff1919;
+	}
+    .form-horizontal .control-label {
+    	text-align:left;
+    }
+    #search .row div{
+    	padding:7px
+    }
+    #search .row label{
+    	padding:7px
+    }
+    #recovery-api .autherror{
+    	color:red
+    }
+    #recovery-api .success{
+    	color:green
+    }
+    input#playerName {
+	    width: 100%;
+	    max-width: 446px;
+	    height: 39px;
+	    padding-left: 19px;
+	    margin-left: 10px;
+	    border: none;
+	    background-color: #fff;
+	    outline: none;
+	    font-size: 18px;
+	    height: 28px;
+	    padding: 0 15px;
+	    max-width: 470px;
+	}
+    section.report_wrapper {
+	    background: none;
+	    padding-top:100px
+	}
+	#search{padding-left:15px}
+    .logo img{
+    	height:34px
+    }
+	.box{
+	
+		border: 1px solid #e5e7eb;
+	    border-radius: 0.375rem;
+	    overflow: hidden;
+		padding:15px;
+		background: white;		
+	}
+    .tabs {
+      display: flex;
+      background-color: #007bff;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .tabs button {
+      flex: 1;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+	.home-cover__title {
+	    margin: 0;
+	    margin-bottom:70px;
+	    font-family: var(--font-family);
+	    font-weight: bold;
+	    font-size: 64px;
+	    line-height: 1.2;
+	    color:black;
+	}
+    .tabs button:hover {
+      background-color: #0056b3;
+    }
+
+    .tabs button.active {
+      background-color: #0056b3;
+    }
+
+    .container {
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      padding:24px;
+    }
+    #innerPage .container
+    {
+    	margin-bottom: 1.5rem;
+    }
+    .modal-dialog .modal-content
+    {
+    	max-width: 550px
+    }
+    .searchesTitle{
+    	color: white;
+	    text-align: left;
+	    font-weight: 500;
+    }
+    table.dataTable thead th
+    {
+    	padding: 0.75rem;
+	    text-align: left;
+	    font-weight: 600;
+	    color: #374151;
+	    white-space: nowrap;
+    }
+    .table-striped tbody tr:nth-of-type(odd) {
+	    background-color: rgba(0, 0, 0, .02);
+	}
+	.moves-text.truncated {
+	    white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	}
+	section.header_cover{
+		background: white;
+		background-image:none;
+	}
+    .form-section {
+      margin-bottom: 20px;
+    }
+
+    .form-section h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    @media (min-width: 767px) {
+	    .mobile {
+	        display: none;
+	    }
+	}
+	@media (max-width: 767px) {
+	    .desktop {
+	        display: none;
+	    }
+	}
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+	ul.nav.navbar-nav.nav-right {
+	    float: none; 
+	    display: contents; 
+	    
+	}
+	@media (max-width: 767px) {
+		.navbar
+		{
+			padding: .5rem 1rem;
+		}
+	}
+	header#nav.affix-top li.btn-with-icon.btn-border a {
+	    border: 1px solid #42bae3;
+	    border-radius: 4px;
+	    color: white;
+	    background: #4abbe2;
+	}
+    .button-orange {
+      background-color: orange;
+      color: white;
+    }
+
+    .button-orange:hover {
+      background-color: darkorange;
+    }
+
+    .button-green {
+      background-color: green;
+      color: white;
+    }
+
+    .button-green:hover {
+      background-color: darkgreen;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+	#navbarNav
+	{		
+        justify-content: flex-end
+	}
+	.fa-youtube-play
+	{
+		color: red;
+		font-size: 18px;
+		margin-top: 2px;
+    	margin-right: 4px;
+	}
+	.modal-center {
+	  position: fixed;
+	  left: 50%;
+	  top: 50%;
+	  transform: translate(-50%, -50%);
+	}
+	.panel-username {
+	    font-weight: 600;
+	    color: #1f2937;
+	    font-size: 17px;
+	}
+	.panel-current-plan {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      background: #f9fafb;
+      border-top: 1px solid #e5e7eb;
+      border-bottom: 1px solid #e5e7eb;
+      margin-bottom: 8px;
+    }
+
+    .plan-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #6b7280;
+    }
+
+    .plan-badge {
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .plan-badge-free {
+      background: #e5e7eb;
+      color: #4b5563;
+    }
+
+    .plan-badge-starter {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .plan-badge-club {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .plan-badge-professional {
+      background: #fef3c7;
+      color: #92400e;
+    }
+	.btn-group-vertical .btn i{float: right;padding-top: 3px;color: lightgray;}
+	div.pageHeading {
+	    padding: 10px;
+	    line-height: 40px;
+	    color: #404040;
+	    font-weight: 400 !important;
+	    font-size: 22px;
+	    background: transparent !important;
+	    font-family: 'Inter', sans-serif;
+	}
+	.dataTables_wrapper.no-footer .dataTables_scrollBody {
+	    border-bottom: 1px solid #e5e7eb;
+	}
+	.modal-title{font-weight:700}
+	.modal-header{background-color: #1fceae;font-weight:700}
+	select{font-weight: 400}
+	.modal-content{border-radius: 8px;}
+	i:hover{color:#337AB7;cursor: pointer}
+	#searches i:hover{color:#337AB7;cursor: pointer}
+	#innerPage .dataTable {border-bottom: 1px solid #e5e7eb !important;}
+	.dataTable thead {background-color: #f9fafb}
+	.padder{height:20px}
+	.modal-header .close {
+	    padding: 1px;
+	    background-color: transparent;
+	}
+	.cv-spinner {
+	  height: 100%;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;  
+	  flex-direction: column;
+	}
+	.spinner {
+	  width: 40px;
+	  height: 40px;
+	  border: 4px #ddd solid;
+	  border-top: 4px #2e93e6 solid;
+	  border-radius: 50%;
+	  animation: sp-anime 0.8s infinite linear;
+	}
+	@keyframes sp-anime {
+	  100% { 
+	    transform: rotate(360deg); 
+	  }
+	}
+	.is-hide{
+	  display:none;
+	}
+	.popover{
+        max-width:60%;
+    }
+    .popover-body {
+	    height: 300px;
+	    overflow-y: auto;
+	    white-space:pre-wrap;
+	}
+	#gamesTable .btn-sm{
+		padding:0px 6px 3px 6px;
+		
+	}
+	#onlineGamesTable .btn-sm{
+		padding:0px 6px 3px 6px;
+		
+	}
+	#onlineGamesTable i{
+		margin:4px;
+		font-size: 18px;
+	}
+	.fa-arrow-circle-down{
+		color: #1fceae;
+	}
+	.fa-plus-circle{
+		color: #1fceae;
+	}
+	table.dataTable thead th, table.dataTable tfoot th {
+    /* font-weight: bold; */
+	    color: #384042 !important;
+	}
+	#noGamesAlert{
+		font-size: 15px;
+	}
+	.fa-exclamation-triangle{
+		font-size:20px;
+	}
+	.modal-tab
+	{
+		border-top: 0px;
+	    border-top-right-radius: 0px;
+	    border-top-left-radius: 0px;
+	}
+	#boardActionsContainer
+	{
+		border-top: 0px;
+	    border-top-right-radius: 0px;
+	    border-top-left-radius: 0px;
+	    width:100%;
+	}
+	@media (min-width: 767px) {
+	    #myBoard
+		{
+			width:436px;
+		}
+	}
+	@media (max-width: 767px) {
+	    #myBoard
+		{
+			width:300px;
+		}
+		#gameArrows
+		{
+			padding-bottom: 5px;
+		}
+		#boardActionsContainer
+		{
+			padding-top: 10px;
+		}
+	}
+	#color
+	{
+		font-size: 14px
+	}
+	nav ul {
+	    list-style: none;
+	    padding: 0;
+	}
+	.navbar-collapse
+	{
+		margin-top: inherit;
+	}
+	#innerPage
+	{
+		padding-top: 20px;
+	}
+	/* segmented pill navigation */
+	#navbarNav { justify-content: center; }
+	#navbarNav.tour-nav-hidden, #guideTourBtn.tour-nav-hidden { visibility: hidden !important; }
+	#navbarNav.tour-nav-hidden ~ .navbar-toggler { visibility: hidden !important; }
+	.nav-pill-group {
+		background: #f1f3f5;
+		border: 1px solid #e9ecef;
+		border-radius: 24px;
+		padding: 4px;
+		display: flex;
+		flex-direction: row;
+		gap: 2px;
+	}
+	.nav-pill-group .nav-item .nav-link {
+		border-radius: 20px;
+		padding: 6px 18px !important;
+		font-size: 15px;
+		font-weight: 600;
+		color: #6c757d;
+		white-space: nowrap;
+		transition: all 0.15s;
+	}
+	.nav-pill-group .nav-item .nav-link:hover { color: #1fceae; }
+	.nav-pill-group .nav-item.active .nav-link {
+		background: #1fceae;
+		color: #fff !important;
+		box-shadow: 0 2px 8px rgba(31, 206, 174, 0.35);
+	}
+	.nav-pill-group .nav-item.active .nav-link:hover { color: #fff; }
+	.nav-video-btn { margin-right: 14px; font-size: 20px; color: #ff0000; display: flex; align-items: center; }
+	#guideTourBtn { color: #14b8a6; }
+	.beta-badge {
+		font-size: 9px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		background: #fef3c7;
+		color: #b45309;
+		border: 1px solid #fcd34d;
+		border-radius: 8px;
+		padding: 1px 6px;
+		top: -0.7em;
+	}
+	.nav-pill-group .nav-item.active .nav-link .beta-badge { background: rgba(255,255,255,0.25); color: #fff; border-color: rgba(255,255,255,0.5); }
+	body.dark-mode .beta-badge { background: #3a2e12 !important; color: #fcd34d !important; border-color: #b45309 !important; }
+	@media (max-width: 991px) {
+		.nav-pill-group { flex-direction: column; border-radius: 12px; }
+		.nav-pill-group .nav-item .nav-link { text-align: center; border-radius: 10px; }
+		/* tour button hugs the right, next to the profile button */
+		.nav-video-btn { margin-left: auto; margin-right: 14px; }
+	}
+
+	/* ---------- phone bottom navigation ---------- */
+	#bottomNav { display: none; }
+	@media (max-width: 767px) {
+		/* the bottom bar replaces the hamburger on phones */
+		.navbar-toggler { display: none !important; }
+		body { padding-bottom: 74px; }
+		#bottomNav {
+			display: flex;
+			position: fixed;
+			bottom: 0; left: 0; right: 0;
+			z-index: 1030;
+			background: #fff;
+			border-top: 1px solid #e9ecef;
+			justify-content: space-around;
+			align-items: stretch;
+			padding: 8px 0 calc(7px + env(safe-area-inset-bottom));
+			box-shadow: 0 -2px 10px rgba(0,0,0,0.04);
+		}
+		#bottomNav a {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 4px;
+			position: relative;
+			padding: 3px 6px 0;
+			min-width: 62px;
+			font-size: 11.5px;
+			font-weight: 600;
+			color: #8a94a0;
+			text-decoration: none;
+			white-space: nowrap;
+		}
+		#bottomNav a svg { width: 22px; height: 22px; }
+		#bottomNav a.active { color: #1fceae; }
+		#bottomNav a.active::before {
+			content: '';
+			position: absolute;
+			top: -9px;
+			width: 30px; height: 3px;
+			border-radius: 2px;
+			background: #1fceae;
+		}
+		#bottomNav.tour-nav-hidden { display: none !important; }
+	}
+	body.dark-mode #bottomNav { background: #16213e !important; border-color: #2e3f60 !important; box-shadow: 0 -2px 10px rgba(0,0,0,0.3); }
+	body.dark-mode #bottomNav a { color: #8fa3c0; }
+	body.dark-mode #bottomNav a.active { color: #1fceae; }
+	body.dark-mode .nav-pill-group { background: #16213e !important; border-color: #2e3f60 !important; }
+	body.dark-mode .nav-pill-group .nav-item .nav-link { color: #8fa3c0 !important; }
+	body.dark-mode .nav-pill-group .nav-item.active .nav-link { background: #1fceae !important; color: #fff !important; }
+	.gauge-bar-container {
+	  width: 100%;
+	  background-color: #ddd;
+	  font-size: 12px;
+	  border-radius: 5px;
+	  overflow: hidden;
+	  height: 20px; /* Adjust height as needed */
+	}
+	
+	.gauge-bar-fill {
+	  background-color: #4CAF50; /* Green color */
+	  color: white;
+	  text-align: right;
+	  padding-right: 5px;
+	  height: 100%;
+	  box-sizing: border-box;
+	}
+	.gauge-green{
+		background-color: #4CAF50; 
+	}
+	.gauge-yellow{
+		background-color: #febb00;; 
+	}
+	.gauge-orange{
+		background-color: #f68027; 
+	}
+	.gauge-red{
+		background-color: red; 
+	}
+	.metrics-panel {
+      position: fixed;
+      top: 70px;
+      right: 20px;
+      width: 300px;
+      background: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      color: #1f2937;
+      border: 1px solid #e5e7eb;
+      z-index: 1000;
+      display: none;
+      animation: slideIn 0.3s ease;
+    }
+
+    .metrics-panel.active {
+      display: block;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .panel-user-header {
+      padding: 1rem;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .panel-user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #e5e7eb;
+    }
+    .user-avatar {
+	    width: 24px;
+	    height: 24px;
+	    border-radius: 50%;
+	    object-fit: cover;
+	    border: 2px solid #e5e7eb;
+	}
+	.user-profile-btn {
+	    display: flex;
+	    align-items: center;
+	    gap: 0.5rem;
+	    background: white;
+	    border: 1px solid #e5e7eb;
+	    padding: 0.5rem 1rem;
+	    border-radius: 0.375rem;
+	    cursor: pointer;
+	    font-size: 0.875rem;
+	    color: #374151;
+	    transition: all 0.2s;
+	}
+	.user-profile-btn:hover {
+      border-color: #14b8a6;
+      background: #f0fdfa;
+    }
+    
+    .panel-user-avatar-fallback {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #14b8a6;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .metrics-list {
+      padding: 1rem;
+    }
+
+    .metric-item {
+      margin-bottom: 1rem;
+    }
+
+    .metric-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.25rem;
+      font-size: 0.75rem;
+    }
+
+    .metric-name {
+      color: #6b7280;
+    }
+
+    .metric-values {
+      color: #9ca3af;
+    }
+
+    .metric-bar {
+      width: 100%;
+      height: 6px;
+      background: #e5e7eb;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .metric-progress {
+      height: 100%;
+      background: linear-gradient(90deg, #14b8a6, #0d9488);
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+
+    .panel-actions {
+      padding: 0 1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .panel-btn {
+      width: 100%;
+      padding: 0.625rem;
+      border: none;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .panel-btn-primary {
+      background: #14b8a6;
+      color: white;
+    }
+
+    .panel-btn-primary:hover {
+      background: #0d9488;
+    }
+
+    .panel-btn-secondary {
+      background: #f3f4f6;
+      color: #374151;
+      border: 1px solid #d1d5db;
+    }
+
+    .panel-btn-secondary:hover {
+      background: #e5e7eb;
+    }
+
+    .panel-theme {
+      padding: 1rem;
+      border-top: 1px solid #e5e7eb;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.875rem;
+    }
+
+    .theme-toggle {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .theme-switch-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .theme-icon {
+      width: 16px;
+      height: 16px;
+      color: #6b7280;
+      flex-shrink: 0;
+    }
+
+    .dm-switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+      margin: 0;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .dm-switch input { opacity: 0; width: 0; height: 0; position: absolute; }
+    .dm-slider {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #d1d5db;
+      border-radius: 24px;
+      transition: background 0.25s;
+    }
+    .dm-slider:before {
+      content: "";
+      position: absolute;
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.25s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+    .dm-switch input:checked + .dm-slider { background: #14b8a6; }
+    .dm-switch input:checked + .dm-slider:before { transform: translateX(20px); }
+
+    .theme-btn {
+      width: 32px;
+      height: 32px;
+      border: 1px solid #d1d5db;
+      background: #f9fafb;
+      color: #6b7280;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .theme-btn:hover {
+      background: #f3f4f6;
+      border-color: #14b8a6;
+    }
+
+    .theme-btn.active {
+      background: #14b8a6;
+      color: white;
+      border-color: #14b8a6;
+    }
+
+    .panel-menu {
+      padding: 0.5rem 0;
+    }
+
+    .menu-item {
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #374151;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .menu-item:hover {
+      background: #f3f4f6;
+    }
+
+    .menu-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .panel-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: transparent;
+      z-index: 999;
+      display: none;
+    }
+
+    .panel-overlay.active {
+      display: block;
+    }
+    /* Avatar with initials */
+    .avatar-initials {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: 600;
+      color: white;
+      background: #14b8a6;
+      flex-shrink: 0;
+    }
+    
+    .avatar-sm {
+      width: 24px;
+      height: 24px;
+      font-size: 10px;
+    }
+    
+    .avatar-md {
+      width: 32px;
+      height: 32px;
+      font-size: 13px;
+    }
+    
+    .avatar-lg {
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+    }
+    
+    .avatar-xl {
+      width: 64px;
+      height: 64px;
+      font-size: 24px;
+    }
+    /* Limit Reached Modal */
+      .limit-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 10001;
+        padding: 20px;
+      }
+      
+      .limit-modal-overlay.active {
+        display: flex;
+      }
+      
+      .limit-modal {
+        background: white;
+        border-radius: 16px;
+        max-width: 440px;
+        width: 100%;
+        padding: 40px;
+        position: relative;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        animation: limitModalIn 0.3s ease-out;
+      }
+      
+      @keyframes limitModalIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95) translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+      
+      .limit-modal-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: none;
+        border: none;
+        font-size: 28px;
+        color: #94a3b8;
+        cursor: pointer;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        transition: all 0.2s;
+      }
+      
+      .limit-modal-close:hover {
+        background: #f1f5f9;
+        color: #1e293b;
+      }
+      
+      .limit-modal-icon {
+        margin-bottom: 20px;
+      }
+      
+      .limit-modal-title {
+        font-size: 24px;
+        color: #1e293b;
+        margin: 0 0 12px 0;
+      }
+      
+      .limit-modal-text {
+        color: #64748b;
+        font-size: 15px;
+        margin: 0 0 24px 0;
+        line-height: 1.5;
+      }
+      
+      .limit-modal-usage {
+        background: #f8fafc;
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 24px;
+      }
+      
+      .usage-bar-container {
+        height: 8px;
+        background: #e2e8f0;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-bottom: 8px;
+      }
+      
+      .usage-bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #f59e0b, #ef4444);
+        border-radius: 4px;
+        transition: width 0.3s;
+      }
+      
+      .usage-text {
+        font-size: 13px;
+        color: #64748b;
+        font-weight: 500;
+      }
+      
+      .limit-modal-benefits {
+        text-align: left;
+        margin-bottom: 24px;
+        padding: 16px 20px;
+        background: #f0fdfa;
+        border-radius: 8px;
+        border: 1px solid #99f6e4;
+      }
+      
+      .limit-modal-benefits p {
+        margin: 0 0 12px 0;
+        font-weight: 600;
+        color: #0f766e;
+        font-size: 14px;
+      }
+      
+      .limit-modal-benefits ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .limit-modal-benefits li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 6px 0;
+        color: #475569;
+        font-size: 14px;
+      }
+      
+      .limit-modal-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .limit-btn-upgrade {
+        padding: 14px 24px;
+        background: #14b8a6;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      
+      .limit-btn-upgrade:hover {
+        background: #0d9488;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
+      }
+      
+      .limit-btn-cancel {
+        padding: 12px 24px;
+        background: transparent;
+        color: #64748b;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      
+      .limit-btn-cancel:hover {
+        background: #f1f5f9;
+        color: #1e293b;
+      }
+      
+      .limit-modal-reset {
+        margin: 20px 0 0 0;
+        font-size: 13px;
+        color: #94a3b8;
+      }
+      /* early-renewal ("Renew now") offer inside the limit modal */
+      .limit-modal-refill {
+        text-align: left;
+        margin-bottom: 24px;
+        padding: 16px 20px;
+        background: #fffbeb;
+        border-radius: 8px;
+        border: 1px solid #fde68a;
+      }
+      .limit-refill-title {
+        margin: 0 0 8px 0;
+        font-weight: 600;
+        color: #92400e;
+        font-size: 14px;
+      }
+      .limit-refill-text {
+        margin: 0 0 12px 0;
+        font-size: 13px;
+        color: #475569;
+        line-height: 1.5;
+      }
+      .limit-btn-refill {
+        width: 100%;
+      }
+      .limit-btn-refill[disabled] {
+        opacity: 0.6;
+        cursor: wait;
+        transform: none;
+        box-shadow: none;
+      }
+      .limit-refill-note {
+        margin: 8px 0 0 0;
+        font-size: 12px;
+        color: #94a3b8;
+        text-align: center;
+      }
+      .limit-modal-actions .limit-btn-secondary {
+        background: transparent;
+        color: #14b8a6;
+        border: 1px solid #99f6e4;
+      }
+      .limit-modal-actions .limit-btn-secondary:hover {
+        background: #f0fdfa;
+        box-shadow: none;
+        transform: none;
+      }
+      .metric-refill-link {
+        display: block;
+        margin-top: 6px;
+        font-size: 12px;
+        font-weight: 600;
+        color: #14b8a6;
+        text-decoration: none;
+      }
+      .metric-refill-link:hover {
+        color: #0d9488;
+        text-decoration: underline;
+      }
+      #pricingModal .modal-header{border-bottom: 0px}
+      /* Mobile nav links inside panel - hidden on desktop */
+      .mobile-nav-links {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        .hamburger-btn {
+          display: block;
+        }
+        
+        .panel-close-row {
+          display: flex;
+        }
+        
+        .mobile-nav-links {
+          display: flex;
+          flex-direction: column;
+          text-align: left;
+        }
+        
+        .mobile-nav-links a {
+		  text-decoration: none;
+		  color: #374151;
+		  font-size: 15px;
+		  font-weight: 500;
+		  padding: 12px 1rem;
+		  border-bottom: 1px solid #f1f5f9;
+		  transition: color 0.2s;
+		}
+        
+        .mobile-nav-links a:last-child {
+          border-bottom: none;
+        }
+        
+        .mobile-nav-links a:hover {
+          color: #14b8a6;
+        }
+        
+        .metrics-panel {
+          right: -320px;
+          border-radius: 0.5rem;
+          box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+          transition: right 0.3s ease;
+          animation: none;
+          overflow-y: auto;
+        }
+        
+        .metrics-panel.active {
+          right: 20px;
+        }
+      }
+
+    /* â”€â”€ Dark mode â”€â”€ */
+    body.dark-mode { background-color: #1a1a2e !important; color: #d0d8e8 !important; }
+    body.dark-mode .container { background-color: #16213e !important; border-color: #2e3f60 !important; }
+    body.dark-mode .box { background-color: #16213e !important; border-color: #2e3f60 !important; }
+    body.dark-mode #searchesContainer { background: #1e2a45 !important; }
+    body.dark-mode #searches button { background: #1e2a45 !important; color: #c8d4e8 !important; border-color: #2e3f60 !important; }
+    body.dark-mode #searches button.active { background: #1a3050 !important; border-left-color: #14b8a6 !important; }
+    body.dark-mode #search .row { border-bottom-color: #2e3f60 !important; }
+    body.dark-mode #search .row label { color: #8fa3c0 !important; }
+    body.dark-mode #search .row div.col-6 { color: #c8d4e8 !important; }
+    body.dark-mode table,
+    body.dark-mode .table thead th,
+    body.dark-mode table.dataTable thead th { background-color: #16213e !important; color: #c8d4e8 !important; }
+    body.dark-mode table.dataTable tbody tr { background-color: #16213e !important; color: #c8d4e8 !important; }
+    body.dark-mode table.dataTable tbody tr:hover { background-color: #1e2a45 !important; }
+    body.dark-mode table.dataTable tbody td { border-color: #2e3f60 !important; color: #c8d4e8 !important; }
+    body.dark-mode .dataTable { border-bottom-color: #2e3f60 !important; }
+    body.dark-mode .modal-content { background-color: #16213e !important; color: #d0d8e8 !important; border-color: #2e3f60 !important; }
+    body.dark-mode .modal-body { background-color: #16213e !important; color: #d0d8e8 !important; }
+    body.dark-mode .modal-body label { color: #8fa3c0 !important; }
+    body.dark-mode .modal-footer { background-color: #16213e !important; border-top-color: #2e3f60 !important; }
+    body.dark-mode input[type=text],
+    body.dark-mode input[type=date],
+    body.dark-mode textarea,
+    body.dark-mode select,
+    body.dark-mode .form-select,
+    body.dark-mode .form-control { background-color: #1e2a45 !important; color: #d0d8e8 !important; border-color: #2e3f60 !important; }
+    body.dark-mode input[disabled],
+    body.dark-mode input:disabled { background-color: #232f48 !important; color: #6b7a94 !important; }
+    body.dark-mode .results-header { color: #c8d4e8 !important; }
+    body.dark-mode .btn-group-vertical .btn { color: #c8d4e8 !important; }
+    body.dark-mode .alert-warning { background-color: #2e2a10 !important; border-color: #5a4d00 !important; color: #d4c46a !important; }
+    body.dark-mode .alert-danger { background-color: #2e1010 !important; border-color: #5a0000 !important; color: #e08080 !important; }
+    body.dark-mode .badge { background: #0d3330 !important; color: #5eead4 !important; border-color: #0d6b5f !important; }
+    body.dark-mode .popover { background-color: #16213e !important; border-color: #2e3f60 !important; color: #d0d8e8 !important; }
+    body.dark-mode .popover-body { background-color: #16213e !important; color: #d0d8e8 !important; }
+    body.dark-mode .dataTables_empty { color: #8fa3c0 !important; }
+    body.dark-mode a.slickResultsTH { color: #8fa3c0 !important; }
+    body.dark-mode .editable-player { border-bottom-color: #4a5f80 !important; }
+    body.dark-mode .game-compare > div { border-left-color: #2e3f60 !important; }
+    body.dark-mode .btn-secondary { background-color: #2e3f60 !important; border-color: #3a4f72 !important; color: #d0d8e8 !important; }
+    body.dark-mode .btn-close { filter: invert(1); }
+    body.dark-mode h2.card-title, body.dark-mode h3.card-title { color: #c8d4e8 !important; }
+    body.dark-mode .tooltip > .tooltip-inner { background-color: #1e2a45 !important; border-color: #3a4f72 !important; color: #c8d4e8 !important; }
+    body.dark-mode .nav-tabs .nav-link { color: #8fa3c0 !important; }
+    body.dark-mode .nav-tabs .nav-link.active { background-color: #1e2a45 !important; border-color: #2e3f60 #2e3f60 #1e2a45 !important; color: #d0d8e8 !important; }
+    body.dark-mode .navbar-brand .logo_bright { display: none !important; }
+    body.dark-mode .navbar-brand .logo_dark { display: none !important; }
+    body.dark-mode .navbar-brand .logo_darkmode { display: block !important; }
+    body.dark-mode #navbarNav { background-color: #16213e !important; }
+    body.dark-mode .navbar-light .navbar-nav .nav-link { color: #c8d4e8 !important; }
+    body.dark-mode .navbar-light .navbar-nav .nav-link:hover { color: #ffffff !important; }
+    body.dark-mode .navbar-toggler { border-color: #2e3f60 !important; color: #c8d4e8 !important; }
+    body.dark-mode .navbar-toggler-icon { filter: invert(1); }
+    body.dark-mode header, body.dark-mode .metrics-panel { background-color: #16213e !important; border-color: #2e3f60 !important; color: #d0d8e8 !important; }
+    body.dark-mode .menu-item { color: #c8d4e8 !important; }
+    body.dark-mode .menu-item:hover { background: #1e2a45 !important; }
+    body.dark-mode .panel-user-header, body.dark-mode .panel-section-header { color: #c8d4e8 !important; }
+    body.dark-mode .panel-username { color: #e0e8f8 !important; }
+    body.dark-mode .metric-name, body.dark-mode .metric-values, body.dark-mode .plan-label { color: #8fa3c0 !important; }
+    body.dark-mode .metric-bar { background: #2e3f60 !important; }
+    body.dark-mode .panel-current-plan { background: #1e2a45 !important; border-color: #2e3f60 !important; }
+    body.dark-mode .navbar { background-color: #16213e !important; }
+    body.dark-mode .user-profile-btn { background: #1e2a45 !important; color: #d0d8e8 !important; border-color: #2e3f60 !important; }
+    body.dark-mode #subAccountsSection { border-top-color: #2e3f60 !important; border-bottom-color: #2e3f60 !important; }
+    body.dark-mode #subAccountList li { color: #c8d4e8 !important; }
+    body.dark-mode .binoculars-icon { stroke: #7dd3c8 !important; }
+    body.dark-mode #gameArrows a, body.dark-mode #gameArrows i { color: #c8d4e8 !important; }
+    body.dark-mode #boardActionsContainer a.slickResultsTH,
+    body.dark-mode #boardActionsContainer a.slickResultsTH i { color: #8fa3c0 !important; }
+    body.dark-mode #exploreGame label { color: #8fa3c0 !important; }
+    body.dark-mode #addGame a, body.dark-mode #addGame label a { color: #8fa3c0 !important; }
+    body.dark-mode [aria-label="Chessboard"] { color: #7dd3c8 !important; }
+    body.dark-mode #moveOptionsTable a { color: #7dd3c8 !important; }
+    body.dark-mode #moveOptionsTable a:hover { color: #a5f3ee !important; }
+    body.dark-mode #boardModal2 .boardActions a,
+    body.dark-mode #boardModal2 .boardActions i { color: #c8d4e8 !important; }
+    body.dark-mode #boardModal2 .boardActions a:hover,
+    body.dark-mode #boardModal2 .boardActions i:hover { color: #ffffff !important; }
+    body.dark-mode .dataTables_info { color: #8fa3c0 !important; }
+    body.dark-mode .dataTables_wrapper .dataTables_paginate .paginate_button { color: #c8d4e8 !important; }
+    body.dark-mode .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+    body.dark-mode .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover { color: #6b7a94 !important; background: transparent !important; border-color: transparent !important; }
+    body.dark-mode .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+    body.dark-mode .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover { background: #1e2a45 !important; border-color: #3a4f72 !important; color: #ffffff !important; }
+    body.dark-mode .dataTables_wrapper .dataTables_paginate .paginate_button:not(.current):not(.disabled):hover { background: #1e2a45 !important; border-color: #2e3f60 !important; color: #ffffff !important; }
+    body.dark-mode .dataTables_wrapper .dataTables_length,
+    body.dark-mode .dataTables_wrapper .dataTables_filter { color: #8fa3c0 !important; }
+  </style>
+  <script>
+ 	    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+		var showAddGameMsg = true;
+  		function showInnerLoading()
+  		{
+  			$("#innerPage").html('<div style="text-align:center;padding:100px 0;color:#888;">'
+  				+ '<i class="fa fa-spinner fa-spin fa-3x"></i>'
+  				+ '<div style="margin-top:14px;font-size:14px;">Loading&hellip;</div></div>');
+  		}
+  		function loadInnerPage(event)
+  		{
+  			window.currentPageReplayTour = null;
+  			if (typeof chessData === 'undefined' || chessData == null || chessData.user == null) {
+  				window.location.replace('/snoop/index.jsp');
+  				return;
+  			}
+  			queryString = window.location.search;
+  			urlParams = new URLSearchParams(queryString);
+  			user = urlParams.get('user');
+  			page = urlParams.get('page');
+  			gameSource = urlParams.get('gameSource');
+  			var color = urlParams.get('color');
+  			$('#navbarNav li').removeClass("active");
+  			// keep the phone bottom bar in sync with the loaded screen
+  			$('#bottomNav a').removeClass('active');
+  			var bnMap = { findUser: '#bnFindUser', explore: '#bnExplore', prep: '#bnPrep', train: '#bnTrain' };
+  			$(bnMap[page] || '#bnFindUser').addClass('active');
+  			if(page==="explore")
+  			{
+  				var innerUrl = "/snoop/explore.jsp?_=" + new Date().getTime();
+  				if(user!==null)
+  					innerUrl = innerUrl+'&user='+ user;
+  				if(gameSource!==null)
+  					innerUrl = innerUrl + '&gameSource='+ gameSource;
+  				if(color!==null)
+  					innerUrl = innerUrl + '&color='+ color;
+  				var originSearch = urlParams.get('search');
+  				if(originSearch!==null)
+  					innerUrl = innerUrl + '&search='+ encodeURIComponent(originSearch);
+  	  			showInnerLoading();
+  	  			$("#innerPage").load(innerUrl);
+  	  			$("#exploreNav").addClass("active");
+  	  			$('#navbarNav, #guideTourBtn, #bottomNav').removeClass('tour-nav-hidden');
+  			}
+  			else if(page==="prep")
+  			{
+  				var prepUrl = "/snoop/prep.jsp?_=" + new Date().getTime();
+  				if(user!==null) prepUrl += '&user=' + user;
+  				if(gameSource!==null) prepUrl += '&gameSource=' + gameSource;
+  				if(color!==null) prepUrl += '&color=' + color;
+  				var prepSearch = urlParams.get('search');
+  				if(prepSearch!==null) prepUrl += '&search=' + encodeURIComponent(prepSearch);
+  				showInnerLoading();
+  				$("#innerPage").load(prepUrl);
+  				$("#prepNav").addClass("active");
+  				$('#navbarNav, #guideTourBtn, #bottomNav').removeClass('tour-nav-hidden');
+  			}
+  			else if(page==="train")
+  			{
+  				var trainUrl = "/snoop/train.jsp?_=" + new Date().getTime();
+  				var trainPrepId = urlParams.get('prepId');
+  				if(trainPrepId===null && window.activePrepId) trainPrepId = String(window.activePrepId);
+  				if(trainPrepId!==null) trainUrl += '&prepId=' + encodeURIComponent(trainPrepId);
+  				showInnerLoading();
+  				$("#innerPage").load(trainUrl);
+  				$("#trainNav").addClass("active");
+  				$('#navbarNav, #guideTourBtn, #bottomNav').removeClass('tour-nav-hidden');
+  			}
+  			else if(page!=="onboarding" && (urlParams.get('fideId') || urlParams.get('uscfId'))
+  				&& !(chessData != null && chessData.user && chessData.user.isSubAccount))
+  			{
+  				var otbFideId = urlParams.get('fideId');
+  				var otbUscfId = urlParams.get('uscfId');
+  				var hasExistingSearch = typeof chessData !== 'undefined' && chessData != null && chessData.searchName != null;
+  				if (chessData.user && chessData.user.usedSearches >= chessData.user.searchesLimit) {
+  					window.history.replaceState(null, '', '/snoop/dashboard.jsp');
+  					window.otbShowLimitModal = true;
+  					loadInnerPage("chess");
+  					return;
+  				}
+  				var otbFail = function() {
+  					if (hasExistingSearch) { window.history.replaceState(null, '', '/snoop/dashboard.jsp'); loadInnerPage("chess"); }
+  					else $("#innerPage").load("/snoop/onboarding.jsp");
+  				};
+  				if (!hasExistingSearch)
+  					$('#navbarNav, #guideTourBtn, #bottomNav').addClass('tour-nav-hidden');
+  				var idParam = otbFideId ? 'fideId=' + encodeURIComponent(otbFideId) : 'uscfId=' + encodeURIComponent(otbUscfId);
+  				$("#innerPage").html('<div style="text-align:center;padding:100px 0"><i class="fa fa-spinner fa-spin fa-3x"></i></div>');
+  				$.getJSON('/snoop/servlet/DataSerializerServlet?screen=chess&action=buildSearchFromFideId&' + idParam, function(data) {
+  					if (!data || !data.name) { otbFail(); return; }
+  					$.ajax({
+  						type: 'POST', dataType: 'json',
+  						url: '/snoop/servlet/DataSerializerServlet?screen=chess&',
+  						//pass the player's id so the search stores it (games then match by fide id, not
+  						//brittle name matching). Without this the search saves fide_id/uscf_id = NULL and
+  						//the games lookup collapses to name matching - 1 of N games for common names.
+  						data: { action: 'addNewSearch', fullName: data.name, rating: data.rating, country: data.country, fideId: otbFideId || '', uscfId: otbUscfId || '' },
+  						success: function(response) {
+  							chessData = response;
+  							if (chessData.message) { otbFail(); return; }
+  							window.history.replaceState(null, '', '/snoop/dashboard.jsp');
+  							//chessData.progress in this response now drives result polling in chess.jsp
+  							loadInnerPage("chess");
+  						},
+  						error: function() { otbFail(); }
+  					});
+  				}).fail(function() { otbFail(); });
+  				$("#findUserNav").addClass("active");
+  			}
+  			else if((page==="onboarding"||typeof chessData === 'undefined'||chessData==null|| chessData.searchName == null)
+  				&& !(chessData != null && chessData.user && chessData.user.isSubAccount))
+  			{
+  				$('#navbarNav, #guideTourBtn, #bottomNav').addClass('tour-nav-hidden');
+  				$("#innerPage").load("/snoop/onboarding.jsp");
+  				$("#findUserNav").addClass("active");
+  			}
+  			else
+  			{
+  				showInnerLoading();
+  				$("#innerPage").load("/snoop/chess.jsp");
+  				$("#findUserNav").addClass("active");
+  				$('#navbarNav, #guideTourBtn, #bottomNav').removeClass('tour-nav-hidden');
+  			}
+  			if(chessData!=null && chessData.user!=null)
+  				updatePlanMeters(chessData.user);
+  		}
+		loadInnerPage();
+		window.addEventListener('popstate', (event) => {
+			loadInnerPage();
+		});
+  		
+  		$(document).ready(function() {
+  		    $(document).on('click', '.nav-item a', function (e) {
+  		        $(this).parent().addClass('active').siblings().removeClass('active');
+  		    });
+  		    console.log('hi');
+  		    if (!chessData || !chessData.user) return;
+	  		$('#navbarNav').on('shown.bs.collapse', function () {
+	  			$(".navbar").css("border-bottom", "1px solid #d9d9d9");	
+	  		});
+	
+			$('#navbarNav').on('hidden.bs.collapse', function () {
+				$(".navbar").css("border-bottom", "0px solid #d9d9d9");		
+			});
+			$('.user-profile-btn span').html(chessData.user.userName.replace(/\@.*/, ''));
+			$('.panel-username').html(chessData.user.userName.replace(/\@.*/, ''));
+			$('.panel-user-avatar').attr("src",chessData.user.profileImage);
+			$('.user-avatar').attr("src",chessData.user.profileImage);
+			if(!chessData.user.profileImage)
+			{
+				var initials = getInitials(chessData.user.userName);
+				$('.avatar-initials').html(initials);
+				$('.avatar-initials').show();
+				$('.panel-avatar-initials').html(initials);
+				$('.avatar-avatar-initials').show();
+				$('.panel-user-avatar').hide();
+				$('.user-avatar').hide();				
+			}else
+			{
+				$('.avatar-initials').hide();
+				$('.user-avatar').show();
+				$('.user-user-avatar').show();
+				$('.panel-username').show();
+				$('.avatar-avatar-initials').hide();
+				$('.user-avatar, .panel-user-avatar').on('error', function() {
+					$(this).hide();
+					var initials = getInitials(chessData.user.userName);
+					$('.avatar-initials').html(initials).show();
+					$.get('/snoop/servlet/DataSerializerServlet?screen=chess&action=clearProfileImg');
+				});
+			}
+  		});
+  		window.addEventListener('pageshow', function(e) {
+  			if (e.persisted) {
+  				$('.modal-backdrop').remove();
+  				$('body').removeClass('modal-open').css('overflow', '');
+  			}
+  		});
+  		var user4Meters;
+  		function updatePlanMeters(user)
+  		{
+  			console.log('updatePlanMeters '+user);
+  			user4Meters=user;
+  			$('#usedDays').html(user.usedDays);
+			$('#periodDays').html(user.periodDays || 365);
+			$('#usedDaysPercent').attr("style","width: "+user.usedDays/(user.periodDays||365)*100+"%");
+			$('#usedExplorer').html(user.usedExplorerReports+'/'+user.explorerReportsLimits);
+			$('#usedExplorerPercent').attr("style","width: "+user.usedExplorerReports/user.explorerReportsLimits*100+"%");
+			if (user.aiVerificationsLimit > 0) {
+				$('#usedAiVerifications').html(user.usedAiVerifications+'/'+user.aiVerificationsLimit);
+				$('#usedAiVerificationsPercent').attr("style","width: "+Math.min(100, user.usedAiVerifications/user.aiVerificationsLimit*100)+"%");
+				$('#aiVerificationsMetric').show();
+			} else
+				$('#aiVerificationsMetric').hide();
+			$('#usedSearches').html(user.usedSearches+'/'+user.searchesLimit);
+			$('#usedSearchesPercent').attr("style","width: "+user.usedSearches/user.searchesLimit*100+"%");
+			$('#plan').attr("class","plan-badge plan-badge-"+user.plan);
+			$('#plan').html(user.isSubAccount ? user.plan + ' (sub account)' : user.plan);
+			$('#planResetDays').html((user.periodDays||365)-user.usedDays);
+			//"...included in your League plan this month" - monthly plans (league/edge/pro_m) reset monthly, not yearly
+			$('#planInLimit').html(user.planDisplayName || user.plan);
+			$('#periodInLimit').html(user.periodName || 'year');
+			var explorerContext = window.location.href.includes('explore');
+			if(explorerContext)
+			{
+				$('#usedSearchesInLimit').html(user.explorerReportsLimits);
+				$('#typeInLimit').html("explorer reports");
+				$('.usage-text').html(user.usedExplorerReports+"/"+user.explorerReportsLimits+" of explorer reports used");
+			}else
+			{
+				$('#usedSearchesInLimit').html(user.searchesLimit);
+				$('#typeInLimit').html("searches");
+				$('.usage-text').html(user.usedSearches+"/"+user.searchesLimit+" of searches used");
+			}
+			//early renewal offer: paid plans (main account) can renew today instead of waiting for the
+			//renewal date - fresh counters, period restarts now. Always on in the panel, so it is also
+			//the way back for a plan whose cancellation is scheduled.
+			if(user.renewNowAvailable)
+			{
+				$('.renewSearches').html(user.searchesLimit);
+				$('.renewPrice').html(user.renewNowPrice);
+				$('.renewPlanName').html(user.planDisplayName || user.plan);
+				$('.renewPeriod').html(user.renewNowPeriod);
+				$('.renewNextDate').html(user.renewNowNextDate);
+				$('#limitRenewNote').html(user.renewNowOneClick ? 'Charged to the card on file' : 'Pay by card or PayPal');
+				$('#limitRenewSection').show();
+				//a paying user doesn't need the free-plan upgrade pitch - the upgrade becomes the secondary option
+				$('#limitBenefits').hide();
+				$('#limitUpgradeBtn').addClass('limit-btn-secondary').html('Or upgrade to a bigger plan');
+				$('#metricRenewLink').show();
+			}else
+			{
+				$('#limitRenewSection').hide();
+				$('#limitBenefits').show();
+				$('#limitUpgradeBtn').removeClass('limit-btn-secondary').html('View Plans & Upgrade');
+				$('#metricRenewLink').hide();
+			}
+  			if(user.plan==='pro' && !user.isSubAccount) {
+  				$('#subAccountsSection').show();
+  				loadSubAccounts();
+  			} else {
+  				$('#subAccountsSection').hide();
+  			}
+  			$('#cancelSubLink').toggle(!!user.cancellable && !user.cancelPending);
+  			$('#cancelPendingNote').toggle(!!user.cancelPending);
+  		}
+  		function loadSubAccounts() {
+  			$.getJSON('/snoop/servlet/DataSerializerServlet?screen=chess&action=listSubAccounts', function(data) {
+  				var list = $('#subAccountList');
+  				list.empty();
+  				$('#subAccountCount').text(data.subAccounts.length);
+  				$.each(data.subAccounts, function(i, u) {
+  					list.append('<li style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;">'
+  						+ '<span style="color:#374151;">' + $('<span>').text(u).html() + '</span>'
+  						+ '<button style="background:#f3f4f6;color:#374151;border:1px solid #d1d5db;border-radius:0.375rem;font-size:11px;padding:2px 8px;cursor:pointer;" onclick="removeSubAccount(\'' + $('<span>').text(u).html() + '\')">Remove</button>'
+  						+ '</li>');
+  				});
+  			});
+  		}
+  		function confirmCancelSubscription() {
+  			var daysLeft = user4Meters ? (user4Meters.periodDays||365)-user4Meters.usedDays : 0;
+  			if(!confirm('Cancel your subscription?\n\nYour plan stays active for the '+daysLeft+' days you already paid for, then your account switches to the Free plan. No further charges will be made.\n\nA written confirmation will be emailed to you.'))
+  				return;
+  			$.post('/snoop/servlet/DataSerializerServlet?screen=chess&action=cancelSubscription', {}, function(data) {
+  				var r = (typeof data === 'string') ? JSON.parse(data) : data;
+  				if(r.error) { alert(r.error); return; }
+  				if(user4Meters) { user4Meters.cancelPending = true; updatePlanMeters(user4Meters); }
+  				alert('Your subscription is cancelled. A confirmation email is on its way.');
+  			});
+  		}
+  		function addSubAccount() {
+  			var u = $('#subUsername').val().trim();
+  			var p = $('#subPassword').val().trim();
+  			$('#subAccountError').hide();
+  			$.post('/snoop/servlet/DataSerializerServlet?screen=chess&action=addSubAccount', {subUsername:u, subPassword:p}, function(data) {
+  				var r = (typeof data === 'string') ? JSON.parse(data) : data;
+  				if(r.error) { $('#subAccountError').text(r.error).show(); return; }
+  				$('#subUsername').val('');
+  				$('#subPassword').val('');
+  				loadSubAccounts();
+  			});
+  		}
+  		function removeSubAccount(username) {
+  			$.post('/snoop/servlet/DataSerializerServlet?screen=chess&action=removeSubAccount', {subUsername:username}, function() {
+  				loadSubAccounts();
+  			});
+  		}
+  		function toggleMetricsPanel() {
+  	      const panel = document.getElementById('metricsPanel');
+  	      const overlay = document.getElementById('panelOverlay');
+  	      
+  	      panel.classList.toggle('active');
+  	      overlay.classList.toggle('active');
+  	    }
+
+  	    // Close panel when clicking escape key
+  	    document.addEventListener('keydown', function(e) {
+  	      if (e.key === 'Escape') {
+  	        const panel = document.getElementById('metricsPanel');
+  	        const overlay = document.getElementById('panelOverlay');
+  	        if (panel.classList.contains('active')) {
+  	          panel.classList.remove('active');
+  	          overlay.classList.remove('active');
+  	        }
+  	      }
+  	    });
+  	    function getInitials(name) {
+		  if (!name) return '??';
+		  
+		  const parts = name.trim().split(' ');
+		  if (parts.length >= 2) {
+		    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+		  }
+		  return name.substring(0, 2).toUpperCase();
+		}
+  	    function openPricingModal(){
+  	   		const myModalEl = document.getElementById('pricingModal');
+  	    	const myModal = new bootstrap.Modal(myModalEl);
+  	    	myModal.show();
+  	    }
+  	    document.getElementById('pricingModal').addEventListener('show.bs.modal', function() {
+  	    	var iframe = document.getElementById('pricingBodyIframe');
+  	    	if (!iframe.getAttribute('src')) {
+  	    		iframe.setAttribute('src', '/snoop/pricing.jsp?job=modal');
+  	    	}
+  	    	$.ajax({ url: '/snoop/servlet/DataSerializerServlet', data: { screen: 'chess', action: 'notifyPricing' } });
+  	    }, { once: false });
+  	    //warm the pricing iframe once the page is idle, so clicking Upgrade reveals an already-loaded
+  	    //document instead of starting a cold load (jQuery/bootstrap/GSI/analytics) at click time
+  	    (window.requestIdleCallback || function(f){ setTimeout(f, 2000); })(function() {
+  	    	var iframe = document.getElementById('pricingBodyIframe');
+  	    	if (iframe && !iframe.getAttribute('src'))
+  	    		iframe.setAttribute('src', '/snoop/pricing.jsp?job=modal');
+  	    });
+  	    document.getElementById('pricingModal').addEventListener('hidden.bs.modal', function() {
+  	    	var iframe = document.getElementById('pricingBodyIframe');
+  	    	var path = '';
+  	    	try { path = iframe.contentWindow.location.pathname; } catch (e) {}
+  	    	if (path.indexOf('/snoop/pricing.jsp') === -1) {
+  	    		//the user was on a payment page - a purchase/renewal may have gone through: pick up the new quota
+  	    		refreshPlanMeters();
+  	    		iframe.contentWindow.location.replace('/snoop/pricing.jsp?job=modal');
+  	    	}
+  	    }, { once: false });
+  	    /**
+  	     * Early renewal ("Renew now"). One click when a card token is stored on the plan (charged
+  	     * server-side, period restarted, meters updated from the response, no reload); otherwise -
+  	     * or if the stored card is declined - the payment page (card / PayPal) opens in the pricing
+  	     * modal to buy the same plan again.
+  	     */
+  	    function startRenewNow()
+  	    {
+  	    	var user = user4Meters || (typeof chessData !== 'undefined' && chessData ? chessData.user : null);
+  	    	if(!user || !user.renewNowAvailable)
+  	    		return;
+  	    	if(!user.renewNowOneClick)
+  	    	{
+  	    		openRenewPayment(user.plan);
+  	    		return;
+  	    	}
+  	    	if(!confirm('Renew your '+(user.planDisplayName || user.plan)+' plan now for $'+user.renewNowPrice+'?\n\nYour card on file will be charged now. A new '+user.renewNowPeriod+' starts today with fresh searches and explorer reports; the remaining days of your current period are replaced. Next renewal: '+user.renewNowNextDate+'.'))
+  	    		return;
+  	    	var btn = $('#limitRenewBtn');
+  	    	var origHtml = btn.html();
+  	    	btn.prop('disabled', true).html('Charging your card...');
+  	    	$('#metricRenewLink').hide();
+  	    	$.ajax({
+  	    		type: 'POST', dataType: 'json',
+  	    		url: '/snoop/servlet/DataSerializerServlet?screen=chess',
+  	    		data: { action: 'renewNow' },
+  	    		success: function(data) {
+  	    			btn.prop('disabled', false).html(origHtml);
+  	    			if(data && data.success)
+  	    			{
+  	    				if(typeof chessData !== 'undefined' && chessData)
+  	    					chessData.user = data.user;
+  	    				updatePlanMeters(data.user);
+  	    				if(typeof closeLimitModal === 'function') closeLimitModal();
+  	    				if(typeof setLimits === 'function') setLimits();
+  	    				alert('Your plan was renewed - a new '+data.user.renewNowPeriod+' starts today with fresh searches. The invoice was emailed to you.');
+  	    			}
+  	    			else if(data && data.noCard)
+  	    				openRenewPayment(user.plan);
+  	    			else
+  	    			{
+  	    				alert((data && data.error) || 'The renewal could not be completed. Please try again or contact support.');
+  	    				$('#metricRenewLink').show();
+  	    			}
+  	    		},
+  	    		error: function() {
+  	    			btn.prop('disabled', false).html(origHtml);
+  	    			alert('The renewal could not be completed. Please try again or contact support.');
+  	    		}
+  	    	});
+  	    }
+  	    function openRenewPayment(plan)
+  	    {
+  	    	if(typeof closeLimitModal === 'function') closeLimitModal();
+  	    	var iframe = document.getElementById('pricingBodyIframe');
+  	    	iframe.setAttribute('src', '/snoop/payment.jsp?plan='+encodeURIComponent(plan)+'&renew=1&job=modal');
+  	    	openPricingModal();
+  	    }
+  	    //usage-only refresh (the pricing screen data is just the user object) - keeps the current
+  	    //search data in chessData intact, unlike refreshUserData
+  	    function refreshPlanMeters()
+  	    {
+  	    	$.getJSON('/snoop/servlet/DataSerializerServlet?screen=pricing', function(data) {
+  	    		if(!data || !data.user)
+  	    			return;
+  	    		if(typeof chessData !== 'undefined' && chessData)
+  	    			chessData.user = data.user;
+  	    		updatePlanMeters(data.user);
+  	    		if(typeof setLimits === 'function') setLimits();
+  	    	});
+  	    }
+  	    function refreshUserData()
+  	    {
+  	    	$.ajax({
+				dataType : "json",
+				url : "/snoop/servlet/DataSerializerServlet?screen=chess",
+				data : "",
+				async : true,
+				success : function(response) {
+					console.log('doing fetchData for user');
+					chessData = response;
+					updatePlanMeters(chessData.user);
+				}
+			});
+  	    }
+
+		(function() {
+			function applyColorSelectCircles(dark) {
+				var colorSel = document.getElementById('color');
+				if (!colorSel || !colorSel.classList.contains('ps-select')) return;
+				var filled = String.fromCharCode(0x2B24);
+				var hollow = String.fromCharCode(0x25CB);
+				for (var i = 0; i < colorSel.options.length; i++) {
+					var opt = colorSel.options[i];
+					if (opt.value === 'white') opt.text = (dark ? filled : hollow) + ' White';
+					if (opt.value === 'black') opt.text = (dark ? hollow : filled) + ' Black';
+				}
+			}
+			function applyDark(dark) {
+				document.body.classList.toggle('dark-mode', dark);
+				var toggle = document.getElementById('darkModeToggle');
+				if (toggle) toggle.checked = dark;
+				applyColorSelectCircles(dark);
+			}
+			var saved = localStorage.getItem('darkMode') === 'true';
+			if (saved) document.body.classList.add('dark-mode');
+			$(document).ready(function() {
+				var toggle = document.getElementById('darkModeToggle');
+				if (toggle) {
+					toggle.checked = saved;
+					toggle.addEventListener('change', function() {
+						localStorage.setItem('darkMode', this.checked);
+						applyDark(this.checked);
+					});
+				}
+			});
+		})();
+
+  </script>
+</html>
