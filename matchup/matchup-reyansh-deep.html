@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deep Engine Analysis — Paragiri, Reyansh (83 games)</title>
+<style>
+:root { --accent: #1a3a6b; --accent-bg: #eef2fb; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13.5px; color: #1a1a1a; max-width: 1000px;
+  margin: 0 auto; padding: 20px 24px; background: #f8f7f4;
+}
+.page-header { border-left: 6px solid var(--accent); background: var(--accent-bg);
+               padding: 14px 18px; margin-bottom: 20px; border-radius: 0 5px 5px 0; }
+.page-header h1 { font-size: 1.25em; margin-bottom: 3px; }
+.page-header .meta { font-size: 0.82em; color: #555; }
+.page-header .nav { margin-top: 8px; font-size: 0.82em; }
+.page-header .nav a { color: var(--accent); text-decoration: none; margin-right: 14px; }
+.page-header .nav a:hover { text-decoration: underline; }
+
+h2 { font-size: 1.05em; margin: 24px 0 8px; padding: 6px 12px;
+     border-left: 4px solid var(--accent); background: #f0f3fa; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 12px 0 20px; }
+.stat-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 10px 12px; text-align: center; }
+.stat-card .num { font-size: 1.6em; font-weight: 700; color: var(--accent); }
+.stat-card .lbl { font-size: 0.78em; color: #666; margin-top: 2px; }
+
+.callout { padding: 9px 13px; border-radius: 4px; margin: 8px 0; font-size: 0.88em; }
+.callout-gold  { background: #fffbe0; border-left: 4px solid #b8860b; }
+.callout-green { background: #efffef; border-left: 4px solid #2d7d46; }
+.callout-blue  { background: #eef2fb; border-left: 4px solid #1a3a6b; }
+.callout-red   { background: #fff0f0; border-left: 4px solid #8b1a1a; }
+
+table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 0.83em; }
+th { background: #1a3a6b; color: #fff; padding: 5px 8px; text-align: left; white-space: nowrap; }
+td { padding: 4px 8px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+.row-danger td { background: #fff2f2 !important; }
+.row-best td { background: #efffef !important; }
+
+.w-cell { color: #1a5276; font-weight: bold; }
+.b-cell { color: #8b1a1a; font-weight: bold; }
+.win-cell { color: #2d7d46; font-weight: bold; }
+.loss-cell { color: #8b1a1a; }
+.draw-cell { color: #666; }
+.acc-high { color: #2d7d46; font-weight: bold; }
+.acc-mid  { color: #b8860b; font-weight: bold; }
+.acc-low  { color: #8b1a1a; font-weight: bold; }
+
+hr { border: none; border-top: 2px solid #ccc; margin: 22px 0; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Deep Engine Analysis — Paragiri, Reyansh</h1>
+  <div class="meta">Stockfish movetime-3000 · 16 threads · 83 games analyzed · Lichess win-probability accuracy formula · Nov 2026</div>
+  <div class="nav">
+    <a href="../austin-prep.html">← Prep Index</a>
+  </div>
+</div>
+
+<h2>Overall Accuracy Summary</h2>
+
+<div class="stat-grid">
+  <div class="stat-card"><div class="num">91.8%</div><div class="lbl">Overall Avg (83 games)</div></div>
+  <div class="stat-card"><div class="num">92.8%</div><div class="lbl">As White (43 games)</div></div>
+  <div class="stat-card"><div class="num">90.7%</div><div class="lbl">As Black (40 games)</div></div>
+  <div class="stat-card"><div class="num">98.8%</div><div class="lbl">Best Single Game</div></div>
+</div>
+
+<div class="stat-grid">
+  <div class="stat-card"><div class="num">17W–8L–17D</div><div class="lbl">As White (57% score)</div></div>
+  <div class="stat-card"><div class="num">18W–10L–12D</div><div class="lbl">As Black (60% score)</div></div>
+  <div class="stat-card"><div class="num">78%</div><div class="lbl">Worst Game (Feb 2024)</div></div>
+  <div class="stat-card"><div class="num">1W–1L–3D</div><div class="lbl">vs 2000+ opponents (5 games)</div></div>
+</div>
+
+<div class="callout callout-gold">
+  <strong>Key finding:</strong> Reyansh runs a consistent 91–92% floor across 83 games spanning Feb 2024 – Oct 2026. White accuracy (92.8%) leads Black (90.7%) by 2.1% — a meaningful gap Austin can target: play sharp, imbalanced positions as White to force precision. Unbeaten in 9 OTB games at Mechanics Institute (5W-0L-4D). Vs 2000+ rated opposition: 1W-1L-3D with 92.6% avg — he competes at the top-scholastic level but has not yet shown dominance there. At NAYCC, Austin (1959 FIDE) is the first rated-1900+ opponent Reyansh would face in a classical format; Reyansh's Black accuracy dip (90.7%) is the primary exploitable pattern.
+</div>
+
+<h2>Per-Tournament Summary</h2>
+
+<table>
+  <thead>
+    <tr><th>Tournament</th><th>Games</th><th>W–L–D</th><th>Avg Acc</th><th>Context</th></tr>
+  </thead>
+  <tbody>
+  <tr class="row-best">
+    <td>Sunnyvale 2026 (Jan 2026)</td><td>4</td><td>1W–1L–2D</td><td><span class="acc-high">92.9%</span></td><td>Toughest field: Bick 2350, Petrov 2335, Virtanen 2276, Nanugonda 2090. Drew Petrov (95.8%) and Virtanen, won vs Nanugonda (96.5%), lost to Bick 2350 (91.4% vs 97.2%).</td>
+  </tr>
+  <tr class="row-best">
+    <td>Online Broadcast (various CA events)</td><td>14</td><td>6W–2L–6D</td><td><span class="acc-high">92.4%</span></td><td>OTB scholastic events streamed online. Sep/Oct 2026, Mar 2026, Dec 2025, Aug 2025, Jul 2025, Jun 2025. Highest avg among multi-game OTB sets.</td>
+  </tr>
+  <tr class="row-best">
+    <td>Mechanics Institute (Apr–Jun 2025)</td><td>9</td><td>5W–0L–4D</td><td><span class="acc-high">91.8%</span></td><td>Unbeaten in 9 classical OTB games — his strongest venue record. Wins include Agrawal (96.8%) and Mercado (96.1%).</td>
+  </tr>
+  <tr>
+    <td>Chess.com (Feb 2024 – Oct 2026)</td><td>50</td><td>20W–14L–16D</td><td><span class="acc-high">91.7%</span></td><td>Largest sample; online classical (90 min+30 sec). Consistent floor throughout. Notable losses to Yoo, Heiserman, Hakobyan.</td>
+  </tr>
+  <tr>
+    <td>World Cup U10 2025 (Jun 2025)</td><td>4</td><td>3W–1L–0D</td><td><span class="acc-mid">90.8%</span></td><td>Batumi, Georgia. Won R2 (Pinskiy 1567), R3 (Manyeki 1831), R4 (Malanin 1677 — best game 98.8%). Lost R1 to Ioseliani 1568 at 83.2%.</td>
+  </tr>
+  <tr>
+    <td>Las Vegas National 2026 (Jun 2026)</td><td>1</td><td>0W–0L–1D</td><td><span class="acc-mid">89.8%</span></td><td>Drew Baghdasaryan 2263 as White (89.8% vs 89.1%). Competitive result vs a 2263-rated player.</td>
+  </tr>
+  <tr>
+    <td>Lichess Studies</td><td>1</td><td>0W–0L–0D</td><td><span class="acc-mid">90.1%</span></td><td>Single training game; result unclear.</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Critical Patterns — What Stockfish Revealed</h2>
+
+<div class="callout callout-red">
+  <strong>Pattern 1 — Black accuracy trails White by 2.1%:</strong> Over 83 games, Reyansh averages 92.8% as White and 90.7% as Black. The gap is consistent: 8 of his 10 worst games are as Black. Austin should play aggressively as White — Rossolimo (Bb5) lines or Open Sicilian (if Reyansh plays 1...c5) — to maximize the precision demand. Reyansh's Black repertoire is Accelerated Dragon (B34/B35); Austin's Rossolimo forces him into a different structure where this gap may widen.
+</div>
+
+<div class="callout callout-red">
+  <strong>Pattern 2 — Loses to superior preparation (Bick 2350, Yoo, Hakobyan):</strong> Reyansh's losses tend to come against players who outprepared him in the opening — he reaches positions at 91–92% accuracy but the game was already strategically lost. Bick 2350 at Sunnyvale (97.2% vs Reyansh's 91.4%) is the clearest example. Austin's database preparation strength is a direct advantage here: if Austin reaches a known superior structure by move 10–15, Reyansh's engine-accurate moves won't save him from the strategic deficit.
+</div>
+
+<div class="callout callout-green">
+  <strong>Pattern 3 — Mechanics Institute dominance (5W-0L-4D):</strong> Completely unbeaten in 9 OTB classical games at Mechanics Institute (Apr–Jun 2025). This suggests strong OTB classical fundamentals — Reyansh is comfortable in long-form play. NAYCC is a classical OTB event, so his 91.8% online accuracy likely understates his OTB ceiling slightly. Austin should not expect to outlast him in a technical endgame.
+</div>
+
+<div class="callout callout-gold">
+  <strong>Pattern 4 — Competitive vs 2000–2350 range (1W-1L-3D at 92.6%):</strong> Reyansh has 5 games vs rated 2000+ opponents: drew Baghdasaryan 2263 (89.8%), drew Petrov 2335 (95.8%), drew Virtanen 2276 (87.9%), beat Nanugonda 2090 (96.5%), lost to Bick 2350 (91.4%). He competes but does not dominate this range. Austin at 1959 FIDE sits at the boundary — he should expect a fully competitive game. One-sided results either way would be a surprise.
+</div>
+
+<div class="callout callout-blue">
+  <strong>Pattern 5 — Notable NAYCC opponent crossovers in this data:</strong>
+  <ul style="margin: 4px 0 0 16px;">
+    <li><strong>vs Pranav Santhosh (Chess.com, Feb 2026):</strong> Drew as White at 98.2% vs Pranav's 98.3% — near-perfect theoretical draw. Both players are deeply prepared in this line.</li>
+    <li><strong>vs Zhuoyuan Wu (Chess.com, Aug 2026):</strong> Lost as Black at 88.4% vs Wu's 91.9% — Wu outplayed him in an opening structure. Suggests Wu's preparation may have an edge over Reyansh's Black repertoire.</li>
+  </ul>
+</div>
+
+<h2>Worst 10 Games (by accuracy)</h2>
+
+<table>
+  <thead>
+    <tr><th>Acc</th><th>Color</th><th>Result</th><th>Tournament</th><th>Round</th><th>Opponent</th><th>Elo</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+  <tr class="row-danger">
+    <td><span class="acc-low">78%</span></td><td class="b-cell">B</td><td class="loss-cell">L</td><td>Chess.com</td><td>—</td><td>Pompe, Niko</td><td>—</td><td>Oldest game in dataset (Feb 2024); accuracy floor has improved significantly since</td>
+  </tr>
+  <tr class="row-danger">
+    <td><span class="acc-low">81.6%</span></td><td class="b-cell">B</td><td class="win-cell">W</td><td>Mechanics Institute</td><td>—</td><td>Cheng, Kar Lun</td><td>—</td><td>Won despite poor accuracy; opponent also erred (79.7%)</td>
+  </tr>
+  <tr class="row-danger">
+    <td><span class="acc-low">82.4%</span></td><td class="b-cell">B</td><td class="draw-cell">D</td><td>Mechanics Institute</td><td>—</td><td>Sankar, Arjun</td><td>—</td><td>Rough draw as Black; mutual 131-ply grind</td>
+  </tr>
+  <tr class="row-danger">
+    <td><span class="acc-low">82.6%</span></td><td class="b-cell">B</td><td class="draw-cell">D</td><td>Chess.com</td><td>—</td><td>Chiang, Jacob</td><td>—</td><td>Mutual inaccuracy draw; 72-ply middlegame battle</td>
+  </tr>
+  <tr>
+    <td><span class="acc-low">83.2%</span></td><td class="b-cell">B</td><td class="loss-cell">L</td><td>World Cup U10 2025</td><td>R1</td><td>Ioseliani, Giorgi</td><td>1568</td><td>Opening-round loss at World Cup to 1568-rated player; 97-ply game</td>
+  </tr>
+  <tr>
+    <td><span class="acc-mid">83.3%</span></td><td class="b-cell">B</td><td class="draw-cell">D</td><td>Online Broadcast</td><td>—</td><td>Chin, Zee</td><td>—</td><td>Black draw at Sep 2026 OTB event; 61-ply</td>
+  </tr>
+  <tr>
+    <td><span class="acc-mid">84.2%</span></td><td class="b-cell">B</td><td class="win-cell">W</td><td>Chess.com</td><td>—</td><td>Patankar, Shubham</td><td>—</td><td>Won despite 7 mistakes — opponent accuracy also poor (80.3%)</td>
+  </tr>
+  <tr>
+    <td><span class="acc-mid">84.5%</span></td><td class="w-cell">W</td><td class="draw-cell">D</td><td>Chess.com</td><td>—</td><td>Seidel, Eli</td><td>—</td><td>Rare poor White performance; 83-ply draw</td>
+  </tr>
+  <tr>
+    <td><span class="acc-mid">85.1%</span></td><td class="w-cell">W</td><td class="loss-cell">L</td><td>Chess.com</td><td>—</td><td>Qiu, Laurie</td><td>—</td><td>Lost as White (88-ply); 5 blunders in this game — his worst White outing</td>
+  </tr>
+  <tr>
+    <td><span class="acc-mid">85.3%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>Chess.com</td><td>—</td><td>Melville, Cailen</td><td>—</td><td>Won despite 85.3%; opponent was significantly weaker (79.1%)</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Best 10 Games (by accuracy)</h2>
+
+<table>
+  <thead>
+    <tr><th>Acc</th><th>Color</th><th>Result</th><th>Tournament</th><th>Round</th><th>Opponent</th><th>Elo</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+  <tr class="row-best">
+    <td><span class="acc-high">98.8%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>World Cup U10 2025</td><td>R4</td><td>Malanin, Egor</td><td>1677</td><td>Best game ever; near-perfect White win at World Cup; 103-ply clean execution</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">98.3%</span></td><td class="w-cell">W</td><td class="draw-cell">D</td><td>Chess.com</td><td>—</td><td>Biyiasas, Theodore</td><td>—</td><td>Near-perfect 62-ply theoretical draw online</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">98.2%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>Online Broadcast</td><td>—</td><td>Xu, Olivia</td><td>—</td><td>Oct 2026 OTB; 51-ply efficient win; most recent best game</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">98.2%</span></td><td class="w-cell">W</td><td class="draw-cell">D</td><td>Chess.com</td><td>—</td><td>Senthilkumar, Pranav</td><td>—</td><td>Drew NAYCC opponent Pranav Santhosh (98.3%); mutual perfection — deeply prepared line</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">97.9%</span></td><td class="b-cell">B</td><td class="draw-cell">D</td><td>Chess.com</td><td>—</td><td>Kwan, Wesley</td><td>—</td><td>Near-perfect Black draw; 71-ply</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">97.9%</span></td><td class="w-cell">W</td><td class="draw-cell">D</td><td>Online Broadcast</td><td>—</td><td>Baksi, Antariksh</td><td>—</td><td>Dec 2025 OTB; mutual 97.9% — both players very accurate in a 70-ply draw</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">97.7%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>Chess.com</td><td>—</td><td>Yenamandra, Srinadh</td><td>—</td><td>Strong 99-ply White win; clinical execution</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">97.6%</span></td><td class="b-cell">B</td><td class="win-cell">W</td><td>Chess.com</td><td>—</td><td>Navaneetha Prabhu, Arjunsai</td><td>—</td><td>Oct 2026 Black win; 92-ply; most recent dataset</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">97.1%</span></td><td class="w-cell">W</td><td class="win-cell">W</td><td>Online Broadcast</td><td>—</td><td>Long, Youting</td><td>—</td><td>Sep 2026 OTB; clean White win at 83-ply</td>
+  </tr>
+  <tr class="row-best">
+    <td><span class="acc-high">96.9%</span></td><td class="b-cell">B</td><td class="draw-cell">D</td><td>Online Broadcast</td><td>—</td><td>Nidhish Shyamal</td><td>—</td><td>Jun 2025 OTB; near-perfect draw as Black — 77-ply</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Full Game-by-Game Table (83 games, newest first)</h2>
+
+<table>
+  <thead>
+    <tr><th>Date</th><th>Tournament</th><th>Color</th><th>Result</th><th>Acc</th><th>Opp Acc</th><th>Opponent</th><th>Elo</th></tr>
+  </thead>
+  <tbody>
+  <tr><td>2026-10-25</td><td>Online Broadcast</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-mid">87.3%</span></td><td>88%</td><td>Lien, Isaac</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-10-25</td><td>Online Broadcast</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">98.2%</span></td><td>91%</td><td>Xu, Olivia</td><td>—</td></tr>
+  <tr><td>2026-10-25</td><td>Chess.com</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-mid">86.7%</span></td><td>87%</td><td>Thekkoot, Darsh</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-10-24</td><td>Chess.com</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">97.6%</span></td><td>93%</td><td>Navaneetha Prabhu, Arjunsai</td><td>—</td></tr>
+  <tr class="row-danger"><td>2026-09-21</td><td>Online Broadcast</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-low">83.3%</span></td><td>80%</td><td>Chin, Zee</td><td>—</td></tr>
+  <tr><td>2026-09-20</td><td>Online Broadcast</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">92.9%</span></td><td>89%</td><td>Jin, David</td><td>—</td></tr>
+  <tr><td>2026-09-20</td><td>Chess.com</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-high">92.6%</span></td><td>96%</td><td>Yoo, Christopher Woojin</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-09-19</td><td>Online Broadcast</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">97.1%</span></td><td>93%</td><td>Long, Youting</td><td>—</td></tr>
+  <tr><td>2026-08-24</td><td>Chess.com</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">88.4%</span></td><td>92%</td><td>Wu, Zhuoyuan</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-08-23</td><td>Chess.com</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-high">95.6%</span></td><td>96%</td><td>Qi, Jenny</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-08-06</td><td>Chess.com</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-high">97.9%</span></td><td>98%</td><td>Kwan, Wesley</td><td>—</td></tr>
+  <tr><td>2026-07-27</td><td>Chess.com</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-high">92.5%</span></td><td>92%</td><td>Pavuluri, Vivaan</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-07-26</td><td>Chess.com</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">95.4%</span></td><td>88%</td><td>Weiss, Roi</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-07-26</td><td>Chess.com</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">93.4%</span></td><td>87%</td><td>Suthar, Om</td><td>—</td></tr>
+  <tr><td>2026-07-25</td><td>Chess.com</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">92.9%</span></td><td>90%</td><td>Indukuri, Suhas</td><td>—</td></tr>
+  <tr><td>2026-06-11</td><td>Las Vegas 2026</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-mid">89.8%</span></td><td>89%</td><td>Baghdasaryan, Vahe</td><td>2263</td></tr>
+  <tr><td>2026-06-07</td><td>Chess.com</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-mid">87.1%</span></td><td>87%</td><td>Nalakonda, Anish</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-06-07</td><td>Chess.com</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">95.2%</span></td><td>89%</td><td>Zhang, Matthew</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-05-03</td><td>Online Broadcast</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">92.6%</span></td><td>90%</td><td>Spence, Beckett</td><td>—</td></tr>
+  <tr><td>2026-05-03</td><td>Chess.com</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-mid">88.2%</span></td><td>94%</td><td>Natraj, Tapas Aarav</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-03-29</td><td>Online Broadcast</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-high">94.6%</span></td><td>95%</td><td>Cremisi, Daniel</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-03-29</td><td>Chess.com</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-high">96.3%</span></td><td>96%</td><td>Jin, David</td><td>—</td></tr>
+  <tr><td>2026-03-28</td><td>Online Broadcast</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-mid">87.6%</span></td><td>85%</td><td>Krishnan, Sreyshthaa</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-03-28</td><td>Chess.com</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">95.7%</span></td><td>92%</td><td>Chen, Leo H</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-03-02</td><td>Chess.com</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">95%</span></td><td>92%</td><td>Dill, Jesse N</td><td>—</td></tr>
+  <tr class="row-danger"><td>2026-03-01</td><td>Chess.com</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-low">85.1%</span></td><td>81%</td><td>Qiu, Laurie</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-02-28</td><td>Chess.com</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">97.7%</span></td><td>94%</td><td>Yenamandra, Srinadh</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-02-02</td><td>Chess.com</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-high">98.2%</span></td><td>98%</td><td>Senthilkumar, Pranav</td><td>—</td></tr>
+  <tr><td>2026-02-01</td><td>Online Broadcast</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">90.7%</span></td><td>96%</td><td>Gogte, Yashodhan</td><td>—</td></tr>
+  <tr class="row-best"><td>2026-01-04</td><td>Sunnyvale 2026</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">96.5%</span></td><td>93%</td><td>Nanugonda, Vishva</td><td>2090</td></tr>
+  <tr><td>2026-01-04</td><td>Sunnyvale 2026</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">91.4%</span></td><td>97%</td><td>Bick, Gabriel James</td><td>2350</td></tr>
+  <tr><td>2026-01-03</td><td>Sunnyvale 2026</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-mid">87.9%</span></td><td>87%</td><td>Virtanen, Teemu</td><td>2276</td></tr>
+  <tr class="row-best"><td>2026-01-03</td><td>Sunnyvale 2026</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-high">95.8%</span></td><td>96%</td><td>Petrov, Vladimir Sergeev</td><td>2335</td></tr>
+  <tr class="row-best"><td>2025-12-13</td><td>Online Broadcast</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-high">97.9%</span></td><td>98%</td><td>Baksi, Antariksh</td><td>—</td></tr>
+  <tr class="row-best"><td>2025-12-13</td><td>Chess.com</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">94.5%</span></td><td>92%</td><td>Bloom, Yoav</td><td>—</td></tr>
+  <tr><td>2025-12-12</td><td>Chess.com</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-mid">91.4%</span></td><td>87%</td><td>Tenney, Owen</td><td>—</td></tr>
+  <tr><td>2025-12-08</td><td>Chess.com</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">92.5%</span></td><td>86%</td><td>Bachin, Vitalii</td><td>—</td></tr>
+  <tr class="row-best"><td>2025-12-07</td><td>Chess.com</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">94.8%</span></td><td>90%</td><td>Yi, Colin</td><td>—</td></tr>
+  <tr class="row-best"><td>2025-12-07</td><td>Chess.com</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">94.8%</span></td><td>92%</td><td>Mallela, Abhishek</td><td>—</td></tr>
+  <tr class="row-danger"><td>2025-12-06</td><td>Chess.com</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-low">84.5%</span></td><td>85%</td><td>Seidel, Eli</td><td>—</td></tr>
+  <tr class="row-best"><td>2025-11-02</td><td>Chess.com</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-high">96.5%</span></td><td>97%</td><td>Mokeeva, Zlata</td><td>—</td></tr>
+  <tr><td>2025-11-01</td><td>Chess.com</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-low">85.3%</span></td><td>79%</td><td>Melville, Cailen</td><td>—</td></tr>
+  <tr><td>2025-10-05</td><td>Chess.com</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-low">85.9%</span></td><td>86%</td><td>Kane, Kevin</td><td>—</td></tr>
+  <tr><td>2025-10-04</td><td>Chess.com</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-mid">90%</span></td><td>82%</td><td>Rajaram, Raghu</td><td>—</td></tr>
+  <tr class="row-danger"><td>2025-09-08</td><td>Chess.com</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-low">84.2%</span></td><td>80%</td><td>Patankar, Shubham</td><td>—</td></tr>
+  <tr><td>2025-09-06</td><td>Chess.com</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-mid">88.3%</span></td><td>83%</td><td>Harish, Vidyuth</td><td>—</td></tr>
+  <tr><td>2025-08-18</td><td>Online Broadcast</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-high">92.4%</span></td><td>98%</td><td>Biyiasas, Theodore</td><td>—</td></tr>
+  <tr><td>2025-07-02</td><td>Online Broadcast</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">88.9%</span></td><td>93%</td><td>Nurmukhamed Elemes</td><td>—</td></tr>
+  <tr><td>2025-06-29</td><td>Chess.com</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-high">93.1%</span></td><td>96%</td><td>Oishik Mondal</td><td>—</td></tr>
+  <tr class="row-best"><td>2025-06-28</td><td>Online Broadcast</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">93.4%</span></td><td>88%</td><td>Junren Huang</td><td>—</td></tr>
+  <tr class="row-best"><td>2025-06-27</td><td>Online Broadcast</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-high">96.8%</span></td><td>97%</td><td>Nidhish Shyamal</td><td>—</td></tr>
+  <tr class="row-best"><td>2025-06-26</td><td>World Cup U10 2025</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">98.8%</span></td><td>96%</td><td>Malanin, Egor</td><td>1677</td></tr>
+  <tr><td>2025-06-25</td><td>World Cup U10 2025</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-mid">86.5%</span></td><td>87%</td><td>Manyeki, Nathaniel</td><td>1831</td></tr>
+  <tr class="row-best"><td>2025-06-24</td><td>World Cup U10 2025</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">94.7%</span></td><td>89%</td><td>Pinskiy, German Ant</td><td>1567</td></tr>
+  <tr class="row-danger"><td>2025-06-23</td><td>World Cup U10 2025</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-low">83.2%</span></td><td>87%</td><td>Ioseliani, Giorgi</td><td>1568</td></tr>
+  <tr class="row-best"><td>2025-06-10</td><td>Mechanics Institute</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-high">95.1%</span></td><td>95%</td><td>Liou, Arthur</td><td>—</td></tr>
+  <tr><td>2025-06-08</td><td>Chess.com</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-high">94.5%</span></td><td>98%</td><td>Hakobyan, Hakob</td><td>—</td></tr>
+  <tr><td>2025-06-03</td><td>Mechanics Institute</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-mid">91.8%</span></td><td>88%</td><td>Cawthon, Jeremy David</td><td>—</td></tr>
+  <tr class="row-best"><td>2025-06-01</td><td>Chess.com</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-high">98.3%</span></td><td>99%</td><td>Biyiasas, Theodore</td><td>—</td></tr>
+  <tr><td>2025-06-01</td><td>Chess.com</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-high">92.9%</span></td><td>92%</td><td>Smith, Olivia</td><td>—</td></tr>
+  <tr class="row-best"><td>2025-05-27</td><td>Mechanics Institute</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">96.1%</span></td><td>93%</td><td>Mercado, Adam</td><td>—</td></tr>
+  <tr class="row-danger"><td>2025-05-20</td><td>Mechanics Institute</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-low">82.4%</span></td><td>82%</td><td>Sankar, Arjun</td><td>—</td></tr>
+  <tr><td>2025-05-11</td><td>Chess.com</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">87%</span></td><td>85%</td><td>Mulay, Vivan Prakash</td><td>—</td></tr>
+  <tr><td>2025-05-07</td><td>Chess.com</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">91.6%</span></td><td>94%</td><td>Heiserman, Jimmy</td><td>—</td></tr>
+  <tr class="row-best"><td>2025-04-28</td><td>Chess.com</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">96.1%</span></td><td>93%</td><td>Achuthan, Aryan</td><td>—</td></tr>
+  <tr><td>2025-04-27</td><td>Chess.com</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">91.4%</span></td><td>95%</td><td>Suarez, Sebastian</td><td>—</td></tr>
+  <tr class="row-best"><td>2025-04-15</td><td>Mechanics Institute</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-high">96.1%</span></td><td>97%</td><td>Ivanenko, Anthony Vladimir</td><td>—</td></tr>
+  <tr class="row-best"><td>2025-04-08</td><td>Mechanics Institute</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">96.8%</span></td><td>95%</td><td>Agrawal, Varun</td><td>—</td></tr>
+  <tr class="row-danger"><td>2025-04-01</td><td>Mechanics Institute</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-low">81.6%</span></td><td>80%</td><td>Cheng, Kar Lun</td><td>—</td></tr>
+  <tr><td>2025-03-25</td><td>Mechanics Institute</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-mid">91.2%</span></td><td>91%</td><td>Srinivasan, Sivavishnu</td><td>—</td></tr>
+  <tr class="row-best"><td>2025-03-11</td><td>Mechanics Institute</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-high">94.7%</span></td><td>87%</td><td>Smith, Roger Christopher</td><td>—</td></tr>
+  <tr><td>2025-03-05</td><td>Chess.com</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-high">92.5%</span></td><td>96%</td><td>Cremisi, Daniel</td><td>—</td></tr>
+  <tr><td>2025-02-23</td><td>Chess.com</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">91.1%</span></td><td>95%</td><td>Malkhasyan, Andrey</td><td>—</td></tr>
+  <tr class="row-danger"><td>2025-01-26</td><td>Chess.com</td><td class="b-cell">B</td><td class="draw-cell">D</td><td><span class="acc-low">82.6%</span></td><td>82%</td><td>Chiang, Jacob</td><td>—</td></tr>
+  <tr class="row-best"><td>2025-01-25</td><td>Chess.com</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-high">96.4%</span></td><td>96%</td><td>Liu, Patrick</td><td>—</td></tr>
+  <tr><td>2025-01-04</td><td>Lichess Studies</td><td class="w-cell">W</td><td class="draw-cell">?</td><td><span class="acc-mid">90.1%</span></td><td>85%</td><td>Anirudh Gutta</td><td>—</td></tr>
+  <tr><td>2024-12-15</td><td>Chess.com</td><td class="b-cell">B</td><td class="win-cell">W</td><td><span class="acc-mid">91.4%</span></td><td>88%</td><td>Sean X Zhang</td><td>—</td></tr>
+  <tr><td>2024-12-14</td><td>Chess.com</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">90.2%</span></td><td>92%</td><td>Atkeson, Christopher Timothy</td><td>—</td></tr>
+  <tr class="row-best"><td>2024-10-27</td><td>Chess.com</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">95.9%</span></td><td>93%</td><td>Widjaja, Luke</td><td>—</td></tr>
+  <tr><td>2024-07-29</td><td>Chess.com</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-low">86.7%</span></td><td>85%</td><td>Badamkhand, Norovsambuu</td><td>—</td></tr>
+  <tr><td>2024-07-28</td><td>Chess.com</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">91.7%</span></td><td>95%</td><td>Dave Ram Mohan</td><td>—</td></tr>
+  <tr><td>2024-02-26</td><td>Chess.com</td><td class="w-cell">W</td><td class="draw-cell">D</td><td><span class="acc-mid">87.1%</span></td><td>88%</td><td>Zhou, Ivan</td><td>—</td></tr>
+  <tr class="row-danger"><td>2024-02-24</td><td>Chess.com</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-low">78%</span></td><td>85%</td><td>Pompe, Niko</td><td>—</td></tr>
+  </tbody>
+</table>
+
+<p style="margin-top:20px; font-size:0.83em; color:#666; text-align:center">
+  <a href="../austin-prep.html">← Back to Austin Lin Prep Index</a>
+</p>
+</body>
+</html>
