@@ -5,7 +5,7 @@
 **Nationality:** Mexican  
 **Tournaments analyzed:** PAM School 2026 (May) · Olimpia Nacional CONADE 2026 (May, rapid) · Ed-National Aguascalientes 2026 (Aug) · MEX-ch U17 16th (Jul) · Mexican Open 71st (Apr)  
 **Ratings across tournaments:** 2060 (MEX-op Apr 2026) → 2026 (PAM School May 2026) → 1836 (Olimpia Nacional rapid May 2026) → 2133 (MEX-ch U17 Jul 2026) → 2130 (Ed-National Aug 2026)  
-**Total games reviewed:** 28 (9 PAM School, 7 Olimpia Nacional, 2 Ed-National, 5 MEX-ch U17, 5 MEX-op 71st)
+**Total games reviewed:** 37 (9 PAM School, 7 Olimpia Nacional, 2 Ed-National, 5 MEX-ch U17, 5 MEX-op 71st, 3 World Schools 2026, 6 Queretaro 2026)
 
 ---
 
