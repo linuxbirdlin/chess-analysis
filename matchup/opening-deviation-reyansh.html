@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Paragiri, Reyansh — Opening Deviation Map</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 14px; color: #1a1a1a; background: #f6f8fa;
+    }
+    .page { max-width: 900px; margin: 0 auto; padding: 24px; }
+
+    /* Header */
+    .doc-header {
+      background: #fff; border: 1px solid #d0d7de; border-radius: 8px;
+      padding: 20px 24px; margin-bottom: 24px;
+    }
+    .doc-header h1 { font-size: 1.4rem; color: #1a1a1a; margin-bottom: 8px; }
+    .doc-header .meta { display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.82rem; color: #57606a; margin-bottom: 10px; }
+    .back-link { font-size: 0.82rem; color: #0969da; text-decoration: none; }
+    .back-link:hover { text-decoration: underline; }
+
+    /* Legend */
+    .legend {
+      background: #fff; border: 1px solid #d0d7de; border-radius: 6px;
+      padding: 10px 16px; margin-bottom: 20px;
+      display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+    }
+    .legend-item { display: flex; align-items: center; gap: 5px; font-size: 0.8rem; color: #57606a; }
+
+    /* Chips */
+    .chip {
+      display: inline-block; border-radius: 20px; padding: 3px 9px;
+      font-size: 0.82rem; font-weight: 600; font-family: "SFMono-Regular", Consolas, monospace;
+      cursor: default;
+    }
+    .chip-book    { background: #dafbe1; color: #116329; border: 1px solid #74c996; }
+    .chip-good    { background: #ddf4ff; color: #0550ae; border: 1px solid #80ccff; }
+    .chip-side    { background: #fff8c5; color: #7d4e17; border: 1px solid #e3b341; }
+    .chip-rare    { background: #ffebe9; color: #82071e; border: 1px solid #ff818266; }
+    .chip-novel   { background: #f1f0ff; color: #5400d1; border: 1px solid #c4b9ff; }
+    .chip-opp     { background: #f6f8fa; color: #57606a; border: 1px solid #d0d7de; }
+    .chip-flag    { font-size: 0.75rem; margin-left: 2px; }
+
+    h2 {
+      font-size: 1.05rem; font-weight: 700; margin: 28px 0 14px;
+      padding-bottom: 8px; border-bottom: 2px solid #d0d7de; color: #1a1a1a;
+    }
+
+    /* Summary table */
+    table { width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 0.85rem; }
+    th { background: #f6f8fa; border: 1px solid #d0d7de; padding: 8px 12px; text-align: left; font-weight: 600; color: #57606a; }
+    td { border: 1px solid #d0d7de; padding: 8px 12px; }
+    .opening-name { font-weight: 600; color: #1a1a1a; }
+    .color-cell { font-size: 0.8rem; font-weight: 600; }
+    .color-w { color: #7d4e17; background: #fff8c5; text-align: center; }
+    .color-b { color: #0550ae; background: #ddf4ff; text-align: center; }
+
+    /* System cards */
+    .system-card {
+      background: #fff; border: 1px solid #d0d7de; border-radius: 8px;
+      margin-bottom: 20px; overflow: hidden;
+    }
+    .system-card-header {
+      background: #f6f8fa; border-bottom: 1px solid #d0d7de;
+      padding: 12px 20px; display: flex; justify-content: space-between; align-items: center;
+    }
+    .system-card-header h3 { font-size: 0.95rem; color: #1a1a1a; margin: 0; }
+    .game-count { font-size: 0.8rem; color: #57606a; white-space: nowrap; }
+    .system-card-body { padding: 16px 20px; }
+
+    /* Move trail */
+    .trail-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #57606a; margin-bottom: 8px; }
+    .move-trail { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 16px; align-items: center; line-height: 2; }
+
+    /* Deviation rows */
+    .dev-list { margin-bottom: 14px; }
+    .dev-row {
+      display: flex; gap: 12px; padding: 8px 12px; border-radius: 4px; margin-bottom: 6px;
+      font-size: 0.84rem; line-height: 1.5;
+    }
+    .level-side   { background: #fffce0; border-left: 3px solid #e3b341; }
+    .level-rare   { background: #fff1ee; border-left: 3px solid #cf222e; }
+    .level-novel  { background: #f4f0ff; border-left: 3px solid #7c3aed; }
+    .dev-move { font-family: "SFMono-Regular", Consolas, monospace; font-weight: 700; white-space: nowrap; min-width: 60px; }
+    .dev-detail { color: #1a1a1a; }
+    .dev-detail strong { color: #0550ae; }
+    .dev-detail em { color: #57606a; }
+
+    /* Austin note */
+    .austin-note {
+      background: #efffef; border: 1px solid #b6e5c4; border-radius: 4px;
+      padding: 10px 14px; font-size: 0.85rem; line-height: 1.6;
+    }
+    .austin-note .note-label {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: #2d7d46; margin-bottom: 4px;
+    }
+
+    /* Insight box */
+    .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+    @media (max-width: 580px) { .insight-grid { grid-template-columns: 1fr; } }
+    .insight-card {
+      border: 1px solid #d0d7de; border-radius: 6px;
+      padding: 14px 16px; font-size: 0.875rem;
+    }
+    .insight-card h4 { margin: 0 0 8px; font-size: 0.9rem; color: #2d7d46; }
+    .insight-card ul { margin: 0; padding-left: 18px; }
+    .insight-card li { margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Header ───────────────────────────────────────────────────── -->
+  <div class="doc-header">
+    <h1>Paragiri, Reyansh — Opening Deviation Map</h1>
+    <div class="meta">
+      <span><strong>Player:</strong> Reyansh Paragiri · 2067 FIDE (Nov 2026) · seed #4 NAYCC 2026</span>
+      <span><strong>Games analyzed:</strong> 83 (43 as White, 40 as Black)</span>
+      <span><strong>Database:</strong> Lichess Masters (FIDE 2300+)</span>
+      <span><strong>Generated:</strong> Nov 6, 2026</span>
+    </div>
+    <a href="../austin-prep.html" class="back-link">← Back to Prep Index</a>
+  </div>
+
+  <!-- ── Legend ──────────────────────────────────────────────────── -->
+  <div class="legend">
+    <strong style="font-size:0.8rem;text-transform:uppercase;letter-spacing:.04em;color:#57606a;margin-right:4px;">Reyansh's moves:</strong>
+    <span class="legend-item"><span class="chip chip-book" style="font-size:.75rem;padding:2px 7px;">e4</span> <span>Top masters move</span></span>
+    <span class="legend-item"><span class="chip chip-good" style="font-size:.75rem;padding:2px 7px;">Nc3</span> <span>2nd–3rd choice (≥20%)</span></span>
+    <span class="legend-item"><span class="chip chip-side" style="font-size:.75rem;padding:2px 7px;">b3</span> <span>Minor sideline (5–19%)</span></span>
+    <span class="legend-item"><span class="chip chip-rare" style="font-size:.75rem;padding:2px 7px;">a5</span> <span>Rare / personal prep (&lt;5%)</span></span>
+    <span class="legend-item"><span class="chip chip-novel" style="font-size:.75rem;padding:2px 7px;">Re1</span> <span>Novelty (not in master DB)</span></span>
+    <span class="legend-item"><span class="chip chip-opp" style="font-size:.75rem;padding:2px 7px;">Nf6</span> <span>Opponent move</span></span>
+  </div>
+
+  <!-- ── Summary table ───────────────────────────────────────────── -->
+  <h2>Deviation Summary</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Opening System</th>
+        <th>Color</th>
+        <th>Games</th>
+        <th>First Deviation</th>
+        <th>Reyansh's Move vs Book</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="opening-name">Najdorf Be3 — English Attack</td>
+        <td class="color-cell color-w">White</td>
+        <td>12</td>
+        <td>Move 7</td>
+        <td><strong>7.Nf3</strong> (13%) vs Nb3 (86%) — stays in center instead of retreating</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Scotch Gambit (avoids Ruy Lopez)</td>
+        <td class="color-cell color-w">White</td>
+        <td>10</td>
+        <td>Move 3</td>
+        <td><strong>3.d4</strong> (9%) vs Bb5 (65%) → <strong>4.Bc4</strong> (12%) vs Nxd4 (84%)</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Caro-Kann Classical (Nc3)</td>
+        <td class="color-cell color-w">White</td>
+        <td>8</td>
+        <td>Move 3</td>
+        <td><strong>3.Nc3</strong> (24%) vs e5 (40%) — Classical over Advance; otherwise fully book</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Accelerated Dragon 4…g6</td>
+        <td class="color-cell color-b">Black</td>
+        <td>18</td>
+        <td>Move 4</td>
+        <td><strong>4…g6</strong> (15%) vs Nf6 (58%); <strong>7…Qa5</strong> (18%) vs O-O (76%); <em>Austin's Rossolimo sidesteps this</em></td>
+      </tr>
+      <tr>
+        <td class="opening-name">Stonewall Dutch (Bd6+f5 setup)</td>
+        <td class="color-cell color-b">Black</td>
+        <td>9</td>
+        <td>Move 1 (system choice)</td>
+        <td>1…d5 (26%) → 4…Bd6 (10%) vs Nf6 (73%) → 5…f5 (82%) — full Stonewall structure</td>
+      </tr>
+      <tr>
+        <td class="opening-name">c3 Anti-Sicilian — personal prep</td>
+        <td class="color-cell color-b">Black</td>
+        <td>4</td>
+        <td>Move 7</td>
+        <td><strong>7…Nh6</strong> (4%); moves 8–10 all <strong>NOVEL</strong> (not in master DB)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       AS WHITE
+  ════════════════════════════════════════════════════════════════ -->
+  <h2>As White (1.e4 exclusively)</h2>
+
+  <!-- System 1: Najdorf English Attack -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Najdorf Be3 — English Attack &nbsp;<small style="color:#57606a;font-weight:400;">ECO B90/B92</small></h3>
+      <span class="game-count">12 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-book" title="Reyansh: 45% | Book: e4 (45%)">1.e4</span>
+        <span class="chip chip-opp">1…c5</span>
+        <span class="chip chip-book" title="Reyansh: 83% | Book: Nf3 (83%)">2.Nf3</span>
+        <span class="chip chip-opp">2…d6</span>
+        <span class="chip chip-book" title="Reyansh: 81% | Book: d4 (81%)">3.d4</span>
+        <span class="chip chip-opp">3…cxd4</span>
+        <span class="chip chip-book" title="Reyansh: 96% | Book: Nxd4 (96%)">4.Nxd4</span>
+        <span class="chip chip-opp">4…Nf6</span>
+        <span class="chip chip-book" title="Reyansh: 98% | Book: Nc3 (98%)">5.Nc3</span>
+        <span class="chip chip-opp">5…a6</span>
+        <span class="chip chip-book" title="Reyansh: 33% | Book: Be3 (33%), Bg5 (20%), Be2 (13%)">6.Be3</span>
+        <span class="chip chip-opp">6…e5</span>
+        <span class="chip chip-side" title="Reyansh: 13% | Book: Nb3 (86%), Nf3 (13%)">7.Nf3 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">7…Be7</span>
+        <span class="chip chip-book" title="Reyansh: 92% | Book: Bc4 (92%)">8.Bc4</span>
+        <span class="chip chip-opp">8…O-O</span>
+        <span class="chip chip-book" title="Reyansh: 92% | Book: O-O (92%)">9.O-O</span>
+        <span class="chip chip-opp">9…Nc6</span>
+        <span class="chip chip-good" title="Reyansh: 20% | Book: Re1 (33%), Qe2 (24%), Bg5 (20%)">10.Bg5</span>
+        <span class="chip chip-opp">10…Be6</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">7. Nf3</span>
+          <span class="dev-detail"><em>Key system divergence.</em> After 6.Be3 e5 (the main Najdorf Be3 response), masters overwhelmingly play <strong>7.Nb3</strong> (86%) — retreating the knight off d4 to keep the English Attack formation intact. Reyansh stays central with <strong>7.Nf3</strong> (13%), which reaches a less-explored position. This gives the game a different feel from the main English Attack theory. Reyansh's 12 games in this line suggest it is a deliberate choice.</span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">10. Bg5</span>
+          <span class="dev-detail">After completing development (Bc4, O-O), Reyansh pins the f6-knight with <strong>10.Bg5</strong> (20% of masters). Book prefers <strong>10.Re1</strong> (33%) or <strong>10.Qe2</strong> (24%). The Bg5 pin is aggressive and consistent with his tactical style — he wants complications and piece activity early.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note (playing Black)</div>
+        Austin plays 1.e4 — he won't face Reyansh as White in this line. But if Austin ever needs to understand this system: Reyansh's 7.Nf3 avoids the main English Attack and the well-known theory around Nb3/Na3/Nc5. After 7.Nf3 Be7 8.Bc4, Black should respond with the classical Najdorf moves (…Nc6, …Be6, …Qc7) rather than sharp English Attack counter-play. The 10.Bg5 pin means Black must resolve the pin accurately — 10…Be6 (as in the trunk) is the natural response.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 2: Scotch Gambit -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Scotch Gambit — avoids Ruy Lopez &nbsp;<small style="color:#57606a;font-weight:400;">ECO C44/C45</small></h3>
+      <span class="game-count">10 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-book" title="Reyansh: 45% | Book: e4 (45%)">1.e4</span>
+        <span class="chip chip-opp">1…e5</span>
+        <span class="chip chip-book" title="Reyansh: 92% | Book: Nf3 (92%)">2.Nf3</span>
+        <span class="chip chip-opp">2…Nc6</span>
+        <span class="chip chip-side" title="Reyansh: 9% | Book: Bb5 (65%), Bc4 (19%), d4 (9%)">3.d4 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">3…exd4</span>
+        <span class="chip chip-good" title="Reyansh: 12% | Book: Nxd4 (84%), Bc4 (12%), c3 (3%)">4.Bc4 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">4…Nf6</span>
+        <span class="chip chip-book" title="Reyansh: 70% | Book: e5 (70%)">5.e5</span>
+        <span class="chip chip-opp">5…d5</span>
+        <span class="chip chip-book" title="Reyansh: 100% | Book: Bb5 (100%)">6.Bb5</span>
+        <span class="chip chip-opp">6…Ne4</span>
+        <span class="chip chip-book" title="Reyansh: 99% | Book: Nxd4 (99%)">7.Nxd4</span>
+        <span class="chip chip-opp">7…Bc5</span>
+        <span class="chip chip-book" title="Reyansh: 78% | Book: Be3 (78%)">8.Be3</span>
+        <span class="chip chip-opp">8…Bd7</span>
+        <span class="chip chip-book" title="Reyansh: 100% | Book: Bxc6 (100%)">9.Bxc6</span>
+        <span class="chip chip-opp">9…bxc6</span>
+        <span class="chip chip-good" title="Reyansh: 37% | Book: Nd2 (61%), O-O (37%)">10.O-O</span>
+        <span class="chip chip-opp">10…O-O</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">3. d4</span>
+          <span class="dev-detail"><em>Critical system choice — avoids Ruy Lopez entirely.</em> After 2…Nc6, masters play <strong>3.Bb5</strong> (65%) — the Ruy Lopez, the most deeply analyzed 1.e4 e5 weapon. Reyansh plays <strong>3.d4</strong> (9%) instead, entering the Scotch opening family. This sidesteps the entire Ruy Lopez theoretical tree, which is strategically significant: Reyansh has no documented Ruy Lopez games in the dataset (0 in 54 White games).</span>
+        </div>
+        <div class="dev-row level-good">
+          <span class="dev-move">4. Bc4</span>
+          <span class="dev-detail">After 3.d4 exd4, standard Scotch plays <strong>4.Nxd4</strong> (84%) — the Classical Scotch. Reyansh instead plays <strong>4.Bc4</strong> (12%) — the Scotch Gambit — offering the pawn for rapid piece development and kingside attacking chances. This is a more forcing, tactical approach than the Classical Scotch. After 4…Nf6 5.e5 d5 6.Bb5, the position becomes highly tactical (the Max Lange Attack structure).</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note (playing Black)</div>
+        <strong>Austin plays 1.e4 — he won't face this as Black.</strong> But if Austin ever faces Reyansh as Black: after 1.e4 e5 2.Nf3 Nc6, Reyansh will NOT play 3.Bb5 (Ruy Lopez). He plays <strong>3.d4</strong> (Scotch) and will reach the Scotch Gambit with 4.Bc4. The resulting positions after 4…Nf6 5.e5 d5 6.Bb5 are sharp and tactical. Prepare the Max Lange Attack defense if facing Reyansh from the Black side.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 3: Caro-Kann Classical -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Caro-Kann Classical — Nc3 variation &nbsp;<small style="color:#57606a;font-weight:400;">ECO B15/B19</small></h3>
+      <span class="game-count">8 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-book" title="Reyansh: 45% | Book: e4 (45%)">1.e4</span>
+        <span class="chip chip-opp">1…c6</span>
+        <span class="chip chip-book" title="Reyansh: 80% | Book: d4 (80%)">2.d4</span>
+        <span class="chip chip-opp">2…d5</span>
+        <span class="chip chip-good" title="Reyansh: 24% | Book: e5 (40%), Nc3 (24%), exd5 (20%)">3.Nc3 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">3…dxe4</span>
+        <span class="chip chip-book" title="Reyansh: 100% | Book: Nxe4 (100%)">4.Nxe4</span>
+        <span class="chip chip-opp">4…Bf5</span>
+        <span class="chip chip-book" title="Reyansh: 95% | Book: Ng3 (95%)">5.Ng3</span>
+        <span class="chip chip-opp">5…Bg6</span>
+        <span class="chip chip-book" title="Reyansh: 65% | Book: h4 (65%)">6.h4</span>
+        <span class="chip chip-opp">6…h6</span>
+        <span class="chip chip-book" title="Reyansh: 88% | Book: Nf3 (88%)">7.Nf3</span>
+        <span class="chip chip-opp">7…Nd7</span>
+        <span class="chip chip-book" title="Reyansh: 94% | Book: h5 (94%)">8.h5</span>
+        <span class="chip chip-opp">8…Bh7</span>
+        <span class="chip chip-book" title="Reyansh: 100% | Book: Bd3 (100%)">9.Bd3</span>
+        <span class="chip chip-opp">9…Bxd3</span>
+        <span class="chip chip-book" title="Reyansh: 100% | Book: Qxd3 (100%)">10.Qxd3</span>
+        <span class="chip chip-opp">10…e6</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">3. Nc3</span>
+          <span class="dev-detail">Masters most often play <strong>3.e5</strong> (40%) — the Advanced Caro-Kann — or <strong>3.exd5</strong> (20%) — the Exchange. Reyansh plays <strong>3.Nc3</strong> (24%), the Classical variation, which leads after 3…dxe4 4.Nxe4 to the well-known Caro-Kann main line. From move 4 onward, Reyansh's play is fully book through move 10. <strong>This is his most theoretically prepared White system</strong> — all 7 player-turn moves from 4-10 match the masters database top choice.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note (playing Black)</div>
+        <strong>Austin plays 1.e4 — he won't face this.</strong> Austin's Exchange Caro-Kann (3.exd5) is his own White weapon, not Reyansh's. Austin knows this structure from the White side. Note: if Austin ever plays the Caro-Kann as Black vs a 1.e4 opponent, Reyansh's 3.Nc3 Classical is his weapon. The main line through 10.Qxd3 is fully theoretical — both sides must be prepared through the Capablanca variation (…e6, …Nd6, …Ne7).
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       AS BLACK
+  ════════════════════════════════════════════════════════════════ -->
+  <h2>As Black</h2>
+
+  <!-- System 4: Accelerated Dragon -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Accelerated Dragon — 4…g6 vs Open Sicilian &nbsp;<small style="color:#57606a;font-weight:400;">ECO B34/B35</small></h3>
+      <span class="game-count">18 games (largest Black sample) · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk (assumes 3.d4 — see Austin prep note)</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.e4</span>
+        <span class="chip chip-book" title="Reyansh: 46% | Book: c5 (46%)">1…c5</span>
+        <span class="chip chip-opp">2.Nf3</span>
+        <span class="chip chip-good" title="Reyansh: 27% | Book: d6 (46%), Nc6 (27%), e6 (23%)">2…Nc6</span>
+        <span class="chip chip-opp">3.d4</span>
+        <span class="chip chip-book" title="Book: cxd4 (100%)">3…cxd4</span>
+        <span class="chip chip-opp">4.Nxd4</span>
+        <span class="chip chip-side" title="Reyansh: 15% | Book: Nf6 (58%), g6 (15%), e5 (12%)">4…g6 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">5.Nc3</span>
+        <span class="chip chip-book" title="Book: Bg7 (100%)">5…Bg7</span>
+        <span class="chip chip-opp">6.Be3</span>
+        <span class="chip chip-book" title="Reyansh: 95% | Book: Nf6 (95%)">6…Nf6</span>
+        <span class="chip chip-opp">7.Bc4</span>
+        <span class="chip chip-good" title="Reyansh: 18% | Book: O-O (76%), Qa5 (18%), d6 (5%)">7…Qa5 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">8.O-O</span>
+        <span class="chip chip-book" title="Reyansh: 92% | Book: O-O (92%)">8…O-O</span>
+        <span class="chip chip-opp">9.Nb3</span>
+        <span class="chip chip-book" title="Reyansh: 90% | Book: Qc7 (90%)">9…Qc7</span>
+        <span class="chip chip-opp">10.Be2</span>
+        <span class="chip chip-book" title="Reyansh: 86% | Book: d6 (86%)">10…d6</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">2…Nc6</span>
+          <span class="dev-detail">The 2…Nc6 move order (Accelerated Dragon move order) enables both the Accelerated Dragon (4…g6) and the Taimanov (4…Nc6). Masters most play <strong>2…d6</strong> (46%) — the Najdorf/Classical move order. Reyansh's <strong>2…Nc6</strong> (27%) is a deliberate system choice to reach the Accelerated Dragon formation specifically.</span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">4…g6</span>
+          <span class="dev-detail"><em>Primary Black system.</em> After 4.Nxd4, masters most play <strong>4…Nf6</strong> (58%) — Classical Sicilian lines. Reyansh plays <strong>4…g6</strong> (15%) — the Accelerated Dragon — immediately fianchettoing the bishop. This avoids the Scheveningen, Najdorf, and Classical lines entirely. The Accelerated Dragon allows the …d5 break in one move without Nd4 forks.</span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">7…Qa5</span>
+          <span class="dev-detail">After 7.Bc4, masters castle immediately (<strong>7…O-O</strong>, 76%). Reyansh plays <strong>7…Qa5</strong> (18%) — an active queen sortie putting pressure on c3 and d2. This is a personal preparation choice that delays castling for tactical pressure. The 1301 master games with this move confirm it is a recognized variation.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note (playing White) — CRITICAL</div>
+        <strong>Austin's Rossolimo (3.Bb5) sidesteps ALL of Reyansh's Accelerated Dragon preparation.</strong> After 1.e4 c5 2.Nf3 Nc6, Austin plays <strong>3.Bb5</strong> — Reyansh is immediately off the trunk (which assumes 3.d4). Reyansh responds 3…g6 (confirmed 0W–2L record in 2 documented games). The Accelerated Dragon with …Qa5 sideline, the 4…g6 preparation, the 7…Qa5 novelty — all irrelevant. Austin should enter 3.Bb5 confidently and steer toward 4.0-0 Bg7 5.c3, the line where Reyansh has his 2 documented losses.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 5: Stonewall Dutch -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Stonewall Dutch — Bd6+f5 formation vs 1.d4 &nbsp;<small style="color:#57606a;font-weight:400;">ECO D00/A80</small></h3>
+      <span class="game-count">9 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.d4</span>
+        <span class="chip chip-good" title="Reyansh: 26% | Book: Nf6 (61%), d5 (26%), e6 (4%)">1…d5</span>
+        <span class="chip chip-opp">2.c4</span>
+        <span class="chip chip-good" title="Reyansh: 35% | Book: c6 (49%), e6 (35%), dxc4 (12%)">2…e6</span>
+        <span class="chip chip-opp">3.Nc3</span>
+        <span class="chip chip-good" title="Reyansh: 22% | Book: Nf6 (41%), c6 (22%), Be7 (17%)">3…c6</span>
+        <span class="chip chip-opp">4.e3</span>
+        <span class="chip chip-side" title="Reyansh: 10% | Book: Nf6 (73%), f5 (12%), Bd6 (10%)">4…Bd6 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">5.Bd3</span>
+        <span class="chip chip-book" title="Reyansh: 82% | Book: f5 (82%)">5…f5</span>
+        <span class="chip chip-opp">6.Nge2</span>
+        <span class="chip chip-book" title="Reyansh: 92% | Book: Nf6 (92%)">6…Nf6</span>
+        <span class="chip chip-opp">7.Qc2</span>
+        <span class="chip chip-book" title="Reyansh: 73% | Book: O-O (73%)">7…O-O</span>
+        <span class="chip chip-opp">8.f3</span>
+        <span class="chip chip-side" title="Reyansh: 13% | Book: Kh8 (33%), Na6 (18%), dxc4 (13%)">8…dxc4 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">9.Bxc4</span>
+        <span class="chip chip-good" title="Reyansh: 29% | Book: b5 (71%), Kh8 (29%)">9…Kh8</span>
+        <span class="chip chip-opp">10.O-O</span>
+        <span class="chip chip-good" title="Reyansh: 33% | Book: b5 (33%), Qe7 (33%), e5 (33%) — 3-way split">10…Qe7</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">1…d5 · 2…e6 · 3…c6</span>
+          <span class="dev-detail">Reyansh's 1…d5 → 2…e6 → 3…c6 move order is a deliberate setup for the Stonewall Dutch. 1…d5 (26% of masters vs Nf6's 61%) is itself a slight deviation, but the move order is valid. Each move is a "good" choice (20–35% of masters). The sequence establishes a solid foundation before playing …f5.</span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">4…Bd6</span>
+          <span class="dev-detail"><em>Key Stonewall signpost.</em> After 4.e3, masters develop the knight first (<strong>4…Nf6</strong>, 73%). Reyansh plays <strong>4…Bd6</strong> (10%) — immediately posting the bishop on d6 where it guards the e5 square and prepares …f5. This bishop placement is characteristic of the Stonewall Dutch setup (bishop goes to d6 before the f5 push). After 5.Bd3 the bishop trade is forced, and then 5…f5 completes the Stonewall chain.</span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">8…dxc4</span>
+          <span class="dev-detail">After White's 8.f3 (attacking the Stonewall), masters typically respond with <strong>8…Kh8</strong> (33%) — a useful king move preparing …Na6. Reyansh plays <strong>8…dxc4</strong> (13%) — immediately capturing to open the position. After 9.Bxc4 Kh8 the king steps aside anyway, suggesting Reyansh's move order aims for a specific structure with White committed to Bxc4 before Kh8.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note (playing White)</div>
+        <strong>Austin plays 1.e4, not 1.d4.</strong> This Stonewall system is irrelevant for a direct Austin–Reyansh game. However: if Austin studies it, Reyansh's Stonewall is a positional system with the 4…Bd6 + 5…f5 structure. The key tactical idea is White's f3 break at move 8, which Reyansh addresses with …dxc4 to accept structural change rather than allowing a center break. Reyansh scored well in this system (confirmed via analysis.md: 6W-3L-2D in 11 d4 games overall).
+      </div>
+    </div>
+  </div>
+
+  <!-- System 6: c3 Anti-Sicilian personal prep -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>c3 Anti-Sicilian — Nh6 personal preparation &nbsp;<small style="color:#57606a;font-weight:400;">ECO B22</small></h3>
+      <span class="game-count">4 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.e4</span>
+        <span class="chip chip-book" title="Reyansh: 46% | Book: c5 (46%)">1…c5</span>
+        <span class="chip chip-opp">2.Nf3</span>
+        <span class="chip chip-side" title="Reyansh: 23% | Book: d6 (46%), Nc6 (27%), e6 (23%)">2…e6</span>
+        <span class="chip chip-opp">3.c3</span>
+        <span class="chip chip-book" title="Reyansh: 50% | Book: d5 (50%), Nf6 (45%)">3…d5</span>
+        <span class="chip chip-opp">4.e5</span>
+        <span class="chip chip-good" title="Reyansh: 36% | Book: d4 (52%), Nc6 (36%), Bd7 (5%)">4…Nc6</span>
+        <span class="chip chip-opp">5.d4</span>
+        <span class="chip chip-good" title="Reyansh: 41% | Book: Bd7 (46%), Qb6 (41%), Nge7 (7%)">5…Qb6</span>
+        <span class="chip chip-opp">6.Bd3</span>
+        <span class="chip chip-good" title="Reyansh: 26% | Book: cxd4 (71%), Bd7 (26%), Nh6 (3%)">6…Bd7</span>
+        <span class="chip chip-opp">7.O-O</span>
+        <span class="chip chip-rare" title="Reyansh: 4% | Book: cxd4 (86%), Rc8 (6%), Nh6 (4%)">7…Nh6 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">8.a4</span>
+        <span class="chip chip-novel" title="Novelty — not in master DB">8…a5 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">9.Re1</span>
+        <span class="chip chip-novel" title="Novelty — not in master DB">9…Be7 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">10.Na3</span>
+        <span class="chip chip-novel" title="Novelty — not in master DB">10…cxd4 <span class="chip-flag">★</span></span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-side">
+          <span class="dev-move">2…e6</span>
+          <span class="dev-detail">After 2.Nf3, Reyansh plays <strong>2…e6</strong> (23% of masters) instead of the most common <strong>2…d6</strong> (46%) or <strong>2…Nc6</strong> (27%). This move order can reach the same positions after 3.c3, but it also allows the c3-Sicilian (1.e4 c5 2.c3 d5) to be sidestepped. The 2…e6 move order vs 3.c3 specifically is Reyansh's personal choice.</span>
+        </div>
+        <div class="dev-row level-rare">
+          <span class="dev-move">7…Nh6</span>
+          <span class="dev-detail"><em>Personal preparation begins.</em> Masters play <strong>7…cxd4</strong> (86%) — capturing immediately is nearly unanimous. Reyansh delays with <strong>7…Nh6</strong> (4%), an unusual knight development — the h6 square is non-standard. This is Reyansh's departure from theory; the subsequent moves (8…a5, 9…Be7, 10…cxd4) are all novelties with no master-game precedent. He has developed a private preparation line against the c3 anti-Sicilian.</span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">8…a5 · 9…Be7 · 10…cxd4</span>
+          <span class="dev-detail"><em>Three consecutive novelties.</em> From move 8 onward, no master games exist at any of these positions. Reyansh is operating entirely from memory and personal preparation. The …a5 / …Be7 / …cxd4 sequence: the a5 pawn push responds to 8.a4 (prophylaxis), the bishop goes to e7 solidly, and only then does cxd4 open the position. This is a prepared personal line, not improvisation.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Prep note (playing White)</div>
+        <strong>Austin plays 1.e4 but does NOT play 2.c3.</strong> Austin's repertoire is the Open Sicilian (2.Nf3) with Rossolimo after 2…Nc6. The c3 anti-Sicilian is not in Austin's weapon set, so this system is <em>irrelevant for direct matchup prep</em>. However, it confirms: Reyansh studies specific anti-Sicilian lines carefully and has personal preparation in place. If Austin ever deviates from the Rossolimo (e.g., plays c3 accidentally), Reyansh will be prepared with 7…Nh6 novelty prep.
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Synthesis ─────────────────────────────────────────────── -->
+  <h2>What This Means for Austin</h2>
+
+  <div class="insight-grid">
+    <div class="insight-card">
+      <h4>Reyansh as White — What to Expect</h4>
+      <ul>
+        <li><strong>1.e4 exclusively</strong> — he plays e4 in 52/54 White games.</li>
+        <li>vs Sicilian (Austin's likely Black choice): <strong>Open Sicilian 2.Nf3 3.d4 always.</strong> Specifically, English Attack (Be3) vs Najdorf, and <strong>5.c4 Maróczy Bind</strong> vs the Accelerated Dragon (2…Nc6 + 4…g6). Austin MUST play 2…e6 Taimanov to avoid the Maróczy.</li>
+        <li>vs 1…e5: <strong>Scotch 3.d4 then Scotch Gambit 4.Bc4</strong> — no Ruy Lopez ever. Reyansh has 0 Ruy Lopez games documented.</li>
+        <li>vs Caro-Kann: 3.Nc3 Classical — <strong>fully theoretical moves 4–10.</strong> He is deeply prepared in this line.</li>
+        <li>His White accuracy (92.8%) is higher than Black (90.7%) — he is more confident and prepared as White.</li>
+      </ul>
+    </div>
+    <div class="insight-card">
+      <h4>Reyansh as Black — What to Expect</h4>
+      <ul>
+        <li>vs 1.e4: <strong>Always 1…c5 (29/29 games)</strong>. After 2.Nf3 Nc6, Austin's Rossolimo 3.Bb5 is the weapon — confirmed 0W–2L for Reyansh in this line.</li>
+        <li>His Accelerated Dragon prep (4…g6 → 7…Qa5) is irrelevant if Austin plays 3.Bb5 — Reyansh goes into his weaker territory immediately.</li>
+        <li>vs 1.d4: Stonewall Dutch (d5 + e6 + c6 + Bd6 + f5). Austin doesn't play 1.d4, so not applicable.</li>
+        <li>Reyansh has <strong>personal novelty lines</strong> in the c3 anti-Sicilian (moves 7–10 off-book). If Austin plays 2.c3, Reyansh will be prepared — stay with 2.Nf3 and the Rossolimo.</li>
+        <li><strong>Bottom line: Rossolimo 3.Bb5 is Austin's best weapon</strong> — sidesteps all of Reyansh's preparation and hits his 0-2 documented record.</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="margin-top:24px;font-size:0.8rem;color:#57606a;border-top:1px solid #d0d7de;padding-top:16px;">
+    Data: Lichess Masters database (FIDE 2300+ OTB games) via <code>explorer.lichess.ovh/masters</code> ·
+    Games parsed from <code>pgnlib/Paragiri, Reyansh.pgn</code> (104 games, pgnlib; 83 deep analysis games) ·
+    Trunk = plurality-voted most-played continuation · Generated Nov 6, 2026
+  </p>
+
+</div>
+</body>
+</html>
