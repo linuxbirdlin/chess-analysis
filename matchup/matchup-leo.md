@@ -26,7 +26,7 @@ Leo plays **French Defense (1...e6)** in 100% of recorded games vs 1.e4. He is c
 
 ### Opening recommendation
 
-**Play Advance French (3.e5) or Tarrasch (3.Nd2) — NOT Exchange (3.exd5).**
+**Play Advance French (3.e5) ONLY — NOT Tarrasch (3.Nd2) — NOT Exchange (3.exd5).**
 
 The Exchange French leads to symmetrical, drawish endgame positions — exactly where Leo thrives (he won a 134-move game in this structure). Austin's tactical style is poorly suited to those positions.
 
