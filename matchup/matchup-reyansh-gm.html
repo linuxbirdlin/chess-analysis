@@ -144,21 +144,20 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 </div>
 
 <input type="checkbox" id="w-branch-a" class="acc-toggle">
-<label for="w-branch-a" class="acc-label">Branch A (Main): 3.Bb5 g6 4.0-0 Bg7 5.c3 d6 6.d4 — Central Build</label>
+<label for="w-branch-a" class="acc-label">Branch A (Main): 3.Bb5 g6 4.0-0 Bg7 5.c3 Nf6 6.Re1 — master main line (78%)</label>
 <div class="acc-content">
   <div class="move-line">
     <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">c5</span> 2.Nf3 <span class="mv-z">Nc6</span>
     <span class="key-move">3.Bb5</span> <span class="mv-z">g6</span> 4.0-0 <span class="mv-z">Bg7</span>
-    5.c3 <span class="mv-z">d6</span> 6.d4 <span class="mv-z">cxd4</span> 7.cxd4 <span class="mv-z">Bd7</span>
-    8.Nc3 <span class="mv-z">Nf6</span> 9.Re1
+    5.c3 <span class="mv-z">Nf6</span> <span class="key-move">6.Re1</span> <span class="mv-z">0-0</span>
+    7.d4 <span class="mv-z">cxd4</span> 8.cxd4 <span class="mv-z">d5</span> 9.e5 <span class="mv-z">Ne4</span> 10.Nfd2
   </div>
-  <p><strong>Position assessment:</strong> White has a central pawn majority (e4, d4) and fluid development. Black's bishop on d7 is somewhat passive. Austin's plans:</p>
+  <p><strong>Position assessment:</strong> Anti-Rossolimo main line (Lichess masters: 78% of 4,165 games at the 5.c3 position). After 5...Nf6 Austin plays 6.Re1, preparing d4. The critical position is 9.e5 Ne4 10.Nfd2. Austin must know two sub-lines cold:</p>
   <ul style="padding-left:20px; margin:8px 0; font-size:0.9em;">
-    <li><strong>e5 break:</strong> After 9.Re1, prepare e5 with 10.e5 dxe5 11.d5 Nb8 12.Nc3 — White gains space, knight on b8 is misplaced</li>
-    <li><strong>Nc3-d5:</strong> Knight outpost on d5 after Nc3 if Black doesn't challenge with ...e5 or ...d5</li>
-    <li><strong>10.Be3 h3:</strong> Solid development, preventing ...Ng4 pin; then expand with Qd2, Bh6 targeting Bg7</li>
+    <li><strong>10...Nxd2 11.Bxd2 Bg4 12.f3:</strong> Forces the bishop back (12...Bh5 or 12...Be6). White follows with Nc3, central control, and queenside expansion.</li>
+    <li><strong>10...Bh6 11.Nxe4 dxe4 12.Nc3:</strong> Black's e4-pawn is isolated and hard to defend; White plays Nc3-e2-d4 or directly Ne2 to target it. White has the structural edge.</li>
   </ul>
-  <p><em>Key move to know: After 7.cxd4 — do NOT rush e5. Develop Nc3 first, then Re1 activates the rook on the e-file before committing to the break.</em></p>
+  <p><em>Critical prep: The 9.e5 Ne4 10.Nfd2 position is the most likely actual game position — know both sub-lines before the game.</em></p>
 </div>
 
 <input type="checkbox" id="w-branch-b" class="acc-toggle">
@@ -220,9 +219,9 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <div class="move-line">
     <span class="mv-z">Reyansh:</span> 1.e4 <span class="mv-a">c5</span>
     2.Nf3 <span class="key-move">e6</span> 3.d4 <span class="mv-a">cxd4</span>
-    4.Nxd4 <span class="mv-a">Nc6</span> 5.Nc3 <span class="mv-a">a6</span>
+    4.Nxd4 <span class="mv-a">Nc6</span> 5.Nc3 <span class="mv-a">Qc7</span>
   </div>
-  <p><strong>After 5...a6 (Kan-Taimanov):</strong></p>
+  <p><strong>After 5...Qc7 (B47 Bastrikov — Lichess master consensus, 65% of 35,297 games):</strong></p>
   <ul style="padding-left:20px; margin:8px 0; font-size:0.9em;">
     <li><strong>6.Be2 Qc7 7.0-0 Nf6 8.Be3 Be7:</strong> Main line. Austin aims for ...d6, then ...0-0, then ...b5 queenside expansion. After ...b5, Black plays ...Bb7, ...Nc6-e5 for knight outpost, and ...Rc8 rook activation.</li>
     <li><strong>Key plan:</strong> ...b5-b4 undermines c3 knight; ...Qb6 challenges d4 knight; after White retreats Nxc6 or Ne2, Black has active queenside</li>
@@ -309,7 +308,8 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <tbody>
   <tr class="row-good"><td>1...c5 (certain)</td><td>2.Nf3 Nc6 3.Bb5! (Rossolimo)</td><td>PRIMARY — he plays 3...g6</td></tr>
   <tr class="row-good"><td>3...g6 (confirmed)</td><td>4.0-0 Bg7 5.c3</td><td>Both documented Rossolimo games</td></tr>
-  <tr><td>5...d6</td><td>6.d4 cxd4 7.cxd4 Bd7 8.Nc3 Nf6 9.Re1</td><td>Branch A main line</td></tr>
+  <tr class="row-good"><td>5...Nf6 (main — 78%)</td><td>6.Re1 0-0 7.d4 cxd4 8.cxd4 d5 9.e5 Ne4 10.Nfd2</td><td>Branch A — critical position to know cold</td></tr>
+  <tr><td>5...d6 (rare)</td><td>6.d4 cxd4 7.cxd4 Bd7 8.Nc3 Nf6 9.Re1</td><td>Branch C — few master games; White scores well structurally</td></tr>
   <tr><td>5...e5</td><td>6.d3 Nge7 7.Bd2 0-0 8.Na3</td><td>Branch B closed</td></tr>
   <tr><td>3...e5 (uncommon)</td><td>4.0-0 Nge7 5.c3 d6 6.d4</td><td>Similar structures</td></tr>
   <tr><td>3...d6 (no Nc6)</td><td>4.0-0 Bg7 5.c3 Nc6 6.d4</td><td>Standard development</td></tr>
@@ -326,7 +326,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <tbody>
   <tr class="row-good"><td>1.e4</td><td>1...c5</td><td>Austin's documented Black weapon</td></tr>
   <tr class="row-good"><td>2.Nf3</td><td><strong>2...e6!</strong> (NOT 2...Nc6)</td><td>CRITICAL — prevents Maróczy forever</td></tr>
-  <tr class="row-good"><td>3.d4 cxd4 4.Nxd4 Nc6 5.Nc3</td><td>5...a6 (Kan-Taimanov)</td><td>Main line — ...Qc7, ...Nf6, ...d6, ...Be7, ...0-0, ...b5</td></tr>
+  <tr class="row-good"><td>3.d4 cxd4 4.Nxd4 Nc6 5.Nc3</td><td><strong>5...Qc7</strong> (B47 Bastrikov)</td><td>Main line — ...a6, ...Nf6, ...d6, ...Be7, ...0-0, ...b5</td></tr>
   <tr><td>5.Bc4</td><td>5...a6 6.Be3 Nf6 7.Bb3</td><td>Solid; Austin knows these structures</td></tr>
   <tr><td>6.g4 (Keres Attack)</td><td>6...Nge7 7.g5 d5!</td><td>Central counterplay; Reyansh no Keres games</td></tr>
   <tr><td>1.d4 (very rare, 2/54)</td><td>1...Nf6 2.c4 e6 3.Nc3 Bb4 (Nimzo)</td><td>Austin's documented d4 response</td></tr>

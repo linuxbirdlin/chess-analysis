@@ -142,7 +142,7 @@
     <div class="sub">Lichess Masters Explorer — Critical positions for NAYCC 2026</div>
     <div class="meta">
       <span><strong>Player:</strong> Austin Lin (1959 FIDE, Nov 2026)</span>
-      <span><strong>Scope:</strong> Fernando, Pranav (Taimanov) · Leo (Catalan Bogo) · Zachary (Dutch Leningrad) · Zhuoyuan (Rossolimo)</span>
+      <span><strong>Scope:</strong> Fernando, Pranav (Taimanov) · Leo (Catalan Bogo) · Zachary (Dutch Leningrad) · Zhuoyuan (Rossolimo) · Reyansh (Rossolimo deep — Anti-Rossolimo main)</span>
       <span><strong>Source:</strong> Lichess Masters DB (2400+ avg rating)</span>
       <span><strong>Generated:</strong> Oct 30, 2026</span>
     </div>
@@ -159,6 +159,7 @@
       <li><a href="#sec-e">E. Novelty summary &amp; action plan</a></li>
       <li><a href="#sec-f">F. Dutch Leningrad — vs Zachary Liu (1.Nf3 f5 → Catalan)</a></li>
       <li><a href="#sec-g">G. Rossolimo 3.Bb5 — vs Zhuoyuan Wu (sidesteps Accelerated Dragon)</a></li>
+      <li><a href="#sec-h">H. Rossolimo deep — vs Reyansh Paragiri (Anti-Rossolimo main: 5.c3 Nf6 6.Re1)</a></li>
     </ul>
   </div>
 
@@ -590,8 +591,40 @@
     <p><strong>Two-direction preparation edge vs Zhuoyuan:</strong> Austin has a structural advantage in both colors. As White: Rossolimo sidesteps Zhuoyuan's Dragon (zero Rossolimo games). As Black: Taimanov faces a White player with no Sicilian classical preparation. This double-edge is Austin's strongest preparation advantage in the entire NAYCC 2026 field.</p>
   </div>
 
+  <h2 id="sec-h"><span class="sec-label">H</span> Rossolimo Deep — vs Reyansh Paragiri (Anti-Rossolimo main: 5.c3 Nf6 6.Re1)</h2>
+
+  <p><span class="opp-tag" style="background:#4a1a7a;color:#fff;">Reyansh</span> 2067 FIDE (Nov 2026) · Seed #4 · Austin underdog (−108 FIDE). Reyansh's Sicilian Black: <strong>Accelerated Dragon exclusively</strong> (1...c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 g6, 13+ games). Responds to Rossolimo with <strong>3...g6 in 100% of games</strong> (2/2 documented: Mulay 2025 — 87% acc, LOSS; Atkeson 2024 — 90.2% acc / 141 CPL / 8 blunders, LOSS). Rossolimo record: <strong>0W–2L</strong> — the most exploitable documented opening weakness.</p>
+
+  <h3>Rossolimo tabiya after 5.c3</h3>
+  <div class="move-tree">
+    <div class="moves"><code>1.e4 c5 2.Nf3 Nc6 3.Bb5 g6 4.O-O Bg7 5.c3</code></div>
+    <p class="note">Both documented Reyansh Rossolimo games reached this position. Now the critical fork — Lichess masters data (4,165 games at this position):</p>
+    <div><span class="move">5...Nf6</span><span class="pct" style="background:#1a5c1a;color:#fff;border-radius:3px;padding:1px 6px;font-size:0.85em;">78%</span> <span class="label"><strong>Branch A — master main line. Austin plays 6.Re1.</strong></span></div>
+    <div><span class="move">5...e5</span><span class="pct" style="background:#555;color:#fff;border-radius:3px;padding:1px 6px;font-size:0.85em;">14%</span> <span class="label">Branch B — closed center. Austin plays 6.d3.</span></div>
+    <div><span class="move">5...d6</span><span class="pct" style="background:#888;color:#fff;border-radius:3px;padding:1px 6px;font-size:0.85em;">&lt;5%</span> <span class="label">Branch C — rare. Austin plays 6.d4. White scores well.</span></div>
+  </div>
+
+  <h3>Branch A — Critical tabiya: 9.e5 Ne4 10.Nfd2</h3>
+  <div class="move-tree">
+    <div class="moves"><code>5.c3 Nf6 6.Re1 O-O 7.d4 cxd4 8.cxd4 d5 9.e5 Ne4 10.Nfd2</code></div>
+    <p class="note">The Anti-Rossolimo main line. This is the most likely actual game position — Austin must know both continuations cold:</p>
+    <div style="margin:10px 0; padding:10px 14px; background:#f0faf4; border-left:4px solid #2d7d46; border-radius:3px;">
+      <strong>Sub-line 1: 10...Nxd2 11.Bxd2 Bg4 12.f3</strong><br>
+      <span style="font-size:0.9em;">White forces the bishop back (12...Bh5 or 12...Be6). Follow with Nc3, then expand centrally. White has the structural advantage — e5 pawn controls space, Black's d5 is a target.</span>
+    </div>
+    <div style="margin:10px 0; padding:10px 14px; background:#f0faf4; border-left:4px solid #2d7d46; border-radius:3px;">
+      <strong>Sub-line 2: 10...Bh6 11.Nxe4 dxe4 12.Nc3</strong><br>
+      <span style="font-size:0.9em;">Black's e4-pawn is isolated and hard to defend. White plays Nc3 then maneuvers Ne2-d4 or Ne2 outpost. The structural edge compounds — avoid trading into drawn endgames prematurely.</span>
+    </div>
+  </div>
+
+  <div class="callout good">
+    <p><strong>Why this is Austin's sharpest weapon:</strong> The Atkeson game (141 avg CPL, 8 blunders, 5 mistakes, 12 inaccuracies in 137 moves) shows Reyansh accumulated errors <em>throughout the entire game</em> in the Rossolimo fianchetto — not just one bad move. This is a structural incompatibility, not variance. Austin's goal: reach the 9.e5 Ne4 10.Nfd2 tabiya prepared, keep maximum complexity on the board, and let the structural pressure do the work.</p>
+    <p><strong>One rule:</strong> Never simplify to a drawish rook ending before move 30. Reyansh's Mechanics Institute record (5W–0L–4D) shows he draws technical games easily — keep the position alive.</p>
+  </div>
+
   <footer>
-    Gap 1 implementation · NAYCC 2026 prep · Generated Oct 30, 2026 · Updated Nov 1, 2026 (Section F: Dutch Leningrad vs Zachary; Section G: Rossolimo + Taimanov vs Zhuoyuan)
+    Gap 1 implementation · NAYCC 2026 prep · Generated Oct 30, 2026 · Updated Nov 5, 2026 (Section F: Dutch Leningrad vs Zachary; Section G: Rossolimo + Taimanov vs Zhuoyuan; Section H: Rossolimo deep vs Reyansh)
   </footer>
 
 </div>
