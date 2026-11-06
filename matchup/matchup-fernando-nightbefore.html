@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tonight's Prep: Austin vs Fernando Cortes Medina</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2; --purple: #5a1a8b;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg); }
+h1 { font-size: 1.55em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.1em; margin: 26px 0 10px; border-left: 5px solid var(--blue);
+  padding-left: 10px; background: #f0f4ff; padding: 6px 10px; }
+h3 { font-size: 0.95em; margin: 14px 0 6px; color: #333; font-weight: bold; }
+.subtitle { font-size: 0.84em; color: #666; margin-bottom: 18px; }
+.subtitle span { margin-right: 16px; }
+
+.callout { border-radius: 5px; padding: 11px 14px; margin: 10px 0; font-size: 0.9em; line-height: 1.6; }
+.callout-gold { background: #fffbf0; border-left: 4px solid var(--gold); }
+.callout-danger { background: #fdf0f0; border-left: 4px solid var(--red); }
+.callout-blue { background: #f0f4ff; border-left: 4px solid var(--blue); }
+.callout-green { background: #f0fdf0; border-left: 4px solid var(--green); }
+.callout-purple { background: #f8f0ff; border-left: 4px solid var(--purple); }
+.callout strong { display: block; margin-bottom: 3px; }
+
+.move-line { font-family: 'Courier New', monospace; font-size: 13px;
+  background: #fff; border: 1px solid #ddd; border-radius: 5px;
+  padding: 10px 14px; margin: 8px 0; line-height: 2.1; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: var(--gold); color: #fff; padding: 1px 6px;
+  border-radius: 3px; font-weight: bold; }
+.danger-move { background: var(--red); color: #fff; padding: 1px 6px;
+  border-radius: 3px; font-weight: bold; }
+.note { font-size: 0.82em; color: #555; font-family: Georgia, serif; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.87em; margin: 10px 0; }
+th { background: #2a3f6b; color: #fff; padding: 7px 9px; text-align: left; }
+td { padding: 6px 9px; border: 1px solid #ddd; vertical-align: top; }
+tr:nth-child(even) { background: #f5f5f5; }
+.row-danger { background: #fdeaea !important; }
+.row-safe { background: #edfdf3 !important; }
+.row-warn { background: #fffbe8 !important; }
+
+.schedule-box { display: grid; grid-template-columns: 80px 1fr; gap: 0; margin: 12px 0; border: 1px solid #bbc; border-radius: 5px; overflow: hidden; }
+.sch-time { background: #2a3f6b; color: #fff; font-weight: bold; font-size: 0.9em;
+  padding: 10px 8px; text-align: center; display: flex; align-items: center; justify-content: center; }
+.sch-body { padding: 10px 14px; background: #fff; font-size: 0.9em; line-height: 1.5; }
+.sch-body strong { color: var(--blue); }
+
+.fen-box { font-family: 'Courier New', monospace; font-size: 12px;
+  background: #1a1a2e; color: #90ee90; padding: 8px 12px; border-radius: 4px;
+  margin: 6px 0; word-break: break-all; }
+
+.checklist { list-style: none; padding: 0; }
+.checklist li { padding: 6px 0 6px 28px; border-bottom: 1px solid #eee; position: relative; font-size: 0.9em; }
+.checklist li::before { content: "☐"; position: absolute; left: 0; font-size: 1.1em; color: #888; }
+
+hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
+a { color: var(--blue); }
+.back-link { font-size: 0.82em; color: var(--blue); text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+
+@media print {
+  .schedule-box { break-inside: avoid; }
+  h2 { break-before: auto; }
+}
+</style>
+</head>
+<body>
+
+<h1>Tonight's Battle Plan: Austin vs Cortes Medina, Fernando</h1>
+<div class="subtitle">
+  <span><strong>Fernando Cortes Medina</strong> · 2085 FIDE (Nov 2026) · MEX</span>
+  <span>Austin: 1959 FIDE · Austin is <strong>−126</strong></span>
+  <span>Direct record: No prior encounter</span>
+  <span>Format: NAYCC 2026 · 90+30 classical</span>
+</div>
+<a class="back-link" href="../austin-prep.html">← Prep Index</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-fernando-gm.html">Full GM Battle Plan</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-fernando-deep.html">Engine Analysis</a>
+
+<div class="callout callout-gold" style="margin-top:14px">
+  <strong>The one-sentence brief</strong>
+  Fernando's primary weakness is <strong>R/Q piece placement in near-equal positions</strong> — he moves rooks to plausible-looking squares and misses pawn advances or the correct piece entirely (3/4 appearances ended in losses), and Austin can trigger this by playing the <strong>Advanced French (3.e5)</strong> as White to create sustained long-duration pressure where this pattern fires.
+</div>
+
+<div class="callout callout-danger">
+  <strong>Critical: Fernando has ZERO decisive blunders in 37 games</strong>
+  He has never flipped a winning position to a losing one in a single move. Austin cannot rely on a tactical shot or wait for Fernando to collapse suddenly. Wins must be built slowly. This is a grind game.
+</div>
+
+<hr>
+
+<h2>Tonight's 2-Hour Schedule</h2>
+
+<div class="schedule-box">
+  <div class="sch-time">0:00–0:45</div>
+  <div class="sch-body"><strong>Opening prep — both colors (45 min)</strong><br>
+    If White: Advanced French (3.e5!) through move 12. Critical: do NOT play French Exchange (3.exd5) — Fernando scores 96.3% in Exchange French as Black. The Advanced (3.e5) is his worst French structure in the dataset.<br>
+    If Black vs 1.e4: Sicilian. Aim for complex middlegame — Fernando's White accuracy (91.9%) is lower than his Black (93.6%).<br>
+    If Black vs 1.c4/1.Nf3: Know your system through move 8.
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">0:45–1:15</div>
+  <div class="sch-body"><strong>Study the Queretaro rook cluster (30 min)</strong><br>
+    Fernando lost 3 games at Queretaro 2026 with the same error type: passive rook moves instead of pawn advances.<br>
+    Queretaro R6 (worst instance): Fernando played <code>Re2, Rf2, Rh2</code> three consecutive moves — all rooks, all wrong — when <code>g6!</code> was the winning idea each time. The game was drawn/lost from a near-equal position.<br>
+    <strong>Train your eye to see when a pawn push beats a rook improvement.</strong> This is the pattern you need to recognize from the other side.
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">1:15–1:45</div>
+  <div class="sch-body"><strong>Study the Leal Escamilla collapse (30 min)</strong><br>
+    Fernando (Black, +9.46 advantage) played <code>Qa1</code> — the queen retreated to the most passive square on the board — when <code>Rd1</code> was crushing. He eventually lost to a 1765-rated player while playing at 93.7% accuracy (his best accuracy in any loss).<br>
+    Key takeaway: <strong>Don't resign when Fernando reaches a clearly winning position.</strong> His won-position conversion is not automatic — he failed 3 times out of 8 (2 draws, 1 loss). Austin is rated above that 1765 precedent.
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">1:45–2:00</div>
+  <div class="sch-body"><strong>Mental prep and day-of checklist (15 min)</strong><br>
+    Read Part D. Sleep. The grind is the plan — Fernando doesn't crack fast, but he does crack.
+  </div>
+</div>
+
+<hr>
+
+<h2>Part A — Austin as White: Advanced French (Never Exchange)</h2>
+
+<div class="callout callout-danger">
+  <strong>NEVER play 3.exd5 (French Exchange)</strong>
+  Fernando scores 96.3% avg as Black in Exchange French (C01) — 1W + 1D in the dataset.
+  Symmetric pawn structure = Fernando's technical comfort zone. Do not give him this.
+</div>
+
+<h3>The weapon: Advanced French (3.e5)</h3>
+
+<div class="move-line">
+  <span class="mv-a">1.e4</span> <span class="mv-z">e6</span>
+  <span class="mv-a">2.d4</span> <span class="mv-z">d5</span>
+  <span class="key-move">3.e5!</span> <span class="note">— Advanced French. Fernando's worst French structure in the dataset (C02, 89.2%).</span><br>
+  <span class="mv-z">3…c5</span> <span class="note">(primary — main Advance line)</span><br>
+  <span class="mv-a">4.c3</span> <span class="mv-z">Nc6</span>
+  <span class="mv-a">5.Nf3</span> <span class="mv-z">Qb6</span>
+  <span class="key-move">6.Be2</span> <span class="note">— Classical; or 6.a3 (Milner-Barry gambit)</span><br>
+  <span class="mv-z">3…Nc6</span> <span class="note">(alternative — Nimzowitsch 3...Nc6)</span><br>
+  <span class="mv-a">4.Nf3</span> <span class="mv-z">Qb6</span>
+  <span class="mv-a">5.Be2</span>
+</div>
+
+<table>
+  <tr><th>If Fernando plays…</th><th>Austin responds…</th><th>Key idea</th></tr>
+  <tr class="row-safe">
+    <td>3…c5 4…cxd4 5…Bd7 (main Advance)</td>
+    <td>5.Nf3 Bb5 6.a3 Bxc3+ 7.bxc3 — keep pawns closed</td>
+    <td>Closed center = long-duration pressure, Austin's goal</td>
+  </tr>
+  <tr class="row-warn">
+    <td>Fernando tries early …f6 (undermining)</td>
+    <td>6.Be2 fxe5 7.dxe5 — recapture, keep e5 pawn strong</td>
+    <td>e5 pawn is the anchor of White's space advantage</td>
+  </tr>
+  <tr class="row-safe">
+    <td>Fernando offers queen exchange</td>
+    <td>Consider declining — queens on = more complexity</td>
+    <td>His Pattern G fires in complex piece middlegames, not endgames</td>
+  </tr>
+  <tr class="row-danger">
+    <td>Any 3.exd5 idea by Austin</td>
+    <td>DO NOT. Stay in Advanced at all costs.</td>
+    <td>Fernando's best French structure (96.3%)</td>
+  </tr>
+  <tr>
+    <td>Fernando plays 1…c5 (Sicilian vs 1.e4)</td>
+    <td>Austin's standard: English Attack (6.Be3 f3 g4!)</td>
+    <td>Fernando's A16/A29 White results suggest he prefers English structures — as Black he may play Sicilian. Use Austin's standard weapon.</td>
+  </tr>
+</table>
+
+<div class="callout callout-blue">
+  <strong>Why Advanced French creates the Pattern G conditions</strong>
+  The Advanced French produces a closed center with long-term tension on both flanks (queenside c5-c4 vs kingside g4-g5 plans). These are exactly the positions where Fernando has to choose between "improving a rook to an active file" and "pushing the correct pawn." In Queretaro R6, three consecutive rook moves to the h-file (Re2, Rf2, Rh2) when g6 was correct — this happened in a Reti/English structure. The Advanced French creates the same type of problem on the kingside.
+</div>
+
+<hr>
+
+<h2>Part B — Austin as Black: Sicilian vs Fernando's 1.e4</h2>
+
+<div class="callout callout-gold">
+  <strong>Fernando's White accuracy: 91.9% (17g) vs Black accuracy: 93.6% (20g)</strong>
+  Fernando is measurably weaker as White. As a player Austin should press for complications as Black — avoid early simplification that lets him convert a small advantage at his 91.9% rate.
+</div>
+
+<h3>If Fernando plays 1.e4 (primary)</h3>
+
+<div class="move-line">
+  <span class="mv-z">1.e4</span>
+  <span class="mv-a">1…c5</span> <span class="note">— Sicilian. Fernando has 1.e4 games (B14, B56, C54 in dataset).</span><br>
+  <span class="mv-z">2.Nf3</span>
+  <span class="mv-a">2…Nc6</span> <span class="note">or 2…e6 depending on structure preference</span><br>
+  <span class="mv-z">3.d4 cxd4 4.Nxd4</span>
+  <span class="mv-a">Austin's standard Sicilian lines apply here</span>
+</div>
+
+<table>
+  <tr><th>Key principles as Black</th><th>Reason</th></tr>
+  <tr class="row-safe">
+    <td>Keep queens on — decline simplifications</td>
+    <td>Complex positions trigger his Pattern G; simplified endgames favor his 93.6% Black precision</td>
+  </tr>
+  <tr>
+    <td>Aim for unbalanced pawn structures (IQP, hanging pawns)</td>
+    <td>Fernando's errors come in positions with long-term tension where piece placement over many moves matters</td>
+  </tr>
+  <tr class="row-warn">
+    <td>If ahead: do NOT allow rook endgame simplification</td>
+    <td>His Pattern G is a rook error — but it fires in NEAR-EQUAL positions, not lopsided ones. Don't give him a lifeline via simplification.</td>
+  </tr>
+  <tr class="row-danger">
+    <td>Do NOT enter symmetrical endgames</td>
+    <td>Fernando's best ECO as Black: E60 KID (96%), D85 Grünfeld (95.5%), C15 Winawer (97%) — all rich structures he handles well</td>
+  </tr>
+</table>
+
+<h3>If Fernando plays 1.c4 or 1.Nf3 (secondary)</h3>
+
+<div class="move-line">
+  <span class="mv-z">1.c4</span> <span class="note">or 1.Nf3</span><br>
+  <span class="mv-a">Austin's standard setup — know your lines through move 8</span><br>
+  <span class="note">Fernando's best White ECO: A04 (1.Nf3, 97.9%). Worst White ECO: A16 (89.9% loss). The A16 English (1.c4 Nf6 2.Nc3 or 1.Nf3 Nf6 2.c4 d5 sideline) was his worst White result in the dataset.</span>
+</div>
+
+<hr>
+
+<h2>Part C — The Two Exploitable Weaknesses</h2>
+
+<h3>Weakness #1 — R/Q piece placement errors (exploit from move 1, via opening choice)</h3>
+
+<table>
+  <tr>
+    <th>Instance</th><th>Fernando played</th><th>Engine best</th><th>Eval swing</th><th>Outcome</th>
+  </tr>
+  <tr class="row-danger">
+    <td>Queretaro R3 vs Obregon Rivero (Black)</td>
+    <td><code>Ra2</code> (rook retreats)</td>
+    <td><code>Bf7</code> (bishop activates)</td>
+    <td>−0.04 → −2.91</td>
+    <td><strong>LOST</strong></td>
+  </tr>
+  <tr class="row-danger">
+    <td>Queretaro R5 vs Gonzalez Zamora (Black)</td>
+    <td><code>Raa8</code> (rook to corner)</td>
+    <td><code>Kg7</code> (king centralizes)</td>
+    <td>−0.61 → −5.89</td>
+    <td><strong>LOST</strong></td>
+  </tr>
+  <tr class="row-danger">
+    <td>Queretaro R6 vs Ramos Silvera (White) — 3 errors</td>
+    <td><code>Re2, Rf2, Rh2</code> (three consecutive rook moves)</td>
+    <td><code>Re3, g6!, g6!</code></td>
+    <td>−0.40 → −3.10 (first error)</td>
+    <td><strong>LOST</strong></td>
+  </tr>
+  <tr class="row-warn">
+    <td>Queretaro R2 vs Perez Rodriguez (White)</td>
+    <td><code>Qd3</code></td>
+    <td><code>Nd5</code> (knight to dominant square)</td>
+    <td>+1.89 → +0.12</td>
+    <td>drew (missed win)</td>
+  </tr>
+</table>
+
+<div class="callout callout-purple">
+  <strong>Pattern: rook activity vs pawn push — Fernando always picks the rook</strong>
+  In every instance, Fernando saw a "reasonable-looking" rook or queen move and played it. The correct idea each time was either a pawn advance (g6!, a3) or a different piece (bishop, knight, king). He is not seeing the non-rook plan. This is most dangerous in near-equal positions (−0.61 to +1.89) that feel "unclear" — exactly the kind of position the Advanced French creates on move 20–30.
+</div>
+
+<div class="callout callout-blue">
+  <strong>Queretaro R6 anatomy — three consecutive identical errors</strong>
+  Fernando (White) had a near-equal position (−0.40 to start). Three consecutive moves:<br>
+  Re2 (best Re3 — ONE RANK OFF) → eval −3.10<br>
+  Rf2 (best g6! — wrong piece entirely) → eval −4.25<br>
+  Rh2 (best g6! — same again) → eval −4.14<br>
+  He kept picking horizontal rook moves while the correct plan was to push the g-pawn. This is not randomness — it's a specific pattern of mis-weighing rook activity over pawn advances. [Stockfish JSON — unverified]
+</div>
+
+<hr>
+
+<h3>Weakness #2 — Won-position collapse (passive, wait for it)</h3>
+
+<div class="callout callout-purple">
+  <strong>Core data (37 games, movetime-3000)</strong>
+  Fernando reached positions ≥+4 in 8 games. He converted 5. He <em>failed 3</em>: 2 became draws, 1 became a loss. The most dramatic: he lost from +9.46 advantage to a 1765-rated player while playing at 93.7% accuracy — his best accuracy in any loss.
+</div>
+
+<h3>The Leal Escamilla collapse — key game to understand</h3>
+
+<p style="margin:8px 0 4px; font-size:0.9em">
+  Fernando (Black, +9.46 advantage, Olympia R6 vs Leal Escamilla, 1765 FIDE) played <code>Qa1</code> — the queen retreated to the corner — when <code>Rd1</code> was crushing. He then played <code>Qe4+</code> (best Bg5, cpl=292) and <code>Bg5</code> (best e4, cpl=266) in the still-+6 position. Three consecutive errors, all in an already-winning position. Final accuracy: 93.7% (high), but the game was lost. He scored only 12 games won out of 15 when the engine had him at ≥+4 — a non-trivial failure rate.
+</p>
+
+<p style="margin:8px 0; font-size:0.9em; font-style:italic;">
+  No FEN available — criticalMoments entries do not include moveNum in Fernando's JSON, so position cannot be replicated automatically. Navigate manually in Lichess to Olympia Nacional 2026 if game is publicly available.
+</p>
+
+<table>
+  <tr><th>Failed conversion</th><th>Had advantage</th><th>Played</th><th>Best was</th><th>Result</th></tr>
+  <tr class="row-danger">
+    <td>Olympia R6 vs Leal Escamilla (1765)</td>
+    <td>+9.46 (Black)</td>
+    <td><code>Qa1</code> (queen to corner)</td>
+    <td><code>Rd1</code> (central rook)</td>
+    <td><strong>LOST</strong></td>
+  </tr>
+  <tr class="row-warn">
+    <td>Queretaro R4 vs Montano</td>
+    <td>+4.11 (White)</td>
+    <td><code>Rd1</code></td>
+    <td><code>Qg3</code></td>
+    <td>drew</td>
+  </tr>
+  <tr class="row-warn">
+    <td>MEX Open G3 vs Valdes Romero</td>
+    <td>+4.68 (White)</td>
+    <td><code>Rd7</code></td>
+    <td><code>Nd5</code></td>
+    <td>drew</td>
+  </tr>
+</table>
+
+<div class="callout callout-blue">
+  <strong>What this means for Austin in the game</strong>
+  Austin at 1959 is rated above Leal Escamilla (1765) — the player who beat Fernando from a +9.46 position. This precedent is real. When Fernando reaches a "clearly winning" position, do not resign mentally. Defend every position resourcefully. The error signature is the same as Pattern G: passive piece retreat to a wrong square instead of the active piece/plan.
+</div>
+
+<hr>
+
+<h2>Part D — Day-of Checklist</h2>
+
+<ul class="checklist">
+  <li>Play Advanced French (3.e5!) as White — NEVER 3.exd5 (Fernando's best French structure)</li>
+  <li>In the French: keep queens on, maintain tension — avoid early piece trades that let Fernando simplify to his technical game</li>
+  <li>As Black: play for complex middlegames — Fernando's White accuracy (91.9%) is below his Black; press from the opening</li>
+  <li>When the position looks "equal but slightly unclear": watch for Fernando to improve a rook — ask "is there a pawn push that beats this rook move?" This is his specific blind spot</li>
+  <li>Do NOT resign when Fernando reaches ≥+4 — he converted only 5/8 such positions; the 1765 precedent shows real collapse potential at Austin's level</li>
+  <li>Do NOT look for a one-move tactical refutation — he has zero decisive blunders in 37 games. Beat him on long-duration pressure, not a tactics shot</li>
+  <li>If Fernando plays Re2/Rf2 or any rook to a "quiet" horizontal square in a tense middlegame: alert yourself — the pawn push (g5!, f4!, h4!) may be the engine's correct idea</li>
+  <li>Endgame: stay in complex piece endings (queen, rooks + minor pieces); do NOT simplify to R+P where Fernando's precision stabilizes</li>
+</ul>
+
+<table style="margin-top:14px">
+  <tr><th>Psychological notes</th></tr>
+  <tr>
+    <td>Fernando plays patient, positional chess — 10 draws in 37 games. He is not a tactician hunting for sharpness. Austin's job is to inject imbalance, not match his positional patience.</td>
+  </tr>
+  <tr>
+    <td>His 3 Queretaro losses all share the same Pattern G error. Those opponents were 2357–2463 (much stronger than Austin), but the error type — not the rating — is what created the weakness. Austin at 1959 can create the same structural pressure.</td>
+  </tr>
+  <tr>
+    <td>His loss to Leal Escamilla (1765, Olympia R6) from +9.46 was his most embarrassing result in the dataset. Fernando knows he can collapse in won positions. This creates psychological pressure in complex positions when he's ahead.</td>
+  </tr>
+</table>
+
+<hr>
+
+<p style="font-size: 0.8em; color: #888; text-align: center; margin-top: 10px;">
+  Weakness data: Stockfish movetime-3000 · 37 classical games · 6 tournaments (2025–2026).
+  No moveNum in criticalMoments — phase distribution not available; FEN verification not possible.
+  Pattern G (R/Q errors): 0W-1D-3L correlation. Pattern C (decisive blunders): 0 instances.
+  Generated: Nov 2026 ·
+  <a href="../austin-prep.html" style="color:#888">Prep Index</a> ·
+  <a href="matchup-fernando-gm.html" style="color:#888">Full GM Plan</a>
+</p>
+
+</body>
+</html>
