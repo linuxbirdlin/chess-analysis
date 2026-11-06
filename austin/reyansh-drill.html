@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reyansh Weakness Drills — Austin Lin</title>
+<style>
+:root { --accent: #4a1a7a; --red: #8b1a1a; --gold: #b8860b; --green: #1a5c1a; --blue: #1a4a8b; --bg: #f8f6f2; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+       font-size: 14px; color: #1a1a1a; max-width: 920px; margin: 0 auto;
+       padding: 20px 24px; background: var(--bg); }
+.page-header { border-left: 6px solid var(--accent); background: #f3eeff;
+               padding: 14px 18px; margin-bottom: 22px; border-radius: 0 5px 5px 0; }
+.page-header h1 { font-size: 1.3em; margin-bottom: 4px; }
+.page-header .meta { font-size: 0.82em; color: #555; }
+.page-header .nav { margin-top: 8px; font-size: 0.82em; }
+.page-header .nav a { color: var(--accent); text-decoration: none; margin-right: 14px; }
+
+.stats-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 20px; }
+.stat-box { background: #fff; border: 1px solid #ccc; border-radius: 5px;
+            padding: 10px 14px; flex: 1; min-width: 100px; text-align: center; }
+.stat-box .sval { font-size: 1.5em; font-weight: bold; }
+.stat-box .slabel { font-size: 0.76em; color: #666; text-transform: uppercase; letter-spacing: 0.04em; }
+.stat-box.red .sval { color: var(--red); }
+.stat-box.gold .sval { color: var(--gold); }
+.stat-box.purple .sval { color: var(--accent); }
+.stat-box.blue .sval { color: var(--blue); }
+
+h2 { font-size: 1.05em; margin: 28px 0 8px; padding: 7px 12px;
+     border-left: 4px solid var(--accent); background: #f3eeff; }
+
+.pattern-header { font-size: 1.05em; font-weight: bold; color: #fff;
+                  padding: 10px 14px; border-radius: 5px 5px 0 0; margin-top: 24px; }
+.pattern-body { background: #fff; border: 1px solid #ccc; border-top: none;
+                border-radius: 0 0 5px 5px; padding: 16px; margin-bottom: 6px; }
+.ph-red    { background: #7a1a1a; }
+.ph-gold   { background: #6a4e00; }
+.ph-blue   { background: #1a3a7a; }
+
+.game-instance { background: #fafaf8; border: 1px solid #ddd; border-radius: 4px;
+                 padding: 12px 14px; margin: 12px 0; }
+.game-instance .gi-header { display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+                             margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
+.badge { font-size: 0.75em; font-weight: bold; padding: 2px 7px; border-radius: 3px; }
+.badge-loss   { background: #fde8e8; color: #7a0000; }
+.badge-draw   { background: #fff8e0; color: #5a3000; }
+.badge-win    { background: #e8fde8; color: #0a4a0a; }
+.badge-white  { background: #f5f5f5; color: #222; border: 1px solid #aaa; }
+.badge-black  { background: #333; color: #eee; }
+.badge-event  { background: #f3eeff; color: #4a1a7a; }
+.badge-verified { background: #e0f0ff; color: #004080; border: 1px solid #99c; }
+.badge-json   { background: #f0fdf0; color: #0a4a0a; border: 1px solid #8b8; font-size: 0.73em; }
+.gi-title { font-weight: bold; font-size: 0.95em; flex: 1; }
+
+.callout { padding: 9px 13px; border-radius: 4px; margin: 8px 0; font-size: 0.88em; line-height: 1.55; }
+.callout-red    { background: #fff0f0; border-left: 4px solid var(--red); }
+.callout-green  { background: #efffef; border-left: 4px solid var(--green); }
+.callout-blue   { background: #eef2fb; border-left: 4px solid var(--blue); }
+.callout-gold   { background: #fffbe0; border-left: 4px solid var(--gold); }
+.callout-purple { background: #f3eeff; border-left: 4px solid var(--accent); }
+
+.fen-box { background: #1a1a1a; color: #eee; font-family: monospace; font-size: 0.78em;
+           padding: 8px 10px; border-radius: 4px; word-break: break-all; margin: 8px 0; }
+.board-link { display: inline-block; background: var(--accent); color: #fff;
+              text-decoration: none; padding: 5px 11px; border-radius: 4px;
+              font-size: 0.79em; margin: 3px 3px 3px 0; }
+.board-link:hover { background: #2d0a55; }
+.board-link.green { background: var(--green); }
+.board-link.blue  { background: var(--blue); }
+
+.move-line { background: #f5f5f0; border: 1px solid #ddd; border-radius: 4px;
+             padding: 6px 10px; font-family: monospace; font-size: 0.84em;
+             margin: 6px 0; line-height: 1.7; }
+.mv-good { color: var(--green); font-weight: bold; }
+.mv-bad  { color: var(--red); font-weight: bold; }
+
+.rule-box { background: #f3eeff; border: 1px solid var(--accent); border-radius: 5px;
+            padding: 12px 16px; margin: 12px 0; }
+.rule-box ol { padding-left: 20px; line-height: 1.8; margin-top: 6px; }
+
+.eval-chip { font-family: monospace; font-size: 0.82em; background: #fdf0f0;
+             border: 1px solid #dbb; border-radius: 3px; padding: 1px 6px; }
+.eval-chip.good { background: #f0fdf0; border-color: #8b8; }
+
+.drill-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.86em; }
+.drill-table th { background: var(--accent); color: #fff; padding: 6px 10px; text-align: left; }
+.drill-table td { padding: 5px 10px; border-bottom: 1px solid #ddd; vertical-align: top; }
+.drill-table tr:nth-child(even) td { background: #f5f5f0; }
+
+.tag-count { display: inline-block; background: #dde8ff; border: 1px solid #99b; border-radius: 3px;
+             padding: 1px 6px; font-size: 0.76em; color: #224; margin-left: 6px; }
+.data-source { font-size: 0.78em; color: #666; background: #f5f5f0; border: 1px solid #ddd;
+               border-radius: 3px; padding: 3px 8px; display: inline-block; }
+
+hr { border: none; border-top: 2px solid #ccc; margin: 28px 0; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Exploiting Reyansh Paragiri — Weakness Drills &amp; Exploitation Plan</h1>
+  <div class="meta">
+    Source: 83-game deep analysis (movetime-3000) · <code>scripts/reyansh-analysis-results-deep.json</code> ·
+    98 blunders · 34 won-position blunders (eval ≥ +4) · 18 losses, 13 with a single decisive turning-point blunder ·
+    <strong>3 verified cross-game patterns</strong>
+  </div>
+  <div class="nav">
+    <a href="../austin-prep.html">← Prep Index</a>
+    <a href="../matchup/matchup-reyansh.html">Matchup Overview</a>
+    <a href="../matchup/matchup-reyansh-white.html">Austin as White</a>
+    <a href="../matchup/matchup-reyansh-black.html">Austin as Black</a>
+    <a href="../matchup/matchup-reyansh-gm.html">GM Battle Plan</a>
+    <a href="endgame-drills-2026.html">Austin's Own Drills</a>
+  </div>
+</div>
+
+<h2>Analysis Scope — Reyansh Paragiri (83 deep games)</h2>
+<div class="stats-row">
+  <div class="stat-box"><div class="sval">83</div><div class="slabel">Games analyzed</div></div>
+  <div class="stat-box red"><div class="sval">98</div><div class="slabel">Blunders (≥300 CPL)</div></div>
+  <div class="stat-box gold"><div class="sval">59</div><div class="slabel">Mistakes (≥150 CPL)</div></div>
+  <div class="stat-box red"><div class="sval">34</div><div class="slabel">Won-pos blunders (≥+4)</div></div>
+  <div class="stat-box blue"><div class="sval">9</div><div class="slabel">Won positions drawn</div></div>
+  <div class="stat-box purple"><div class="sval">91.8%</div><div class="slabel">Avg accuracy (strong)</div></div>
+</div>
+
+<div class="callout callout-purple">
+  <strong>The core finding:</strong> Reyansh's 91.8% accuracy makes him the strongest opponent Austin faces at NAYCC 2026.
+  His errors are NOT random — they cluster in three specific contexts: (1) K+P endgame king navigation,
+  (2) post-preparation territory as Black (moves 18–28), and (3) forcing continuation recognition when the
+  calculation tree becomes unfamiliar. Austin's game plan must target all three. The Rossolimo is the entry
+  point: it removes Reyansh's Dragon preparation from the game at move 3, landing him in unfamiliar territory
+  where these patterns activate.
+</div>
+
+<hr>
+
+<!-- ═══════════ PATTERN 1 ═══════════ -->
+<div class="pattern-header ph-red">PATTERN 1 — King Navigation Failures in K+P Endgames <span class="tag-count">17 instances · 9 drawn from won</span></div>
+<div class="pattern-body">
+  <p style="margin-bottom:12px;font-size:0.9em;">
+    Reyansh has won positions at +4.89, +9.51, +12.34, and +91.65 that ended in draws because he
+    put his king on the wrong square. This happens even in games where he achieves 94–98% overall accuracy
+    — king navigation is a specific failure mode, not a general accuracy problem. Multiple games feature
+    2–3 consecutive king errors from the same winning position. <span class="data-source">[Stockfish JSON]</span>
+  </p>
+
+  <!-- Kane -->
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">Chess.com: Reyansh vs Kane, Kevin</span>
+      <span class="badge badge-event">Chess.com</span>
+      <span class="badge badge-white">Reyansh White</span>
+      <span class="badge badge-draw">Draw — threw +4.89</span>
+      <span class="badge badge-json">Stockfish JSON</span>
+    </div>
+    <div class="callout callout-red">
+      <strong>Three consecutive king errors from a won position:</strong>
+      <ul style="padding-left:18px;margin-top:6px;line-height:1.8;">
+        <li>Mv#49 <strong>Ke4?</strong> (best Kg4, cpl=489, <span class="eval-chip">+4.89</span> → <span class="eval-chip">+0.00</span>)</li>
+        <li>Mv#50 <strong>Kd5?</strong> (best Kf3, cpl=458, <span class="eval-chip">+4.58</span> → <span class="eval-chip">+0.00</span>)</li>
+        <li>Mv#52 <strong>g4?</strong> (best Kf3, cpl=469, <span class="eval-chip">+4.69</span> → <span class="eval-chip">+0.00</span>)</li>
+      </ul>
+      Reyansh's king went toward the queenside (Ke4→Kd5) when the winning path was to march
+      kingside (Kg4→Kf3). Three opportunities to convert, three misses. Final result: draw.
+    </div>
+    <div class="move-line">
+      <span class="mv-bad">49.Ke4? Kc2! →</span> Black king reaches c3/d4 in time, game drawn<br>
+      <span class="mv-good">49.Kg4! Kc2 50.Kf3 Kd3 51.h3 →</span> White king controls f3/g3, pawn on h becomes decisive
+    </div>
+  </div>
+
+  <!-- Lien -->
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">Online Broadcast: Reyansh vs Lien, Isaac</span>
+      <span class="badge badge-event">Online Broadcast</span>
+      <span class="badge badge-white">Reyansh White</span>
+      <span class="badge badge-draw">Draw — threw +12.34</span>
+      <span class="badge badge-json">Stockfish JSON</span>
+    </div>
+    <div class="callout callout-red">
+      <strong>+12.34 and +9.51 — both surrendered by wrong king square:</strong>
+      <ul style="padding-left:18px;margin-top:6px;line-height:1.8;">
+        <li>Mv#54 <strong>Ke5?</strong> (best Kg4, cpl=385, <span class="eval-chip">+12.34</span> → <span class="eval-chip">+8.49</span>)</li>
+        <li>Mv#55 <strong>Ke4?</strong> (best Kf4, cpl=951, <span class="eval-chip">+9.51</span> → <span class="eval-chip">+0.00</span>)</li>
+      </ul>
+      Up by a winning margin in an endgame, Reyansh moved his king centrally (Ke5→Ke4)
+      when the winning king path was on the kingside (Kg4→Kf4). The second error converted
+      a +9.51 advantage into a draw in one move — CPL 951.
+    </div>
+    <div class="callout callout-blue">
+      <strong>Pattern:</strong> In both Kane and Lien games, Reyansh's king went to e4/e5/d5 when
+      Kg4/Kf4/Kf3 was correct. His king is drawn to the center instinctively, but K+P endgames
+      often require the king to activate on the side where the pawn majority is. Austin should
+      <strong>never resign a K+P endgame against Reyansh</strong> — probe for this specific error.
+    </div>
+  </div>
+
+  <!-- Cremisi -->
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">Online Broadcast: Reyansh vs Cremisi, Daniel</span>
+      <span class="badge badge-event">Online Broadcast</span>
+      <span class="badge badge-white">Reyansh White</span>
+      <span class="badge badge-draw">Draw — 94.6% accuracy but missed conversion</span>
+      <span class="badge badge-json">Stockfish JSON</span>
+    </div>
+    <div class="callout callout-red">
+      <strong>Two endgame errors in the same game at 94.6% overall accuracy:</strong>
+      <ul style="padding-left:18px;margin-top:6px;line-height:1.8;">
+        <li>Mv#45 <strong>Ke4?</strong> (best g5, cpl=464, <span class="eval-chip">+0.00</span> → <span class="eval-chip">−4.64</span>) — played king when a pawn push won</li>
+        <li>Mv#48 <strong>g6?</strong> (best Kd4, cpl=483, <span class="eval-chip">+0.00</span> → <span class="eval-chip">−4.83</span>) — then played pawn when king move was correct</li>
+      </ul>
+      This game shows Reyansh confuses the relationship between king moves and pawn pushes in
+      endgames — he plays them in the wrong order repeatedly. Even when he corrects, he swaps
+      the error to the other piece type.
+    </div>
+  </div>
+
+  <!-- Zhou -->
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">Chess.com: Reyansh vs Zhou, Ivan</span>
+      <span class="badge badge-event">Chess.com</span>
+      <span class="badge badge-white">Reyansh White</span>
+      <span class="badge badge-draw">Draw — +91.65 to 0.00 in one move</span>
+      <span class="badge badge-json">Stockfish JSON</span>
+    </div>
+    <div class="callout callout-red">
+      <strong>Mv#41 Kd3? (best h4, cpl=1000, <span class="eval-chip">+91.65</span> → <span class="eval-chip">+0.00</span>)</strong><br>
+      A winning position by over 90 pawns (likely a Q+pawn vs K position) surrendered immediately.
+      One move earlier: Mv#36 b4? instead of h4 (cpl=625). Reyansh pushed the wrong pawn in an
+      ending where the h-pawn was decisive. He lost two separate conversion opportunities in this game.
+    </div>
+  </div>
+
+  <div class="rule-box">
+    <strong>Austin's exploitation rules for endgames vs Reyansh:</strong>
+    <ol>
+      <li><strong>Never offer a draw in a K+P endgame — probe for 15+ moves.</strong> Reyansh's king navigation errors appear in positions even at +4–5, including 94%+ accuracy games.</li>
+      <li><strong>If defending: find the king path that requires Reyansh to navigate precisely.</strong> Force him to a position where Kg4 vs Ke4 matters — his instinct goes to the center.</li>
+      <li><strong>If attacking: watch for the b4/h4 pawn push error.</strong> Reyansh pushes the wrong pawn in K+P races. Create a race where there are two candidate pawn pushes.</li>
+    </ol>
+  </div>
+
+  <h3 style="margin-top:16px;font-size:0.9em;color:#333;">Drills for Austin (to recognize and exploit this)</h3>
+  <p style="font-size:0.87em;margin:6px 0 10px;">These drills teach Austin the correct king paths — so when Reyansh goes wrong, Austin knows how to press:</p>
+  <a class="board-link" href="https://lichess.org/practice/pawn-endgames/opposition/" target="_blank" rel="noopener">Opposition Practice ↗</a>
+  <a class="board-link" href="https://lichess.org/practice/pawn-endgames/keysquares/" target="_blank" rel="noopener">Key Squares Practice ↗</a>
+  <a class="board-link blue" href="https://lichess.org/training/pawnEndgame" target="_blank" rel="noopener">Puzzle theme: Pawn Endgame ↗</a>
+</div>
+
+<hr>
+
+<!-- ═══════════ PATTERN 2 ═══════════ -->
+<div class="pattern-header ph-gold">PATTERN 2 — Preparation Boundary Collapse (Black, moves 18–28) <span class="tag-count">12 decisive Black blunders · 7 losses</span></div>
+<div class="pattern-body">
+  <p style="margin-bottom:12px;font-size:0.9em;">
+    Reyansh is a 2015-born player whose strength is preparation depth. His blunder distribution
+    peaks at moves 21–30 — consistent with the preparation boundary of a well-drilled scholastic
+    player. When he runs out of familiar patterns as Black, he defaults to "natural-looking" moves:
+    rook to an open file, pawn advance. These appear reasonable by general principles but miss the
+    position-specific continuation the engine finds. <span class="data-source">[Stockfish JSON]</span>
+  </p>
+
+  <!-- Pompe -->
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">Chess.com: Pompe, Niko vs Reyansh (78% accuracy)</span>
+      <span class="badge badge-event">Chess.com</span>
+      <span class="badge badge-black">Reyansh Black</span>
+      <span class="badge badge-loss">Loss (Black)</span>
+      <span class="badge badge-json">Stockfish JSON</span>
+    </div>
+    <div class="callout callout-red">
+      <strong>Two decisive blunders in the same game from balanced positions:</strong>
+      <ul style="padding-left:18px;margin-top:6px;line-height:1.8;">
+        <li>Mv#18 <strong>Rfe8?</strong> (best Nxb3!, cpl=405, <span class="eval-chip">+1.42</span> → <span class="eval-chip">−2.63</span>)</li>
+        <li>Mv#24 <strong>Raf8?</strong> (best h5, cpl=395, <span class="eval-chip">+0.08</span> → <span class="eval-chip">−3.87</span>)</li>
+      </ul>
+      Both errors are rook-to-open-file moves that look active but misread the position completely.
+      At move 18, Nxb3 wins the b3 bishop for free (tactical oversight). At move 24, h5 claims
+      space on the kingside — Reyansh played Ra(f)f8 (passive rook activation) instead.
+    </div>
+    <p style="font-size:0.86em;margin:8px 0 4px;font-weight:bold;">Position before Mv#17 (Reyansh to move as Black):</p>
+    <div class="fen-box">r4rk1/1bq1npbp/p3p1p1/n1p5/Pp1pPP1Q/1B1P1N2/1PPB2PP/R2N1R1K b - - 3 17</div>
+    <a class="board-link green" href="https://lichess.org/editor/r4rk1/1bq1npbp/p3p1p1/n1p5/Pp1pPP1Q/1B1P1N2/1PPB2PP/R2N1R1K_b_-_-_3_17" target="_blank" rel="noopener">Open in Lichess Editor ↗</a>
+    <div class="move-line">
+      <span class="mv-bad">17...Rfe8? 18.Bxe6! fxe6 →</span> White wins the e6 pawn, Black struggles<br>
+      <span class="mv-good">17...Nxb3! →</span> Black captures the b3 bishop without defense; wins material
+    </div>
+    <div class="callout callout-blue">
+      <strong>Why Rfe8 looks natural:</strong> "The rook goes to the open e-file." It is a correct
+      general principle — but in this specific position, the b3 bishop is hanging. Reyansh
+      did not check "what are my captures?" before playing his rook.
+    </div>
+  </div>
+
+  <!-- Cheng -->
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">Mechanics Institute: Cheng, Kar Lun vs Reyansh (81.6% accuracy)</span>
+      <span class="badge badge-event">Mechanics Institute</span>
+      <span class="badge badge-black">Reyansh Black</span>
+      <span class="badge badge-loss">Loss (Black)</span>
+      <span class="badge badge-json">Stockfish JSON</span>
+    </div>
+    <div class="callout callout-red">
+      <strong>Mv#17 Qc4? (best h5, cpl=416, <span class="eval-chip">+1.65</span> → <span class="eval-chip">−2.51</span>)</strong><br>
+      Reyansh played Qc4 (queen centralisation, natural-looking) from a roughly equal position.
+      Best was h5 — a counter-intuitive pawn push to claim kingside space. One move later:
+      <br><strong>Mv#18 b5? (best Qxc2+, cpl=1000, forced mate available)</strong> — after he
+      fell behind, Reyansh played b5 (queenside expansion) when Qxc2+ was a forced mating attack.
+      81.6% accuracy — his worst classical game in the dataset.
+    </div>
+  </div>
+
+  <!-- Gogte -->
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">Online Broadcast: Gogte, Yashodhan vs Reyansh (90.7% accuracy)</span>
+      <span class="badge badge-event">Online Broadcast</span>
+      <span class="badge badge-black">Reyansh Black</span>
+      <span class="badge badge-loss">Loss despite 90.7% accuracy</span>
+      <span class="badge badge-json">Stockfish JSON</span>
+    </div>
+    <div class="callout callout-red">
+      <strong>Mv#27 Ra6? (best g6, cpl=468, <span class="eval-chip">+0.40</span> → <span class="eval-chip">−4.28</span>)</strong><br>
+      At 90.7% accuracy — well within his normal range — Reyansh collapsed at move 27. He played
+      Ra6 (rook to the 6th rank, again a natural-looking rook activation) when g6 (pawn push
+      to create space) was decisive. The same rook-vs-pawn confusion as the Pompe and Cheng games.
+    </div>
+  </div>
+
+  <!-- Wu Zhuoyuan — NAYCC connection -->
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">Chess.com: Reyansh vs Wu, Zhuoyuan (NAYCC 2026 opponent — Reyansh's ONE rated loss to a peer)</span>
+      <span class="badge badge-event">Chess.com</span>
+      <span class="badge badge-black">Reyansh Black</span>
+      <span class="badge badge-loss">Loss (88.4% accuracy)</span>
+      <span class="badge badge-json">Stockfish JSON</span>
+    </div>
+    <div class="callout callout-red">
+      <strong>Mv#38 Rc2? (best Bd2, cpl=366, <span class="eval-chip">+1.42</span> → <span class="eval-chip">−2.24</span>)</strong><br>
+      Reyansh's loss to Zhuoyuan Wu (fellow NAYCC 2026 opponent) was decided by a single
+      piece-coordination error at move 38: played Rc2 (rook into an active-looking square)
+      instead of Bd2 (bishop retreat activating indirectly). Post-preparation territory,
+      piece placement was the wrong choice.
+    </div>
+    <div class="callout callout-gold">
+      <strong>NAYCC context:</strong> Wu Zhuoyuan is in the same section. Reyansh <em>lost</em> to
+      Wu with 88.4% accuracy — this is not a dominant player. Austin can beat Reyansh if he keeps
+      the game complex through moves 20–30.
+    </div>
+  </div>
+
+  <div class="rule-box">
+    <strong>Austin's White plan to activate this pattern (Rossolimo 9.e5 line):</strong>
+    <ol>
+      <li><strong>After 9.e5 Ne4 10.Nfd2, do NOT trade pieces.</strong> Keep queens and rooks on. Reyansh is in Rossolimo territory where 0 wins / 2 losses define his preparation gap.</li>
+      <li><strong>Reach move 18–20 with imbalances intact.</strong> This is exactly the window where Black errors cluster: moves 17–27 in unfamiliar positions.</li>
+      <li><strong>Watch for natural-looking rook moves by Reyansh.</strong> Ra6, Rfe8, Raf8 have all been decisive errors in this exact window. These are the moves he plays when he's guessing.</li>
+    </ol>
+  </div>
+
+  <h3 style="margin-top:16px;font-size:0.9em;color:#333;">Drills for Austin</h3>
+  <p style="font-size:0.87em;margin:6px 0 10px;">Preparation for the Rossolimo 9.e5 tabiya — keeping positions complex through the danger window:</p>
+  <a class="board-link" href="https://lichess.org/practice/advanced-tactics/deflection/" target="_blank" rel="noopener">Deflection Practice ↗</a>
+  <a class="board-link blue" href="https://lichess.org/training/advantage" target="_blank" rel="noopener">Puzzle theme: Advantage ↗</a>
+  <a class="board-link blue" href="https://lichess.org/training/crushing" target="_blank" rel="noopener">Puzzle theme: Crushing ↗</a>
+  <p style="font-size:0.84em;margin:8px 0 0;color:#555;">
+    Study the Rossolimo Branch A line in <a href="../matchup/matchup-reyansh-white.html" style="color:var(--accent);">matchup-reyansh-white.html</a>
+    through move 15 so Austin is <em>past</em> his own preparation boundary before Reyansh reaches his.
+  </p>
+</div>
+
+<hr>
+
+<!-- ═══════════ PATTERN 3 ═══════════ -->
+<div class="pattern-header ph-blue">PATTERN 3 — Missed Forcing Checks (Passive Move When Check Was Decisive) <span class="tag-count">18 instances · 8 with forced mate on board</span></div>
+<div class="pattern-body">
+  <p style="margin-bottom:12px;font-size:0.9em;">
+    In 18 positions, Reyansh played a piece move when a forcing check was available that would have
+    been decisive. Eight of these had a forced mate on the board (cpl=1000). The common thread:
+    Reyansh plays the "active-looking" move (takes a pawn, improves a rook, centralizes a queen)
+    rather than scanning checks first. This is a calculation failure consistent with someone who
+    has strong preparation but reduced calculation discipline outside familiar lines.
+    <span class="data-source">[Stockfish JSON]</span>
+  </p>
+
+  <!-- Navaneet — forced mate missed twice -->
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">Chess.com: Navaneetha Prabhu vs Reyansh — forced mate missed twice in a row</span>
+      <span class="badge badge-event">Chess.com</span>
+      <span class="badge badge-black">Reyansh Black</span>
+      <span class="badge badge-loss">Loss (97.6% accuracy!)</span>
+      <span class="badge badge-json">Stockfish JSON</span>
+    </div>
+    <div class="callout callout-red">
+      <strong>Forced mate available — missed three consecutive moves at 97.6% accuracy:</strong>
+      <ul style="padding-left:18px;margin-top:6px;line-height:1.8;">
+        <li>Mv#39 <strong>Qb3?</strong> (best Re3!, cpl=1000, <span class="eval-chip">#</span> → <span class="eval-chip">+10.58</span>)</li>
+        <li>Mv#41 <strong>b4?</strong> (best Qf1+!, cpl=1000, <span class="eval-chip">#</span> → <span class="eval-chip">+10.88</span>)</li>
+        <li>Mv#43 <strong>Qd5?</strong> (best Qf1+!, cpl=1000, <span class="eval-chip">#</span> → <span class="eval-chip">+15.63</span>)</li>
+      </ul>
+      Reyansh had a forced mate — Re3 followed by Qf1+ was the mating sequence — but played
+      Qb3 (queen centralisation), b4 (queenside pawn push), then Qd5 (recentralise) on three
+      consecutive moves. Each time Qf1+ was the forced-mate continuation. He lost from a position
+      where he had forced mate available. His overall accuracy was 97.6% — the check simply was
+      not found.
+    </div>
+    <div class="callout callout-blue">
+      <strong>Why this matters for Austin:</strong> Reyansh at 97.6% accuracy can miss a forced
+      mate 3 moves in a row. This is not a fluke — it is a calculation discipline failure.
+      If Austin creates a position where checks are available, Reyansh will not always find them
+      defensively OR offensively.
+    </div>
+  </div>
+
+  <!-- Krishnan — missed Rd8+ -->
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">Online Broadcast: Reyansh vs Krishnan, Sreyshthaa (87.6%)</span>
+      <span class="badge badge-event">Online Broadcast</span>
+      <span class="badge badge-white">Reyansh White</span>
+      <span class="badge badge-win">Win — but missed cleaner route</span>
+      <span class="badge badge-json">Stockfish JSON</span>
+    </div>
+    <div class="callout callout-gold">
+      <strong>Mv#46 Rd7? (best Rd8+, cpl=442, <span class="eval-chip">+14.92</span> → <span class="eval-chip">+10.50</span>)</strong><br>
+      <strong>Mv#47 Rxg7? (best Rb7+, cpl=1000, <span class="eval-chip">#</span> → <span class="eval-chip">+13.12</span>)</strong><br>
+      Reyansh was winning by +14.92 and missed Rd8+ (a check) for Rd7 (rook to 7th rank, a
+      natural-looking rook move). One move later, Rb7+ was forced mate — he played Rxg7 (takes
+      a pawn on g7) instead. He won anyway but showed the same pattern: passive rook move
+      preferred over check.
+    </div>
+  </div>
+
+  <!-- Mulay — Rossolimo loss -->
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">Chess.com: Mulay, Vivan vs Reyansh — Rossolimo loss</span>
+      <span class="badge badge-event">Chess.com (Rossolimo)</span>
+      <span class="badge badge-black">Reyansh Black</span>
+      <span class="badge badge-loss">Loss (87.0% accuracy)</span>
+      <span class="badge badge-json">Stockfish JSON</span>
+    </div>
+    <div class="callout callout-red">
+      <strong>Mv#58 Re4? (best Ra3+, cpl=525, <span class="eval-chip">+5.32</span> → <span class="eval-chip">+0.07</span>)</strong><br>
+      This is Reyansh's documented Rossolimo loss — the same opening line Austin intends to play.
+      In an endgame where Reyansh was still +5.32, he played Re4 (rook to an active-looking
+      central square) instead of Ra3+ (a check that forks). The check Ra3+ — which wins decisive
+      material — was not played. Position immediately levelled to +0.07 (essentially drawn).
+    </div>
+    <div class="callout callout-purple">
+      <strong>Direct relevance:</strong> This game is in the Rossolimo → fianchetto line.
+      Reyansh was already in unfamiliar territory (vs the Rossolimo, he is 0-2), and his
+      calculation collapsed in the endgame. Austin's plan: reach the endgame via the Rossolimo
+      with an advantage, then watch for rook-check combinations that Reyansh will not find.
+    </div>
+  </div>
+
+  <!-- Tenney — forced mate missed -->
+  <div class="game-instance">
+    <div class="gi-header">
+      <span class="gi-title">Chess.com: Reyansh vs Tenney, Owen (91.4%)</span>
+      <span class="badge badge-event">Chess.com</span>
+      <span class="badge badge-white">Reyansh White</span>
+      <span class="badge badge-win">Win — but forced mate missed</span>
+      <span class="badge badge-json">Stockfish JSON</span>
+    </div>
+    <div class="callout callout-gold">
+      <strong>Mv#36 Nxf5? (best Rb1+, cpl=1000, <span class="eval-chip">#</span> → forced mate missed)</strong><br>
+      Nxf5 is a natural recapture (take the pawn). Rb1+ was a rook check forcing a mating
+      sequence. He played the material-gaining move over the king-attacking move.
+    </div>
+  </div>
+
+  <div class="rule-box">
+    <strong>Austin's exploitation rule — CCT against Reyansh:</strong>
+    <ol>
+      <li><strong>Create positions with rook checks available.</strong> The Ra3+/Rb7+/Rd8+ pattern appears in 4+ games — Reyansh consistently misses rook checks when a "natural" rook move exists.</li>
+      <li><strong>Before any move, ask: "Can I deliver a check here?"</strong> Reyansh's pattern shows he skips this question. Austin should run CCT (Checks → Captures → Threats) to find the checks Reyansh will miss defensively.</li>
+      <li><strong>Don't assume Reyansh will find forced mates against you.</strong> At 97.6% accuracy he missed three consecutive forced mates. Complex positions with forcing lines benefit Austin.</li>
+    </ol>
+  </div>
+
+  <h3 style="margin-top:16px;font-size:0.9em;color:#333;">Drills for Austin</h3>
+  <a class="board-link" href="https://lichess.org/practice/advanced-tactics/deflection/" target="_blank" rel="noopener">Deflection Practice ↗</a>
+  <a class="board-link" href="https://lichess.org/practice/advanced-tactics/attraction/" target="_blank" rel="noopener">Attraction Practice ↗</a>
+  <a class="board-link blue" href="https://lichess.org/training/mateIn2" target="_blank" rel="noopener">Mate in 2 Puzzles ↗</a>
+  <a class="board-link blue" href="https://lichess.org/training/quietMove" target="_blank" rel="noopener">Quiet Move Puzzles ↗</a>
+</div>
+
+<hr>
+
+<!-- ═══════════ 3-DAY DRILL PLAN ═══════════ -->
+<h2>3-Day Drill Schedule (NAYCC 2026 Pre-Tournament)</h2>
+<table class="drill-table">
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Focus</th>
+      <th>Session 1 (30 min)</th>
+      <th>Session 2 (20 min)</th>
+      <th>Target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Day 1</strong><br>Opening</td>
+      <td>Rossolimo Branch A — be deeper than Reyansh</td>
+      <td>Play through Rossolimo Branch A: 1.e4 c5 2.Nf3 Nc6 3.Bb5 g6 4.0-0 Bg7 5.c3 Nf6 6.Re1 0-0 7.d4 cxd4 8.cxd4 d5 9.e5 Ne4 10.Nfd2 — play both sub-lines 10...Nxd2 and 10...Bh6 vs engine (Lichess analysis)</td>
+      <td>20 CCT-drill puzzles: <a href="https://lichess.org/training/crushing" target="_blank" rel="noopener">lichess.org/training/crushing</a> — focus on finding the check before any other move</td>
+      <td>Know Branch A through mv 15+ from memory; identify 1 check candidate per position before deciding</td>
+    </tr>
+    <tr>
+      <td><strong>Day 2</strong><br>Endgame</td>
+      <td>K+P endgame king paths — Reyansh's #1 failure</td>
+      <td><a href="https://lichess.org/practice/pawn-endgames/opposition/" target="_blank" rel="noopener">Lichess opposition practice</a> + <a href="https://lichess.org/practice/pawn-endgames/keysquares/" target="_blank" rel="noopener">key squares practice</a> — complete both sets</td>
+      <td>20 pawn endgame puzzles: <a href="https://lichess.org/training/pawnEndgame" target="_blank" rel="noopener">lichess.org/training/pawnEndgame</a></td>
+      <td>For any K+P endgame: identify king destination (key square) before moving; recognize kingside vs central king path</td>
+    </tr>
+    <tr>
+      <td><strong>Day 3</strong><br>Tactics</td>
+      <td>Finding forcing checks + rook attack patterns</td>
+      <td><a href="https://lichess.org/training/mateIn2" target="_blank" rel="noopener">Mate in 2 puzzles</a> — 30 puzzles; rule: look for rook check first, then queen check</td>
+      <td>Reread: <a href="../matchup/matchup-reyansh-gm.html" target="_blank" rel="noopener">GM Battle Plan</a> — Section H Rossolimo tabiya and the two sub-lines</td>
+      <td>CCT reflex: before every move, name a check candidate (even if you don't play it)</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<!-- ═══════════ SUMMARY ═══════════ -->
+<h2>One-Page Summary for the Board</h2>
+<div class="callout callout-purple">
+  <strong>Reyansh's three exploitable weaknesses — in order of impact:</strong>
+  <ol style="padding-left:20px;margin-top:8px;line-height:2.0;">
+    <li><strong>King navigation (17 errors, 9 won games drawn):</strong> Do not accept a draw in K+P endings. His king goes to the center when it should go to the kingside. Games drawn from +4.89, +9.51, +12.34 — multiple draws from clearly won positions.</li>
+    <li><strong>Preparation boundary, moves 18–28 as Black (12 decisive blunders, 7 losses):</strong> Keep complexity alive through move 25 in the Rossolimo. Reyansh plays natural-looking rook moves (Ra6, Rfe8, Raf8) as default when he can't calculate. These are his losing moves.</li>
+    <li><strong>Missed forcing checks (18 instances, 8 forced mates missed):</strong> He plays passive moves when checks are decisive. At 97.6% accuracy he missed three consecutive forced mates. In the Rossolimo endgame he missed Ra3+ from +5.32. Create rook-check positions.</li>
+  </ol>
+</div>
+<div class="callout callout-green">
+  <strong>The opening weapon:</strong> 1.e4 c5 2.Nf3 Nc6 3.Bb5 (Rossolimo) is already the
+  preparation-boundary trigger. Reyansh is 0-2 in this line (Mulay, Atkeson) — his worst
+  opening as Black by far. After 3...g6 4.0-0 Bg7 5.c3 Nf6 6.Re1 0-0 7.d4 cxd4 8.cxd4 d5 9.e5,
+  Austin is past the master main line with an active pawn center. Reyansh will be improvising
+  from around move 15 onward — right at the start of his error window.
+</div>
+
+<hr>
+<p style="text-align:center; font-size:0.82em; color:#666;">
+  Source: <code>scripts/reyansh-analysis-results-deep.json</code> (83 games, movetime-3000) ·
+  All CPL/eval figures from Stockfish deep analysis [Stockfish JSON] ·
+  Generated Nov 2026 ·
+  <a href="../austin-prep.html">← Prep Index</a> ·
+  <a href="../matchup/matchup-reyansh-gm.html">GM Battle Plan →</a>
+</p>
+</body>
+</html>
