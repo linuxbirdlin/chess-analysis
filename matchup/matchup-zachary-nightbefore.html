@@ -90,7 +90,7 @@ a { color: var(--blue); }
 
 <div class="callout callout-gold" style="margin-top:14px">
   <strong>The one-sentence brief</strong>
-  Zachary is elite in technical/positional play but has a documented precision failure in sharp Sicilian middlegames (accuracy drops to 79–83%) and fails to convert 3 out of 10 positions where he has ≥+4 advantage — Austin's job is to reach those positions and stay alive.
+  Zachary's primary exploitable weakness is <strong>structural</strong>: his accuracy drops to <strong>82.5%</strong> in B75 Dragon Yugoslav positions as White (vs his 93.8% White baseline — a −11pp collapse with 5 blunders), and Austin can steer INTO this position type from move 1 by playing the Sicilian Dragon as Black when Zachary opens 1.e4.
 </div>
 
 <hr>
@@ -101,7 +101,8 @@ a { color: var(--blue); }
   <div class="sch-time">0:00–0:45</div>
   <div class="sch-body"><strong>Opening prep — both colors (45 min)</strong><br>
     If White: memorize English Attack (6.Be3 f3 g4!) vs Taimanov B46 through move 12. Know both the 5…Qc7 and 5…a6 responses.<br>
-    If Black: memorize Dutch Leningrad (1…f5!) main structure through move 8. Know the …e5 break plan.
+    If Black vs 1.Nf3/c4: Dutch Leningrad (1…f5!) main structure through move 8. Know the …e5 break plan.<br>
+    <strong>If Black vs 1.e4: Sicilian Dragon (1…c5 …d6 …Nf6 …g6 …Bg7) through move 9 — steers Zachary to B75 Yugoslav, his worst White structure (82.5%, −11pp below baseline).</strong>
   </div>
 </div>
 
@@ -239,25 +240,106 @@ a { color: var(--blue); }
   </tr>
 </table>
 
-<h3>If Zachary plays 1.e4 (secondary)</h3>
+<h3>If Zachary plays 1.e4 — PRIMARY: Dragon (B75 structural exploit)</h3>
+
+<div class="callout callout-danger" style="margin:8px 0 10px">
+  <strong>Why Dragon beats Taimanov here</strong>
+  Zachary's B75 Dragon Yugoslav as White = 82.5% accuracy (−11pp below his 93.8% White baseline, 5 blunders). Diagnostic failure: from a dead-equal position (+0.00), he played the passive <code>Rh1</code> (rook to h1) when the pawn advance <code>f4!</code> was winning — eval crashed to −4.30 in one move. He sees the right idea (rook activity) but picks the passive move over the correct pawn thrust. By playing the Dragon, Austin forces Zachary into the exact position type where this pattern emerges.
+</div>
+
+<div class="move-line">
+  <span class="mv-z">1.e4</span>
+  <span class="mv-a">1…c5</span> <span class="note">— Sicilian</span><br>
+  <span class="mv-z">2.Nf3</span>
+  <span class="mv-a">2…d6</span>
+  <span class="mv-z">3.d4 cxd4 4.Nxd4</span>
+  <span class="mv-a">4…Nf6</span>
+  <span class="mv-z">5.Nc3</span>
+  <span class="key-move">5…g6!</span> <span class="note">— Dragon. Forces Yugoslav Attack (6.Be3 f3 g4 — B75).</span><br>
+  <span class="mv-z">6.Be3 f3 7.Qd2</span>
+  <span class="mv-a">7…Bg7 8.O-O-O O-O 9.g4</span> <span class="note">— Yugoslav. <strong>This is Zachary's worst structure (82.5%).</strong> Keep complications going; never trade queens.</span>
+</div>
+
+<div class="callout callout-blue" style="margin-bottom:14px">
+  <strong>Pattern to watch for in the Dragon</strong>
+  If Zachary plays a quiet rook move (Rh1, Rg1, Rf1) when the position calls for a pawn advance (f4!, g5!, h5!) — that is his diagnostic error. Alert yourself when he "improves" a rook instead of pushing. He scored only 82.5% in this exact structure, and the losing move was a passive rook move from equality.
+</div>
+
+<h3>If Zachary plays 1.e4 — FALLBACK: Taimanov (B46)</h3>
+
+<p style="font-size:0.88em; margin:6px 0 8px; color:#555;">Use Taimanov only if Austin is not comfortable with Dragon theory on the night. Zachary's B46 Taimanov accuracy as White is ~91.2% — worse than his Reti/English autopilot (95.3%) but well above his Dragon (82.5%). Still better than letting him play his best structure.</p>
 
 <div class="move-line">
   <span class="mv-z">1.e4</span>
   <span class="mv-a">1…c5</span>
-  <span class="mv-z">2.Nf3 e6</span>
-  <span class="mv-a">3.d4 cxd4 4.Nxd4</span>
-  <span class="key-move">4…e6</span> <span class="note">— Taimanov as Black (mirrors his own weapon against him)</span><br>
+  <span class="mv-z">2.Nf3</span>
+  <span class="mv-a">2…e6</span>
+  <span class="mv-z">3.d4 cxd4 4.Nxd4</span>
+  <span class="key-move">4…Nc6</span> <span class="note">— Taimanov (mirrors his own weapon against him)</span><br>
   <span class="mv-z">5.Nc3</span>
-  <span class="mv-a">Qc7 or a6</span> <span class="note">— do NOT play Najdorf (...a6 ...d6 ...Nf6) — Zachary has heavy Bg5/f4/Qf3 prep vs Najdorf</span>
+  <span class="mv-a">Qc7 or a6</span> <span class="note">— do NOT play Najdorf — Zachary has heavy prep vs Najdorf</span>
 </div>
 
 <hr>
 
-<h2>Part C — The Exploit: Won-Position Collapse</h2>
+<h2>Part C — The Two Exploitable Weaknesses</h2>
+
+<h3>Weakness #1 — Structural accuracy drop (exploit from move 1)</h3>
+
+<table>
+  <tr>
+    <th>Zachary's position type</th><th>Avg accuracy</th><th>vs White baseline</th><th>Austin's action</th>
+  </tr>
+  <tr class="row-safe">
+    <td>A1x Reti/English as White</td>
+    <td>95.3%</td>
+    <td>+1.5pp</td>
+    <td>Avoid — Dutch Leningrad forces him off autopilot</td>
+  </tr>
+  <tr>
+    <td>B46 Taimanov as White (English Attack)</td>
+    <td>93.8%</td>
+    <td>baseline</td>
+    <td>Austin's English Attack targets this (79.4% in sharp English Attack pawn storm)</td>
+  </tr>
+  <tr class="row-danger">
+    <td><strong>B75 Dragon Yugoslav as White</strong></td>
+    <td><strong>82.5%</strong></td>
+    <td><strong>−11.3pp</strong></td>
+    <td><strong>STEER HERE — Austin plays Dragon as Black vs 1.e4</strong></td>
+  </tr>
+  <tr class="row-safe">
+    <td>E0x Catalan as Black</td>
+    <td>96.6%</td>
+    <td>+3.6pp</td>
+    <td>Don't give him the Catalan — Dutch avoids this</td>
+  </tr>
+  <tr>
+    <td>B4x Taimanov as Black</td>
+    <td>91.2%</td>
+    <td>−1.8pp</td>
+    <td>Austin's English Attack as White aims here (includes 80% Tseng loss)</td>
+  </tr>
+  <tr class="row-warn">
+    <td>B3x Dragon Accelerated as Black</td>
+    <td>89.1%</td>
+    <td>−3.9pp</td>
+    <td>His Dragon-as-Black also struggles — note for endgame file assessment</td>
+  </tr>
+</table>
+
+<div class="callout callout-blue" style="margin-top:10px">
+  <strong>Diagnostic error in B75 — Rh1 when f4! (PAM 2026 R4 vs Piza Vera, 1766)</strong>
+  From a dead-equal position (+0.00), Zachary played the passive <code>Rh1</code> (rook retreats to h1) when <code>f4!</code> (pawn center advance) was the winning move — eval crashed to −4.30 in one move. This is the "passive piece move when a pawn push is the correct idea" pattern that appears across 3 separate games in the dataset. The rook looks active on h1 (aiming at the h-file) but the position demanded a pawn, not a rook. He scored only 82.5% overall in this game against a 1766-rated player. [Stockfish JSON — unverified]
+</div>
+
+<hr>
+
+<h3>Weakness #2 — Won-position collapse (passive exploit — stay alive)</h3>
 
 <div class="callout callout-purple">
   <strong>Core exploit data (45-game classical dataset, Stockfish movetime-3000)</strong>
-  Zachary reached positions ≥+4 (clearly winning) in 10 games. He converted 6. He <em>failed to convert 4</em>: 3 became draws, 1 became a loss. The failures happened when the winning move required finding the exact piece square — not a forcing check, just a quiet judgment call. This is the specific precision failure Austin can target.
+  Zachary reached positions ≥+4 (clearly winning) in 10 games. He converted 6. He <em>failed to convert 4</em>: 3 became draws, 1 became a loss. The failures happened when the winning move required finding the exact piece square — not a forcing check, just a quiet judgment call. This is the specific precision failure Austin can survive.
 </div>
 
 <h3>The 3 failed conversions — what Zachary missed and why</h3>
@@ -328,7 +410,7 @@ a { color: var(--blue); }
 
 <ul class="checklist">
   <li>Know the English Attack setup (6.Be3 f3 g4!) cold through move 9 <strong>if White</strong></li>
-  <li>Know the Dutch Leningrad structure (1…f5! then …Nf6 …g6 …Bg7 …O-O …d6) cold through move 8 <strong>if Black</strong></li>
+  <li>Know the Dutch Leningrad (1…f5! …Nf6 …g6 …Bg7 …O-O …d6) through move 8 <strong>if Black vs 1.Nf3/c4</strong>; know Dragon Sicilian (1…c5 …d6 …Nf6 …g6 …Bg7) through move 9 <strong>if Black vs 1.e4</strong> — steers to Zachary's worst structure (B75, 82.5%)</li>
   <li>Do NOT play 6.Nxc6 — ever (lost this way at CYCC 2026)</li>
   <li>Do NOT offer or accept queen trades prematurely — Zachary's endgame is elite</li>
   <li>After Zachary reaches a clearly better position: <strong>do not resign mentally</strong> — he squandered 3 wins (≥+5.8) in draws, and lost one game from +10.95. Defend every position until it is objectively lost (engine ≥−7)</li>
@@ -346,7 +428,7 @@ a { color: var(--blue); }
     <td>His 4 losses: one to Yang (2368) — understandable; one to Jaferian (2249); one to Marchand (2181); <strong>one to Tseng (1907)</strong>. Austin at 1959 is above Tseng. The precedent is there.</td>
   </tr>
   <tr>
-    <td>His worst games (79–83% accuracy) all came from sharp Sicilian pawn-storm middlegames. If Austin reaches the English Attack pawn storm tomorrow, Zachary's historical accuracy in that position type is 79.4%. That is beatable.</td>
+    <td>His worst games (79–83% accuracy) all came from sharp Dragon/Sicilian pawn-storm middlegames. B75 Yugoslav as White = 82.5%; English Attack pawn storm as White (B46) = 79.4%. Both are steerable: Dragon as Black (if he plays 1.e4), or English Attack as White (if he plays Taimanov).</td>
   </tr>
 </table>
 
