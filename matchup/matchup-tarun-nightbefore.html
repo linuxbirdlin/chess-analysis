@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tonight's Prep: Austin vs Tarun Sankar</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2; --purple: #5a1a8b;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg); }
+h1 { font-size: 1.55em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.1em; margin: 26px 0 10px; border-left: 5px solid var(--blue);
+  padding-left: 10px; background: #f0f4ff; padding: 6px 10px; }
+h3 { font-size: 0.95em; margin: 14px 0 6px; color: #333; font-weight: bold; }
+.subtitle { font-size: 0.84em; color: #666; margin-bottom: 18px; }
+.subtitle span { margin-right: 16px; }
+
+.callout { border-radius: 5px; padding: 11px 14px; margin: 10px 0; font-size: 0.9em; line-height: 1.6; }
+.callout-gold { background: #fffbf0; border-left: 4px solid var(--gold); }
+.callout-danger { background: #fdf0f0; border-left: 4px solid var(--red); }
+.callout-blue { background: #f0f4ff; border-left: 4px solid var(--blue); }
+.callout-green { background: #f0fdf0; border-left: 4px solid var(--green); }
+.callout-purple { background: #f8f0ff; border-left: 4px solid var(--purple); }
+.callout strong { display: block; margin-bottom: 3px; }
+
+.move-line { font-family: 'Courier New', monospace; font-size: 13px;
+  background: #fff; border: 1px solid #ddd; border-radius: 5px;
+  padding: 10px 14px; margin: 8px 0; line-height: 2.1; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: var(--gold); color: #fff; padding: 1px 6px;
+  border-radius: 3px; font-weight: bold; }
+.danger-move { background: var(--red); color: #fff; padding: 1px 6px;
+  border-radius: 3px; font-weight: bold; }
+.note { font-size: 0.82em; color: #555; font-family: Georgia, serif; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.87em; margin: 10px 0; }
+th { background: #2a3f6b; color: #fff; padding: 7px 9px; text-align: left; }
+td { padding: 6px 9px; border: 1px solid #ddd; vertical-align: top; }
+tr:nth-child(even) { background: #f5f5f5; }
+.row-danger { background: #fdeaea !important; }
+.row-safe { background: #edfdf3 !important; }
+.row-warn { background: #fffbe8 !important; }
+
+.schedule-box { display: grid; grid-template-columns: 80px 1fr; gap: 0; margin: 12px 0; border: 1px solid #bbc; border-radius: 5px; overflow: hidden; }
+.sch-time { background: #2a3f6b; color: #fff; font-weight: bold; font-size: 0.9em;
+  padding: 10px 8px; text-align: center; display: flex; align-items: center; justify-content: center; }
+.sch-body { padding: 10px 14px; background: #fff; font-size: 0.9em; line-height: 1.5; }
+.sch-body strong { color: var(--blue); }
+
+.checklist { list-style: none; padding: 0; }
+.checklist li { padding: 6px 0 6px 28px; border-bottom: 1px solid #eee; position: relative; font-size: 0.9em; }
+.checklist li::before { content: "☐"; position: absolute; left: 0; font-size: 1.1em; color: #888; }
+
+hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
+a { color: var(--blue); }
+.back-link { font-size: 0.82em; color: var(--blue); text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+
+@media print {
+  .schedule-box { break-inside: avoid; }
+  h2 { break-before: auto; }
+}
+</style>
+</head>
+<body>
+
+<h1>Tonight's Battle Plan: Austin vs Sankar, Tarun</h1>
+<div class="subtitle">
+  <span><strong>Tarun Sankar</strong> · 1984 FIDE (Nov 2026; peak 2002) · USA · NAYCC 2026 Seed #6</span>
+  <span>Austin: 1959 FIDE · Austin is <strong>−25</strong></span>
+  <span>Direct record: No prior encounter</span>
+  <span>Format: NAYCC 2026 · 90+30 classical</span>
+</div>
+<a class="back-link" href="../austin-prep.html">← Prep Index</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-tarun-gm.html">Full GM Battle Plan</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-tarun-deep.html">Engine Analysis</a>
+
+<div class="callout callout-gold" style="margin-top:14px">
+  <strong>The one-sentence brief</strong>
+  Tarun's three decisive blunders in the dataset all happened <strong>as Black, from winning positions, at moves 15–26</strong> — and Austin can steer into this by playing the <strong>Rossolimo (3.Bb5)</strong>, reaching the B30/B31 structure where Tarun already dropped two Pattern F errors in his draw vs Leo Jackson.
+</div>
+
+<div class="callout callout-danger">
+  <strong>Critical warning: 10 of 16 losses show NO detectable blunder</strong>
+  Tarun played at his normal accuracy level (87–93%) and was simply outplayed in 10 games. Austin cannot rely on Tarun self-destructing. The game plan must include playing well. However: in the 6 losses with detectable errors, all 3 decisive collapses were Black-side with Tarun holding a slight advantage — and he still threw the game. If Tarun reaches a slight edge as Black: do not concede. Stay in the game.
+</div>
+
+<hr>
+
+<h2>Tonight's 2-Hour Schedule</h2>
+
+<div class="schedule-box">
+  <div class="sch-time">0:00–0:35</div>
+  <div class="sch-body"><strong>Opening prep — both colors (35 min)</strong><br>
+    If White: Rossolimo Sicilian (3.Bb5) — Austin's standard weapon, confirmed by GM plan. The B30 structure is where Tarun's preparation boundary errors have appeared. Know the Rossolimo through move 14 cold, including the h4! resource.<br>
+    If Black vs 1.c4 English: Tarun plays Catalan/Mikenas. Know your response through move 10 (Nimzo setup with …e6, …Nf6, …Bb4 is an option; verify your specific line from matchup-tarun-black.html).<br>
+    Quick note: Tarun has a 5W-16L-3D record overall — he is beatable. The rating gap is only −25 points.
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">0:35–1:10</div>
+  <div class="sch-body"><strong>Study the 3 decisive collapses (35 min)</strong><br>
+    These are the 3 games where Tarun held a winning advantage as Black and threw it away in one move:<br>
+    (1) <strong>Nf5 when Nd7</strong> — Madurai Athens R6 vs Kavishvaran (1547): had +1.20 as Black, played Nf5 (knight forward to aggressive square) when Nd7 (knight retreats to defensive square) was the correct idea. Eval: +1.20 → −5.60, cpl=680. LOSS to a 1547-rated opponent.<br>
+    (2) <strong>e4 when Bh6+</strong> — Skyline R4 vs Lin (2099): had +2.20 as Black, played e4 (aggressive pawn) when Bh6+ (forcing check) was the winning move. Eval: +2.20 → −1.20. Missed a forcing check from a winning position.<br>
+    (3) <strong>Bd3 when Ba3</strong> — 3-0 Thursday R4 vs Boutikos (2144): had +5.73 (enormous advantage) as Black, played Bd3 (bishop centralizes) when Ba3 (bishop to corner) was winning. Eval: +5.73 → −4.63, cpl=1000 (capped). Lost from nearly +6.
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">1:10–1:45</div>
+  <div class="sch-body"><strong>Study the B30 draws vs Leo and the Qf6 loss vs Sridhar (35 min)</strong><br>
+    <strong>B30 (Sicilian, 5th Skyline R6 vs Leo Jackson):</strong> Tarun drew this game but had two Pattern F errors: Qd8 when Qb8 was correct (cpl=421, draw) and Rb8 when Rf8 was correct (cpl=157). One file off on the queen; one file off on the rook. The Rossolimo structure produces this type of error — queen and rook to the wrong file.<br>
+    <strong>Qf6 vs Sridhar (1838, Dulles R4):</strong> Tarun (Black, −1.46) played Qf6 when Be7 was the defensive necessity. Eval: −1.46 → −6.33, cpl=487. LOSS to a 1838-rated player. The queen jumped forward when a bishop defense was needed.<br>
+    <strong>Leo is also Austin's NAYCC opponent</strong> — the same game that showed Tarun's B30 errors also shows Leo struggling to convert. Context: both are beatable.
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">1:45–2:00</div>
+  <div class="sch-body"><strong>Mental prep and day-of checklist (15 min)</strong><br>
+    Read Part D. The core challenge: play solidly enough to get to the Rossolimo middlegame intact, then keep complexity alive through move 20. Tarun's errors appear when the position demands a precise specific move and he picks the "natural-looking" one.
+  </div>
+</div>
+
+<hr>
+
+<h2>Part A — Austin as White: Rossolimo (3.Bb5)</h2>
+
+<div class="callout callout-green">
+  <strong>Rossolimo is both Austin's standard weapon and the proven pressure structure</strong>
+  B30/B31 is where Tarun made 2 Pattern F errors in a draw vs Leo (Qd8 wrong file, Rb8 wrong file). Austin's GM plan already names Rossolimo 3.Bb5 h4! as the weapon. Both data points align.
+</div>
+
+<h3>Main line: Rossolimo into complex middlegame</h3>
+
+<div class="move-line">
+  <span class="mv-a">1.e4</span> <span class="mv-z">c5</span>
+  <span class="mv-a">2.Nf3</span> <span class="mv-z">Nc6</span>
+  <span class="key-move">3.Bb5!</span> <span class="note">— Rossolimo. B30/B31 is Tarun's problem structure: 2 Pattern F errors in drawn game vs Leo.</span><br>
+  <span class="mv-z">3…g6</span> <span class="note">(Fianchetto — likely)</span><br>
+  <span class="mv-a">4.Bxc6</span> <span class="mv-z">dxc6</span>
+  <span class="key-move">5.h4!</span> <span class="note">— Austin's pawn storm per GM plan. Creates immediate kingside tension.</span><br>
+  <span class="mv-z">3…e6</span> <span class="note">(French-like setup)</span><br>
+  <span class="mv-a">4.0-0</span> <span class="mv-z">Nge7</span>
+  <span class="mv-a">5.c3</span> <span class="note">— solid; aim for d4 break</span><br>
+  <span class="mv-z">3…d6</span> <span class="note">(Kan-like)</span><br>
+  <span class="mv-a">4.0-0</span> <span class="mv-z">Bd7</span>
+  <span class="mv-a">5.Re1</span> <span class="note">— flexible; c3+d4 threat</span>
+</div>
+
+<table>
+  <tr><th>If Tarun plays…</th><th>Austin responds…</th><th>Key idea</th></tr>
+  <tr class="row-safe">
+    <td>3…g6 Fianchetto</td>
+    <td>4.Bxc6 dxc6 5.h4! — double-bishop compensation + kingside attack</td>
+    <td>The h4 push creates immediate decisions. Tarun's B30 Pattern F errors were here.</td>
+  </tr>
+  <tr class="row-safe">
+    <td>3…e6 (French-like)</td>
+    <td>4.0-0 Nge7 5.c3 — slow build, d4 break planned</td>
+    <td>Complex middlegame tension into move 14-20 zone</td>
+  </tr>
+  <tr class="row-warn">
+    <td>Tarun avoids the Sicilian entirely (e.g., 1…e5)</td>
+    <td>Standard Italian (3.Bc4) or Ruy Lopez (3.Bb5) response</td>
+    <td>From CLAUDE.md: Tarun plays 1…c5 Sicilian. If he deviates, apply your standard 1…e5 repertoire.</td>
+  </tr>
+  <tr class="row-safe">
+    <td>Complex doubled-pawn positions after Bxc6</td>
+    <td>Keep queens on — complexity favors Austin's tactical style</td>
+    <td>Tarun's 3 decisive blunders all came in complex positions with queens still active</td>
+  </tr>
+</table>
+
+<div class="callout callout-blue">
+  <strong>Why Rossolimo creates the Pattern F conditions</strong>
+  After 3.Bb5 Bxc6 or in other Rossolimo structures, Black faces a choice at moves 12-20 about how to coordinate pieces around the doubled c-pawns or fianchettoed king. The Tarun vs Leo game showed exactly this: two wrong file decisions (Qd8 not Qb8; Rb8 not Rf8) in the B30 structure. Austin should avoid mass simplification — the longer the position stays complex, the longer Tarun must navigate without a clear plan, which is where his errors cluster. [Stockfish JSON]
+</div>
+
+<hr>
+
+<h2>Part B — Austin as Black: vs Tarun's 1.c4 English</h2>
+
+<div class="callout callout-gold">
+  <strong>Tarun's White system: 1.c4 English, Catalan, or Mikenas (3.e4 after 1.c4 Nf6 2.Nc3)</strong>
+  Austin's GM plan: Mikenas → 3.e4 → Austin plays the Nimzo-style …e6/…Bb4 counter. Check matchup-tarun-black.html for the full line. No ECO data from White games to measure accuracy by structure, so we cannot target a specific White ECO weakness.
+</div>
+
+<h3>If Tarun plays 1.c4 (primary)</h3>
+
+<div class="move-line">
+  <span class="mv-z">1.c4</span>
+  <span class="mv-a">1…e6</span> <span class="note">— flexible; can transpose to Nimzo after 2.d4 or fight for center</span><br>
+  <span class="mv-z">2.Nc3</span>
+  <span class="mv-a">2…Nf6</span>
+  <span class="mv-z">3.e4</span> <span class="note">(Mikenas Attack)</span><br>
+  <span class="mv-a">3…d5!</span> <span class="note">— central strike per GM plan. Know through move 10.</span><br>
+  <span class="mv-z">2.Nf3</span>
+  <span class="mv-a">2…d5</span> <span class="note">— QGD-style; 3.d4 Nf6 transposes to Nimzo territory</span>
+</div>
+
+<table>
+  <tr><th>Key principle as Black</th><th>Reason</th></tr>
+  <tr class="row-safe">
+    <td>Know your English/Mikenas response through move 10 cold</td>
+    <td>Tarun is an English specialist (+600 Elo on this system). Austin should minimize preparation boundary risk as Black by being prepared deeper.</td>
+  </tr>
+  <tr>
+    <td>Steer for unbalanced middlegame, not symmetrical pawn structure</td>
+    <td>Tarun's White accuracy data missing — no ECO target. General principle: complex positions reduce his structural edge.</td>
+  </tr>
+  <tr class="row-warn">
+    <td>White Pattern F (2 instances): Rd1 when Nd2 was correct; Bd6 when Nf3 was correct</td>
+    <td>Tarun has two documented White Pattern F errors (piece to wrong square at moves 14-19). White errors are fewer (2 vs 6 for Black) but exist — Austin as Black can press in the transition zone too.</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>Part C — The Three Exploitable Weaknesses</h2>
+
+<h3>Weakness #1 — Decisive Black-side collapses from winning positions (100% loss correlation)</h3>
+
+<div class="callout callout-purple">
+  <strong>Core data: 3 decisive blunders · 0W-0D-3L · all as Black · moves 15-26 (movetime-3000)</strong>
+  Every time Tarun has flipped a winning position to a losing one in a single move, he was playing Black. All 3 games were lost. The common signature: Tarun plays an active-looking or natural-seeming move when the position requires a specific precise answer — forward knight when knight should retreat, pawn push when bishop check was winning, centralized bishop when corner bishop was correct.
+</div>
+
+<table>
+  <tr>
+    <th>Game</th><th>Tarun played</th><th>Best was</th><th>Eval swing</th><th>Opp. rating</th>
+  </tr>
+  <tr class="row-danger">
+    <td>Madurai Athens R6 vs Kavishvaran</td>
+    <td><code>Nf5</code> (knight forward)</td>
+    <td><code>Nd7</code> (knight retreats)</td>
+    <td>+1.20 → −5.60 (cpl=680)</td>
+    <td><strong>1547</strong></td>
+  </tr>
+  <tr class="row-danger">
+    <td>5th Skyline R4 vs Lin, Benjamin</td>
+    <td><code>e4</code> (pawn push)</td>
+    <td><code>Bh6+</code> (forcing check)</td>
+    <td>+2.20 → −1.20 (cpl=340)</td>
+    <td>2099</td>
+  </tr>
+  <tr class="row-danger">
+    <td>3-0 Thursday R4 vs Boutikos</td>
+    <td><code>Bd3</code> (bishop centralizes)</td>
+    <td><code>Ba3</code> (bishop to corner)</td>
+    <td>+5.73 → −4.63 (cpl=1000)</td>
+    <td>2144</td>
+  </tr>
+</table>
+
+<div class="callout callout-blue">
+  <strong>The Boutikos collapse — +5.73 to −4.63 in one move</strong>
+  Tarun (Black) had nearly +6. The bishop went to d3 (central, "active-looking") when Ba3 (corner, concrete purpose — likely attacking a pawn or controlling a critical long diagonal) was the winning move. The difference between Bd3 and Ba3 is a strategic calculation error at the highest stakes. He has now seen the same error type twice: active-looking piece move when a quiet/specific one was correct (also: Nf5 vs Nd7). If the pattern fires vs Austin, it will look the same way. [Stockfish JSON — unverified]
+</div>
+
+<div class="callout callout-purple">
+  <strong>The missed Bh6+ check — same blindspot as Inti Flores Ojeda</strong>
+  Tarun played e4 (active pawn push) when Bh6+ was the winning forcing check from +2.20. This is the same pattern found in Inti's missed Bxh7+ (from +4.82) — the "natural-looking active move" blinds both players to the forcing check. Austin should look for forcing checks or sacrificial themes after move 14 in the Rossolimo structure. The check may not be seen. [Stockfish JSON]
+</div>
+
+<hr>
+
+<h3>Weakness #2 — Black-side transition collapse (Pattern F, 4 losses at moves 14-23)</h3>
+
+<table>
+  <tr>
+    <th>Instance</th><th>Tarun played</th><th>Best was</th><th>Eval swing</th><th>Opponent</th>
+  </tr>
+  <tr class="row-danger">
+    <td>Skyline R4 Sridhar (1838) — mv#14</td>
+    <td><code>Qf6</code> (queen forward)</td>
+    <td><code>Be7</code> (bishop defends)</td>
+    <td>−1.46 → −6.33 (cpl=487)</td>
+    <td><strong>1838 — UPSET LOSS</strong></td>
+  </tr>
+  <tr class="row-danger">
+    <td>Madurai R6 Kavishvaran (1547) — mv#22</td>
+    <td><code>Nf5</code> (knight attacks)</td>
+    <td><code>Nd7</code> (knight retreats)</td>
+    <td>+1.20 → −5.60 (cpl=680)</td>
+    <td><strong>1547 — UPSET LOSS</strong></td>
+  </tr>
+  <tr class="row-danger">
+    <td>3-0 Thursday R1 Dilanian (2239) — mv#17</td>
+    <td><code>e5</code> (pawn pushes)</td>
+    <td><code>Qc7</code> (queen regroups)</td>
+    <td>−0.71 → −5.61 (cpl=490)</td>
+    <td>2239</td>
+  </tr>
+  <tr class="row-danger">
+    <td>Grand Circuit R4 Pyrih (2395) — mv#23</td>
+    <td><code>Bc7</code> (bishop forward)</td>
+    <td><code>Ra8</code> (rook activates)</td>
+    <td>−1.40 → −3.83 (cpl=243)</td>
+    <td>2395</td>
+  </tr>
+  <tr class="row-warn">
+    <td>5th Skyline R6 vs Leo (1908) — mv#28 (B30!)</td>
+    <td><code>Qd8</code> (wrong file)</td>
+    <td><code>Qb8</code> (correct file)</td>
+    <td>−0.55 → −4.76 (cpl=421)</td>
+    <td>1908 — <strong>DRAW</strong> (Leo couldn't convert)</td>
+  </tr>
+  <tr class="row-warn">
+    <td>5th Skyline R6 vs Leo (1908) — mv#23 (B30!)</td>
+    <td><code>Rb8</code> (wrong file)</td>
+    <td><code>Rf8</code> (correct file)</td>
+    <td>−0.94 → −2.51 (cpl=157)</td>
+    <td>1908 — <strong>DRAW</strong></td>
+  </tr>
+</table>
+
+<div class="callout callout-blue">
+  <strong>Leo Jackson's B30 precedent — directly relevant</strong>
+  Leo is also Austin's NAYCC 2026 opponent. In the same Skyline tournament, Leo had Tarun in the B30 structure (Rossolimo), triggered two Pattern F errors (both R/Q on wrong file), but couldn't convert the draw. Austin is a stronger tactician than Leo. If Austin can maintain a Rossolimo structure and reach a similar position past move 20, the precedent suggests Tarun will drift — and Austin may be better placed to convert than Leo was.
+</div>
+
+<hr>
+
+<h3>Weakness #3 — Upset-loss frequency (6 losses to sub-2000 opponents)</h3>
+
+<table>
+  <tr>
+    <th>Opponent</th><th>Opp. rating</th><th>Tarun's accuracy</th><th>Notes</th>
+  </tr>
+  <tr class="row-danger">
+    <td>Kavishvaran (Madurai R6)</td>
+    <td>1547</td>
+    <td>87.7%</td>
+    <td>Pattern C (Nf5) — blown from +1.20</td>
+  </tr>
+  <tr class="row-danger">
+    <td>Sridhar (Dulles R4)</td>
+    <td>1838</td>
+    <td>87%</td>
+    <td>Pattern F (Qf6) — blown from −1.46</td>
+  </tr>
+  <tr class="row-warn">
+    <td>Peed (Dulles R6)</td>
+    <td>1837</td>
+    <td><strong>92.5%</strong></td>
+    <td>No detectable blunder — simply outplayed while playing 92.5%</td>
+  </tr>
+  <tr class="row-warn">
+    <td>Debmisra (Dulles R7)</td>
+    <td>1861</td>
+    <td>90.3%</td>
+    <td>No detectable blunder</td>
+  </tr>
+  <tr class="row-warn">
+    <td>Mirzaliyeva (3-0 Thu R5)</td>
+    <td>1829</td>
+    <td>86.8%</td>
+    <td>No detectable blunder</td>
+  </tr>
+  <tr class="row-warn">
+    <td>Kurpiewski (3-0 Thu R4)</td>
+    <td>1943</td>
+    <td>86.5%</td>
+    <td>No detectable blunder</td>
+  </tr>
+</table>
+
+<div class="callout callout-gold">
+  <strong>Austin (1959) is above every opponent who has beaten Tarun at sub-2000</strong>
+  The Peed loss (1837, 92.5% accuracy, no blunder) is the most striking precedent: Tarun played better than his average and still lost. This was likely a positional outplaying. Austin at 1959 is 122 points above Peed. The gap is meaningful — if Tarun can lose while playing 92.5%, Austin at 1959 playing well is a real threat without requiring a lucky blunder.
+</div>
+
+<hr>
+
+<h2>Part D — Day-of Checklist</h2>
+
+<ul class="checklist">
+  <li>Play Rossolimo (3.Bb5) as White — it is Austin's standard weapon AND the structure where Tarun's Pattern F errors are documented (B30, 2 errors vs Leo)</li>
+  <li>In the Rossolimo: do NOT simplify to a symmetrical endgame early. Keep queens and rooks on. Tarun's collapses happen in complex middlegames, not clean endgames.</li>
+  <li>In any position where a <strong>forcing check</strong> is available as White: look hard. Tarun missed Bh6+ from +2.20 — if a check is on the board, it may be the move he does not see.</li>
+  <li>As Black vs 1.c4: know your English/Mikenas line through move 10 from matchup-tarun-black.html. Do not enter the game underprepared on the Black side.</li>
+  <li>If Tarun gets a slight or medium advantage as Black (+1 to +6): do NOT mentally concede. 3/3 decisive collapses happened from exactly this position type. Defend every position resourcefully through move 26.</li>
+  <li>The Bd3/Ba3 collapse (+5.73 → −4.63) happened to a 2144-rated player — Austin at 1959 is below that, but the collapse type is repeatable and Austin can play solidly enough to stay in range.</li>
+  <li>Watch for Tarun's knight moves as Black — twice he played a "forward knight" (Nf5) when the correct move was a knight retreat (Nd7). If Tarun's knight goes to an attacking square that seems speculative, look for a refutation or defensive consolidation that wins material.</li>
+  <li>Tarun is rated +25 above Austin — this is near-equal. Do not play scared. The record (5W-16L-3D overall) and the upset-loss pattern show this is a game Austin can win with solid chess.</li>
+</ul>
+
+<table style="margin-top:14px">
+  <tr><th>Psychological notes</th></tr>
+  <tr>
+    <td>Tarun's +600 Elo in 2.5 years suggests a player still in rapid development — his positional repertoire (English) is structured but his decision-making in sharp transition-zone positions has clear documented gaps. Austin's tactical style is a natural counter to Tarun's tendency to play "natural-looking" moves over forcing ones.</td>
+  </tr>
+  <tr>
+    <td>The loss to Kavishvaran (1547) at Madurai 2023 suggests Tarun can have off days. That was Nf5 from a winning position — an inexplicable knight leap that lost immediately. That error pattern (knight forward when backward) has been seen twice across the dataset.</td>
+  </tr>
+  <tr>
+    <td>10 of 16 losses show no detectable blunder — Tarun is not careless. He will fight hard and play for 40+ moves. This is a grinding game. Austin's job is to maintain complications through the transition zone, not to chase a quick tactical win.</td>
+  </tr>
+</table>
+
+<hr>
+
+<p style="font-size: 0.8em; color: #888; text-align: center; margin-top: 10px;">
+  Weakness data: Stockfish movetime-3000 · 24 games · 7 tournaments (2023–2026).
+  Pattern C (decisive blunders): 3 instances, 0W-0D-3L, all as Black at moves 15-26.
+  Pattern F (prep boundary): 8 instances (6 as Black), 50% loss correlation.
+  Upset losses: 6 games vs sub-2000 rated opponents (including 1547, 1829, 1837, 1838, 1861).
+  Note: 10 of 16 losses show no detectable Pattern C or F error — Tarun was outplayed without blundering.
+  ECO data missing for most games; no structural ECO analysis possible.
+  Generated: Nov 2026 ·
+  <a href="../austin-prep.html" style="color:#888">Prep Index</a> ·
+  <a href="matchup-tarun-gm.html" style="color:#888">Full GM Plan</a>
+</p>
+
+</body>
+</html>
