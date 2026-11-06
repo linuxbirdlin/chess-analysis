@@ -21,7 +21,7 @@
 | Las Vegas 2026 | 1 | 0 | 0 | 1 | 89.8% | Drew Baghdasaryan 2263 |
 | **TOTAL** | **83** | **35** | **18** | **29** | **91.8%** | |
 
-**White overall (43 games):** 17W-8L-17D · avg **92.8%** · 59% score  
+**White overall (43 games):** 17W-8L-18D · avg **92.8%** · 60% score  
 **Black overall (40 games):** 18W-10L-12D · avg **90.7%** · 60% score  
 
 Key: Black accuracy (90.7%) is 2.1% below White (92.8%) — a consistent, quantifiable gap. This is the primary structural weakness for a prepared opponent.
@@ -77,7 +77,7 @@ Reyansh plays **1.e4 exclusively** (52 of 54 White games). Only exceptions: 2 ga
 Open Sicilian (2.Nf3 3.d4) in every game.
 
 **vs Accelerated Dragon (...Nc6 ...g6 → 5.c4 MARÓCZY BIND)**  
-Confirmed in 8+ games: Nalakonda (draw), Yenamandra (win), Petrov 2335 (draw), Yi Colin (win), Qi Jenny (draw), Mokeeva Zlata (draw), Natraj Tapas (draw), Jin David (win+draw), Chen Leo (win), Cremisi Daniel (draw).
+Confirmed in 8+ games: Nalakonda (draw), Yenamandra (win), Yi Colin (win), Qi Jenny (draw), Mokeeva Zlata (draw), Natraj Tapas (draw), Jin David (win+draw), Chen Leo (win), Cremisi Daniel (draw).
 
 This is Reyansh's most-practiced and most-confident White system. The Maróczy Bind (1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 g6 5.c4) permanently controls d5, squeezes Black's queenside space, and allows long positional maneuvering. Against the Maróczy, Reyansh's results are predominantly positive. His accuracy in these games averages above 94%.
 
