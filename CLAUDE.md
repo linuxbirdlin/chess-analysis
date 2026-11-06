@@ -72,7 +72,7 @@ chess-analysis/
     ├── pranav/                 # agcafall2026, agcasummer2026, worldyouth2026
     ├── emerson/                # 7 tournaments, 40 games
     ├── leo/                    # jackson,leo.pgn — 47 games
-    ├── tarun/                  # Tarun.pgn, grandcircuit.pgn, skyline2026.pgn — 17 games
+    ├── tarun/                  # Tarun.pgn, grandcircuit.pgn, skyline2026.pgn, newgames.pgn — 26 games in pgnlib, 23 analyzed
     ├── danielh/                # queretaro2024/2025/2026, anothergame — 8 games
     ├── yaen/                   # saenz cabrera, yaen.pgn — 64 games
     ├── danielee/               # canadaclose2026, pam2026, pamschool2026, torontoopen2026 — 24 games

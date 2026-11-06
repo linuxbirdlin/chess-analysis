@@ -104,7 +104,7 @@ A 600-point jump in 2.5 years reflects not just hard work but strong tactical ca
 
 **1. Critical tactical errors under pressure**
 
-In 5th Skyline R4 (vs Lin Benjamin 2099): On move 14, Tarun played **14...e4??** (from an eval of −2.0, meaning Black was already winning!) to +1.65 — a self-destructive blunder that gave away a winning position. This type of error (panicking and making an aggressive but losing move when already ahead) is a recurring junior pattern.
+In 5th Skyline R4 (vs Lin Benjamin 2099): On move 15, Tarun played **15...e4??** (from an eval of −2.0, meaning Black was already winning!) to +1.65 — a self-destructive blunder that gave away a winning position. This type of error (panicking and making an aggressive but losing move when already ahead) is a recurring junior pattern.
 
 **2. Technical endgame play vs elite opponents**
 
@@ -117,7 +117,7 @@ At Dulles 2024 (1706 rating), Tarun lost all three Black games: to Debmisra (186
 
 **4. Throwing away winning positions — g4?? and Bd3?? patterns**
 
-Thursday Club R5 (vs Mirzaliyeva 1829): From an equal position (0.00), Tarun played **31.g4??** (CPL 699), swinging the eval to -6.99. Two moves later, **32.Bf3??** (1000 CPL, -#). Lost to a player ~136 points below his rating from a level position. This is the same impulse blunder pattern as the 14...e4?? (Skyline R4) — aggression at the worst moment.
+Thursday Club R5 (vs Mirzaliyeva 1829): From an equal position (0.00), Tarun played **31.g4??** (CPL 699), swinging the eval to -6.99. Two moves later, **32.Bf3??** (1000 CPL, -#). Lost to a player ~136 points below his rating from a level position. This is the same impulse blunder pattern as the 15...e4?? (Skyline R4) — aggression at the worst moment.
 
 Thursday Club R4 (vs Boutikos 2144 as Black): **26...Bd3??** (CPL 1000, swings eval from +5.76 to -4.91) threw away a winning position that should have been won. Then two more 1000-CPL blunders before resignation. His 76.1% accuracy (9 blunders) is the worst single-game performance in the entire dataset.
 
@@ -131,7 +131,7 @@ No long endgame games (100+ moves) appear in the dataset (unlike Leo Jackson or 
 
 ### 1. 5th Skyline Open R4 — Lin Benjamin (2099) vs Tarun (1965) 1–0
 
-ECO B20 Sicilian Kronberger. 1.e4 c5 2.Na3 Nc6 3.Bb5 Nf6 4.Bxc6 dxc6 5.d3 g6 6.c3 Bg7 7.Be3 b6 8.Nf3 Ng4 9.Bg5 Qd7 10.Nf1 h6 11.Bg3 0-0-0 12.Nf5... On move 14, with Black holding an advantage around −2.0, Tarun played 14...e4?? — a critical blunder that turned a winning position into a lost one. Eventually resigned. Shows: Tarun can collapse tactically when the position is most critical.
+ECO B20 Sicilian Kronberger. 1.e4 c5 2.Na3 Nc6 3.Bb5 Nf6 4.Bxc6 dxc6 5.d3 g6 6.c3 Bg7 7.Be3 b6 8.Nf3 Ng4 9.Bg5 Qd7 10.Nf1 h6 11.Bg3 0-0-0 12.Nf5... On move 15, with Black holding an advantage around −2.0, Tarun played 15...e4?? — a critical blunder that turned a winning position into a lost one. Eventually resigned. Shows: Tarun can collapse tactically when the position is most critical.
 
 ### 2. 5th Skyline Open R6 — Le-Tran Leo (1908) vs Tarun (1965) ½–½
 

@@ -116,7 +116,7 @@ Both Austin and Tarun are tactical, aggressive players who seek complexity. The 
 
 ### Tarun's Blunder Pattern Under Pressure
 
-The most exploitable weakness: in Skyline R4, Tarun was winning (+2.45 in Black's favor) and then blundered a piece with 14...e4??. This happened at a critical moment when Black needed to find the precise winning continuation. Austin should:
+The most exploitable weakness: in Skyline R4, Tarun was winning (+2.45 in Black's favor) and then blundered with 15...e4??. This happened at a critical moment when Black needed to find the precise winning continuation. Austin should:
 - Maintain maximum tension in the middlegame
 - Do NOT simplify into a technical ending — keep the position complex
 - Wait for Tarun to crack, which the evidence suggests he may
