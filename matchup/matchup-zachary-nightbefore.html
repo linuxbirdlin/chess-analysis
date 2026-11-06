@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tonight's Prep: Austin vs Zachary Liu</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2; --purple: #5a1a8b;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg); }
+h1 { font-size: 1.55em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.1em; margin: 26px 0 10px; border-left: 5px solid var(--blue);
+  padding-left: 10px; background: #f0f4ff; padding: 6px 10px; }
+h3 { font-size: 0.95em; margin: 14px 0 6px; color: #333; font-weight: bold; }
+.subtitle { font-size: 0.84em; color: #666; margin-bottom: 18px; }
+.subtitle span { margin-right: 16px; }
+
+.callout { border-radius: 5px; padding: 11px 14px; margin: 10px 0; font-size: 0.9em; line-height: 1.6; }
+.callout-gold { background: #fffbf0; border-left: 4px solid var(--gold); }
+.callout-danger { background: #fdf0f0; border-left: 4px solid var(--red); }
+.callout-blue { background: #f0f4ff; border-left: 4px solid var(--blue); }
+.callout-green { background: #f0fdf0; border-left: 4px solid var(--green); }
+.callout-purple { background: #f8f0ff; border-left: 4px solid var(--purple); }
+.callout strong { display: block; margin-bottom: 3px; }
+
+.move-line { font-family: 'Courier New', monospace; font-size: 13px;
+  background: #fff; border: 1px solid #ddd; border-radius: 5px;
+  padding: 10px 14px; margin: 8px 0; line-height: 2.1; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: var(--gold); color: #fff; padding: 1px 6px;
+  border-radius: 3px; font-weight: bold; }
+.danger-move { background: var(--red); color: #fff; padding: 1px 6px;
+  border-radius: 3px; font-weight: bold; }
+.note { font-size: 0.82em; color: #555; font-family: Georgia, serif; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.87em; margin: 10px 0; }
+th { background: #2a3f6b; color: #fff; padding: 7px 9px; text-align: left; }
+td { padding: 6px 9px; border: 1px solid #ddd; vertical-align: top; }
+tr:nth-child(even) { background: #f5f5f5; }
+.row-danger { background: #fdeaea !important; }
+.row-safe { background: #edfdf3 !important; }
+.row-warn { background: #fffbe8 !important; }
+
+.schedule-box { display: grid; grid-template-columns: 80px 1fr; gap: 0; margin: 12px 0; border: 1px solid #bbc; border-radius: 5px; overflow: hidden; }
+.sch-time { background: #2a3f6b; color: #fff; font-weight: bold; font-size: 0.9em;
+  padding: 10px 8px; text-align: center; display: flex; align-items: center; justify-content: center; }
+.sch-body { padding: 10px 14px; background: #fff; font-size: 0.9em; line-height: 1.5; }
+.sch-body strong { color: var(--blue); }
+
+.fen-box { font-family: 'Courier New', monospace; font-size: 12px;
+  background: #1a1a2e; color: #90ee90; padding: 8px 12px; border-radius: 4px;
+  margin: 6px 0; word-break: break-all; }
+
+.checklist { list-style: none; padding: 0; }
+.checklist li { padding: 6px 0 6px 28px; border-bottom: 1px solid #eee; position: relative; font-size: 0.9em; }
+.checklist li::before { content: "☐"; position: absolute; left: 0; font-size: 1.1em; color: #888; }
+.checklist li.done::before { content: ""; }
+
+.collapse-table { font-size: 0.84em; }
+.collapse-table td:nth-child(3), .collapse-table td:nth-child(4) { font-family: monospace; }
+
+hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
+a { color: var(--blue); }
+.back-link { font-size: 0.82em; color: var(--blue); text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+
+@media print {
+  .schedule-box { break-inside: avoid; }
+  h2 { break-before: auto; }
+}
+</style>
+</head>
+<body>
+
+<h1>Tonight's Battle Plan: Austin vs Liu, Zachary</h1>
+<div class="subtitle">
+  <span><strong>Zachary Liu</strong> · CM · 2185 FIDE (Nov 2026)</span>
+  <span>Austin: 1959 FIDE · Austin is <strong>−226</strong></span>
+  <span>Direct record: 0W–1L (Sep 2026, Austin White, B46 Exchange → technical endgame loss)</span>
+  <span>Format: NAYCC 2026 · 90+30 classical</span>
+</div>
+<a class="back-link" href="../austin-prep.html">← Prep Index</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-zachary-gm.html">Full GM Battle Plan</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-zachary-deep.html">Engine Analysis</a>
+
+<div class="callout callout-gold" style="margin-top:14px">
+  <strong>The one-sentence brief</strong>
+  Zachary is elite in technical/positional play but has a documented precision failure in sharp Sicilian middlegames (accuracy drops to 79–83%) and fails to convert 3 out of 10 positions where he has ≥+4 advantage — Austin's job is to reach those positions and stay alive.
+</div>
+
+<hr>
+
+<h2>Tonight's 2-Hour Schedule</h2>
+
+<div class="schedule-box">
+  <div class="sch-time">0:00–0:45</div>
+  <div class="sch-body"><strong>Opening prep — both colors (45 min)</strong><br>
+    If White: memorize English Attack (6.Be3 f3 g4!) vs Taimanov B46 through move 12. Know both the 5…Qc7 and 5…a6 responses.<br>
+    If Black: memorize Dutch Leningrad (1…f5!) main structure through move 8. Know the …e5 break plan.
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">0:45–1:15</div>
+  <div class="sch-body"><strong>Study Zachary's collapse game (30 min)</strong><br>
+    Load the Tseng–Liu game (Canada Closed 2026, G266854) in Lichess. Play through to move 31.<br>
+    <strong>Find Rxg2! yourself before looking at the answer.</strong> This is the pattern you need to see from the other side.<br>
+    <a href="https://lichess.org/editor/6r1/3nk3/p2Np2p/2rqPp2/1P3p2/Q2p4/P2R2PP/3R3K_b_-_-_0_31" target="_blank">→ Load position in Lichess Editor</a>
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">1:15–1:45</div>
+  <div class="sch-body"><strong>Won-position collapse study (30 min)</strong><br>
+    Review the 3 drawn positions Zachary should have won (listed in Part C below).<br>
+    Understand the common thread: <em>reasonable-looking piece move to wrong square</em>.<br>
+    This trains your eye to notice when Zachary has made this kind of error in the game.
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">1:45–2:00</div>
+  <div class="sch-body"><strong>Mental prep and day-of checklist (15 min)</strong><br>
+    Read Part D. Sleep. Do not overprepare — Zachary's endgame is elite; extra opening study of his Reti won't help.
+  </div>
+</div>
+
+<hr>
+
+<h2>Part A — Austin as White: English Attack vs Taimanov</h2>
+
+<div class="callout callout-danger">
+  <strong>NEVER play 6.Nxc6 (Exchange variation) — Austin lost with this at CYCC 2026</strong>
+  After 6.Nxc6 bxc6, Zachary gets the doubled c-pawns but all tactical imbalance evaporates. He converted the technical endgame at 93.8% accuracy over 67 moves. Do not repeat this.
+</div>
+
+<h3>The weapon: English Attack (6.Be3 f3 g4!)</h3>
+
+<div class="move-line">
+  <span class="mv-a">1.e4</span> <span class="mv-z">c5</span>
+  <span class="mv-a">2.Nf3</span> <span class="mv-z">e6</span> <span class="note">(B40 — Taimanov confirmed in all classical games)</span><br>
+  <span class="mv-a">3.d4</span> <span class="mv-z">cxd4</span>
+  <span class="mv-a">4.Nxd4</span> <span class="mv-z">Nc6</span> <span class="note">(B46)</span><br>
+  <span class="mv-a">5.Nc3</span> <span class="mv-z">Qc7</span> <span class="note">(primary — also 5…a6)</span><br>
+  <span class="key-move">6.Be3!</span>
+  <span class="mv-z">a6</span>
+  <span class="key-move">7.f3!</span>
+  <span class="mv-a">8.Qd2</span>
+  <span class="mv-z">b5</span>
+  <span class="key-move">9.g4!</span> <span class="note">— pawn storm. This is the exact position type where Zachary scored 79.4% with 4 blunders.</span>
+</div>
+
+<table>
+  <tr><th>If Zachary plays…</th><th>Austin responds…</th><th>Key idea</th></tr>
+  <tr class="row-warn">
+    <td>9…Bb7 (main)</td>
+    <td>10.g5 Nd7 11.O-O-O — then h4–h5</td>
+    <td>Force him to deal with kingside storm before completing queenside</td>
+  </tr>
+  <tr>
+    <td>9…h6 (slows g5)</td>
+    <td>10.h4! g5 11.hxg5 hxg5 12.Rxh8 Bxh8</td>
+    <td>Open the h-file — the pawn storm continues regardless</td>
+  </tr>
+  <tr>
+    <td>9…f5 (counterattack)</td>
+    <td><span class="key-move">10.e5!</span> Nd7 11.Nxc6 Qxc6 12.Bd3</td>
+    <td>Central blow — opens e-file, exposes Black king, keeps tension</td>
+  </tr>
+  <tr>
+    <td>Zachary offers queen trade</td>
+    <td><strong>Decline — keep queens on</strong></td>
+    <td>His endgame technique is elite (97.4% for 104 moves vs FM 2512); avoid all endings</td>
+  </tr>
+  <tr class="row-safe">
+    <td>5…d6 (Scheveningen-type)</td>
+    <td>Same 6.Be3 7.f3 8.Qd2 9.g4! plan</td>
+    <td>English Attack works identically vs …d6 structure</td>
+  </tr>
+</table>
+
+<div class="callout callout-blue">
+  <strong>What happened in the collapse game (CC G266854, Zachary 79.4%)</strong>
+  Zachary reached a dominant position as Black in this same type of structure but made three decisive errors: <code>Rc7</code> (+11→+3, missed <code>Rxg2!</code>), <code>f3</code> (−0.5→−7.5), <code>Rc5</code> (+4→−1.6). All under piece-coordination pressure in the g4/h4 storm. Austin needs to <em>be White in this position type</em> — as White, you create the pressure that caused those errors.
+</div>
+
+<hr>
+
+<h2>Part B — Austin as Black: Dutch Leningrad vs 1.Nf3</h2>
+
+<div class="callout callout-gold">
+  <strong>Why Dutch Leningrad (not Nimzo-Indian)</strong>
+  Zachary is deeply prepared in Reti/English (93–97% accuracy, autopilot). Nimzo-Indian is Austin's best weapon but Zachary avoids 3.Nc3 → plays Catalan (3.g3) where he scored wins at 96–97%. The Dutch Leningrad (1…f5!) appears in 0 of Zachary's 45 classical games as White — no preparation at all.
+</div>
+
+<h3>If Zachary plays 1.Nf3 or 1.c4 (primary)</h3>
+
+<div class="move-line">
+  <span class="mv-z">1.Nf3</span>
+  <span class="key-move">1…f5!</span> <span class="note">— Dutch. Forces him off autopilot immediately.</span><br>
+
+  <span class="mv-z">2.c4</span>
+  <span class="mv-a">Nf6 3.g3 g6 4.Bg2 Bg7 5.O-O O-O</span>
+  <span class="mv-a">6.d3 d6</span> <span class="note">(Leningrad vs English)</span><br>
+
+  <span class="mv-z">2.d4</span>
+  <span class="mv-a">Nf6 3.c4 g6 4.g3 Bg7 5.Bg2 O-O 6.O-O d6</span> <span class="note">(Leningrad vs d4)</span><br>
+
+  <span class="mv-z">2.g3 (or 2.b3)</span>
+  <span class="mv-a">Nf6 3.Bg2 g6 4.O-O Bg7</span> <span class="note">(King's Indian Reversed — Austin comfortable)</span>
+</div>
+
+<table>
+  <tr><th>Key Leningrad rules</th><th>Reason</th></tr>
+  <tr class="row-safe">
+    <td>Always castle kingside before …e5</td>
+    <td>King must be safe before opening the center</td>
+  </tr>
+  <tr>
+    <td>Play …e5! when White has Nd5 or when center is tense</td>
+    <td>Opens the g7-bishop diagonal — the whole point of the Leningrad</td>
+  </tr>
+  <tr class="row-warn">
+    <td>Do NOT exchange queens prematurely</td>
+    <td>His endgame converts at 93–97% — keep queens on for complications</td>
+  </tr>
+  <tr>
+    <td>If Nd5 comes: exchange it (…Nxd5 cxd5)</td>
+    <td>Simplifies center structure; Austin retains f5 pawn for kingside</td>
+  </tr>
+  <tr class="row-danger">
+    <td>Do NOT play symmetric …c5 (equalizing)</td>
+    <td>Symmetrical pawn structures = Zachary's technical endgame wins</td>
+  </tr>
+</table>
+
+<h3>If Zachary plays 1.e4 (secondary)</h3>
+
+<div class="move-line">
+  <span class="mv-z">1.e4</span>
+  <span class="mv-a">1…c5</span>
+  <span class="mv-z">2.Nf3 e6</span>
+  <span class="mv-a">3.d4 cxd4 4.Nxd4</span>
+  <span class="key-move">4…e6</span> <span class="note">— Taimanov as Black (mirrors his own weapon against him)</span><br>
+  <span class="mv-z">5.Nc3</span>
+  <span class="mv-a">Qc7 or a6</span> <span class="note">— do NOT play Najdorf (...a6 ...d6 ...Nf6) — Zachary has heavy Bg5/f4/Qf3 prep vs Najdorf</span>
+</div>
+
+<hr>
+
+<h2>Part C — The Exploit: Won-Position Collapse</h2>
+
+<div class="callout callout-purple">
+  <strong>Core exploit data (45-game classical dataset, Stockfish movetime-3000)</strong>
+  Zachary reached positions ≥+4 (clearly winning) in 10 games. He converted 6. He <em>failed to convert 4</em>: 3 became draws, 1 became a loss. The failures happened when the winning move required finding the exact piece square — not a forcing check, just a quiet judgment call. This is the specific precision failure Austin can target.
+</div>
+
+<h3>The 3 failed conversions — what Zachary missed and why</h3>
+
+<table class="collapse-table">
+  <tr>
+    <th>Game</th><th>Had advantage</th><th>Played (wrong)</th><th>Best was</th><th>Result</th>
+  </tr>
+  <tr class="row-warn">
+    <td>Greater Vancouver G267722 vs Hoekman</td>
+    <td>+5.88 (White)</td>
+    <td><code>b5</code> (pawn push)</td>
+    <td><code>Nf5!</code> (knight to dominant square)</td>
+    <td>Drew (should win)</td>
+  </tr>
+  <tr class="row-warn">
+    <td>Canada Closed G266937 vs Berube</td>
+    <td>+7.01 (Black)</td>
+    <td><code>Bd7</code> (passive bishop)</td>
+    <td><code>Ke7!</code> (king march)</td>
+    <td>Drew (should win)</td>
+  </tr>
+  <tr class="row-warn">
+    <td>PAM 2026 R8 vs Payares Diaz</td>
+    <td>+5.82 (White)</td>
+    <td><code>Bf4</code> (wrong bishop square)</td>
+    <td><code>Bd5!</code> (one square over)</td>
+    <td>Drew (should win)</td>
+  </tr>
+  <tr class="row-danger">
+    <td><strong>Canada Closed G266854 vs Tseng, Bradley (1907!)</strong></td>
+    <td>+10.95 (Black)</td>
+    <td><code>Rc7</code> (passive rook retreat)</td>
+    <td><code>Rxg2!</code> (rook captures g2, d3 pawn rolls)</td>
+    <td><strong>LOST</strong> (80% accuracy game)</td>
+  </tr>
+</table>
+
+<h3>The Tseng loss — study position tonight</h3>
+
+<p style="margin:8px 0 4px; font-size:0.9em">
+  Zachary (Black, +10.95 advantage) chose the passive <code>31…Rc7</code> instead of the game-winning <code>31…Rxg2!</code>. The g2 pawn falls, the d3 passer becomes unstoppable, and the game should be over. Instead he played a retreat and eventually lost. He scored <strong>80% accuracy</strong> in this game — his worst performance in the dataset — against a 1907-rated player.
+</p>
+
+<div class="fen-box">FEN: 6r1/3nk3/p2Np2p/2rqPp2/1P3p2/Q2p4/P2R2PP/3R3K b - - 0 31
+(Black to move — Zachary's turn — 31...Rxg2! wins; he played 31...Rc7)</div>
+
+<p style="margin:8px 0; font-size:0.9em">
+  <a href="https://lichess.org/editor/6r1/3nk3/p2Np2p/2rqPp2/1P3p2/Q2p4/P2R2PP/3R3K_b_-_-_0_31" target="_blank">→ Open in Lichess Editor</a> — find Rxg2! yourself before looking at engine.
+  FEN verified via chess.js. Cloud eval unavailable (private tournament game). <em>[Stockfish JSON — unverified by Lichess]</em>
+</p>
+
+<div class="callout callout-blue">
+  <strong>What this means for Austin in the game tomorrow</strong>
+  The three failed-conversion draws show Zachary's specific precision failure: <em>he plays a "reasonable-looking" piece move to a near-optimal but not optimal square</em>. He sees the right idea (push, bishop, rook) but picks the wrong square or the wrong piece. This happens when the position is complex and the winning move is quiet rather than forcing.<br><br>
+  Austin's best chance comes from surviving to a complex piece endgame — not from outplaying Zachary in a tactical fireworks game. Austin needs to <strong>defend resourcefully, keep the position messy, and survive to 30+ moves</strong>. The Tseng precedent (1907-rated player beat Zachary from +10.95) confirms this is real, not theoretical.
+</div>
+
+<h3>Rook endgame note (Pattern G — secondary exploit)</h3>
+
+<p style="font-size:0.9em; margin: 8px 0;">
+  In 3 separate games, Zachary misplaced his rook/queen in balanced endgames — most dramatically, the Marchand game (G267161) where he placed his rook on the same wrong file three consecutive times (Re8, Rc8, Re8 — all when Rd7 was best). His accuracy in that game was <strong>87.1%</strong>, his second-lowest in the dataset. <strong>If Austin reaches a R+P ending, stay active.</strong> Do not trade into K+P too early; the rook endgame is where Zachary's precision can slip.
+</p>
+
+<hr>
+
+<h2>Part D — Day-of Checklist</h2>
+
+<ul class="checklist">
+  <li>Know the English Attack setup (6.Be3 f3 g4!) cold through move 9 <strong>if White</strong></li>
+  <li>Know the Dutch Leningrad structure (1…f5! then …Nf6 …g6 …Bg7 …O-O …d6) cold through move 8 <strong>if Black</strong></li>
+  <li>Do NOT play 6.Nxc6 — ever (lost this way at CYCC 2026)</li>
+  <li>Do NOT offer or accept queen trades prematurely — Zachary's endgame is elite</li>
+  <li>After Zachary reaches a clearly better position: <strong>do not resign mentally</strong> — he squandered 3 wins (≥+5.8) in draws, and lost one game from +10.95. Defend every position until it is objectively lost (engine ≥−7)</li>
+  <li>When Zachary plays a "reasonable-looking" piece or rook move: ask "did he choose the exact right square?" — this is where his errors live</li>
+  <li>In rook endings: stay active, contest files, do not allow Zachary to centralize his rook unopposed</li>
+  <li>Clock: play quickly in the opening (know your lines). Use clock freely once complications arise — his accuracy drops to 79–83% in sharp middlegames</li>
+</ul>
+
+<table style="margin-top:14px">
+  <tr><th>Psychological notes</th></tr>
+  <tr>
+    <td>Zachary is draw-seeking and risk-averse in "comfortable" positions. He has drawn 21/45 games. A draw is a positive result for Austin at −226 rating points — but Austin should play for a win until the draw is the last option.</td>
+  </tr>
+  <tr>
+    <td>His 4 losses: one to Yang (2368) — understandable; one to Jaferian (2249); one to Marchand (2181); <strong>one to Tseng (1907)</strong>. Austin at 1959 is above Tseng. The precedent is there.</td>
+  </tr>
+  <tr>
+    <td>His worst games (79–83% accuracy) all came from sharp Sicilian pawn-storm middlegames. If Austin reaches the English Attack pawn storm tomorrow, Zachary's historical accuracy in that position type is 79.4%. That is beatable.</td>
+  </tr>
+</table>
+
+<hr>
+
+<p style="font-size: 0.8em; color: #888; text-align: center; margin-top: 10px;">
+  Weakness data: Stockfish movetime-3000 · 45 classical games · 6 tournaments (2026).
+  FEN verification: chess.js. Lichess cloud eval unavailable (private tournament games).
+  Generated: Nov 2026 ·
+  <a href="../austin-prep.html" style="color:#888">Prep Index</a> ·
+  <a href="matchup-zachary-gm.html" style="color:#888">Full GM Plan</a>
+</p>
+
+</body>
+</html>
