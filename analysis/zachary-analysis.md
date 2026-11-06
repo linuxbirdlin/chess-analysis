@@ -184,7 +184,7 @@ Zachary played `1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.g3 Be7 5.Bg2 O-O 6.O-O Nbd7 7.Nc3 dx
 | White main opening | 1.Nf3/c4 Reti/English (primary), 1.e4 (secondary) |
 | Black vs 1.e4 | Sicilian Taimanov (B46/B47) primarily; Dragon occasionally |
 | Black vs 1.d4/1.Nf3 | Catalan Open (E07/E08) as main weapon; Ragozin (D38); Benko (A57) |
-| Avg accuracy | 93.6% (34 games) |
+| Avg accuracy | 93.4% (45 games) |
 | Record | 19W–4L–22D across 45 games (2 new White losses in Canada Open 2026) |
 | Endgame technique | Excellent — demonstrated at 97.4% vs 2512 in 104 moves |
 | Tactical sharpness | Below average for his strength — spikes of 4+ blunders in sharp Sicilians |
