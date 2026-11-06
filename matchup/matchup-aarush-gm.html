@@ -147,15 +147,15 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <h2>Part 1 — Austin as White vs Aarush</h2>
 
 <div class="callout callout-danger">
-  <strong>Austin's weapon: h4 English Attack vs Najdorf</strong>
+  <strong>Austin's weapon: Keres Attack 6.g4! vs Najdorf</strong>
   Aarush is 0W–3L against direct h4 kingside attacks. His three h4 losses:
   CC R1 (80.6%, 3 blunders), CC R2 (91.5%, h4 Najdorf Heye), Toronto R6 (84%, 4 blunders —
-  including blundering from a won +7.31 position). The h4 system doesn't need to be
+  including blundering from a won +7.31 position). The Keres Attack doesn't need to be
   objectively winning — it creates complexity that eats Aarush's clock and induces catastrophic
   single-move collapses even from winning positions.
 </div>
 
-<h3>The Opening — h4 English Attack</h3>
+<h3>The Opening — Keres Attack 6.g4! (B81)</h3>
 <div class="move-line">
   <span class="mv-a">1.e4</span>
   <span class="mv-z">c5</span>
@@ -167,44 +167,44 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <span class="mv-z">Nf6</span>
   <span class="mv-a">5.Nc3</span>
   <span class="mv-z">a6</span>
-  <span class="mv-a"><span class="key-move">6.h4!</span></span>
-  <span class="note">— Aarush's nightmare. He is 0–3 against this exact setup.</span>
+  <span class="mv-a"><span class="key-move">6.g4!</span></span>
+  <span class="note">— Aarush's nightmare. He is 0–3 against direct h-pawn attacks.</span>
 </div>
 
 <div class="callout callout-gold">
-  <strong>Why 6.h4! works specifically vs Aarush</strong>
-  The h4 attack creates a long, complex middlegame that consumes clock time.
+  <strong>Why 6.g4! (Keres Attack) works specifically vs Aarush</strong>
+  The Keres Attack creates a long, complex middlegame that consumes clock time.
   Aarush's worst games happen when he must calculate under time pressure. Now confirmed twice:
   Toronto R6 (+7.31 → Qb4?? in time pressure, lost) and Canada Open R1 (+4.96 → Nxb4?? 482 CPL, threw away winning position). This is not an accident — it is his most reliable failure mode.
-  The h4 system doesn't require Austin to have the best position; it requires Aarush to
+  The Keres Attack doesn't require Austin to have the best position; it requires Aarush to
   maintain calculation accuracy for 40+ moves under the clock, which the data shows he cannot do.
 </div>
 
 <input class="acc-toggle" type="checkbox" id="w1" checked>
-<label class="acc-label" for="w1">After 6.h4 — main line setup</label>
+<label class="acc-label" for="w1">After 6.g4! — Keres Attack main line</label>
 <div class="acc-content">
   <div class="move-line">
-    <span class="mv-a">6.h4!</span>
+    <span class="mv-a"><span class="key-move">6.g4!</span></span>
     <span class="mv-z">e6</span>
     <span class="note">(standard defensive move)</span>
-    <span class="mv-a"><span class="key-move">7.Bg5</span></span>
-    <span class="note">— pin the Nf6, pressure d6</span><br>
-    <span class="mv-z">7...Be7</span>
-    <span class="mv-a"><span class="key-move">8.Qd2</span></span>
-    <span class="mv-a">9.O-O-O</span>
-    <span class="note">— castle long, prepare h5</span><br>
-    <span class="mv-z">9...h6</span>
-    <span class="mv-a"><span class="key-move">10.Bxf6!</span></span>
-    <span class="note">— trade the bishop before h5, keep the attack alive</span><br>
-    <span class="mv-z">10...Bxf6</span>
-    <span class="mv-a"><span class="key-move">11.h5!</span></span>
-    <span class="note">— advance. Threatens h6 creating a permanent weakness.</span>
+    <span class="mv-a"><span class="key-move">7.g5!</span></span>
+    <span class="note">— forces Nf6 to retreat; the g-pawn becomes a battering ram</span><br>
+    <span class="mv-z">Nfd7</span>
+    <span class="mv-a"><span class="key-move">8.h4</span></span>
+    <span class="note">— begin the h-storm now that Nf6 is gone</span><br>
+    <span class="mv-z">Nc6</span>
+    <span class="mv-a"><span class="key-move">9.Be3</span></span>
+    <span class="mv-z">Be7</span>
+    <span class="mv-a"><span class="key-move">10.Qd2</span></span>
+    <span class="mv-z">O-O</span>
+    <span class="mv-a"><span class="key-move">11.O-O-O</span></span>
+    <span class="note">— setup complete; 12.h5! launches the pawn storm.</span>
     <span class="badge b-red">Attack mode</span>
   </div>
 </div>
 
 <input class="acc-toggle" type="checkbox" id="w2" checked>
-<label class="acc-label" for="w2">After 6.h4 — if Aarush plays 6...g6 (KID secondary)</label>
+<label class="acc-label" for="w2">After 6.g4! — if Aarush plays 6...g6 (KID secondary)</label>
 <div class="acc-content">
   <div class="move-line">
     <span class="mv-z">6...g6</span>
@@ -452,8 +452,8 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <div class="acc-content">
   <table>
     <tr><th>If Aarush plays...</th><th>Austin plays...</th></tr>
-    <tr><td>1...c5 Sicilian</td><td>2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 → 6.h4!</td></tr>
-    <tr><td>6...e6 (main)</td><td>7.Bg5 Be7 8.Qd2 9.O-O-O → h5 advance</td></tr>
+    <tr><td>1...c5 Sicilian</td><td>2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 → 6.g4! Keres</td></tr>
+    <tr><td>6...e6 (main)</td><td>7.g5! Nfd7 8.h4 → Be3/Qd2/O-O-O/h5 advance</td></tr>
     <tr><td>6...g6 (KID secondary)</td><td>7.h5! immediately → cramp the structure</td></tr>
     <tr><td>2...Nc6 (skip d6)</td><td>3.Bb5! Rossolimo → force out of Najdorf</td></tr>
     <tr><td>1...e6 (French)</td><td>3.e5 (Advanced) + h4 attacking plan</td></tr>
@@ -494,7 +494,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <div class="acc-content">
   <table>
     <tr><th>Trap</th><th>Why</th></tr>
-    <tr><td>Playing 6.Be3 English Attack instead of 6.h4</td><td>h4 is the specific weapon confirmed against Aarush. English Attack via Be3/f3/Qd2 is valid but doesn't exploit his documented h4 weakness.</td></tr>
+    <tr><td>Playing 6.h3 Adams Attack or 6.Be3 English Attack instead of 6.g4! Keres</td><td>Austin lost G2 with 6.h3 — do not repeat. Keres Attack (6.g4!) is the confirmed weapon; 6.Be3 English Attack is only the Variance B backup (see white.html).</td></tr>
     <tr><td>Simplifying into a drawish endgame (Austin White)</td><td>Aarush's best Catalan games are technical endgames he converts cleanly against ~1900. Don't make the game technical too early.</td></tr>
     <tr><td>Playing Nimzo if Aarush plays 3.Nf3 first</td><td>The Nimzo requires Nc3 before g3. If Aarush plays Nf3 → g3 → Bg2, the Bb4+ doesn't apply. Default to Catalan Open (dxc4).</td></tr>
     <tr><td>Returning the c4 pawn early (Austin Black)</td><td>The extra pawn creates the imbalance. Aarush wants it back to reach his comfortable positional Catalan.</td></tr>
@@ -504,15 +504,15 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <hr class="section-divider">
 
 <!-- ═══════════════ PART 5 — h4 ATTACK DRILL ═══════════════ -->
-<h2>Part 5 — h4 English Attack Opening Drill (Austin as White)</h2>
+<h2>Part 5 — Keres Attack Opening Drill (Austin as White)</h2>
 
 <div class="callout callout-blue">
-  <strong>The single most important preparation:</strong> Know the h4 system to move 15 cold.
+  <strong>The single most important preparation:</strong> Know the Keres Attack (6.g4!) to move 15 cold.
   Aarush has never found a reliable antidote. The goal is to reach the middlegame with
   the h-pawn at h5 and the queenside castled — from there, the attack runs itself.
 </div>
 
-<h3>Main setup — e6 variation</h3>
+<h3>Main setup — e6 variation (Keres Attack)</h3>
 <div class="move-line">
   <span class="mv-a">1.e4</span>
   <span class="mv-z">c5</span>
@@ -524,18 +524,19 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <span class="mv-z">Nf6</span>
   <span class="mv-a">5.Nc3</span>
   <span class="mv-z">a6</span>
-  <span class="mv-a"><span class="key-move">6.h4!</span></span>
+  <span class="mv-a"><span class="key-move">6.g4!</span></span>
   <span class="mv-z">e6</span>
-  <span class="mv-a"><span class="key-move">7.Bg5</span></span>
-  <span class="mv-z">Be7</span>
-  <span class="mv-a"><span class="key-move">8.Qd2</span></span>
+  <span class="mv-a"><span class="key-move">7.g5!</span></span>
+  <span class="note">— forces the knight retreat</span>
+  <span class="mv-z">Nfd7</span>
+  <span class="mv-a"><span class="key-move">8.h4</span></span>
   <span class="mv-z">Nc6</span>
-  <span class="mv-a"><span class="key-move">9.O-O-O</span></span>
-  <span class="mv-z">h6</span>
-  <span class="mv-a"><span class="key-move">10.Bxf6!</span></span>
-  <span class="mv-z">Bxf6</span>
-  <span class="mv-a"><span class="key-move">11.h5!</span></span>
-  <span class="note">— h5 is the key positional gain. Now 12.Rh3 followed by g4-g5.</span>
+  <span class="mv-a"><span class="key-move">9.Be3</span></span>
+  <span class="mv-z">Be7</span>
+  <span class="mv-a"><span class="key-move">10.Qd2</span></span>
+  <span class="mv-z">O-O</span>
+  <span class="mv-a"><span class="key-move">11.O-O-O</span></span>
+  <span class="note">— setup complete. 12.h5! launches the pawn storm.</span>
 </div>
 
 <input class="acc-toggle" type="checkbox" id="d1" checked>
@@ -596,11 +597,11 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   </div>
 </div>
 
-<h3 style="margin-top:18px">h4 system — key rules</h3>
+<h3 style="margin-top:18px">Keres Attack — key rules</h3>
 <table>
   <tr><th>Rule</th><th>Detail</th></tr>
-  <tr><td><strong>6.h4 is always the plan</strong></td><td>No matter what Black plays on move 6, the h-pawn has committed. Follow through.</td></tr>
-  <tr><td><strong>Long castle (O-O-O) after Qd2</strong></td><td>Always castle long in the h4 English Attack. The king is safe on c1; the rooks can join the attack.</td></tr>
+  <tr><td><strong>6.g4! is always the plan</strong></td><td>After 5...a6, commit to the Keres Attack. After 6...e6 play 7.g5! forcing Nfd7; after 6...g6 play 7.h5! cramping immediately.</td></tr>
+  <tr><td><strong>Long castle (O-O-O) after Qd2</strong></td><td>Always castle long in the Keres Attack. The king is safe on c1; the rooks join the attack via h3.</td></tr>
   <tr><td><strong>After h5: Rh3 is the battery builder</strong></td><td>Rh3 can swing to g3 or stay on h3 for the h-file. It's the key rook development move.</td></tr>
   <tr><td><strong>Never exchange queens early</strong></td><td>The attack requires queens. If Aarush offers Qxd4 or queen trade, decline.</td></tr>
 </table>
@@ -611,20 +612,20 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <div class="acc-content">
   <div class="move-line">
     <span class="mv-z">1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6</span><br>
-    <span class="mv-a"><span class="key-move">6.h4!</span></span>
+    <span class="mv-a"><span class="key-move">6.g4!</span></span>
     <span class="mv-z">e6</span>
-    <span class="mv-a"><span class="key-move">7.Bg5</span></span>
-    <span class="mv-z">Be7</span>
-    <span class="mv-a"><span class="key-move">8.Qd2</span></span>
+    <span class="mv-a"><span class="key-move">7.g5!</span></span>
+    <span class="mv-z">Nfd7</span>
+    <span class="mv-a"><span class="key-move">8.h4</span></span>
     <span class="mv-z">Nc6</span>
-    <span class="mv-a"><span class="key-move">9.O-O-O</span></span>
-    <span class="mv-z">h6</span>
-    <span class="mv-a"><span class="key-move">10.Bxf6!</span></span>
-    <span class="mv-z">Bxf6</span>
-    <span class="mv-a"><span class="key-move">11.h5!</span></span>
-    <span class="note">— h5 planted. Attack position complete.</span>
+    <span class="mv-a"><span class="key-move">9.Be3</span></span>
+    <span class="mv-z">Be7</span>
+    <span class="mv-a"><span class="key-move">10.Qd2</span></span>
+    <span class="mv-z">O-O</span>
+    <span class="mv-a"><span class="key-move">11.O-O-O</span></span>
+    <span class="note">— setup complete. 12.h5! and the storm begins.</span>
     <br><br>
-    <span class="badge b-red">Aarush is 0–3 against this. Austin owns this position.</span>
+    <span class="badge b-red">Aarush is 0–3 against h-pawn attacks. Austin owns this position.</span>
   </div>
 </div>
 
@@ -721,7 +722,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
     <td>Black vs 1.e4</td>
     <td>Sicilian Najdorf (B90)</td>
     <td>c5/d6/Najdorf — 55 games (42% win rate)</td>
-    <td>Confirms Najdorf. Austin's h4 English Attack is the right weapon.</td>
+    <td>Confirms Najdorf. Austin's Keres Attack 6.g4! is the right weapon.</td>
   </tr>
   <tr>
     <td>Black vs 1.d4 (Lichess)</td>
@@ -741,7 +742,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <p style="font-size:0.9em; margin:6px 0 8px">
   After 1.e4 c5 2.Nf3 d6 3.d4 cxd4, Aarush plays <strong>...Nf6 in 100% of Lichess games in under 1 second</strong>
   — and after 4.Nxd4 Nf6 5.Nc3, he plays <strong>...a6 100% of the time</strong>. He is on deep autopilot
-  through the Najdorf move order. This makes 6.h4! even more effective: he expects 6.Bg5 or 6.Be2
+  through the Najdorf move order. This makes 6.g4! even more effective: he expects 6.Bg5 or 6.Be2
   (standard), not the immediate kingside pawn push. The clock data shows he slows down significantly
   once White deviates from his expected lines.
 </p>

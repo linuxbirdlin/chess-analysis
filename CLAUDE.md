@@ -65,7 +65,7 @@ chess-analysis/
 │
 └── opponents/
     ├── justin/                 # canadaclosed2026, pam2026, pamschool2026, torontoopen2026
-    ├── aarush/                 # canadaclosed2026, pamschool2026, pam2026, torontoopen2026
+    ├── aarush/                 # canadaclosed2026, pamschool2026, pam2026, torontoopen2026, canadaopen2026
     ├── zachary/                # britishleague, bscup2026, canadaclose2026, pam2026, pamschool2026
     ├── heye/                   # canadaclose2026, pam2026, pamschool2026, torontoopen2026
     ├── fernando/               # ed-national, mex-ch16th, mex-op71, olypianational2026, pamschool2026
@@ -181,7 +181,7 @@ When a new opponent folder is added:
 | Opponent | Rating | White | Black | Direct record |
 |---|---|---|---|---|
 | Justin Huang | 2010 (Nov 2026; was 2093 Sep 2026) | 1.d4 QGD/Semi-Slav | French + Sicilian | 0W–1L (NAYCC R4) |
-| Aarush Ajith | 1943 | 1.d4 | Sicilian Najdorf | No encounter |
+| Aarush Ajith | 1943 | 1.d4 | Sicilian Najdorf | 0W–1L–2D (Feb–Jun 2026 study games) |
 | Zachary Liu | 2185 | Reti/English | Sicilian | 0W–1L (CYCC 2026, Austin White, B46) |
 | Heye Gao | 1968 (Nov 2026; was ~2028–2099) | Italian | Slav | 1D (Mar 2026) |
 | Fernando Cortes Medina | 2085 | 1.e4/1.c4 | French | No encounter |
