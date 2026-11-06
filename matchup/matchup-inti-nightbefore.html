@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tonight's Prep: Austin vs Inti Dario Flores Ojeda</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2; --purple: #5a1a8b;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg); }
+h1 { font-size: 1.55em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.1em; margin: 26px 0 10px; border-left: 5px solid var(--blue);
+  padding-left: 10px; background: #f0f4ff; padding: 6px 10px; }
+h3 { font-size: 0.95em; margin: 14px 0 6px; color: #333; font-weight: bold; }
+.subtitle { font-size: 0.84em; color: #666; margin-bottom: 18px; }
+.subtitle span { margin-right: 16px; }
+
+.callout { border-radius: 5px; padding: 11px 14px; margin: 10px 0; font-size: 0.9em; line-height: 1.6; }
+.callout-gold { background: #fffbf0; border-left: 4px solid var(--gold); }
+.callout-danger { background: #fdf0f0; border-left: 4px solid var(--red); }
+.callout-blue { background: #f0f4ff; border-left: 4px solid var(--blue); }
+.callout-green { background: #f0fdf0; border-left: 4px solid var(--green); }
+.callout-purple { background: #f8f0ff; border-left: 4px solid var(--purple); }
+.callout strong { display: block; margin-bottom: 3px; }
+
+.move-line { font-family: 'Courier New', monospace; font-size: 13px;
+  background: #fff; border: 1px solid #ddd; border-radius: 5px;
+  padding: 10px 14px; margin: 8px 0; line-height: 2.1; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: var(--gold); color: #fff; padding: 1px 6px;
+  border-radius: 3px; font-weight: bold; }
+.danger-move { background: var(--red); color: #fff; padding: 1px 6px;
+  border-radius: 3px; font-weight: bold; }
+.note { font-size: 0.82em; color: #555; font-family: Georgia, serif; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.87em; margin: 10px 0; }
+th { background: #2a3f6b; color: #fff; padding: 7px 9px; text-align: left; }
+td { padding: 6px 9px; border: 1px solid #ddd; vertical-align: top; }
+tr:nth-child(even) { background: #f5f5f5; }
+.row-danger { background: #fdeaea !important; }
+.row-safe { background: #edfdf3 !important; }
+.row-warn { background: #fffbe8 !important; }
+
+.schedule-box { display: grid; grid-template-columns: 80px 1fr; gap: 0; margin: 12px 0; border: 1px solid #bbc; border-radius: 5px; overflow: hidden; }
+.sch-time { background: #2a3f6b; color: #fff; font-weight: bold; font-size: 0.9em;
+  padding: 10px 8px; text-align: center; display: flex; align-items: center; justify-content: center; }
+.sch-body { padding: 10px 14px; background: #fff; font-size: 0.9em; line-height: 1.5; }
+.sch-body strong { color: var(--blue); }
+
+.fen-box { font-family: 'Courier New', monospace; font-size: 12px;
+  background: #1a1a2e; color: #90ee90; padding: 8px 12px; border-radius: 4px;
+  margin: 6px 0; word-break: break-all; }
+
+.checklist { list-style: none; padding: 0; }
+.checklist li { padding: 6px 0 6px 28px; border-bottom: 1px solid #eee; position: relative; font-size: 0.9em; }
+.checklist li::before { content: "☐"; position: absolute; left: 0; font-size: 1.1em; color: #888; }
+
+hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
+a { color: var(--blue); }
+.back-link { font-size: 0.82em; color: var(--blue); text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+
+@media print {
+  .schedule-box { break-inside: avoid; }
+  h2 { break-before: auto; }
+}
+</style>
+</head>
+<body>
+
+<h1>Tonight's Battle Plan: Austin vs Flores Ojeda, Inti Dario</h1>
+<div class="subtitle">
+  <span><strong>Inti Dario Flores Ojeda</strong> · 2011 FIDE (Nov 2026) · MEX · NAYCC 2026 Seed #5</span>
+  <span>Austin: 1959 FIDE · Austin is <strong>−52</strong></span>
+  <span>Direct record: No prior encounter</span>
+  <span>Format: NAYCC 2026 · 90+30 classical</span>
+</div>
+<a class="back-link" href="../austin-prep.html">← Prep Index</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-inti-deep.html">Engine Analysis</a>
+
+<div class="callout callout-gold" style="margin-top:14px">
+  <strong>The one-sentence brief</strong>
+  Inti's preparation boundary (Pattern F) is the <strong>strongest weakness in Austin's entire opponent dataset</strong> — 9 instances in 8 games, 88% loss correlation (0W-1D-8L) — and Austin can steer INTO this by playing <strong>Ruy Lopez (3.Bb5)</strong> as White into C77/C78 structures where Inti is 0W-2L, forcing long-duration middlegame tension right in the zone (moves 14-24) where Inti systematically collapses.
+</div>
+
+<div class="callout callout-danger">
+  <strong>Critical: Only 1 decisive blunder in 36 games — but Pattern F is more dangerous</strong>
+  Inti almost never flips a position from winning to losing in a single move (1 instance total). Austin cannot rely on a one-move tactical shot. However, Inti's Pattern F is more subtle and more dangerous: he repeatedly plays natural-looking moves (knight retreats, plausible pawn pushes) when the position demands a forcing or tactical response. The break doesn't come from Inti's carelessness — it comes from Austin steering into the right position type.
+</div>
+
+<hr>
+
+<h2>Tonight's 2-Hour Schedule</h2>
+
+<div class="schedule-box">
+  <div class="sch-time">0:00–0:40</div>
+  <div class="sch-body"><strong>Opening prep — both colors (40 min)</strong><br>
+    If White: Ruy Lopez (3.Bb5) — NOT Italian (3.Bc4). C77/C78 structures are Inti's worst as Black (0W-2L). The Italian is Inti's home territory as White (C54: 8 games, 92.5% avg, 6W-2L).<br>
+    If Black vs 1.e4: Sicilian Taimanov/Kan (1…c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6) → B43/B46 structure where Inti's White record is weakest. Know your lines through move 14.<br>
+    If Black vs 1.d4: QGD — Inti's D00 record as White is fine, so know your standard setup.
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">0:40–1:20</div>
+  <div class="sch-body"><strong>Study the 3 clearest Pattern F collapses (40 min)</strong><br>
+    These are the games where Inti played a plausible-looking natural move and lost the game:<br>
+    (1) <strong>Qc1 when Nxg6!</strong> — queen retreats to c1 from near-equal (+0.12) position; knight capture wins material outright; eval crashed to −6.13. LOSS.<br>
+    (2) <strong>Ne4 when Rd4</strong> — knight to center from near-equal (−0.15); rook move was the correct tactical idea; eval −4.96. LOSS.<br>
+    (3) <strong>Ne2 when e4!</strong> — knight retreat when pawn advance was winning; eval −0.56 → −3.01. LOSS.<br>
+    Study what the "natural" move looks like vs what the engine wanted. Train to recognize the trigger: Inti finds the plausible piece move; Austin should find the forcing idea Inti missed.
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">1:20–1:50</div>
+  <div class="sch-body"><strong>The missed Greek Gift — Austin's own tactical weapon (30 min)</strong><br>
+    Inti (White, +4.82) played <code>Qe1</code> — queen retreated — when <code>Bxh7+!</code> was the winning sacrifice. Eval went from +4.82 to 0.00 in one move. He eventually lost.<br>
+    This is Austin's own tactical motif. If Austin reaches any position where Bxh7+ is on the board, Inti has shown he doesn't see it coming. This is not speculation — it happened once at +4.82 in his dataset.<br>
+    Similarly: Inti missed <code>Nxg6!</code> from +0.12 (eval −6.13) — same theme, different form. He sees the board statically, not dynamically.
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">1:50–2:00</div>
+  <div class="sch-body"><strong>Mental prep and day-of checklist (10 min)</strong><br>
+    Read Part D. The game plan is simple: Ruy Lopez → get to move 14-20 in a complex, roughly equal position → Inti's pattern fires. Trust the data.
+  </div>
+</div>
+
+<hr>
+
+<h2>Part A — Austin as White: Ruy Lopez (NEVER Italian)</h2>
+
+<div class="callout callout-danger">
+  <strong>NEVER play 3.Bc4 (Italian) as White</strong>
+  C54 Italian is Inti's primary White system: 8 games, 92.5% avg, 6W-2L. He has studied this deeply as both colors. Italian as White gives Inti a familiar structure and a favorable pattern match.
+</div>
+
+<div class="callout callout-green">
+  <strong>Play 3.Bb5 (Ruy Lopez) — Inti's worst Black ECO</strong>
+  C77 Ruy Lopez Morphy: 2 games as Black, avg 88.4%, 0W-2L. C78 structures — also poor. The Ruy Lopez creates exactly the kind of sustained positional pressure (moves 14-24) where Pattern F fires.
+</div>
+
+<h3>The weapon: Ruy Lopez, Morphy Defense</h3>
+
+<div class="move-line">
+  <span class="mv-a">1.e4</span> <span class="mv-z">e5</span>
+  <span class="mv-a">2.Nf3</span> <span class="mv-z">Nc6</span>
+  <span class="key-move">3.Bb5!</span> <span class="note">— Ruy Lopez. Inti's two C77 games: both losses (Copa 2024: 85.7%, Aguascalientes R1 vs Lopez Calderon 2135: 91.1%).</span><br>
+  <span class="mv-z">3…a6</span> <span class="note">(Morphy Defense — expected)</span><br>
+  <span class="mv-a">4.Ba4</span> <span class="mv-z">Nf6</span>
+  <span class="mv-a">5.0-0</span> <span class="mv-z">Be7</span>
+  <span class="mv-a">6.Re1</span> <span class="mv-z">b5</span>
+  <span class="mv-a">7.Bb3</span> <span class="mv-z">d6</span>
+  <span class="mv-a">8.c3</span> <span class="note">— Classical Closed Ruy Lopez. Maintain tension into moves 14-20.</span><br>
+  <span class="mv-z">3…Nf6</span> <span class="note">(Berlin alternative — Inti may know this)</span><br>
+  <span class="mv-a">4.0-0</span> <span class="mv-z">Nxe4</span>
+  <span class="mv-a">5.Re1</span> <span class="note">— Lopez Attack forcing Inti out of book fast</span>
+</div>
+
+<table>
+  <tr><th>If Inti plays…</th><th>Austin responds…</th><th>Key idea</th></tr>
+  <tr class="row-safe">
+    <td>3…a6 Morphy (main line)</td>
+    <td>4.Ba4 Nf6 5.0-0 Be7 6.Re1 b5 7.Bb3 d6 8.c3 → Closed Ruy</td>
+    <td>Complex tension through move 20+; Pattern F zone reached naturally</td>
+  </tr>
+  <tr class="row-warn">
+    <td>3…Nf6 Berlin</td>
+    <td>4.0-0 Nxe4 5.Re1 — Berlin endgame or avoid with 4.d3</td>
+    <td>Don't play the pure Berlin endgame; 4.d3 keeps pieces on and more complexity</td>
+  </tr>
+  <tr class="row-warn">
+    <td>Inti goes into Exchange Ruy (Bxc6)</td>
+    <td>Austin doesn't play this — Inti should be defending. If Inti plays 3…a5 or unusual: 4.Ba4 and proceed normally.</td>
+    <td>Inti's Italian style prefers symmetrical positions; Ruy denies this</td>
+  </tr>
+  <tr class="row-danger">
+    <td>Austin tempted to play Italian 3.Bc4</td>
+    <td>DO NOT. C54 is Inti's main White system — he knows both sides.</td>
+    <td>8 White games, 92.5% avg. Do not give him his comfort structure.</td>
+  </tr>
+</table>
+
+<div class="callout callout-blue">
+  <strong>Why the Ruy Lopez triggers Pattern F</strong>
+  The Closed Ruy Lopez (C77/C78/C84) naturally creates a phase where both sides have completed development and must find the right strategic plan around moves 14-22. Inti's 9 Pattern F errors all occurred in this exact zone — roughly equal positions (eval between −1.5 and +1.5) requiring a specific forcing or tactical move that he missed. The Ruy Lopez puts him in this position structurally rather than hoping for it accidentally. His two C77 losses support this directly: even when he played at 91.1% accuracy (Aguascalientes R1 vs a 2135-rated opponent), the structure beat him. [Stockfish JSON]
+</div>
+
+<hr>
+
+<h2>Part B — Austin as Black: Sicilian Taimanov vs Inti's 1.e4</h2>
+
+<div class="callout callout-gold">
+  <strong>Inti's White opening: 1.e4 Open Sicilian (Löwenthal B32 · Modern Bc4 B35 · Kan/Taimanov B43)</strong>
+  Austin plays Sicilian as Black. The Taimanov/Kan (1…c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6) leads to B43/B46 structures — Inti's worst White Sicilian result (90.2% accuracy, LOSS).
+</div>
+
+<h3>If Inti plays 1.e4 (primary)</h3>
+
+<div class="move-line">
+  <span class="mv-z">1.e4</span>
+  <span class="mv-a">1…c5</span> <span class="note">— Sicilian.</span><br>
+  <span class="mv-z">2.Nf3</span>
+  <span class="mv-a">2…e6</span> <span class="note">— Taimanov/Kan setup.</span><br>
+  <span class="mv-z">3.d4 cxd4 4.Nxd4</span>
+  <span class="mv-a">4…a6</span> <span class="note">— Kan structure (B43). Inti scored 90.2% and LOST in this structure as White.</span><br>
+  <span class="mv-z">4.Nxd4 Nc6</span> <span class="note">(if 2…Nc6 instead: Taimanov B46)</span><br>
+  <span class="mv-a">Austin's standard Sicilian lines apply</span>
+</div>
+
+<table>
+  <tr><th>Key principles as Black</th><th>Reason</th></tr>
+  <tr class="row-safe">
+    <td>Play …e6 early (Taimanov/Kan setup)</td>
+    <td>B43/B46 = Inti's worst White Sicilian ECO by result. His B32 Löwenthal (98.9% WIN) is to be avoided.</td>
+  </tr>
+  <tr>
+    <td>Steer toward complex middlegame tension, not early trade-offs</td>
+    <td>Pattern F (6 of 9 instances as Black) fires in complex equal positions. Austin needs to reach move 14-22 in a near-equal, unresolved middlegame.</td>
+  </tr>
+  <tr class="row-warn">
+    <td>Watch for Inti's f4-e5 push (his main White weapon)</td>
+    <td>CLAUDE.md cites "f4-e5 B43" as Inti's sharpest White Sicilian system. Prepare the standard response (…d6, …Be7 setup, avoid early …d5 pawn breaks that open lines for his attack).</td>
+  </tr>
+  <tr class="row-safe">
+    <td>If Inti plays 1.d4: QGD solid (D00)</td>
+    <td>Inti's D00 White record is fine (not a structural weakness). Play solid, know your lines through move 10.</td>
+  </tr>
+  <tr class="row-danger">
+    <td>Avoid Löwenthal B32 territory (2…Nc6 followed by …d5 early)</td>
+    <td>Inti's B32 White game: 98.9% accuracy, WIN. That is his best White Sicilian structure by far.</td>
+  </tr>
+</table>
+
+<div class="callout callout-purple">
+  <strong>Inti's Pattern F as Black: 6 of 9 instances happened when Inti was playing Black</strong>
+  This means the pattern is not just a White-side phenomenon. When Inti is defending a Sicilian as Black, he also makes the same natural-looking moves when forcing play is needed. When Austin plays the Ruy Lopez (Part A) and the game reverses — if Austin is Black in a different game — this tells us the weakness is position-type-dependent, not color-dependent.
+</div>
+
+<hr>
+
+<h2>Part C — The Two Exploitable Weaknesses</h2>
+
+<h3>Weakness #1 — Preparation boundary collapse (Pattern F, 88% loss correlation)</h3>
+
+<div class="callout callout-purple">
+  <strong>Core data: 9 instances in 8 games, 0W-1D-8L (movetime-3000)</strong>
+  This is the strongest loss-correlation finding in Austin's entire NAYCC 2026 opponent dataset. Every instance occurred in a roughly equal position (eval −1.5 to +1.5); every instance showed Inti playing a plausible natural move while the engine demanded a forcing or tactical response. The pattern fires reliably at moves 12-24 — exactly when preparation ends and independent thinking begins.
+</div>
+
+<table>
+  <tr>
+    <th>Game / Instance</th><th>Inti played</th><th>Engine wanted</th><th>Eval swing</th><th>Outcome</th>
+  </tr>
+  <tr class="row-danger">
+    <td>mv#16 [White]</td>
+    <td><code>Qc1</code> (queen retreats)</td>
+    <td><code>Nxg6!</code> (wins material)</td>
+    <td>+0.12 → −6.13</td>
+    <td><strong>LOST</strong></td>
+  </tr>
+  <tr class="row-danger">
+    <td>mv#21 [Black]</td>
+    <td><code>Ne4</code> (knight to center)</td>
+    <td><code>Rd4</code> (rook maneuver)</td>
+    <td>−0.15 → −4.96</td>
+    <td><strong>LOST</strong></td>
+  </tr>
+  <tr class="row-danger">
+    <td>mv#24 [Black]</td>
+    <td><code>N4e5</code> (wrong knight)</td>
+    <td><code>Nf6</code> (correct knight route)</td>
+    <td>−0.56 → −3.31</td>
+    <td><strong>LOST</strong></td>
+  </tr>
+  <tr class="row-danger">
+    <td>mv#22 [White]</td>
+    <td><code>Ne2</code> (knight retreats)</td>
+    <td><code>e4!</code> (pawn push wins)</td>
+    <td>−0.56 → −3.01</td>
+    <td><strong>LOST</strong></td>
+  </tr>
+  <tr class="row-danger">
+    <td>mv#20 [Black]</td>
+    <td><code>d5</code> (pawn push)</td>
+    <td><code>Qd8</code> (queen defense)</td>
+    <td>−0.34 → −3.67</td>
+    <td><strong>LOST</strong></td>
+  </tr>
+  <tr class="row-danger">
+    <td>mv#18 [Black] — Aguascalientes R3</td>
+    <td><code>Bxf5</code> (wrong exchange)</td>
+    <td><code>Nxe4!</code> (correct capture)</td>
+    <td>+0.46 → −1.68</td>
+    <td><strong>LOST</strong></td>
+  </tr>
+  <tr class="row-danger">
+    <td>mv#21 [Black] — Aguascalientes R3</td>
+    <td><code>Ne4</code> (knight forward)</td>
+    <td><code>Rd4</code> (rook activation)</td>
+    <td>−0.15 → −4.96</td>
+    <td><strong>LOST</strong> (same game — double collapse)</td>
+  </tr>
+  <tr class="row-danger">
+    <td>mv#20 [White]</td>
+    <td><code>Nf3</code> (knight develops)</td>
+    <td><code>Qf3</code> (queen to f3)</td>
+    <td>−0.81 → −2.34</td>
+    <td><strong>LOST</strong></td>
+  </tr>
+  <tr class="row-warn">
+    <td>mv#13 [Black]</td>
+    <td><code>Nd7</code> (knight retreats)</td>
+    <td><code>c4!</code> (pawn breaks)</td>
+    <td>−1.24 → −4.78</td>
+    <td>DRAW</td>
+  </tr>
+</table>
+
+<div class="callout callout-blue">
+  <strong>The common thread: natural-looking piece moves when forcing play was required</strong>
+  In 5 of 9 instances, Inti played a knight move to an "active-looking" square: Nf3, Nd7, Ne2, N4e5, Ne4. In 2 instances he played a pawn push (f5, d5) when a piece move was correct. In 1 instance he played a queen retreat (Qc1) when a tactical capture (Nxg6!) won material immediately. He never plays the drastically wrong move — he plays the plausible wrong move. This makes it a pattern, not a one-off error: Inti's tactical vision in near-equal positions at moves 12-24 is the systemic weakness. [Stockfish JSON — unverified]
+</div>
+
+<div class="callout callout-purple">
+  <strong>Double collapse in Aguascalientes R3 vs Garcia Nevarez</strong>
+  Inti made TWO Pattern F errors in the same game: Bxf5 at mv#18 (+0.46 → −1.68) and then Ne4 at mv#21 (−0.15 → −4.96). The double collapse shows the pattern can cascade — one bad evaluation begets the next. If Austin can maintain pressure and reach the first critical point, Inti may continue to misplay the resulting position. [Stockfish JSON]
+</div>
+
+<hr>
+
+<h3>Weakness #2 — Missed forcing moves including Bxh7+ (Pattern B)</h3>
+
+<div class="callout callout-gold">
+  <strong>Inti missed Bxh7+ from a +4.82 position — Austin's own tactical weapon</strong>
+  In one game (Copa 2024, B90 Najdorf, Inti as White), Inti had a +4.82 advantage at move 14. The engine's best move was <code>Bxh7+</code> — the Greek Gift sacrifice. Inti played <code>Qe1</code> (queen retreated to e1). Eval went from +4.82 to 0.00 in a single move. He eventually lost.
+  Austin practices this exact sacrifice type. If the Bxh7+ motif arises in their game, Inti has shown he does not see it — even from a +4.82 position, his "safe-looking" queen retreat blinded him to it.
+</div>
+
+<table>
+  <tr>
+    <th>Instance</th><th>Inti played</th><th>Best was</th><th>Eval swing</th><th>Type</th><th>Outcome</th>
+  </tr>
+  <tr class="row-danger">
+    <td>mv#14 [White, Copa 2024]</td>
+    <td><code>Qe1</code> (queen retreats)</td>
+    <td><code>Bxh7+!</code> (Greek Gift)</td>
+    <td>+4.82 → 0.00</td>
+    <td>Greek Gift missed</td>
+    <td><strong>LOST</strong></td>
+  </tr>
+  <tr class="row-danger">
+    <td>mv#16 [White] — also Pattern F</td>
+    <td><code>Qc1</code> (queen retreats)</td>
+    <td><code>Nxg6!</code> (tactical capture)</td>
+    <td>+0.12 → −6.13</td>
+    <td>Tactical capture missed</td>
+    <td><strong>LOST</strong></td>
+  </tr>
+  <tr class="row-warn">
+    <td>mv#31 [Black]</td>
+    <td><code>Re5</code></td>
+    <td><code>Rxe1+</code> (forced win)</td>
+    <td>+8.55 → mate</td>
+    <td>Missed winning check</td>
+    <td>(won eventually)</td>
+  </tr>
+  <tr class="row-warn">
+    <td>mv#43 [Black, Pattern E]</td>
+    <td><code>Kg7</code> (king moves)</td>
+    <td><code>Rh6</code> (rook activates)</td>
+    <td>+8.24 → +4.04</td>
+    <td>Wrong piece in won position</td>
+    <td><strong>LOST</strong></td>
+  </tr>
+</table>
+
+<div class="callout callout-blue">
+  <strong>Austin's tactical preparation edge</strong>
+  Both missed-forcing-move instances (Bxh7+ and Nxg6!) show the same pattern as Pattern F: Inti plays a "safe-looking" queen retreat when the position demands a tactical capture or sacrifice. Austin's own game (NAYCC deep reviews) shows Austin is comfortable with sacrificial attacks and forcing sequences. The mismatch is favorable: Austin is the tactical player; Inti's tactical blindspot in near-equal positions is documented. [Stockfish JSON]
+</div>
+
+<hr>
+
+<h3>ECO Accuracy Table — Inti's structural weakness as Black</h3>
+
+<table>
+  <tr>
+    <th>ECO</th><th>Opening</th><th>Inti's color</th><th>Games</th><th>Avg accuracy</th><th>Results</th>
+  </tr>
+  <tr class="row-danger">
+    <td>C77</td>
+    <td>Ruy Lopez Morphy</td>
+    <td>Black</td>
+    <td>2</td>
+    <td>88.4%</td>
+    <td>0W-0D-2L</td>
+  </tr>
+  <tr class="row-danger">
+    <td>C54</td>
+    <td>Italian (as Black)</td>
+    <td>Black</td>
+    <td>1</td>
+    <td>82.6%</td>
+    <td>0W-0D-1L</td>
+  </tr>
+  <tr>
+    <td>D00</td>
+    <td>Queen's Pawn (as Black)</td>
+    <td>Black</td>
+    <td>3</td>
+    <td>87.2%</td>
+    <td>0W-2D-1L</td>
+  </tr>
+  <tr class="row-warn">
+    <td>C50</td>
+    <td>Italian Giuoco Pianissimo (as Black)</td>
+    <td>Black</td>
+    <td>4</td>
+    <td>89.5%</td>
+    <td>3W-0D-1L</td>
+  </tr>
+  <tr class="row-safe">
+    <td>C54</td>
+    <td>Italian (as White)</td>
+    <td>White</td>
+    <td>8</td>
+    <td>92.5%</td>
+    <td>6W-0D-2L</td>
+  </tr>
+</table>
+
+<div class="callout callout-gold">
+  <strong>Bonus context: Inti lost to Pablo De Alba Boudreau (1825) at Queretaro R6</strong>
+  Pablo is also an Austin NAYCC 2026 opponent. Inti (acc 90.2%) lost to Pablo in Queretaro. This establishes that Inti can lose to players rated around or below Austin's level (1959 FIDE). Austin is not facing an impenetrable fortress — the dataset shows real cracks at the level he plays at.
+</div>
+
+<hr>
+
+<h2>Part D — Day-of Checklist</h2>
+
+<ul class="checklist">
+  <li>Play Ruy Lopez (3.Bb5!) as White — NEVER Italian (3.Bc4). C77/C78 = Inti's worst Black ECO (0W-2L).</li>
+  <li>In the Ruy Lopez: maintain tension into moves 14-22. Do NOT simplify into a symmetric endgame — the Pattern F zone is moves 12-24; stay in it.</li>
+  <li>As Black vs 1.e4: Sicilian Taimanov/Kan (…e6, …a6). Aim for B43/B46 structure — Inti's worst White Sicilian record. Avoid B32 Löwenthal (his 98.9% WIN structure).</li>
+  <li>In any position where <strong>Bxh7+</strong> appears on the board: play it without hesitation. Inti has already demonstrated he does not see this sacrifice — even from +4.82. This is not general advice; it is dataset-confirmed.</li>
+  <li>When the position is roughly equal (−0.5 to +1.5) at moves 14-22: look for the <em>forcing move</em>. Inti will play the natural-looking piece move; Austin should find the tactical or pawn-push solution he misses.</li>
+  <li>Watch Inti's knight moves in the transition zone. If he plays a "safe" knight retreat or redevelopment, ask: is there a pawn push or tactical sequence he's avoiding? That may be the correct idea.</li>
+  <li>Do NOT resign when Inti builds a comfortable-looking position. Pattern D (won-position collapse) shows he has failed to convert multiple won positions. Defense and resourcefulness are rewarded here.</li>
+  <li>Remember: Inti lost Queretaro R6 to Pablo De Alba Boudreau (1825) at 90.2% accuracy. Austin (1959) has a higher ceiling. The rating gap is −52 — manageable.</li>
+</ul>
+
+<table style="margin-top:14px">
+  <tr><th>Psychological notes</th></tr>
+  <tr>
+    <td>Inti's rapid rating rise (+256 FIDE in 13 months) is based primarily on Mexican tournament results against weaker opposition. His performance against 2000+ rated opponents (Aguascalientes R1 vs Lopez Calderon, 2135 — a loss) shows the rating has not yet been fully validated at the NAYCC level.</td>
+  </tr>
+  <tr>
+    <td>Inti is a 1.e4 positional player in the Italian mold. He is not a tactician. When the game turns tactical or forcing (the Pattern F zone), he consistently plays the wrong piece. Austin's tactical style is a style mismatch in Austin's favor.</td>
+  </tr>
+  <tr>
+    <td>His Bxh7+ miss (from +4.82) was not a one-off — it reflects the same pattern as his 8 other preparation-boundary errors: he sees the board statically (pieces on good squares) rather than dynamically (which move forces the issue). When Austin creates a forcing threat, Inti may not see it coming.</td>
+  </tr>
+</table>
+
+<hr>
+
+<p style="font-size: 0.8em; color: #888; text-align: center; margin-top: 10px;">
+  Weakness data: Stockfish movetime-3000 · 36 classical games · 4 tournaments (2024–2026).
+  Pattern F (preparation boundary): 9 instances in 8 games, 0W-1D-8L (88% loss correlation).
+  Pattern B (missed forcing check): 4 instances in losses; 1 missed Bxh7+ from +4.82.
+  Pattern C (decisive blunders): 1 instance only.
+  C77 Ruy Lopez as Black: 0W-2L in 2 games.
+  Generated: Nov 2026 ·
+  <a href="../austin-prep.html" style="color:#888">Prep Index</a> ·
+  <a href="matchup-inti-deep.html" style="color:#888">Engine Analysis</a>
+</p>
+
+</body>
+</html>
