@@ -2,7 +2,8 @@
 
 **Role:** Sparring partner for NAYCC 2026 preparation  
 **Rating:** ~1888–1977 FIDE (Apr 2026 1888; peak ~1977 Aug–Sep 2025)  
-**Engine analysis:** 36 games, movetime-800 · `scripts/irene-analysis-results.json` (snoop2026.pgn only) · avg 91.0% · 1.00 blunders/game  
+**Engine analysis (standard):** 36 games, movetime-800 · `scripts/irene-analysis-results.json` · avg 91.0% · 1.00 blunders/game  
+**Engine analysis (deep):** 36 games, movetime-3000 · `scripts/irene-analysis-results-deep.json` · avg 90.6% · White 91.7% · Black 89.7% · Best game 98.5% (Saravia draw, Pan Am) · Pattern D: 4 conversion failures from +4.85–+10.15 · Pattern G: 2 White losses from pawn-push error (Qd2/a5!, Rf5/g3!)  
 **Tournaments (snoop2026.pgn):** Toronto Open 2026, Pan American Youth 2026 (Girls/Open U18), Canadian Open 2026, Canadian Youth Championships 2026 (CYCC), Toronto Open Crown 2025, NAYCC U18 2025
 
 ---
@@ -11,11 +12,12 @@
 
 | Color | W | L | D | Avg Acc | Notes |
 |---|---|---|---|---|---|
-| As White | 7 | 4 | 5 | 92.0% | Best White: 97.1% (Toronto Open vs Qian) |
-| As Black | 7 | 6 | 7 | 90.2% | Best Black: 98.1% (CYCC Nimzo vs Ruchinskaya) |
-| **Combined** | **14** | **10** | **12** | **91.0%** | 36 games · 1.00 blunders/game · 47 mistakes · 125 inaccuracies |
+| As White | 7 | 4 | 5 | 92.0% (mv-800) / 91.7% (mv-3000) | Best White: 97.1% (Toronto Open vs Qian) |
+| As Black | 7 | 6 | 7 | 90.2% (mv-800) / 89.7% (mv-3000) | Best Black: 97.9% (CYCC Nimzo vs Ruchinskaya) |
+| **Combined** | **14** | **10** | **12** | **91.0% (mv-800) / 90.6% (mv-3000)** | 36 games · 1.00 blunders/game · 47 mistakes · 125 inaccuracies |
 
-- **Best game:** 98.1% (Black, draw vs Ruchinskaya — Nimzo-Indian Bxc3+ structure)
+- **Best game (mv-800):** 98.1% (Black, draw vs Ruchinskaya — CYCC, Nimzo-Indian Bxc3+)
+- **Best game (mv-3000):** 98.5% (Black, draw vs Saravia Delgadillo — Pan Am, only 15 ply)
 - **Worst game:** 68.2% (Black, draw vs Acuna Alarcon — 4 blunders in 46 moves)
 - **Opponent avg accuracy:** 90.7% (closely matched)
 
