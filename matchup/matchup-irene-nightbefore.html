@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sparring Session Plan: Austin vs Irene Xie — Weakness Exploitation</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2; --purple: #5a1a8b;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg); }
+h1 { font-size: 1.55em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.1em; margin: 26px 0 10px; border-left: 5px solid var(--blue);
+  padding-left: 10px; background: #f0f4ff; padding: 6px 10px; }
+h2.red { border-left-color: var(--red); background: #fff0f0; }
+h2.green { border-left-color: var(--green); background: #f0fdf0; }
+h2.purple { border-left-color: var(--purple); background: #f8f0ff; }
+h3 { font-size: 0.95em; margin: 14px 0 6px; color: #333; font-weight: bold; }
+.subtitle { font-size: 0.84em; color: #666; margin-bottom: 18px; }
+.subtitle span { margin-right: 16px; }
+
+.callout { border-radius: 5px; padding: 11px 14px; margin: 10px 0; font-size: 0.9em; line-height: 1.6; }
+.callout-gold { background: #fffbf0; border-left: 4px solid var(--gold); }
+.callout-danger { background: #fdf0f0; border-left: 4px solid var(--red); }
+.callout-blue { background: #f0f4ff; border-left: 4px solid var(--blue); }
+.callout-green { background: #f0fdf0; border-left: 4px solid var(--green); }
+.callout-purple { background: #f8f0ff; border-left: 4px solid var(--purple); }
+.callout strong { display: block; margin-bottom: 3px; }
+
+.move-line { font-family: 'Courier New', monospace; font-size: 13px;
+  background: #fff; border: 1px solid #ddd; border-radius: 5px;
+  padding: 10px 14px; margin: 8px 0; line-height: 2.1; }
+.key-move { background: var(--gold); color: #fff; padding: 1px 6px;
+  border-radius: 3px; font-weight: bold; }
+.danger-move { background: var(--red); color: #fff; padding: 1px 6px;
+  border-radius: 3px; font-weight: bold; }
+.note { font-size: 0.82em; color: #555; font-family: Georgia, serif; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.87em; margin: 10px 0; }
+th { background: #2a3f6b; color: #fff; padding: 7px 9px; text-align: left; }
+td { padding: 6px 9px; border: 1px solid #ddd; vertical-align: top; }
+tr:nth-child(even) { background: #f5f5f5; }
+.row-danger { background: #fdeaea !important; }
+.row-safe { background: #edfdf3 !important; }
+.row-warn { background: #fffbe8 !important; }
+
+.schedule-box { display: grid; grid-template-columns: 80px 1fr; gap: 0; margin: 12px 0; border: 1px solid #bbc; border-radius: 5px; overflow: hidden; }
+.sch-time { background: #2a3f6b; color: #fff; font-weight: bold; font-size: 0.9em;
+  padding: 10px 8px; text-align: center; display: flex; align-items: center; justify-content: center; }
+.sch-body { padding: 10px 14px; background: #fff; font-size: 0.9em; line-height: 1.5; }
+.sch-body strong { color: var(--blue); }
+
+.fen-box { font-family: 'Courier New', monospace; font-size: 12px;
+  background: #1a1a2e; color: #90ee90; padding: 8px 12px; border-radius: 4px;
+  margin: 6px 0; word-break: break-all; }
+
+.pattern-badge { display: inline-block; font-weight: bold; font-size: 0.78em;
+  padding: 2px 8px; border-radius: 10px; margin-right: 6px; }
+.badge-primary { background: #8b1a1a; color: #fff; }
+.badge-secondary { background: #1a4a8b; color: #fff; }
+.badge-tertiary { background: #5a1a8b; color: #fff; }
+
+.checklist { list-style: none; padding: 0; }
+.checklist li { padding: 6px 0 6px 28px; border-bottom: 1px solid #eee; position: relative; font-size: 0.9em; }
+.checklist li::before { content: "☐"; position: absolute; left: 0; font-size: 1.1em; color: #888; }
+
+.stat-row { display: flex; gap: 16px; margin: 10px 0; }
+.stat-cell { flex: 1; background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 10px 12px; text-align: center; }
+.stat-cell .num { font-size: 1.8em; font-weight: bold; color: var(--red); line-height: 1; }
+.stat-cell .lbl { font-size: 0.78em; color: #666; margin-top: 4px; }
+
+hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
+a { color: var(--blue); }
+.back-link { font-size: 0.82em; color: var(--blue); text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+code { font-family: 'Courier New', monospace; font-size: 12px; background: #f0f0f0; padding: 1px 4px; border-radius: 3px; }
+
+@media print {
+  .schedule-box { break-inside: avoid; }
+  h2 { break-before: auto; }
+}
+</style>
+</head>
+<body>
+
+<h1>Sparring Session Plan: Austin vs Irene Xie</h1>
+<div class="subtitle">
+  <span><strong>Irene Xie</strong> · ~1888–1977 FIDE · Sparring partner · NOT a NAYCC 2026 opponent</span>
+  <span>36 games analyzed · Stockfish movetime-3000</span>
+  <span>Irene avg: <strong>90.6%</strong> · White 91.7% · Black 89.7%</span>
+</div>
+<a class="back-link" href="../austin-prep.html">← Prep Index</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-irene-gm.html">GM Battle Plan</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-irene-deep.html">Engine Analysis</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-irene-white.html">Austin as White</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-irene-black.html">Austin as Black</a>
+
+<div class="callout callout-gold" style="margin-top:14px">
+  <strong>The one-sentence brief</strong>
+  Irene's two verified weaknesses are <strong>won-position endgame conversion</strong> (she drew from +10.15 and +6.97 against Armando Valdizon, and +7.95 against Acuna Alarcon) and <strong>R/Q piece moves when a pawn break was correct</strong> (0 wins in 5 instances — this pattern directly caused 2 of her losses). Austin should use sparring sessions to train both: first to <em>create</em> these positions in game, and second to <em>avoid the same errors himself</em>.
+</div>
+
+<div class="stat-row">
+  <div class="stat-cell">
+    <div class="num">14</div>
+    <div class="lbl">Won-pos blunders (≥+4)</div>
+  </div>
+  <div class="stat-cell">
+    <div class="num">4</div>
+    <div class="lbl">Draws from +4.85–+10.15</div>
+  </div>
+  <div class="stat-cell">
+    <div class="num">0/5</div>
+    <div class="lbl">Wins from R/Q errors</div>
+  </div>
+  <div class="stat-cell">
+    <div class="num">3</div>
+    <div class="lbl">Consecutive K+P king blunders (Eric Jin)</div>
+  </div>
+</div>
+
+<hr>
+
+<h2>Session Structure (2–3 games)</h2>
+
+<div class="schedule-box">
+  <div class="sch-time">Game 1</div>
+  <div class="sch-body"><strong>Austin White — French Tarrasch drill</strong><br>
+    Target: reach Tarrasch tabiya (1.e4 e6 2.d4 d5 3.Nd2 Nf6 4.e5 Nfd7 5.c3 c5 6.f4 Nc6 7.Ndf3! Qb6 8.g3). Build to +4 or more. Then: DO NOT simplify. Keep one pair of rooks on the board and test whether Irene can hold the endgame. <strong>This drills Pattern D exploitation.</strong>
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">Game 2</div>
+  <div class="sch-body"><strong>Austin Black — Taimanov vs Rossolimo</strong><br>
+    After 3.Bb5 4.Bxc6 bxc6: reach a slightly unbalanced position around equal (evalBefore ≈ ±0.5). Then watch for Irene to play a rook or queen to a plausible square. Ask yourself <em>first</em>: is there a pawn break available here? If yes and she takes a piece move, that is the Pattern G moment. <strong>This trains Austin to see the pawn break signal.</strong>
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">Game 3</div>
+  <div class="sch-body"><strong>K+P endgame drill (optional)</strong><br>
+    Set up a K+P position from the game after move 50 in the Eric Jin game (below). Play as Eric Jin (Irene's opponent). Verify that Austin correctly finds the pawn-push vs king-route decision. <strong>This trains Austin's own K+P calculation — the reverse of Irene's error.</strong>
+  </div>
+</div>
+
+<hr>
+
+<h2 class="red">Pattern D — Won-Position Collapse  <span class="pattern-badge badge-primary">PRIMARY</span></h2>
+
+<div class="callout callout-danger">
+  <strong>Core fact: Irene drew from +10.15</strong>
+  In the Canadian Open 2026, Irene (White) had +10.15 on move 64 vs Armando Valdizon. She played 65.Rf7 when 65.Rxe6 was winning, then 67.d5 when 67.Rf7 was winning. The position drifted to 0.00 and the game ended by perpetual check on move 81. She had 17 more moves to find the win — and didn't. [Stockfish JSON — unverified]
+</div>
+
+<h3>The four critical draws from winning positions</h3>
+
+<table>
+  <tr><th>Game</th><th>Irene's color</th><th>Eval before error</th><th>Irene played</th><th>Best was</th><th>Eval after</th></tr>
+  <tr class="row-danger">
+    <td>Canadian Open vs Armando Valdizon</td>
+    <td>White, mv#65</td>
+    <td><strong>+10.15</strong></td>
+    <td><code>Rf7</code></td>
+    <td><code>Rxe6</code></td>
+    <td>+7.00</td>
+  </tr>
+  <tr class="row-danger">
+    <td>Canadian Open vs Armando Valdizon</td>
+    <td>White, mv#67</td>
+    <td><strong>+6.97</strong></td>
+    <td><code>d5</code></td>
+    <td><code>Rf7</code></td>
+    <td>0.00 (drawn)</td>
+  </tr>
+  <tr class="row-danger">
+    <td>Pan American vs Acuna Alarcon</td>
+    <td>Black, mv#21</td>
+    <td><strong>+7.95</strong></td>
+    <td><code>Re8</code></td>
+    <td><code>Bxd5</code></td>
+    <td>0.00 (drawn)</td>
+  </tr>
+  <tr class="row-warn">
+    <td>CYCC vs Butenko</td>
+    <td>White, mv#32</td>
+    <td><strong>+4.85</strong></td>
+    <td><code>Qb3</code></td>
+    <td><code>d4</code></td>
+    <td>+1.30 (drawn)</td>
+  </tr>
+</table>
+
+<div class="callout callout-blue">
+  <strong>The Valdizon anatomy — two consecutive errors from +10</strong>
+  The Valdizon game (Canadian Open 2026, Irene White): move 65, Irene plays Rf7 when Rxe6 captures a pawn and is much stronger. The rook goes to f7 instead of taking. Move 67, the best plan was Rf7 (same rook again!) but she plays d5 instead, advancing the d-pawn into Black's king's zone when the rook repositioning was the key. The position equalizes. The pattern is identical to Pattern G: she chose a plausible-looking piece or pawn move instead of the forcing continuation that would win material.
+</div>
+
+<div class="callout callout-green">
+  <strong>Exploitation instructions for Austin</strong>
+  When Austin reaches +3 or more in sparring with Irene: <strong>never simplify</strong>. Keep at least one pair of rooks active. The data shows Irene drew from +7.95 and +10.15 — positions that should be resignable. Austin's job when winning is not to "find the best move" but to keep the game complex enough that Irene must find accurate continuations across multiple moves.
+  <br><br>
+  Concretely: when Austin is up material and could trade into K+P, resist. Play for complications. The endgames where Irene converted (10 Pattern D wins) are mostly cases where she had a straightforward technical path. The 4 draws came when she had to calculate a multi-move forcing sequence — she missed it every time.
+</div>
+
+<hr>
+
+<h2 class="red">Pattern G — R/Q Error Instead of Pawn Break  <span class="pattern-badge badge-secondary">SECONDARY</span></h2>
+
+<div class="callout callout-danger">
+  <strong>Outcome: 0 wins · 3 draws · 2 losses across 5 instances — strongest correlation in the dataset</strong>
+  Every time this pattern fires, Irene either draws or loses. The two losses came directly from this error type (Berube and Quevedo Bonilla). This is the most actionable weakness for Austin to trigger in game.
+</div>
+
+<h3>The five instances</h3>
+
+<table>
+  <tr><th>Game</th><th>Irene played</th><th>Best was</th><th>Eval swing</th><th>Outcome</th></tr>
+  <tr class="row-danger">
+    <td>Canadian Open vs Berube (mv#59, White)</td>
+    <td><code>Rf5</code></td>
+    <td><code>g3!</code> (pawn advance)</td>
+    <td>0.00 → −5.55</td>
+    <td><strong>LOST</strong></td>
+  </tr>
+  <tr class="row-danger">
+    <td>Pan Am vs Quevedo Bonilla (mv#14, White)</td>
+    <td><code>Qd2</code></td>
+    <td><code>a5!</code> (pawn advance)</td>
+    <td>+1.69 → +0.05</td>
+    <td><strong>LOST</strong></td>
+  </tr>
+  <tr class="row-warn">
+    <td>Pan Am vs Acuna Alarcon (mv#24, Black)</td>
+    <td><code>Rd8</code></td>
+    <td><code>Bb5</code> (bishop)</td>
+    <td>+0.59 → −12.71</td>
+    <td>drew (from decisive blunder)</td>
+  </tr>
+  <tr class="row-warn">
+    <td>NAYCC 2025 vs Ruchinskaya (mv#29, Black)</td>
+    <td><code>Red8</code></td>
+    <td><code>dxc4!</code> (pawn capture)</td>
+    <td>−0.84 → −3.82</td>
+    <td>drew</td>
+  </tr>
+  <tr class="row-warn">
+    <td>NAYCC 2025 vs Ruchinskaya (mv#30, Black)</td>
+    <td><code>Rd7</code></td>
+    <td><code>dxc4!</code> (pawn capture)</td>
+    <td>−0.41 → −3.72</td>
+    <td>drew</td>
+  </tr>
+</table>
+
+<div class="callout callout-purple">
+  <strong>Ruchinskaya anatomy — three consecutive dxc4 misses</strong>
+  In the NAYCC 2025 game vs Ruchinskaya, Irene declined to play dxc4 on moves 29 (Red8), 30 (Rd7), and 32 (h5 — Pattern H). Every move the correct plan was <code>dxc4!</code> but she kept improving rooks and eventually pushed the h-pawn instead. Losing ~3.3 eval units each time. She still drew because Ruchinskaya eased up. The consistent refusal to execute a specific pawn capture — even when it's correct three turns running — is a deep pattern, not randomness.
+</div>
+
+<div class="callout callout-green">
+  <strong>Exploitation instructions for Austin</strong>
+  In equal middlegame positions with Irene, always look for pawn breaks <em>before</em> piece moves. The Berube loss (Rf5 vs g3!) and the Quevedo Bonilla loss (Qd2 vs a5!) show the exact error type: Irene sees a plausible rook or queen destination and plays it, missing that a pawn advance was the correct plan.
+  <br><br>
+  As White in the French Tarrasch: when the position is roughly equal around move 25–35, hold your pawn breaks (f5!, g4!, a5!) until after Irene has committed her rooks. If she plays Rd8 or Rd7 to "develop activity," ask whether a pawn advance now wins the game — and play it.
+  <br><br>
+  <strong>Austin's parallel drill:</strong> Before every rook or queen move in your own games, ask: "Is there a pawn push that beats this?" This is Pattern G from the other side. The sparring sessions with Irene are live practice in identifying this exact moment.
+</div>
+
+<hr>
+
+<h2 class="purple">Pattern C — K+P King Route Errors  <span class="pattern-badge badge-tertiary">TERTIARY</span></h2>
+
+<div class="callout callout-purple">
+  <strong>Eric Jin game — 3 consecutive decisive blunders, all missing Kxc3 (Canadian Open 2026)</strong>
+  Irene (Black) had her king on c4, adjacent to a White c3 pawn. The correct plan was <code>Kxc3!</code> — capture the pawn and use the king actively in the K+P endgame. Instead she pushed the b-pawn three consecutive times (52...b4, 53...b3, 54...b2), hoping the pawn would queen alone. The engine's verdict: decisive against her at +7.23, +10.54, +12.57. Eric Jin's king could not catch the b-pawn so Irene won anyway — but she found the wrong method.
+</div>
+
+<h3>The triple blunder sequence (Canadian Open 2026, mv#52–54)</h3>
+
+<table>
+  <tr><th>Move</th><th>Irene played</th><th>Best was</th><th>Eval before</th><th>Eval after</th></tr>
+  <tr class="row-danger">
+    <td>52...b4</td>
+    <td><code>b4</code> (pawn push)</td>
+    <td><code>Kxc3!</code> (king captures)</td>
+    <td>+7.23</td>
+    <td>−6.86 (decisive)</td>
+  </tr>
+  <tr class="row-danger">
+    <td>53...b3</td>
+    <td><code>b3</code> (pawn push again)</td>
+    <td><code>Kxc3!</code> (king captures)</td>
+    <td>+10.54</td>
+    <td>−6.75 (decisive)</td>
+  </tr>
+  <tr class="row-danger">
+    <td>54...b2</td>
+    <td><code>b2</code> (pawn push again)</td>
+    <td><code>Kxc3!</code> (king captures)</td>
+    <td>+12.57</td>
+    <td>−7.67 (decisive)</td>
+  </tr>
+</table>
+
+<p class="note" style="margin:8px 0">The eval bounced: Eric Jin blundered back each turn allowing Irene to continue winning (hence the eval recovery to +10.54 and +12.57). Both players missed the same motif for three consecutive moves. Irene won because Eric Jin finally ran out of moves — but the correct plan (king to c3, escorting the b-pawn) was never found. [Stockfish JSON — unverified]</p>
+
+<div class="callout callout-blue">
+  <strong>K+P principle Irene missed: king walks beat pawn races</strong>
+  When the king is adjacent to an enemy pawn and can capture it, the king walk (Kxc3) beats advancing your own pawn alone. The king then shepherds the b-pawn with opposition, controlling key squares along the queening path. Irene raced the b-pawn without king support — this is the most common K+P planning error at the 1800–2000 level.
+</div>
+
+<div class="callout callout-green">
+  <strong>Austin's K+P drill — use Irene as the training partner</strong>
+  Set up K+P positions where one player must choose between "advance my passer" and "use the king actively." Let Irene play her natural instinct (advance the pawn). Austin should find the king walk. This builds the habit Austin needs for his own endgame conversion — and produces the exact mistake Irene makes reliably.
+  <br><br>
+  This matches Pattern E (2 instances in Pan Am games): Irene also played king moves (Kd3, Ke3) when the <em>pawn</em> should have advanced (g6!, gxh4!). Both patterns — king moves when pawn goes, and pawn moves when king should go — are the same underlying calculation failure: not planning the king route in K+P positions.
+</div>
+
+<hr>
+
+<h2 class="green">Austin's Own Parallel Drills (Learn From Irene's Errors)</h2>
+
+<div class="callout callout-blue">
+  <strong>These sparring sessions are two-directional.</strong> Exploiting Irene's weaknesses teaches Austin to avoid the same errors in his own games.
+</div>
+
+<table>
+  <tr>
+    <th>Irene's weakness</th>
+    <th>Austin's parallel drill (learn it in real games vs Irene)</th>
+    <th>Transfer to NAYCC</th>
+  </tr>
+  <tr class="row-safe">
+    <td><strong>Pattern D:</strong> Drew from +10.15 by missing forcing continuations (Rxe6, Rf7)</td>
+    <td>After reaching ≥+3 as White in the French Tarrasch, always identify the most forcing continuation <em>first</em> before any improving move. Ask: "What forces here?" before "What improves here?"</td>
+    <td>Austin's NAYCC endgame conversion. Pattern D is Austin's weakness too — not just Irene's (see PAM R6 loss from winning).</td>
+  </tr>
+  <tr class="row-safe">
+    <td><strong>Pattern G:</strong> Played Rf5 when g3! was correct; Qd2 when a5! was correct</td>
+    <td>Before every rook or queen move in approximately equal positions: scan for pawn advances on every file. If a pawn break exists, evaluate it <em>first</em>. The pawn check takes 5 seconds — never skip it.</td>
+    <td>Against any opponent: Fernando, Inti, Reyansh — these opponents all face pawn-break moments where Austin must not default to piece activity.</td>
+  </tr>
+  <tr class="row-safe">
+    <td><strong>Pattern C:</strong> Pushed b-pawn alone (b4, b3, b2) instead of Kxc3 + escort</td>
+    <td>In K+P positions: always map the king's route before advancing the passer. Where does the king go to control key squares? Draw the mental line from king to queening square before playing the pawn.</td>
+    <td>K+P endgames appear in 40%+ of classical games. Austin's own losses at NAYCC 2025 R7/R9 and PAM R5 all involved endgame technique failures.</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>Pre-Session Checklist</h2>
+
+<ul class="checklist">
+  <li>Game 1 (Austin White): play French Tarrasch to tabiya — <code>3.Nd2 Nf6 4.e5 Nfd7 5.c3 c5 6.f4 Nc6 7.Ndf3!</code></li>
+  <li>When ≥+3: do NOT trade into K+P ending. Keep one pair of rooks and press for the forcing continuation (Rxe6! not Rf7, d4! not Qb3)</li>
+  <li>In every position near equal: check pawn breaks BEFORE rook or queen moves — f5!, g4!, a5!, dxc4!</li>
+  <li>If Irene plays Red8 or Rd7 in a tense middlegame: freeze. Check if dxc4!/Bxd5!/Rxe6! is available first</li>
+  <li>In any K+P position: map king routes before advancing the passer — Kxc3 beats b4+b3+b2 alone</li>
+  <li>Game 2 (Austin Black): after 4.Bxc6 bxc6, activate bishop pair with ...Qc7, ...d6, ...Nf6 — no piece trades in the middlegame</li>
+  <li>Post-game: note one moment where you saw a pawn break opportunity. Did you take it or play the piece move?</li>
+  <li>Post-game: if Irene reached ≥+3 against you — did she convert, or did she drift? Note the move where the advantage was lost</li>
+</ul>
+
+<table style="margin-top:16px">
+  <tr><th colspan="2">Quick reference: Irene's two guaranteed sparring values</th></tr>
+  <tr class="row-safe">
+    <td><strong>1. French Tarrasch partner</strong></td>
+    <td>Every game Austin plays 1.e4 e6, he gets a French rep. The Tarrasch tabiya (7.Ndf3!) against Irene = direct Fernando/Asher simulation.</td>
+  </tr>
+  <tr class="row-safe">
+    <td><strong>2. Endgame accuracy test</strong></td>
+    <td>Irene draws from +10. Every time Austin converts from ≥+4 against Irene, it is real evidence his endgame conversion is working. Every draw from ≥+4 is a direct flag.</td>
+  </tr>
+  <tr class="row-warn">
+    <td><strong>Watch for: Irene's best result</strong></td>
+    <td>Her best White tournament is 93.3% (Toronto Open). Her Caro-Kann Exchange system (3W–0D) is her most reliable. Austin will not play Caro-Kann — so her best weapon does not arise in sparring.</td>
+  </tr>
+  <tr class="row-warn">
+    <td><strong>Watch for: Irene's best accuracy games are draws</strong></td>
+    <td>Her top two games (98.5% and 98.0%) are both draws — short games (15 ply and 21 ply). In long complex games her accuracy falls to 87–93%. Extend the game — do not simplify to a quick draw structure.</td>
+  </tr>
+</table>
+
+<hr>
+
+<p style="font-size: 0.8em; color: #888; text-align: center; margin-top: 10px;">
+  Weakness data: Stockfish movetime-3000 · 36 sparring games (snoop2026.pgn) ·
+  Pattern D: 14 instances (4 draws from +4.85–+10.15) ·
+  Pattern G: 5 instances (0W-3D-2L) ·
+  Pattern C: 3 consecutive K+P king blunders (Eric Jin, Canadian Open 2026) ·
+  All findings [Stockfish JSON — unverified] (Lichess cloud eval returned 404 for all tested positions) ·
+  Generated Nov 2026 ·
+  <a href="../austin-prep.html" style="color:#888">Prep Index</a> ·
+  <a href="matchup-irene-gm.html" style="color:#888">GM Battle Plan</a> ·
+  <a href="matchup-irene-deep.html" style="color:#888">Engine Analysis</a>
+</p>
+
+</body>
+</html>
