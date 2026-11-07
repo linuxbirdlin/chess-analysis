@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GM Battle Plan vs Irene Xie — Sparring Objectives</title>
+<style>
+:root { --blue:#1a4a8b; --red:#8b1a1a; --gold:#b8860b; --green:#1a5c1a; --purple:#5a1a8b; --bg:#f8f6f2; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:Georgia,serif; font-size:14px; color:#1a1a1a; max-width:960px; margin:0 auto; padding:20px 24px; background:var(--bg); }
+h1 { font-size:1.5em; border-bottom:3px solid #222; padding-bottom:10px; margin-bottom:6px; }
+h2 { font-size:1.05em; margin:26px 0 10px; border-left:5px solid var(--purple); background:#f8f0ff; padding:6px 10px; }
+h3 { font-size:0.95em; margin:14px 0 6px; font-weight:bold; color:#333; }
+.subtitle { font-size:0.84em; color:#666; margin-bottom:18px; }
+.subtitle span { margin-right:16px; }
+.callout { border-radius:5px; padding:11px 14px; margin:10px 0; font-size:0.9em; line-height:1.6; }
+.callout-gold { background:#fffbf0; border-left:4px solid var(--gold); }
+.callout-blue { background:#f0f4ff; border-left:4px solid var(--blue); }
+.callout-green { background:#f0fdf0; border-left:4px solid var(--green); }
+.callout-red { background:#fff0f0; border-left:4px solid var(--red); }
+.callout-purple { background:#f8f0ff; border-left:4px solid var(--purple); }
+.callout strong { display:block; margin-bottom:3px; }
+table { width:100%; border-collapse:collapse; font-size:0.86em; margin:10px 0; }
+th { background:#3a1a6b; color:#fff; padding:6px 9px; text-align:left; }
+td { padding:5px 9px; border:1px solid #ddd; vertical-align:top; }
+tr:nth-child(even) { background:#f5f5f5; }
+hr { border:none; border-top:2px solid #ddd; margin:22px 0; }
+a { color:var(--blue); }
+code { font-family:'Courier New',monospace; font-size:12px; background:#f0f0f0; padding:1px 4px; border-radius:3px; }
+.back-link { font-size:0.82em; color:var(--blue); text-decoration:none; }
+.objective-box { background:#fff; border:2px solid var(--purple); border-radius:6px; padding:14px 18px; margin:14px 0; }
+.objective-box h3 { color:var(--purple); margin-bottom:8px; }
+.objective-box ul { padding-left:20px; line-height:1.9; font-size:0.9em; }
+.schedule-grid { display:grid; grid-template-columns:auto 1fr; gap:0; border:1px solid #ccc; border-radius:4px; overflow:hidden; font-size:0.88em; }
+.schedule-label { background:#3a1a6b; color:#fff; padding:8px 12px; font-weight:bold; border-bottom:1px solid #5a3a8b; }
+.schedule-item { background:#f8f0ff; padding:8px 12px; border-bottom:1px solid #ddd; line-height:1.6; }
+.schedule-label:last-of-type, .schedule-item:last-child { border-bottom:none; }
+</style>
+</head>
+<body>
+
+<h1>GM Battle Plan — Sparring vs Irene Xie</h1>
+<div class="subtitle">
+  <span><strong>Irene Xie</strong> · ~1888–1977 FIDE · Sparring partner (not NAYCC 2026 opponent)</span>
+  <span>Role: stress-test French prep (Austin White) + Taimanov defense (Austin Black)</span>
+  <span>Deep analysis: 36 games · 90.6% avg · 14W-10L-12D · movetime-3000</span>
+</div>
+<a class="back-link" href="../austin-prep.html">← Prep Index</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-irene-white.html">Austin as White</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-irene-black.html">Austin as Black</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-irene-deep.html">Engine Analysis</a>
+
+<div class="callout callout-purple" style="margin-top:14px">
+  <strong>This is a training tool, not a matchup plan</strong>
+  Irene is Austin's sparring partner — the goal of these sessions is to practice specific weaknesses, not to win at all costs. Design each sparring session with a defined objective from the list below. Track whether the session objective was achieved, not just whether Austin won or lost.
+</div>
+
+<hr>
+
+<h2>Primary Sparring Objectives (derived from deep analysis)</h2>
+
+<div class="objective-box">
+  <h3>Objective 1 — Endgame conversion from +4 (Pattern D)</h3>
+  <ul>
+    <li><strong>The finding:</strong> Irene drew four games from positions of +4.85 to +10.15 — opponents had completely winning positions but failed to convert. Austin should have the same ability as those opponents to squander a won game, and the same ability to not squander it.</li>
+    <li><strong>Practice objective:</strong> When Austin is ≥+4 as White (Tarrasch endgame), set a rule: no simplification until a decisive material advantage is guaranteed. Calculate each trade; don't rely on "I'm clearly winning."</li>
+    <li><strong>Drill:</strong> Take positions from the Valdizon draw (Rf7/Rxe6, +10.15) and Butenko draw (Qb3/d4, +4.85) — load them in Lichess analysis. Find the winning move. Practice the plan from those positions against Stockfish.</li>
+    <li><strong>Success criterion:</strong> Austin converts every ≥+4 endgame in sparring without letting it slip to +1 or below.</li>
+  </ul>
+</div>
+
+<div class="objective-box">
+  <h3>Objective 2 — Pawn advance vs piece move in equal positions (Pattern G)</h3>
+  <ul>
+    <li><strong>The finding:</strong> Two of Irene's White losses came from playing R/Q when a pawn push was the engine's correct plan: <code>Qd2</code> when <code>a5!</code> (+1.69→+0.05), <code>Rf5</code> when <code>g3!</code> (0.00→−5.55).</li>
+    <li><strong>Austin's training target:</strong> This is a mirror drill. Austin should learn to RECOGNIZE the moment when a pawn break is available in an equal position. Before every R/Q move in any position between ±1.5, pause and ask: "Is there a pawn push here?"</li>
+    <li><strong>As White (Tarrasch):</strong> The f5! advance or d5 break in equal middlegames. Don't improve pieces when the position calls for action.</li>
+    <li><strong>As Black (Rossolimo):</strong> The ...b5!, ...c4!, or ...a4! breaks. Don't reposition knights when pawns should march.</li>
+    <li><strong>Success criterion:</strong> Austin identifies pawn break opportunities before piece moves in every sparring game, whether or not the pawn move is ultimately correct.</li>
+  </ul>
+</div>
+
+<div class="objective-box">
+  <h3>Objective 3 — French Tarrasch preparation quality (Austin as White)</h3>
+  <ul>
+    <li><strong>Context:</strong> NAYCC 2026 has several French-playing opponents (Asher Chodniewicz plays French all systems; Inti plays French Rubinstein C10). Austin's French prep needs to be sharp at tournament quality.</li>
+    <li><strong>Practice objective:</strong> Reach move 15 with ≥97% accuracy in Tarrasch lines. Test both the 4.exd5 exd5 structure (preferred) and the Advance 3.e5 f4 storm.</li>
+    <li><strong>Warning:</strong> Irene knows the Tarrasch-Chistyakov (3...c5 4.exd5 Qxd5). After the Qxd5 recapture, she has 3+ games at 92–95% accuracy. Deviate with 4...exd5 to get out of her preparation.</li>
+    <li><strong>Success criterion:</strong> Reach post-book positions (move 15+) with ≥+0.5 advantage consistently.</li>
+  </ul>
+</div>
+
+<div class="objective-box">
+  <h3>Objective 4 — Taimanov/Rossolimo defense reps (Austin as Black)</h3>
+  <ul>
+    <li><strong>Context:</strong> Irene's Rossolimo Exchange (4.Bxc6) is exactly the structure Austin faces from Emerson Johnson and Reyansh Paragiri. These sparring games are the most relevant Black prep available.</li>
+    <li><strong>Practice objective:</strong> Master the doubled c-pawn structure after 4.Bxc6 dxc6. Specifically: play ...f6 immediately to prevent Nd5, activate bishop pair with ...Be7, expand with ...c4/...b5 when possible.</li>
+    <li><strong>Success criterion:</strong> Austin achieves bishop pair activity in every game — no passive exchanges that neutralize the compensation.</li>
+  </ul>
+</div>
+
+<hr>
+
+<h2>Irene's Strength Profile — What Austin is Training Against</h2>
+
+<table>
+  <tr><th>Dimension</th><th>Irene's level</th><th>Austin's training goal</th></tr>
+  <tr><td>Overall accuracy</td><td>90.6% (movetime-3000)</td><td>Match or exceed 91% in every sparring game</td></tr>
+  <tr><td>Best game accuracy</td><td>98.5% (Saravia draw, Pan Am 2026)</td><td>Produce at least one 95%+ game per session</td></tr>
+  <tr><td>White performance</td><td>91.7% avg, 9W-3L-4D</td><td>As Black, deny Irene her White structure advantages</td></tr>
+  <tr><td>Black performance</td><td>89.7% avg, 5W-7L-8D</td><td>As White, exploit the lower Black accuracy with aggressive play</td></tr>
+  <tr><td>Notable opponents beaten</td><td>Daniel Joshua Lee FM (95.5%, Toronto Open)</td><td>At least match Irene's preparation quality vs FM-caliber opposition</td></tr>
+  <tr><td>Pattern D (won-pos)</td><td>4 critical conversion failures</td><td>Never let a +4 position become a draw — convert every winning endgame</td></tr>
+  <tr><td>Pattern G (pawn vs piece)</td><td>2 losses from pawn push error</td><td>Recognize pawn breaks before every R/Q move in balanced positions</td></tr>
+</table>
+
+<hr>
+
+<h2>Session Design Template</h2>
+
+<div class="callout callout-blue">
+  Use this structure to design each sparring session with Irene. Pick ONE primary objective from above and track it explicitly:
+</div>
+
+<div class="schedule-grid">
+  <div class="schedule-label">Warm-up (10 min)</div>
+  <div class="schedule-item">Review one critical position from the last session. Find the engine's best move. Verify with Stockfish.</div>
+  <div class="schedule-label">Game 1 — Objective A</div>
+  <div class="schedule-item">Austin as White (French Tarrasch). Objective: reach move 15 with advantage. No simplification until +4 material won position locked in.</div>
+  <div class="schedule-label">Game 2 — Objective B</div>
+  <div class="schedule-item">Austin as Black (Taimanov vs Rossolimo). Objective: activate bishop pair by move 20. Find and play ...f6 before White plays Nd5.</div>
+  <div class="schedule-label">Post-game (15 min)</div>
+  <div class="schedule-item">Review the position with highest CPL in each game. Was the missed move a pawn push? A forcing check? Categorize and note for next session.</div>
+</div>
+
+<hr>
+
+<h2>Connection to NAYCC 2026 Opponents</h2>
+
+<table>
+  <tr><th>Sparring system practiced</th><th>NAYCC opponent using same system</th><th>How this sparring transfers</th></tr>
+  <tr><td>Rossolimo Exchange (Irene White)</td><td>Emerson Johnson, Reyansh Paragiri</td><td>Doubled c-pawn structure is identical — every rep counts directly</td></tr>
+  <tr><td>French Defense (Irene Black)</td><td>Asher Chodniewicz (French all systems), Inti Flores (French Rubinstein C10)</td><td>Tarrasch with f4 plan → tested under live sparring conditions</td></tr>
+  <tr><td>Endgame conversion practice</td><td>ALL opponents</td><td>Austin's win/draw accuracy gap (89.1% wins vs 88.5% losses) mirrors Irene's Pattern D — both players need to convert better</td></tr>
+  <tr><td>Pawn break identification</td><td>ALL opponents</td><td>Pattern G is universal — every player misses pawn advances when they think in piece moves</td></tr>
+</table>
+
+<div class="callout callout-gold" style="margin-top:16px">
+  <strong>One fact to carry into every sparring game:</strong>
+  Irene beat Daniel Joshua Lee (FM, 2165 FIDE) at the Toronto Open at 95.5% accuracy. DJL is one of Austin's NAYCC 2026 opponents. These sparring sessions are not against a weak player — Irene's ceiling is FM-defeating accuracy. Treat every game seriously.
+</div>
+
+<hr>
+
+<h2>GM Summary — One Paragraph</h2>
+
+<div class="callout callout-purple">
+  Irene Xie is a 1888–1977 FIDE sparring partner who plays 91.7% accurate chess as White and 89.7% as Black. Her structural weakness (Pattern D: 4 conversion failures from +4.85–+10.15) and tactical gap (Pattern G: pawn advance missed in 2 White losses) are exactly the skills Austin must strengthen before NAYCC 2026. As White, Austin should pressure through the Tarrasch or Advance French — aim for won endgames, then convert without simplification. As Black in the Rossolimo Exchange, accept the doubled pawn structure, play ...f6 immediately, and activate the bishop pair for pressure in the endgame. Every sparring session should have an explicit objective and post-game review of the highest-CPL moment. The goal is not to beat Irene — it is to beat Irene correctly.
+</div>
+
+<hr>
+
+<p style="font-size:0.8em; color:#888; text-align:center; margin-top:10px;">
+  Sparring GM Plan · Irene Xie · movetime-3000 · Generated Nov 2026 ·
+  <a href="../austin-prep.html" style="color:#888">Prep Index</a> ·
+  <a href="matchup-irene-white.html" style="color:#888">Austin as White</a> ·
+  <a href="matchup-irene-black.html" style="color:#888">Austin as Black</a> ·
+  <a href="matchup-irene-deep.html" style="color:#888">Engine Analysis</a>
+</p>
+
+</body>
+</html>
