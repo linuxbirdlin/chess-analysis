@@ -52,8 +52,8 @@ code { font-family:'Courier New',monospace; font-size:12px; background:#f0f0f0; 
 </div>
 
 <div class="callout callout-purple">
-  <strong>Secondary finding: Rook/queen vs pawn in equal positions (Pattern G, 2 losses)</strong>
-  Two White losses involved R/Q moves in equal positions when a pawn advance was the engine's correct idea: <code>Qd2</code> when <code>a5!</code> was winning (+1.69→+0.05), and <code>Rf5</code> when <code>g3!</code> was winning (+0.00→−5.55). Same pattern as Fernando: piece move when pawn push was the plan.
+  <strong>Secondary finding: Rook/queen vs pawn in equal positions (Pattern G · 5 instances · 0W-3D-2L)</strong>
+  5 instances across 36 games — 0 wins, 3 draws, 2 losses. The two White losses: <code>Qd2</code> when <code>a5!</code> (+1.69→+0.05, vs Quevedo Bonilla), and <code>Rf5</code> when <code>g3!</code> (0.00→−5.55, vs Berube). The three draws: <code>Rd8/Bb5</code> (+0.59→−12.71, Acuna Alarcon), and <code>Red8/dxc4</code> + <code>Rd7/dxc4</code> on consecutive turns (Ruchinskaya, NAYCC 2025). This pattern never produces a win — the strongest outcome correlation in the dataset.
 </div>
 
 <hr>
@@ -136,13 +136,19 @@ code { font-family:'Courier New',monospace; font-size:12px; background:#f0f0f0; 
     <td>vs Butenko, Zlata (CYCC)</td><td><code>Qb3</code></td><td><code>d4</code></td><td>+4.85 → +1.30</td><td>mv#32, middlegame</td><td>DRAW</td></tr>
 </table>
 
-<h3>Pattern G — R/Q error in equal position (2 losses)</h3>
+<h3>Pattern G — R/Q error in equal position (5 instances · 0W-3D-2L)</h3>
 <table>
   <tr><th>Game</th><th>Played</th><th>Best was</th><th>Eval swing</th><th>Move</th><th>Result</th></tr>
   <tr style="background:#fdeaea">
     <td>vs Quevedo Bonilla (Pan Am)</td><td><code>Qd2</code></td><td><code>a5!</code> (pawn)</td><td>+1.69 → +0.05</td><td>mv#14 [White]</td><td>LOSS</td></tr>
   <tr style="background:#fdeaea">
     <td>vs Maximilien Berube (Canadian Open)</td><td><code>Rf5</code></td><td><code>g3!</code> (pawn)</td><td>+0.00 → −5.55</td><td>mv#59 [White]</td><td>LOSS</td></tr>
+  <tr style="background:#fffbe8">
+    <td>vs Acuna Alarcon (Pan Am)</td><td><code>Rd8</code></td><td><code>Bb5</code> (bishop)</td><td>+0.59 → −12.71</td><td>mv#24 [Black]</td><td>DRAW</td></tr>
+  <tr style="background:#fffbe8">
+    <td>vs Ruchinskaya (NAYCC 2025)</td><td><code>Red8</code></td><td><code>dxc4!</code> (pawn capture)</td><td>−0.84 → −3.82</td><td>mv#29 [Black]</td><td>DRAW</td></tr>
+  <tr style="background:#fffbe8">
+    <td>vs Ruchinskaya (NAYCC 2025)</td><td><code>Rd7</code></td><td><code>dxc4!</code> (pawn capture)</td><td>−0.41 → −3.72</td><td>mv#30 [Black]</td><td>DRAW</td></tr>
 </table>
 
 <h3>Pattern C — Decisive blunders (5 instances, 0 in losses)</h3>
@@ -173,7 +179,8 @@ code { font-family:'Courier New',monospace; font-size:12px; background:#f0f0f0; 
 <p style="font-size:0.8em; color:#888; text-align:center; margin-top:10px;">
   Engine: Stockfish movetime-3000 · 36 games · snoop2026.pgn · Generated Nov 2026 ·
   <a href="../austin-prep.html" style="color:#888">Prep Index</a> ·
-  <a href="matchup-irene-gm.html" style="color:#888">GM Battle Plan</a>
+  <a href="matchup-irene-gm.html" style="color:#888">GM Battle Plan</a> ·
+  <a href="matchup-irene-nightbefore.html" style="color:#888">Session Plan</a>
 </p>
 
 </body>
