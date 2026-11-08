@@ -3,7 +3,7 @@
 **Role:** Sparring partner for NAYCC 2026 preparation  
 **Rating:** ~1888–1977 FIDE (Apr 2026 1888; peak ~1977 Aug–Sep 2025)  
 **Engine analysis (standard):** 36 games, movetime-800 · `scripts/irene-analysis-results.json` · avg 91.0% · 1.00 blunders/game  
-**Engine analysis (deep):** 36 games, movetime-3000 · `scripts/irene-analysis-results-deep.json` · avg 90.6% · White 91.7% · Black 89.7% · Best game 98.5% (Saravia draw, Pan Am) · Pattern D: 4 conversion failures from +4.85–+10.15 · Pattern G: 2 White losses from pawn-push error (Qd2/a5!, Rf5/g3!)  
+**Engine analysis (deep):** 36 games, movetime-3000 · `scripts/irene-analysis-results-deep.json` · avg 90.6% · White 91.7% · Black 89.7% · Best game 98.5% (Saravia draw, Pan Am) · Pattern D: 4 conversion failures from +4.85–+10.15 · Pattern G: 5 instances · 0W-3D-2L (losses: Qd2/a5! vs Quevedo Bonilla, Rf5/g3! vs Berube; draws: Rd8/Bb5 vs Acuna Alarcon, Red8+Rd7/dxc4 vs Ruchinskaya NAYCC 2025)  
 **Tournaments (snoop2026.pgn):** Toronto Open 2026, Pan American Youth 2026 (Girls/Open U18), Canadian Open 2026, Canadian Youth Championships 2026 (CYCC), Toronto Open Crown 2025, NAYCC U18 2025
 
 ---
@@ -106,7 +106,7 @@
 | Practice value: Austin White | French Tarrasch + Advance drill partner |
 | Practice value: Austin Black | Taimanov vs Rossolimo drill partner |
 | Endgame | Weaker — good for Austin to press in R+P endings |
-| Engine avg (36g) | 91.0% overall · 92.0% as White · 90.2% as Black |
+| Engine avg (deep, 36g) | 90.6% overall · 91.7% as White · 89.7% as Black (mv-3000) · mv-800 shows 91.0%/92.0%/90.2% |
 | Blunders/game | 1.00 (high — double Zhuoyuan's 0.63/game) |
 | Best game | 98.1% vs Ruchinskaya (Nimzo draw, CYCC) |
 | Worst game | 68.2% vs Acuna Alarcon (4 blunders, Pan Am draw) |
