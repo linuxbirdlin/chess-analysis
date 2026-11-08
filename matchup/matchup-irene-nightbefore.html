@@ -142,8 +142,8 @@ code { font-family: 'Courier New', monospace; font-size: 12px; background: #f0f0
 
 <div class="schedule-box">
   <div class="sch-time">Game 3</div>
-  <div class="sch-body"><strong>K+P endgame drill (optional)</strong><br>
-    Set up a K+P position from the game after move 50 in the Eric Jin game (below). Play as Eric Jin (Irene's opponent). Verify that Austin correctly finds the pawn-push vs king-route decision. <strong>This trains Austin's own K+P calculation — the reverse of Irene's error.</strong>
+  <div class="sch-body"><strong>King activation drill (optional)</strong><br>
+    Set up the position from the Eric Jin game after move 51 (bishop on c3, Black king near c4, pawn on b6). Play as Eric Jin (Irene's opponent). Verify that Austin correctly finds Kxc3 (capturing the bishop) rather than advancing the pawn. <strong>This trains Austin's own king activation — the reverse of Irene's error.</strong>
   </div>
 </div>
 
@@ -272,11 +272,11 @@ code { font-family: 'Courier New', monospace; font-size: 12px; background: #f0f0
 
 <hr>
 
-<h2 class="purple">Pattern C — K+P King Route Errors  <span class="pattern-badge badge-tertiary">TERTIARY</span></h2>
+<h2 class="purple">Pattern C — King Activation Errors  <span class="pattern-badge badge-tertiary">TERTIARY</span></h2>
 
 <div class="callout callout-purple">
   <strong>Eric Jin game — 3 consecutive decisive blunders, all missing Kxc3 (Canadian Open 2026)</strong>
-  Irene (Black) had her king on c4, adjacent to White's bishop on c3 (placed there at move 37.Bc3). The correct plan was <code>Kxc3!</code> — capture the bishop and use the king actively to escort the b-pawn. Instead she pushed the b-pawn three consecutive times (52...b4, 53...b3, 54...b2), hoping the pawn would queen alone. The engine's verdict: decisive against her at +7.23, +10.54, +12.57. Eric Jin's king could not catch the b-pawn so Irene won anyway — but she found the wrong method.
+  Irene (Black) had her king on c4, adjacent to White's bishop on c3 (placed there at move 37.Bc3). The correct plan was <code>Kxc3!</code> — capture the bishop and use the king actively to escort the b-pawn. Instead she pushed the b-pawn three consecutive times (52...b5, 53...b4, 54...b3), hoping the pawn would queen alone. The engine's verdict: decisive against her at +7.23, +10.54, +12.57. Eric Jin's king could not catch the b-pawn so Irene won anyway — but she found the wrong method.
 </div>
 
 <h3>The triple blunder sequence (Canadian Open 2026, mv#52–54)</h3>
@@ -284,22 +284,22 @@ code { font-family: 'Courier New', monospace; font-size: 12px; background: #f0f0
 <table>
   <tr><th>Move</th><th>Irene played</th><th>Best was</th><th>Eval before</th><th>Eval after</th></tr>
   <tr class="row-danger">
-    <td>52...b4</td>
-    <td><code>b4</code> (pawn push)</td>
+    <td>52...b5</td>
+    <td><code>b5</code> (pawn push)</td>
     <td><code>Kxc3!</code> (king captures)</td>
     <td>+7.23</td>
     <td>−6.86 (decisive)</td>
   </tr>
   <tr class="row-danger">
-    <td>53...b3</td>
-    <td><code>b3</code> (pawn push again)</td>
+    <td>53...b4</td>
+    <td><code>b4</code> (pawn push again)</td>
     <td><code>Kxc3!</code> (king captures)</td>
     <td>+10.54</td>
     <td>−6.75 (decisive)</td>
   </tr>
   <tr class="row-danger">
-    <td>54...b2</td>
-    <td><code>b2</code> (pawn push again)</td>
+    <td>54...b3</td>
+    <td><code>b3</code> (pawn push again)</td>
     <td><code>Kxc3!</code> (king captures)</td>
     <td>+12.57</td>
     <td>−7.67 (decisive)</td>
@@ -392,7 +392,7 @@ code { font-family: 'Courier New', monospace; font-size: 12px; background: #f0f0
   Weakness data: Stockfish movetime-3000 · 36 sparring games (snoop2026.pgn) ·
   Pattern D: 14 instances (4 draws from +4.85–+10.15) ·
   Pattern G: 5 instances (0W-3D-2L) ·
-  Pattern C: 3 consecutive K+P king blunders (Eric Jin, Canadian Open 2026) ·
+  Pattern C: 3 consecutive king blunders (Eric Jin, missed Kxc3 bishop capture) ·
   All findings [Stockfish JSON — unverified] (Lichess cloud eval returned 404 for all tested positions) ·
   Generated Nov 2026 ·
   <a href="../austin-prep.html" style="color:#888">Prep Index</a> ·
