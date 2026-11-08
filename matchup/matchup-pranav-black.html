@@ -81,7 +81,7 @@
 
   <div class="doc-header">
     <h1>Austin Lin vs Pranav Santhosh</h1>
-    <div class="subtitle">Austin as Black — Sicilian Najdorf vs Pranav's Weak White Play</div>
+    <div class="subtitle">Austin as Black — Taimanov Sicilian vs Pranav's English Attack</div>
     <div class="meta">Pranav Santhosh · 1922 FIDE (Nov 2026) · 25 games, depth-18 Stockfish · Overall 86.0% avg · White 84.2% (17g) · Black 89.7% (8g) · No direct encounter</div>
     <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
     &nbsp;&nbsp;
@@ -93,7 +93,7 @@
   </div>
 
   <div class="encounter-box">
-    <strong>No direct encounter on record.</strong> Pranav as White averages <strong>84.2%</strong> — among the weaker White performances of all analyzed opponents. His worst games: AGCA Summer R9 (B50 Sicilian, <strong>51%</strong> / 13 blunders / Qd4 CPL 967 from +9.69), AGCA Summer R2 (A38 English, <strong>53.1%</strong> / 5 blunders), and R3 (B92 Najdorf, <strong>80%</strong> — missed Nxd4 twice, CPL 808 and 781). Austin's Sicilian Najdorf (1...c5 ...a6) forces Pranav into exactly these structures.
+    <strong>No direct encounter on record.</strong> Pranav as White averages <strong>84.2%</strong> — among the weaker White performances of all analyzed opponents. His worst games: AGCA Summer R9 (B50 Sicilian, <strong>51%</strong> / 13 blunders / Qd4 CPL 967 from +9.69), AGCA Summer R2 (A38 English, <strong>53.1%</strong> / 5 blunders), and R3 (B92 Najdorf, <strong>80%</strong> — missed Nxd4 twice, CPL 808 and 781). Austin plays <strong>Taimanov Sicilian (2...e6, 5...Qc7)</strong> to force Pranav into English Attack territory — where Pranav's record is only 1W-1D-1L — while preventing the Maróczy Bind, Pranav's best White system.
   </div>
 
   <!-- ═══ SECTION 1 ═══ -->
@@ -184,48 +184,60 @@
   <!-- ═══ SECTION 4 ═══ -->
   <h2>§4 — Austin's Recommended Weapon</h2>
 
-  <div class="warn-box">
-    <strong>⚠ Opening update:</strong> The GM battle plan (<a href="matchup-pranav-gm.html">matchup-pranav-gm.html</a>) recommends <strong>Sicilian Kan (1…c5 2…e6 …a6)</strong> over the Najdorf to steer Pranav toward the English Attack and avoid the Maróczy Bind (5.c4), where Pranav scores 2W-1D-1L. If Austin plays the Najdorf (2…d6), Pranav can transpose to Maróczy. Consult the GM file for the authoritative Austin-as-Black plan.
+  <div class="info-box">
+    <strong>Austin's Black repertoire is fixed: Taimanov Sicilian (B47 Bastrikov).</strong> The move order <code>1...c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7</code> achieves two goals simultaneously: (1) prevents the Maróczy Bind — Pranav's best White system (2W-1D-1L) which requires 4...g6, and (2) steers Pranav toward English Attack territory (5.Nc3 → 6.Be3), where his record is only 1W-1D-1L. Never play 2...Nc6 then 4...g6 — that invites Maróczy.
   </div>
 
-  <h3>Primary: Sicilian Najdorf 5...a6 — Force B92/B50 Territory</h3>
+  <h3>Primary: Taimanov Sicilian 5...Qc7 (B47 Bastrikov)</h3>
   <div class="var-moves">If Pranav plays 1.e4:
-1...c5  2...d6  3...Nf6  4...a6  [Najdorf — Austin's documented weapon; see Kan note above]
-→ Forces Pranav into B90–B92 structures where he scored 51–80%
-→ If Pranav plays 5.Be3: WATCH FOR Nxd4 miss — he missed it twice (CPL 808, CPL 781)
-→ If Pranav plays 5.Nc3: standard Najdorf English Attack
+1...c5  2...e6  3.d4 cxd4  4.Nxd4 Nc6  5.Nc3 Qc7  [B47 Bastrikov — Austin's weapon]
+→ 2...e6 cuts off ALL Maróczy paths (5.c4 after 4...Nc6 not played by Pranav)
+→ After 5.Nc3 Qc7: Pranav likely plays 6.Be3 (English Attack)
+→ Vs 6.Be3 7.f3: launch b5! immediately — queenside counterplay race
 
-Specific trigger: if Pranav plays 5.Be3 (Opocensky) or similar:
-  Look for ...cxd4 → Pranav may fail to recapture Nxd4 again</div>
+Main English Attack continuation:
+  5...Qc7  6.Be3  a6  7.Bd3 (or f3)  Nf6  8.Qe2  d6  9.O-O-O  Be7  10.Kb1  O-O
+  Then: 11...Rc8  12...b5! — push before White's g4-g5 storm arrives</div>
+
+  <h3>Branch — If Pranav plays 6.Be3 7.f3 (English Attack full)</h3>
+  <div class="var-moves">5...Qc7  6.Be3  Nf6  7.f3  b5!  8.g4  h6!  9.Qd2  Bb7  10.O-O-O  Nbd7
+→ b5! on move 7 before g4-g5 storm — queenside race is Austin's plan
+→ Rc8 activates queenside; ...b4 follows to undermine c3 knight
+→ DO NOT play ...d5?! — hands Pranav an IQP structure; keep dynamic with ...b4/...Nc4</div>
+
+  <h3>Branch — If Pranav plays 5.c4 Maróczy Bind (rare vs Taimanov)</h3>
+  <div class="var-moves">1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.c4 [Maróczy — possible but less likely]
+→ 5...Nf6  6.Nc3  d6  7.Be2  a6  8.O-O  Be7  9.Be3  O-O
+→ Plan: ...Rb8 then ...b5! bind break BEFORE White plays a4
+→ If White plays a4 first: ...Na5 attacking c4 from the flank
+→ Do NOT play ...e5 or ...f5 immediately; build with ...d6/...Be7/...0-0 first</div>
 
   <h3>If Pranav plays 1.d4</h3>
   <div class="var-moves">Austin: Nimzo-Indian Bxc3+ variation (Austin's main 1.d4 defense)
-1.d4  Nf6  2.c4  e6  3.Nc3  Bb4  4.e3  O-O  5.Bd3  d5  [Nimzo-Indian]
+1.d4  Nf6  2.c4  e6  3.Nc3  Bb4  → ...Bxc3+  b6/Ba6  [Nimzo-Indian B47 transposition]
 → Pranav's only documented 1.d4 game (E49 Nimzo-Indian) scored 88.5% — respectable
-→ Austin should be prepared for a serious fight; no obvious exploit here
-→ Pranav's Nimzo showed Bg2 (Be2 CPL 312) — watch if he miscalculates the bishop square</div>
+→ Austin should be prepared for a serious fight; no obvious exploit here</div>
 
   <h3>If Pranav plays 1.c4</h3>
-  <div class="var-moves">Austin: transpose to Nimzo-Indian or play Sicilian structure
-1.c4  e5  [reverse English — aggressive] or 1.c4  Nf6  2.Nc3  e6  [→ Nimzo transpose]
-→ Pranav's A38 English (53.1%, 5 blunders) confirms 1.c4 is dangerous territory for him
-→ Nd4 (d4 CPL 800), Bf3 (d3 CPL 656) — White's center handling was catastrophic</div>
+  <div class="var-moves">Austin: transpose to Nimzo-Indian
+1.c4  Nf6  2.Nc3  e6  3.d4  Bb4  [→ Nimzo transpose]
+→ Pranav's A38 English (53.1%, 5 blunders) confirms 1.c4 is dangerous territory for him</div>
 
   <div class="tip-box">
-    <strong>Force the Sicilian.</strong> Pranav's AGCA Summer White games in Sicilian structures (B50, B92, B36) averaged 70.3% with 13 blunders in the worst game. Austin plays Najdorf — this is the confirmed overlap between Austin's strength and Pranav's weakness.
+    <strong>The Taimanov forces Pranav's weakest White structure.</strong> After 2...e6 → 5...Qc7, Pranav enters English Attack territory (6.Be3) where he scored only 1W-1D-1L. His Maróczy Bind (his best White system) is prevented by the 2...e6 move order. Austin has played the English Attack as White himself — he knows the mating patterns and queenside counterplay from both sides.
   </div>
 
   <!-- ═══ SECTION 5 ═══ -->
-  <h2>§5 — Model Game / Reference Plan</h2>
-  <p>The reference blueprint: <strong>AGCA Summer R3 — Pranav Santhosh White vs Thomas, Michael D 1781 (B92 Sicilian Najdorf Opocensky, result unknown)</strong> — Pranav missed Nxd4 on consecutive turns from +0.33 and +0.35 winning positions, losing the advantage both times.</p>
+  <h2>§5 — Game Plan</h2>
+  <p>Austin plays Taimanov B47: <code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7</code>. Reference for Pranav vulnerability data: AGCA Summer R3 (B92 White, missed Nxd4 ×2), R9 (B50 White, Qd4 CPL 967 from +9.69). These confirm Pranav's Sicilian calculation pattern — even in unrelated structures, the same panic-calculation failure can appear.</p>
   <ol>
-    <li><strong>Opening pressure (moves 1–8):</strong> <code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6</code>. Austin plays Najdorf. After 5.Nc3, the game is in standard territory. If Pranav plays 6.Be3 (Opocensky), immediately look for Nxd4 recapture opportunities — if he mishandles the c4/d4 pawn structure, the advantage shifts fast.</li>
-    <li><strong>Middlegame plan (moves 10–20):</strong> In Najdorf structures, Black typically plays ...e5 to contest the center or keeps tension with ...Nbd7-Nc5. Austin's Nimzo training translates — dynamic piece play, knight outposts, IQP ideas. Do NOT simplify prematurely; keep the position alive.</li>
-    <li><strong>Pressure on Pranav's clock:</strong> In AGCA Summer R9 (B50), Pranav had clock 0:32 remaining by move 12 — extremely time-pressured from the opening. If Austin plays at a normal pace and keeps complex positions on the board through move 15–20, Pranav's calculation will degrade.</li>
-    <li><strong>Endgame patience:</strong> If the game enters an endgame, Pranav's White endgame (WY R10: Ne5/Nc6+/Ne5 CPL 1000 knight errors) shows the same knight misplacement pattern. Austin should stay active in endgames and watch for Pranav's piece confusion.</li>
+    <li><strong>Opening target (moves 1–10):</strong> <code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7 6.Be3 a6 7.Bd3 Nf6 8.Qe2 d6 9.O-O-O Be7</code>. Austin is in familiar Taimanov territory. Pranav's English Attack record: 1W-1D-1L — weaker than his Maróczy. If Pranav plays 6.Be3 7.f3: launch <strong>b5!</strong> on move 7 before g4-g5 storm arrives.</li>
+    <li><strong>Middlegame plan (moves 10–20):</strong> Launch <strong>...Rc8</strong> and <strong>...b5-b4</strong> queenside race. The goal: land the knight on c4 via ...Nb4-c4 or ...Na5-c4. Austin knows these plans from the English Attack as White — mirror the patterns. Do NOT play ...d5; keep position dynamic.</li>
+    <li><strong>Clock pressure:</strong> In AGCA Summer R9 (B50), Pranav had clock 0:32 remaining by move 12. Keep complex positions through move 15–20 and Pranav's calculation will degrade under time pressure.</li>
+    <li><strong>Endgame patience:</strong> Pranav's White endgame (WY R10: Ne5/Nc6+/Ne5 CPL 1000 knight errors; Blue Ridge R5 Rxh7??/Ke5??) shows repeated piece-navigation failure. In rook endings, Austin should convert normally and trust that Pranav's technique will crack. Do NOT offer a draw before move 35.</li>
   </ol>
   <div class="tip-box">
-    <strong>The B50 collapse precedent:</strong> In AGCA Summer R9, Pranav was winning by +9.69 and dropped it instantly with Qd4 (CPL 967). This means even from a losing position, Austin should not resign mentally — Pranav's calculation can fail from any advantage level.
+    <strong>The Qd4 from +9.69 principle:</strong> Even from a losing position, Austin should keep playing. Pranav dropped a +9.69 advantage to +0.02 in one move in AGCA Summer R9. His calculation can fail from any advantage level — one wrong move reverses everything.
   </div>
 
   <!-- ═══ SECTION 6 ═══ -->
@@ -233,17 +245,18 @@ Specific trigger: if Pranav plays 5.Be3 (Opocensky) or similar:
 
   <div class="var-card">
     <div class="var-header">
-      <span class="var-label">VARIANCE A ~50%</span>
-      Sicilian Najdorf 5...a6 vs Pranav's 1.e4
+      <span class="var-label">VARIANCE A ~70%</span>
+      Taimanov Sicilian 5...Qc7 vs Pranav's 1.e4 (English Attack)
     </div>
     <div class="var-body">
-      <div class="var-moves">Pranav:  1.e4  [likely — B50/B92 confirmed 1.e4 player]
-Austin:  1...c5  2...d6  3...Nf6  4...a6  [Najdorf]
-→ Force B92 (Opocensky) or B50 (Modern) — Pranav's 51–80% territory</div>
+      <div class="var-moves">Pranav:  1.e4  [confirmed — all reliable games]
+Austin:  1...c5  2...e6  3.d4 cxd4  4.Nxd4 Nc6  5.Nc3 Qc7  [B47 Bastrikov]
+→ Pranav likely plays 6.Be3 (English Attack) — his primary Sicilian White system
+→ Pranav's English Attack record: 1W-1D-1L (weaker than Maróczy 2W-1D-1L)</div>
       <ul>
-        <li><strong>If Pranav plays 5.Be3 (Opocensky):</strong> This is the exact move order where he missed Nxd4 twice. Play normal Najdorf development — ...e5, ...Nbd7, ...b5 — and watch for White's center collapse. If Pranav again fails to recapture the d4 knight properly, the position tilts Black immediately.</li>
-        <li><strong>If Pranav plays 5.Nc3 6.Be3 (English Attack):</strong> Austin's comfort zone. Play ...e5, ...Be6, ...Nc6 → ...Nd4 outpost plan. Keep the position complex and watch Pranav's clock.</li>
-        <li><strong>If Pranav plays 5.g4 (Keres-type):</strong> Austin has trained vs Keres attack for Aarush matchup. Respond with ...h6 or ...Nfd7 — Pranav has no documented Keres Attack experience in dataset.</li>
+        <li><strong>If Pranav plays 6.Be3 7.f3 (English Attack):</strong> Launch <strong>...b5!</strong> on move 7 immediately, before g4-g5 arrives. Then ...h6! stops g5. Then ...Bb7, ...Rc8, ...Nbd7 → ...b4, ...Nc4. Pranav's queenside king becomes the target.</li>
+        <li><strong>If Pranav plays 6.g4 (Keres Attack vs Taimanov):</strong> Counter with <strong>...d5!</strong> central break immediately. After 7.exd5 Nxd5 8.Nxd5 exd5: active piece play, d5 lever. Pranav has no documented Keres games vs Taimanov.</li>
+        <li><strong>If Pranav plays 5.c4 Maróczy Bind (rare):</strong> 5...Nf6 6.Nc3 d6 7.Be2 a6 → ...b5 bind break (see §4 Branch above). Note: after 2...e6 4...Nc6, the Maróczy is possible but Pranav's profile shows he does NOT play it vs Taimanov (only vs Accelerated Dragon 4...g6).</li>
       </ul>
     </div>
   </div>
@@ -291,8 +304,8 @@ Austin:  1...Nf6 2.Nc3 e6 3.d4 Bb4 → Nimzo-Indian (primary) — Pranav cannot 
       <div class="rule-card">
         <div class="rule-number">1</div>
         <div class="rule-content">
-          <div class="rule-label">Play Sicilian Najdorf — force Pranav into his worst territory</div>
-          <div class="rule-body">Pranav's B50 (51%, 13 blunders) and B92 (80%, missed Nxd4 twice) are the worst White games in the dataset. Pranav's 1.e4 Sicilian handling is confirmed weak. Austin plays Najdorf as his main Black response — this is the overlap. Play 1...c5, play ...a6, reach B90-B92. Pranav will either repeat the Nxd4 miss or will be forced into unfamiliar territory.</div>
+          <div class="rule-label">Play Taimanov Sicilian — 2...e6 blocks Maróczy, forces English Attack</div>
+          <div class="rule-body">Austin's Black repertoire vs 1.e4 is fixed: <strong>Taimanov B47 Bastrikov</strong> (<code>1...c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7</code>). The 2...e6 move order permanently prevents Pranav's Maróczy Bind (5.c4) — his best White system. After 5.Nc3 Qc7, Pranav enters English Attack territory where his record is only 1W-1D-1L. Austin knows the English Attack from both sides — he has played it as White vs Heye, Zachary, Aarush.</div>
         </div>
       </div>
       <div class="rule-card">
@@ -312,21 +325,26 @@ Austin:  1...Nf6 2.Nc3 e6 3.d4 Bb4 → Nimzo-Indian (primary) — Pranav cannot 
     </div>
 
     <h3>Opening Reference Card</h3>
-    <div class="cheat-moves">AS BLACK vs 1.e4 — Sicilian Najdorf (B90/B92):
-  1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6
-  If 6.Be3 (Opocensky): WATCH Nxd4 miss — Pranav missed CPL 808 + 781
-  If 6.Be3 7.f3 (English Attack): ...e5, ...Be6, ...Nbd7, ...Nc5/Nd4 plan
-  If 6.g4 (Keres): ...h6 or ...Nfd7 — prepared from Aarush matchup
+    <div class="cheat-moves">AS BLACK vs 1.e4 — Taimanov Sicilian B47 Bastrikov:
+  1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7
+  NEVER 2...Nc6 then 4...g6 → Pranav plays 5.c4 MARÓCZY (his best system, 2W-1D-1L)
 
-AS BLACK vs 1.d4 — Nimzo-Indian Bxc3+ (Austin's prep):
+  If 6.Be3 7.f3 (English Attack — Pranav's main):
+    6...a6 7.Bd3 Nf6 8.Qe2 d6 9.O-O-O Be7 → ...Rc8 ...b5! queenside race
+    OR: 6...Nf6 7.f3 b5! 8.g4 h6! 9.Qd2 Bb7 10.O-O-O Nbd7 → ...b4 ...Nc4 plan
+    KEY: b5! BEFORE g5 storm. DO NOT play ...d5.
+
+  If 5.c4 Maróczy (rare vs Taimanov):
+    5...Nf6 6.Nc3 d6 7.Be2 a6 8.O-O Be7 9.Be3 O-O → ...Rb8 ...b5 bind break
+
+  If 6.g4 Keres Attack:
+    6...d5! (central break) 7.exd5 Nxd5 8.Nxd5 exd5 → active piece play
+
+AS BLACK vs 1.d4 — Nimzo-Indian Bxc3+:
   1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 → ...Bxc3+ b6/Ba6 variation
 
-AS BLACK vs 1.c4 — Reverse English (or Nimzo transpose):
-  1.c4 e5 [aggressive] or 1.c4 Nf6 2.Nc3 e6 3.d4 Bb4 [Nimzo]
-
-ALERT PATTERN — if Pranav misses Nxd4:
-  ...cxd4 played → White should play Nxd4 — if instead Nc3/Be3/other
-  → Black is immediately better; keep the d4-pawn as target</div>
+AS BLACK vs 1.c4 — Nimzo transpose:
+  1.c4 Nf6 2.Nc3 e6 3.d4 Bb4 [Nimzo-Indian]</div>
 
     <h3>Tactical Motifs to Watch For</h3>
     <table>
@@ -354,7 +372,7 @@ ALERT PATTERN — if Pranav misses Nxd4:
     <div class="step-item">
       <div class="step-num">2</div>
       <div class="step-body">
-        <strong>Opening line review — 10 min:</strong> Replay mentally: <code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.Be3</code> (Opocensky — Pranav's documented line). Stop at move 6. Ask: <em>"What is Black's best plan here?"</em> Answer: 6...e5 (main) or 6...Ng4 (aggressive) or 6...e6 (solid). Know that Pranav scored 80% in this line with Nxd4 misses — the B92 structure is favorable for Austin.
+        <strong>Opening line review — 10 min:</strong> Replay mentally: <code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7 6.Be3 a6 7.Bd3 Nf6 8.Qe2 d6 9.O-O-O Be7</code> (Taimanov English Attack main line). Stop at move 9. Ask: <em>"What is Black's next plan?"</em> Answer: 10...O-O 11...Rc8! 12...b5! — launch queenside before White's g4-g5 storm. If Pranav plays 7.f3 instead: go straight to <strong>7...b5!</strong>. Practice the timing of b5 — this is the critical decision point in the English Attack.
       </div>
     </div>
     <div class="step-item">
@@ -365,7 +383,7 @@ ALERT PATTERN — if Pranav misses Nxd4:
     </div>
 
     <div class="mental-frame">
-      "Pranav is 81.6% as White — the weakest of all my opponents with White. His Sicilian handling has collapsed at 51% and 80%. I play Najdorf, I force him into B92/B50 territory, and I watch for the Nxd4 miss. Even if he gets an advantage, Qd4 from +9.69 already happened — I keep playing until the position is decided. His White play is exploitable from move 4."
+      "Pranav is 84.2% as White — the weakest of all my opponents with White. I play Taimanov (2...e6, 5...Qc7), I prevent the Maróczy, and I force him into English Attack territory where he is 1W-1D-1L. I know the English Attack from both sides. I launch ...b5 before his g5 storm. Even if he gets an advantage, Qd4 from +9.69 already happened — I keep playing until the position is decided. His White endgame collapses under pressure (Ne5/Nc6+/Ne5 CPL 1000) — I do not offer a draw before move 35."
     </div>
   </div>
 
@@ -374,10 +392,10 @@ ALERT PATTERN — if Pranav misses Nxd4:
   <table>
     <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
     <tbody>
-      <tr><td>Austin B Najdorf vs 1.e4</td><td>B90</td><td><code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6</code></td></tr>
-      <tr><td>Austin B Najdorf vs Opocensky</td><td>B92</td><td><code>5...a6 6.Be3 e5 7.Nb3 Be6</code> (main line Black)</td></tr>
+      <tr><td>Austin B Taimanov vs 1.e4</td><td>B47</td><td><code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7</code></td></tr>
+      <tr><td>Austin B Taimanov vs English Attack</td><td>B47</td><td><code>5...Qc7 6.Be3 a6 7.Bd3 Nf6 8.Qe2 d6 → ...O-O ...Rc8 ...b5!</code></td></tr>
       <tr><td>Austin B Nimzo-Indian vs 1.d4</td><td>E40–E49</td><td><code>1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.e3 O-O 5.Bd3</code></td></tr>
-      <tr><td>Austin B vs 1.c4 English</td><td>A30</td><td><code>1.c4 e5 [Reverse English] or 1.c4 Nf6 2.Nc3 e6 3.d4 Bb4</code></td></tr>
+      <tr><td>Austin B vs 1.c4 English</td><td>A30</td><td><code>1.c4 Nf6 2.Nc3 e6 3.d4 Bb4</code> [Nimzo transpose]</td></tr>
     </tbody>
   </table>
 

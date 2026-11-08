@@ -86,9 +86,9 @@ Pranav plays **English Attack** (6.Be3) against Sicilian setups with 1...c5, 2..
 
 ### What Austin plays: Sicilian vs 1.e4
 
-Austin uses the Sicilian (specifically Taimanov-type: `1...c5 2...e6 3...Nc6 5...a6`) based on his game vs Zachary. Against Pranav's system:
+Austin uses the Sicilian (specifically Taimanov B47 Bastrikov: `1...c5 2...e6 3...Nc6 5...Qc7`) — his fixed Black repertoire vs 1.e4. Against Pranav's system:
 
-After `1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 a6`:
+After `1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7`:
 Pranav will play **6.Be3** (English Attack) — same system he used in WY R1 and R8.
 
 ### Recommended: Scheveningen setup vs English Attack
@@ -105,18 +105,6 @@ This is the **Taimanov/Kan vs English Attack** — Austin keeps the option of ei
 2. **Watch for f4-f5 pawn storm:** Pranav's English Attack includes f3+g4+f4-f5 ideas. Austin must be ready to counter with ...e5 (closing the f-file) or ...d5 (counterplay in the center).
 3. **Castle queenside when appropriate:** In Scheveningen structures vs English Attack, Black sometimes castles kingside with ...Be7/O-O and waits, or plays ...Rb8 and queenside counterplay. The key is not to get caught with the king stranded.
 
-### Alternative: Avoid English Attack entirely with ...g6 → Accelerated Dragon
-
-If Austin wants to avoid the English Attack preparation burden:
-```
-1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 g6
-```
-
-This forces **Maróczy Bind (5.c4)** from Pranav instead of English Attack. The Maróczy is a very different structure — White gets a strong c4-d4-e4 center but no quick kingside attack. Austin would build with ...Bg7 ...d6 ...Nf6 ...O-O, then aim for ...b6/...Nd7/...Nb8-a6-b4 (the standard anti-Maróczy maneuver).
-
-**Tradeoff:** The Maróczy is a slower, more strategic game — better for Austin if he wants to avoid sharp English Attack tactics. But Pranav has won both his Maróczy Bind games (AGCA Summer R5 and WY R11 vs Fadeev 2127), so he knows this structure well.
-
-**Recommendation:** Austin should probably stay with Taimanov (familiar to him) and prepare specifically for 6.Be3. The ...Qc7 move order is the cleanest way to handle it.
 
 ---
 

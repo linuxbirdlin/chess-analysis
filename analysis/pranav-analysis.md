@@ -1,7 +1,7 @@
 # Pranav Santhosh — Chess Analysis Report
 
 **Tournaments analyzed:** AGCA Summer 2026 (Austin TX) · World Youth Championship 2026 (Montesilvano ITA)  
-**Rating:** 1940 FIDE (consistent across both tournaments)  
+**Rating:** 1922 FIDE (Nov 2026; peaked 2003 Blue Ridge Sep 2026; was 1940 at time of this analysis)  
 **Total games reviewed:** 18 (7 AGCA Summer with concrete data; 11 World Youth)  
 **Note:** AGCA Fall 2026 file present but empty (no game data). AGCA Summer rounds 2, 3, 6, 7 ended with `*` result (live broadcast, incomplete capture); 4 concrete results available from that tournament.
 
@@ -129,7 +129,7 @@ Warning flag: Pranav, White, played an unusual 4.dxc5 against Sicilian (after 3.
 
 | Attribute | Detail |
 |---|---|
-| Rating | 1940 FIDE (stable) |
+| Rating | 1922 FIDE (Nov 2026; peaked 2003 Blue Ridge Sep 2026) |
 | White opening | 1.e4 exclusively |
 | vs Sicilian (White) | English Attack (Be3) or Maróczy Bind (c4) — choice depends on Black's structure |
 | vs 1...e5 (White) | Quiet Italian (Bc4 + d3/c3), no early sharp sacrifices |
