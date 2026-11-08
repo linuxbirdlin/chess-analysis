@@ -118,7 +118,7 @@ code { font-family: 'Courier New', monospace; font-size: 12px; background: #f0f0
   </div>
   <div class="stat-cell">
     <div class="num">3</div>
-    <div class="lbl">Consecutive K+P king blunders (Eric Jin)</div>
+    <div class="lbl">Consecutive king blunders (Eric Jin, bishop on c3)</div>
   </div>
 </div>
 
@@ -276,7 +276,7 @@ code { font-family: 'Courier New', monospace; font-size: 12px; background: #f0f0
 
 <div class="callout callout-purple">
   <strong>Eric Jin game — 3 consecutive decisive blunders, all missing Kxc3 (Canadian Open 2026)</strong>
-  Irene (Black) had her king on c4, adjacent to a White c3 pawn. The correct plan was <code>Kxc3!</code> — capture the pawn and use the king actively in the K+P endgame. Instead she pushed the b-pawn three consecutive times (52...b4, 53...b3, 54...b2), hoping the pawn would queen alone. The engine's verdict: decisive against her at +7.23, +10.54, +12.57. Eric Jin's king could not catch the b-pawn so Irene won anyway — but she found the wrong method.
+  Irene (Black) had her king on c4, adjacent to White's bishop on c3 (placed there at move 37.Bc3). The correct plan was <code>Kxc3!</code> — capture the bishop and use the king actively to escort the b-pawn. Instead she pushed the b-pawn three consecutive times (52...b4, 53...b3, 54...b2), hoping the pawn would queen alone. The engine's verdict: decisive against her at +7.23, +10.54, +12.57. Eric Jin's king could not catch the b-pawn so Irene won anyway — but she found the wrong method.
 </div>
 
 <h3>The triple blunder sequence (Canadian Open 2026, mv#52–54)</h3>
@@ -309,8 +309,8 @@ code { font-family: 'Courier New', monospace; font-size: 12px; background: #f0f0
 <p class="note" style="margin:8px 0">The eval bounced: Eric Jin blundered back each turn allowing Irene to continue winning (hence the eval recovery to +10.54 and +12.57). Both players missed the same motif for three consecutive moves. Irene won because Eric Jin finally ran out of moves — but the correct plan (king to c3, escorting the b-pawn) was never found. [Stockfish JSON — unverified]</p>
 
 <div class="callout callout-blue">
-  <strong>K+P principle Irene missed: king walks beat pawn races</strong>
-  When the king is adjacent to an enemy pawn and can capture it, the king walk (Kxc3) beats advancing your own pawn alone. The king then shepherds the b-pawn with opposition, controlling key squares along the queening path. Irene raced the b-pawn without king support — this is the most common K+P planning error at the 1800–2000 level.
+  <strong>King activation principle Irene missed: capture the piece, don't race pawns alone</strong>
+  When the king is adjacent to an enemy piece and can capture it, the king walk (Kxc3 — capturing the bishop) beats advancing your own pawn alone. The king then shepherds the b-pawn with opposition, controlling key squares along the queening path. Irene raced the b-pawn without king support — this is a common planning error at the 1800–2000 level.
 </div>
 
 <div class="callout callout-green">
