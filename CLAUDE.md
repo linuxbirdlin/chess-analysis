@@ -170,11 +170,15 @@ When a new opponent folder is added:
 
 ### Austin Lin
 - **Rating:** 1959 FIDE (Nov 2026; official tournament seed at 1914)
-- **White opening:** 1.e4 exclusively — Exchange Caro-Kann (4.Bd3), Advanced French (3.e5/3.Nd2), Rossolimo Sicilian (Bb5) and h4 systems
-- **Black opening:** Nimzo-Indian `Bxc3+` with `...b6/...Ba6` vs 1.d4; Sicilian vs 1.e4
+- **White opening:** 1.e4 exclusively — Exchange Caro-Kann (4.Bd3), Tarrasch French (3.Nd2 — NEVER 3.e5 Advance vs Fernando/prepared opponents), Rossolimo Sicilian (3.Bb5) and h4 systems
+- **Black opening vs 1.e4:** **Taimanov Sicilian ONLY** — `1...c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6`. NEVER 1...c6 (Caro-Kann). NEVER 1...e5. Do not suggest Najdorf (5...a6) or Kan (4...a6) as Austin's primary Black line.
+- **Black opening vs 1.d4:** Nimzo-Indian `Bxc3+` with `...b6/...Ba6/...Ne4` exclusively
+- **Black opening vs 1.c4/1.Nf3:** Nimzo-Indian transposition (2...e6 3...Bb4) or flexible setup; never 1...e5 as primary
 - **Style:** Tactical, combinational, sharp positions
 - **Strengths:** Knight sacrifices, IQP positions, Nimzo theory
 - **Weaknesses:** King safety on h-file, passive endgames, accuracy drop vs 2000+
+
+> **Agent rule — Austin as Black:** When writing any prep plan (matchup, GM battle plan, nightbefore, white/black HTMLs), Austin's Black repertoire is fixed: Taimanov Sicilian vs 1.e4, Nimzo-Indian vs 1.d4. Never write sections recommending Caro-Kann, Italian (1...e5), or Najdorf as Austin's line. If a file already has such a section, flag it for removal.
 
 ### Opponents (see individual {name}-analysis.md for full profiles)
 
