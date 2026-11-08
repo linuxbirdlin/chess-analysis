@@ -90,6 +90,10 @@ For Austin as Black:
 - Does the file cover the opponent's actual main White system?
 - Is there a concrete response to the opponent's best/sharpest White weapon (highest accuracy in JSON)?
 - Are there any lines in the opponent's dataset with 0 coverage in Austin's prep?
+- **Repertoire check (mandatory 🔴):** Austin's Black repertoire is fixed — flag any section that recommends a non-Taimanov Black line:
+  - vs 1.e4: **Taimanov Sicilian ONLY** (`1...c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6`). Flag and remove any "System B" (Caro-Kann 1...c6) or "System C" (Italian / 1...e5) sections.
+  - vs 1.d4: **Nimzo-Indian `Bxc3+`** with `...b6/...Ba6` only.
+  - Any file recommending Najdorf (5...a6), Kan (4...a6), Caro-Kann (1...c6), or 1...e5 as Austin's primary line is 🔴 Critical — remove or replace it.
 
 **Dimension 4 — Tactical and Psychological Accuracy**
 - Do the "critical moments" cited match actual data in the JSON (correct CPL, correct move, correct game)?
@@ -103,6 +107,7 @@ Compare all prep files for the opponent against each other:
 - Does the deep HTML cite the same accuracy numbers as the analysis.md?
 - Does the GM brief (`naycc2026-gm-brief.html`) tier classification match the rating gap?
 - Is the opponent correctly marked as in/out of Austin's field in all relevant files?
+- **Austin Black repertoire consistency:** Do ALL files (black.html, gm.html, nightbefore.html, matchup.html) agree on Taimanov Sicilian vs 1.e4 and Nimzo-Indian vs 1.d4? Flag any file that still shows Caro-Kann, 1...e5, Najdorf, or Kan as Austin's recommendation.
 
 **Dimension 6 — Missing Content Gaps**
 - Is there a cheat sheet (quick reference card) present in the White and Black matchup files?
@@ -205,6 +210,12 @@ Report: how many issues were found, how many implemented, which files changed.
 **Cite the game.** Every tactical claim, psychological note, and blunder pattern must cite a specific game (tournament + round, or game ID). Generic chess advice without citation is not preparation.
 
 **Verify positions via Lichess.** Never write or accept a FEN without checking it via the Lichess explorer API. See `/lichess-verify` for the exact calls. Hand-derived FENs have a track record of errors (impossible piece arrangements, wrong move counters) — Lichess is the ground truth.
+
+**Austin's Black repertoire is fixed.** Do not invent or suggest alternative Black openings for Austin. The rules are:
+- vs 1.e4 → Taimanov Sicilian (`1...c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6`) — no exceptions
+- vs 1.d4 → Nimzo-Indian `Bxc3+` with `...b6/...Ba6` — no exceptions
+- Caro-Kann (1...c6), 1...e5, Najdorf (5...a6), and Kan (4...a6) are NOT Austin's lines — remove them if found, never add them
+These rules are also encoded in `CLAUDE.md` → Austin Lin profile.
 
 ---
 
