@@ -86,7 +86,7 @@ a { color: var(--blue); }
 
 <div class="callout callout-gold" style="margin-top:14px">
   <strong>The one-sentence brief</strong>
-  Fernando's primary weakness is <strong>R/Q piece placement in near-equal positions</strong> — he moves rooks to plausible-looking squares and misses pawn advances or the correct piece entirely (3/4 appearances ended in losses), and Austin can trigger this by playing the <strong>Advanced French (3.e5)</strong> as White to create sustained long-duration pressure where this pattern fires.
+  Fernando's primary weakness is <strong>R/Q piece placement in near-equal positions</strong> — he moves rooks to plausible-looking squares and misses pawn advances or the correct piece entirely (3/4 appearances ended in losses), and Austin can trigger this by playing the <strong>Tarrasch French (3.Nd2)</strong> as White to create sustained long-duration pressure in structures Fernando has never analyzed.
 </div>
 
 <div class="callout callout-danger">
@@ -101,7 +101,7 @@ a { color: var(--blue); }
 <div class="schedule-box">
   <div class="sch-time">0:00–0:45</div>
   <div class="sch-body"><strong>Opening prep — both colors (45 min)</strong><br>
-    If White: Advanced French (3.e5!) through move 12. Critical: do NOT play French Exchange (3.exd5) — Fernando scores 96.3% in Exchange French as Black. The Advanced (3.e5) is his worst French structure in the dataset.<br>
+    If White: Tarrasch French (3.Nd2) through move 12. NEVER 3.e5 Advance — Fernando beat FM Martinez (1904) in this exact line (Olimpia R4, C02). NEVER 3.exd5 Exchange — Fernando scores 94.9% in Exchange French as Black. The Tarrasch is Fernando's blind spot: zero games in 37 analyzed.<br>
     If Black vs 1.e4: Sicilian. Aim for complex middlegame — Fernando's White accuracy (91.9%) is lower than his Black (93.6%).<br>
     If Black vs 1.c4/1.Nf3: Know your system through move 8.
   </div>
@@ -133,40 +133,47 @@ a { color: var(--blue); }
 
 <hr>
 
-<h2>Part A — Austin as White: Advanced French (Never Exchange)</h2>
+<h2>Part A — Austin as White: Tarrasch French (Never Advance, Never Exchange)</h2>
 
 <div class="callout callout-danger">
+  <strong>NEVER play 3.e5 (Advanced French)</strong>
+  Fernando beat FM Martinez Flores (1904) in this exact line (Olimpia R4, C02, 90.3% accuracy). His Advance preparation is confirmed at FM level — do not walk into his best-prepared French structure.<br><br>
   <strong>NEVER play 3.exd5 (French Exchange)</strong>
-  Fernando scores 96.3% avg as Black in Exchange French (C01) — 1W + 1D in the dataset.
+  Fernando scores 94.9% avg as Black in Exchange French (C01) — 1 win, PAM R3 72-move technical endgame.
   Symmetric pawn structure = Fernando's technical comfort zone. Do not give him this.
 </div>
 
-<h3>The weapon: Advanced French (3.e5)</h3>
+<h3>The weapon: Tarrasch French (3.Nd2)</h3>
 
 <div class="move-line">
   <span class="mv-a">1.e4</span> <span class="mv-z">e6</span>
   <span class="mv-a">2.d4</span> <span class="mv-z">d5</span>
-  <span class="key-move">3.e5!</span> <span class="note">— Advanced French. Fernando's worst French structure in the dataset (C02, 89.2%).</span><br>
-  <span class="mv-z">3…c5</span> <span class="note">(primary — main Advance line)</span><br>
-  <span class="mv-a">4.c3</span> <span class="mv-z">Nc6</span>
-  <span class="mv-a">5.Nf3</span> <span class="mv-z">Qb6</span>
-  <span class="key-move">6.Be2</span> <span class="note">— Classical; or 6.a3 (Milner-Barry gambit)</span><br>
-  <span class="mv-z">3…Nc6</span> <span class="note">(alternative — Nimzowitsch 3...Nc6)</span><br>
-  <span class="mv-a">4.Nf3</span> <span class="mv-z">Qb6</span>
-  <span class="mv-a">5.Be2</span>
+  <span class="key-move">3.Nd2!</span> <span class="note">— Tarrasch French. Fernando has ZERO games in this structure (0/37 analyzed).</span><br>
+  <span class="mv-z">3…Nf6</span> <span class="note">(primary — classical Tarrasch)</span><br>
+  <span class="mv-a">4.e5</span> <span class="mv-z">Nfd7</span>
+  <span class="mv-a">5.Bd3</span> <span class="mv-z">c5</span>
+  <span class="key-move">6.c3</span> <span class="note">— Tarrasch tabiya, IQP or closed-center structures ahead</span><br>
+  <span class="mv-z">3…c5</span> <span class="note">(alternative — early c5 Tarrasch)</span><br>
+  <span class="mv-a">4.exd5</span> <span class="mv-z">exd5</span>
+  <span class="mv-a">5.Ngf3</span> <span class="note">— IQP tabiya, Austin's home territory</span>
 </div>
 
 <table>
   <tr><th>If Fernando plays…</th><th>Austin responds…</th><th>Key idea</th></tr>
   <tr class="row-safe">
-    <td>3…c5 4…cxd4 5…Bd7 (main Advance)</td>
-    <td>5.Nf3 Bb5 6.a3 Bxc3+ 7.bxc3 — keep pawns closed</td>
-    <td>Closed center = long-duration pressure, Austin's goal</td>
+    <td>3…Nf6 4.e5 Nfd7 5.Bd3 c5 (main Tarrasch)</td>
+    <td>6.c3 Nc6 7.Ne2 cxd4 8.cxd4 — IQP structure</td>
+    <td>IQP = long-duration pressure, Pattern G fires here</td>
+  </tr>
+  <tr class="row-safe">
+    <td>3…c5 (early c5)</td>
+    <td>4.exd5 exd5 5.Ngf3 Nc6 6.Bb5 — pin Knight</td>
+    <td>Symmetrical but Austin knows this structure cold from Austin-analysis.md</td>
   </tr>
   <tr class="row-warn">
-    <td>Fernando tries early …f6 (undermining)</td>
-    <td>6.Be2 fxe5 7.dxe5 — recapture, keep e5 pawn strong</td>
-    <td>e5 pawn is the anchor of White's space advantage</td>
+    <td>Fernando tries …f6 (undermining the center)</td>
+    <td>Maintain the d4-e5 center — do NOT exchange on f6</td>
+    <td>Premature exchange on f6 gives Black the e5 square for free</td>
   </tr>
   <tr class="row-safe">
     <td>Fernando offers queen exchange</td>
@@ -174,9 +181,9 @@ a { color: var(--blue); }
     <td>His Pattern G fires in complex piece middlegames, not endgames</td>
   </tr>
   <tr class="row-danger">
-    <td>Any 3.exd5 idea by Austin</td>
-    <td>DO NOT. Stay in Advanced at all costs.</td>
-    <td>Fernando's best French structure (96.3%)</td>
+    <td>Any 3.exd5 or 3.e5 idea by Austin</td>
+    <td>DO NOT. Stay in Tarrasch at all costs.</td>
+    <td>3.exd5 = Fernando's best French (94.9%); 3.e5 = FM-level Advance prep</td>
   </tr>
   <tr>
     <td>Fernando plays 1…c5 (Sicilian vs 1.e4)</td>
@@ -186,8 +193,8 @@ a { color: var(--blue); }
 </table>
 
 <div class="callout callout-blue">
-  <strong>Why Advanced French creates the Pattern G conditions</strong>
-  The Advanced French produces a closed center with long-term tension on both flanks (queenside c5-c4 vs kingside g4-g5 plans). These are exactly the positions where Fernando has to choose between "improving a rook to an active file" and "pushing the correct pawn." In Queretaro R6, three consecutive rook moves to the h-file (Re2, Rf2, Rh2) when g6 was correct — this happened in a Reti/English structure. The Advanced French creates the same type of problem on the kingside.
+  <strong>Why Tarrasch French creates the Pattern G conditions</strong>
+  The Tarrasch French (3.Nd2) produces IQP positions and closed-center structures Fernando has never analyzed — 0 Tarrasch games in 37 deep-analyzed games. These unfamiliar positions force Fernando to choose between "improving a rook to an active file" and "pushing the correct pawn" without preparation behind him. In Queretaro R6, three consecutive rook moves to the h-file (Re2, Rf2, Rh2) when g6 was correct — this happened in a position Fernando had not prepared. The Tarrasch creates the same forcing problem with zero of his preparation to fall back on.
 </div>
 
 <hr>
@@ -346,7 +353,7 @@ a { color: var(--blue); }
 <h2>Part D — Day-of Checklist</h2>
 
 <ul class="checklist">
-  <li>Play Advanced French (3.e5!) as White — NEVER 3.exd5 (Fernando's best French structure)</li>
+  <li>Play Tarrasch French (3.Nd2) as White — NEVER 3.e5 Advance (Fernando beat FM Martinez in this line) — NEVER 3.exd5 Exchange (Fernando scores 94.9% in this structure)</li>
   <li>In the French: keep queens on, maintain tension — avoid early piece trades that let Fernando simplify to his technical game</li>
   <li>As Black: play for complex middlegames — Fernando's White accuracy (91.9%) is below his Black; press from the opening</li>
   <li>When the position looks "equal but slightly unclear": watch for Fernando to improve a rook — ask "is there a pawn push that beats this rook move?" This is his specific blind spot</li>
