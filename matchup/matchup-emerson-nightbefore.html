@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tonight's Prep: Austin vs Johnson, Emerson</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2; --purple: #5a1a8b;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg); }
+h1 { font-size: 1.55em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.1em; margin: 26px 0 10px; border-left: 5px solid var(--blue);
+  padding-left: 10px; background: #f0f4ff; padding: 6px 10px; }
+h3 { font-size: 0.95em; margin: 14px 0 6px; color: #333; font-weight: bold; }
+.subtitle { font-size: 0.84em; color: #666; margin-bottom: 18px; }
+.subtitle span { margin-right: 16px; }
+
+.callout { border-radius: 5px; padding: 11px 14px; margin: 10px 0; font-size: 0.9em; line-height: 1.6; }
+.callout-gold { background: #fffbf0; border-left: 4px solid var(--gold); }
+.callout-danger { background: #fdf0f0; border-left: 4px solid var(--red); }
+.callout-blue { background: #f0f4ff; border-left: 4px solid var(--blue); }
+.callout-green { background: #f0fdf0; border-left: 4px solid var(--green); }
+.callout strong { display: block; margin-bottom: 3px; }
+
+.move-line { font-family: 'Courier New', monospace; font-size: 13px;
+  background: #fff; border: 1px solid #ddd; border-radius: 5px;
+  padding: 10px 14px; margin: 8px 0; line-height: 2.1; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: var(--gold); color: #fff; padding: 1px 6px;
+  border-radius: 3px; font-weight: bold; }
+.danger-move { background: var(--red); color: #fff; padding: 1px 6px;
+  border-radius: 3px; font-weight: bold; }
+.note { font-size: 0.82em; color: #555; font-family: Georgia, serif; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.87em; margin: 10px 0; }
+th { background: #2a3f6b; color: #fff; padding: 7px 9px; text-align: left; }
+td { padding: 6px 9px; border: 1px solid #ddd; vertical-align: top; }
+tr:nth-child(even) { background: #f5f5f5; }
+.row-danger { background: #fdeaea !important; }
+.row-safe { background: #edfdf3 !important; }
+.row-warn { background: #fffbe8 !important; }
+
+.schedule-box { display: grid; grid-template-columns: 80px 1fr; gap: 0; margin: 12px 0; border: 1px solid #bbc; border-radius: 5px; overflow: hidden; }
+.sch-time { background: #2a3f6b; color: #fff; font-weight: bold; font-size: 0.9em;
+  padding: 10px 8px; text-align: center; display: flex; align-items: center; justify-content: center; }
+.sch-body { padding: 10px 14px; background: #fff; font-size: 0.9em; line-height: 1.5; }
+.sch-body strong { color: var(--blue); }
+
+.checklist { list-style: none; padding: 0; }
+.checklist li { padding: 6px 0 6px 28px; border-bottom: 1px solid #eee; position: relative; font-size: 0.9em; }
+.checklist li::before { content: "☐"; position: absolute; left: 0; font-size: 1.1em; color: #888; }
+
+hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
+a { color: var(--blue); }
+.back-link { font-size: 0.82em; color: var(--blue); text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+
+@media print {
+  .schedule-box { break-inside: avoid; }
+  h2 { break-before: auto; }
+}
+</style>
+</head>
+<body>
+
+<h1>Tonight's Battle Plan: Austin vs Johnson, Emerson</h1>
+<div class="subtitle">
+  <span><strong>Emerson Johnson</strong> · 1909 FIDE / ~2078 US Chess (Nov 2026) · Texas · technical endgame specialist</span>
+  <span>Austin: 1959 FIDE · Austin is <strong>+50 FIDE favorite</strong></span>
+  <span>Direct record: No prior encounter</span>
+  <span>Format: NAYCC 2026 · 90+30 classical</span>
+</div>
+<a class="back-link" href="../austin-prep.html">← Prep Index</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-emerson-gm.html">Full GM Battle Plan</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-emerson-deep.html">Engine Analysis</a>
+
+<div class="callout callout-gold" style="margin-top:14px">
+  <strong>The two-word brief</strong>
+  Austin's two concrete preparation edges: (1) <strong>Exchange Caro-Kann 4.Bd3 as White</strong> — Emerson's Caro-Kann record as Black is 1W–6L–2D (catastrophic); zero documented games in B13. (2) <strong>2...e6 Taimanov as Black</strong> — this single move permanently prevents Emerson's Rossolimo (B52/B51/B31), his entire anti-Sicilian system. Both edges are structural preparation advantages — not luck-dependent.
+</div>
+
+<div class="callout callout-danger">
+  <strong>Critical context: Emerson is a genuine endgame specialist</strong>
+  He drew a 193-move game at 98.3% and beat WIM Chumpitaz (2358) in 127 moves. Austin <em>cannot</em> allow simplification into technical endgames — Emerson converts those against anyone. The win must come in the middlegame. But Emerson also lost to a 1597-rated player from +0.00 in one Rg5 move. The same overextension will come in a complex middlegame — Austin must keep the position imbalanced and stay alert.
+</div>
+
+<hr>
+
+<h2>Tonight's 2-Hour Schedule</h2>
+
+<div class="schedule-box">
+  <div class="sch-time">0:00–0:45</div>
+  <div class="sch-body"><strong>Exchange Caro-Kann prep as White — know it cold through move 12 (45 min)</strong><br>
+    Core line: <code>1.e4 c6 2.d4 d5 3.exd5 cxd5 4.Bd3 Nc6 5.c3 Nf6 6.Bf4 Bg4 7.Qb3</code> — double threat on b7 and d5.<br>
+    After 7...Qd7: 8.Nd2 e6 9.Ngf3 Be7 10.O-O O-O 11.Ne5 Bxe5 12.Bxe5 — Ne5 outpost.<br>
+    After 7...Na5: 8.Qa4+ Bd7 9.Qxa5 b6 10.Qe1 — collect material, maintain structure.<br>
+    Key principle: <strong>NEVER trade queens early</strong>. Emerson's specialty is 193-move technical endgames. Keep queens on board at all costs.<br>
+    Also review: Greek Gift Bxh7+ sacrificial pattern in Exchange Caro-Kann (already executed Oct 2026 vs Sergey + Larry Chen).
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">0:45–1:25</div>
+  <div class="sch-body"><strong>Taimanov prep as Black — drill the critical move orders (40 min)</strong><br>
+    <strong>THE most important Black move: 2...e6 (NEVER 2...Nc6).</strong> If Austin plays 2...Nc6, Emerson plays 3.Bb5+ Rossolimo — his best documented White system (127-move win vs WIM Chumpitaz 2358 at 95.9%). The 2...e6 move-order makes Rossolimo impossible and forces Emerson into Open Sicilian (zero documented games).<br>
+    Drill the main B47 Bastrikov line: <code>1.e4 c5 2.Nf3 e6! 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7</code>.<br>
+    Know all three White responses: 6.Be3 (English Attack) → a6 7.Bd3 Nf6 8.0-0 d6; 6.Be2 (classical) → a6 7.0-0 Nf6; 6.g3 (fianchetto) → a6 7.Bg2 Nf6.<br>
+    In all three: plan is ...a6 → ...b5 queenside expansion + ...d6/...Be7/...0-0.<br>
+    If Emerson plays 3.Bb5+ (Moscow): 3...Nc6 4.0-0 d6 5.Re1 Nf6 — normal structure (NOT his B52 prep).
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">1:25–1:50</div>
+  <div class="sch-body"><strong>Endgame awareness + Emerson error patterns (25 min)</strong><br>
+    Review Emerson's two Ruy Lopez collapses: Rg5 (CPL 581, +0.00→−6.04 vs Vinayagaram 1597) and Kxg5 (CPL 355, +0.00→−3.49 vs Anandh 2158). Both from +0.00 in equal endgames — a piece moved to an "active" square that was actually decisive. This pattern will recur.<br>
+    Drill: 3 Philidor position exercises (draw defense with rook) and 2 Lucena position exercises. Know both cold — if the game reaches an endgame despite best efforts, be prepared.<br>
+    Do NOT drill R+B vs R technical conversions — that is Emerson's strength, not Austin's territory.
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">1:50–2:00</div>
+  <div class="sch-body"><strong>Mental visualization (10 min)</strong><br>
+    Picture: Emerson plays 1.e4. Austin plays 1...c5 2...e6! (Taimanov). Emerson's Rossolimo is gone. He plays 3.d4 — territory where he has zero documented games. Austin is in well-prepared B47 Bastrikov ground. One player knows this structure; the other is improvising.<br>
+    Then: equal game at move 30 — Emerson has +0.00. Against Vinayagaram (1597), he played Rg5 from +0.00 and lost in one move. That can happen against Austin too. Equal position = opportunity, not safety. Stay alert.
+  </div>
+</div>
+
+<hr>
+
+<h2>Part A — Austin as White: Exchange Caro-Kann</h2>
+
+<h3>What Emerson plays as Black</h3>
+<p>Emerson's <strong>Caro-Kann record: 1W–6L–2D</strong> — his worst Black opening by far. Against all competition, including players rated below him, he loses in Caro-Kann positions. Austin plays Exchange Caro-Kann (4.Bd3) — the exact system Austin already uses and one Emerson has ZERO documented games in as Black.</p>
+
+<h3>Core line to know</h3>
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 c6 2.d4 d5 3.exd5 cxd5
+  <span class="key-move">4.Bd3!</span> Nc6 5.c3 Nf6
+  <span class="key-move">6.Bf4</span> Bg4 <span class="key-move">7.Qb3!</span>
+  <span class="note"> — Double threat: b7 pawn and d5 pawn simultaneously. Emerson cannot defend both.</span>
+</div>
+
+<div class="callout callout-danger">
+  <strong>NEVER trade queens early.</strong> Emerson drew a 193-move game at 98.3%. His technical endgame skill is elite. Queen trades lead directly to his comfort zone. Keep queens on board and fight for the middlegame.
+</div>
+
+<h3>Weapon choices as White</h3>
+<table>
+  <thead><tr><th>If Emerson plays…</th><th>Austin plays…</th><th>Key idea</th></tr></thead>
+  <tbody>
+  <tr class="row-safe"><td>1...c6 (Caro-Kann)</td><td>2.d4 d5 3.exd5! cxd5 <strong>4.Bd3!</strong></td><td>Exchange CK — Emerson 1W–6L–2D, zero B13 games. Best structural edge.</td></tr>
+  <tr><td>4...Nc6 5.c3 Nf6 then Bg4</td><td><strong>7.Qb3!</strong> (after 6.Bf4 Bg4)</td><td>Double attack b7+d5; creates immediate tactical problem</td></tr>
+  <tr><td>4...Bf5 early</td><td><strong>5.Bxf5!</strong> exf5 — isolated f5 pawn</td><td>f5 pawn permanent weakness; Qb3 follows</td></tr>
+  <tr class="row-warn"><td>1...e6 (French — possible)</td><td>2.d4 d5 <strong>3.Nd2</strong> (Tarrasch)</td><td>NEVER 3.e5 (Advanced French). Always Tarrasch 3.Nd2.</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>Part B — Austin as Black: Taimanov Sicilian (2...e6)</h2>
+
+<h3>The single most important choice</h3>
+
+<div class="callout callout-danger">
+  <strong>NEVER play 2...Nc6. ALWAYS play 2...e6.</strong><br>
+  After 2...Nc6, Emerson plays 3.Bb5+ (Rossolimo) — his documented anti-Sicilian system that produced a 127-move win vs WIM Chumpitaz (2358). The 2...e6 move order makes the Rossolimo impossible: no Nc6 on the board for the bishop to attack. This forces Emerson into Open Sicilian (3.d4) where he has zero documented games.
+</div>
+
+<h3>Main Taimanov line</h3>
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 c5 2.Nf3 <span class="key-move">e6!</span>
+  3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 <span class="key-move">Qc7!</span> [B47 Bastrikov]
+  If 6.Be3: a6 7.Bd3 Nf6 8.O-O d6 9.f4 Be7 → <span class="key-move">...b5!</span>
+  <span class="note"> — Plan: ...a6 → ...b5 queenside counterplay before f4-f5 kingside push.</span>
+</div>
+
+<h3>Weapon choices as Black</h3>
+<table>
+  <thead><tr><th>If Emerson plays…</th><th>Austin plays…</th><th>Key idea</th></tr></thead>
+  <tbody>
+  <tr class="row-safe"><td>3.d4 cxd4 4.Nxd4 Nc6 5.Nc3</td><td><strong>5...Qc7!</strong> (B47 Bastrikov)</td><td>Austin's primary Taimanov weapon. Emerson has zero Open Sicilian games. Prep advantage is total.</td></tr>
+  <tr><td>6.Be3 (English Attack)</td><td>a6 7.Bd3 Nf6 8.O-O d6 9.f4 Be7 → <strong>...b5!</strong></td><td>Queenside counterplay before f4-f5 kingside push.</td></tr>
+  <tr><td>6.Be2 (classical)</td><td>a6 7.O-O Nf6 8.Be3 Be7 → normal development</td><td>Slower White setup — comfortable Taimanov build.</td></tr>
+  <tr><td>6.g3 (fianchetto)</td><td>a6 7.Bg2 Nf6 8.O-O Be7 → ...b5 plan</td><td>Fianchetto is slow — Black expands freely.</td></tr>
+  <tr class="row-warn"><td>3.Bb5+ (Moscow check)</td><td>3...Nc6 4.O-O d6 5.Re1 Nf6</td><td>NOT his B52 Rossolimo. Different move order — Emerson's B52 prep doesn't apply.</td></tr>
+  <tr class="row-danger"><td>DANGER: 2...Nc6 allowed</td><td>3.Bb5+ Rossolimo — Emerson's best</td><td>NEVER PLAY 2...Nc6. This is the only way Emerson enters his prepared territory.</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>Day-of Checklist</h2>
+
+<ul class="checklist">
+  <li>As White: Exchange CK line 1.e4 c6 2.d4 d5 3.exd5 cxd5 4.Bd3 Nc6 5.c3 Nf6 6.Bf4 Bg4 7.Qb3 — know through move 12</li>
+  <li>As White: NEVER trade queens early — Emerson's endgame depth is elite</li>
+  <li>As Black: Play 2...e6 (Taimanov) — NEVER 2...Nc6</li>
+  <li>As Black: After 3.d4 Nc6 5.Nc3 — play Qc7 (Bastrikov), not a6/Nf6</li>
+  <li>As Black: Know all three 6th-move branches — Be3 (English Attack), Be2 (classical), g3 (fianchetto)</li>
+  <li>Endgame: Know Philidor position cold (rook defense draw); know Lucena position cold (winning conversion)</li>
+  <li>Mental frame: Equal position at move 30 is NOT a draw — Emerson dropped from +0.00 to −6.04 in one move vs a 1597-rated player. Keep fighting. Watch for the overextension.</li>
+</ul>
+
+<hr>
+
+<h2>Critical Warning Signs</h2>
+
+<table>
+  <thead><tr><th>Pattern</th><th>When it happens</th><th>What it means</th></tr></thead>
+  <tbody>
+  <tr class="row-danger"><td>Emerson's Rg5 / king walk</td><td>Equal endgame, Emerson plays active-looking rook/king move</td><td>CPL 581 from +0.00 happened once. If he plays a rook to an exposed square — calculate forcing responses immediately.</td></tr>
+  <tr class="row-warn"><td>Emerson's h4 / pawn push</td><td>Emerson advances kingside pawns without calculating forcing sequences</td><td>He walked into forced mate with h4 vs 1921-rated opponent. Any pawn advance toward Austin's king should trigger a forcing-line check.</td></tr>
+  <tr class="row-safe"><td>Emerson reaching R+B vs R endgame</td><td>Material simplification into rook endgame with extra minor piece</td><td>His specialty — the 127-move WIM win was exactly this. AVOID this endgame structure entirely.</td></tr>
+  </tbody>
+</table>
+
+<hr>
+<p style="font-size:0.82em;color:#888;margin-top:16px;">
+  <a class="back-link" href="../austin-prep.html">← Preparation Index</a> &nbsp;|&nbsp;
+  <a class="back-link" href="matchup-emerson.html">Matchup Overview</a> &nbsp;|&nbsp;
+  <a class="back-link" href="matchup-emerson-white.html">Austin as White</a> &nbsp;|&nbsp;
+  <a class="back-link" href="matchup-emerson-black.html">Austin as Black</a> &nbsp;|&nbsp;
+  <a class="back-link" href="matchup-emerson-gm.html">GM Battle Plan</a>
+</p>
+
+</body>
+</html>
