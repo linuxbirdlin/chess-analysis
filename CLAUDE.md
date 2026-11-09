@@ -180,6 +180,55 @@ When a new opponent folder is added:
 
 > **Agent rule — Austin as Black:** When writing any prep plan (matchup, GM battle plan, nightbefore, white/black HTMLs), Austin's Black repertoire is fixed: Taimanov Sicilian vs 1.e4, Nimzo-Indian vs 1.d4. Never write sections recommending Caro-Kann, Italian (1...e5), or Najdorf as Austin's line. If a file already has such a section, flag it for removal.
 
+### Austin Lin — 2026 Opening Repertoire (Detailed Reference)
+
+*Source: PAM 2026 (Jul 2026, 7 OTB games) + personal study Jul–Oct 2026 (33 games). NAYCC 2025 data excluded — repertoire shifted between seasons. Use this section when writing any matchup prep, novelty suggestions, or opening-specific drills for Austin.*
+
+#### As White — 1.e4 exclusively
+
+**DOES:**
+
+| Opponent System | Austin's Weapon | Key Line | 2026 Evidence |
+|---|---|---|---|
+| Caro-Kann (1...c6) | Exchange CK `4.Bd3` | `1.e4 c6 2.d4 d5 3.exd5 cxd5 4.Bd3` | PAM R3 win (17 moves); PAM R8 draw; study ×3. Bxh7+ Greek Gift executed Oct 2026 vs Sergey + Larry Chen. |
+| French (1...e6) | Tarrasch `3.Nd2` | `1.e4 e6 2.d4 d5 3.Nd2` | PAM R6 win vs 1694; study wins vs Shon Lazarev (C04), Edison Wang (C07), Rudra Sheth (C07). Replaced Advanced (3.e5) from 2025. |
+| Sicilian 2...Nc6 | Rossolimo `3.Bb5` | `1.e4 c5 2.Nf3 Nc6 3.Bb5` | Primary Sicilian weapon. Exchange Rossolimo (4.Bxc6 dxc6 5.d3) + h4! deviation used in matchup prep. |
+| Sicilian (other) | h4 storm / Maróczy | `1.e4 c5 2.Nf3 … h4-h5` | Study vs Sean Liu (B41 Maróczy). Commit h4-h5 ONLY when Black cannot block with …h6 and you have a piece to follow up immediately. |
+| Open Game (1...e5) | Italian `3.Bc4` | `1.e4 e5 2.Nf3 Nc6 3.Bc4` | C54 Italian Classical used in study games (vs Heye Gao). NOT Ruy Lopez. |
+
+**DOES NOT as White:**
+- NOT 1.d4 / 1.c4 / 1.Nf3 as first move
+- NOT **Advanced French (3.e5)** — abandoned after 2025; always use Tarrasch (3.Nd2) from 2026 forward
+- NOT Exchange French (3.exd5 exd5)
+- NOT Ruy Lopez (3.Bb5) vs 1...e5 — use Italian 3.Bc4 instead
+- NOT Four Knights or closed systems vs 1...e5
+- NOT Sicilian Open (2.Nf3 3.d4) — uses Rossolimo (3.Bb5) instead
+
+#### As Black — fixed repertoire, never deviate
+
+**DOES:**
+
+| White's first move | Austin's system | Key line | 2026 Evidence |
+|---|---|---|---|
+| 1.e4 | **Taimanov Sicilian ONLY** (B47 Bastrikov) | `1...c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7` | PAM R4 (draw vs 2069), PAM R7 (critical game — won theory fixed), study ×6+. |
+| 1.d4 + 2.c4 + 3.Nc3 | **Nimzo-Indian Bxc3+** | `1...Nf6 2...e6 3...Bb4 Bxc3+` with `...b6/...Ba6/...Ne4` | Study wins vs Laksshana Deepak (E46), Aaryan Kovuru (E01). |
+| 1.c4 / 1.Nf3 | Nimzo transposition or QI-adjacent | `1...Nf6 2...e6 3...Bb4` when Nc3 appears; `3...d5` vs Nimzo-Larsen (b3 Bb2) | Oct 2026 draw vs Sriram Sarja on the Nimzo-Larsen — `3...d5` structure confirmed. |
+
+**DOES NOT as Black:**
+- NEVER 1...c6 (Caro-Kann) vs 1.e4
+- NEVER 1...e5 vs 1.e4
+- NEVER 5...a6 (Najdorf) as primary line
+- NEVER 4...a6 (Kan) as primary line
+- NEVER King's Indian Defence (`1...Nf6 2...g6 3...Bg7`) vs 1.d4
+- NEVER passive QGD (1...d5 2...e6 without ...Bb4 Nimzo commitment) vs 1.d4 + Nc3
+
+#### Critical must-know rule (B45 Taimanov — 6.Ndb5 line)
+
+After `1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Nc6 6.Ndb5`:
+- ✅ **CORRECT: `6...d6!`** — then 7.Bf4 Nf6 8.Bg5 etc., Black has a normal game
+- ❌ **WRONG: `6...Bc5??`** — allows `7.Bf4 O-O 8.Bc7! Qe7 9.Bd6 Bxd6 10.Qxd6` bishop trap; game effectively over at move 10
+- *Source: PAM 2026 R7 vs Fernandez Herrera (2137) — catastrophic loss from this error*
+
 ### Opponents (see individual {name}-analysis.md for full profiles)
 
 | Opponent | Rating | White | Black | Direct record |
