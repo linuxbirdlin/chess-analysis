@@ -89,9 +89,7 @@ Leo plays the French in 100% of recorded 1.e4 games. Queretaro 2026 provides the
 - **KIA/Irregular (2.d3):** When White avoided mainlines, Leo played solid French setup and drew vs Rodriguez Rivera (2136), C00, with 94.8% accuracy.
 - **Exchange French (3.exd5):** Comfortable — won vs Cruz Vargas (1648) in 134 moves.
 
-**CRITICAL FOR AUSTIN:** Austin plays 1.e4 exclusively and his repertoire includes both Advanced French (3.e5) and Tarrasch (3.Nd2). Leo is deeply prepared in **both** lines as Black. The specific variations to watch:
-- vs 3.e5: Leo plays 3...c5 4.c3 Qa5 — Austin must know the 4.c3 Qa5 5.Nf3 Bd7 6.Be2 Nc6 theory cold
-- vs 3.Nd2: Leo plays 3...c5 4.exd5 Qxd5 — Austin must avoid simplifications; this equalizes quickly
+**CRITICAL FOR AUSTIN:** Austin plays 1.e4 exclusively and his **2026 system is Tarrasch (3.Nd2) ONLY** — Advanced French (3.e5) was abandoned after 2025. Leo's best result in the dataset came precisely from the Chistyakov (96.2% accuracy, Queretaro R7 win), so Austin must know the Tarrasch deeply. Verified correct White response after 3...c5 4.exd5 Qxd5: **5.Ngf3** (Lichess masters: 99% of games), then 5...cxd4 6.Bc4 Qd6 7.0-0 — White has active play and Leo cannot avoid piece activity.
 
 **vs 1.d4 (Dutch-type structure):**
 In Am Continental data, Leo plays 1...e6 2...f5 Dutch setup (0W–3L–2D). However, in Queretaro R2 vs Del Rosario Silva (1.Nf3 d5 2.d4 Nf6), Leo played **1...d5 2...Nf6 3...e6 4...Bb4+ Bogo-Indian** and won (87.4%, vs 2125). This may reflect flexibility depending on opponent's move order.

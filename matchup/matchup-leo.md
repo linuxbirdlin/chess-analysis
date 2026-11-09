@@ -22,33 +22,32 @@ Leo plays **French Defense (1...e6)** in 100% of recorded games vs 1.e4. He is c
 
 - **Advance French (3.e5):** Leo plays the standard ...c5 break. Seen in NA U20 R4 vs Fogo Esquivel (2190), where Leo maintained the structure before losing in 113 moves.
 - **Exchange French (3.exd5 exd5):** Leo is comfortable in the symmetrical structure. He won vs Cruz Vargas (1648) in 134 moves from this structure as Black — patient endgame technique.
-- **Tarrasch (3.Nd2) — WARNING:** Leo plays **3...c5 4.exd5 Qxd5 (Chistyakov, C07)** — confirmed Queretaro R7 where he WON with **96.2% accuracy** (his best result in the dataset). Do NOT play 3.Nd2 vs Leo — this hands him his best-prepared Black line.
+- **Tarrasch (3.Nd2) — Chistyakov (C07):** Leo plays **3...c5 4.exd5 Qxd5** — confirmed Queretaro R7 where he WON with **96.2% accuracy** (his best result). Austin must know the Tarrasch deeply — this is Austin's 2026 weapon. See Chistyakov line below.
 
 ### Opening recommendation
 
-**Play Advance French (3.e5) ONLY — NOT Tarrasch (3.Nd2) — NOT Exchange (3.exd5).**
+**Play Tarrasch (3.Nd2) — Austin's 2026 system. NOT Advance (3.e5, abandoned after 2025). NOT Exchange (3.exd5).**
 
 The Exchange French leads to symmetrical, drawish endgame positions — exactly where Leo thrives (he won a 134-move game in this structure). Austin's tactical style is poorly suited to those positions.
 
-Against Advance (3.e5):
+Against Tarrasch (3.Nd2) — Chistyakov primary line:
 
 ```
-1.e4 e6 2.d4 d5 3.e5 c5 4.c3 Nc6 5.Nf3 (or 5.Nd2)
+1.e4 e6 2.d4 d5 3.Nd2 c5 4.exd5 Qxd5 5.Ngf3 cxd4 6.Bc4 Qd6 7.0-0
 ```
 
-Key plan for Austin:
-- Maintain the e5 chain — do not release tension prematurely
-- Develop with Bd3, 0-0, Re1 and prepare f4-f5 kingside advance
-- Watch for Leo's ...Qb6 (pressure on d4 and b2) — a standard French resource
-- After 5.Nf3 Qb6 6.a3 Nh6 7.b4 cxb4 8.axb4 — White keeps kingside edge
+After 4.exd5 Qxd5, Austin must play **5.Ngf3** (Lichess masters: 99% of games — NOT 5.Ndf3). After 5...cxd4 6.Bc4 Qd6 7.0-0, White has active piece play and Leo cannot avoid the complications. Key:
+- White gets the Bc4 pointing at f7, castled king, and fast development
+- Leo's queen has moved twice by move 5 — concrete compensation needed
+- 7.0-0 Nf6 8.Nb3 or 8.Re1 — pressure on f7 before Leo consolidates
 
-Against Tarrasch (3.Nd2):
+Against Tarrasch (3.Nd2) — 3...Nf6 alternate line:
 
 ```
-1.e4 e6 2.d4 d5 3.Nd2 Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 7.Ndf3
+1.e4 e6 2.d4 d5 3.Nd2 Nf6 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 7.Ngf3
 ```
 
-Leo's response: likely 3...Nf6 (blocking the c5 push) or 3...c5 (Tarrasch counter-gambit).
+Standard Tarrasch structure — Austin holds the e5 chain and prepares f4-f5 kingside advance. Leo's counterplay: ...Qb6 pressuring d4 and b2; Austin answers with Re1 and Ndf3-Ng3 setup.
 
 ### Critical themes
 
@@ -147,20 +146,20 @@ Austin grabs the pawn (Open Catalan gambit) and plays for counterplay. Leo gets 
 
 **3. Leo holds a 122-point rating edge.** Austin (1959) vs Leo (2081, Nov 2026 FIDE) — not a peer matchup. Leo is a genuine upset target, not an easy win. Austin must play decisively and avoid passive positions that favor Leo's endgame strength.
 
-**4. French Defense is Leo's home territory.** Leo has played the French in every single 1.e4 game on record. This is not a theoretical weakness Austin can exploit with obscure sidelines — Leo knows the French. Austin should play the Advance or Tarrasch confidently and look for dynamic opportunities rather than trying to "trick" Leo out of the French.
+**4. French Defense is Leo's home territory.** Leo has played the French in every single 1.e4 game on record. This is not a theoretical weakness Austin can exploit with obscure sidelines — Leo knows the French. Austin should play the Tarrasch (3.Nd2) confidently and look for dynamic opportunities rather than trying to "trick" Leo out of the French.
 
-**5. Openings Austin already plays are the right ones.** Austin's 1.e4 systems (Advanced French, Tarrasch) are directly applicable. His Nimzo-Indian and Queen's Indian habits apply (minus Nc3 from Leo). No radical preparation departure needed.
+**5. Austin's 2026 opening is the right one.** Austin's Tarrasch (3.Nd2) is directly applicable — this is his documented 2026 weapon, replacing the Advanced French (3.e5) abandoned after 2025. His Nimzo-Indian and Queen's Indian habits apply as Black (minus Nc3 from Leo). No radical preparation departure needed.
 
 ---
 
 ## Preparation Checklist
 
 ### Austin as White
-- [ ] Advance French (3.e5) through move 15: know the f4-f5 plan and how to handle ...Qb6
-- [ ] Tarrasch (3.Nd2): review ...Nf6 4.e5 Nfd7 and 3...c5 counter-gambit lines
+- [ ] Tarrasch Chistyakov: `1.e4 e6 2.d4 d5 3.Nd2 c5 4.exd5 Qxd5 5.Ngf3 cxd4 6.Bc4 Qd6 7.0-0` — know to move 15
+- [ ] Tarrasch vs 3...Nf6: `4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 7.Ngf3` — f4-f5 plan and handling ...Qb6
+- [ ] Do NOT play Advance French (3.e5) — NOT Austin's 2026 system (abandoned after 2025)
 - [ ] Do NOT play Exchange French (3.exd5) — this is Leo's endgame comfort zone
-- [ ] Practice keeping tension in Advance French — resist early queen trades and piece simplification
-- [ ] Know the c4-break timing in Advance French to undermine d5
+- [ ] Know the c4-break timing in Tarrasch structures to undermine d5
 
 ### Austin as Black
 - [ ] Queen's Indian setup: 1.d4 Nf6 2.c4 e6 3.Nf3 b6 4.g3 Bb7 5.Bg2 Be7 → know ...Ne4 and ...Ba6 plans
@@ -174,8 +173,8 @@ Austin grabs the pawn (Open Catalan gambit) and plays for counterplay. Leo gets 
 
 | Situation | ECO | Line |
 |---|---|---|
-| Austin W vs Leo French Advance | C02 | 1.e4 e6 2.d4 d5 3.e5 c5 4.c3 |
-| Austin W vs Leo French Tarrasch | C03–C09 | 1.e4 e6 2.d4 d5 3.Nd2 |
+| Austin W vs Leo French Tarrasch (primary) | C03–C09 | 1.e4 e6 2.d4 d5 3.Nd2 |
+| Austin W Tarrasch Chistyakov | C07 | 3.Nd2 c5 4.exd5 Qxd5 5.Ngf3 |
 | Leo W Catalan (QI) | E15–E17 | 1.d4 Nf6 2.c4 e6 3.Nf3 b6 4.g3 |
 | Leo W Catalan (QGD) | E07–E09 | 1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.g3 |
 | Austin B Queen's Indian | E15 | 1.d4 Nf6 2.c4 e6 3.Nf3 b6 |
