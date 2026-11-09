@@ -107,33 +107,24 @@ When playing 1.e4, he uses the Sicilian Alapin (B22) and Dragon Yugoslav (B75/B7
 
 ### Austin's Options as Black vs 1.Nf3
 
-**Option A: Force a sharp Nimzo via 1...Nf6 2.c4 e6 3.Nc3(?) Bb4**
+**Recommended: Nimzo Transposition `1...Nf6!` (Austin's documented 2026 Black weapon)**
 
-If Zachary plays 1.Nf3 Nf6 2.c4 e6 3.Nc3, Austin can play his Nimzo-Indian: `3...Bb4!` — this is Austin's best-prepared Black weapon and is well outside Zachary's Reti comfort zone. The Nimzo forces immediate structural decisions: `4.e3` (solid but passive), `4.Qc2` (Queen's Catalan), or `4.g3` (rare Nimzo/Catalan hybrid).
+Austin plays `1...Nf6` → `2.c4 e6` → `3...Bb4!` when Nc3 appears (Nimzo-Indian E40). This is Austin's fixed 2026 Black repertoire vs 1.Nf3/1.c4.
 
-However, Zachary is likely to delay Nc3 — playing `3.g3` instead of `3.Nc3`, reaching a standard Catalan structure. Against `3.g3`: Austin should consider `3...d5 4.Bg2 dxc4!` (Catalan Open) — but the database shows Zachary **scores very well in Catalan structures** (his two Catalan games as Black both resulted in wins at 96–97% accuracy), suggesting he knows the theory deeply.
+- **If 3.Nc3**: `3...Bb4!` Nimzo-Indian — Bxc3+ with ...b6/...Ba6/...Ne4 plans create imbalance in the exact structure where Zachary collapsed (CPL-443 from +4.75 in G267722)
+- **If 3.g3 (Catalan)**: `3...b6!` (QID, active) or `3...d5 + ...Ba6` pressure on c4 — avoid passive QGD structures where Zachary scores 95%+
+- **If Mikenas (2.Nc3 e6 3.e4)**: `3...c5! 4.e5 Ng8!` — fight the e5 wedge; same counter Austin uses vs Tarun
+- **If Nimzo-Larsen (2.b3 Bb2)**: `2...d5` — confirmed Oct 2026 practical draw
 
-**Option B (Recommended): Dutch Defense `1.Nf3 f5!`**
-
-`1.Nf3 f5` — Dutch Defense — is directly outside Zachary's preparation. The Dutch reaches positions where:
-- Black actively fights for the initiative from move 1
-- White cannot rely on Reti/English pawn structures
-- The game immediately becomes tactical and asymmetric
-
-Austin should study the **Leningrad Dutch** `(1.Nf3 f5 2.c4 Nf6 3.g3 g6 4.Bg2 Bg7)` — aggressive, with kingside attacking chances. Alternatively the **Stonewall Dutch** `(1.Nf3 f5 2.c4 e6 3.g3 Nf6 4.Bg2 d5 5.O-O c6)` is more solid but creates a distinctive pawn wall (d5-e6-f5) that gives Black counterplay.
-
-The key point: Zachary's preparation is specifically in Reti/English positions. `1...f5` forces him out of auto-pilot immediately.
-
-**Option C: King's Indian `1.Nf3 Nf6 2.c4 g6`**
-
-King's Indian vs 1.Nf3/c4 is aggressive and familiar to Austin (who has KID-like attacking instincts). After `1.Nf3 Nf6 2.c4 g6 3.Nc3 Bg7 4.g3` (or `4.e4`) — Zachary may be more comfortable here (he has played against KID structures). Less recommended than Dutch.
+The Nimzo Bxc3+ creates structural imbalance from move 3 — forcing Zachary into asymmetric calculation he has failed at. Austin's Nimzo is his most-practiced 2026 Black weapon (study games vs Laksshana Deepak E46, Aaryan Kovuru E01).
 
 **Recommended opening sequence:**
 ```
-1.Nf3 f5! (Dutch Defense)
-— If 2.c4 Nf6 3.g3: 3...g6 4.Bg2 Bg7 (Leningrad Dutch)
-— If 2.d4 Nf6 3.c4: same Leningrad structure
-— If 2.g3 Nf6: 2...d5 (transpose to solid QGD-Dutch structure)
+1.Nf3 Nf6 → 2.c4 e6 (Nimzo transposition)
+— If 3.Nc3:  3...Bb4! [Nimzo E40] → Bxc3+ ...b6/...Ba6/...Ne4
+— If 3.g3:   3...b6! (QID) or 3...d5 + ...Ba6 (active Catalan counter)
+— If 3.e4:   3...c5! 4.e5 Ng8! (Mikenas counter)
+— If 2.b3:   2...d5 (Nimzo-Larsen counter)
 ```
 
 ### Key Tactical Themes (Austin Black)
