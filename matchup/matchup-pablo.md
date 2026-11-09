@@ -79,11 +79,11 @@ Pablo plays 1.e4 and uses:
 - **vs 1...c6 Caro-Kann**: Two Knights (2.Nc3 3.Nf3)
 - **vs 1...e6 French**: 3.Nc3 Classical
 
-### Recommended: Sicilian Taimanov/Kan (mirror play)
+### Recommended: Sicilian Taimanov (mirror play)
 
 ```
-1.e4 c5 2.Nf3 (or 2.Nc3) 2...e6 (or 2...Nc6)
-→ Taimanov/Kan structure
+1.e4 c5 2.Nf3 e6
+→ Taimanov structure
 ```
 
 **Why:**
@@ -94,7 +94,7 @@ Pablo plays 1.e4 and uses:
 
 **Key defensive line:**
 ```
-1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 e6 5.Nc3 a6
+1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 a6
 6.Be3 Nge7 7.f3 d6 8.Qd2 Nxd4! 9.Bxd4 Nc6
 → Solid Taimanov B48 — English Attack defused before g4
 ```
