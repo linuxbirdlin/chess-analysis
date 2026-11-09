@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tonight's Prep: Austin vs Saenz Cabrera, Yaen</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2; --purple: #5a1a8b;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg); }
+h1 { font-size: 1.55em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.1em; margin: 26px 0 10px; border-left: 5px solid var(--blue);
+  padding-left: 10px; background: #f0f4ff; padding: 6px 10px; }
+h3 { font-size: 0.95em; margin: 14px 0 6px; color: #333; font-weight: bold; }
+.subtitle { font-size: 0.84em; color: #666; margin-bottom: 18px; }
+.subtitle span { margin-right: 16px; }
+
+.callout { border-radius: 5px; padding: 11px 14px; margin: 10px 0; font-size: 0.9em; line-height: 1.6; }
+.callout-gold { background: #fffbf0; border-left: 4px solid var(--gold); }
+.callout-danger { background: #fdf0f0; border-left: 4px solid var(--red); }
+.callout-blue { background: #f0f4ff; border-left: 4px solid var(--blue); }
+.callout-green { background: #f0fdf0; border-left: 4px solid var(--green); }
+.callout strong { display: block; margin-bottom: 3px; }
+
+.move-line { font-family: 'Courier New', monospace; font-size: 13px;
+  background: #fff; border: 1px solid #ddd; border-radius: 5px;
+  padding: 10px 14px; margin: 8px 0; line-height: 2.1; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: var(--gold); color: #fff; padding: 1px 6px;
+  border-radius: 3px; font-weight: bold; }
+.danger-move { background: var(--red); color: #fff; padding: 1px 6px;
+  border-radius: 3px; font-weight: bold; }
+.note { font-size: 0.82em; color: #555; font-family: Georgia, serif; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.87em; margin: 10px 0; }
+th { background: #2a3f6b; color: #fff; padding: 7px 9px; text-align: left; }
+td { padding: 6px 9px; border: 1px solid #ddd; vertical-align: top; }
+tr:nth-child(even) { background: #f5f5f5; }
+.row-danger { background: #fdeaea !important; }
+.row-safe { background: #edfdf3 !important; }
+.row-warn { background: #fffbe8 !important; }
+
+.schedule-box { display: grid; grid-template-columns: 80px 1fr; gap: 0; margin: 12px 0; border: 1px solid #bbc; border-radius: 5px; overflow: hidden; }
+.sch-time { background: #2a3f6b; color: #fff; font-weight: bold; font-size: 0.9em;
+  padding: 10px 8px; text-align: center; display: flex; align-items: center; justify-content: center; }
+.sch-body { padding: 10px 14px; background: #fff; font-size: 0.9em; line-height: 1.5; }
+.sch-body strong { color: var(--blue); }
+
+.checklist { list-style: none; padding: 0; }
+.checklist li { padding: 6px 0 6px 28px; border-bottom: 1px solid #eee; position: relative; font-size: 0.9em; }
+.checklist li::before { content: "☐"; position: absolute; left: 0; font-size: 1.1em; color: #888; }
+
+hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
+a { color: var(--blue); }
+.back-link { font-size: 0.82em; color: var(--blue); text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+
+@media print {
+  .schedule-box { break-inside: avoid; }
+  h2 { break-before: auto; }
+}
+</style>
+</head>
+<body>
+
+<h1>Tonight's Battle Plan: Austin vs Saenz Cabrera, Yaen</h1>
+<div class="subtitle">
+  <span><strong>Yaen Saenz Cabrera</strong> · 1841 FIDE (Oct 2026; peaked 1899) · MEX · tactical attacker</span>
+  <span>Austin: 1959 FIDE · Austin is <strong>+118 FIDE favorite</strong> — must win</span>
+  <span>Direct record: No prior encounter</span>
+  <span>Format: NAYCC 2026 · 90+30 classical</span>
+</div>
+<a class="back-link" href="../austin-prep.html">← Prep Index</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-yaen-gm.html">Full GM Battle Plan</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-yaen-deep.html">Engine Analysis</a>
+
+<div class="callout callout-gold" style="margin-top:14px">
+  <strong>The two-word brief</strong>
+  Austin's two concrete edges: (1) <strong>Rossolimo 3.Bb5 as White</strong> — sidesteps Yaen's entire 7-game Sveshnikov (B32/B33) preparation cold. Yaen has ZERO Rossolimo games on record. Austin exploits structural imbalance (doubled c-pawns, bishop pair) and waits for Yaen's Qxb2-type greedy miscalculation. (2) <strong>Taimanov B47 Bastrikov as Black</strong> — Yaen's B90 English Attack has only 4 documented games and already lost to a 1947-rated player. Austin's 8...Nxd4! kills the attack before g4 launches; then ...b5-b4 ...Rc8 queenside pressure.
+</div>
+
+<div class="callout callout-danger">
+  <strong>This is a must-win. Austin is +118 FIDE — a draw is a bad result.</strong>
+  Yaen has beaten 2140-rated Rubio and drew a 1947 opponent. Do not treat this as automatic. Yaen's defining weakness: 1000-CPL blunders inside his own prepared openings (Scotch 17.f3??, French Advance 32.Bxe6??, Sveshnikov Qxb2??). Austin must create the tactical complexity that triggers this collapse pattern. Never simplify.
+</div>
+
+<hr>
+
+<h2>Tonight's 2-Hour Schedule</h2>
+
+<div class="schedule-box">
+  <div class="sch-time">0:00–0:50</div>
+  <div class="sch-body"><strong>Rossolimo prep as White — know all three branches cold through move 12 (50 min)</strong><br>
+    Austin's weapon: <strong>Rossolimo 3.Bb5 — ALWAYS. NEVER 3.d4 (Open Sicilian) — that hands Yaen his Sveshnikov home territory.</strong><br>
+    Branch A (most likely — 3...g6): <code>3.Bb5 g6 4.Bxc6! dxc6 5.d3 Bg7 6.h3! Nf6 7.Nc3 O-O 8.Be3 b6 9.Qd2</code><br>
+    h3! is the Caruana/Nakamura system (133 master games) — prevents ...Bg4, prepares Be3. Then 9.Qd2 → Bh6 removing fianchetto + f4-f5 attack.<br>
+    Branch B (3...e6): <code>3.Bb5 e6 4.O-O Nge7 5.c3! a6 6.Ba4 b5 7.Bc2 d5 8.d4!</code> — central break creates immediate tension.<br>
+    Branch C (3...Nf6): <code>3.Bb5 Nf6 4.Bxc6! dxc6 5.e5! Nd5 6.O-O Nb6 7.d3 Bg4 8.Nc3 e6 9.h3!</code> — e5 wedge + kick Bg4.
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">0:50–1:30</div>
+  <div class="sch-body"><strong>Taimanov prep as Black — drill B47 Bastrikov and the 8...Nxd4! trade (40 min)</strong><br>
+    Austin's fixed Black weapon: <strong>Taimanov Sicilian (2...e6 → 5...Qc7 B47 Bastrikov)</strong>.<br>
+    Yaen's documented response vs Sicilian: <strong>B90 English Attack (f3/Be3/Qd2/g4)</strong>. His depth ceiling: move 10–12 in B90 (confirmed: lost to Contreras 1947 at 90.1% in B90).<br>
+    Main drill: <code>1.e4 c5 2.Nf3 e6! 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7! 6.Be3 a6 7.f3 d6 8.Qd2 Nxd4!</code><br>
+    Critical: 8...Nxd4! trades the knight BEFORE Yaen plays 9.g4. After 9.Bxd4 Nc6 10.Be3 Be7, Yaen has no Nd4 and no g4-g5 storm piece.<br>
+    Then: ...b5-b4 queenside push, ...Rc8, ...Bb7 — standard Taimanov counterplay.<br>
+    Also know: If Yaen plays 6.Be2 or 6.g3 — same plan: ...a6, ...Nf6 (or ...Nge7), ...d6, ...Be7, ...0-0, then ...b5.
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">1:30–1:55</div>
+  <div class="sch-body"><strong>Tactical patterns + Yaen's weakness drill (25 min)</strong><br>
+    Review Yaen's Qxb2 collapse: Olimpiada Blitz B32 (+6.02 → −5.13 in one move; Qxb2 instead of Qxe1). This is the defining pattern.<br>
+    Drill 5 Rossolimo middlegame puzzles: positions where Yaen has a "free" pawn on b2/b3 that is actually trapped by Ra1 or a discovered attack. Pre-calculate these before the game so Austin can punish immediately.<br>
+    Drill 5 Taimanov ...Nxd4 timing puzzles: When is 8...Nxd4! the correct timing vs 9...Nxd4? Practice finding the right moment to trade before g4 launches.<br>
+    Review Yaen's two White losses to near-2000 opponents (89.1% vs 1933 Scotch, 90.1% vs 1947 B90): both collapsed in complex tactical positions. Austin must keep the position complex.
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">1:55–2:00</div>
+  <div class="sch-body"><strong>Mental visualization (5 min)</strong><br>
+    As White: Yaen plays Sicilian. Austin plays 3.Bb5. Yaen has never seen this in tournament play — 0 Rossolimo games in 51 studied. He must figure out the doubled c-pawn structure under tournament pressure while Austin follows a prepared plan. Somewhere around move 15–25 Yaen will see a "free" pawn and take it. Austin has pre-calculated the refutation. The Qxb2 moment will come.<br>
+    As Black: Yaen plays English Attack (f3/Be3/Qd2). Austin plays 8...Nxd4! before Yaen launches g4. Yaen has no attacking piece, no prepared plan. Contreras Cardona at 1947 beat Yaen in this exact B90 line. Austin is 12 points above Contreras. The game plan is proven.
+  </div>
+</div>
+
+<hr>
+
+<h2>Part A — Austin as White: Rossolimo 3.Bb5</h2>
+
+<h3>What Yaen plays as Black</h3>
+<p>Yaen plays <strong>Sicilian Sveshnikov/Kalashnikov B32/B33</strong> (7 documented games) — <code>1.e4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 e5</code>. Deep preparation in this sharp system. Rossolimo 3.Bb5 sidesteps the entire B32/B33 tree from move 3.</p>
+
+<h3>Rossolimo main branches</h3>
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 c5 2.Nf3 Nc6 <span class="key-move">3.Bb5!</span>
+  <span class="note"> — The Sveshnikov requires 3.d4. 3.Bb5 cuts the entire Sveshnikov tree dead. Yaen has ZERO Rossolimo games on record.</span>
+</div>
+
+<h3>Weapon choices as White</h3>
+<table>
+  <thead><tr><th>If Yaen plays…</th><th>Austin plays…</th><th>Key idea</th></tr></thead>
+  <tbody>
+  <tr class="row-safe"><td>1...c5 (Sicilian)</td><td>2.Nf3 Nc6 <strong>3.Bb5!</strong> (Rossolimo — always)</td><td>Sidesteps Sveshnikov entirely; Yaen improvises from move 3</td></tr>
+  <tr class="row-safe"><td>3...g6 (most likely — fianchetto instinct)</td><td><strong>4.Bxc6! dxc6 5.d3 Bg7 6.h3!</strong> Nf6 7.Nc3 O-O 8.Be3 9.Qd2</td><td>h3! prevents ...Bg4; Bh6 removes fianchetto; then f4-f5 attack</td></tr>
+  <tr class="row-safe"><td>3...e6 (Rossolimo mainline)</td><td>4.O-O Nge7 <strong>5.c3!</strong> a6 6.Ba4 b5 7.Bc2 d5 <strong>8.d4!</strong></td><td>Central break creates tension; Yaen navigates unfamiliar IQP structure</td></tr>
+  <tr class="row-safe"><td>3...Nf6 (exchange option)</td><td><strong>4.Bxc6! dxc6 5.e5!</strong> Nd5 6.O-O Nb6 <strong>7.d3! 8.Nc3! 9.h3!</strong></td><td>e5 wedge + structural space; kick Bg4 early</td></tr>
+  <tr class="row-danger"><td>AVOID: 3.d4 (Open Sicilian)</td><td>—</td><td>Enters Yaen's Sveshnikov home territory — 5W–0L–2D in B32/B33. Never.</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>Part B — Austin as Black: Taimanov Sicilian (2...e6)</h2>
+
+<h3>What Yaen plays as White</h3>
+<p>Yaen plays <strong>1.e4</strong> primary. His Scotch Game C45 (7 games) requires <strong>1...e5</strong> — irrelevant since Austin plays <strong>1...c5</strong>. Against Austin's Sicilian, Yaen uses <strong>B90 English Attack</strong> (4 documented games): <code>f3/Be3/Qd2/g4 storm</code>. His B90 record: 2W–1L–1D including an upset loss to Contreras 1947.</p>
+
+<h3>Main Taimanov line</h3>
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 c5 2.Nf3 <span class="key-move">e6!</span>
+  3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 <span class="key-move">Qc7!</span> [B47 Bastrikov]
+  6.Be3 a6 7.f3 d6 8.Qd2 <span class="key-move">Nxd4!</span>
+  9.Bxd4 Nc6 10.Be3 Be7 11.O-O-O O-O
+  <span class="note"> — 8...Nxd4! trades BEFORE Yaen plays 9.g4. After this, Yaen's g4-g5 storm has no attacking knight. Plan: ...b5-b4 ...Rc8 ...Bb7 queenside pressure.</span>
+</div>
+
+<h3>Weapon choices as Black</h3>
+<table>
+  <thead><tr><th>If Yaen plays…</th><th>Austin plays…</th><th>Key idea</th></tr></thead>
+  <tbody>
+  <tr class="row-safe"><td>1.e4</td><td>1...c5 <strong>2.Nf3 e6!</strong> (Taimanov move order — mandatory)</td><td>2...e6 prevents Maróczy Bind; forces Yaen to B90 English Attack (his secondary/weaker system)</td></tr>
+  <tr class="row-safe"><td>3.d4 cxd4 4.Nxd4 Nc6 5.Nc3</td><td><strong>5...Qc7!</strong> (B47 Bastrikov)</td><td>Austin's fixed Taimanov line; 5...Qc7 protects c5, prepares ...a6 and ...Nf6</td></tr>
+  <tr class="row-safe"><td>6.Be3 7.f3 8.Qd2 (English Attack)</td><td><strong>8...Nxd4!</strong> trade before 9.g4</td><td>Kills Yaen's kingside storm before it starts; Yaen has no plan</td></tr>
+  <tr class="row-warn"><td>6.Be2 (classical)</td><td>...a6 7.O-O Nf6 8.Be3 Be7 → <strong>...b5!</strong></td><td>Same queenside plan; familiar Taimanov development</td></tr>
+  <tr class="row-warn"><td>6.g3 (fianchetto)</td><td>...a6 7.Bg2 Nf6 8.O-O Be7 → <strong>...b5!</strong></td><td>Equal play; Austin's queenside pressure plan unchanged</td></tr>
+  <tr class="row-danger"><td>AVOID: 2...Nc6 (wrong move order)</td><td>—</td><td>Risks Maróczy Bind (5.c4). Always 2...e6 first.</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>Day-of Checklist</h2>
+
+<ul class="checklist">
+  <li>As White: ALWAYS 3.Bb5 Rossolimo — NEVER 3.d4 (Open Sicilian gives Yaen his Sveshnikov home territory)</li>
+  <li>As White: Branch A (3...g6): 4.Bxc6! dxc6 5.d3 Bg7 6.h3! (NOT 6.h4) — h3 is the Caruana/Nakamura system</li>
+  <li>As White: Do NOT simplify early — Yaen's draw ability increases in simplified positions. Keep queens on; maintain complexity through move 25</li>
+  <li>As White: Watch for Yaen's Qxb2 moment — when he spots a pawn on b2 with "free" appearance; pre-calculate Ra1 trap or tactical refutation before the game</li>
+  <li>As Black: Play 2...e6 → Taimanov (NEVER 2...Nc6 first)</li>
+  <li>As Black: After 5.Nc3 → 5...Qc7! (B47 Bastrikov, NOT 5...a6 Kan)</li>
+  <li>As Black: Play 8...Nxd4! BEFORE Yaen plays 9.g4 — kill the English Attack while it still requires Nd4</li>
+  <li>As Black: Launch ...b5-b4 quickly after ...Nxd4 — do not wait; build queenside pressure before Yaen finds a new plan</li>
+  <li>Mental frame: This is a must-win (+118 FIDE). Contreras Cardona at 1947 beat Yaen in B90. Austin is above Contreras. The game plan is proven — execute it.</li>
+</ul>
+
+<hr>
+<p style="font-size:0.82em;color:#888;margin-top:16px;">
+  <a class="back-link" href="../austin-prep.html">← Preparation Index</a> &nbsp;|&nbsp;
+  <a class="back-link" href="matchup-yaen.html">Matchup Overview</a> &nbsp;|&nbsp;
+  <a class="back-link" href="matchup-yaen-white.html">Austin as White</a> &nbsp;|&nbsp;
+  <a class="back-link" href="matchup-yaen-black.html">Austin as Black</a> &nbsp;|&nbsp;
+  <a class="back-link" href="matchup-yaen-gm.html">GM Battle Plan</a>
+</p>
+
+</body>
+</html>
