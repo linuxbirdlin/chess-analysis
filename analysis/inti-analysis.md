@@ -2,7 +2,7 @@
 
 **FIDE ID:** 5145732  
 **Country:** Mexico  
-**Current rating:** ~2011 FIDE (Nov 2026; seeded #4 at NAYCC 2026)  
+**Current rating:** ~2011 FIDE (Nov 2026; seed #5 at NAYCC 2026)  
 **Rating trajectory:** 1755 (Oct 2025) → 1812 (Mar 2026) → 1926 (Aug 2026) → 2011 (Nov 2026) — +256 in 13 months  
 **Age group:** Under-14 (plays Sub-14 Abs tournaments)  
 **Direct record vs Austin:** None known.
