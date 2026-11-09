@@ -86,7 +86,7 @@
 
   <div class="doc-header">
     <h1>Austin Lin vs Zachary Liu</h1>
-    <div class="subtitle">Austin as Black — Dutch Defense vs Reti/English</div>
+    <div class="subtitle">Austin as Black — Nimzo Transposition vs Reti/English</div>
     <div class="meta">CM Zachary Liu · 2185 FIDE (Nov 2026) · Austin: 1959 FIDE · 43 games analyzed · Stockfish accuracy data</div>
     <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
     &nbsp;&nbsp;
@@ -186,7 +186,7 @@
 
   <h3>C. Pattern — Never Plays Sharp as White</h3>
   <div class="info-box">
-    Zachary as White has <strong>zero games with kingside attacks or sacrificial play</strong>. His A14/A37 systems aim for structural advantage, slow maneuvering, and endgame precision. However: if Austin plays the Dutch Defense (1...f5), Zachary has <strong>zero games vs the Dutch</strong> in the dataset. Zero preparation data. This is his biggest positional uncertainty as White.
+    Zachary as White has <strong>zero games with kingside attacks or sacrificial play</strong>. His A14/A37 systems aim for structural advantage, slow maneuvering, and endgame precision. Austin's documented Black repertoire is the Nimzo transposition (1...Nf6 → Bb4 when Nc3). Note: Zachary also has <strong>zero games vs the Dutch</strong> in the dataset, but Austin's repertoire does not include the Dutch — see §4.
   </div>
 
   <h3>D. The Dutch Defense Gap</h3>
@@ -200,66 +200,56 @@
     <li>vs 1...Nf6 + c5 (Symmetrical): 4 games</li>
   </ul>
   <div class="tip-box">
-    <strong>Dutch Defense has zero opponent preparation data.</strong> Zachary has not faced it once in this dataset. He would need to decide on the spot between Anti-Dutch systems (2.Bg5, 2.Nc3, 2.d3) or enter main-line theory he may not know. Austin plays the Dutch — this is the primary recommended weapon.
+    <strong>Competitive intelligence note (not the recommendation):</strong> Zachary has zero Dutch games in the dataset — useful context showing he is improvisation territory vs 1...f5. Austin's documented Black repertoire is the Nimzo transposition (1...Nf6 → Bb4), not the Dutch. The Nimzo transposition is the correct opening to prepare for this game; see §4 for Austin's actual weapon.
   </div>
 
   <!-- ═══ SECTION 4 ═══ -->
   <h2>§4 — Austin's Recommended Weapon as Black</h2>
 
-  <h3>Primary: Dutch Defense 1...f5!</h3>
+  <h3>Primary: Nimzo Transposition 1...Nf6!</h3>
   <div class="var-moves">Zachary: 1.Nf3
-Austin:  1...f5!</div>
+Austin:  1...Nf6! → 2.c4 e6 → 3...Bb4 when Nc3 (Nimzo-Indian)</div>
 
   <p><strong>Why this targets Zachary specifically:</strong></p>
   <ul>
-    <li>Zero Zachary games vs the Dutch — no preparation data whatsoever</li>
-    <li>Forces Zachary to make decisions on the spot in move-1/2 (Anti-Dutch setup choice)</li>
-    <li>Creates asymmetric pawn structure immediately — the type that produced his CPL-443 blunder in A37</li>
-    <li>Austin's sharp, tactical style (Stonewall Dutch or Classical Dutch with ...e5 breaks) suits his aggressive preparation</li>
-    <li><strong>Personal study data (corrected, Sep 2026):</strong> Austin's average accuracy as Black across 29 personal study games is <strong>90.3%</strong> — slightly better than his White average (89.4%). His Black openings (Nimzo-Indian, Sicilian, Dutch) are well-rehearsed and show lower variance. This supports the Dutch as the natural choice.</li>
+    <li>Austin's documented 2026 Black repertoire vs 1.Nf3/1.c4 — Nimzo transposition is the prepared weapon</li>
+    <li>vs Zachary's Symmetrical English (A37, 3.Nc3): Bb4! enters Nimzo-Indian — Bxc3+ with ...b6/...Ba6/...Ne4 plans create imbalance in the exact structure where Zachary blundered CPL-443 from +4.75</li>
+    <li>vs Zachary's Catalan (A14, 3.g3): play active QID (3...b6 Bb7) or 3...d5 with ...Ba6 pressure — do NOT play passive QGD positions</li>
+    <li>vs Nimzo-Larsen (2.b3 Bb2): 2...d5 — confirmed Oct 2026 practical draw for Austin</li>
+    <li><strong>Personal study data (Sep 2026):</strong> Austin's average accuracy as Black across 29 personal study games is <strong>90.3%</strong> — slightly better than his White average (89.4%). His Black openings (Nimzo-Indian, Sicilian) are well-rehearsed.</li>
   </ul>
 
-  <h3>Dutch vs Specific Zachary Moves</h3>
-  <div class="var-moves">IF Zachary: 1.Nf3 f5  2.d4  Nf6  3.g3  → Leningrad Dutch [B86/A86]
-Austin:     1...f5 2... Nf6 3... g6  4.Bg2 Bg7 5.O-O O-O 6.c4 d6 [Leningrad main]
+  <h3>Nimzo Transposition vs Specific Zachary Moves</h3>
+  <div class="var-moves">IF Zachary: 1.Nf3 Nf6 2.c4 e6  3.Nc3 → Symmetrical English (A37)
+Austin:     3...Bb4! [Nimzo transposition E40] → 4.Qc2 0-0 5.e3 d5 cxd5 Bxc3+ bxc3 ...b6
+            or 4.e3 0-0 5.Bd3 d5 → IQP plans; ...Ne4 outpost; ...Ba6 pressure on c4
 
-IF Zachary: 1.Nf3 f5  2.c4  Nf6  3.g3  → Catalan-Dutch hybrid
-Austin:     → same Leningrad structure; fianchetto bishop fights c4 pawn
+IF Zachary: 1.Nf3 Nf6 2.c4 e6  3.g3  → Catalan (A14 — his best system, 95.2%)
+Austin:     3...b6! [QID] → Bb7, ...Ne4, ...c5 break; creates asymmetry
+            or 3...d5 → ...Ba6 pins c4; if accepted (4.Bg2 dxc4): Nimzo-adjacent play
 
-IF Zachary: 1.Nf3 f5  2.d4  Nf6  3.Bg5 → Anti-Dutch London-type
-Austin:     → 3...d5! 4.e3 e6 → Stonewall Dutch [D80-type]
-            (solid, good practical results for Black at Austin's level)
+IF Zachary: 1.Nf3 Nf6 2.b3 Bb2 → Nimzo-Larsen
+Austin:     2...d5! [confirmed Oct 2026 draw vs Sriram Sarja] — solid central stake
 
-IF Zachary: 1.Nf3 f5  2.Nc3 → Old Benoni / Anti-Dutch
-Austin:     → 2...Nf6 3.d4 d5 → symmetrical fighting</div>
-
-  <h3>Stonewall Dutch — Backup Weapon</h3>
-  <div class="var-moves">Zachary: 1.Nf3
-Austin:  1...e6 2.d4 f5! [Stonewall move order]
-
-Position: d5/e6/f5/c6 pawn formation for Black
-Plan: ...Bd6 Ne4 → knight on e4 is Austin's outpost
-Attack: queenside expansion (...b6, ...c5, ...Bd7-c8-b7)</div>
-  <div class="info-box">
-    Stonewall move order <code>1...e6 2.d4 f5!</code> is a useful safety net if Austin wants to avoid the Leningrad's more theoretical demands. The Stonewall creates a structural fortress with ...Ne4 as the key piece. Austin's tactical style fits the Ne4 kingside attacking plans.
-  </div>
+IF Zachary: 1.c4  Nf6 2.Nc3 e6 3.e4  → Mikenas Attack (A19 — 3W-0L 94.8% for Zachary)
+Austin:     3...c5! 4.e5 Ng8! → counterattack plan; fight the e5 wedge immediately</div>
 
   <div class="warn-box">
-    <strong>NEVER play 1...d5 (QGD-type).</strong> Zachary has faced this 5 times and won or drawn every game. It is his primary White preparation path. Avoid 1...e6 2.c4 3.g3 4.Bg2 Catalan structures (his 95%+ ECO group with 60% win rate). Austin must reach territory Zachary has not navigated.
+    <strong>NEVER play 1...d5 (QGD-type).</strong> Zachary has faced this 5 times and won or drawn every game. Avoid passive 1...e6 2.c4 3.g3 Catalan structures where Zachary operates at 95%+. Austin must stay dynamic — Nimzo (3...Bb4) or QID (3...b6), not passive QGD.
   </div>
 
   <!-- ═══ SECTION 5 ═══ -->
   <h2>§5 — Model Game / Reference Plan</h2>
-  <p>The <strong>Leningrad Dutch</strong> (A86) has been a weapon of GMs with aggressive styles who want unbalanced positions against systematic 1.Nf3/1.c4 players.</p>
-  <p><strong>Structural plan (Leningrad):</strong></p>
+  <p>The <strong>Nimzo-Indian Bxc3+</strong> system (E40–E56) creates structural imbalance from the moment of the bishop exchange — exactly the type of asymmetric complexity that caused Zachary's CPL-443 collapse in the Symmetrical English.</p>
+  <p><strong>Structural plan (Nimzo Bxc3+ ...b6 ...Ba6):</strong></p>
   <ol>
-    <li><strong>Development (moves 1–8):</strong> ...f5, ...Nf6, ...g6, ...Bg7, ...O-O, ...d6. The fianchettoed bishop on g7 fights against White's queenside expansion.</li>
-    <li><strong>Central plan (moves 9–14):</strong> ...Ne4 (the key piece — occupies the outpost), ...Nc6 (supports Ne4 and pressures d4), ...e5 (the central break when ready).</li>
-    <li><strong>Attack (moves 15+):</strong> If White plays passively, ...f4-f3 pawn storm. If White plays c5, break with ...e5! central counter. The dragon bishop on g7 activates on the long diagonal after ...e5 exd4.</li>
-    <li><strong>Endgame alert:</strong> Avoid trading the g7 bishop unless getting back the d4-pawn or significant compensation. The bishop is Austin's most valuable piece.</li>
+    <li><strong>Development (moves 1–6):</strong> 1...Nf6 → 2.c4 e6 → 3.Nc3 Bb4 → 4.Qc2 O-O 5.e3 d5 → 6.cxd5 exd5. The IQP structure gives Black active piece play.</li>
+    <li><strong>Central plan (moves 7–12):</strong> ...Re8 (pins e3 pawn), ...Bg4 or ...Ba6 (pressure on c4/e3), ...Ne4 (the key outpost). The doubled c-pawns or IQP structure creates concrete imbalance Zachary must navigate precisely.</li>
+    <li><strong>Attack (moves 13+):</strong> ...Nxc3 bxc3 ...Ba6 forces Zachary to give up the c4 pawn or enter an endgame with weak c-pawns. Either way, Austin has active rooks and the better minor piece structure.</li>
+    <li><strong>Endgame note:</strong> Nimzo IQP endgames are not passive — the active bishop pair (after Bxc3) and the passed d5 pawn create winning chances. Do not shy away from the endgame if Austin has active pieces.</li>
   </ol>
   <div class="tip-box">
-    <strong>Key lesson from GV G267722:</strong> Zachary cracked when asymmetric queenside counterplay arrived in the Symmetrical English. The Leningrad Dutch creates asymmetry from move 1. Austin should make his moves count toward the ...Ne4 + ...e5 break plan — this is the structure that will put Zachary's calculation under the same pressure.
+    <strong>Key lesson from GV G267722:</strong> Zachary cracked when asymmetric queenside counterplay arrived in the Symmetrical English. The Nimzo transposition creates asymmetry from move 3. Austin should direct moves toward the ...Ne4 + ...Ba6 plan — this is the structure that forces Zachary into the same type of concrete calculation he failed in G267722.
   </div>
 
   <!-- ═══ SECTION 6 ═══ -->
@@ -267,75 +257,69 @@ Attack: queenside expansion (...b6, ...c5, ...Bd7-c8-b7)</div>
 
   <div class="var-card">
     <div class="var-header">
-      <span class="var-label">VARIANCE A ~65%</span>
-      Leningrad Dutch vs 1.Nf3 — Primary Weapon
+      <span class="var-label">VARIANCE A — Nimzo-Indian (vs 3.Nc3)</span>
+      Most likely vs Zachary's Symmetrical English — Austin's best prepared territory
     </div>
     <div class="var-body">
-      <div class="var-moves">Zachary: 1.Nf3 / 2.d4  / 3.g3  / 4.Bg2 / 5.O-O / 6.c4
-Austin:  1...f5 / 2...Nf6 / 3...g6  / 4...Bg7 / 5...O-O / 6...d6</div>
-      <p><strong>Position after 6...d6:</strong> Leningrad Dutch main line. White has space but no immediate threats. Black has the ...Ne4 outpost and the ...e5 break as long-term weapons.</p>
+      <div class="var-moves">Zachary: 1.Nf3 / 2.c4  / 3.Nc3
+Austin:  1...Nf6 / 2...e6 / 3...Bb4!  [Nimzo-Indian E40]
+
+Continuation: 4.Qc2 0-0 5.e3 d5 6.cxd5 exd5
+Austin:  ...Re8 → ...Bg4 → ...Ne4 [dominant outpost]
+         or ...Ba6! pressures c4 → forces structural concession</div>
+      <p><strong>Position after 3...Bb4:</strong> Nimzo-Indian. Zachary's Symmetrical English (A37) has now transposed — his preparation is for positions without the early ...Bb4 pin. The Bxc3+ structure creates imbalance he must navigate precisely (this is the exact type of asymmetry that caused his CPL-443 collapse in G267722).</p>
       <ol>
-        <li><strong>Moves 7–9:</strong> 7...Nc6 (or 7...Qe8 preparing ...Qh5). The knight on c6 attacks d4 and supports ...Ne4. If White plays 7.Nc3 immediately, play 7...Ne4.</li>
-        <li><strong>Moves 10–14:</strong> ...Ne4 on the outpost, then decide: if White plays Qd3 challenging Ne4, play ...Nxc3 bxc3 and attack the c3-pawn with ...Na5-c4. If White plays Bd2, play ...e5! central break.</li>
-        <li><strong>Moves 15–20:</strong> After ...e5, the Bg7 becomes a monster bishop. Push ...f4 if Ng5 comes, or play ...exd4 exd4 and use the c5-square. The position becomes sharp — this is Austin's terrain.</li>
-        <li><strong>Endgame alert:</strong> Leningrad endgames with ...Ne4 vs Nf3 favor Black structurally. Keep the dark-squared bishop. Trade knights if White's Nf3 is the only piece defending d4.</li>
+        <li><strong>Plan A — Bxc3+ ...b6 ...Ba6:</strong> Exchange on c3, play ...b6 ...Bb7, then ...Ba6 to pressure c4. If White's pawns become doubled, target them with ...Na5 or ...c5 break.</li>
+        <li><strong>Plan B — ...Ne4 outpost:</strong> After 4.e3 O-O 5.Bd3 d5 6.cxd5 exd5, play ...Ne4 supported by ...f5 or ...c5. Knight on e4 restricts White's minor pieces and creates attacking prospects.</li>
+        <li><strong>If White plays 4.a3:</strong> Bxc3+ 5.bxc3 → White has doubled c-pawns. Play ...d6 ...e5 or ...Re8 ...Ne4 to exploit the structural weakness immediately.</li>
+        <li><strong>Endgame note:</strong> Nimzo IQP endgames give active piece play — do not avoid them. The doubled or isolated c-pawns are permanent targets.</li>
       </ol>
-      <div class="warn-box">Watch for Zachary playing <code>7.Nc3 e5 8.dxe5</code> — the early central exchange. After <code>8...dxe5</code>, Black has a healthy pawn center. Do not play 8...Nxe5 automatically — 8...dxe5 is stronger as it opens the d-file.</div>
+      <div class="tip-box">After Bxc3+, the key question is which rook to activate. If c4 is available: ...Ra8-a6-c6 or ...Rfc8 pressures the weak c-pawns. If d4 is the IQP: ...Re8 pins, then ...Ne4 or ...Bg4 creates threats.</div>
     </div>
   </div>
 
   <div class="var-card">
     <div class="var-header">
-      <span class="var-label">VARIANCE B ~20%</span>
-      Stonewall vs 2.d4 — Anti-Catalan Setup
+      <span class="var-label">VARIANCE B — QID vs Catalan (3.g3)</span>
+      Zachary's best White system (95.2%) — needs active countering
     </div>
     <div class="var-body">
-      <div class="var-moves">Zachary: 1.Nf3 / 2.d4  / 3.c4  (skips g3) / 4.e3
-Austin:  1...e6 / 2...f5 / 3...Nf6        / 4...d5  [Stonewall]</div>
-      <p><strong>Position after 4...d5:</strong> Stonewall Dutch structure. Black has d5/e6/f5/c6 pawns. The key piece is ...Ne4 on the outpost.</p>
+      <div class="var-moves">Zachary: 1.Nf3 / 2.c4  / 3.g3  / 4.Bg2
+Austin:  1...Nf6 / 2...e6 / 3...b6! / 4...Bb7 [Queen's Indian]
+
+Plan: ...Ne4 outpost OR ...c5 break to create imbalance
+      Avoid: passive ...d5 QGD territory (Zachary scores 95% here)</div>
+      <p><strong>Position after 3...b6:</strong> Queen's Indian Defense. Zachary's Catalan scores 95.2% but is built around slow technical maneuvering — active QID play disrupts his methodical system.</p>
       <ol>
-        <li><strong>Moves 5–8:</strong> 5...Bd6, 6...O-O, 7...Nbd7 (or 7...c6 first). The bishop on d6 is Stonewall's trademark — it aims at h2 and supports the ...Ne4 outpost.</li>
-        <li><strong>Moves 9–12:</strong> ...Ne4, ...Qf6 (the Stonewall queen maneuver). The queen on f6 supports the Ne4 and threatens Qh4 attacks with ...g5 kingside storm.</li>
-        <li><strong>Moves 13–18:</strong> If White plays Bd3 to exchange the dark-squared bishop (the classic Anti-Stonewall plan), allow it only if getting good compensation. Otherwise, keep the bishop with ...Bh2+ Kh1 Bd6 retreat.</li>
-        <li><strong>Endgame alert:</strong> Stonewall endgames are drawish — the backward c6-pawn is a weakness. Austin plays for a win — avoid simplified endgames unless ahead.</li>
+        <li><strong>Moves 4–8:</strong> 4.Bg2 Bb7 5.O-O Be7 6.Nc3 (if he plays Nc3 → Bb4! Nimzo transposition) or 6.d4 O-O 7.Nc3 Ne4 — the Ne4 outpost is Austin's key piece.</li>
+        <li><strong>Active plan — ...c5 break:</strong> After castling, play ...d5 and meet cxd5 with ...Bxd5 (or ...Nxd5) for active piece play. Avoid passive QGD structures.</li>
+        <li><strong>Alternative 3...d5:</strong> 1.Nf3 Nf6 2.c4 e6 3.g3 d5 → ...Ba6 pressures c4 immediately. After 4.Bg2 Ba6, White often must give c4 or allow the bishop to be active.</li>
+        <li><strong>Endgame alert:</strong> If the game simplifies into a Catalan endgame, Zachary is in 95% territory. Austin must keep complications alive through moves 20+.</li>
       </ol>
-      <div class="warn-box">Watch for Zachary playing <code>Bd3</code> targeting the Ne4 outpost. This is the main Anti-Stonewall plan. If ...Nxd2 Qxd2, White's queen is active. Better: maintain Ne4 with ...Nd7-f6-e4 re-routing if possible.</div>
+      <div class="warn-box">Zachary's Catalan (A14) scored 3W–0L–2D at 95.2% accuracy. This is his comfort zone. If Austin plays passive ...d5 ...e6 QGD without active counterplay (no ...Ba6, no ...Ne4, no ...c5 break), Zachary's technical play will dominate. Stay active.</div>
     </div>
   </div>
 
   <div class="var-card">
     <div class="var-header">
-      <span class="var-label">VARIANCE C ~15%</span>
-      Dutch vs Anti-Dutch (2.Bg5 or 2.Nc3)
+      <span class="var-label">VARIANCE C — Mikenas Alert (1.c4 Nf6 2.Nc3)</span>
+      Zachary's most dangerous White weapon — specific preparation required
     </div>
     <div class="var-body">
-      <div class="var-moves">IF Zachary: 1.Nf3 f5  2.Bg5  → Anti-Dutch London setup
-Austin:     1...f5 2...g6! (fianchetto to fight Bg5)
-            2...h6 3.Bh4 g5 4.Bg3 Nf6 is also playable — aggressive
+      <div class="var-moves">IF Zachary: 1.c4  Nf6  2.Nc3 e6  3.e4  → Mikenas Attack (A19) 3W-0L 94.8%
+Austin:     3...c5! → fights the e4-e5 expansion immediately
+            4.e5 Ng8!  5.Nf3 Nc6  6.d4 cxd4  7.Nxd4 d6
+            → counterattack: ...d6 undermines e5; position becomes sharp
 
-IF Zachary: 1.Nf3 f5  2.Nc3 → Old Benoni / Anti-Dutch
-Austin:     1...f5 2...Nf6 3.d4 d5! (Stonewall move order from unusual angle)
-            or 2...d6 3.e4 fxe4 4.Nxe4 Nf6 (reversed opening, complex)
-
-IF Zachary: 1.Nf3 f5  2.e4!? → stam gambit / From's Gambit territory
-Austin:     2...fxe4 3.Ng5 Nf6! [best] (not 3...e5? 4.Nxh7)</div>
-      <p><strong>Position type:</strong> Anti-Dutch sideline. Zachary has zero games in any Anti-Dutch system — he will be improvising.</p>
+IF Zachary: 1.Nf3 Nf6  2.b3 Bb2 → Nimzo-Larsen
+Austin:     2...d5! [confirmed Oct 2026 draw vs Sriram Sarja]</div>
+      <p><strong>The Mikenas danger:</strong> Zachary's Mikenas Attack (1.c4 Nf6 2.Nc3 e6 3.e4) has produced 3 wins and zero losses. The e4-e5 expansion grabs central space. But Austin's Nimzo move order (1...Nf6 2.c4 e6) means if Zachary plays 2.Nc3 e6 first, Austin will have played 2...e6 already — Zachary has to choose Mikenas (3.e4) BEFORE Austin plays ...Bb4.</p>
       <ol>
-        <li><strong>vs 2.Bg5:</strong> Play 2...g6! Fianchetto eliminates the bishop pressure and Black reaches a Leningrad-style structure with one tempo down — acceptable.</li>
-        <li><strong>vs 2.Nc3:</strong> Flexible. Play 2...Nf6 and decide after 3.d4 or 3.e4. Either way, Black has playable positions.</li>
-        <li><strong>vs 2.e4:</strong> This is the From's Gambit territory — rare at this level. Accept the gambit (2...fxe4) and play 3...Nf6 as recommended.</li>
-        <li><strong>Endgame alert:</strong> Anti-Dutch games are typically short and tactical — no endgame concerns in Variance C.</li>
+        <li><strong>3...c5! (correct):</strong> Strikes the d4 base before e5 advances. After 4.e5 Ng8 5.Nf3 Nc6 6.d4 cxd4 7.Nxd4, Black has counterplay with ...d6 undermining e5. This is the standard Mikenas counter — same plan Austin uses vs Tarun's Mikenas.</li>
+        <li><strong>Do NOT play 3...Nxe4?:</strong> 4.Nxe4 d5 5.Nc3 d4 gives White easy development. Fight the center, don't grab material.</li>
+        <li><strong>Do NOT play 3...d6?:</strong> Passive — allows e5 to stabilize, White gets full space advantage.</li>
       </ol>
-      <div class="warn-box">Watch for <code>2.Bg5 d6 3.d4 Nf6 4.Nc3 g6 5.e4!</code> — White grabs the center. Respond with 5...fxe4 6.Nxe4 Bg7, keeping the Dutch spirit alive (the Bg7 is a monster).</div>
-
-      <div class="warn-box" style="border-color:#b30000; background:#fff0f0;">
-        <strong>⚠ Mikenas Attack — Zachary's best White system (3W–0L, 94.8%)</strong><br>
-        If Zachary opens <code>1.c4</code> (instead of 1.Nf3) and Austin plays <code>1...f5</code>:<br>
-        <code>2.Nc3 Nf6 3.e4!? fxe4 4.Nxe4</code> — this is the Mikenas Attack (A19). His sharpest weapon — three wins, zero losses.<br>
-        <strong>Critical response: 4...d5!</strong> — central counter that seizes the initiative.<br>
-        After <code>5.Nxf6+ exf6 6.d4 Bb4+! 7.Bd2 Bxd2+ 8.Qxd2</code> — Black has the two bishops and good central pawns. Engine confirms near-equal. Do NOT play 4...Nc6?? or 4...e6? (passive — White keeps the structural plus).<br>
-        <em>Fallback: if Austin prefers to avoid the Mikenas entirely, respond to 1.c4 with 1...e6 (entering a Nimzo/Bogo setup instead of Dutch). This sidesteps the Mikenas move order at the cost of giving up the Dutch surprise weapon.</em>
-      </div>
+      <div class="warn-box"><strong>Mikenas is Zachary's highest win-rate White system (100%, 94.8% accuracy).</strong> If Zachary plays 1.c4, Austin must be ready for 2.Nc3 e6 3.e4. The counter is 3...c5! 4.e5 Ng8! — know this cold. The Nimzo transposition (1...Nf6 2.c4 e6 3.Nc3 Bb4) works perfectly IF Zachary plays 3.Nc3 without 3.e4 — but if he chooses Mikenas, the ...c5 counter is mandatory.</div>
     </div>
   </div>
 
@@ -372,19 +356,16 @@ Austin:     2...fxe4 3.Ng5 Nf6! [best] (not 3...e5? 4.Nxh7)</div>
     <h3>Opening Reference Card</h3>
     <div class="cheat-moves">AS BLACK vs Zachary's 1.Nf3:
 
-  MAIN: 1...f5! [Dutch — zero Zachary preparation]
-    If 2.d4 Nf6 3.g3: → 3...g6 4.Bg2 Bg7 5.O-O O-O 6.c4 d6 [Leningrad]
-                       → plan: Ne4 + e5 break + Bg7 monster bishop
-    If 2.d4 Nf6 3.c4:  → 3...g6 same Leningrad
-    If 2.Bg5:           → 2...g6! fianchetto + Leningrad-type
-    If 2.Nc3:           → 2...Nf6 3.d4 d5 [Stonewall move order]
+  MAIN: 1...Nf6! → 2.c4 e6 [Nimzo transposition — Austin's documented repertoire]
+    If 3.Nc3:  3...Bb4! [Nimzo E40] → Bxc3+ ...b6/...Ba6/...Ne4 plans
+    If 3.g3:   3...b6! [QID] → Bb7, Ne4, c5 break (stay active, not passive QGD)
+               or 3...d5 → ...Ba6 pressures c4 (active)
+    If 2.b3:   2...d5! [Nimzo-Larsen counter — confirmed Oct 2026]
 
-  STONEWALL: 1...e6 2.d4 f5! [safer backup]
-    Structure: d5/e6/f5/c6 + Bd6 + Ne4 outpost
-    Plan: Qf6 → Qh4 + g5 kingside attack
+  vs 1.c4 Mikenas: 1...Nf6 2.Nc3 e6 → 3.e4 c5! 4.e5 Ng8! [fight the e5 wedge]
 
-  AVOID: 1...d5 (QGD territory — Zachary's 100% score)
-  AVOID: e6/c5 Sicilian-type structures (Catalan traps him into 95%+ ECOs)</div>
+  AVOID: 1...d5 (QGD territory — Zachary's 100% score in this structure)
+  AVOID: passive Catalan play without ...Ba6 or ...Ne4 or ...c5 active counterplay</div>
 
     <h3>Tactical Motifs to Watch For</h3>
     <table>
@@ -411,7 +392,7 @@ Austin:     2...fxe4 3.Ng5 Nf6! [best] (not 3...e5? 4.Nxh7)</div>
     <div class="step-item">
       <div class="step-num">2</div>
       <div class="step-body">
-        <strong>Opening line review — 10 min:</strong> Replay mentally: <code>1.Nf3 f5 2.d4 Nf6 3.g3 g6 4.Bg2 Bg7 5.O-O O-O 6.c4 d6 7.Nc3 Nc6</code>. Stop at move 8. Ask: "What does Black want here?" Answer: <em>Ne4 outpost, then e5 break, then the Bg7 becomes unstoppable on the long diagonal.</em> Know the answer before sitting down.
+        <strong>Opening line review — 10 min:</strong> Replay mentally: <code>1.Nf3 Nf6 2.c4 e6 3.Nc3 Bb4 4.Qc2 O-O 5.e3 d5 6.cxd5 exd5</code>. Stop at move 6. Ask: "What does Black want here?" Answer: <em>Ne4 outpost or Ba6 pressuring c-pawn; create IQP imbalance Zachary must navigate precisely.</em> Know the Mikenas counter too: 1.c4 Nf6 2.Nc3 e6 3.e4 → 3...c5! 4.e5 Ng8!
       </div>
     </div>
     <div class="step-item">
@@ -422,7 +403,7 @@ Austin:     2...fxe4 3.Ng5 Nf6! [best] (not 3...e5? 4.Nxh7)</div>
     </div>
 
     <div class="mental-frame">
-      "Zachary has never lost as White. But he's also never faced the Dutch. I'm walking in with a weapon he hasn't prepared for. My personal study shows I play 90.3% accuracy as Black — slightly better than White. This is my territory. When I get ...Ne4 on the board and ...e5 is live, I don't trade it away — I push. A draw is acceptable but I play for more."
+      "Zachary's English/Catalan is strong at 95%+ but built around quiet structural play — not tactical complexity. The Nimzo Bxc3+ creates imbalance from move 3. My personal study shows I play 90.3% accuracy as Black — slightly better than White. When I get Ne4 on the board and the c-pawns are weak or the IQP is live, I don't simplify — I push. A draw is acceptable but I play for more."
     </div>
   </div>
 
@@ -431,12 +412,12 @@ Austin:     2...fxe4 3.Ng5 Nf6! [best] (not 3...e5? 4.Nxh7)</div>
   <table>
     <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
     <tbody>
-      <tr><td>Austin B Leningrad Dutch (primary)</td><td>A86</td><td><code>1.Nf3 f5 2.d4 Nf6 3.g3 g6 4.Bg2 Bg7 5.O-O O-O 6.c4 d6</code></td></tr>
-      <tr><td>Austin B Stonewall Dutch (backup)</td><td>D80</td><td><code>1.Nf3 e6 2.d4 f5 3.c4 Nf6 4.e3 d5 (Stonewall)</code></td></tr>
-      <tr><td>Austin B vs Anti-Dutch 2.Bg5</td><td>A80</td><td><code>1.Nf3 f5 2.Bg5 g6! (fianchetto counter)</code></td></tr>
-      <tr><td>Austin B vs Anti-Dutch 2.Nc3</td><td>A80</td><td><code>1.Nf3 f5 2.Nc3 Nf6 3.d4 d5 (Stonewall angle)</code></td></tr>
-      <tr><td>Zachary W English Catalan (avoid)</td><td>A14</td><td><code>1.Nf3 Nf6 2.c4 e6 3.g3 d5 4.Bg2</code> — DO NOT ENTER</td></tr>
-      <tr><td>Zachary W Symmetrical English (neutral)</td><td>A37</td><td><code>1.Nf3 Nf6 2.c4 c5 3.Nc3 g6</code> — Austin should prefer Dutch</td></tr>
+      <tr><td>Austin B Nimzo transposition (primary)</td><td>E40</td><td><code>1.Nf3 Nf6 2.c4 e6 3.Nc3 Bb4 → Bxc3+ ...b6/...Ba6/...Ne4</code></td></tr>
+      <tr><td>Austin B Queen's Indian (vs Catalan)</td><td>E15</td><td><code>1.Nf3 Nf6 2.c4 e6 3.g3 b6 4.Bg2 Bb7 → Ne4, c5 break</code></td></tr>
+      <tr><td>Austin B Catalan active (vs 3.g3 d5)</td><td>E06</td><td><code>1.Nf3 Nf6 2.c4 e6 3.g3 d5 4.Bg2 Ba6!</code> — pressures c4</td></tr>
+      <tr><td>Austin B vs Mikenas (critical)</td><td>A19</td><td><code>1.c4 Nf6 2.Nc3 e6 3.e4 c5! 4.e5 Ng8!</code></td></tr>
+      <tr><td>Zachary W English Catalan (watch out)</td><td>A14</td><td><code>1.Nf3 Nf6 2.c4 e6 3.g3 d5 4.Bg2</code> — stay ACTIVE (Ba6 or b6, not passive QGD)</td></tr>
+      <tr><td>Zachary W Symmetrical → Nimzo</td><td>A37→E40</td><td><code>1.Nf3 Nf6 2.c4 e6 3.Nc3 Bb4</code> — Austin's best territory</td></tr>
     </tbody>
   </table>
 

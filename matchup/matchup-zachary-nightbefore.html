@@ -90,7 +90,7 @@ a { color: var(--blue); }
 
 <div class="callout callout-gold" style="margin-top:14px">
   <strong>The one-sentence brief</strong>
-  Zachary's primary exploitable weakness is <strong>structural</strong>: his accuracy drops to <strong>82.5%</strong> in B75 Dragon Yugoslav positions as White (vs his 93.8% White baseline — a −11pp collapse with 5 blunders), and Austin can steer INTO this position type from move 1 by playing the Sicilian Dragon as Black when Zachary opens 1.e4.
+  Zachary's primary exploitable weakness is sharp Sicilian pawn-storm middlegames: his accuracy drops to <strong>79–83%</strong> in pawn-storm positions as White (vs his 93.8% White baseline — a −10 to −15pp collapse). As White, Austin targets this via the English Attack (6.Be3 f3 g4!) vs Zachary's Taimanov. As Black vs 1.Nf3, Austin plays the Nimzo transposition (1...Nf6 → 2.c4 e6 → 3...Bb4 when Nc3) to stay outside Zachary's Reti/English autopilot.
 </div>
 
 <hr>
@@ -101,8 +101,8 @@ a { color: var(--blue); }
   <div class="sch-time">0:00–0:45</div>
   <div class="sch-body"><strong>Opening prep — both colors (45 min)</strong><br>
     If White: memorize English Attack (6.Be3 f3 g4!) vs Taimanov B46 through move 12. Know both the 5…Qc7 and 5…a6 responses.<br>
-    If Black vs 1.Nf3/c4: Dutch Leningrad (1…f5!) main structure through move 8. Know the …e5 break plan.<br>
-    <strong>If Black vs 1.e4: Sicilian Dragon (1…c5 …d6 …Nf6 …g6 …Bg7) through move 9 — steers Zachary to B75 Yugoslav, his worst White structure (82.5%, −11pp below baseline).</strong>
+    If Black vs 1.Nf3/c4: Nimzo transposition (1…Nf6 → 2.c4 e6 → 3...Bb4 if Nc3; if 3.g3 Catalan play 3...d5 or 3...b6 actively) through move 6.<br>
+    <strong>If Black vs 1.e4: Taimanov Sicilian (1…c5 2.Nf3 e6! 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7!) — Austin's fixed Black repertoire. 2...e6 prevents Maróczy; 5...Qc7 is the B47 Bastrikov main line.</strong>
   </div>
 </div>
 
@@ -192,92 +192,67 @@ a { color: var(--blue); }
 
 <hr>
 
-<h2>Part B — Austin as Black: Dutch Leningrad vs 1.Nf3</h2>
+<h2>Part B — Austin as Black: Nimzo Transposition vs 1.Nf3</h2>
 
 <div class="callout callout-gold">
-  <strong>Why Dutch Leningrad (not Nimzo-Indian)</strong>
-  Zachary is deeply prepared in Reti/English (93–97% accuracy, autopilot). Nimzo-Indian is Austin's best weapon but Zachary avoids 3.Nc3 → plays Catalan (3.g3) where he scored wins at 96–97%. The Dutch Leningrad (1…f5!) appears in 0 of Zachary's 45 classical games as White — no preparation at all.
+  <strong>Austin's documented Black repertoire vs 1.Nf3/1.c4</strong>
+  1...Nf6 → Nimzo transposition: 2.c4 e6, then 3...Bb4 when Nc3 appears. Zachary's best White system is the Catalan (3.g3), where he scores 95%+ — but if Austin stays active (3...b6 QID or 3...d5 with active queenside play), the Catalan is manageable. The key danger is the Mikenas Attack (1.c4 Nf6 2.Nc3 e6 3.e4) — see below.
 </div>
 
 <h3>If Zachary plays 1.Nf3 or 1.c4 (primary)</h3>
 
 <div class="move-line">
   <span class="mv-z">1.Nf3</span>
-  <span class="key-move">1…f5!</span> <span class="note">— Dutch. Forces him off autopilot immediately.</span><br>
+  <span class="key-move">1…Nf6!</span> <span class="note">— Nimzo transposition. Austin's documented Black repertoire.</span><br>
 
-  <span class="mv-z">2.c4</span>
-  <span class="mv-a">Nf6 3.g3 g6 4.Bg2 Bg7 5.O-O O-O</span>
-  <span class="mv-a">6.d3 d6</span> <span class="note">(Leningrad vs English)</span><br>
+  <span class="mv-z">2.c4 e6</span>
+  <span class="mv-z">3.Nc3</span>
+  <span class="mv-a"><span class="key-move">Bb4!</span></span> <span class="note">— Nimzo-Indian (E40). Bxc3+ then ...b6/...Ba6 or ...Ne4 plans.</span><br>
 
-  <span class="mv-z">2.d4</span>
-  <span class="mv-a">Nf6 3.c4 g6 4.g3 Bg7 5.Bg2 O-O 6.O-O d6</span> <span class="note">(Leningrad vs d4)</span><br>
+  <span class="mv-z">3.g3</span> <span class="note">(Catalan — Zachary's best White system, 95.2%)</span>
+  <span class="mv-a"><span class="key-move">3…b6!</span></span> <span class="note">— Queen's Indian. Active: Bb7, Ne4, ...c5 breaks. OR: 3...d5 (QGD-Catalan) + ...Ba6 pressure on c4.</span><br>
 
-  <span class="mv-z">2.g3 (or 2.b3)</span>
-  <span class="mv-a">Nf6 3.Bg2 g6 4.O-O Bg7</span> <span class="note">(King's Indian Reversed — Austin comfortable)</span>
+  <span class="mv-z">2.b3 Bb2</span> <span class="note">(Nimzo-Larsen — rare)</span>
+  <span class="mv-a"><span class="key-move">2…d5!</span></span> <span class="note">— confirmed Oct 2026 draw vs Sriram Sarja. Solid central stake.</span>
 </div>
 
 <table>
-  <tr><th>Key Leningrad rules</th><th>Reason</th></tr>
+  <tr><th>Key Nimzo transposition rules</th><th>Reason</th></tr>
   <tr class="row-safe">
-    <td>Always castle kingside before …e5</td>
-    <td>King must be safe before opening the center</td>
+    <td>2...e6 is the Nimzo move order (not 2...c5 immediately)</td>
+    <td>Keeps Nimzo transposition alive — Nc3 invites 3...Bb4</td>
   </tr>
   <tr>
-    <td>Play …e5! when White has Nd5 or when center is tense</td>
-    <td>Opens the g7-bishop diagonal — the whole point of the Leningrad</td>
+    <td>vs Catalan (3.g3): play 3...b6 or 3...d5 actively</td>
+    <td>Passive play gives Zachary technical endgame at 95%+ accuracy; must create imbalance</td>
   </tr>
   <tr class="row-warn">
     <td>Do NOT exchange queens prematurely</td>
     <td>His endgame converts at 93–97% — keep queens on for complications</td>
   </tr>
   <tr>
-    <td>If Nd5 comes: exchange it (…Nxd5 cxd5)</td>
-    <td>Simplifies center structure; Austin retains f5 pawn for kingside</td>
+    <td>After Bxc3+: play ...b6 ...Ba6 or ...Ne4 (not passive ...d6)</td>
+    <td>IQP positions with active bishop pair or Ne4 outpost = Austin's target middlegame</td>
   </tr>
   <tr class="row-danger">
-    <td>Do NOT play symmetric …c5 (equalizing)</td>
-    <td>Symmetrical pawn structures = Zachary's technical endgame wins</td>
+    <td>⚠ vs Mikenas (1.c4 Nf6 2.Nc3 e6 3.e4): play 3...c5! 4.e5 Ng8!</td>
+    <td>Mikenas is Zachary's most lethal White weapon (3W–0L, 94.8%); fight the e5 pawn immediately</td>
   </tr>
 </table>
 
-<h3>If Zachary plays 1.e4 — PRIMARY: Dragon (B75 structural exploit)</h3>
+<h3>If Zachary plays 1.e4 — Taimanov Sicilian (B47)</h3>
 
-<div class="callout callout-danger" style="margin:8px 0 10px">
-  <strong>Why Dragon beats Taimanov here</strong>
-  Zachary's B75 Dragon Yugoslav as White = 82.5% accuracy (−11pp below his 93.8% White baseline, 5 blunders). Diagnostic failure: from a dead-equal position (+0.00), he played the passive <code>Rh1</code> (rook to h1) when the pawn advance <code>f4!</code> was winning — eval crashed to −4.30 in one move. He sees the right idea (rook activity) but picks the passive move over the correct pawn thrust. By playing the Dragon, Austin forces Zachary into the exact position type where this pattern emerges.
-</div>
-
-<div class="move-line">
-  <span class="mv-z">1.e4</span>
-  <span class="mv-a">1…c5</span> <span class="note">— Sicilian</span><br>
-  <span class="mv-z">2.Nf3</span>
-  <span class="mv-a">2…d6</span>
-  <span class="mv-z">3.d4 cxd4 4.Nxd4</span>
-  <span class="mv-a">4…Nf6</span>
-  <span class="mv-z">5.Nc3</span>
-  <span class="key-move">5…g6!</span> <span class="note">— Dragon. Forces Yugoslav Attack (6.Be3 f3 g4 — B75).</span><br>
-  <span class="mv-z">6.Be3 f3 7.Qd2</span>
-  <span class="mv-a">7…Bg7 8.O-O-O O-O 9.g4</span> <span class="note">— Yugoslav. <strong>This is Zachary's worst structure (82.5%).</strong> Keep complications going; never trade queens.</span>
-</div>
-
-<div class="callout callout-blue" style="margin-bottom:14px">
-  <strong>Pattern to watch for in the Dragon</strong>
-  If Zachary plays a quiet rook move (Rh1, Rg1, Rf1) when the position calls for a pawn advance (f4!, g5!, h5!) — that is his diagnostic error. Alert yourself when he "improves" a rook instead of pushing. He scored only 82.5% in this exact structure, and the losing move was a passive rook move from equality.
-</div>
-
-<h3>If Zachary plays 1.e4 — FALLBACK: Taimanov (B46)</h3>
-
-<p style="font-size:0.88em; margin:6px 0 8px; color:#555;">Use Taimanov only if Austin is not comfortable with Dragon theory on the night. Zachary's B46 Taimanov accuracy as White is ~91.2% — worse than his Reti/English autopilot (95.3%) but well above his Dragon (82.5%). Still better than letting him play his best structure.</p>
+<p style="font-size:0.88em; margin:6px 0 8px; color:#555;">Austin's fixed Black repertoire vs 1.e4 is Taimanov ONLY. Zachary's B46 Taimanov accuracy as White is ~91.2% — well below his Reti/English autopilot (95.3%). The English Attack pawn-storm (6.Be3 f3 g4!) creates the sharp positions where his accuracy drops furthest.</p>
 
 <div class="move-line">
   <span class="mv-z">1.e4</span>
   <span class="mv-a">1…c5</span>
   <span class="mv-z">2.Nf3</span>
-  <span class="mv-a">2…e6</span>
+  <span class="mv-a"><span class="key-move">2…e6</span></span> <span class="note">— Taimanov move order (prevents Maróczy Bind)</span><br>
   <span class="mv-z">3.d4 cxd4 4.Nxd4</span>
-  <span class="key-move">4…Nc6</span> <span class="note">— Taimanov (mirrors his own weapon against him)</span><br>
+  <span class="key-move">4…Nc6</span> <span class="note">— Taimanov (B46/B47)</span><br>
   <span class="mv-z">5.Nc3</span>
-  <span class="mv-a">Qc7 or a6</span> <span class="note">— do NOT play Najdorf — Zachary has heavy prep vs Najdorf</span>
+  <span class="mv-a"><span class="key-move">Qc7</span></span> <span class="note">— B47 Bastrikov main line. Then ...a6, ...Nf6, ...d6, ...Be7, ...O-O, ...b5 expansion.</span>
 </div>
 
 <hr>
@@ -294,7 +269,7 @@ a { color: var(--blue); }
     <td>A1x Reti/English as White</td>
     <td>95.3%</td>
     <td>+1.5pp</td>
-    <td>Avoid — Dutch Leningrad forces him off autopilot</td>
+    <td>Avoid — Nimzo transposition (1...Nf6 2.c4 e6) keeps him outside Catalan autopilot; vs 3.g3 play active QID (3...b6)</td>
   </tr>
   <tr>
     <td>B46 Taimanov as White (English Attack)</td>
@@ -306,13 +281,13 @@ a { color: var(--blue); }
     <td><strong>B75 Dragon Yugoslav as White</strong></td>
     <td><strong>82.5%</strong></td>
     <td><strong>−11.3pp</strong></td>
-    <td><strong>STEER HERE — Austin plays Dragon as Black vs 1.e4</strong></td>
+    <td><strong>Zachary's worst White ECO. Austin plays Taimanov (not Dragon) as Black — but sharp Sicilian pawn-storm weaknesses are consistent across B75 and his Taimanov games (79.4% in English Attack context)</strong></td>
   </tr>
   <tr class="row-safe">
     <td>E0x Catalan as Black</td>
     <td>96.6%</td>
     <td>+3.6pp</td>
-    <td>Don't give him the Catalan — Dutch avoids this</td>
+    <td>Don't give passive Catalan — Nimzo (3.Nc3 Bb4) or active QID (3.g3 → 3...b6) avoids his comfort zone</td>
   </tr>
   <tr>
     <td>B4x Taimanov as Black</td>
@@ -410,7 +385,7 @@ a { color: var(--blue); }
 
 <ul class="checklist">
   <li>Know the English Attack setup (6.Be3 f3 g4!) cold through move 9 <strong>if White</strong></li>
-  <li>Know the Dutch Leningrad (1…f5! …Nf6 …g6 …Bg7 …O-O …d6) through move 8 <strong>if Black vs 1.Nf3/c4</strong>; know Dragon Sicilian (1…c5 …d6 …Nf6 …g6 …Bg7) through move 9 <strong>if Black vs 1.e4</strong> — steers to Zachary's worst structure (B75, 82.5%)</li>
+  <li>Know the Nimzo transposition (1…Nf6 2.c4 e6 → 3.Nc3 Bb4; if 3.g3 → 3...b6 QID or 3...d5 active) through move 6 <strong>if Black vs 1.Nf3/c4</strong>; know Taimanov (1…c5 2.Nf3 e6! 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7!) through move 6 <strong>if Black vs 1.e4</strong> — Austin's fixed Black repertoire</li>
   <li>Do NOT play 6.Nxc6 — ever (lost this way at CYCC 2026)</li>
   <li>Do NOT offer or accept queen trades prematurely — Zachary's endgame is elite</li>
   <li>After Zachary reaches a clearly better position: <strong>do not resign mentally</strong> — he squandered 3 wins (≥+5.8) in draws, and lost one game from +10.95. Defend every position until it is objectively lost (engine ≥−7)</li>
