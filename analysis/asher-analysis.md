@@ -160,12 +160,12 @@ Asher plays **1...e6** (French) vs 1.e4. Austin's French repertoire:
 - **Advanced French (3.e5)**: Asher knows and plays ...c5 Nc6 vs Advance (vs Sriram, vs Bates). Comfortable in this structure.
 - **Tarrasch (3.Nd2)**: Asher plays Tarrasch Qxd5 (Chistyakov) and ...Nc6. Has experience here too.
 - **Exchange (3.exd5)**: Least documented for Asher — symmetric structure reduces his French preparation advantage.
-- **Recommendation**: Austin's Advanced French with sharp attacking lines (6.a3 Nh6/Nge7 systems) or Exchange to avoid Asher's well-prepared Tarrasch. Avoid the Tarrasch Qxd5 line where Asher is most comfortable.
+- **Recommendation**: Austin plays Tarrasch (3.Nd2) always — Austin's fixed 2026 White repertoire. In the Chistyakov (3.Nd2 c5 4.exd5 Qxd5), Austin's deeper preparation (5.Ngf3! 6.Bc4 7.0-0 8.Nb3!) turns Asher's most-practiced Black structure into Austin's preparation advantage. Austin does not play 3.e5 (Advance) or 3.exd5 (Exchange) — both abandoned after 2025.
 
 ### Austin as Black vs Asher's Open Sicilian
 Asher plays Open Sicilian (1.e4 c5 2.Nf3 d4) consistently. Austin plays Sicilian as Black. Against Asher's Open Sicilian:
 - Asher tends toward Nxd4 main lines. Austin's Sicilian (Taimanov/Kan or Najdorf-type) would put Asher in territory he's familiar with as White.
-- Austin can consider the Sicilian with ...d6 ...Nf6 Najdorf setup — Asher has played against this but lacks GM-level preparation depth.
+- Austin plays Taimanov Sicilian (1...c5 2.Nf3 e6 4...Nc6 5.Nc3 Qc7! B47 Bastrikov) — Asher's Open Sicilian preparation in this exact structure has a depth ceiling around move 10–12. Austin's Taimanov knowledge runs past move 15.
 
 ---
 
