@@ -39,7 +39,7 @@ Against Tarrasch (3.Nd2) — Chistyakov primary line:
 After 4.exd5 Qxd5, Austin must play **5.Ngf3** (Lichess masters: 99% of games — NOT 5.Ndf3). After 5...cxd4 6.Bc4 Qd6 7.0-0, White has active piece play and Leo cannot avoid the complications. Key:
 - White gets the Bc4 pointing at f7, castled king, and fast development
 - Leo's queen has moved twice by move 5 — concrete compensation needed
-- 7.0-0 Nf6 8.Nb3 or 8.Re1 — pressure on f7 before Leo consolidates
+- 7.0-0 Nf6 8.Nb3! — pressure on f7 before Leo consolidates (Lichess: 96% of master games; 8.Re1 is a rare 3% alternative)
 
 Against Tarrasch (3.Nd2) — 3...Nf6 alternate line:
 
