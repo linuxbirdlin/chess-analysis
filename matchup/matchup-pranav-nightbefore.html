@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tonight's Prep: Austin vs Santhosh, Pranav</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2; --purple: #5a1a8b;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg); }
+h1 { font-size: 1.55em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.1em; margin: 26px 0 10px; border-left: 5px solid var(--blue);
+  padding-left: 10px; background: #f0f4ff; padding: 6px 10px; }
+h3 { font-size: 0.95em; margin: 14px 0 6px; color: #333; font-weight: bold; }
+.subtitle { font-size: 0.84em; color: #666; margin-bottom: 18px; }
+.subtitle span { margin-right: 16px; }
+
+.callout { border-radius: 5px; padding: 11px 14px; margin: 10px 0; font-size: 0.9em; line-height: 1.6; }
+.callout-gold { background: #fffbf0; border-left: 4px solid var(--gold); }
+.callout-danger { background: #fdf0f0; border-left: 4px solid var(--red); }
+.callout-blue { background: #f0f4ff; border-left: 4px solid var(--blue); }
+.callout-green { background: #f0fdf0; border-left: 4px solid var(--green); }
+.callout-purple { background: #f8f0ff; border-left: 4px solid var(--purple); }
+.callout strong { display: block; margin-bottom: 3px; }
+
+.move-line { font-family: 'Courier New', monospace; font-size: 13px;
+  background: #fff; border: 1px solid #ddd; border-radius: 5px;
+  padding: 10px 14px; margin: 8px 0; line-height: 2.1; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: var(--gold); color: #fff; padding: 1px 6px;
+  border-radius: 3px; font-weight: bold; }
+.danger-move { background: var(--red); color: #fff; padding: 1px 6px;
+  border-radius: 3px; font-weight: bold; }
+.note { font-size: 0.82em; color: #555; font-family: Georgia, serif; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.87em; margin: 10px 0; }
+th { background: #2a3f6b; color: #fff; padding: 7px 9px; text-align: left; }
+td { padding: 6px 9px; border: 1px solid #ddd; vertical-align: top; }
+tr:nth-child(even) { background: #f5f5f5; }
+.row-danger { background: #fdeaea !important; }
+.row-safe { background: #edfdf3 !important; }
+.row-warn { background: #fffbe8 !important; }
+
+.schedule-box { display: grid; grid-template-columns: 80px 1fr; gap: 0; margin: 12px 0; border: 1px solid #bbc; border-radius: 5px; overflow: hidden; }
+.sch-time { background: #2a3f6b; color: #fff; font-weight: bold; font-size: 0.9em;
+  padding: 10px 8px; text-align: center; display: flex; align-items: center; justify-content: center; }
+.sch-body { padding: 10px 14px; background: #fff; font-size: 0.9em; line-height: 1.5; }
+.sch-body strong { color: var(--blue); }
+
+.checklist { list-style: none; padding: 0; }
+.checklist li { padding: 6px 0 6px 28px; border-bottom: 1px solid #eee; position: relative; font-size: 0.9em; }
+.checklist li::before { content: "☐"; position: absolute; left: 0; font-size: 1.1em; color: #888; }
+
+hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
+a { color: var(--blue); }
+.back-link { font-size: 0.82em; color: var(--blue); text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+
+@media print {
+  .schedule-box { break-inside: avoid; }
+  h2 { break-before: auto; }
+}
+</style>
+</head>
+<body>
+
+<h1>Tonight's Battle Plan: Austin vs Santhosh, Pranav</h1>
+<div class="subtitle">
+  <span><strong>Pranav Santhosh</strong> · 1922 FIDE (Nov 2026) · USA</span>
+  <span>Austin: 1959 FIDE · Austin is <strong>+37 FIDE favorite</strong></span>
+  <span>Direct record: No prior encounter</span>
+  <span>Format: NAYCC 2026 · 90+30 classical</span>
+</div>
+<a class="back-link" href="../austin-prep.html">← Prep Index</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-pranav-gm.html">Full GM Battle Plan</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-pranav-deep.html">Engine Analysis</a>
+
+<div class="callout callout-gold" style="margin-top:14px">
+  <strong>The two-word brief</strong>
+  Austin's two structural edges: (1) <strong>Rossolimo as White</strong> — Pranav's Rossolimo-as-Black prep is undocumented; his entire White prep is the Maróczy Bind which requires 4...g6. (2) <strong>2...e6 Taimanov as Black</strong> — this single move permanently prevents Pranav's deepest White weapon (Maróczy Bind 5.c4, 2W-1D-1L as White). Pranav is Austin's weakest documented opponent as White (70.3% AGCA Summer avg). Force him into English Attack territory.
+</div>
+
+<div class="callout callout-danger">
+  <strong>Pranav's Maróczy Bind is his strongest White system — avoid it completely</strong>
+  Pranav has 2W-1D-1L in the Maróczy Bind. His AGCA Summer White games outside the Maróczy averaged 51–80%. The entire Black strategy is to play 2...e6 (NOT 2...Nc6) so that 5.c4 Maróczy is permanently blocked. One move-order choice eliminates his best weapon.
+</div>
+
+<hr>
+
+<h2>Tonight's 2-Hour Schedule</h2>
+
+<div class="schedule-box">
+  <div class="sch-time">0:00–0:40</div>
+  <div class="sch-body"><strong>Rossolimo prep as White — through move 12 (40 min)</strong><br>
+    Pranav plays 1...c5 in all documented games. Austin plays <strong>3.Bb5 Rossolimo</strong>.<br>
+    Branch A (Exchange): 4.Bxc6 dxc6 5.d3 Nf6 6.Nc3 g6 <strong>7.h3!</strong> — prevents ...Bg4, prepares Be3. Caruana/Nakamura treatment. Target doubled c-pawns long-term.<br>
+    Branch B (Keep bishop): 4.0-0 e5 5.Re1 Nd4 6.Nxd4 cxd4 7.c3 — solid structural game; Austin keeps more dynamic tension.<br>
+    Drill: know both branches cold to move 10.
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">0:40–1:20</div>
+  <div class="sch-body"><strong>Taimanov prep as Black — drill the critical move orders (40 min)</strong><br>
+    <strong>THE most important Black move: 2...e6 (NOT 2...Nc6).</strong> Playing 2...Nc6 then 4...g6 allows 5.c4 — Maróczy Bind. The 2...e6 move-order eliminates this permanently.<br>
+    After 2...e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3: play <strong>5...Qc7</strong> (B47 Bastrikov — 66% of masters). Continue: 6.Be3 a6 7.Bd3 Nf6 8.Qe2 d6 9.O-O-O Be7 — then ...0-0, ...Rc8, <strong>...b5!</strong> queenside race.<br>
+    Key timing: launch ...b5 <em>before</em> White's g4-g5 storm arrives (move 7–8 is ideal if Pranav plays 7.f3).
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">1:20–1:50</div>
+  <div class="sch-body"><strong>Study Pranav's AGCA Summer White collapses (30 min)</strong><br>
+    <strong>R3 (B92 White, 80%):</strong> Missed Nxd4 on moves 4 AND 5 of the same game (CPL 781, CPL 808). After ...cxd4, standard recapture is Nxd4 — Pranav played Nc3 then Be3 instead. Exact same error twice in a row. In English Attack structures where ...cxd4 arises, watch for this miss.<br>
+    <strong>R9 (B50 White, 51%):</strong> Had +9.69 winning advantage, played Qd4 (CPL 967) — position dropped to +0.02 immediately. 13 total blunders. His most extreme calculation failure on record.<br>
+    Key takeaway: Pranav under clock pressure or complexity collapses in spectacular fashion. Keep middlegame alive through move 20+.
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">1:50–2:00</div>
+  <div class="sch-body"><strong>Mental prep and day-of checklist (10 min)</strong><br>
+    Read Part D below. Core mental frame: Austin is the +37 favorite. The plan is structural — Rossolimo disrupts Pranav's setup as Black; 2...e6 eliminates his Maróczy as White. Execute the plan; Pranav's calculation will break under pressure.
+  </div>
+</div>
+
+<hr>
+
+<h2>Part A — Austin as White: Rossolimo (3.Bb5)</h2>
+
+<div class="callout callout-green">
+  <strong>Why Rossolimo: it is Austin's standard weapon and Pranav's undocumented territory</strong>
+  Pranav's Maróczy Bind requires him to be White with 1.c4 or 1.e4 + 5.c4. As Black vs Austin's 1.e4, he has zero documented Rossolimo games. The Rossolimo cuts preparation off at move 3. The Exchange variation (4.Bxc6) leaves doubled c-pawns as a permanent structural target.
+</div>
+
+<h3>Branch A — Exchange Rossolimo + h3 (Caruana/Nakamura treatment)</h3>
+
+<div class="move-line">
+  <span class="mv-a">1.e4</span> <span class="mv-z">c5</span>
+  <span class="mv-a">2.Nf3</span> <span class="mv-z">Nc6</span>
+  <span class="key-move">3.Bb5!</span> <span class="mv-z">Nf6</span>
+  <span class="mv-a">4.Bxc6</span> <span class="mv-z">dxc6</span>
+  <span class="mv-a">5.d3</span> <span class="mv-z">g6</span>
+  <span class="key-move">6.h3!</span> <span class="note">— prevents ...Bg4; prepares Be3. 133 master games avg Elo 2426. NOT 6.h4 (0 master games).</span><br>
+  <span class="mv-a">7.Be3</span> <span class="mv-z">b6</span>
+  <span class="mv-a">8.Nc3</span> <span class="mv-z">Nf6</span>
+  <span class="mv-a">9.Qd2</span> <span class="mv-z">O-O</span>
+  <span class="key-move">10.O-O-O</span> <span class="note">— queenside castle; f4-f5 attack plan follows. Doubled c-pawns = long-term target.</span>
+</div>
+
+<h3>Branch B — Keep bishop: 4.0-0 e5</h3>
+
+<div class="move-line">
+  <span class="mv-a">3.Bb5</span> <span class="mv-z">Nf6</span>
+  <span class="mv-a">4.0-0</span> <span class="mv-z">e5</span>
+  <span class="mv-a">5.Re1</span> <span class="mv-z">Nd4</span>
+  <span class="mv-a">6.Nxd4</span> <span class="mv-z">cxd4</span>
+  <span class="mv-a">7.c3</span> <span class="note">— more dynamic; bishop stays active; White keeps more tension.</span>
+</div>
+
+<table>
+  <tr><th>If Pranav plays…</th><th>Austin responds…</th><th>Key idea</th></tr>
+  <tr class="row-safe">
+    <td>2...Nc6 (standard)</td>
+    <td>3.Bb5 Rossolimo → Branch A or B</td>
+    <td>PRIMARY — Austin's prepared line</td>
+  </tr>
+  <tr>
+    <td>2...e6 (Kan-type)</td>
+    <td>3.d4 cxd4 4.Nxd4 a6 5.Nc3 Qc7 — standard Sicilian treatment</td>
+    <td>Austin's normal Taimanov knowledge applies from White side</td>
+  </tr>
+  <tr class="row-danger">
+    <td>DO NOT play 3.d4 vs 2...Nc6 + 4...g6</td>
+    <td>Never enter Open Sicilian vs Pranav</td>
+    <td>Maróczy Bind 5.c4 is his prepared White structure (2W-1D-1L)</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>Part B — Austin as Black: Taimanov (2...e6 — the only move that matters)</h2>
+
+<div class="callout callout-danger">
+  <strong>The single most important preparation fact for Black</strong>
+  <strong>2...e6</strong> (NOT 2...Nc6). Playing 2...Nc6 then 4...g6 allows 5.c4 — Maróczy Bind. Pranav has 2W-1D-1L in Maróczy. His AGCA Summer games show the Maróczy is his most confident structure. The 2...e6 move eliminates this scenario permanently and forces Pranav into English Attack territory where he is 1W-1D-1L.
+</div>
+
+<h3>Main line: Taimanov B47 Bastrikov</h3>
+
+<div class="move-line">
+  <span class="mv-z">Pranav:</span> <span class="mv-z">1.e4</span>
+  <span class="mv-a">1…c5</span>
+  <span class="mv-z">2.Nf3</span>
+  <span class="key-move">2…e6!</span> <span class="note">— CRITICAL. Prevents Maróczy forever. NOT 2...Nc6.</span><br>
+  <span class="mv-z">3.d4</span>
+  <span class="mv-a">3…cxd4</span>
+  <span class="mv-z">4.Nxd4</span>
+  <span class="mv-a">4…Nc6</span>
+  <span class="mv-z">5.Nc3</span>
+  <span class="key-move">5…Qc7</span> <span class="note">— B47 Bastrikov; 66% of master games.</span><br>
+  <span class="note">Continue: 6.Be3 a6 7.Bd3 Nf6 8.Qe2 d6 9.O-O-O Be7 → ...0-0, ...Rc8, ...b5! queenside race.</span><br>
+  <span class="note">Key: launch ...b5 before Pranav's g4-g5 storm. DO NOT play ...d5.</span>
+</div>
+
+<h3>DANGER: Do not enter the Maróczy Bind</h3>
+
+<div class="move-line">
+  <span class="mv-z">1.e4</span>
+  <span class="mv-a">1…c5</span>
+  <span class="mv-z">2.Nf3</span>
+  <span class="danger-move">2…Nc6??</span>
+  <span class="mv-z">3.d4</span>
+  <span class="mv-a">3…cxd4</span>
+  <span class="mv-z">4.Nxd4</span>
+  <span class="danger-move">4…g6??</span>
+  <span class="mv-z">5.c4!</span>
+  <span class="note">— MARÓCZY BIND. Pranav's prepared weapon. 2W-1D-1L. Do not go here.</span>
+</div>
+
+<h3>English Attack — the main position to reach</h3>
+
+<div class="move-line">
+  <span class="mv-a">5…Qc7</span>
+  <span class="mv-z">6.Be3</span>
+  <span class="mv-a">6…a6</span>
+  <span class="mv-z">7.Bd3</span>
+  <span class="mv-a">7…Nf6</span>
+  <span class="mv-z">8.Qe2</span>
+  <span class="mv-a">8…d6</span>
+  <span class="mv-z">9.O-O-O</span>
+  <span class="mv-a">9…Be7</span>
+  <span class="mv-z">10.Kb1</span>
+  <span class="mv-a">10…O-O</span>
+  <span class="mv-a">11…Rc8</span>
+  <span class="key-move">12…b5!</span>
+  <span class="note">— queenside race. Push b4 to undermine c3 knight. Pranav scored only 1W-1D-1L in English Attack.</span>
+</div>
+
+<table>
+  <tr><th>If Pranav plays…</th><th>Austin responds…</th><th>Notes</th></tr>
+  <tr class="row-safe">
+    <td>1.e4 (primary)</td>
+    <td>1...c5 2...e6 Taimanov</td>
+    <td>PRIMARY — prevents Maróczy entirely</td>
+  </tr>
+  <tr class="row-safe">
+    <td>5.Nc3 → 5...Qc7 (B47 Bastrikov)</td>
+    <td>...a6, ...Nf6, ...d6, ...Be7 → ...b5! race</td>
+    <td>Pranav has 1W-1D-1L here — weaker than Maróczy</td>
+  </tr>
+  <tr>
+    <td>6.Be3 7.f3 (full English Attack)</td>
+    <td>6...Nf6 7...b5! immediately on move 7</td>
+    <td>b5 BEFORE g4-g5 storm — timing is critical</td>
+  </tr>
+  <tr>
+    <td>6.g4 Keres Attack</td>
+    <td>6...d5! 7.exd5 Nxd5 — central break</td>
+    <td>Pranav has zero Keres games — improvising if he tries it</td>
+  </tr>
+  <tr class="row-warn">
+    <td>Watch: ...cxd4 positions</td>
+    <td>Pranav may miss Nxd4 recapture (2 documented misses)</td>
+    <td>CPL 781 + CPL 808 on consecutive moves in B92 — same error twice</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>Part C — The Nxd4 Tactical Motif</h2>
+
+<div class="callout callout-purple">
+  <strong>Pranav misses Nxd4 recapture under pressure — confirmed twice in one game</strong>
+  AGCA Summer R3: after Black played ...cxd4, Pranav played <strong>Nc3</strong> (CPL 781, +0.33→−7.48) instead of Nxd4. Then on the next move played <strong>Be3</strong> (CPL 808) instead of Nxd4 again. The same standard recapture missed twice consecutively. In Taimanov English Attack positions where ...cxd4 arises (e.g., if Austin plays ...cxd4 voluntarily to open the c-file), watch for Pranav to skip the recapture — position immediately shifts to Austin's favor.
+</div>
+
+<hr>
+
+<h2>Part D — Day-of Checklist</h2>
+
+<ul class="checklist">
+  <li><strong>Weapon confirmed as White:</strong> Rossolimo 3.Bb5 — Branch A (Exchange + h3) or Branch B (keep bishop)</li>
+  <li><strong>Weapon confirmed as Black:</strong> Taimanov — 2...e6 (NOT 2...Nc6), then 5...Qc7</li>
+  <li><strong>Maróczy Bind prevention locked in:</strong> 2...e6 move order — never 2...Nc6 then 4...g6</li>
+  <li><strong>b5 timing drilled:</strong> Launch ...b5 before Pranav's g4-g5 — move 7 if he plays f3</li>
+  <li><strong>Nxd4 motif remembered:</strong> If ...cxd4 arises and Pranav plays Be3/Nc3 instead, the position swings immediately</li>
+  <li><strong>Qd4 pattern remembered:</strong> Even from +9.69, Pranav can collapse — never resign or offer draws early</li>
+  <li><strong>Do NOT play ...d5 in the English Attack</strong> — keep dynamic with ...b4/...Nc4</li>
+  <li><strong>Do NOT enter Open Sicilian as White</strong> — stay on Rossolimo exclusively</li>
+</ul>
+
+<div class="callout callout-blue" style="margin-top:18px">
+  "Pranav is 84.2% as White — the weakest White record in my opponent pool. I play 2...e6, I prevent the Maróczy, and I force the English Attack where he is 1W-1D-1L. I launch ...b5 before g5. Even from +9.69 he can play Qd4 — I keep playing until the position is decided. His White game cracks under pressure."
+</div>
+
+<hr>
+<p style="text-align:center; font-size:0.82em; color:#666;">
+  <a href="../austin-prep.html">← Prep Index</a> ·
+  <a href="matchup-pranav-gm.html">GM Battle Plan</a> ·
+  <a href="matchup-pranav-white.html">Austin as White</a> ·
+  <a href="matchup-pranav-black.html">Austin as Black</a> ·
+  <a href="matchup-pranav-deep.html">Engine Analysis</a>
+</p>
+</body>
+</html>
