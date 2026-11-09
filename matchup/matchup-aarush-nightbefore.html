@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tonight's Prep: Austin vs Ajith, Aarush</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2; --purple: #5a1a8b;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg); }
+h1 { font-size: 1.55em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.1em; margin: 26px 0 10px; border-left: 5px solid var(--blue);
+  padding-left: 10px; background: #f0f4ff; padding: 6px 10px; }
+h3 { font-size: 0.95em; margin: 14px 0 6px; color: #333; font-weight: bold; }
+.subtitle { font-size: 0.84em; color: #666; margin-bottom: 18px; }
+.subtitle span { margin-right: 16px; }
+
+.callout { border-radius: 5px; padding: 11px 14px; margin: 10px 0; font-size: 0.9em; line-height: 1.6; }
+.callout-gold { background: #fffbf0; border-left: 4px solid var(--gold); }
+.callout-danger { background: #fdf0f0; border-left: 4px solid var(--red); }
+.callout-blue { background: #f0f4ff; border-left: 4px solid var(--blue); }
+.callout-green { background: #f0fdf0; border-left: 4px solid var(--green); }
+.callout-purple { background: #f8f0ff; border-left: 4px solid var(--purple); }
+.callout strong { display: block; margin-bottom: 3px; }
+
+.move-line { font-family: 'Courier New', monospace; font-size: 13px;
+  background: #fff; border: 1px solid #ddd; border-radius: 5px;
+  padding: 10px 14px; margin: 8px 0; line-height: 2.1; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: var(--gold); color: #fff; padding: 1px 6px;
+  border-radius: 3px; font-weight: bold; }
+.danger-move { background: var(--red); color: #fff; padding: 1px 6px;
+  border-radius: 3px; font-weight: bold; }
+.note { font-size: 0.82em; color: #555; font-family: Georgia, serif; }
+
+.decision-box { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+.decision-card { border: 2px solid #aaa; border-radius: 7px; padding: 12px 14px; background: #fff; }
+.decision-card.option-a { border-color: var(--purple); background: #fcf8ff; }
+.decision-card.option-b { border-color: var(--red); background: #fff8f8; }
+.decision-card h3 { color: var(--purple); margin-top: 0; }
+.decision-card.option-b h3 { color: var(--red); }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.87em; margin: 10px 0; }
+th { background: #2a3f6b; color: #fff; padding: 7px 9px; text-align: left; }
+td { padding: 6px 9px; border: 1px solid #ddd; vertical-align: top; }
+tr:nth-child(even) { background: #f5f5f5; }
+.row-danger { background: #fdeaea !important; }
+.row-safe { background: #edfdf3 !important; }
+.row-warn { background: #fffbe8 !important; }
+
+.schedule-box { display: grid; grid-template-columns: 80px 1fr; gap: 0; margin: 12px 0; border: 1px solid #bbc; border-radius: 5px; overflow: hidden; }
+.sch-time { background: #2a3f6b; color: #fff; font-weight: bold; font-size: 0.9em;
+  padding: 10px 8px; text-align: center; display: flex; align-items: center; justify-content: center; }
+.sch-body { padding: 10px 14px; background: #fff; font-size: 0.9em; line-height: 1.5; }
+.sch-body strong { color: var(--blue); }
+
+.checklist { list-style: none; padding: 0; }
+.checklist li { padding: 6px 0 6px 28px; border-bottom: 1px solid #eee; position: relative; font-size: 0.9em; }
+.checklist li::before { content: "☐"; position: absolute; left: 0; font-size: 1.1em; color: #888; }
+.checklist li.first { font-weight: bold; color: var(--purple); }
+.checklist li.first::before { color: var(--purple); }
+
+hr { border: none; border-top: 2px solid #ddd; margin: 22px 0; }
+a { color: var(--blue); }
+.back-link { font-size: 0.82em; color: var(--blue); text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+
+@media print {
+  .schedule-box { break-inside: avoid; }
+  h2 { break-before: auto; }
+  .decision-box { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<h1>Tonight's Battle Plan: Austin vs Ajith, Aarush</h1>
+<div class="subtitle">
+  <span><strong>Aarush Ajith</strong> · 1943 FIDE (Nov 2026) · Canada · 0W–3L vs h4 attacks</span>
+  <span>Austin: 1959 FIDE · Austin is <strong>+16 FIDE favorite</strong></span>
+  <span>Direct record: 0W–1L–2D (Austin's loss in B90 Najdorf: Bxc2?? CPL 788)</span>
+  <span>Format: NAYCC 2026 · 90+30 classical</span>
+</div>
+<a class="back-link" href="../austin-prep.html">← Prep Index</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-aarush-gm.html">Full GM Battle Plan</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-aarush-white.html">White Prep</a>&nbsp;&nbsp;
+<a class="back-link" href="matchup-aarush-black.html">Black Prep</a>
+
+<div class="callout callout-gold" style="margin-top:14px">
+  <strong>The two-word brief</strong>
+  Austin's two concrete edges: (1) <strong>White weapon choice</strong> — either Moscow 3.Bb5+ (Option A, Aarush lost his only B51 game at 89.3%) or the pre-analyzed g4 Attack (Option B, targeting Aarush's confirmed 0W–3L record vs h4 attacks). Confirm tonight. (2) <strong>Steer for endgames</strong> — Aarush has CPL-1000 king blunders in three separate games (CC R7: 3×1000 CPL in 128 moves; Toronto R6: +7.31 → Qb4?? 1000 CPL; CC R1: +4.96 → Nxb4?? 482 CPL). The endgame is where Aarush breaks — get there.
+</div>
+
+<div class="callout callout-danger">
+  <strong>Direct encounter reminder — DO NOT repeat Bxc2??</strong>
+  Feb 22 2026 (Austin White, B90 Najdorf): Austin blundered Bxc2?? (CPL 788, +0.00→−7.88) — a piece drop when Black pushed ...c4 to drive the knight. The correct response was Bc1 or Bd2. This one move cost Austin the game from a completely equal position. When Aarush plays ...c4 to drive White's Nb3: <strong>bishop retreats (Bc1/Bd2), NEVER takes on c2.</strong>
+</div>
+
+<hr>
+
+<h2>Tonight's 2-Hour Schedule</h2>
+
+<div class="schedule-box">
+  <div class="sch-time">0:00–0:20</div>
+  <div class="sch-body"><strong>White weapon decision (20 min)</strong><br>
+    Read the two options below (Part A). Decide: Option A (Moscow 3.Bb5+) or Option B (g4 Attack 6.g4!)?<br>
+    <em>Write the choice down. This is the first item on the day-of checklist.</em>
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">0:20–1:00</div>
+  <div class="sch-body"><strong>White weapon — drill chosen option cold (40 min)</strong><br>
+    If Option A chosen: drill Moscow Variation to move 10 (see Part A). Know 3...Bd7 and 3...Nc6 responses.<br>
+    If Option B chosen: drill g4 Attack to move 15 — <code>6.g4 e6 7.g5 Nfd7 8.h4 Nc6 9.Be3 Be7 10.Qd2 O-O 11.O-O-O</code>. Focus: bishop stays on e3 (NOT c2) when ...c4 comes. Know 6...g6 response (7.h5!).
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">1:00–1:40</div>
+  <div class="sch-body"><strong>Black prep — Nimzo-Indian Bxc3+ (40 min)</strong><br>
+    Aarush plays 1.d4 exclusively. Prepare: <code>1...Nf6 2...e6 3...Bb4 → Bxc3+ on first opportunity.</code><br>
+    Critical rule: take Bxc3+ as soon as White has Nc3+c4. In Game 1 (Feb 16), Austin missed it 5 times in a row (CPL 388 → 113 → 92 → 72 → 55). Play it the FIRST time.<br>
+    Endgame steer: after Bxc3+ bxc3, target doubled pawns with ...c5, ...Nc6, ...O-O → K+P endgame is the goal (Aarush blunders with 3× CPL-1000 king moves).<br>
+    Missed win reminder: in K+P or queen endgames with queenside pawn, ask Qa8 first (Game 3: Qc6?? cost +1.74 advantage, CPL 160).
+  </div>
+</div>
+
+<div class="schedule-box">
+  <div class="sch-time">1:40–2:00</div>
+  <div class="sch-body"><strong>Mental prep and day-of checklist (20 min)</strong><br>
+    Read Part D. Core mental frame: Austin has 3 concrete direct-encounter patterns to fix (Bxc2, Bxc3+ delay, Qc6 miss). The rating gap is 16 points — preparation advantage, not a skill ceiling. The endgame is the plan.
+  </div>
+</div>
+
+<hr>
+
+<h2>Part A — Austin as White: Weapon Choice</h2>
+
+<div class="callout callout-purple">
+  <strong>Decision required tonight — confirm with Austin before the game.</strong>
+  Both options are viable. Option A is more consistent with Austin's existing prep. Option B has more surprise value and directly targets Aarush's most exploitable weakness. Whichever is chosen, commit to it — don't switch during the game.
+</div>
+
+<div class="decision-box">
+  <div class="decision-card option-a">
+    <h3>Option A — Moscow Variation 3.Bb5+</h3>
+    <p style="font-size:0.87em;margin-bottom:8px;color:#555;">28,424 master games · 54.8% White score · Consistent with Austin's Rossolimo systems</p>
+    <div class="move-line" style="font-size:12px;">
+      <span class="mv-a">1.e4</span> <span class="mv-z">c5</span>
+      <span class="mv-a">2.Nf3</span> <span class="mv-z">d6</span>
+      <span class="key-move">3.Bb5+!</span>
+      <span class="note">— sidesteps Najdorf entirely</span><br>
+      <span class="mv-z">3...Bd7</span>
+      <span class="mv-a">4.Bxd7+</span> <span class="mv-z">Qxd7</span>
+      <span class="mv-a">5.O-O</span> <span class="mv-z">Nc6</span>
+      <span class="mv-a">6.c3</span> <span class="note">— build for d4</span><br>
+      <span class="mv-a">7.d4</span> <span class="mv-z">cxd4</span>
+      <span class="mv-a">8.cxd4</span> <span class="mv-z">Nf6</span>
+      <span class="mv-a">9.Nc3</span>
+      <span class="note">— structural edge; Black's Qd7 is awkward</span><br>
+      <span class="mv-z">3...Nc6</span> <span class="note">(alt)</span>
+      <span class="mv-a">4.O-O</span> <span class="mv-z">Nf6</span>
+      <span class="mv-a">5.Re1</span> <span class="mv-z">e5</span>
+      <span class="mv-a">6.c3</span>
+      <span class="note">— Rossolimo endgame structure</span>
+    </div>
+    <p style="font-size:0.85em;margin-top:8px;"><strong>Why choose Option A:</strong> no Najdorf theory needed; consistent with Austin's existing Bb5 prep; Aarush lost his only B51 game at 89.3% (Canada R5 vs Hartner 2013).</p>
+  </div>
+
+  <div class="decision-card option-b">
+    <h3>Option B — g4 Attack 6.g4!</h3>
+    <p style="font-size:0.87em;margin-bottom:8px;color:#555;">Targets Aarush's 0W–3L h4 record · Rare vs 5...a6 — maximum surprise</p>
+    <div class="move-line" style="font-size:12px;">
+      <span class="mv-a">1.e4</span> <span class="mv-z">c5</span>
+      <span class="mv-a">2.Nf3</span> <span class="mv-z">d6</span>
+      <span class="mv-a">3.d4</span> <span class="mv-z">cxd4</span>
+      <span class="mv-a">4.Nxd4</span> <span class="mv-z">Nf6</span>
+      <span class="mv-a">5.Nc3</span> <span class="mv-z">a6</span>
+      <span class="key-move">6.g4!</span>
+      <span class="note">— h4-h5 storm incoming</span><br>
+      <span class="mv-z">6...e6</span>
+      <span class="key-move">7.g5!</span>
+      <span class="note">— forces Nfd7 off f6</span><br>
+      <span class="mv-z">Nfd7</span>
+      <span class="mv-a">8.h4</span> <span class="mv-z">Nc6</span>
+      <span class="mv-a">9.Be3</span> <span class="mv-z">Be7</span>
+      <span class="mv-a">10.Qd2</span> <span class="mv-z">O-O</span>
+      <span class="mv-a">11.O-O-O</span>
+      <span class="note">— setup complete; 12.h5 launches</span><br>
+      <span class="mv-z">6...g6</span> <span class="note">(KID alt)</span>
+      <span class="key-move">7.h5!</span>
+      <span class="note">— cramp immediately</span>
+    </div>
+    <p style="font-size:0.85em;margin-top:8px;"><strong>Why choose Option B:</strong> Aarush is 0W–3L vs h4 structures in three separate tournaments; even blundered from +7.31 in Toronto R6 under time pressure with h4 on board. Direct weapon vs confirmed weakness. Requires knowing lines to move 15.</p>
+    <div class="callout callout-danger" style="margin-top:8px;font-size:0.85em;padding:8px 12px;">
+      <strong>CRITICAL (Option B): when Aarush plays ...c4 to drive Nb3</strong>
+      → Bishop retreats to <strong>Bc1 or Bd2</strong>. NEVER Bxc2. (CPL 788 in direct encounter.)
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<h2>Part B — Austin as Black: Nimzo-Indian Bxc3+</h2>
+
+<div class="callout callout-green">
+  <strong>Aarush plays 1.d4 exclusively. The plan is fixed: Nimzo → Bxc3+ → endgame.</strong>
+  Aarush's Catalan is his best White system (91–93% accuracy in clean games). But he has CPL-1000 king blunders in two separate endgame games. The plan is to reach a clean king+pawn endgame and let him navigate — the data says he can't.
+</div>
+
+<h3>Main line — Nimzo-Indian (E32/E46)</h3>
+
+<div class="move-line">
+  <span class="mv-z">1...Nf6</span>
+  <span class="mv-a">2.c4</span>
+  <span class="mv-z">e6</span>
+  <span class="mv-a">3.Nc3</span>
+  <span class="mv-z">Bb4</span>
+  <span class="note">— Nimzo-Indian. Take Bxc3+ as early as possible once Nc3+c4 is on the board.</span><br>
+  <span class="mv-a">4.Qc2</span>
+  <span class="mv-z"><span class="key-move">O-O</span></span>
+  <span class="mv-a">5.a3</span>
+  <span class="mv-z"><span class="key-move">Bxc3+</span></span>
+  <span class="note">— take it. The engine wanted it on moves 5, 6, 7, 8, 9 in Game 1. Don't delay.</span><br>
+  <span class="mv-a">6.Qxc3</span>
+  <span class="mv-z">b6</span>
+  <span class="mv-a">7.Bg5</span>
+  <span class="mv-z">Bb7</span>
+  <span class="note">— ...c5 next targets the doubled c-pawns. Steer for technical king endgame.</span><br>
+  <span class="mv-a">4.e3</span>
+  <span class="mv-z">O-O</span>
+  <span class="mv-a">5.Nge2</span>
+  <span class="mv-z">d5</span>
+  <span class="mv-z"><span class="key-move">...Bxc3+</span></span>
+  <span class="note">— Rubinstein (E46). Same idea: take as soon as it's good.</span>
+</div>
+
+<div class="callout callout-danger">
+  <strong>If Aarush plays 3.Nf3 → g3 → Bg2 (Catalan without Nc3)</strong>
+  The Bb4+ Bogo-Indian applies: <code>3...Bb4+</code> (forces exchange or awkward Nd2) → after 4.Bd2 Bxd2+ 5.Qxd2 d5, play QGD-type structure. Do NOT just play passive ...d5 without the Bb4+ commitment.
+</div>
+
+<table>
+  <tr><th>If Aarush plays…</th><th>Austin responds…</th><th>Key idea</th></tr>
+  <tr class="row-safe">
+    <td>1.d4 2.c4 3.Nc3 (Catalan with Nc3)</td>
+    <td>3...Bb4 → Bxc3+ as soon as productive</td>
+    <td>PRIMARY — destroy the structure, steer for endgame</td>
+  </tr>
+  <tr class="row-safe">
+    <td>4.Qc2 (Nimzo Classical)</td>
+    <td>4...O-O 5.a3 Bxc3+! (forced trade)</td>
+    <td>Don't delay after 5.a3 — take immediately</td>
+  </tr>
+  <tr>
+    <td>4.e3 (Rubinstein)</td>
+    <td>4...O-O 5.Nge2 d5 ...Bxc3+ at right moment</td>
+    <td>Nimzo-Rubinstein — same steer-to-endgame plan</td>
+  </tr>
+  <tr>
+    <td>3.Nf3 g3 (pure Catalan)</td>
+    <td>3...Bb4+ (Bogo) → 4.Bd2 Bxd2+ 5.Qxd2 d5</td>
+    <td>Bogo-Indian — removes queenside structure; familiar QGD</td>
+  </tr>
+  <tr class="row-danger">
+    <td>Any position — Aarush in K+P endgame</td>
+    <td>Trade into it. Play accurately. Watch for king-walk blunders.</td>
+    <td>CC R7: 3× CPL-1000 king moves in 128-move game</td>
+  </tr>
+</table>
+
+<div class="callout callout-gold">
+  <strong>The Qa8 rule — don't miss it again (Game 3 miss, Jun 21 2026)</strong>
+  In Game 3 (Jun 21), Austin had +1.74 advantage. The queen belonged on a8 — controls the a-file and long diagonal toward the queenside pawn. Austin played Qc6?? (CPL 160, +1.74→+0.14) instead, blocking the a-file. Rule: in any queen endgame or passed-pawn position, visualize Qa8 before any other queen move. If Qa8 works, play it.
+</div>
+
+<hr>
+
+<h2>Part C — Clock and Psychological Strategy</h2>
+
+<table>
+  <tr><th>Situation</th><th>Austin's action</th></tr>
+  <tr class="row-safe"><td>Opening (moves 1–15)</td><td>Play confidently — demonstrate preparation advantage. Make Aarush think even in his own opening.</td></tr>
+  <tr><td>Aarush under 30 minutes (moves 20+)</td><td>Create complications — don't simplify. His worst games (80.6%, 84%) happen under clock pressure.</td></tr>
+  <tr class="row-danger"><td>Aarush is winning or equal</td><td>KEEP FIGHTING. Toronto R6: +7.31 → Qb4?? (1000 CPL, lost). Canada Open R1: +4.96 → Nxb4?? (482 CPL, lost). Two confirmed examples — not a fluke.</td></tr>
+  <tr class="row-safe"><td>Endgame reached</td><td>Trade into K+P or R+P endgame. Don't simplify into draw. CC R7: 128 moves, Aarush lost via 3× CPL-1000 king mistakes.</td></tr>
+  <tr><td>Aarush plays fast / confidently</td><td>Slow down. His best games happen when he's comfortable. Force him out of rhythm.</td></tr>
+</table>
+
+<hr>
+
+<h2>Part D — Day-of Checklist</h2>
+
+<ul class="checklist">
+  <li class="first">Confirm White weapon choice: Option A (Moscow 3.Bb5+) or Option B (g4 Attack 6.g4!) — write it down before leaving for the venue</li>
+  <li>White (Option B): first deviation after 5...a6 is 6.g4! — commit to it immediately, don't switch to 6.Be3</li>
+  <li>White (Option B): when Aarush plays ...c4 → bishop to Bc1 or Bd2, NEVER Bxc2 (CPL 788 last time)</li>
+  <li>White (Option A): after 3...Bd7 4.Bxd7+ Qxd7 → 5.O-O Nc6 6.c3 d4; build calmly for structural edge</li>
+  <li>Black: when Aarush plays Nc3 + c4 → calculate Bxc3+ immediately. Take it the first time the engine wants it.</li>
+  <li>Black: steer for king+pawn or rook+pawn endgame — Aarush has documented 1000 CPL king blunders in two separate games</li>
+  <li>Black: queen endgame with passed pawn → Qa8 before any other queen move (Game 3 miss)</li>
+  <li>If Aarush is winning at any point — keep fighting. His pattern is catastrophic time-pressure blunders from winning positions.</li>
+  <li>Clock management: be time-balanced by move 15 to force Aarush to calculate under pressure in moves 20–30</li>
+</ul>
+
+<div class="callout callout-blue" style="margin-top:18px;">
+  <strong>Mental frame</strong>
+  "Three games, three draws or loss — Austin has real data on Aarush now. The mistakes are specific and fixable: no Bxc2, take Bxc3+ the first time, Qa8 not Qc6. Aarush is a +16 underdog but plays 90%+ accuracy in his best games — this game won't be gifted. Execute the prep: commit to the weapon, steer for the endgame, and when Aarush is winning — stay on the board."
+</div>
+
+</body>
+</html>

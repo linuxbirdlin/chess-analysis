@@ -81,7 +81,7 @@
 
   <div class="doc-header">
     <h1>Austin Lin vs Aarush Ajith</h1>
-    <div class="subtitle">Austin as White — Keres Attack vs Sicilian Najdorf</div>
+    <div class="subtitle">Austin as White — White Weapon Choice vs Aarush's Najdorf</div>
     <div class="meta">Aarush Ajith · 1943 FIDE (Nov 2026) · 17 games, depth-18 Stockfish · Overall 90.2% avg · White 91.4% · Black 89.1% · Direct encounter: B90 Najdorf (Austin 83%, Aarush 88%)</div>
     <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
     &nbsp;&nbsp;
@@ -185,16 +185,23 @@
   <!-- ═══ SECTION 4 ═══ -->
   <h2>§4 — Austin's Recommended Weapon</h2>
 
-  <h3>Primary: Keres Attack 6.g4! vs Sicilian Najdorf (B81)</h3>
+  <div class="info-box" style="border-left-color:#6b3fa0;background:#f8f0ff;color:#3b1f5e;">
+    <strong>Pre-game decision — confirm White weapon choice with Austin the night before:</strong><br>
+    <strong>Option A — Moscow Variation 3.Bb5+</strong> (default): sidestep Najdorf theory entirely. 28,424 master games, 54.8% White score. Consistent with Austin's existing Rossolimo/Bb5 systems. Aarush lost his only B51 game (89.3%) — not deeply prepared for Anti-Sicilian structures.<br>
+    <strong>Option B — g4 Attack 6.g4!</strong> (pre-analyzed surprise): directly targets Aarush's confirmed 0W–3L h4 weakness. Very rare vs 5...a6 — maximum surprise value, but Austin must know the specific lines.<br>
+    <em>See nightbefore.html for both paths side-by-side. Austin confirms choice before the game.</em>
+  </div>
+
+  <h3>Option B — g4 Attack 6.g4! vs Sicilian Najdorf</h3>
   <div class="var-moves">1.e4  c5  2.Nf3  d6  3.d4  cxd4  4.Nxd4  Nf6  5.Nc3  a6
-6.g4!  [Keres Attack — direct h4 assault]
+6.g4!  [g4 Attack — direct h4 assault]
 6...e6  7.g5  Nfd7  8.h4  → h4-h5 pawn storm incoming</div>
 
-  <p><strong>Why the Keres Attack specifically:</strong></p>
+  <p><strong>Why the g4 Attack (Option B) specifically:</strong></p>
   <ul>
-    <li>Aarush's 0W–3L record vs h4 systems is the clearest pattern in the dataset. The Keres Attack (6.g4 → h4-h5) directly exploits this structural weakness from the first 8 moves.</li>
-    <li>The Keres Attack forces Aarush's knight off f6 immediately (7.g5 Nfd7) before it can coordinate defense. Then h4-h5 threatens to crack the kingside open before Black organizes.</li>
-    <li>In the direct encounter (Feb 22), Austin played the Sicilian as White but blundered with Bxc2?? — the h4 plan itself was strategically correct. The Keres Attack formalizes the h4 commitment from move 6.</li>
+    <li>Aarush's 0W–3L record vs h4 systems is the clearest pattern in the dataset. The g4 Attack (6.g4 → h4-h5) directly exploits this structural weakness from the first 8 moves.</li>
+    <li>The g4 Attack forces Aarush's knight off f6 immediately (7.g5 Nfd7) before it can coordinate defense. Then h4-h5 threatens to crack the kingside open before Black organizes.</li>
+    <li>In the direct encounter (Feb 22), Austin played the Sicilian as White but blundered with Bxc2?? — the h4 plan itself was strategically correct. The g4 Attack formalizes the h4 commitment from move 6.</li>
   </ul>
 
   <p><strong>If Aarush deviates from 6...e6:</strong></p>
@@ -231,12 +238,12 @@
   <div class="var-card">
     <div class="var-header">
       <span class="var-label">VARIANCE A ~60%</span>
-      Keres Attack — Aarush plays Najdorf (confirmed)
+      g4 Attack (Option B) — Aarush plays Najdorf (confirmed)
     </div>
     <div class="var-body">
       <div class="var-moves">Aarush:  1...c5  2...d6  3...Nf6  4...a6  [Najdorf — confirmed]
 Austin:  1.e4  2.Nf3  3.d4 cxd4  4.Nxd4  5.Nc3  6.g4!  7.g5  8.h4
-→ Keres Attack — direct h4-h5 kingside pawn storm</div>
+→ g4 Attack (Option B) — direct h4-h5 kingside pawn storm</div>
       <ul>
         <li><strong>Moves 6–11:</strong> After 6.g4 e6 7.g5 Nfd7 8.h4, develop Be3 and Qd2. Castle queenside (O-O-O) to remove king from center. Then h5 threatens to crack g6 or force h6 (weakening g6).</li>
         <li><strong>Moves 11–18:</strong> If Aarush plays 8...Nc6 → 9.Be3 Nb6 → 10.Qd2 then h5. If he plays 8...h6 → 9.gxh6 Rxh6 → 10.Be3 Qb6 → 11.Nd3 — he's lost the h6 pawn and the kingside is open.</li>
@@ -263,19 +270,20 @@ Austin:  1.e4  2.Nf3  3.d4 cxd4  4.Nxd4  5.Nc3  6.Be3  e5  7.Nb3  Be6
     </div>
   </div>
 
-  <div class="var-card">
-    <div class="var-header">
-      <span class="var-label">VARIANCE C ~10%</span>
-      Rossolimo 3.Bb5+ — sidestep the Najdorf
+  <div class="var-card" style="border-color:#6b3fa0;">
+    <div class="var-header" style="background:#6b3fa0;">
+      <span class="var-label">OPTION A — Moscow Variation</span>
+      3.Bb5+ — Anti-Sicilian, sidestep Najdorf
     </div>
     <div class="var-body">
       <div class="var-moves">Aarush:  1...c5  2...d6  3...Nf6
-Austin:  1.e4  2.Nf3  3.Bb5+! [Rossolimo — sidestep Najdorf]
-→ After 3...Nc6 4.O-O / 3...Bd7 4.Bxd7+ Qxd7 5.O-O — c3/d4 structure</div>
+Austin:  1.e4  2.Nf3  3.Bb5+! [Moscow Variation — Option A]
+→ After 3...Bd7 4.Bxd7+ Qxd7 5.O-O Nc6 6.c3 — structural edge, 0 Najdorf theory needed
+→ After 3...Nc6: 4.O-O Nf6 5.Re1 e5 6.c3 — standard Rossolimo endgame structure</div>
       <ul>
-        <li>Aarush played B51 (Bb5+ defense) and lost with 89.3% accuracy. This suggests he's not deeply comfortable with the Anti-Sicilian structure either.</li>
-        <li>After 3.Bb5+ Bd7 4.Bxd7+ Qxd7 5.O-O Nc6 6.c3 → play for d4 with a structural edge. No Najdorf complications.</li>
-        <li><em>Only use if Austin wants to sidestep Najdorf theory entirely</em> — the Keres Attack is more forcing and exploits the confirmed h4 weakness more directly.</li>
+        <li><strong>Option A is consistent with Austin's 2026 Rossolimo/Bb5 systems.</strong> 28,424 master games, 54.8% White score (Lichess Masters DB). Aarush lost his one B51 game with 89.3% accuracy — suggests he's not deeply prepared for Anti-Sicilian structures.</li>
+        <li>After 3.Bb5+ Bd7 4.Bxd7+ Qxd7 5.O-O Nc6 6.c3 → play for d4, target the structural edge. Black's queen on d7 is awkwardly placed and limits Black's development options.</li>
+        <li><strong>Use Option A if Austin wants a solid, theory-rich weapon consistent with his existing Rossolimo prep.</strong> The g4 Attack (Option B) has more surprise value but requires dedicated preparation of the specific 6.g4 lines.</li>
       </ul>
     </div>
   </div>
@@ -290,7 +298,7 @@ Austin:  1.e4  2.Nf3  3.Bb5+! [Rossolimo — sidestep Najdorf]
         <div class="rule-number">1</div>
         <div class="rule-content">
           <div class="rule-label">h4 is the weapon — commit before move 12</div>
-          <div class="rule-body">Aarush is 0W–3L vs h4 attacks in three different structures across three tournaments. This is the most consistent pattern in the dataset. Don't hesitate — play g4 on move 6 (Keres) or h4 by move 11 (English Attack). Aarush has no prepared antidote. Once h4 is on the board, the pressure is his problem to solve under the clock.</div>
+          <div class="rule-body">Aarush is 0W–3L vs h4 attacks in three different structures across three tournaments. This is the most consistent pattern in the dataset. Don't hesitate — play g4 on move 6 (g4 Attack, Option B) or h4 by move 11 (English Attack). Aarush has no prepared antidote. Once h4 is on the board, the pressure is his problem to solve under the clock.</div>
         </div>
       </div>
       <div class="rule-card">
@@ -310,8 +318,13 @@ Austin:  1.e4  2.Nf3  3.Bb5+! [Rossolimo — sidestep Najdorf]
     </div>
 
     <h3>Opening Reference Card</h3>
-    <div class="cheat-moves">AS WHITE vs Najdorf (B90):
-  Keres Attack: 1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.g4! e6 7.g5 Nfd7 8.h4
+    <div class="cheat-moves">AS WHITE vs Najdorf — CONFIRM WEAPON CHOICE NIGHT BEFORE:
+
+  OPTION A — Moscow Variation (default): 1.e4 c5 2.Nf3 d6 3.Bb5+
+  After 3...Bd7: 4.Bxd7+ Qxd7 5.O-O Nc6 6.c3 → play for d4
+  After 3...Nc6: 4.O-O Nf6 5.Re1 e5 6.c3 → Rossolimo structure
+
+  OPTION B — g4 Attack: 1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.g4! e6 7.g5 Nfd7 8.h4
   After 8...Nc6: 9.Be3 → 10.Qd2 → 11.O-O-O → h5
   After 8...h6:  9.gxh6 Rxh6 10.Be3 → h5 storm continues
 
@@ -342,7 +355,7 @@ If Aarush plays h4 response incorrectly → h5 is coming regardless</div>
     <div class="step-item">
       <div class="step-num">1</div>
       <div class="step-body">
-        <strong>Tactics drill — 15 min:</strong> 10 puzzles on <em>Keres Attack h4-h5 kingside storm</em> — positions with g5 on the board, Nfd7 forced, h5 threatening. What does White do? Practice: h5 threat → if Black plays h6 gxh6 → if h5 is met by g6 then pawn or piece through g6. Also 3 puzzles on <em>bishop retreat vs ...c4</em> — recognize when the c4 push threatens the bishop and where Bc1/Bd2 is better than Bxc2 (the direct encounter mistake pattern).
+        <strong>Tactics drill — 15 min:</strong> 10 puzzles on <em>g4 Attack (Option B) h4-h5 kingside storm</em> — positions with g5 on the board, Nfd7 forced, h5 threatening. What does White do? Practice: h5 threat → if Black plays h6 gxh6 → if h5 is met by g6 then pawn or piece through g6. Also 3 puzzles on <em>bishop retreat vs ...c4</em> — recognize when the c4 push threatens the bishop and where Bc1/Bd2 is better than Bxc2 (the direct encounter mistake pattern).
       </div>
     </div>
     <div class="step-item">
@@ -368,9 +381,9 @@ If Aarush plays h4 response incorrectly → h5 is coming regardless</div>
   <table>
     <thead><tr><th>Situation</th><th>ECO</th><th>Key Line</th></tr></thead>
     <tbody>
-      <tr><td>Austin W Keres Attack vs Najdorf</td><td>B81</td><td><code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.g4 e6 7.g5 Nfd7 8.h4</code></td></tr>
+      <tr><td>Austin W Moscow Variation (Option A)</td><td>B51</td><td><code>1.e4 c5 2.Nf3 d6 3.Bb5+ Bd7 4.Bxd7+ Qxd7 5.O-O Nc6 6.c3</code></td></tr>
+      <tr><td>Austin W g4 Attack vs Najdorf (Option B)</td><td>—</td><td><code>1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.g4 e6 7.g5 Nfd7 8.h4</code></td></tr>
       <tr><td>Austin W English Attack vs Najdorf</td><td>B90</td><td><code>5...a6 6.Be3 e5 7.Nb3 Be6 8.f3 Be7 9.Qd2 O-O 10.O-O-O h4</code></td></tr>
-      <tr><td>Austin W Rossolimo sidestep</td><td>B51</td><td><code>1.e4 c5 2.Nf3 d6 3.Bb5+ Bd7 4.Bxd7+ Qxd7 5.O-O Nc6 6.c3</code></td></tr>
     </tbody>
   </table>
 
