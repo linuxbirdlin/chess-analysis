@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle Plan: Austin vs Olivo Diaz, Marco Cristofer (GM Prep)</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Georgia', serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg);
+}
+h1 { font-size: 1.6em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.15em; margin: 28px 0 10px; padding-left: 10px; }
+h2.white-section { border-left: 5px solid var(--blue); }
+h2.black-section { border-left: 5px solid var(--red); }
+h2.analysis   { border-left: 5px solid var(--gold); }
+h2.reference  { border-left: 5px solid #666; }
+h3 { font-size: 1em; margin: 14px 0 6px; color: #333; }
+.subtitle { font-size: 0.85em; color: #666; margin-bottom: 22px; }
+.subtitle span { margin-right: 16px; }
+
+.rating-note { background: #eaf4fb; border: 2px solid #1a5276; border-radius: 5px;
+               padding: 10px 14px; margin-bottom: 18px; font-size: 0.9em; }
+
+.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.intel-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.intel-card h3 { margin-top: 0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }
+.intel-card ul { padding-left: 16px; margin-top: 4px; }
+.intel-card li { margin-bottom: 3px; }
+
+.callout { border-radius: 4px; padding: 10px 14px; margin: 10px 0; font-size: 0.9em; }
+.callout-gold   { background: #fffbe0; border-left: 4px solid var(--gold); }
+.callout-blue   { background: #eef4ff; border-left: 4px solid var(--blue); }
+.callout-green  { background: #efffef; border-left: 4px solid var(--green); }
+.callout-danger { background: #fff0f0; border-left: 4px solid var(--red); }
+
+.move-line { background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+             padding: 8px 12px; margin: 6px 0; font-size: 0.92em; line-height: 1.9; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: #eef4ff; border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.bad-move { background: #ffe0e0; border: 1px solid #cc8888; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; color: #8b1a1a; }
+.note { color: #555; font-style: italic; font-size: 0.88em; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
+th { background: #333; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+.row-danger td { background: #fff0f0 !important; }
+
+hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20px; }
+
+.acc-toggle { display: none; }
+.acc-label {
+  display: block; cursor: pointer; padding: 8px 12px; margin: 4px 0;
+  background: #eee; border: 1px solid #ccc; border-radius: 4px;
+  font-weight: bold; font-size: 0.9em; user-select: none;
+}
+.acc-label::before { content: '▶ '; font-size: 0.75em; color: #666; }
+.acc-toggle:checked ~ .acc-label::before { content: '▼ '; }
+.acc-content { display: none; padding: 10px 14px; background: #fafaf6;
+               border: 1px solid #ddd; border-top: none; border-radius: 0 0 4px 4px; margin-bottom: 6px; }
+.acc-toggle:checked ~ .acc-content { display: block; }
+
+@media print {
+  .acc-content { display: block !important; }
+  .acc-label::before { content: '' !important; }
+  body { font-size: 12px; padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<h1>Battle Plan: Austin vs Olivo Diaz, Marco Cristofer</h1>
+<div class="subtitle">
+  <span><strong>Play-On Section</strong></span>
+  <span>Marco rating: 1790 FIDE · Mexico · Born 2012</span>
+  <span>Direct record: No encounter</span>
+  <span>Games analyzed: 22 (2025–2026, movetime-3000)</span>
+</div>
+
+<div class="rating-note">
+  <strong>Rating context:</strong> Austin (1959 FIDE) holds a <strong>+169 point advantage</strong>. Marco is a sharp 1790 from Mexico — meaningfully stronger than Erik (1630) and closer to Austin's level. His <strong>88.1% average accuracy</strong> across 22 games is the highest of any Play-On opponent analyzed. However, 71 blunders reveal a severe conversion problem: <strong>three decisive position flips from winning positions, and two draws from +24 or +8.60</strong>. The strategic mandate: get to a complex middlegame, survive the opening, and let Marco's endgame technique collapse. Never resign — Marco drew from +24 and missed a forced mate (G14 Rd5 instead of Be6).
+</div>
+
+<div class="intel-grid">
+  <div class="intel-card">
+    <h3>Marco as White</h3>
+    <ul>
+      <li><strong>1.e4</strong> primary: Exchange CK (1...c6), Italian/Two Knights (vs 1...e5), Open Sicilian (vs 1...c5)</li>
+      <li><strong>1.d4 Colle system</strong> secondary: 1.d4 d5 2.e3 Nf6 3.Bd3 (G3)</li>
+      <li>Exchange CK: 1.e4 c6 2.d4 d5 3.Nc3 dxe4 4.Nxe4 Nxf6 5.Nxf6+ — won both Exchange CK games (G2, G6)</li>
+      <li>Italian: 1.e4 e5 2.Nf3 Nc6 3.Bc4 — Two Knights structure (G15)</li>
+      <li>Open Sicilian 5.Nb5: vs Taimanov/Scheveningen (G14: 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nb5)</li>
+      <li><em>White record: 4W–3L–6D · avg 87.9%</em></li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Marco as Black</h3>
+    <ul>
+      <li>vs 1.e4: <strong>Sicilian 1...c5 2...Nc6</strong> (confirmed G9, G10 — Scheveningen/Dragon structure)</li>
+      <li>vs 1.e4 also: <strong>1...e5</strong> occasionally (G11 — Scotch Gambit structure)</li>
+      <li>vs 1.d4: <strong>KID fianchetto</strong> exclusively — 1...Nf6 2...g6 3...Bg7 (G1 KID, G8 KID-London, G13 KID)</li>
+      <li>Sicilian as Black: plays active counterattack (G9/G10 both 97%+ wins)</li>
+      <li>KID as Black: mixed record (1W–2L in KID games)</li>
+      <li><em>Black record: 4W–3L–2D · avg 88.4%</em></li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Critical weaknesses</h3>
+    <ul>
+      <li><strong>Decisive position flips:</strong> G3 Ba4 (+7.29→−6.97), G12 Nxf6 (+2.55→−8.34), G22 Qh4 (+6.56→−6.69) — 3 games won then lost in one move</li>
+      <li><strong>Endgame rook king blindspot:</strong> G11 Re6/Ra6 (drew from +24.87); G7 Kd3×3 (best=Rg1); G20 Kd4 (+8.60→0)</li>
+      <li><strong>Won-position draw failures:</strong> G14 missed forced mate; G19 +5.46→draw; G15 multiple wins squandered</li>
+      <li><strong>Specific: Re1 missed repeatedly</strong> — G11 had +5, +11, +24 all lost by not playing Re1</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Key game facts</h3>
+    <ul>
+      <li>Overall avg: <strong>88.1%</strong> (movetime-3000, 22 games)</li>
+      <li>Best game: <strong>97.3%</strong> (G6 White Win and G10 Black Win — tied)</li>
+      <li>Worst game: <strong>78.8%</strong> (G5, White Draw)</li>
+      <li>Total blunders: <strong>71</strong> (3.2/game) despite 88.1% avg</li>
+      <li>As White vs stronger opposition: G17 — 91.1% but lost to Pablo De Alba (97.5%)</li>
+      <li>Rating: 1790 FIDE · strongest Play-On opponent analyzed</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="white-section">Part 1 — Austin as White: Rossolimo/Moscow vs Sicilian, Italian vs 1...e5</h2>
+
+<div class="callout callout-blue">
+  <strong>The core challenge:</strong> Marco plays Sicilian 1...c5 2...Nc6 as Black — directly entering <strong>Austin's Rossolimo 3.Bb5</strong> weapon. His best games as Black (G9/G10, both 97%+) show he is fully comfortable in Sicilian counterplay, so Austin must not play for a closed positional squeeze. Instead: <strong>Exchange Rossolimo (4.Bxc6 dxc6)</strong> to open the c-file, saddle Marco with doubled c-pawns, and generate a kingside attack. Marco won his two Exchange CK games as White, so he understands the structure — but as Black he has never faced it, and his conversion weakness emerges in complex piece activity games past move 25.
+</div>
+
+<h3>Branch A — Rossolimo (1...c5 2...Nc6, most likely)</h3>
+<input type="checkbox" id="a1" class="acc-toggle" checked>
+<label for="a1" class="acc-label">Branch A: Rossolimo 3.Bb5 — Exchange and attack</label>
+<div class="acc-content">
+<div class="move-line">
+  <span class="mv-a">1.e4</span> <span class="mv-z">c5</span>
+  <span class="mv-a">2.Nf3</span> <span class="mv-z">Nc6</span>
+  <span class="mv-a"><span class="key-move">3.Bb5</span></span> <span class="mv-z">d6</span>
+  <span class="mv-a">4.Bxc6+</span> <span class="mv-z">dxc6</span>
+  <span class="mv-a">5.d3</span> <span class="mv-z">Nf6</span>
+  <span class="mv-a">6.Nc3</span> <span class="mv-z">g6</span>
+  <span class="mv-a">7.Be3</span> <span class="mv-z">Bg7</span>
+  <span class="mv-a"><span class="key-move">8.h4!</span></span>
+  <span class="note">— h4-h5 storm before Black can play ...h5 himself; Marco's G9/G10 KID structures struggle with h-file attacks</span>
+</div>
+<p style="margin-top:8px; font-size:0.9em;">After 4.Bxc6+ dxc6, Marco has doubled c-pawns and a half-open d-file. Austin's plan: castle queenside or keep the king flexible, deploy Be3–Qd2, and launch h4-h5 on the kingside. Marco's G7 Kd3 endgame pattern shows he navigates king-side piece activity poorly once pieces become active. The position should not simplify to a pure K+R ending — keep at least one minor piece on the board to exploit his conversion weakness.</p>
+</div>
+
+<h3>Branch B — Moscow 3.Bb5+ (if Marco plays 2...d6 or 2...Nf6)</h3>
+<input type="checkbox" id="a2" class="acc-toggle" checked>
+<label for="a2" class="acc-label">Branch B: Moscow Variation 3.Bb5+ — position disruption</label>
+<div class="acc-content">
+<div class="move-line">
+  <span class="mv-a">1.e4</span> <span class="mv-z">c5</span>
+  <span class="mv-a">2.Nf3</span> <span class="mv-z">d6</span>
+  <span class="mv-a"><span class="key-move">3.Bb5+</span></span> <span class="mv-z">Bd7</span>
+  <span class="mv-a">4.Bxd7+</span> <span class="mv-z">Qxd7</span>
+  <span class="mv-a">5.c4</span> <span class="mv-z">Nc6</span>
+  <span class="mv-a">6.Nc3</span> <span class="mv-z">g6</span>
+  <span class="mv-a">7.d4</span> <span class="mv-z">cxd4</span>
+  <span class="mv-a">8.Nxd4</span>
+  <span class="note">— Maróczy Bind structure; Austin studied this vs Sean Liu (B41)</span>
+</div>
+<p style="margin-top:8px; font-size:0.9em;">If Marco plays 2...d6 (his Najdorf structure from G4/G16 as Black), Austin plays Moscow 3.Bb5+ forcing the bishop trade. After 4.Bxd7+, Black's queen is displaced. The resulting Maróczy Bind (c4+d4) restricts Marco's fianchetto Bg7 and clamps the queenside. Marco lost G4 (Sicilian Najdorf, 81.7%) — this structure should feel uncomfortable. Austin's B41 study gives opening confidence here.</p>
+</div>
+
+<h3>Branch C — Italian 3.Bc4 (if Marco plays 1...e5)</h3>
+<input type="checkbox" id="a3" class="acc-toggle">
+<label for="a3" class="acc-label">Branch C: Italian 3.Bc4 — if 1...e5 (confirmed in G11)</label>
+<div class="acc-content">
+<div class="move-line">
+  <span class="mv-a">1.e4</span> <span class="mv-z">e5</span>
+  <span class="mv-a">2.Nf3</span> <span class="mv-z">Nc6</span>
+  <span class="mv-a"><span class="key-move">3.Bc4</span></span> <span class="mv-z">Nf6</span>
+  <span class="mv-a">4.d3</span> <span class="mv-z">Be7</span>
+  <span class="mv-a">5.Nc3</span> <span class="mv-z">d6</span>
+  <span class="mv-a">6.O-O</span> <span class="mv-z">O-O</span>
+  <span class="mv-a">7.h3</span> <span class="mv-z">a6</span>
+  <span class="mv-a">8.a4</span>
+  <span class="note">— Italian Classical; prevent ...b5; keep tension alive</span>
+</div>
+<p style="margin-top:8px; font-size:0.9em;">Marco played 1...e5 in G11 (153-ply draw vs Octavio Martinez Cruz). The Italian Classical is Austin's standard (from CLAUDE.md). Key: resist the trade into a symmetrical endgame. Marco drew G11 from +24 — not because of technique but through mutual errors in a 150-move game. Keep complications alive and the game complex through move 30+.</p>
+</div>
+
+<h3>Branch D — 1.e4 g6 / KID/Modern sideline</h3>
+<input type="checkbox" id="a4" class="acc-toggle">
+<label for="a4" class="acc-label">Branch D: 1...g6 Modern Defense — unlikely but possible</label>
+<div class="acc-content">
+<div class="move-line">
+  <span class="mv-a">1.e4</span> <span class="mv-z">g6</span>
+  <span class="mv-a">2.d4</span> <span class="mv-z">Bg7</span>
+  <span class="mv-a">3.Nc3</span> <span class="mv-z">d6</span>
+  <span class="mv-a"><span class="key-move">4.f4</span></span> <span class="mv-z">Nc6</span>
+  <span class="mv-a">5.Nf3</span> <span class="mv-z">Nf6</span>
+  <span class="mv-a">6.e5</span>
+  <span class="note">— Austrian Attack; force Black to react immediately; keep central tension</span>
+</div>
+<p style="margin-top:8px; font-size:0.9em;">Marco plays KID exclusively as Black vs 1.d4, but vs 1.e4 his Black games are Sicilian or 1...e5. A Modern Defense (1...g6 vs 1.e4) would be unexpected. If it happens: Austrian Attack 4.f4 gives Austin a central attack before Marco's fianchetto structure stabilizes. Marco's KID Black record is mixed (1W–2L) — this structure doesn't suit his best play.</p>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="black-section">Part 2 — Austin as Black: Taimanov Sicilian vs 1.e4, Nimzo vs 1.d4</h2>
+
+<div class="callout callout-green">
+  <strong>Key insight:</strong> Marco's White record is 4W–3L–6D (87.9%). Three White losses (G3, G12, G17) all came from long games where he held large advantages and then blundered them away. G12 had <strong>15 blunders in 70 ply</strong> — the worst performance in the dataset. Austin's strategy as Black: play the Taimanov mainline, reach a balanced middlegame, and <strong>force the game beyond move 25</strong> without getting into a forced tactical loss. Marco's conversion failures are almost guaranteed in a complex position with mutual imbalances. The danger zone is Marco playing Open Sicilian 5.Nb5 against the Taimanov — Austin must know <strong>5...d6!</strong> (not 5...Bc5?? which allows the bishop trap).
+</div>
+
+<h3>Branch A — Taimanov B47 (Austin's main line)</h3>
+<input type="checkbox" id="b1" class="acc-toggle" checked>
+<label for="b1" class="acc-label">Branch A: Taimanov B47 — 5...Qc7 main line</label>
+<div class="acc-content">
+<div class="move-line">
+  <span class="mv-z">1.e4</span> <span class="mv-a"><span class="key-move">1...c5</span></span>
+  <span class="mv-z">2.Nf3</span> <span class="mv-a">e6</span>
+  <span class="mv-z">3.d4</span> <span class="mv-a">cxd4</span>
+  <span class="mv-z">4.Nxd4</span> <span class="mv-a">Nc6</span>
+  <span class="mv-z">5.Nc3</span> <span class="mv-a"><span class="key-move">Qc7</span></span>
+  <span class="mv-z">6.Be2</span> <span class="mv-a">a6</span>
+  <span class="mv-z">7.O-O</span> <span class="mv-a">Nf6</span>
+  <span class="mv-z">8.Be3</span> <span class="mv-a">Bb4</span>
+  <span class="note">— Taimanov B47 Bastrikov; Austin's established main line (PAM R4, R7)</span>
+</div>
+<p style="margin-top:8px; font-size:0.9em;">After 5...Qc7 Austin has the Taimanov main tabiya. White's most common continuation is 6.Be2 O-O or 6.g3 intending Bg2. The plan: develop solidly, play ...Ne5 to exchange Marco's d4-knight, and open the queenside with ...b5–b4. Marco played this structure as White in G14 (91.9% but only drew after missing a forced mate). Austin should aim for the structure where both sides have piece activity and the game extends past move 30.</p>
+</div>
+
+<h3>Branch B — Taimanov 5.Nb5 line (critical — Marco used this in G14)</h3>
+<input type="checkbox" id="b2" class="acc-toggle" checked>
+<label for="b2" class="acc-label">Branch B: 5.Nb5 d6! — the critical MUST-KNOW response</label>
+<div class="acc-content">
+<div class="callout callout-danger">
+  <strong>⚠ Critical trap:</strong> After 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6, if Marco plays <strong>5.Nb5</strong> (confirmed in G14):
+  <br>✅ <strong>CORRECT: 5...d6!</strong> → 6.Bf4 Nf6 7.N1c3 a6 8.Na3 Be7 — normal Taimanov structure preserved
+  <br>❌ <strong>WRONG: 5...Bc5??</strong> → 6.c3?? ... <em>Wait — this is the B45 6.Ndb5 trap, not 5.Nb5. After 5.Nb5 d6 is the standard response.</em>
+  <br>After 5.Nb5 d6 6.Bf4 e5 7.Be3 a6 8.N5c3: Marco played exactly this in G14 and drew from a winning position despite being higher-rated.
+</div>
+<div class="move-line">
+  <span class="mv-z">1.e4</span> <span class="mv-a">c5</span>
+  <span class="mv-z">2.Nf3</span> <span class="mv-a">e6</span>
+  <span class="mv-z">3.d4</span> <span class="mv-a">cxd4</span>
+  <span class="mv-z">4.Nxd4</span> <span class="mv-a">Nc6</span>
+  <span class="mv-z">5.Nb5</span> <span class="mv-a"><span class="key-move">d6!</span></span>
+  <span class="mv-z">6.Bf4</span> <span class="mv-a">Nf6</span>
+  <span class="mv-z">7.N1c3</span> <span class="mv-a">a6</span>
+  <span class="mv-z">8.Na3</span> <span class="mv-a">Be7</span>
+  <span class="note">— standard Scheveningen structure; White's Nb5 mission has failed; Black has equal play</span>
+</div>
+<p style="margin-top:8px; font-size:0.9em;">After 5.Nb5 d6!, White's knight must retreat (Na3 or Nc3). Austin gets a Scheveningen structure (d6+e6 pawn chain) with no concessions. In G14, Marco played this exact line as White, reached a winning position with +6, +14 evaluations, and still only drew through conversion failures. Know d6 and play the resulting structure naturally.</p>
+</div>
+
+<h3>Branch C — Also B45 6.Ndb5 trap (if 5.Nc3 Nc6 path)</h3>
+<input type="checkbox" id="b3" class="acc-toggle">
+<label for="b3" class="acc-label">Branch C: 6.Ndb5 trap avoidance (from B45 path)</label>
+<div class="acc-content">
+<div class="callout callout-danger">
+  <strong>Separate critical trap (from CLAUDE.md):</strong> After 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Nc6, if White plays <strong>6.Ndb5</strong>:
+  <br>✅ <strong>CORRECT: 6...d6!</strong> → 7.Bf4 Nf6 8.Bg5 → normal game
+  <br>❌ <strong>FATAL: 6...Bc5??</strong> → 7.Bf4 O-O 8.Bc7! Qe7 9.Bd6 Bxd6 10.Qxd6 — bishop trap, game over at move 10
+  <br><em>Source: Austin's PAM 2026 R7 catastrophic loss to Fernandez Herrera (2137)</em>
+</div>
+<p style="margin-top:8px; font-size:0.9em;">Not documented in Marco's games, but must be known cold regardless. If White plays 6.Ndb5 at any point in the Taimanov, 6...d6! is the automatic response. Never 6...Bc5??.</p>
+</div>
+
+<h3>Branch D — Austin as Black vs Marco's 1.d4 (Colle)</h3>
+<input type="checkbox" id="b4" class="acc-toggle">
+<label for="b4" class="acc-label">Branch D: 1.d4 Colle system — Nimzo transposition / ...c5 disruption</label>
+<div class="acc-content">
+<div class="move-line">
+  <span class="mv-z">1.d4</span> <span class="mv-a">Nf6</span>
+  <span class="mv-z">2.e3</span> <span class="mv-a">e6</span>
+  <span class="mv-z">3.Bd3</span> <span class="mv-a"><span class="key-move">c5!</span></span>
+  <span class="mv-z">4.c3</span> <span class="mv-a">Nc6</span>
+  <span class="mv-z">5.Nf3</span> <span class="mv-a">d5</span>
+  <span class="mv-z">6.Nbd2</span> <span class="mv-a">Bd6</span>
+  <span class="note">— ...c5 disrupts the Colle structure immediately; forces Marco to decide between cxd5 (IQP) or dxc5</span>
+</div>
+<p style="margin-top:8px; font-size:0.9em;">Marco plays the Colle (1.d4 d5 2.e3 Nf6 3.Bd3) as confirmed in G3. If 3...c5!, Marco must abandon the Colle structure. After 4.c3 Nc6, Black has a solid position. If Marco ever plays c4 (entering Nimzo territory), Austin plays 3...Bb4 Nimzo immediately. Austin's G3 opponent beat Marco from this exact structure at 92.5% accuracy — solid positional play works here.</p>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="analysis">Part 3 — Accuracy Profile and Error Patterns</h2>
+
+<h3>Key accuracy statistics (22 games, movetime-3000)</h3>
+<table>
+  <thead>
+    <tr><th>Color</th><th>Games</th><th>W–L–D</th><th>Avg Acc%</th><th>Best Game</th><th>Worst Game</th><th>Total Blunders</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>White</td><td>13</td><td>4–3–6</td><td>87.9%</td><td>97.3% (G6)</td><td>78.8% (G5)</td><td>49</td></tr>
+    <tr><td>Black</td><td>9</td><td>4–3–2</td><td>88.4%</td><td>97.3% (G10)</td><td>80.3% (G13)</td><td>22</td></tr>
+    <tr><td><strong>Overall</strong></td><td><strong>22</strong></td><td><strong>8–6–8</strong></td><td><strong>88.1%</strong></td><td><strong>97.3% (G6/G10)</strong></td><td><strong>78.8% (G5)</strong></td><td><strong>71</strong></td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-gold">
+  <strong>Accuracy summary:</strong> Marco's 88.1% overall is Austin's highest Play-On opponent — he is the strongest player in the Play-On section. His Black accuracy (88.4%) edges his White accuracy (87.9%), with his best games all as Black in Sicilian positions (G9 97.1%, G10 97.3%). However, his White losses (G3, G12, G17) show a consistent pattern: Marco builds large advantages (G3 +7.29, G12 +2.55) and then collapses in one move. His long-game accuracy drops sharply: G12 (70 ply, 15 blunders) and G21 (66 ply, 8 blunders) show that games extending past 50 moves are where accuracy degrades fastest. Austin should aim for games of 30–50 moves where Marco's conversion problems are most likely to surface without the game becoming a theoretical draw.
+</div>
+
+<h3>Known error patterns (documented from JSON)</h3>
+<table>
+  <thead>
+    <tr><th>Pattern</th><th>Instances</th><th>Critical example</th><th>Austin exploitation</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Won → lost decisive flip</strong></td>
+      <td>3 (G3, G12, G22)</td>
+      <td>G3 mv40 Ba4 (+7.29→−6.97, cpl 1000)</td>
+      <td>Never resign in a losing position — Marco may flip from winning to losing without warning</td>
+    </tr>
+    <tr>
+      <td><strong>Endgame rook navigation</strong></td>
+      <td>8 (G7×2, G11×3, G20×2, G13)</td>
+      <td>G11 mv66 Ra6 (+24.87→0, best=Re1)</td>
+      <td>Rook endgames with passed pawns favor Austin; Marco's Kd3/Re6 blunders are systematic</td>
+    </tr>
+    <tr>
+      <td><strong>Won → draw conversion</strong></td>
+      <td>5 (G11, G14, G15, G19, G20)</td>
+      <td>G20 mv50 Kd4 (+8.60→0, best=b5)</td>
+      <td>Play for complications; don't simplify to a one-sided endgame where Marco might convert</td>
+    </tr>
+    <tr>
+      <td><strong>Long-game accuracy drop</strong></td>
+      <td>3 (G12, G20, G21)</td>
+      <td>G12: 15 blunders in 70 ply (83.5%)</td>
+      <td>Force long games past move 40; Marco's CPL rises sharply in complex late middlegames</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Psychological notes</h3>
+<div class="callout callout-gold">
+  Marco is a tactically strong player who can reach IM-level accuracy (97.3%) but cannot reliably convert advantages. The data suggests his games are highly variance-prone: either a clean dominant win (G6/G9/G10) or a catastrophic collapse from a winning position (G3/G12). He does not have many draws in the "tight, well-played draw" category — his draws tend to come from squandering large advantages (G11, G20). Austin's mental model: treat this as a 50/50 outcome game despite the rating gap. Play normally, avoid early tactical complications that require precise calculation in the opening, and reach a complex middlegame where Marco's endgame conversion weakness will likely surface.
+</div>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 4 — If / Then Quick Reference</h2>
+
+<input type="checkbox" id="c1" class="acc-toggle" checked>
+<label for="c1" class="acc-label">Austin as White — if/then table</label>
+<div class="acc-content">
+<table>
+  <thead><tr><th>If Marco plays...</th><th>Austin plays...</th><th>Why</th></tr></thead>
+  <tbody>
+    <tr><td>1...c5 2...Nc6</td><td>Rossolimo 3.Bb5 → 4.Bxc6+</td><td>Confirmed G9/G10; Marco plays 2...Nc6 → Exchange Rossolimo saddles doubled c-pawns</td></tr>
+    <tr><td>1...c5 2...d6 or 2...Nf6</td><td>Moscow 3.Bb5+</td><td>Marco played Najdorf structure (G4/G16) — Moscow disrupts his setup and forces Bd7 trade</td></tr>
+    <tr><td>1...e5</td><td>Italian 3.Bc4</td><td>Confirmed G11; Italian Classical keeps piece complexity; Austin's standard vs 1...e5</td></tr>
+    <tr><td>1...c6 (Caro-Kann)</td><td>Exchange CK 4.Bd3</td><td>Marco himself plays Exchange CK as White with great success (G2/G6 wins)</td></tr>
+    <tr><td>1...g6 / 1...d6 (Modern/Pirc)</td><td>Austrian Attack: 1.e4 g6 2.d4 Bg7 3.Nc3 d6 4.f4</td><td>Force central tension before KID fianchetto stabilizes; Marco's KID record as Black is poor (1W–2L)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<input type="checkbox" id="c2" class="acc-toggle" checked>
+<label for="c2" class="acc-label">Austin as Black — if/then table</label>
+<div class="acc-content">
+<table>
+  <thead><tr><th>If Marco plays...</th><th>Austin plays...</th><th>Why</th></tr></thead>
+  <tbody>
+    <tr><td>1.e4 → 2.Nf3 3.d4</td><td>Taimanov 1...c5 2...e6 3...cxd4 4...Nc6 5...Qc7</td><td>Austin's fixed Black weapon; Marco played Open Sicilian in G14 — knows the structure</td></tr>
+    <tr><td>1.e4 2.Nf3 3.d4 4.Nxd4 Nc6 5.Nb5</td><td><strong>5...d6!</strong> immediately</td><td>Critical — Marco used 5.Nb5 in G14; d6 preserves normal game; Bc5?? loses to bishop trap</td></tr>
+    <tr><td>1.e4 2.Nf3 3.d4 4.Nxd4 Nc6 5.Nc3 6.Ndb5</td><td><strong>6...d6!</strong> (not Bc5??)</td><td>Separate B45 trap — 6...Bc5?? allows 7.Bf4 O-O 8.Bc7! Qe7 9.Bd6 Bxd6 10.Qxd6 (Austin's PAM R7 loss)</td></tr>
+    <tr><td>1.d4 (Colle 2.e3)</td><td>1...Nf6 2...e6 3...c5!</td><td>c5 disrupts Colle structure; forces structural decision; Marco lost G3 from Colle at 87.8%</td></tr>
+    <tr><td>1.d4 → 2.c4 (enters Nimzo)</td><td>Nimzo-Indian: 2...e6 3...Bb4 Bxc3+</td><td>Austin's fixed vs 1.d4+c4+Nc3; Marco has no documented Nimzo games</td></tr>
+    <tr><td>1.c4 / 1.Nf3</td><td>1...Nf6 2...e6; wait for Nc3 → Bb4 Nimzo</td><td>Austin's flexible QI-adjacent setup per CLAUDE.md</td></tr>
+  </tbody>
+</table>
+</div>
+
+<input type="checkbox" id="c3" class="acc-toggle" checked>
+<label for="c3" class="acc-label">Key principles for this matchup</label>
+<div class="acc-content">
+<ul style="padding-left: 18px; line-height: 1.9; font-size: 0.9em;">
+  <li><strong>Never resign in a losing position.</strong> Marco drew from +24.87 (G11) and +8.60 (G20) — he will gift points from won positions. Stay on the board.</li>
+  <li><strong>Force games past move 25.</strong> Marco's accuracy collapses in long games (G12: 15 blunders in 70 ply; G21: 8 blunders in 66 ply). Every extra move is in Austin's favor.</li>
+  <li><strong>Know 5...d6! and 6...d6!</strong> Two separate anti-Sicilian traps involve the Nb5 knight — both require d6 as the immediate response. These are the two most dangerous opening moments in this matchup.</li>
+  <li><strong>The winning positions Marco creates are real.</strong> G9/G10 both 97%+ — Marco can outplay Austin in a clean tactical game. Play the opening correctly and avoid giving him early initiative.</li>
+  <li><strong>Rook endgames favor Austin.</strong> Marco's endgame king/rook blindspot (Kd3/Re6 instead of Rg1/Re1) is systematic (G7, G11, G20, G13 — 4 separate games). If the game reaches a K+R endgame, Austin should convert with normal technique and expect Marco's king to go to the wrong square.</li>
+  <li><strong>Exchange Rossolimo gives doubled c-pawns.</strong> This structural imbalance guarantees game complexity past move 20 without requiring Austin to know deep theory — the pawn structure does the work of maintaining winning chances.</li>
+</ul>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 5 — Critical Moments Reference</h2>
+
+<h3>Pattern: Won-position decisive collapse (G3 — White, 87.8%, Loss)</h3>
+<div class="callout callout-danger">
+  <strong>G3 vs Salas Rodriguez, V.E. — Colle system White, 87.8%, Loss</strong><br>
+  Move 40: Marco had +7.29. Played <span class="bad-move">Ba4??</span> (best: Qc4). Eval: +7.29 → −6.97 (cpl 1000). Position flipped from completely winning to completely losing in one move. This is Marco's most dangerous pattern — he can hold a +7 advantage for 39 moves and then blunder everything in a single tempo move with a bishop. <em>What this reveals:</em> Marco does not use a final accuracy check before playing bishop or queen moves in winning positions. Austin should watch for the same pattern in his own games — when +6 or better, calculate forcing moves before moving a bishop.
+</div>
+
+<h3>Pattern: Endgame rook blindspot (G11 — Black, 87.6%, Draw)</h3>
+<div class="callout callout-danger">
+  <strong>G11 vs Octavio Martinez Cruz — Sicilian/Italian Black, 87.6%, Draw (drew from +24.87)</strong><br>
+  Moves 60–66: Marco had a rook endgame with eval +5.13, +11.23, +24.87 at consecutive moves. All three times the engine recommended <strong>Re1</strong>. Marco played Re2 (cpl 513, +5.13→0), Re6 (cpl 1000, +11.23→0), Ra6 (cpl 1000, +24.87→0). The draw was forced by the opponent after three consecutive identical errors. <em>Exploitation:</em> In any K+R endgame vs Marco, the rook belongs on the e1/d1 file behind the passed pawn or blockading the opponent's passer. Austin can play normal technique and Marco will likely miss the optimal defensive or winning rook placement.
+</div>
+
+<h3>Best game reference — G9 (Black, 97.1%, Win)</h3>
+<div class="callout callout-green">
+  <strong>G9 vs Martinez Guzman, D. — Sicilian Black, 97.1%, Win (opponent at 90.9%)</strong><br>
+  Marco's cleanest win: Sicilian as Black, nearly flawless play (0 blunders, 0 mistakes, 2 inaccuracies in 34 ply). The final position: passed pawns on d4 and f5, active queen, rooks on open files. Marco can absolutely play at this level. Austin's ceiling: be prepared for a well-played game and do not make assumptions based on the lower-rated status. The gap between Marco's best (97.3%) and worst (78.8%) is 18.5 percentage points — he is highly inconsistent. Austin's strategic goal is to trigger the low end of this variance range.
+</div>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 6 — Engine Accuracy Reference (all 22 games)</h2>
+
+<table>
+  <thead>
+    <tr><th>Game</th><th>Color</th><th>Result</th><th>Acc%</th><th>Opp Acc%</th><th>CPL</th><th>B</th><th>Opponent</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>G6</td><td>W</td><td>Win</td><td>97.3%</td><td>84.7%</td><td>10</td><td>0</td><td>Garcia Bravo, R.J.</td></tr>
+    <tr><td>G10</td><td>B</td><td>Win</td><td>97.3%</td><td>94.5%</td><td>143</td><td>10</td><td>Vazquez Jimenez, I.J.</td></tr>
+    <tr><td>G9</td><td>B</td><td>Win</td><td>97.1%</td><td>90.9%</td><td>14</td><td>0</td><td>Martinez Guzman, D.</td></tr>
+    <tr><td>G8</td><td>B</td><td>Win</td><td>94.3%</td><td>86.9%</td><td>28</td><td>0</td><td>Galindo Cruz, L.</td></tr>
+    <tr><td>G18</td><td>W</td><td>Win</td><td>92.9%</td><td>89.9%</td><td>47</td><td>2</td><td>Espinosa Guzman, A.N.</td></tr>
+    <tr><td>G14</td><td>W</td><td>Draw</td><td>91.9%</td><td>87.8%</td><td>65</td><td>2</td><td>Sevilla Ramirez, B.S.</td></tr>
+    <tr><td>G17</td><td>W</td><td>Loss</td><td>91.1%</td><td>97.5%</td><td>39</td><td>2</td><td>Pablo Elliott De Alba Boudreau</td></tr>
+    <tr><td>G22</td><td>W</td><td>Draw</td><td>90.8%</td><td>91.2%</td><td>75</td><td>5</td><td>Campos Gorgonio, E.A.</td></tr>
+    <tr><td>G2</td><td>W</td><td>Win</td><td>89.1%</td><td>89.1%</td><td>29</td><td>0</td><td>Guerrero Galeana, G.V.</td></tr>
+    <tr><td>G15</td><td>W</td><td>Draw</td><td>88.0%</td><td>88.3%</td><td>50</td><td>3</td><td>Pacheco Penaloza, J.M.</td></tr>
+    <tr><td>G3</td><td>W</td><td>Loss</td><td>87.8%</td><td>92.5%</td><td>55</td><td>2</td><td>Salas Rodriguez, V.E.</td></tr>
+    <tr><td>G11</td><td>B</td><td>Draw</td><td>87.6%</td><td>87.4%</td><td>53</td><td>3</td><td>Martinez Cruz, O.</td></tr>
+    <tr><td>G16</td><td>B</td><td>Loss</td><td>87.3%</td><td>92.5%</td><td>58</td><td>1</td><td>Campos Gorgonio, E.A.</td></tr>
+    <tr><td>G7</td><td>W</td><td>Win</td><td>86.1%</td><td>82.0%</td><td>63</td><td>3</td><td>Rodriguez Barona, C.M.</td></tr>
+    <tr><td>G1</td><td>B</td><td>Win</td><td>85.4%</td><td>80.7%</td><td>48</td><td>1</td><td>Chavez Ramirez, L.E.</td></tr>
+    <tr><td>G19</td><td>B</td><td>Draw</td><td>84.8%</td><td>84.0%</td><td>48</td><td>1</td><td>Martinez Cruz, A.</td></tr>
+    <tr><td>G20</td><td>W</td><td>Draw</td><td>84.7%</td><td>87.5%</td><td>87</td><td>5</td><td>Duran Gen, I.</td></tr>
+    <tr><td>G12</td><td>W</td><td>Loss</td><td>83.5%</td><td>86.5%</td><td>186</td><td>15</td><td>Anda Chavez, R.I.</td></tr>
+    <tr><td>G4</td><td>B</td><td>Loss</td><td>81.7%</td><td>91.7%</td><td>102</td><td>2</td><td>Salazar Reyes, D.</td></tr>
+    <tr><td>G21</td><td>W</td><td>Draw</td><td>80.6%</td><td>82.9%</td><td>93</td><td>8</td><td>Rosales Flores, N.B.</td></tr>
+    <tr><td>G13</td><td>B</td><td>Loss</td><td>80.3%</td><td>83.2%</td><td>61</td><td>4</td><td>Arzaluz Ugalde, E.</td></tr>
+    <tr><td>G5</td><td>W</td><td>Draw</td><td>78.8%</td><td>86.8%</td><td>70</td><td>2</td><td>Miguel Torres, E.</td></tr>
+  </tbody>
+</table>
+
+<p style="margin-top:20px; font-size:0.83em; color:#666; text-align:center">
+  <a href="../austin-prep.html">← Back to Austin Lin Prep Index</a> ·
+  <a href="matchup-marco-deep.html">Deep Analysis HTML</a>
+</p>
+</body>
+</html>

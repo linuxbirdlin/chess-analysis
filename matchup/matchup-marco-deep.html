@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deep Engine Analysis — Olivo Diaz, Marco Cristofer (22 games)</title>
+<style>
+:root { --accent: #1a3a6b; --accent-bg: #eef2fb; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13.5px; color: #1a1a1a; max-width: 1000px;
+  margin: 0 auto; padding: 20px 24px; background: #f8f7f4;
+}
+.page-header { border-left: 6px solid var(--accent); background: var(--accent-bg);
+               padding: 14px 18px; margin-bottom: 20px; border-radius: 0 5px 5px 0; }
+.page-header h1 { font-size: 1.25em; margin-bottom: 3px; }
+.page-header .meta { font-size: 0.82em; color: #555; }
+.page-header .nav { margin-top: 8px; font-size: 0.82em; }
+.page-header .nav a { color: var(--accent); text-decoration: none; margin-right: 14px; }
+.page-header .nav a:hover { text-decoration: underline; }
+
+h2 { font-size: 1.05em; margin: 24px 0 8px; padding: 6px 12px;
+     border-left: 4px solid var(--accent); background: #f0f3fa; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 12px 0 20px; }
+.stat-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 10px 12px; text-align: center; }
+.stat-card .num { font-size: 1.6em; font-weight: 700; color: var(--accent); }
+.stat-card .lbl { font-size: 0.78em; color: #666; margin-top: 2px; }
+
+.callout { padding: 9px 13px; border-radius: 4px; margin: 8px 0; font-size: 0.88em; }
+.callout-gold  { background: #fffbe0; border-left: 4px solid #b8860b; }
+.callout-green { background: #efffef; border-left: 4px solid #2d7d46; }
+.callout-blue  { background: #eef2fb; border-left: 4px solid #1a3a6b; }
+.callout-red   { background: #fff0f0; border-left: 4px solid #8b1a1a; }
+
+table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 0.83em; }
+th { background: #1a3a6b; color: #fff; padding: 5px 8px; text-align: left; white-space: nowrap; }
+td { padding: 4px 8px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+.row-danger td { background: #fff2f2 !important; }
+.row-best td { background: #efffef !important; }
+
+.w-cell { color: #1a5276; font-weight: bold; }
+.b-cell { color: #8b1a1a; font-weight: bold; }
+.win-cell { color: #2d7d46; font-weight: bold; }
+.loss-cell { color: #8b1a1a; }
+.draw-cell { color: #666; }
+.acc-high { color: #2d7d46; font-weight: bold; }
+.acc-mid  { color: #b8860b; font-weight: bold; }
+.acc-low  { color: #8b1a1a; font-weight: bold; }
+
+.crit-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.82em; }
+.crit-table th { background: #2c3e50; color: #fff; padding: 4px 8px; }
+.crit-table td { padding: 4px 8px; border-bottom: 1px solid #ddd; }
+.crit-table tr:nth-child(even) td { background: #f5f5f0; }
+.blunder-row td { background: #fff0f0 !important; }
+.mistake-row td { background: #fff8e8 !important; }
+
+hr { border: none; border-top: 2px solid #ccc; margin: 22px 0; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Deep Engine Analysis — Olivo Diaz, Marco Cristofer</h1>
+  <div class="meta">Stockfish movetime-3000 · 16 threads · 22 games analyzed · Multiple 2025–2026 tournaments · Lichess win-probability accuracy formula</div>
+  <div class="nav">
+    <a href="../austin-prep.html">← Prep Index</a>
+  </div>
+</div>
+
+<h2>Overall Accuracy Summary</h2>
+
+<div class="stat-grid">
+  <div class="stat-card"><div class="num">88.1%</div><div class="lbl">Overall Avg (22 games)</div></div>
+  <div class="stat-card"><div class="num">87.9%</div><div class="lbl">As White (13 games)</div></div>
+  <div class="stat-card"><div class="num">88.4%</div><div class="lbl">As Black (9 games)</div></div>
+  <div class="stat-card"><div class="num">97.3%</div><div class="lbl">Best Game (G6 &amp; G10 tied)</div></div>
+</div>
+
+<div class="stat-grid">
+  <div class="stat-card"><div class="num">4W–3L–6D</div><div class="lbl">As White (54% score)</div></div>
+  <div class="stat-card"><div class="num">4W–3L–2D</div><div class="lbl">As Black (56% score)</div></div>
+  <div class="stat-card"><div class="num">78.8%</div><div class="lbl">Worst Game (G5 — Draw)</div></div>
+  <div class="stat-card"><div class="num">71</div><div class="lbl">Total Blunders (22 games)</div></div>
+</div>
+
+<div class="callout callout-red">
+  <strong>Key finding:</strong> Marco averages 88.1% — roughly 7 percentage points above Erik's 80.9%, making him a meaningfully stronger opponent. However, 71 blunders across 22 games (3.2/game) exposes a severe conversion problem: he builds winning positions consistently but fails to close them out. Three games flipped from winning to losing in a single move (G3 +7.29→−6.97; G12 +2.55→−8.34; G22 +6.56→−6.69). Most strikingly, G11 saw Marco draw from +24.87 through three consecutive rook blunders. Austin should refuse quick trades and maintain fighting positions past move 25 — Marco's endgame technique is his biggest weakness despite his overall accuracy advantage.
+</div>
+
+<h2>Critical Patterns — What Stockfish Revealed</h2>
+
+<div class="callout callout-red">
+  <strong>Pattern 1 — Won-position decisive collapse (3 games):</strong> G3 (White, Loss): mv40 Ba4 (+7.29→−6.97, cpl 1000) — had a +7.29 advantage and played Ba4?? handing the game to the opponent in one move; Qc4 was correct. G12 (White, Loss): mv36 Nxf6 (+2.55→−8.34, cpl 1000) — another +2.55 edge completely surrendered; Qe6 was correct. G22 (White, Draw): mv35 Qh4 (+6.56→−6.69, cpl 1000) — a +6.56 position instantly turned into a loss; Bd3 was correct. These three decisive position flips are the most dangerous pattern. Marco can be clearly winning and lose the game on the very next move.
+</div>
+
+<div class="callout callout-red">
+  <strong>Pattern 2 — Endgame rook/king navigation blind spot (G7, G11, G20):</strong> In G7, Marco played Kd3 (instead of Rg1) three times in similar positions from +5.60 and +5.59, squandering winning rook endgames. In G11, he held a +24.87 advantage and played Re6 → Ra6 → Re2 when Re1 was correct all three times — drawing a completely won endgame through a single repeated error. In G20, he had +8.60 and played Kd4 (cpl 860) → 0.00, then immediately Kc5 (cpl 404) → −4.04 to lose a drawn endgame. This is a diagnosable, specific blind spot: Marco does not visualize rook placement behind passed pawns in K+R endgames.
+</div>
+
+<div class="callout callout-gold">
+  <strong>Pattern 3 — Very high peak accuracy (97%+):</strong> Three games scored 97%+: G6 (White Win, 97.3%, 0 blunders), G9 (Black Win, 97.1%, 0 blunders), G10 (Black Win, 97.3%, 10 blunders but all in an already +70 position). When Marco is focused and positions are sharp, he plays at an IM-equivalent level. The 97.3% G6 win was a crisp Exchange Caro-Kann middlegame attack. Austin should not be overconfident — Marco is fully capable of outplaying him in a clean game.
+</div>
+
+<div class="callout callout-red">
+  <strong>Pattern 4 — Won-position draw failures (G11, G14, G19, G20):</strong> Beyond the decisive collapses, Marco drew from clearly winning positions in multiple additional games. G11: +24.87 → draw (rook blunders). G14: Missed forced mate at move 35 (Rd5 instead of Be6) → draw. G19: +5.46 → 0.03 (Qc7 instead of Bxc3) → draw. G20: +8.60 → draw → loss. This pattern is consistent: once Marco builds a large advantage, he tends to relax and make imprecise moves rather than finding the clinical finisher. Austin should keep all three results alive past move 25 and never resign in a losing position — Marco may well gift the draw or win.
+</div>
+
+<div class="callout callout-green">
+  <strong>Pattern 5 — Strongest as Black in complex tactical middlegames:</strong> Marco's best games (G9 97.1%, G10 97.3%, G8 94.3%) are all as Black in Sicilian-type positions with active counterplay. His 4W-3L-2D Black record (88.4% avg) is his most reliable color, particularly when he has dynamic piece play. Austin as White should avoid closed positional systems and steer toward open tactical play (Rossolimo exchange 4.Bxc6) where converting the initiative requires precise technique — Marco's conversion weakness applies equally to piece-play advantages.
+</div>
+
+<h2>Austin — Exploitation Notes</h2>
+
+<div class="callout callout-blue">
+  <strong>Austin as White (1.e4 → Rossolimo 3.Bb5):</strong> Marco plays 1...c5 2...Nc6 (confirmed G9, G10) → Austin's Rossolimo is the weapon. After 3.Bb5 d6 4.Bxc6+ dxc6 5.d3, the structure gives Austin a solid positional game with the bishop pair. Keep the game complex past move 20. Marco's White losses (G3, G12) both came from long games (44 and 70 ply) where his accuracy degraded in the endgame. Force the same trajectory as Black: reach a middlegame with mutual imbalances where endgame technique matters. Marco's K+R endgame blind spot (Pattern 2) means any position entering a rook endgame with passed pawns is likely to convert for Austin.
+</div>
+
+<div class="callout callout-blue">
+  <strong>Austin as Black (Taimanov Sicilian):</strong> Marco's White record is 4W-3L-6D (87.9% avg). He plays Open Sicilian (2.Nf3 3.d4) with 5.Nb5 against the Taimanov (confirmed G14) — Austin must know 5.Nb5 d6! (not 5...Bc5?? trap). Marco's White losses (G3 Colle, G12 Open Sicilian) came from long games where he held large advantages and then blundered. Austin should aim for a balanced Taimanov structure through the first 20 moves, then wait for Marco's accuracy to decline. G12 had 15 blunders and 13 inaccuracies in 70 ply — the worst game in the dataset. That level of play is entirely possible in a long tense game.
+</div>
+
+<h2>Per-Game Summary (sorted best → worst accuracy)</h2>
+
+<table>
+  <thead>
+    <tr><th>Game</th><th>Color</th><th>Result</th><th>Acc</th><th>Opp Acc</th><th>CPL</th><th>B</th><th>M</th><th>I</th><th>Opponent</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+  <tr class="row-best">
+    <td>G6</td><td class="w-cell">W</td><td class="win-cell">W</td>
+    <td><span class="acc-high">97.3%</span></td><td>84.7%</td><td>10</td><td>0</td><td>0</td><td>1</td>
+    <td>Garcia Bravo, R.J.</td><td>Cleanest win; Exchange CK attack; 0 blunders</td>
+  </tr>
+  <tr class="row-best">
+    <td>G10</td><td class="b-cell">B</td><td class="win-cell">W</td>
+    <td><span class="acc-high">97.3%</span></td><td>94.5%</td><td>143</td><td>10</td><td>1</td><td>3</td>
+    <td>Vazquez Jimenez, I.J.</td><td>10 blunders all in already +70 won position; 140 ply game</td>
+  </tr>
+  <tr class="row-best">
+    <td>G9</td><td class="b-cell">B</td><td class="win-cell">W</td>
+    <td><span class="acc-high">97.1%</span></td><td>90.9%</td><td>14</td><td>0</td><td>0</td><td>2</td>
+    <td>Martinez Guzman, D.</td><td>Near-flawless tactical win; Sicilian counterattack</td>
+  </tr>
+  <tr>
+    <td>G8</td><td class="b-cell">B</td><td class="win-cell">W</td>
+    <td><span class="acc-high">94.3%</span></td><td>86.9%</td><td>28</td><td>0</td><td>0</td><td>8</td>
+    <td>Galindo Cruz, L.</td><td>Dominant win; KID-fianchetto structure</td>
+  </tr>
+  <tr>
+    <td>G18</td><td class="w-cell">W</td><td class="win-cell">W</td>
+    <td><span class="acc-high">92.9%</span></td><td>89.9%</td><td>47</td><td>2</td><td>3</td><td>6</td>
+    <td>Espinosa Guzman, A.N.</td><td>Missed cleaner win but converted anyway</td>
+  </tr>
+  <tr>
+    <td>G14</td><td class="w-cell">W</td><td class="draw-cell">D</td>
+    <td><span class="acc-high">91.9%</span></td><td>87.8%</td><td>65</td><td>2</td><td>0</td><td>5</td>
+    <td>Sevilla Ramirez, B.S.</td><td>Missed forced mate mv35 Rd5 (Rd5 instead of Be6)</td>
+  </tr>
+  <tr>
+    <td>G17</td><td class="w-cell">W</td><td class="loss-cell">L</td>
+    <td><span class="acc-high">91.1%</span></td><td>97.5%</td><td>39</td><td>2</td><td>0</td><td>3</td>
+    <td>Pablo Elliott De Alba Boudreau</td><td>Outplayed by Pablo (97.5%); Bf4?? mv24 decisive</td>
+  </tr>
+  <tr>
+    <td>G22</td><td class="w-cell">W</td><td class="draw-cell">D</td>
+    <td><span class="acc-mid">90.8%</span></td><td>91.2%</td><td>75</td><td>5</td><td>2</td><td>9</td>
+    <td>Campos Gorgonio, E.A.</td><td>Qh4?? mv35 (+6.56→−6.69) decisive collapse → draw</td>
+  </tr>
+  <tr>
+    <td>G2</td><td class="w-cell">W</td><td class="win-cell">W</td>
+    <td><span class="acc-mid">89.1%</span></td><td>89.1%</td><td>29</td><td>0</td><td>2</td><td>0</td>
+    <td>Guerrero Galeana, G.V.</td><td>Exchange CK win; both sides even play</td>
+  </tr>
+  <tr>
+    <td>G15</td><td class="w-cell">W</td><td class="draw-cell">D</td>
+    <td><span class="acc-mid">88.0%</span></td><td>88.3%</td><td>50</td><td>3</td><td>1</td><td>6</td>
+    <td>Pacheco Penaloza, J.M.</td><td>Multiple wins squandered; Nh6+?? mv31 (+6.11→+2.19)</td>
+  </tr>
+  <tr>
+    <td>G3</td><td class="w-cell">W</td><td class="loss-cell">L</td>
+    <td><span class="acc-mid">87.8%</span></td><td>92.5%</td><td>55</td><td>2</td><td>0</td><td>2</td>
+    <td>Salas Rodriguez, V.E.</td><td>Ba4?? mv40 (+7.29→−6.97) decisive flip — worst White loss</td>
+  </tr>
+  <tr>
+    <td>G11</td><td class="b-cell">B</td><td class="draw-cell">D</td>
+    <td><span class="acc-mid">87.6%</span></td><td>87.4%</td><td>53</td><td>3</td><td>3</td><td>7</td>
+    <td>Martinez Cruz, O.</td><td>Drew from +24.87 (3 consecutive Re1 missed) — worst draw</td>
+  </tr>
+  <tr>
+    <td>G16</td><td class="b-cell">B</td><td class="loss-cell">L</td>
+    <td><span class="acc-mid">87.3%</span></td><td>92.5%</td><td>58</td><td>1</td><td>3</td><td>4</td>
+    <td>Campos Gorgonio, E.A.</td><td>Sicilian Najdorf; Qe5?? mv29 (−3.46→−8.05) finishing blunder</td>
+  </tr>
+  <tr>
+    <td>G7</td><td class="w-cell">W</td><td class="win-cell">W</td>
+    <td><span class="acc-mid">86.1%</span></td><td>82.0%</td><td>63</td><td>3</td><td>2</td><td>5</td>
+    <td>Rodriguez Barona, C.M.</td><td>Won despite 3 blunders; Kd3 (best=Rg1) pattern twice</td>
+  </tr>
+  <tr>
+    <td>G1</td><td class="b-cell">B</td><td class="win-cell">W</td>
+    <td><span class="acc-mid">85.4%</span></td><td>80.7%</td><td>48</td><td>1</td><td>5</td><td>3</td>
+    <td>Chavez Ramirez, L.E.</td><td>KID kingside attack; Ra3?? mv35 from +8.42</td>
+  </tr>
+  <tr>
+    <td>G19</td><td class="b-cell">B</td><td class="draw-cell">D</td>
+    <td><span class="acc-mid">84.8%</span></td><td>84.0%</td><td>48</td><td>1</td><td>0</td><td>2</td>
+    <td>Martinez Cruz, A.</td><td>Qc7?? mv15 (+5.46→+0.03) squandered win → draw</td>
+  </tr>
+  <tr>
+    <td>G20</td><td class="w-cell">W</td><td class="draw-cell">D</td>
+    <td><span class="acc-mid">84.7%</span></td><td>87.5%</td><td>87</td><td>5</td><td>4</td><td>13</td>
+    <td>Duran Gen, I.</td><td>Kd4?? mv50 (+8.60→0) then Kc5?? mv51 (0→−4.04)</td>
+  </tr>
+  <tr class="row-danger">
+    <td>G12</td><td class="w-cell">W</td><td class="loss-cell">L</td>
+    <td><span class="acc-low">83.5%</span></td><td>86.5%</td><td>186</td><td>15</td><td>5</td><td>13</td>
+    <td>Anda Chavez, R.I.</td><td>15 blunders, 13 inaccuracies in 70 ply — worst game by CPL</td>
+  </tr>
+  <tr>
+    <td>G4</td><td class="b-cell">B</td><td class="loss-cell">L</td>
+    <td><span class="acc-low">81.7%</span></td><td>91.7%</td><td>102</td><td>2</td><td>0</td><td>1</td>
+    <td>Salazar Reyes, D.</td><td>Sicilian Najdorf; Bd6?? mv19 (+5.69→−15.73) fatal</td>
+  </tr>
+  <tr>
+    <td>G21</td><td class="w-cell">W</td><td class="draw-cell">D</td>
+    <td><span class="acc-low">80.6%</span></td><td>82.9%</td><td>93</td><td>8</td><td>7</td><td>9</td>
+    <td>Rosales Flores, N.B.</td><td>8 blunders; Rc7?? mv41 (−1.00→−8.78) decisive</td>
+  </tr>
+  <tr>
+    <td>G13</td><td class="b-cell">B</td><td class="loss-cell">L</td>
+    <td><span class="acc-low">80.3%</span></td><td>83.2%</td><td>61</td><td>4</td><td>2</td><td>1</td>
+    <td>Arzaluz Ugalde, E.</td><td>KID; Nc3?? mv56 (0.00→−6.93) losing draw; Kd5?? mv61 (#+)</td>
+  </tr>
+  <tr class="row-danger">
+    <td>G5</td><td class="w-cell">W</td><td class="draw-cell">D</td>
+    <td><span class="acc-low">78.8%</span></td><td>86.8%</td><td>70</td><td>2</td><td>0</td><td>4</td>
+    <td>Miguel Torres, E.</td><td>Worst game; Rxa8?? mv13 (+4.16→+0.55); Na3?? mv18 (−1.08→−5.83)</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Critical Moments — Top Blunders by Pattern</h2>
+
+<table class="crit-table">
+  <thead>
+    <tr><th>Game</th><th>Mv#</th><th>Played</th><th>Best</th><th>CPL</th><th>Eval Before</th><th>Eval After</th><th>Class</th></tr>
+  </thead>
+  <tbody>
+  <!-- Decisive collapses (won → lost) -->
+  <tr class="blunder-row">
+    <td>G3 (White, Loss)</td><td>40</td><td>Ba4</td><td>Qc4</td><td>1000</td><td>+7.29</td><td>−6.97</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G12 (White, Loss)</td><td>36</td><td>Nxf6</td><td>Qe6</td><td>1000</td><td>+2.55</td><td>−8.34</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G22 (White, Draw)</td><td>35</td><td>Qh4</td><td>Bd3</td><td>1000</td><td>+6.56</td><td>−6.69</td><td>Blunder</td>
+  </tr>
+  <!-- Endgame conversion failures -->
+  <tr class="blunder-row">
+    <td>G11 (Black, Draw)</td><td>66</td><td>Ra6</td><td>Re1</td><td>1000</td><td>+24.87</td><td>+0.00</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G11 (Black, Draw)</td><td>64</td><td>Re6</td><td>Re1</td><td>1000</td><td>+11.23</td><td>+0.00</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G11 (Black, Draw)</td><td>60</td><td>Re2</td><td>Re1</td><td>513</td><td>+5.13</td><td>+0.00</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G20 (White, Draw)</td><td>50</td><td>Kd4</td><td>b5</td><td>860</td><td>+8.60</td><td>+0.00</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G20 (White, Draw)</td><td>51</td><td>Kc5</td><td>Ke3</td><td>404</td><td>+0.00</td><td>−4.04</td><td>Blunder</td>
+  </tr>
+  <!-- King/Rook navigation in winning positions -->
+  <tr class="blunder-row">
+    <td>G7 (White, Win)</td><td>32</td><td>Kd3</td><td>Rg1</td><td>523</td><td>+5.60</td><td>+0.37</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G7 (White, Win)</td><td>30</td><td>Kd3</td><td>Rg1</td><td>482</td><td>+5.59</td><td>+0.77</td><td>Blunder</td>
+  </tr>
+  <!-- Missed wins in middlegame -->
+  <tr class="blunder-row">
+    <td>G19 (Black, Draw)</td><td>15</td><td>Qc7</td><td>Bxc3</td><td>543</td><td>+5.46</td><td>+0.03</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G5 (White, Draw)</td><td>13</td><td>Rxa8</td><td>Bg5+</td><td>361</td><td>+4.16</td><td>+0.55</td><td>Blunder</td>
+  </tr>
+  <!-- Missed forced mates -->
+  <tr class="blunder-row">
+    <td>G14 (White, Draw)</td><td>35</td><td>Rd5</td><td>Be6</td><td>1000</td><td>#</td><td>+7.95</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G13 (Black, Loss)</td><td>56</td><td>Nc3</td><td>Nd4</td><td>693</td><td>+0.00</td><td>−6.93</td><td>Blunder</td>
+  </tr>
+  <tr class="mistake-row">
+    <td>G15 (White, Draw)</td><td>31</td><td>Nh6+</td><td>b4</td><td>392</td><td>+6.11</td><td>+2.19</td><td>Blunder</td>
+  </tr>
+  <tr class="mistake-row">
+    <td>G4 (Black, Loss)</td><td>19</td><td>Bd6</td><td>Nh5</td><td>1000</td><td>+5.69</td><td>−15.73</td><td>Blunder</td>
+  </tr>
+  <tr class="mistake-row">
+    <td>G21 (White, Draw)</td><td>41</td><td>Rc7</td><td>Rxd6</td><td>778</td><td>−1.00</td><td>−8.78</td><td>Blunder</td>
+  </tr>
+  </tbody>
+</table>
+
+<p style="margin-top:20px; font-size:0.83em; color:#666; text-align:center">
+  <a href="../austin-prep.html">← Back to Austin Lin Prep Index</a>
+</p>
+</body>
+</html>

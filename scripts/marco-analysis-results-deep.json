@@ -1,0 +1,958 @@
+{
+  "Marco Olivo Diaz Games": {
+    "G1": {
+      "prColor": "black",
+      "opponent": "Chavez Ramirez, Luis Efren",
+      "oppElo": 0,
+      "result": "0-1",
+      "prResult": "win",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 85.4,
+      "oppAccuracy": 80.7,
+      "avgCPL": 48,
+      "blunders": 1,
+      "mistakes": 5,
+      "inaccuracies": 3,
+      "movesAnalyzed": 38,
+      "criticalMoments": [
+        {
+          "moveNum": 35,
+          "san": "Ra3",
+          "bestMove": "Qe7",
+          "cpl": 362,
+          "classification": "blunder",
+          "evalBefore": "+8.42",
+          "evalAfter": "+4.80"
+        },
+        {
+          "moveNum": 30,
+          "san": "Kh7",
+          "bestMove": "Bd7",
+          "cpl": 204,
+          "classification": "mistake",
+          "evalBefore": "+3.36",
+          "evalAfter": "+1.32"
+        },
+        {
+          "moveNum": 24,
+          "san": "Nxc5",
+          "bestMove": "Rg6",
+          "cpl": 202,
+          "classification": "mistake",
+          "evalBefore": "+2.02",
+          "evalAfter": "+0.00"
+        }
+      ]
+    },
+    "G2": {
+      "prColor": "white",
+      "opponent": "Guerrero Galeana, Gerardo Vladimir",
+      "oppElo": 0,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 89.1,
+      "oppAccuracy": 89.1,
+      "avgCPL": 29,
+      "blunders": 0,
+      "mistakes": 2,
+      "inaccuracies": 0,
+      "movesAnalyzed": 21,
+      "criticalMoments": [
+        {
+          "moveNum": 15,
+          "san": "Bxg5",
+          "bestMove": "f4",
+          "cpl": 236,
+          "classification": "mistake",
+          "evalBefore": "+2.19",
+          "evalAfter": "-0.17"
+        },
+        {
+          "moveNum": 19,
+          "san": "Qf3",
+          "bestMove": "Qh5",
+          "cpl": 193,
+          "classification": "mistake",
+          "evalBefore": "+1.93",
+          "evalAfter": "+0.00"
+        }
+      ]
+    },
+    "G3": {
+      "prColor": "white",
+      "opponent": "Salas Rodriguez, Victor Emiliano",
+      "oppElo": 0,
+      "result": "0-1",
+      "prResult": "loss",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 87.8,
+      "oppAccuracy": 92.5,
+      "avgCPL": 55,
+      "blunders": 2,
+      "mistakes": 0,
+      "inaccuracies": 2,
+      "movesAnalyzed": 44,
+      "criticalMoments": [
+        {
+          "moveNum": 40,
+          "san": "Ba4",
+          "bestMove": "Qc4",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "+7.29",
+          "evalAfter": "-6.97"
+        },
+        {
+          "moveNum": 44,
+          "san": "Qxa6",
+          "bestMove": "Qb3+",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-7.34",
+          "evalAfter": "-#"
+        },
+        {
+          "moveNum": 19,
+          "san": "Bxb4",
+          "bestMove": "Nxd7",
+          "cpl": 85,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.78",
+          "evalAfter": "-0.07"
+        }
+      ]
+    },
+    "G4": {
+      "prColor": "black",
+      "opponent": "Salazar Reyes, Diego",
+      "oppElo": 0,
+      "result": "1-0",
+      "prResult": "loss",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 81.7,
+      "oppAccuracy": 91.7,
+      "avgCPL": 102,
+      "blunders": 2,
+      "mistakes": 0,
+      "inaccuracies": 1,
+      "movesAnalyzed": 21,
+      "criticalMoments": [
+        {
+          "moveNum": 19,
+          "san": "Bd6",
+          "bestMove": "Nh5",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "+5.69",
+          "evalAfter": "-15.73"
+        },
+        {
+          "moveNum": 20,
+          "san": "Kf8",
+          "bestMove": "Kf8",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-18.53",
+          "evalAfter": "-#"
+        },
+        {
+          "moveNum": 22,
+          "san": "Ra7",
+          "bestMove": "Qe7",
+          "cpl": 90,
+          "classification": "inaccuracy",
+          "evalBefore": "-#",
+          "evalAfter": "-#"
+        }
+      ]
+    },
+    "G5": {
+      "prColor": "white",
+      "opponent": "Miguel Torres, Emiliano",
+      "oppElo": 0,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 78.8,
+      "oppAccuracy": 86.8,
+      "avgCPL": 70,
+      "blunders": 2,
+      "mistakes": 0,
+      "inaccuracies": 4,
+      "movesAnalyzed": 18,
+      "criticalMoments": [
+        {
+          "moveNum": 18,
+          "san": "Na3",
+          "bestMove": "Qc4",
+          "cpl": 475,
+          "classification": "blunder",
+          "evalBefore": "-1.08",
+          "evalAfter": "-5.83"
+        },
+        {
+          "moveNum": 13,
+          "san": "Rxa8",
+          "bestMove": "Bg5+",
+          "cpl": 361,
+          "classification": "blunder",
+          "evalBefore": "+4.16",
+          "evalAfter": "+0.55"
+        },
+        {
+          "moveNum": 17,
+          "san": "O-O",
+          "bestMove": "Ke2",
+          "cpl": 115,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.61",
+          "evalAfter": "-1.76"
+        }
+      ]
+    },
+    "G6": {
+      "prColor": "white",
+      "opponent": "Ricardo Jair Garcia Bravo",
+      "oppElo": 0,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 97.3,
+      "oppAccuracy": 84.7,
+      "avgCPL": 10,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 1,
+      "movesAnalyzed": 16,
+      "criticalMoments": [
+        {
+          "moveNum": 6,
+          "san": "Nxe5",
+          "bestMove": "d4",
+          "cpl": 55,
+          "classification": "inaccuracy",
+          "evalBefore": "+1.59",
+          "evalAfter": "+1.04"
+        }
+      ]
+    },
+    "G7": {
+      "prColor": "white",
+      "opponent": "Rodriguez Barona, Christian Mateo",
+      "oppElo": 0,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 86.1,
+      "oppAccuracy": 82,
+      "avgCPL": 63,
+      "blunders": 3,
+      "mistakes": 2,
+      "inaccuracies": 5,
+      "movesAnalyzed": 43,
+      "criticalMoments": [
+        {
+          "moveNum": 40,
+          "san": "c4",
+          "bestMove": "Rg1",
+          "cpl": 570,
+          "classification": "blunder",
+          "evalBefore": "+17.85",
+          "evalAfter": "+12.15"
+        },
+        {
+          "moveNum": 32,
+          "san": "Kd3",
+          "bestMove": "Rg1",
+          "cpl": 523,
+          "classification": "blunder",
+          "evalBefore": "+5.60",
+          "evalAfter": "+0.37"
+        },
+        {
+          "moveNum": 30,
+          "san": "Kd3",
+          "bestMove": "Rg1",
+          "cpl": 482,
+          "classification": "blunder",
+          "evalBefore": "+5.59",
+          "evalAfter": "+0.77"
+        }
+      ]
+    },
+    "G8": {
+      "prColor": "black",
+      "opponent": "Galindo Cruz, Lizeth",
+      "oppElo": 0,
+      "result": "0-1",
+      "prResult": "win",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 94.3,
+      "oppAccuracy": 86.9,
+      "avgCPL": 28,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 8,
+      "movesAnalyzed": 27,
+      "criticalMoments": [
+        {
+          "moveNum": 13,
+          "san": "Nxf3+",
+          "bestMove": "Nxe2+",
+          "cpl": 121,
+          "classification": "inaccuracy",
+          "evalBefore": "+4.65",
+          "evalAfter": "+3.44"
+        },
+        {
+          "moveNum": 20,
+          "san": "Bf5",
+          "bestMove": "Be6",
+          "cpl": 107,
+          "classification": "inaccuracy",
+          "evalBefore": "+5.11",
+          "evalAfter": "+4.04"
+        },
+        {
+          "moveNum": 26,
+          "san": "Qb4",
+          "bestMove": "Qf6",
+          "cpl": 96,
+          "classification": "inaccuracy",
+          "evalBefore": "+9.99",
+          "evalAfter": "+9.03"
+        }
+      ]
+    },
+    "G9": {
+      "prColor": "black",
+      "opponent": "Martinez Guzman, Diego",
+      "oppElo": 0,
+      "result": "0-1",
+      "prResult": "win",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 97.1,
+      "oppAccuracy": 90.9,
+      "avgCPL": 14,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 2,
+      "movesAnalyzed": 34,
+      "criticalMoments": [
+        {
+          "moveNum": 23,
+          "san": "d4",
+          "bestMove": "Qb7",
+          "cpl": 142,
+          "classification": "inaccuracy",
+          "evalBefore": "+5.91",
+          "evalAfter": "+4.49"
+        },
+        {
+          "moveNum": 29,
+          "san": "Qb6",
+          "bestMove": "Rd2",
+          "cpl": 115,
+          "classification": "inaccuracy",
+          "evalBefore": "+7.74",
+          "evalAfter": "+6.59"
+        }
+      ]
+    },
+    "G10": {
+      "prColor": "black",
+      "opponent": "Iker Jesus Vazquez Jimenez",
+      "oppElo": 0,
+      "result": "0-1",
+      "prResult": "win",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 97.3,
+      "oppAccuracy": 94.5,
+      "avgCPL": 143,
+      "blunders": 10,
+      "mistakes": 1,
+      "inaccuracies": 3,
+      "movesAnalyzed": 70,
+      "criticalMoments": [
+        {
+          "moveNum": 46,
+          "san": "Kxc5",
+          "bestMove": "Nd3+",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "#",
+          "evalAfter": "+7.97"
+        },
+        {
+          "moveNum": 47,
+          "san": "hxg5",
+          "bestMove": "Nd3+",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "#",
+          "evalAfter": "+8.32"
+        },
+        {
+          "moveNum": 57,
+          "san": "Ng4",
+          "bestMove": "Nc4",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "+79.68",
+          "evalAfter": "+50.72"
+        }
+      ]
+    },
+    "G11": {
+      "prColor": "black",
+      "opponent": "Octavio Martinez Cruz",
+      "oppElo": 0,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 87.6,
+      "oppAccuracy": 87.4,
+      "avgCPL": 53,
+      "blunders": 3,
+      "mistakes": 3,
+      "inaccuracies": 7,
+      "movesAnalyzed": 76,
+      "criticalMoments": [
+        {
+          "moveNum": 64,
+          "san": "Re6",
+          "bestMove": "Re1",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "+11.23",
+          "evalAfter": "+0.00"
+        },
+        {
+          "moveNum": 66,
+          "san": "Ra6",
+          "bestMove": "Re1",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "+24.87",
+          "evalAfter": "+0.00"
+        },
+        {
+          "moveNum": 60,
+          "san": "Re2",
+          "bestMove": "Re1",
+          "cpl": 513,
+          "classification": "blunder",
+          "evalBefore": "+5.13",
+          "evalAfter": "+0.00"
+        }
+      ]
+    },
+    "G12": {
+      "prColor": "white",
+      "opponent": "Raul Israel Anda Chavez",
+      "oppElo": 0,
+      "result": "0-1",
+      "prResult": "loss",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 83.5,
+      "oppAccuracy": 86.5,
+      "avgCPL": 186,
+      "blunders": 15,
+      "mistakes": 5,
+      "inaccuracies": 13,
+      "movesAnalyzed": 70,
+      "criticalMoments": [
+        {
+          "moveNum": 36,
+          "san": "Nxf6",
+          "bestMove": "Qe6",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "+2.55",
+          "evalAfter": "-8.34"
+        },
+        {
+          "moveNum": 55,
+          "san": "Rh7",
+          "bestMove": "Rxf8",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-0.58",
+          "evalAfter": "-11.98"
+        },
+        {
+          "moveNum": 56,
+          "san": "Rg8",
+          "bestMove": "Re1",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "-9.28",
+          "evalAfter": "-#"
+        }
+      ]
+    },
+    "G13": {
+      "prColor": "black",
+      "opponent": "Emmanuel Arzaluz Ugalde",
+      "oppElo": 0,
+      "result": "1-0",
+      "prResult": "loss",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 80.3,
+      "oppAccuracy": 83.2,
+      "avgCPL": 61,
+      "blunders": 4,
+      "mistakes": 2,
+      "inaccuracies": 1,
+      "movesAnalyzed": 60,
+      "criticalMoments": [
+        {
+          "moveNum": 61,
+          "san": "Kd5",
+          "bestMove": "Ne3",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "#",
+          "evalAfter": "-11.01"
+        },
+        {
+          "moveNum": 56,
+          "san": "Nc3",
+          "bestMove": "Nd4",
+          "cpl": 693,
+          "classification": "blunder",
+          "evalBefore": "+0.00",
+          "evalAfter": "-6.93"
+        },
+        {
+          "moveNum": 54,
+          "san": "Kc4",
+          "bestMove": "Ne2",
+          "cpl": 623,
+          "classification": "blunder",
+          "evalBefore": "+6.23",
+          "evalAfter": "+0.00"
+        }
+      ]
+    },
+    "G14": {
+      "prColor": "white",
+      "opponent": "Brandon Samuel Sevilla Ramirez",
+      "oppElo": 0,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 91.9,
+      "oppAccuracy": 87.8,
+      "avgCPL": 65,
+      "blunders": 2,
+      "mistakes": 0,
+      "inaccuracies": 5,
+      "movesAnalyzed": 40,
+      "criticalMoments": [
+        {
+          "moveNum": 35,
+          "san": "Rd5",
+          "bestMove": "Be6",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "#",
+          "evalAfter": "+7.95"
+        },
+        {
+          "moveNum": 39,
+          "san": "Nxb7",
+          "bestMove": "Rxe7",
+          "cpl": 724,
+          "classification": "blunder",
+          "evalBefore": "+14.81",
+          "evalAfter": "+7.57"
+        },
+        {
+          "moveNum": 26,
+          "san": "Qc1",
+          "bestMove": "Qb1",
+          "cpl": 135,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.52",
+          "evalAfter": "-1.87"
+        }
+      ]
+    },
+    "G15": {
+      "prColor": "white",
+      "opponent": "Jose Manuel Pacheco Penaloza",
+      "oppElo": 0,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 88,
+      "oppAccuracy": 88.3,
+      "avgCPL": 50,
+      "blunders": 3,
+      "mistakes": 1,
+      "inaccuracies": 6,
+      "movesAnalyzed": 43,
+      "criticalMoments": [
+        {
+          "moveNum": 31,
+          "san": "Nh6+",
+          "bestMove": "b4",
+          "cpl": 392,
+          "classification": "blunder",
+          "evalBefore": "+6.11",
+          "evalAfter": "+2.19"
+        },
+        {
+          "moveNum": 41,
+          "san": "Ke2",
+          "bestMove": "Ne4",
+          "cpl": 378,
+          "classification": "blunder",
+          "evalBefore": "+4.52",
+          "evalAfter": "+0.74"
+        },
+        {
+          "moveNum": 29,
+          "san": "Rd8+",
+          "bestMove": "Rxe1",
+          "cpl": 337,
+          "classification": "blunder",
+          "evalBefore": "+9.54",
+          "evalAfter": "+6.17"
+        }
+      ]
+    },
+    "G16": {
+      "prColor": "black",
+      "opponent": "Eduardo Arturo Campos Gorgonio",
+      "oppElo": 0,
+      "result": "1-0",
+      "prResult": "loss",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 87.3,
+      "oppAccuracy": 92.5,
+      "avgCPL": 58,
+      "blunders": 1,
+      "mistakes": 3,
+      "inaccuracies": 4,
+      "movesAnalyzed": 29,
+      "criticalMoments": [
+        {
+          "moveNum": 29,
+          "san": "Qe5",
+          "bestMove": "Bc5",
+          "cpl": 459,
+          "classification": "blunder",
+          "evalBefore": "-3.46",
+          "evalAfter": "-8.05"
+        },
+        {
+          "moveNum": 10,
+          "san": "Bb7",
+          "bestMove": "e5",
+          "cpl": 256,
+          "classification": "mistake",
+          "evalBefore": "-2.11",
+          "evalAfter": "-4.67"
+        },
+        {
+          "moveNum": 9,
+          "san": "Be7",
+          "bestMove": "Bb7",
+          "cpl": 195,
+          "classification": "mistake",
+          "evalBefore": "-0.21",
+          "evalAfter": "-2.16"
+        }
+      ]
+    },
+    "G17": {
+      "prColor": "white",
+      "opponent": "Pablo Elliott De Alba Boudreau",
+      "oppElo": 0,
+      "result": "0-1",
+      "prResult": "loss",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 91.1,
+      "oppAccuracy": 97.5,
+      "avgCPL": 39,
+      "blunders": 2,
+      "mistakes": 0,
+      "inaccuracies": 3,
+      "movesAnalyzed": 30,
+      "criticalMoments": [
+        {
+          "moveNum": 24,
+          "san": "Bf4",
+          "bestMove": "Qe2",
+          "cpl": 358,
+          "classification": "blunder",
+          "evalBefore": "+0.01",
+          "evalAfter": "-3.57"
+        },
+        {
+          "moveNum": 27,
+          "san": "Qg3",
+          "bestMove": "Bxc5",
+          "cpl": 332,
+          "classification": "blunder",
+          "evalBefore": "-5.13",
+          "evalAfter": "-8.45"
+        },
+        {
+          "moveNum": 20,
+          "san": "Nxd5",
+          "bestMove": "c5",
+          "cpl": 127,
+          "classification": "inaccuracy",
+          "evalBefore": "+1.27",
+          "evalAfter": "+0.00"
+        }
+      ]
+    },
+    "G18": {
+      "prColor": "white",
+      "opponent": "Alfonso Naim Espinosa Guzman",
+      "oppElo": 0,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 92.9,
+      "oppAccuracy": 89.9,
+      "avgCPL": 47,
+      "blunders": 2,
+      "mistakes": 3,
+      "inaccuracies": 6,
+      "movesAnalyzed": 54,
+      "criticalMoments": [
+        {
+          "moveNum": 39,
+          "san": "Bd4+",
+          "bestMove": "e5+",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "#",
+          "evalAfter": "+9.66"
+        },
+        {
+          "moveNum": 19,
+          "san": "Bxe6",
+          "bestMove": "Bc5",
+          "cpl": 309,
+          "classification": "blunder",
+          "evalBefore": "+4.67",
+          "evalAfter": "+1.58"
+        },
+        {
+          "moveNum": 15,
+          "san": "Nd5",
+          "bestMove": "Bxf6",
+          "cpl": 244,
+          "classification": "mistake",
+          "evalBefore": "+3.72",
+          "evalAfter": "+1.28"
+        }
+      ]
+    },
+    "G19": {
+      "prColor": "black",
+      "opponent": "Axel Martinez Cruz",
+      "oppElo": 0,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 84.8,
+      "oppAccuracy": 84,
+      "avgCPL": 48,
+      "blunders": 1,
+      "mistakes": 0,
+      "inaccuracies": 2,
+      "movesAnalyzed": 19,
+      "criticalMoments": [
+        {
+          "moveNum": 15,
+          "san": "Qc7",
+          "bestMove": "Bxc3",
+          "cpl": 543,
+          "classification": "blunder",
+          "evalBefore": "+5.46",
+          "evalAfter": "+0.03"
+        },
+        {
+          "moveNum": 19,
+          "san": "Nc6",
+          "bestMove": "Qd7",
+          "cpl": 87,
+          "classification": "inaccuracy",
+          "evalBefore": "+1.67",
+          "evalAfter": "+0.80"
+        },
+        {
+          "moveNum": 17,
+          "san": "Bb7",
+          "bestMove": "Rac8",
+          "cpl": 66,
+          "classification": "inaccuracy",
+          "evalBefore": "+1.52",
+          "evalAfter": "+0.86"
+        }
+      ]
+    },
+    "G20": {
+      "prColor": "white",
+      "opponent": "Iker Duran Gen",
+      "oppElo": 0,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 84.7,
+      "oppAccuracy": 87.5,
+      "avgCPL": 87,
+      "blunders": 5,
+      "mistakes": 4,
+      "inaccuracies": 13,
+      "movesAnalyzed": 53,
+      "criticalMoments": [
+        {
+          "moveNum": 50,
+          "san": "Kd4",
+          "bestMove": "b5",
+          "cpl": 860,
+          "classification": "blunder",
+          "evalBefore": "+8.60",
+          "evalAfter": "+0.00"
+        },
+        {
+          "moveNum": 51,
+          "san": "Kc5",
+          "bestMove": "Ke3",
+          "cpl": 404,
+          "classification": "blunder",
+          "evalBefore": "+0.00",
+          "evalAfter": "-4.04"
+        },
+        {
+          "moveNum": 21,
+          "san": "e6",
+          "bestMove": "Ne8",
+          "cpl": 369,
+          "classification": "blunder",
+          "evalBefore": "+6.07",
+          "evalAfter": "+2.38"
+        }
+      ]
+    },
+    "G21": {
+      "prColor": "white",
+      "opponent": "Nayla Belem Rosales Flores",
+      "oppElo": 0,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 80.6,
+      "oppAccuracy": 82.9,
+      "avgCPL": 93,
+      "blunders": 8,
+      "mistakes": 7,
+      "inaccuracies": 9,
+      "movesAnalyzed": 66,
+      "criticalMoments": [
+        {
+          "moveNum": 41,
+          "san": "Rc7",
+          "bestMove": "Rxd6",
+          "cpl": 778,
+          "classification": "blunder",
+          "evalBefore": "-1.00",
+          "evalAfter": "-8.78"
+        },
+        {
+          "moveNum": 39,
+          "san": "Rgc4",
+          "bestMove": "Rg3",
+          "cpl": 500,
+          "classification": "blunder",
+          "evalBefore": "-1.73",
+          "evalAfter": "-6.73"
+        },
+        {
+          "moveNum": 47,
+          "san": "f3",
+          "bestMove": "Ke3",
+          "cpl": 489,
+          "classification": "blunder",
+          "evalBefore": "+0.00",
+          "evalAfter": "-4.89"
+        }
+      ]
+    },
+    "G22": {
+      "prColor": "white",
+      "opponent": "Eduardo Arturo Campos Gorgonio",
+      "oppElo": 0,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "opening": "",
+      "prAccuracy": 90.8,
+      "oppAccuracy": 91.2,
+      "avgCPL": 75,
+      "blunders": 5,
+      "mistakes": 2,
+      "inaccuracies": 9,
+      "movesAnalyzed": 88,
+      "criticalMoments": [
+        {
+          "moveNum": 35,
+          "san": "Qh4",
+          "bestMove": "Bd3",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "+6.56",
+          "evalAfter": "-6.69"
+        },
+        {
+          "moveNum": 68,
+          "san": "Re7",
+          "bestMove": "c6",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "#",
+          "evalAfter": "+82.84"
+        },
+        {
+          "moveNum": 69,
+          "san": "Re6",
+          "bestMove": "Kc6",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "+90.85",
+          "evalAfter": "+76.49"
+        }
+      ]
+    }
+  }
+}
