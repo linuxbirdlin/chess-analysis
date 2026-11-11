@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAYCC 2026 — Austin Lin Round Tracker</title>
+<style>
+:root {
+  --blue: #1a4a8b; --green: #1a5c1a; --gold: #b8860b;
+  --red: #8b1a1a; --orange: #cc5500; --bg: #f8f6f2;
+  --win: #d4f4d4; --loss: #f4d4d4; --draw: #f4f4d4; --pending: #f0f0f0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Georgia', serif; font-size: 14px; color: #1a1a1a;
+  max-width: 1000px; margin: 0 auto; padding: 20px 24px; background: var(--bg);
+}
+h1 { font-size: 1.5em; border-bottom: 3px solid #222; padding-bottom: 8px; margin-bottom: 6px; }
+h2 { font-size: 1.1em; margin: 24px 0 10px; border-left: 5px solid var(--blue); padding-left: 10px; }
+.subtitle { font-size: 0.85em; color: #666; margin-bottom: 20px; line-height: 1.6; }
+.subtitle span { margin-right: 18px; }
+
+/* Score banner */
+.score-banner {
+  display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px;
+}
+.score-tile {
+  background: #fff; border: 1px solid #ddd; border-radius: 6px;
+  padding: 10px 18px; text-align: center; min-width: 80px;
+}
+.score-tile .num { font-size: 1.8em; font-weight: bold; line-height: 1.2; }
+.score-tile .lbl { font-size: 0.75em; color: #666; text-transform: uppercase; letter-spacing: 0.05em; }
+.score-tile.total { border-color: var(--blue); background: #eef4ff; }
+.score-tile.total .num { color: var(--blue); }
+
+/* Legend */
+.legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 16px; font-size: 0.82em; }
+.leg-item { display: flex; align-items: center; gap: 5px; }
+.leg-dot { width: 12px; height: 12px; border-radius: 2px; }
+
+/* Main rounds table */
+.rounds-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+.rounds-table th {
+  background: #2a2a2a; color: #fff; padding: 8px 10px; text-align: left; font-size: 0.82em;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.rounds-table td { padding: 0; vertical-align: top; }
+
+.round-row { border-bottom: 2px solid #ccc; }
+.round-row.win  > td { background: var(--win); }
+.round-row.loss > td { background: var(--loss); }
+.round-row.draw > td { background: var(--draw); }
+.round-row.pending > td { background: var(--pending); }
+
+.cell { padding: 8px 10px; }
+.rnd-num { font-size: 1.3em; font-weight: bold; color: var(--blue); text-align: center; }
+.rnd-date { font-size: 0.75em; color: #666; text-align: center; display: block; margin-top: 2px; }
+
+.color-badge {
+  display: inline-block; border-radius: 3px; padding: 2px 8px;
+  font-size: 0.8em; font-weight: bold; text-transform: uppercase;
+}
+.color-white { background: #fff; border: 1px solid #999; color: #333; }
+.color-black { background: #333; color: #fff; }
+.color-tbd   { background: #eee; border: 1px solid #ccc; color: #888; }
+
+.opp-name { font-weight: bold; font-size: 0.95em; }
+.opp-meta { font-size: 0.78em; color: #555; margin-top: 2px; }
+.opp-tbd  { color: #aaa; font-style: italic; }
+
+.prep-badge {
+  display: inline-block; border-radius: 3px; padding: 1px 7px; font-size: 0.75em;
+  font-weight: bold; margin-top: 3px;
+}
+.prep-full    { background: #d4f4d4; color: #1a5c1a; border: 1px solid #88bb88; }
+.prep-minimal { background: #fff3cc; color: #7a5c00; border: 1px solid #ccaa44; }
+.prep-none    { background: #ffe0e0; color: #8b1a1a; border: 1px solid #cc8888; }
+.prep-na      { background: #eee;    color: #888;    border: 1px solid #ccc; }
+
+.result-cell { text-align: center; }
+.result-badge {
+  display: inline-block; border-radius: 4px; padding: 4px 14px;
+  font-size: 1em; font-weight: bold; min-width: 50px;
+}
+.r-win  { background: #1a5c1a; color: #fff; }
+.r-loss { background: #8b1a1a; color: #fff; }
+.r-draw { background: #b8860b; color: #fff; }
+.r-tbd  { background: #ccc; color: #666; font-weight: normal; font-style: italic; }
+
+.score-running { text-align: center; font-size: 1.1em; font-weight: bold; color: #333; }
+.score-running.blank { color: #bbb; font-weight: normal; }
+
+.notes-cell { font-size: 0.82em; color: #444; line-height: 1.5; }
+.opening-line { font-family: monospace; font-size: 0.8em; background: #fff; border: 1px solid #e0ddd6;
+                border-radius: 3px; padding: 2px 6px; display: inline-block; margin-top: 3px; }
+.proj-label { font-size: 0.7em; text-transform: uppercase; letter-spacing: 0.05em; color: #888; display: block; margin-bottom: 2px; }
+
+.section-note {
+  background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 10px 14px;
+  margin-bottom: 16px; font-size: 0.85em; line-height: 1.6;
+}
+.section-note strong { color: var(--blue); }
+
+/* Pairing confidence dots */
+.conf-high   { color: #1a5c1a; font-weight: bold; }
+.conf-med    { color: #b8860b; font-weight: bold; }
+.conf-low    { color: #888; }
+</style>
+</head>
+<body>
+
+<h1>NAYCC 2026 U14 — Austin Lin Round Tracker</h1>
+<div class="subtitle">
+  <span><strong>Austin Lin</strong> · AFM · 1959 FIDE · CAN · Seed #7 of 53</span>
+  <span>Hotel del Prado, Miguel Hidalgo, Ciudad de Mexico</span>
+  <span>Nov 11–16, 2026 · 9 rounds · Swiss · 90 min + 30s/move</span>
+  <span>FIDE Event ID: 496177</span>
+</div>
+
+<!-- Score banner -->
+<div class="score-banner">
+  <div class="score-tile total">
+    <div class="num" id="total-score">0</div>
+    <div class="lbl">Score</div>
+  </div>
+  <div class="score-tile">
+    <div class="num" id="wins" style="color:#1a5c1a">0</div>
+    <div class="lbl">Wins</div>
+  </div>
+  <div class="score-tile">
+    <div class="num" id="draws" style="color:#b8860b">0</div>
+    <div class="lbl">Draws</div>
+  </div>
+  <div class="score-tile">
+    <div class="num" id="losses" style="color:#8b1a1a">0</div>
+    <div class="lbl">Losses</div>
+  </div>
+  <div class="score-tile">
+    <div class="num" id="rounds-played" style="color:#555">0/9</div>
+    <div class="lbl">Rounds</div>
+  </div>
+</div>
+
+<div class="section-note">
+  <strong>Swiss pairing basis:</strong> 53 players. Seed #53 (Zhang, Daniel — unrated) gets the bye in R1. 52 remaining players: top 26 (seeds 1–26) vs bottom 26 (seeds 27–52). Round 1 formula: seed N vs seed N+26. Round 2+ pairings depend on actual results — projections show most-likely opponent assuming Austin and other top-13 seeds win their games.
+</div>
+
+<div class="legend">
+  <span style="font-weight:bold; margin-right:4px;">Prep:</span>
+  <span class="leg-item"><span class="leg-dot" style="background:#d4f4d4;border:1px solid #88bb88"></span> Full pipeline</span>
+  <span class="leg-item"><span class="leg-dot" style="background:#fff3cc;border:1px solid #ccaa44"></span> Minimal / partial</span>
+  <span class="leg-item"><span class="leg-dot" style="background:#ffe0e0;border:1px solid #cc8888"></span> No prep</span>
+  <span style="margin-left:12px;font-weight:bold; margin-right:4px;">Confidence:</span>
+  <span class="leg-item conf-high">●● High</span>
+  <span class="leg-item conf-med">● Medium</span>
+  <span class="leg-item conf-low">◌ Low</span>
+</div>
+
+<table class="rounds-table">
+<thead>
+  <tr>
+    <th style="width:52px">Rnd</th>
+    <th style="width:62px">Color</th>
+    <th style="width:220px">Projected Opponent</th>
+    <th style="width:220px">Actual Opponent</th>
+    <th style="width:70px">Result</th>
+    <th style="width:55px">Score</th>
+    <th>Opening / Notes</th>
+  </tr>
+</thead>
+<tbody>
+
+<!-- ROUND 1 -->
+<tr class="round-row pending" id="r1">
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <div class="rnd-num">1</div>
+    <span class="rnd-date">Nov 11</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <span class="color-badge color-white">White</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <span class="proj-label">Projected <span class="conf-high">●●</span></span>
+    <div class="opp-name">Valdez Alvarez, Santino</div>
+    <div class="opp-meta">MEX · 1637 FIDE · Seed #33</div>
+    <span class="prep-badge prep-minimal">Minimal prep</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <div class="opp-tbd">— to be confirmed —</div>
+  </td>
+  <td class="cell result-cell" style="border-right:1px solid #ccc;">
+    <span class="result-badge r-tbd">TBD</span>
+  </td>
+  <td class="cell result-cell score-running blank" style="border-right:1px solid #ccc;">—</td>
+  <td class="cell notes-cell">
+    <strong>Austin White.</strong> Rating gap: <strong>+322</strong> — must-win.<br>
+    Santino's White repertoire: 1.e4 (2 CONADE games, both losses). Black: unknown.<br>
+    <span class="opening-line">1.e4 → Tarrasch (1...e6), Rossolimo (1...c5), Italian (1...e5)</span><br>
+    <em>Prep file: opponents/lower-rates/santino/ (2 games)</em>
+  </td>
+</tr>
+
+<!-- ROUND 2 -->
+<tr class="round-row pending" id="r2">
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <div class="rnd-num">2</div>
+    <span class="rnd-date">Nov 11</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <span class="color-badge color-black">Black</span>
+    <div style="font-size:0.72em;color:#888;margin-top:3px;">projected</div>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <span class="proj-label">Projected <span class="conf-med">●</span></span>
+    <div class="opp-name">Olivo Diaz, Marco Cristofer</div>
+    <div class="opp-meta">MEX · 1790 FIDE · Seed #20</div>
+    <span class="prep-badge prep-none">No prep</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <div class="opp-tbd">— to be confirmed —</div>
+  </td>
+  <td class="cell result-cell" style="border-right:1px solid #ccc;">
+    <span class="result-badge r-tbd">TBD</span>
+  </td>
+  <td class="cell result-cell score-running blank" style="border-right:1px solid #ccc;">—</td>
+  <td class="cell notes-cell">
+    <strong>Austin Black (projected).</strong> Rating gap: <strong>+169</strong> — must-win.<br>
+    <em>No existing prep on Olivo Diaz.</em> Assumes seeds 1–26 all win R1.<br>
+    Possible alternates if upsets: Ian Martinez (#17, 1815), Joel Jeyaraj (#18, 1813), Gil Pulido (#19, 1806)<br>
+    <span class="opening-line">Black: Taimanov 1...c5 2...e6 B47 (vs 1.e4) · Nimzo (vs 1.d4)</span>
+  </td>
+</tr>
+
+<!-- ROUND 3 -->
+<tr class="round-row pending" id="r3">
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <div class="rnd-num">3</div>
+    <span class="rnd-date">Nov 12</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <span class="color-badge color-tbd">TBD</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <span class="proj-label">Projected <span class="conf-low">◌</span></span>
+    <div class="opp-name">~Seed #13–14 range</div>
+    <div class="opp-meta">~1870–1880 FIDE · 2-pt group</div>
+    <span class="prep-badge prep-minimal">Prep varies</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <div class="opp-tbd">— to be confirmed —</div>
+  </td>
+  <td class="cell result-cell" style="border-right:1px solid #ccc;">
+    <span class="result-badge r-tbd">TBD</span>
+  </td>
+  <td class="cell result-cell score-running blank" style="border-right:1px solid #ccc;">—</td>
+  <td class="cell notes-cell">
+    If Austin wins R1 &amp; R2 → 2-point group (~seeds 1–13).<br>
+    Likely opponent range: Pablo De Alba (#13, 1873) · Lagunes Mendez (#14, 1872) · Benito Salazar (#15, 1869)<br>
+    <em>Pablo Elliott has full prep pipeline.</em>
+  </td>
+</tr>
+
+<!-- ROUND 4 -->
+<tr class="round-row pending" id="r4">
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <div class="rnd-num">4</div>
+    <span class="rnd-date">Nov 12</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <span class="color-badge color-tbd">TBD</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <span class="proj-label">Projected <span class="conf-low">◌</span></span>
+    <div class="opp-name">~Seed #9–12 range</div>
+    <div class="opp-meta">~1880–1922 FIDE · 3-pt group</div>
+    <span class="prep-badge prep-minimal">Prep varies</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <div class="opp-tbd">— to be confirmed —</div>
+  </td>
+  <td class="cell result-cell" style="border-right:1px solid #ccc;">
+    <span class="result-badge r-tbd">TBD</span>
+  </td>
+  <td class="cell result-cell score-running blank" style="border-right:1px solid #ccc;">—</td>
+  <td class="cell notes-cell">
+    3-pt group likely: seeds 1–8 or so.<br>
+    Possible: Pranav Santhosh (#9, 1922) · Emerson Johnson (#10, 1909) · Zhuoyuan Wu (#11, 1890) · Asher Chodniewicz (#12, 1884)<br>
+    <em>All 4 have full prep pipelines.</em>
+  </td>
+</tr>
+
+<!-- ROUND 5 -->
+<tr class="round-row pending" id="r5">
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <div class="rnd-num">5</div>
+    <span class="rnd-date">Nov 13</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <span class="color-badge color-tbd">TBD</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <span class="proj-label">Projected <span class="conf-low">◌</span></span>
+    <div class="opp-name">~Seed #6–8 range</div>
+    <div class="opp-meta">~1943–1984 FIDE · 4-pt group</div>
+    <span class="prep-badge prep-full">Full prep</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <div class="opp-tbd">— to be confirmed —</div>
+  </td>
+  <td class="cell result-cell" style="border-right:1px solid #ccc;">
+    <span class="result-badge r-tbd">TBD</span>
+  </td>
+  <td class="cell result-cell score-running blank" style="border-right:1px solid #ccc;">—</td>
+  <td class="cell notes-cell">
+    Key round — likely first clash with top-7 rated player.<br>
+    Possible: Tarun Sankar (#6, 1984) · Aarush Ajith (#8, 1943)<br>
+    <em>Both have full prep pipelines including GM battle plans.</em>
+  </td>
+</tr>
+
+<!-- ROUND 6 -->
+<tr class="round-row pending" id="r6">
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <div class="rnd-num">6</div>
+    <span class="rnd-date">Nov 13</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <span class="color-badge color-tbd">TBD</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <span class="proj-label">Projected <span class="conf-low">◌</span></span>
+    <div class="opp-name">~Seed #3–5 range</div>
+    <div class="opp-meta">~2011–2081 FIDE · 5-pt group</div>
+    <span class="prep-badge prep-full">Full prep</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <div class="opp-tbd">— to be confirmed —</div>
+  </td>
+  <td class="cell result-cell" style="border-right:1px solid #ccc;">
+    <span class="result-badge r-tbd">TBD</span>
+  </td>
+  <td class="cell result-cell score-running blank" style="border-right:1px solid #ccc;">—</td>
+  <td class="cell notes-cell">
+    Prize-game territory begins.<br>
+    Possible: Leo Jackson (#3, 2081) · Reyansh Paragiri (#4, 2067) · Inti Flores (#5, 2011)<br>
+    <em>All 3 have full prep including GM battle plans and deep analysis.</em>
+  </td>
+</tr>
+
+<!-- ROUND 7 -->
+<tr class="round-row pending" id="r7">
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <div class="rnd-num">7</div>
+    <span class="rnd-date">Nov 14</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <span class="color-badge color-tbd">TBD</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <span class="proj-label">Projected <span class="conf-low">◌</span></span>
+    <div class="opp-name">~Seed #2–3 range</div>
+    <div class="opp-meta">~2081–2085 FIDE · 6-pt group</div>
+    <span class="prep-badge prep-full">Full prep</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <div class="opp-tbd">— to be confirmed —</div>
+  </td>
+  <td class="cell result-cell" style="border-right:1px solid #ccc;">
+    <span class="result-badge r-tbd">TBD</span>
+  </td>
+  <td class="cell result-cell score-running blank" style="border-right:1px solid #ccc;">—</td>
+  <td class="cell notes-cell">
+    Podium fight. If Austin is 6/6 this is a top-3 clash.<br>
+    Possible: Fernando Cortes Medina (#2, 2085) · Leo Jackson (#3, 2081)<br>
+    <em>Fernando: full GM battle plan + deep analysis. Leo: full prep pipeline.</em>
+  </td>
+</tr>
+
+<!-- ROUND 8 -->
+<tr class="round-row pending" id="r8">
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <div class="rnd-num">8</div>
+    <span class="rnd-date">Nov 15</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <span class="color-badge color-tbd">TBD</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <span class="proj-label">Projected <span class="conf-low">◌</span></span>
+    <div class="opp-name">~Seed #1–2 range</div>
+    <div class="opp-meta">~2085–2185 FIDE · 7-pt group</div>
+    <span class="prep-badge prep-full">Full prep</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <div class="opp-tbd">— to be confirmed —</div>
+  </td>
+  <td class="cell result-cell" style="border-right:1px solid #ccc;">
+    <span class="result-badge r-tbd">TBD</span>
+  </td>
+  <td class="cell result-cell score-running blank" style="border-right:1px solid #ccc;">—</td>
+  <td class="cell notes-cell">
+    Title contention. Likely vs top-2.<br>
+    Possible: Zachary Liu (#1, 2185) · Fernando Cortes Medina (#2, 2085)<br>
+    <em>Zachary: full pipeline + opening deviation map. Fernando: full GM battle plan.</em><br>
+    Austin record vs Zachary: 0W–1L (CYCC 2026).
+  </td>
+</tr>
+
+<!-- ROUND 9 -->
+<tr class="round-row pending" id="r9">
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <div class="rnd-num">9</div>
+    <span class="rnd-date">Nov 15/16</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <span class="color-badge color-tbd">TBD</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <span class="proj-label">Projected <span class="conf-low">◌</span></span>
+    <div class="opp-name">~Top-2 or closest pursuer</div>
+    <div class="opp-meta">Final-round tiebreaker</div>
+    <span class="prep-badge prep-full">Full prep</span>
+  </td>
+  <td class="cell" style="border-right:1px solid #ccc;">
+    <div class="opp-tbd">— to be confirmed —</div>
+  </td>
+  <td class="cell result-cell" style="border-right:1px solid #ccc;">
+    <span class="result-badge r-tbd">TBD</span>
+  </td>
+  <td class="cell result-cell score-running blank" style="border-right:1px solid #ccc;">—</td>
+  <td class="cell notes-cell">
+    Final round. Championship or top-3 placement decided here.<br>
+    <em>All potential opponents have full prep pipelines.</em>
+  </td>
+</tr>
+
+</tbody>
+</table>
+
+<h2>Full Seeding Reference (53 Players)</h2>
+<table style="font-size:0.82em">
+  <thead>
+    <tr>
+      <th style="width:40px">#</th>
+      <th>Name</th>
+      <th style="width:45px">Fed</th>
+      <th style="width:60px">FIDE</th>
+      <th style="width:40px">Title</th>
+      <th>Prep status</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr><td>1</td><td>Liu, Zachary Hankun</td><td>CAN</td><td>2185</td><td>CM</td><td><span class="prep-badge prep-full">Full pipeline · matchup + deep + white + black + gm + deviation map</span></td></tr>
+  <tr><td>2</td><td>Cortes Medina, Fernando</td><td>MEX</td><td>2085</td><td>CM</td><td><span class="prep-badge prep-full">Full pipeline · matchup + deep + white + black + gm (rewritten Nov 10)</span></td></tr>
+  <tr><td>3</td><td>Jackson, Leo Daniel Olivera</td><td>USA</td><td>2081</td><td>—</td><td><span class="prep-badge prep-full">Full pipeline · matchup + deep + white + black + gm</span></td></tr>
+  <tr><td>4</td><td>Paragiri, Reyansh</td><td>USA</td><td>2067</td><td>—</td><td><span class="prep-badge prep-full">Full pipeline · 104-game pgnlib · Rossolimo weapon 0-2</span></td></tr>
+  <tr><td>5</td><td>Flores Ojeda, Inti Dario</td><td>MEX</td><td>2011</td><td>—</td><td><span class="prep-badge prep-full">Full pipeline · Italian d4 squeeze (White) · Taimanov O-O kingside (Black)</span></td></tr>
+  <tr><td>6</td><td>Sankar, Tarun</td><td>USA</td><td>1984</td><td>—</td><td><span class="prep-badge prep-full">Full pipeline · 1.c4 English specialist</span></td></tr>
+  <tr style="background:#dde8ff"><td><strong>7</strong></td><td><strong>Lin, Austin ← YOU</strong></td><td>CAN</td><td>1959</td><td>AFM</td><td><strong>Seed #7</strong></td></tr>
+  <tr><td>8</td><td>Ajith, Aarush</td><td>CAN</td><td>1943</td><td>—</td><td><span class="prep-badge prep-full">Full pipeline · 1.d4 specialist · Najdorf Black</span></td></tr>
+  <tr><td>9</td><td>Santhosh, Pranav</td><td>USA</td><td>1922</td><td>—</td><td><span class="prep-badge prep-full">Full pipeline · 1.e4 Maróczy / Italian</span></td></tr>
+  <tr><td>10</td><td>Johnson, Emerson Aurelius</td><td>USA</td><td>1909</td><td>—</td><td><span class="prep-badge prep-full">Full pipeline · 1.e4 Rossolimo</span></td></tr>
+  <tr><td>11</td><td>Wu, Zhuoyuan</td><td>USA</td><td>1890</td><td>—</td><td><span class="prep-badge prep-full">Full pipeline · Accelerated Dragon Black</span></td></tr>
+  <tr><td>12</td><td>Chodniewicz, Asher</td><td>USA</td><td>1884</td><td>—</td><td><span class="prep-badge prep-full">Full pipeline · French Defense Black · 34 games deep</span></td></tr>
+  <tr><td>13</td><td>De Alba Boudreau, Pablo Elliott</td><td>MEX</td><td>1873</td><td>—</td><td><span class="prep-badge prep-full">Full pipeline · Sicilian Kan/Taimanov Black</span></td></tr>
+  <tr><td>14</td><td>Lagunes Mendez, Cristian Jeron</td><td>MEX</td><td>1872</td><td>AIM</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>15</td><td>Salazar Rodriguez, Benito</td><td>MEX</td><td>1869</td><td>AGM</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>16</td><td>Saenz Cabrera, Yaen</td><td>MEX</td><td>1841</td><td>—</td><td><span class="prep-badge prep-full">Full pipeline · Scotch White · Sveshnikov Black</span></td></tr>
+  <tr><td>17</td><td>Martinez Nestor, Ian Marco</td><td>MEX</td><td>1815</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>18</td><td>Jeyaraj, Joel Ethan</td><td>USA</td><td>1813</td><td>—</td><td><span class="prep-badge prep-full">Full pipeline · Nimzo-Larsen White · Scandinavian Black</span></td></tr>
+  <tr><td>19</td><td>Gil Pulido, Julio Cesar</td><td>MEX</td><td>1806</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>20</td><td>Olivo Diaz, Marco Cristofer</td><td>MEX</td><td>1790</td><td>—</td><td><span class="prep-badge prep-none">No prep — R2 projected opponent</span></td></tr>
+  <tr><td>21</td><td>Sevilla Ramirez, Brandon Samuel</td><td>MEX</td><td>1766</td><td>AFM</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>22</td><td>Ruiz Gastelum, Mateo</td><td>MEX</td><td>1765</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>23</td><td>Ortega Jacinto, Miguel Adolfo</td><td>MEX</td><td>1756</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>24</td><td>Hernandez Gamboa, Daniel</td><td>MEX</td><td>1753</td><td>—</td><td><span class="prep-badge prep-full">Full pipeline · 1.e4 Philidor/Pirc · 1...e5 Black</span></td></tr>
+  <tr><td>25</td><td>Calzada Martinez, Ian Axel</td><td>MEX</td><td>1742</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>26</td><td>Sanchez Cruz, Mateo</td><td>MEX</td><td>1734</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>27</td><td>De Los Reyes Balandran, Cristian Gabriel</td><td>MEX</td><td>1720</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>28</td><td>Lou, Sining</td><td>CAN</td><td>1690</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>29</td><td>Cortez Madera, Fidel Leonardo</td><td>MEX</td><td>1681</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>30</td><td>Pacheco Penaloza, Jose Manuel</td><td>MEX</td><td>1661</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>31</td><td>Valdez Obregon, Iker</td><td>MEX</td><td>1647</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>32</td><td>Balaji, Tanav</td><td>USA</td><td>1640</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>33</td><td><strong>Valdez Alvarez, Santino</strong></td><td>MEX</td><td>1637</td><td>—</td><td><span class="prep-badge prep-minimal">Minimal — 2 CONADE 2026 games, White only · R1 projected opponent</span></td></tr>
+  <tr><td>34</td><td>Dominguez Alarcon, Erik Samuel</td><td>MEX</td><td>1630</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>35</td><td>Sanchez Hernandez, Diego</td><td>MEX</td><td>1628</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>36</td><td>Mendez Mendez, Luis Israel</td><td>MEX</td><td>1622</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>37</td><td>Szeto, Jordan</td><td>CAN</td><td>1622</td><td>—</td><td><span class="prep-badge prep-minimal">Partial — opponents/jordan/ folder exists</span></td></tr>
+  <tr><td>38</td><td>Rascon Peralta, Bolivar Ernesto</td><td>MEX</td><td>1608</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>39</td><td>Anaya Cruz, Agustin</td><td>MEX</td><td>1595</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>40</td><td>Hernandez Tierrafria, Christian Mateo</td><td>MEX</td><td>1579</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>41</td><td>Yadatore, Neel</td><td>USA</td><td>1574</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>42</td><td>Molina Ronquillo, Pablo</td><td>MEX</td><td>1568</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>43</td><td>Dominguez Alvarez, Blas</td><td>MEX</td><td>1563</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>44</td><td>Bates, Dallin</td><td>USA</td><td>1558</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>45</td><td>Espinosa Guzman, Alfonso Naim</td><td>MEX</td><td>1555</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>46</td><td>Madrigal Madrazo, Luis Xavier</td><td>MEX</td><td>1541</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>47</td><td>Pshisva Abadi, Daniel</td><td>MEX</td><td>1533</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>48</td><td>Gonzaga Angeles, Luis Emiliano</td><td>MEX</td><td>1531</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>49</td><td>Albornoz Zurita, Roberto Froylan</td><td>MEX</td><td>1472</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>50</td><td>Lopez De La O, Uriel Ithamar</td><td>MEX</td><td>1416</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>51</td><td>Leal Cordova, Pablo Ernesto</td><td>MEX</td><td>0</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>52</td><td>Santana, Evan Emil</td><td>MEX</td><td>0</td><td>—</td><td><span class="prep-badge prep-none">No prep</span></td></tr>
+  <tr><td>53</td><td>Zhang, Daniel Yunshu</td><td>USA</td><td>0</td><td>—</td><td><span class="prep-badge prep-none">R1 bye (lowest seed)</span></td></tr>
+  </tbody>
+</table>
+
+<p style="margin-top:20px; font-size:0.82em; color:#666">
+  Roster source: chess-results.com (tnr1477753) · Last updated 2026-11-10 23:45 ·
+  <a href="../austin-prep.html">← Austin Prep Index</a>
+</p>
+
+<script>
+// Auto-calculate score from result badges
+// To update a result, change the round-row class to win/loss/draw
+// and change the result-badge class to r-win/r-loss/r-draw
+
+function recalcScore() {
+  let wins = 0, losses = 0, draws = 0, played = 0;
+  for (let i = 1; i <= 9; i++) {
+    const row = document.getElementById('r' + i);
+    if (!row) continue;
+    if (row.classList.contains('win'))  { wins++;  played++; }
+    if (row.classList.contains('loss')) { losses++; played++; }
+    if (row.classList.contains('draw')) { draws++;  played++; }
+  }
+  const score = wins + draws * 0.5;
+  document.getElementById('total-score').textContent = score % 1 === 0 ? score : score.toFixed(1);
+  document.getElementById('wins').textContent = wins;
+  document.getElementById('draws').textContent = draws;
+  document.getElementById('losses').textContent = losses;
+  document.getElementById('rounds-played').textContent = played + '/9';
+
+  // Update running scores
+  let running = 0;
+  for (let i = 1; i <= 9; i++) {
+    const row = document.getElementById('r' + i);
+    const scoreCell = row ? row.querySelector('.score-running') : null;
+    if (!row || !scoreCell) continue;
+    if (row.classList.contains('win'))  { running += 1; }
+    if (row.classList.contains('draw')) { running += 0.5; }
+    if (row.classList.contains('win') || row.classList.contains('loss') || row.classList.contains('draw')) {
+      scoreCell.textContent = running % 1 === 0 ? running : running.toFixed(1);
+      scoreCell.classList.remove('blank');
+    }
+  }
+}
+recalcScore();
+</script>
+</body>
+</html>
