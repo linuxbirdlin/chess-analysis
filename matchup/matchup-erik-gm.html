@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle Plan: Austin vs Dominguez Alarcon, Erik Samuel (GM Prep)</title>
+<style>
+:root {
+  --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
+  --red: #8b1a1a; --bg: #f8f6f2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Georgia', serif; font-size: 14px; color: #1a1a1a;
+  max-width: 900px; margin: 0 auto; padding: 20px 24px; background: var(--bg);
+}
+h1 { font-size: 1.6em; border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 6px; }
+h2 { font-size: 1.15em; margin: 28px 0 10px; padding-left: 10px; }
+h2.white-section { border-left: 5px solid var(--blue); }
+h2.black-section { border-left: 5px solid var(--red); }
+h2.analysis   { border-left: 5px solid var(--gold); }
+h2.reference  { border-left: 5px solid #666; }
+h3 { font-size: 1em; margin: 14px 0 6px; color: #333; }
+.subtitle { font-size: 0.85em; color: #666; margin-bottom: 22px; }
+.subtitle span { margin-right: 16px; }
+
+.rating-note { background: #eaf4fb; border: 2px solid #1a5276; border-radius: 5px;
+               padding: 10px 14px; margin-bottom: 18px; font-size: 0.9em; }
+
+.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.intel-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 12px 14px; }
+.intel-card h3 { margin-top: 0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }
+.intel-card ul { padding-left: 16px; margin-top: 4px; }
+.intel-card li { margin-bottom: 3px; }
+
+.callout { border-radius: 4px; padding: 10px 14px; margin: 10px 0; font-size: 0.9em; }
+.callout-gold   { background: #fffbe0; border-left: 4px solid var(--gold); }
+.callout-blue   { background: #eef4ff; border-left: 4px solid var(--blue); }
+.callout-green  { background: #efffef; border-left: 4px solid var(--green); }
+.callout-danger { background: #fff0f0; border-left: 4px solid var(--red); }
+
+.move-line { background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
+             padding: 8px 12px; margin: 6px 0; font-size: 0.92em; line-height: 1.9; }
+.mv-a { color: var(--blue); font-weight: bold; }
+.mv-z { color: var(--red); font-weight: bold; }
+.key-move { background: #eef4ff; border: 1px solid #99aacc; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; }
+.bad-move { background: #ffe0e0; border: 1px solid #cc8888; border-radius: 3px;
+            padding: 1px 5px; font-weight: bold; color: #8b1a1a; }
+.note { color: #555; font-style: italic; font-size: 0.88em; }
+
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
+th { background: #333; color: #fff; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+.row-danger td { background: #fff0f0 !important; }
+
+hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20px; }
+
+.acc-toggle { display: none; }
+.acc-label {
+  display: block; cursor: pointer; padding: 8px 12px; margin: 4px 0;
+  background: #eee; border: 1px solid #ccc; border-radius: 4px;
+  font-weight: bold; font-size: 0.9em; user-select: none;
+}
+.acc-label::before { content: '▶ '; font-size: 0.75em; color: #666; }
+.acc-toggle:checked ~ .acc-label::before { content: '▼ '; }
+.acc-content { display: none; padding: 10px 14px; background: #fafaf6;
+               border: 1px solid #ddd; border-top: none; border-radius: 0 0 4px 4px; margin-bottom: 6px; }
+.acc-toggle:checked ~ .acc-content { display: block; }
+
+@media print {
+  .acc-content { display: block !important; }
+  .acc-label::before { content: '' !important; }
+  body { font-size: 12px; padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<h1>Battle Plan: Austin (White &amp; Black) vs Dominguez Alarcon, Erik Samuel</h1>
+<div class="subtitle">
+  <span><strong>NAYCC 2026 — Round 1</strong></span>
+  <span>Erik rating: 1630 FIDE · Mexico · Born 2013</span>
+  <span>Direct record: No encounter</span>
+  <span>Games analyzed: 7 (CONADE Veracruz Jan 2026, movetime-3000)</span>
+</div>
+
+<div class="rating-note">
+  <strong>Rating context:</strong> Austin (1959 FIDE) holds a <strong>+329 point advantage</strong> — the largest gap in the NAYCC 2026 field. At Round 1 this is Austin's expected win; the goal is a clean, efficient result without over-complicating. Erik's dataset is small (7 games, one tournament), but the pattern is clear: <strong>80.9% average accuracy, 17 blunders in 7 games (2.4/game)</strong>. He plays London System 1.d4 + Bf4 as White, and a consistent fianchetto Bg7/Ne7 Hippopotamus setup as Black vs both 1.e4 and 1.d4. His single Sicilian game (G6 vs Grand Prix Attack) ended in a loss with 4 consecutive blunders in moves 12–13. Austin should aim for sharp, tactical play that bypasses Erik's fianchetto comfort zone.
+</div>
+
+<div class="intel-grid">
+  <div class="intel-card">
+    <h3>Erik as White</h3>
+    <ul>
+      <li><strong>1.d4 + 2.Bf4 (London System)</strong> in all 3 White games</li>
+      <li>Follows up with e3, c3, Bd3, Nf3, Nbd2 — solid but passive structure</li>
+      <li>Lost twice as White when opponent opened the game (G5: lost from +5.91; G2: drew from +0.19 blunder)</li>
+      <li>His sole win (G4) came when opponent played at 58.7% — not from his own quality</li>
+      <li>No gambits, no aggressive kingside attacks — passive London style only</li>
+      <li><em>White record: 1W–1L–1D · avg 77.7%</em></li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Erik as Black</h3>
+    <ul>
+      <li>vs 1.e4: <strong>Fianchetto g6/Bg7/Ne7</strong> — Hippopotamus/Hungarian setup (G3, G7)</li>
+      <li>vs 1.e4 also: <strong>Sicilian c5 + g6/Bg7</strong> (G6 — 1 game, loss vs Grand Prix)</li>
+      <li>vs 1.d4: <strong>g6/e6/Bg7/Ne7</strong> — same Hippopotamus structure (G1)</li>
+      <li>Avoids mainstream theory — seeks closed, maneuvering positions</li>
+      <li>As Black vs 1.e4 he scored 0 wins: 0W–3L–1D</li>
+      <li><em>Black record: 0W–3L–1D · avg 83.3%</em></li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Critical weaknesses</h3>
+    <ul>
+      <li><strong>Missed Bxh7+:</strong> G4 mv14 — had +6.52 and missed Greek Gift sacrifice, played Qh5?? (cpl 747), squandering the game</li>
+      <li><strong>Won-position collapse:</strong> G2 from +0.19 → −3.16 (mv18 f4), G4 from +4.03 → 0.00 (mv13 Nfd2), G5 from +5.91 → +0.50 (mv24 Be2) — cannot convert advantages</li>
+      <li><strong>Consecutive Black blunders:</strong> G6 mv12 e5 (−1.21→−5.17) then mv13 Kh8 (−1.14→−5.46) — two decisive errors in two moves</li>
+      <li><strong>Tactical vision gap:</strong> Consistently played passive moves where forcing sequences (sacrifices, checks) were winning</li>
+    </ul>
+  </div>
+  <div class="intel-card">
+    <h3>Key game facts</h3>
+    <ul>
+      <li>Overall avg: <strong>80.9%</strong> (movetime-3000, 7 games)</li>
+      <li>Best game: <strong>88.5%</strong> (G1, Black vs Moreno Morales — 37 moves, still lost)</li>
+      <li>Worst game: <strong>70.1%</strong> (G4, White — his only win; opponent at 58.7%)</li>
+      <li>Total blunders: <strong>17</strong> (2.4/game)</li>
+      <li>Total mistakes: <strong>12</strong> · Inaccuracies: <strong>31</strong></li>
+      <li>Rating: 1630 FIDE · first documented FIDE activity Jan 2026</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="white-section">Part 1 — Austin as White: Italian 3.Bc4 or Rossolimo 3.Bb5 — Force Open Tactical Play</h2>
+
+<div class="callout callout-blue">
+  <strong>The core challenge:</strong> Erik plays a <strong>fianchetto Bg7/Ne7 Hippopotamus setup</strong> as Black vs both 1.e4 and 1.d4 — a closed, maneuvering defense that avoids mainstream theory. Austin must resist the temptation to let the position close. The weapon: <strong>open the center early with d4, keep the pawn tension alive, and launch a kingside attack before Erik completes his setup</strong>. If Erik plays 1...c5 (Sicilian), Austin uses <strong>Rossolimo 3.Bb5</strong>. If Erik plays 1...e6 or 1...g6, Austin pushes d4 and plays for direct piece-activity. Erik's tactical blindness (missed Bxh7+, 2.4 blunders/game) means every open position is favorable for Austin.
+</div>
+
+<h3>Rossolimo — Austin's weapon if 1...c5</h3>
+<div class="move-line">
+  <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">c5</span>
+  2.Nf3 <span class="mv-z">Nc6</span>
+  <span class="key-move">3.Bb5!</span>
+  <span class="note"> — Erik played 1...c5 2.Nc3 Nc6 in G6, so 2...Nc6 is likely. Rossolimo is Austin's primary Sicilian weapon. After 3.Bb5, there is no "Grand Prix Attack" Bc4/f4 complication for Black to prepare against.</span>
+</div>
+
+<input class="acc-toggle" id="w1" type="checkbox" checked>
+<label class="acc-label" for="w1">Branch A — 3...g6 (Erik's fianchetto — most likely given his style)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 3.Bb5 <span class="mv-z">g6</span>
+    <span class="key-move">4.Bxc6!</span> <span class="mv-z">dxc6</span>
+    5.d3 <span class="mv-z">Bg7</span>
+    6.h3 <span class="mv-z">Nf6</span>
+    7.Nc3 <span class="mv-z">O-O</span>
+    <span class="key-move">8.Be3</span> <span class="mv-z">b6</span>
+    9.Qd2 <span class="mv-z">Bb7</span>
+    10.O-O-O
+    <span class="note"> — Exchange Rossolimo: 4.Bxc6 doubles Black's c-pawns and ruins the structure. Erik's fianchetto is now a weakened diagonal. Plan: castle queenside, then push h4-h5 attacking the g6 pawn. Erik's doubled c5/c6 pawns can't defend both wings. Austin has drilled this exact structure (Bxh7+ Greek Gift executed Oct 2026 — G4 shows Erik can't see these sacrifices).</span>
+  </div>
+  <p style="margin-top:8px">After 10.O-O-O, the plan is straightforward: Kb1, then g4-g5 and h4-h5. Erik's Hippopotamus structure collapses when the h-file opens. With doubled c-pawns, Black's queenside counterplay is negligible.</p>
+</div>
+
+<input class="acc-toggle" id="w2" type="checkbox" checked>
+<label class="acc-label" for="w2">Branch B — 3...d6 4.0-0 Bg4 (normal Rossolimo)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 3.Bb5 <span class="mv-z">d6</span>
+    4.O-O <span class="mv-z">Bg4</span>
+    5.h3 <span class="mv-z">Bh5</span>
+    6.c3 <span class="mv-z">a6</span>
+    7.Ba4 <span class="mv-z">Nf6</span>
+    8.d4 <span class="mv-z">b5</span>
+    9.Bc2 <span class="mv-z">cxd4</span>
+    <span class="key-move">10.cxd4!</span>
+    <span class="note"> — After 10.cxd4, Austin has strong center with d4+e4. Erik's bishop on h5 is offside. Plan: Re1, Nc3, then push e5 or d5 to open lines. Erik's fianchetto motif (if 10...g6) can be met with 11.e5! immediately.</span>
+  </div>
+  <p style="margin-top:8px">The Bg4-Bh5 pin is uncomfortable only if White allows ...Bxf3. With h3 played, Austin keeps his knight. The key plan: Nc3-d5 exchange sacrifice if Black plays passively, or push e5 to cramp the position. Erik plays poorly in complex tactical positions (G6: 4 blunders in 26 moves).</p>
+</div>
+
+<input class="acc-toggle" id="w3" type="checkbox">
+<label class="acc-label" for="w3">Branch C — Erik plays 1...e6 (French / Hungarian)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">e6</span>
+    2.d4 <span class="mv-z">d5</span>
+    3.Nd2
+    <span class="note"> — Tarrasch French — Austin's standard. If Erik plays 2...g6 instead of 2...d5, White plays 3.Nf3 and builds with Nc3/Bc4 — Italian-like setup against the Hungarian. Either way, 3.Nd2 targets the central tension.</span>
+  </div>
+  <div class="move-line">
+    <span class="mv-a">Austin (vs 2...g6 Hungarian line):</span> 1.e4 <span class="mv-z">e6</span>
+    2.d4 <span class="mv-z">g6</span>
+    3.Nf3 <span class="mv-z">Bg7</span>
+    4.Nc3 <span class="mv-z">Ne7</span>
+    <span class="key-move">5.Bc4!</span> <span class="mv-z">d6</span>
+    6.O-O <span class="mv-z">O-O</span>
+    7.Re1
+    <span class="note"> — Bc4 targets f7. Erik played this setup in G7 (after 1.e4 e6 2.d3 g6) and drew only because White played passively with 2.d3. Austin's 5.Bc4 creates immediate pressure on f7.</span>
+  </div>
+  <p style="margin-top:8px">G7 (Erik's draw) featured 1.e4 e6 2.d3 — a very passive White setup. Austin will play 2.d4 and 5.Bc4, which is entirely different. Erik's fianchetto structure did not hold against an opponent playing 92.2% accuracy in G7 (even with passive White play). With active 5.Bc4, Austin's piece pressure will be decisive faster.</p>
+</div>
+
+<input class="acc-toggle" id="w4" type="checkbox">
+<label class="acc-label" for="w4">Branch D — Erik plays 1...g6 (Pirc/Modern — direct fianchetto)</label>
+<div class="acc-content">
+  <div class="callout callout-gold" style="margin-bottom:8px">
+    Less likely but possible. G3 started 1.e4 g6 2.Nf3 e6 — a Pirc/Hungarian hybrid. Austin plays 2.d4 to reach standard Pirc structures.
+  </div>
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">g6</span>
+    2.d4 <span class="mv-z">Bg7</span>
+    3.Nf3 <span class="mv-z">d6</span>
+    4.Bc4 <span class="mv-z">e6</span>
+    5.O-O <span class="mv-z">Ne7</span>
+    6.Re1 <span class="mv-z">O-O</span>
+    <span class="key-move">7.e5!</span>
+    <span class="note"> — 7.e5! is the thematic pawn advance in Pirc structures where Black has played ...Ne7 (instead of ...Nf6). After 7...dxe5 8.dxe5 Nd5 9.Nc3 Nxc3 10.bxc3, Austin has open b-file, pawn center, and bishop on c4 aimed at f7. Erik's fianchetto structure is under immediate pressure.</span>
+  </div>
+  <p style="margin-top:8px">This is the sharpest line and the most likely to generate the kind of complications where Erik blunders (G3: 4 blunders in 32 moves as Black vs a 1.e4 player). Keep the tension alive — do not simplify.</p>
+</div>
+
+<h3 style="margin-top:18px">Key tactical themes — Austin as White</h3>
+<table>
+  <thead><tr><th>Theme</th><th>How it plays out</th><th>Evidence from data</th></tr></thead>
+  <tbody>
+  <tr><td><strong>Rossolimo exchange (4.Bxc6) ruins fianchetto</strong></td><td>Erik's whole defensive philosophy is built around the Bg7 fianchetto. 4.Bxc6 creates doubled pawns, kills the structure, and forces him into unfamiliar territory</td><td>G6 (Sicilian, Black, 76.9%) — 4 blunders in 26 moves vs 1.e4; Bg7 setup failed completely</td></tr>
+  <tr><td><strong>Open center before move 10</strong></td><td>All of Erik's solid draws came in closed positions (G7: 1.e4 e6 2.d3 — White played passively). Active d4 pawn storms destroy his setup</td><td>G7 (87.2%) was his cleanest game — White played 2.d3, the most passive possible. Austin plays 2.d4.</td></tr>
+  <tr><td><strong>Missed Bxh7+ — always look for the Greek Gift</strong></td><td>Erik proved he cannot see piece sacrifice motifs. In a kingside attacking position, every Bxh7+ candidate must be calculated. Austin executed this vs Sergey and Larry Chen (Oct 2026).</td><td>G4 mv14: +6.52, Bxh7+ was winning, Erik missed it and collapsed to 70.1% from an overwhelming position</td></tr>
+  <tr><td><strong>Keep complications alive past move 20</strong></td><td>G5 (37 moves as White) had 12 inaccuracies + 3 blunders. Erik's accuracy decays sharply in complex long games. Avoid early piece trades.</td><td>G5: 81.4% with 12 inaccuracies — most inaccuracy-dense game in dataset</td></tr>
+  </tbody>
+</table>
+
+<hr class="section-divider">
+
+<h2 class="black-section">Part 2 — Austin as Black: Solid vs London, Nimzo if Nc3 appears</h2>
+
+<div class="callout callout-green">
+  <strong>Core insight:</strong> Erik plays <strong>London System (1.d4 2.Bf4)</strong> — passive and solid. His London record is 1W–1L–1D with avg 77.7%. He cannot handle the c5 break: G5 (1.d4 d6 2.Nf3 c5) shows he went from +5.91 to losing after the pawn structure opened up. Austin's plan: <strong>1...Nf6 2...e6, then ...d5 and ...c5 break</strong> — the same thematic plan that beat him in G5. If Nc3 ever appears, play 3...Bb4 (Nimzo transposition). Austin's London defense: solid structure early, then c5 to blow the center open when White is committed.
+</div>
+
+<h3>Austin vs London — main defense</h3>
+<div class="move-line">
+  <span class="mv-a">Austin (Black):</span> <span class="mv-z">1.d4</span> Nf6
+  <span class="mv-z">2.Bf4</span> e6
+  <span class="mv-z">3.e3</span> d5
+  <span class="mv-z">4.Nf3</span> <span class="key-move">c5!</span>
+  <span class="note"> — 4...c5! is the thematic challenge. After 5.c3 Nc6 or 5.dxc5 Bxc5, the center opens and Austin's pieces activate. Erik's passive London structure collapses when the pawn tension resolves — G5 proved this (he lost from +5.91 after the pawn play opened the position).</span>
+</div>
+
+<input class="acc-toggle" id="b1" type="checkbox" checked>
+<label class="acc-label" for="b1">Branch A — 5.c3 (London mainline — maintain tension)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin (Black):</span> <span class="mv-z">1.d4</span> Nf6
+    <span class="mv-z">2.Bf4</span> e6
+    <span class="mv-z">3.e3</span> d5
+    <span class="mv-z">4.Nf3</span> c5
+    <span class="mv-z">5.c3</span> Nc6
+    <span class="mv-z">6.Nbd2</span> <span class="key-move">Bd6!</span>
+    <span class="mv-z">7.Bg3</span> O-O
+    <span class="mv-z">8.Bd3</span> Re8
+    <span class="note"> — 6...Bd6! directly challenges the London bishop. The plan: ...e5 pawn break or ...cxd4 to open the c-file. White's London bishop on g3 is passive; Austin's pieces are active. Erik played this structure (G2: 1.d4 Nf6 2.Bf4 g6 3.e3 Bg7) and reached a draw from +0.19 only by blundering first.</span>
+  </div>
+  <p style="margin-top:8px">The critical moment in this structure: when Erik plays Bd3 targeting Austin's Bd6, Austin responds with 8...Re8 preparing ...e5 or ...Qc7 (challenging the Bg3 exchange). If White trades Bxd6 Qxd6, Austin has an active queen and open c-file. The opening plan Austin knows from Nimzo study transfers naturally here.</p>
+</div>
+
+<input class="acc-toggle" id="b2" type="checkbox" checked>
+<label class="acc-label" for="b2">Branch B — 5.dxc5 (White captures — Austin recaptures actively)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin (Black):</span> <span class="mv-z">5.dxc5</span> <span class="key-move">Bxc5!</span>
+    <span class="mv-z">6.c3</span> O-O
+    <span class="mv-z">7.Nbd2</span> Nc6
+    <span class="mv-z">8.Bd3</span> Qe7
+    <span class="note"> — After 5.dxc5 Bxc5, the center is open and Austin has the c5 bishop aiming at f2. Plan: ...Rd8 and ...d4 pawn break, or ...Nb4 threatening ...Nd3+. Erik's passive London bishops are no match for Austin's active piece coordination. This is the simplest version — Austin has already converted advantages in similar open IQP positions.</span>
+  </div>
+  <p style="margin-top:8px">With 5.dxc5, White relieves all pawn tension for Austin. The IQP (d5) gives Austin dynamic compensation: free piece activity, ...Rd8 pressure, possible ...d4 breakthrough. Austin has studied IQP positions from multiple matchups — this is familiar terrain.</p>
+</div>
+
+<input class="acc-toggle" id="b3" type="checkbox">
+<label class="acc-label" for="b3">Branch C — Nc3 appears → Nimzo transposition</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-a">Austin (Black):</span> <span class="mv-z">1.d4</span> Nf6
+    <span class="mv-z">2.Bf4</span> e6
+    <span class="mv-z">3.Nc3</span> <span class="key-move">Bb4!</span>
+    <span class="note"> — If Nc3 appears (less likely in London but possible), immediately play Nimzo. Austin's most drilled structure of 2026: 3...Bb4 Bxc3+ with ...b6/...Ba6/...Ne4. Erik has zero experience defending vs Nimzo (all his Black games use the fianchetto — his preparation is entirely on the Black side of these positions). After 4.e3 Bxc3+ 5.bxc3 O-O 6.Bd3, play ...b6 and ...Ba6 (Nimzo bishop maneuver).</span>
+  </div>
+  <p style="margin-top:8px">This is Austin's most comfortable Black structure. The Nimzo ...b6/...Ba6 plan exchanges the light-squared bishops, creates queenside pressure, and transitions to a middlegame where Austin's knight maneuvers outplay White's doubled c-pawns. Erik would be completely unprepared for this.</p>
+</div>
+
+<input class="acc-toggle" id="b4" type="checkbox">
+<label class="acc-label" for="b4">Branch D — Aggressive option: 1...Nf6 2.Bf4 c5! immediate</label>
+<div class="acc-content">
+  <div class="callout callout-gold" style="margin-bottom:8px">
+    More aggressive alternative: immediately challenge with 2...c5. If White plays 3.e3, play 3...cxd4 4.exd4 d5 — same open game. If White plays 3.d5, play 3...e6 and ...exd5 opening lines.
+  </div>
+  <div class="move-line">
+    <span class="mv-a">Austin (Black):</span> <span class="mv-z">1.d4</span> Nf6
+    <span class="mv-z">2.Bf4</span> c5
+    <span class="mv-z">3.e3</span> <span class="key-move">cxd4!</span>
+    <span class="mv-z">4.exd4</span> d5
+    <span class="note"> — After 4.exd4 d5, Austin has an IQP position with active pieces. White's bishop on f4 is a liability — Austin can play ...Nc6, ...Bf5 (or ...Bg4), and ...e6-e5 to attack the d4 pawn. G5 showed Erik collapses when the center opens: from +5.91 to losing in just a few moves after the pawn structure shifted.</span>
+  </div>
+  <p style="margin-top:8px">Trade-off: 2...c5 is slightly sharper than 2...e6, but against Erik's passive London it may be the most direct route to an open game. Use this if you want to avoid the quiet London pawn structure entirely and reach a tactical fight immediately.</p>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="analysis">Part 3 — Accuracy Profile and Error Patterns</h2>
+
+<h3>All 7 games — CONADE Veracruz 2026 (Jan 10–11)</h3>
+<table>
+  <thead>
+    <tr><th>Game</th><th>Color</th><th>Result</th><th>Acc%</th><th>Opp Acc</th><th>CPL</th><th>B/M/I</th><th>Opponent</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+  <tr><td>G1</td><td>B</td><td>L</td><td>88.5%</td><td>93.2%</td><td>45</td><td>1/2/4</td><td>Moreno Morales</td><td>Best game; mv28 Nf5 decisive (cpl 288)</td></tr>
+  <tr><td>G7</td><td>B</td><td>D</td><td>87.2%</td><td>92.2%</td><td>38</td><td>1/1/4</td><td>Valencia Antonio</td><td>Cleanest game; vs passive 2.d3 White</td></tr>
+  <tr><td>G2</td><td>W</td><td>D</td><td>81.5%</td><td>80.9%</td><td>59</td><td>2/1/3</td><td>Ramirez Diaz</td><td>London: threw +0.19 with f4 (cpl 335)</td></tr>
+  <tr><td>G5</td><td>W</td><td>L</td><td>81.4%</td><td>86.5%</td><td>98</td><td>3/2/12</td><td>Reyes Molina</td><td>London: +5.91 collapse; 12 inaccuracies</td></tr>
+  <tr><td>G3</td><td>B</td><td>L</td><td>80.7%</td><td>86.1%</td><td>124</td><td>4/3/3</td><td>Villalobos Gonzalez</td><td>Fianchetto vs 1.e4; mv16 Ne7 (cpl 586)</td></tr>
+  <tr class="row-danger"><td>G6</td><td>B</td><td>L</td><td>76.9%</td><td>82.7%</td><td>96</td><td>4/2/4</td><td>Martinez Hernandez</td><td>Sicilian: 2 consec. blunders mv12–13</td></tr>
+  <tr class="row-danger"><td>G4</td><td>W</td><td>W</td><td>70.1%</td><td>58.7%</td><td>104</td><td>2/1/1</td><td>Aguirre Cardona</td><td>Won only due to opp 58.7%; missed Bxh7+</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-gold">
+  <strong>Accuracy summary:</strong> Erik plays at 80.9% — his Black accuracy (83.3%) marginally exceeds his White accuracy (77.7%), but his Black record is catastrophically poor (0W–3L–1D). His two cleanest games (G1: 88.5%, G7: 87.2%) were both as Black in relatively closed positions — his ceiling in this format. Austin plays at approximately 90–92% average; a 10-point accuracy gap means roughly one decisive error per game in Erik's favor of the opponent. <strong>Play sharply — do not simplify into equal endgames hoping to outplay on technique.</strong> Erik's errors come from tactical complexity; closed, technical positions may suppress his error rate.
+</div>
+
+<h3>Known error patterns (from Stockfish JSON)</h3>
+<table>
+  <thead>
+    <tr><th>Pattern</th><th>Critical example</th><th>How Austin exploits</th></tr>
+  </thead>
+  <tbody>
+  <tr class="row-danger">
+    <td><strong>Missed piece sacrifice (Bxh7+)</strong></td>
+    <td>G4 mv14: Qh5?? (cpl 747) — had +6.52, missed Bxh7+!; played passive queen move instead, position went from winning to −0.95</td>
+    <td>In any kingside attacking position, always calculate Bxh7+ or Nxh7 sacrifice candidates. Erik's eye for these patterns is poor — Austin has proven the Greek Gift works in his style (Oct 2026 games)</td>
+  </tr>
+  <tr class="row-danger">
+    <td><strong>Won-position collapse (3 games)</strong></td>
+    <td>G5 mv24: Be2?? (cpl 541) — had +5.91, played passive retreat, position equalized. G2 mv18: f4?? (cpl 335) from +0.19. G4 mv13: Nfd2?? (cpl 403) from +4.03</td>
+    <td>Trust that Erik will give back any large advantage. If Austin has a solid position and Erik is "winning," play for complications — Erik statistically squanders 3 out of 3 documented won positions</td>
+  </tr>
+  <tr class="row-danger">
+    <td><strong>Consecutive Black blunders (G6)</strong></td>
+    <td>G6 mv12 e5?? (cpl 396, −1.21→−5.17) immediately followed by mv13 Kh8?? (cpl 432, −1.14→−5.46) — two decisive errors in two moves under pressure</td>
+    <td>When Austin creates threats as White, play for continued pressure rather than immediate material gain. Erik panics under threat sequences — multiple consecutive pressure moves are more dangerous than one clean tactic</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3>Psychological notes</h3>
+<p style="margin: 8px 0; line-height: 1.7;">Erik's tournament record (1W–4L–2D in 7 games) suggests a player still developing tactical vision. His fianchetto system is chosen to minimize theoretical preparation, not from positional understanding — when that setup fails (G6: Sicilian, G3: fianchetto vs tactical opponent), he blunders quickly. His sole win came against an opponent playing at 58.7%. Against Austin at 1959 FIDE, the gap is so large that any open, tactical position should be trivially winning.</p>
+<p style="margin: 8px 0; line-height: 1.7;">One caution: G1 and G7 show Erik can play at 87–88% in positional, closed structures. Do not let the game drift into a closed Hippopotamus vs blocked center — that is his safest territory. Austin's 1.e4 and open d4 plans are specifically designed to prevent this.</p>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 4 — If / Then Quick Reference</h2>
+
+<input class="acc-toggle" id="r1" type="checkbox" checked>
+<label class="acc-label" for="r1">Austin as White — If/Then</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Erik plays...</th><th>Austin plays...</th><th>Why</th></tr></thead>
+    <tbody>
+    <tr><td>1...c5 2...Nc6</td><td>2.Nf3 Nc6 3.Bb5 (Rossolimo)</td><td>Primary weapon; 4.Bxc6 ruins his fianchetto plan and creates doubled pawns</td></tr>
+    <tr><td>1...c5 2...e6 (no Nc6)</td><td>2.Nf3 e6 3.d4 cxd4 4.Nxd4 → English Attack setups</td><td>Open Sicilian; use Bb3 and f4 system if 4...a6 Kan; keep energy in position</td></tr>
+    <tr><td>1...e6 2...d5 (French)</td><td>2.d4 d5 3.Nd2 (Tarrasch)</td><td>Austin's standard French weapon; avoids Exchange or Advance pitfalls</td></tr>
+    <tr><td>1...e6 2...g6 (Hungarian)</td><td>2.d4 g6 3.Nf3 Bg7 4.Nc3 Ne7 5.Bc4!</td><td>5.Bc4 targets f7 immediately — different from G7's passive 2.d3; Austin forces tactical play</td></tr>
+    <tr><td>1...g6 (Pirc/Modern)</td><td>2.d4 Bg7 3.Nf3 d6 4.Bc4 e6 5.O-O Ne7 6.Re1 → 7.e5!</td><td>e5 advance is thematic; Erik blundered 4 times in G3 (his only Pirc-like Black game)</td></tr>
+    <tr><td>Any other 1st move</td><td>2.d4, build Italian-like setup with Nf3/Nc3/Bc4</td><td>Familiar Italian structure; Austin has played C54 multiple times in 2026</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<input class="acc-toggle" id="r2" type="checkbox" checked>
+<label class="acc-label" for="r2">Austin as Black — If/Then</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Erik plays...</th><th>Austin plays...</th><th>Why</th></tr></thead>
+    <tbody>
+    <tr><td>1.d4 Nf6 2.Bf4 (London)</td><td>2...e6 3.e3 d5 4.Nf3 c5!</td><td>Thematic c5 break — G5 shows Erik collapses when center opens (+5.91 → lost)</td></tr>
+    <tr><td>1.d4 Nf6 2.Nf3 (then Bf4)</td><td>2...e6 3.Bf4 d5 4.e3 c5!</td><td>Same plan — c5 challenge opens the game</td></tr>
+    <tr><td>London + 3.Nc3</td><td>3...Bb4! (Nimzo transposition)</td><td>Austin's most drilled structure; Erik unfamiliar with Nimzo positions on White side</td></tr>
+    <tr><td>5.c3 (maintains London tension)</td><td>5...Nc6 6...Bd6! 7...Re8</td><td>...Bd6 challenges London bishop; plan ...e5 or ...cxd4 to open lines</td></tr>
+    <tr><td>5.dxc5 (releases tension)</td><td>5...Bxc5! → IQP position</td><td>Active bishop, free development; Erik proved he can't handle open centers</td></tr>
+    <tr><td>1.e4 (unexpected)</td><td>1...c5 → Taimanov Sicilian</td><td>Austin's fixed Black weapon vs 1.e4; Erik's dataset shows 0W-3L-1D as Black vs 1.e4</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<input class="acc-toggle" id="r3" type="checkbox" checked>
+<label class="acc-label" for="r3">Key principles for this matchup</label>
+<div class="acc-content">
+  <ul style="padding-left: 18px; line-height: 2.0;">
+    <li><strong>Open the center early.</strong> Erik's best games (G1: 88.5%, G7: 87.2%) were in closed positions with passive White play. Austin's 1.e4 + d4/Bc4 setup is specifically designed to prevent this. Source: G7 opponent played 2.d3 (passively) and only drew.</li>
+    <li><strong>Always calculate Bxh7+ in attacking positions.</strong> Erik proved (G4 mv14, cpl 747) that he cannot see Greek Gift sacrifices. Austin executed this OTB in Oct 2026. Any position with Bxh7+ should be computed even if it looks risky.</li>
+    <li><strong>Do not simplify into equal endgames.</strong> Erik draws in simple positions (G7, G2). His error rate emerges in complex tactical middlegames (G3: 4 blunders, G6: 4 blunders). Keep pieces on the board.</li>
+    <li><strong>Trust that he will give back advantages.</strong> All 3 of Erik's White games featured a won-position collapse. If Austin is "losing," complications give Erik every opportunity to blunder back. Source: G5 +5.91 → lost in 13 moves.</li>
+    <li><strong>As Black, play c5 to open the center.</strong> G5 shows Erik's London collapsed after the c5 break — he went from +5.91 to losing. This is not an accident; it's a structural tendency. The c5 break is Austin's sharpest weapon as Black.</li>
+    <li><strong>Consecutive pressure is more dangerous than one clean tactic.</strong> G6 showed two consecutive blunders (mv12 and mv13). Once Austin creates a threat, play the follow-up threat before capturing — Erik's panic response generates further errors.</li>
+  </ul>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 5 — Critical Moments Reference</h2>
+
+<h3>Pattern 1: Missed Bxh7+ — G4 (White, Win, 70.1%)</h3>
+<div class="callout callout-danger">
+  <strong>CONADE Veracruz 2026 · Erik as White · Won (opponent 58.7%)</strong><br>
+  Position: 1.d4 d5 2.Bf4 Nf6 3.Nf3 b6 4.e4 e6 5.e5 Nfd7 6.c3 Nc6 7.Bd3 Bb7 8.O-O Be7 9.Nbd2 O-O 10.c4 dxc4 11.Nxc4 f5 12.exf6 gxf6 13.Nfd2 b5 14.Qh5?? (cpl 747, eval +6.52 → −0.95)
+</div>
+<div class="move-line">
+  ...12.exf6 <span class="mv-z">gxf6</span> 13.Nfd2 <span class="mv-z">b5</span>
+  <span class="bad-move">14.Qh5??</span>
+  <span class="note"> — Erik had +6.52 and played Qh5. The engine recommends Bxh7+! — a classic Greek Gift. After 14.Bxh7+ Kxh7 15.Qh5+ Kg8 16.Ng5 fxg5 17.Qxg5+ Kh8 18.Rxf6 Nxf6 19.Qxf6+ Kg8 20.Bh6 the attack is decisive. Erik didn't see it. Qh5 instead allowed Black to consolidate.</span>
+</div>
+<p style="margin-top:8px; font-size:0.9em;"><strong>What this reveals:</strong> Erik's tactical vision for sacrificial attacks — especially Greek Gift Bxh7+ — is weak. He had the strongest position in his dataset and played a passive queen move instead of the winning sacrifice. Austin's pattern recognition for Bxh7+ (confirmed in Oct 2026 OTB games) is a direct exploit of this blindness.</p>
+
+<h3>Pattern 2: Won-position collapse — G5 (White, Loss, 81.4%)</h3>
+<div class="callout callout-danger">
+  <strong>CONADE Veracruz 2026 · Erik as White · Lost · 12 inaccuracies + 3 blunders</strong><br>
+  Position after 23 moves: Erik +5.91 (virtually winning). Move 24: Be2?? (cpl 541, +5.91 → +0.50). Then Bb7?? (cpl 445) → −6.00 at move 30.
+</div>
+<div class="move-line">
+  ...23.Qxd1 <span class="mv-z">Rxd1+</span> 24.Qxd1 <span class="mv-z">Bf6</span>
+  <span class="bad-move">24.Be2??</span>
+  <span class="note"> — From +5.91 (nearly winning), Erik retreated the bishop passively to e2. Engine wanted Qd6, maintaining threats. After Be2, the winning advantage evaporated within 2 moves. This is Erik's most revealing game — maximum positional advantage, zero conversion ability.</span>
+</div>
+<p style="margin-top:8px; font-size:0.9em;"><strong>What this reveals:</strong> When Erik reaches a large advantage, he cannot find the active/forcing move required to convert. He defaults to passive retreats (Be2, Bb7, Bb1). Austin should be unafraid of "difficult" defensive tasks if Austin is objectively worse — Erik will not convert cleanly.</p>
+
+<h3>Pattern 3: Consecutive middlegame blunders as Black — G6 (Black, Loss, 76.9%)</h3>
+<div class="callout callout-danger">
+  <strong>CONADE Veracruz 2026 · Erik as Black · Lost vs Sicilian Grand Prix attack · 4 blunders in 26 moves</strong><br>
+  Move 12: e5?? (cpl 396, −1.21 → −5.17). Move 13: Kh8?? (cpl 432, −1.14 → −5.46). Two decisive blunders in consecutive moves under threat.
+</div>
+<div class="move-line">
+  ...11.Ne2 <span class="mv-z">e5</span> <span class="bad-move">[mv12 e5?? cpl 396]</span>
+  12.f5 <span class="bad-move">Kh8?? [mv13 cpl 432]</span>
+  <span class="note"> — After 11...e5?? (should be ...Nb4), White played f5! and Erik panicked with Kh8?? (gxf5 was needed). Two consecutive blunders under pressure dropped from roughly equal to −5.17 in two moves. Austin should play pressure sequences — multiple threats in a row cause Erik to panic and blunder repeatedly.</span>
+</div>
+<p style="margin-top:8px; font-size:0.9em;"><strong>What this reveals:</strong> Under threat, Erik blunders consecutively rather than once. Once Austin creates one threat, follow immediately with a second — Erik's consecutive blunder rate is the highest risk factor for a quick game-ending collapse.</p>
+
+<hr class="section-divider">
+
+<h2 class="reference">Part 6 — Engine Accuracy Reference</h2>
+
+<table>
+  <thead>
+    <tr><th>Game</th><th>Color</th><th>Result</th><th>Acc%</th><th>Opp%</th><th>CPL</th><th>B/M/I</th><th>Opponent</th></tr>
+  </thead>
+  <tbody>
+  <tr><td>G1 (Jan 11)</td><td>Black</td><td>Loss</td><td>88.5%</td><td>93.2%</td><td>45</td><td>1/2/4</td><td>Moreno Morales</td></tr>
+  <tr><td>G7 (Jan 10)</td><td>Black</td><td>Draw</td><td>87.2%</td><td>92.2%</td><td>38</td><td>1/1/4</td><td>Valencia Antonio</td></tr>
+  <tr><td>G2 (Jan 11)</td><td>White</td><td>Draw</td><td>81.5%</td><td>80.9%</td><td>59</td><td>2/1/3</td><td>Ramirez Diaz</td></tr>
+  <tr><td>G5 (Jan 10)</td><td>White</td><td>Loss</td><td>81.4%</td><td>86.5%</td><td>98</td><td>3/2/12</td><td>Reyes Molina</td></tr>
+  <tr><td>G3 (Jan 11)</td><td>Black</td><td>Loss</td><td>80.7%</td><td>86.1%</td><td>124</td><td>4/3/3</td><td>Villalobos Gonzalez</td></tr>
+  <tr><td>G6 (Jan 10)</td><td>Black</td><td>Loss</td><td>76.9%</td><td>82.7%</td><td>96</td><td>4/2/4</td><td>Martinez Hernandez</td></tr>
+  <tr><td>G4 (Jan 10)</td><td>White</td><td>Win</td><td>70.1%</td><td>58.7%</td><td>104</td><td>2/1/1</td><td>Aguirre Cardona</td></tr>
+  </tbody>
+</table>
+
+<p style="margin-top: 20px; font-size: 0.83em; color: #666; text-align: center;">
+  <a href="../austin-prep.html">← Back to Austin Lin Prep Index</a> ·
+  <a href="matchup-erik-deep.html">Deep Engine Analysis</a>
+</p>
+
+</body>
+</html>
