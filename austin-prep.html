@@ -237,6 +237,18 @@
     .opp-link.gm-plan:hover { background: #3d2a8a; }
     .opp-link.dev-map   { border-color: #d4a017; color: #7a4500; background: #fff8e8; }
     .opp-link.dev-map:hover { background: #fdeec8; }
+    .opp-link.night-before { border-color: #b8860b; color: #6b4800; background: #fff8e8; }
+    .opp-link.night-before:hover { background: #fdeec8; }
+    .opp-link.night-before .badge-tag { background: #b8860b; }
+    .opp-link.lichess { border-color: #7b5ea7; color: #4a2e8a; background: #f5f0ff; }
+    .opp-link.lichess:hover { background: #ece5ff; }
+    .opp-link.lichess .badge-tag { background: #7b5ea7; }
+    .opp-link.dev-map .badge-tag { background: #d4a017; }
+    .opp-link.drill { border-color: #8b1a6b; color: #5a0040; background: #fff0f8; }
+    .opp-link.drill:hover { background: #f7d8ef; }
+    .opp-link.drill .badge-tag { background: #8b1a6b; }
+    .opp-link.archive { border-color: #d0d7de; color: #57606a; background: #f6f8fa; }
+    .opp-link.archive:hover { border-color: #57606a; }
     .opp-link .badge-tag {
       font-size: 0.67rem;
       font-weight: 700;
@@ -417,15 +429,15 @@
         <span class="badge-tag" style="background:#b8a000;">GM</span> Battle Plan (423 Lichess + Canada Open 2026)
       </a>
 
-      <a class="opp-link" href="https://lichess.org/@/leilei8514" target="_blank" rel="noopener" style="background:#f5f0ff; border-color:#7b5ea7; color:#4a2e8a;">
-        <span class="badge-tag" style="background:#7b5ea7;">LICHESS</span> Lichess Profile — leilei8514
+      <a class="opp-link lichess" href="https://lichess.org/@/leilei8514" target="_blank" rel="noopener">
+        <span class="badge-tag">LICHESS</span> Lichess Profile — leilei8514
       </a>
-      <a class="opp-link" href="matchup/matchup-zachary-nightbefore.html" style="background:#fff8e8; border-color:#b8860b; color:#6b4800;">
-        <span class="badge-tag" style="background:#b8860b;">TONIGHT</span> Night-Before Prep — 2-hour plan, collapse patterns, Lichess position
+      <a class="opp-link night-before" href="matchup/matchup-zachary-nightbefore.html">
+        <span class="badge-tag">TONIGHT</span> Night-Before Prep — 2-hour plan, collapse patterns, Lichess position
       </a>
       <a class="opp-link pgn" href="pgnlib/Liu, Zachary Hankun.pgn" download="Liu, Zachary Hankun.pgn">&#8615; PGN Library (47 games)</a>
       <a class="opp-link dev-map" href="matchup/opening-deviation-zachary.html">
-        <span class="badge-tag" style="background:#d4a017;">DEV</span> Opening Deviation Map — Lichess masters, 6 systems
+        <span class="badge-tag">DEV</span> Opening Deviation Map — Lichess masters, 6 systems
       </a>
     </div>
     <p class="opp-note">Record: <strong>19W–4L–22D</strong> overall · Canada Open: 2 White losses (vs 2181+) · Benko Gambit confirmed as Black · 93.6% avg accuracy (engine games) · Direct loss Sep 2026 (missed 14.Bxh7+!) · <strong>English Attack 6.Be3 7.f3 8.g4!</strong> targets Taimanov (B46: 86.6%). Dutch Leningrad 1...f5! as Black vs his Reti/English.</p>
@@ -454,12 +466,12 @@
       <a class="opp-link gm-plan" href="matchup/matchup-fernando-gm.html">
         <span class="badge-tag" style="background:#b8a000;">GM</span> Battle Plan (37 classical games)
       </a>
-      <a class="opp-link" href="matchup/matchup-fernando-nightbefore.html" style="background:#fff8e8; border-color:#b8860b; color:#6b4800;">
-        <span class="badge-tag" style="background:#b8860b;">TONIGHT</span> Night-Before Prep — Pattern G rook errors (75% loss rate), Advanced French weapon, zero decisive blunders
+      <a class="opp-link night-before" href="matchup/matchup-fernando-nightbefore.html">
+        <span class="badge-tag">TONIGHT</span> Night-Before Prep — Pattern G rook errors (75% loss rate), Advanced French weapon, zero decisive blunders
       </a>
       <a class="opp-link pgn" href="pgnlib/Cortes Medina, Fernando.pgn" download="Cortes Medina, Fernando.pgn">&#8615; PGN Library (39 games)</a>
       <a class="opp-link dev-map" href="matchup/opening-deviation-fernando.html">
-        <span class="badge-tag" style="background:#d4a017;">DEV</span> Opening Deviation Map — 6.f3 English Attack · 6…Rc8 French Advance
+        <span class="badge-tag">DEV</span> Opening Deviation Map — 6.f3 English Attack · 6…Rc8 French Advance
       </a>
     </div>
     <p class="opp-note">Overall 92.8% avg accuracy (White 91.8%, Black 93.6%) across 7 tournaments · Worst: <strong>85.4%</strong> vs Perez (2395); <strong>86.6%</strong> vs GM Cori (2586) with 6 blunders · Key patterns: king navigation errors (Kb1?? Kf1??), rook misplacement (Rd7?? dropped +4.58→0), queen reactivation failures under pressure · GM plan: <strong>Tarrasch 3.Nd2</strong> as White (0 Fernando games — prep gap); <strong>Sicilian Kan …b5/…Rc8</strong> as Black (Fernando's 1.e4 White win rate only 25%).</p>
@@ -488,16 +500,16 @@
       <a class="opp-link gm-plan" href="matchup/matchup-leo-gm.html">
         <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — Tarrasch (3.Nd2) + Queen's Indian
       </a>
-      <a class="opp-link" href="matchup/matchup-leo-nightbefore.html" style="background:#fff0f8; border-color:#8b1a6b; color:#5a0040;">
-        <span class="badge-tag" style="background:#8b1a6b;">NIGHT</span> Night-Before Prep Sheet
+      <a class="opp-link night-before" href="matchup/matchup-leo-nightbefore.html">
+        <span class="badge-tag">TONIGHT</span> Night-Before Prep Sheet
       </a>
       <a class="opp-link dev-map" href="matchup/opening-deviation-leo.html">
-        <span class="badge-tag" style="background:#d4a017;">MAP</span> Opening Deviation Map
+        <span class="badge-tag">MAP</span> Opening Deviation Map
       </a>
 
       <a class="opp-link pgn" href="pgnlib/Jackson,Leo Daniel Olivera.pgn" download="Jackson,Leo Daniel Olivera.pgn">&#8615; PGN Library (60 games)</a>
-      <a class="opp-link" href="https://lichess.org/@/leodanieljackson" target="_blank" rel="noopener" style="background:#f5f0ff; border-color:#7b5ea7; color:#4a2e8a;">
-        <span class="badge-tag" style="background:#7b5ea7;">LICHESS</span> Lichess Profile — leodanieljackson (unconfirmed, 2154 rapid)
+      <a class="opp-link lichess" href="https://lichess.org/@/leodanieljackson" target="_blank" rel="noopener">
+        <span class="badge-tag">LICHESS</span> Lichess Profile — leodanieljackson (unconfirmed, 2154 rapid)
       </a>
     </div>
     <p class="opp-note">Classical avg 92.4% · Best: <strong>98.9%</strong> (perfect 41-move Catalan win) · Worst: <strong>87.2%</strong> (upset loss to 1609 as White) · Key insight: draws vs 2000+ at 97%+ accuracy, but struggles to convert advantages — blew +5.34 with a single move (b5, CPL 509) vs 2062.</p>
@@ -527,14 +539,14 @@
         <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — Rossolimo 0–2 · Maróczy trap avoid
       </a>
       <a class="opp-link dev-map" href="matchup/opening-deviation-reyansh.html">
-        <span class="badge-tag" style="background:#d4a017;">MAP</span> Opening Deviation Map — 6 systems · Lichess Masters
+        <span class="badge-tag">MAP</span> Opening Deviation Map — 6 systems · Lichess Masters
       </a>
-      <a class="opp-link" href="austin/reyansh-drill.html" style="background:#fff0f8; border-color:#8b1a6b; color:#5a0040;">
-        <span class="badge-tag" style="background:#8b1a6b;">DRILL</span> Weakness Drills &amp; Exploitation Plan — 3 verified patterns
+      <a class="opp-link drill" href="austin/reyansh-drill.html">
+        <span class="badge-tag">DRILL</span> Weakness Drills &amp; Exploitation Plan — 3 verified patterns
       </a>
       <a class="opp-link pgn" href="pgnlib/Paragiri, Reyansh.pgn" download="Paragiri, Reyansh.pgn">&#8615; PGN Library (114 games)</a>
-      <a class="opp-link pgn" href="pgnlib/Paragiri, Reyansh - Latest64.pgn" download="Paragiri, Reyansh - Latest64.pgn" style="background:#f0fff4; border-color:#2d7d46; color:#1a4731;">&#8615; Latest 64 Games (Oct 2026 – Jun 2025 · Lichess-ready)</a>
-      <a class="opp-link" href="opponents/reyansh/chess-com-rapid.pgn" download="chess-com-rapid.pgn" style="background:#f0f8ff; border-color:#0969da; color:#0550ae;">
+      <a class="opp-link pgn" href="pgnlib/Paragiri, Reyansh - Latest64.pgn" download="Paragiri, Reyansh - Latest64.pgn">&#8615; Latest 64 Games (Oct 2026 – Jun 2025 · Lichess-ready)</a>
+      <a class="opp-link pgn" href="opponents/reyansh/chess-com-rapid.pgn" download="chess-com-rapid.pgn">
         <span class="badge-tag" style="background:#0969da;">CC</span> Chess.com Rapid (3 games — opening patterns)
       </a>
     </div>
@@ -564,14 +576,14 @@
         <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — Italian d4 squeeze (White) + Taimanov O-O kingside (Black)
       </a>
       <a class="opp-link dev-map" href="matchup/opening-deviation-inti.html">
-        <span class="badge-tag" style="background:#d4a017;">MAP</span> Opening Map — Bc4 Dragon (White) + Morphy Bc5 (Black)
+        <span class="badge-tag">MAP</span> Opening Map — Bc4 Dragon (White) + Morphy Bc5 (Black)
       </a>
-      <a class="opp-link" href="matchup/matchup-inti-nightbefore.html" style="background:#fff3cd; border-color:#d4a017; color:#6b4c00; font-weight:700;">
-        <span class="badge-tag" style="background:#d4a017;">TONIGHT</span> Night-Before Prep — Pattern F 88% loss correlation · Ruy Lopez weapon
+      <a class="opp-link night-before" href="matchup/matchup-inti-nightbefore.html">
+        <span class="badge-tag">TONIGHT</span> Night-Before Prep — Pattern F 88% loss correlation · Ruy Lopez weapon
       </a>
       <a class="opp-link pgn" href="pgnlib/Flores Ojeda, Inti Dario.pgn" download="Flores Ojeda, Inti Dario.pgn">&#8615; PGN Library (38 games w/ moves)</a>
-      <a class="opp-link" href="https://lichess.org/@/inti_flores" target="_blank" rel="noopener" style="background:#f5f0ff; border-color:#7b5ea7; color:#4a2e8a;">
-        <span class="badge-tag" style="background:#7b5ea7;">LICHESS</span> Lichess Profile — inti_flores
+      <a class="opp-link lichess" href="https://lichess.org/@/inti_flores" target="_blank" rel="noopener">
+        <span class="badge-tag">LICHESS</span> Lichess Profile — inti_flores
       </a>
     </div>
     <p class="opp-note">38 games with moves in pgnlib (42 result-only entries removed · 36 with deep Stockfish analysis across 5 tournaments) · 90.6% overall accuracy (SF 3000ms) · Querétaro 2026: 5W-1L-2D, 92.5% — best recent form · White: 1.e4 Open Sicilian f4-e5 system (catastrophic B43 loss vs De Alba: 14B/7M); French Rubinstein LOSS 85.9% · Black: 1…e5 exclusively — Italian C54 (98.5%, 98.1% best games), Ruy Lopez C77/C78 · Sep–Nov 2026 OTB games still missing · GM Plan: Italian Classical d4 squeeze as White; Taimanov KINGSIDE castle + …b5-b4 break as Black · NEVER castle queenside vs Inti's f4 system.</p>
@@ -601,14 +613,14 @@
         <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — Rossolimo 3.Bb5 h4!; vs Mikenas 3.e4 Black
       </a>
       <a class="opp-link dev-map" href="matchup/opening-deviation-tarun.html">
-        <span class="badge-tag" style="background:#d4a017;">MAP</span> Opening Map — Mikenas 5.Qg4! (White) + QGA a6/b5 (Black)
+        <span class="badge-tag">MAP</span> Opening Map — Mikenas 5.Qg4! (White) + QGA a6/b5 (Black)
       </a>
-      <a class="opp-link" href="matchup/matchup-tarun-nightbefore.html" style="background:#fff3cd; border-color:#d4a017; color:#6b4c00; font-weight:700;">
-        <span class="badge-tag" style="background:#d4a017;">TONIGHT</span> Night-Before Prep — 3 decisive Black collapses · Rossolimo weapon · upset-loss 6×
+      <a class="opp-link night-before" href="matchup/matchup-tarun-nightbefore.html">
+        <span class="badge-tag">TONIGHT</span> Night-Before Prep — 3 decisive Black collapses · Rossolimo weapon · upset-loss 6×
       </a>
       <a class="opp-link pgn" href="pgnlib/Sankar, Tarun.pgn" download="Sankar, Tarun.pgn">&#8615; PGN Library (26 games)</a>
-      <a class="opp-link" href="https://lichess.org/@/BrainDaze" target="_blank" rel="noopener" style="background:#f5f0ff; border-color:#7b5ea7; color:#4a2e8a;">
-        <span class="badge-tag" style="background:#7b5ea7;">LICHESS</span> Lichess Profile — BrainDaze
+      <a class="opp-link lichess" href="https://lichess.org/@/BrainDaze" target="_blank" rel="noopener">
+        <span class="badge-tag">LICHESS</span> Lichess Profile — BrainDaze
       </a>
     </div>
     <p class="opp-note">Overall 88.9% avg accuracy · Best: <strong>95.1%</strong> (English Catalan draw vs 1845) · Worst: <strong>76.1%</strong> (9 blunders vs Boutikos 2144, Thursday Club) · Key insight: g4?? (0.00→−6.99) blunder pattern confirmed across 3 events; three 1000cpl king-walk blunders (Kf7/Kh4/Ke7); throws winning positions away with impulsive lunges (e4??, Bd3??). vs Rossolimo plays 3...Nf6 4.Bxc6 dxc6 + fianchetto.</p>
@@ -637,16 +649,16 @@
       <a class="opp-link gm-plan" href="matchup/matchup-aarush-gm.html">
         <span class="badge-tag" style="background:#b8a000;">GM</span> Battle Plan (30 games + Lichess)
       </a>
-      <a class="opp-link" href="matchup/matchup-aarush-nightbefore.html" style="background:#fff8f0;border-color:#c05000;">
-        <span class="badge-tag" style="background:#c05000;">NIGHT</span> Night-Before Prep (weapon choice + Nimzo + day-of)
+      <a class="opp-link night-before" href="matchup/matchup-aarush-nightbefore.html">
+        <span class="badge-tag">TONIGHT</span> Night-Before Prep (weapon choice + Nimzo + day-of)
       </a>
       <a class="opp-link dev-map" href="matchup/opening-deviation-aarush.html">
-        <span class="badge-tag" style="background:#d4a017;">MAP</span> Opening Map — Bogo-Catalan 5.Nbd2 (White) + Najdorf …h5 (Black)
+        <span class="badge-tag">MAP</span> Opening Map — Bogo-Catalan 5.Nbd2 (White) + Najdorf …h5 (Black)
       </a>
-      <a class="opp-link" href="austin-prep-archive.html#aarush" style="background:#f6f8fa;border-color:#d0d7de;color:#57606a;font-size:0.83rem;">↓ Tournament reviews &amp; game notes (5 items)</a>
+      <a class="opp-link archive" href="austin-prep-archive.html#aarush">↓ Tournament reviews &amp; game notes (5 items)</a>
 
-      <a class="opp-link" href="https://lichess.org/@/makoshark12" target="_blank" rel="noopener" style="background:#f5f0ff; border-color:#7b5ea7; color:#4a2e8a;">
-        <span class="badge-tag" style="background:#7b5ea7;">LICHESS</span> Lichess Profile — makoshark12
+      <a class="opp-link lichess" href="https://lichess.org/@/makoshark12" target="_blank" rel="noopener">
+        <span class="badge-tag">LICHESS</span> Lichess Profile — makoshark12
       </a>
       <a class="opp-link pgn" href="pgnlib/Ajith, Aarush.pgn" download="Ajith, Aarush.pgn">&#8615; PGN Library (32 games)</a>
     </div>
@@ -678,7 +690,7 @@
       </a>
 
       <a class="opp-link dev-map" href="matchup/opening-deviation-pranav.html">
-        <span class="badge-tag" style="background:#d4a017;">MAP</span> Opening Map — Maróczy Bind (White) + Italian Bc5 book-perfect (Black)
+        <span class="badge-tag">MAP</span> Opening Map — Maróczy Bind (White) + Italian Bc5 book-perfect (Black)
       </a>
       <a class="opp-link pgn" href="pgnlib/Santhosh, Pranav.pgn" download="Santhosh, Pranav.pgn">&#8615; PGN Library (53 games)</a>
     </div>
@@ -710,7 +722,7 @@
       </a>
 
       <a class="opp-link dev-map" href="matchup/opening-deviation-emerson.html">
-        <span class="badge-tag" style="background:#d4a017;">MAP</span> Opening Map — Rossolimo c3/Qe2 (White) + CK …a6/b5 chain (Black)
+        <span class="badge-tag">MAP</span> Opening Map — Rossolimo c3/Qe2 (White) + CK …a6/b5 chain (Black)
       </a>
 
       <a class="opp-link pgn" href="pgnlib/Johnson, Emerson Aurelius.pgn" download="Johnson, Emerson Aurelius.pgn">&#8615; PGN Library (38 games)</a>
@@ -739,7 +751,7 @@
         <span class="badge-tag" style="background:#1a5276;">DEEP</span> Deep Analysis — 46 games, 91.9% avg, 0.63 blunders/game
       </a>
       <a class="opp-link dev-map" href="matchup/opening-deviation-zhuoyuan.html">
-        <span class="badge-tag" style="background:#d4a017;">MAP</span> Opening Map — Exchange CK 4.Bd3 (mirror) + Classical 5…Nc6 (Black)
+        <span class="badge-tag">MAP</span> Opening Map — Exchange CK 4.Bd3 (mirror) + Classical 5…Nc6 (Black)
       </a>
       <a class="opp-link pgn" href="pgnlib/Wu, Zhuoyuan.pgn" download="Wu, Zhuoyuan.pgn">&#8615; PGN Library (41 games)</a>
     </div>
@@ -801,7 +813,7 @@
         <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — English Attack 8.g4! vs Kan; Taimanov Mirror Black
       </a>
       <a class="opp-link dev-map" href="matchup/opening-deviation-pablo.html">
-        <span class="badge-tag" style="background:#d4a017;">MAP</span> Opening Map — English Attack all-book (White) + Kan Qc7 + Nimzo b6 novelties (Black)
+        <span class="badge-tag">MAP</span> Opening Map — English Attack all-book (White) + Kan Qc7 + Nimzo b6 novelties (Black)
       </a>
       <a class="opp-link pgn" href="pgnlib/De Alba Boudreau, Pablo Elliot.pgn" download="De Alba Boudreau, Pablo Elliot.pgn">&#8615; PGN Library (60 games)</a>
     </div>
@@ -832,7 +844,7 @@
         <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — Rossolimo vs Sveshnikov; Taimanov/Kalashnikov Black
       </a>
       <a class="opp-link dev-map" href="matchup/opening-deviation-yaen.html">
-        <span class="badge-tag" style="background:#d4a017;">MAP</span> Opening Map — Scotch Nb3/c4 system (White) + Löwenthal 4…e5 (Black)
+        <span class="badge-tag">MAP</span> Opening Map — Scotch Nb3/c4 system (White) + Löwenthal 4…e5 (Black)
       </a>
       <a class="opp-link pgn" href="pgnlib/Saenz Cabrera, Yaen.pgn" download="Saenz Cabrera, Yaen.pgn">&#8615; PGN Library (50 games)</a>
     </div>
@@ -862,8 +874,8 @@
         <span class="badge-tag" style="background:#1a5276;">DEEP</span> Engine Analysis — 77 games, avg 85.2% (blitz signal 87.2%)
       </a>
       <a class="opp-link pgn" href="pgnlib/Jeyaraj, Joel Ethan.pgn" download="Jeyaraj, Joel Ethan.pgn">&#8615; PGN Library (101 games)</a>
-      <a class="opp-link" href="https://lichess.org/@/JEJ13" target="_blank" rel="noopener" style="background:#f5f0ff; border-color:#7b5ea7; color:#4a2e8a;">
-        <span class="badge-tag" style="background:#7b5ea7;">LICHESS</span> Lichess Profile — JEJ13 (Blitz 2114 / Bullet 2505)
+      <a class="opp-link lichess" href="https://lichess.org/@/JEJ13" target="_blank" rel="noopener">
+        <span class="badge-tag">LICHESS</span> Lichess Profile — JEJ13 (Blitz 2114 / Bullet 2505)
       </a>
     </div>
     <p class="opp-note">101 games (1 classical Carolinas Classic 2026, 100 Lichess blitz/bullet) · Lichess Blitz 2114 / Bullet 2505 vs FIDE 1813 (+301 online gap) · White 63% / Blitz Black 44% (notable weakness as Black in slower formats) · Key: Austin's Rossolimo does NOT apply (Joel plays 1...d5 Scandinavian, not 1...c5 Sicilian) — must use Bc4/Bb3 anti-Scandinavian · Joel's White = Nimzo-Larsen (1.Nf3 2.b3 Bb2, 53%) — Austin's QGD solid + ...c5 break is the antidote · Confirmed OTB weakness: Bxa2?? (CPL 317) at Carolinas Classic — greedy pawn under classical pressure.</p>
@@ -923,10 +935,10 @@
       <a class="opp-link gm-plan" href="matchup/matchup-justin-gm.html">
         <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — Rematch Fix
       </a>
-      <a class="opp-link" href="austin-prep-archive.html#justin" style="background:#f6f8fa;border-color:#d0d7de;color:#57606a;font-size:0.83rem;">↓ Tournament reviews &amp; game notes (4 items)</a>
+      <a class="opp-link archive" href="austin-prep-archive.html#justin">↓ Tournament reviews &amp; game notes (4 items)</a>
 
-      <a class="opp-link" href="https://lichess.org/@/unknowndemon" target="_blank" rel="noopener" style="background:#f5f0ff; border-color:#7b5ea7; color:#4a2e8a;">
-        <span class="badge-tag" style="background:#7b5ea7;">LICHESS</span> Lichess Profile — unknowndemon
+      <a class="opp-link lichess" href="https://lichess.org/@/unknowndemon" target="_blank" rel="noopener">
+        <span class="badge-tag">LICHESS</span> Lichess Profile — unknowndemon
       </a>
       <a class="opp-link pgn" href="pgnlib/Huang, Justin.pgn" download="Huang, Justin.pgn">&#8615; PGN Library (30 games)</a>
     </div>
@@ -957,8 +969,8 @@
         <span class="badge-tag" style="background:#b8a000;">GM</span> Battle Plan (35 classical games)
       </a>
 
-      <a class="opp-link" href="https://lichess.org/@/Carlnosen" target="_blank" rel="noopener" style="background:#f5f0ff; border-color:#7b5ea7; color:#4a2e8a;">
-        <span class="badge-tag" style="background:#7b5ea7;">LICHESS</span> Lichess Profile — Carlnosen
+      <a class="opp-link lichess" href="https://lichess.org/@/Carlnosen" target="_blank" rel="noopener">
+        <span class="badge-tag">LICHESS</span> Lichess Profile — Carlnosen
       </a>
       <a class="opp-link pgn" href="pgnlib/Gao, Heye.pgn" download="Gao, Heye.pgn">&#8615; PGN Library (36 games)</a>
     </div>
@@ -989,8 +1001,8 @@
         <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — Ruy Lopez + Sveshnikov
       </a>
 
-      <a class="opp-link" href="https://lichess.org/@/DanielLee2012" target="_blank" rel="noopener" style="background:#f5f0ff; border-color:#7b5ea7; color:#4a2e8a;">
-        <span class="badge-tag" style="background:#7b5ea7;">LICHESS</span> Lichess Profile — DanielLee2012
+      <a class="opp-link lichess" href="https://lichess.org/@/DanielLee2012" target="_blank" rel="noopener">
+        <span class="badge-tag">LICHESS</span> Lichess Profile — DanielLee2012
       </a>
       <a class="opp-link pgn" href="pgnlib/Lee, Daniel Joshua.pgn" download="Lee, Daniel Joshua.pgn">&#8615; PGN Library (24 games)</a>
     </div>
