@@ -7,7 +7,7 @@
 <style>
 :root {
   --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
-  --red: #8b1a1a; --bg: #f8f6f2;
+  --red: #8b1a1a; --bg: #f8f6f2; --orange: #cc5500;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -36,6 +36,7 @@ h3 { font-size: 1em; margin: 14px 0 6px; color: #333; }
 .callout-blue  { background: #eef4ff; border-left: 4px solid var(--blue); }
 .callout-green { background: #efffef; border-left: 4px solid var(--green); }
 .callout-danger { background: #fff0f0; border-left: 4px solid var(--red); }
+.callout-orange { background: #fff4ee; border-left: 4px solid var(--orange); }
 
 .move-line { background: #fff; border: 1px solid #e0ddd6; border-radius: 4px;
              padding: 8px 12px; margin: 6px 0; font-size: 0.92em; line-height: 1.9; }
@@ -51,6 +52,7 @@ h3 { font-size: 1em; margin: 14px 0 6px; color: #333; }
 .b-gold  { background: #fff3cc; color: #7a5c00; border: 1px solid #ccaa44; }
 .b-red   { background: #ffe0e0; color: #8b1a1a; border: 1px solid #cc8888; }
 .b-blue  { background: #dde8ff; color: #1a4a8b; border: 1px solid #8899cc; }
+.b-orange { background: #ffe8d6; color: #993300; border: 1px solid #cc7744; }
 
 table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88em; }
 th { background: #333; color: #fff; padding: 6px 10px; text-align: left; }
@@ -71,6 +73,10 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
                border: 1px solid #ddd; border-top: none; border-radius: 0 0 4px 4px; margin-bottom: 6px; }
 .acc-toggle:checked ~ .acc-content { display: block; }
 
+.weakness-row { background: #fff4ee; border-left: 3px solid var(--orange); padding: 6px 10px; margin: 4px 0; font-size: 0.88em; border-radius: 0 3px 3px 0; }
+.weakness-row strong { color: #993300; }
+.verified { font-size: 0.75em; color: #555; font-style: italic; margin-left: 6px; }
+
 @media print {
   .acc-content { display: block !important; }
   .acc-label::before { content: '' !important; }
@@ -85,13 +91,13 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <span><strong>GM Prep</strong></span>
   <span>Fernando rating: CM · 2085 FIDE (Nov 2026; peaked 2133 at MEX-ch U17 Jul 2026)</span>
   <span>Direct record: no encounter</span>
-  <span>Classical games analyzed: 37</span>
+  <span>Classical games analyzed: 37 (movetime-3000)</span>
 </div>
 
 <div class="sources">
   <strong>Data sources</strong>
-  <span class="src-classical">Primary: 37 classical games across 7 tournaments (PAM School, Olympia Nacional, ED Nacional, MEX-ch 16th, MEX Open 71st, World Schools 2026, Queretaro 2026) — engine-analyzed at movetime-3000.</span>
-  <span class="src-note">No Lichess account found — classical OTB data only. Opening tree built from 29 games with identifiable player headers.</span>
+  <span class="src-classical">Primary: 37 classical games across 7 tournaments (PAM School, Olympia Nacional, ED Nacional, MEX-ch 16th, MEX Open 71st, World Schools 2026, Queretaro 2026) — Stockfish movetime-3000 JSON. Opening positions verified via Lichess Masters explorer (FIDE 2300+).</span>
+  <span class="src-note">No Lichess account found — classical OTB data only. Weakness patterns sourced from scripts/fernando-analysis-results-deep.json.</span>
 </div>
 
 <div class="intel-grid">
@@ -102,7 +108,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
       <li>Setup: <strong>f3 / Be3 / Qd2 / O-O-O</strong> — standard English Attack</li>
       <li><strong>1.c4</strong> in 3 games (English) — better results as White (66% wins)</li>
       <li>1.e4 White win rate: <strong>only 25%</strong> (2W–4L–2D in 8 games)</li>
-      <li>Weakest as White: king navigation errors (Kb1??, Kf1?? in PAM R6)</li>
+      <li>King navigation disasters: Kf1?? Kb1?? (PAM R6 — lost from equal)</li>
     </ul>
   </div>
   <div class="intel-card">
@@ -116,13 +122,12 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
     </ul>
   </div>
   <div class="intel-card">
-    <h3>Critical weaknesses</h3>
+    <h3>Critical weaknesses (ranked)</h3>
     <ul>
-      <li>Drops to <strong>85–89%</strong> vs 2300+ rated opponents</li>
-      <li><strong>Rook/endgame conversion</strong>: Rd7?? (best Nd5, dropped +4.58→0) in MEX Open</li>
-      <li><strong>King navigation</strong>: Kb1?? Kf1?? in PAM R6 (1000 CPL blunder)</li>
-      <li>Back-to-back blunders from dominant positions (6 blunders vs Cori 2586)</li>
-      <li>Misses queen reactivation: Qe6?? Qg4?? (best Qxf3/Qe2) at Queretaro</li>
+      <li><strong>#1 King navigation</strong> — Pattern E, score=212.8: 9 instances (Kb1?? Kf1?? Kf8?? Ke8?? Kh6?? Ke7??)</li>
+      <li><strong>#2 Won-pos collapse</strong> — Pattern D, score=113.9: 8 instances (Qb3?? +6.45→0.72; Rd7?? +4.68→0)</li>
+      <li><strong>#3 R/Q errors</strong> — Pattern G, score=34.1: 4 Queretaro instances vs 2100–2463</li>
+      <li>Drops to <strong>86–91%</strong> accuracy vs 2300+ rated opponents</li>
     </ul>
   </div>
   <div class="intel-card">
@@ -142,7 +147,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <h2>Part 1 — Austin as White vs Fernando</h2>
 
 <div class="callout callout-gold">
-  <strong>The core fact:</strong> Fernando plays French Defense in <strong>100% of games</strong> vs 1.e4 (7/7 confirmed games). Austin plays <strong>Tarrasch (3.Nd2)</strong> — not 3.e5 Advance. Fernando beat FM Martinez (1904) in the Advance (Olympia R4); Tarrasch creates different IQP and blocked-center structures where his Advance preparation does not directly apply.
+  <strong>The core fact:</strong> Fernando plays French Defense in <strong>100% of games</strong> vs 1.e4 (7/7 confirmed games). Austin plays <strong>Tarrasch (3.Nd2)</strong> — not 3.e5 Advance, not 3.exd5 Exchange. Fernando beat FM Martinez (1904) in the Advance (Olympia R4); Tarrasch creates different IQP and blocked-center structures where his Advance preparation does not directly apply.
 </div>
 
 <h3>Fernando's French repertoire (confirmed)</h3>
@@ -156,54 +161,74 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <h3>Austin's weapon: Tarrasch 3.Nd2</h3>
 
 <div class="callout callout-blue">
-  <strong>Why 3.Nd2 Tarrasch?</strong> Fernando is prepared in the Advance (beat FM-level in Olympia R4 with …c5/…Qb6 play). Tarrasch gives different structures: either a closed center with White's kingside attack (after 3…Nf6 4.e5) or open IQP dynamics (after 3…c5 4.exd5 Qxd5). Fernando's Advance preparation doesn't transfer — piece placement, pawn breaks, and plans are all different. Austin's tactical style suits the unbalanced middlegames arising from both main Tarrasch lines.
+  <strong>Why 3.Nd2 Tarrasch?</strong> Fernando is prepared in the Advance (beat FM-level in Olympia R4 with …c5/…Qb6 play). Tarrasch gives different structures: either a blocked center with White's kingside attack (after 3…Nf6 4.e5) or open IQP dynamics (after 3…c5 4.Ngf3). Fernando's Advance preparation doesn't transfer — piece placement, pawn breaks, and plans are all different. Austin's tactical style suits the unbalanced middlegames arising from both main Tarrasch lines.
 </div>
 
 <div class="move-line">
   <span class="mv-a">Austin:</span> 1.e4 e6 2.d4 d5 <span class="key-move">3.Nd2</span> <span class="mv-z">Nf6</span> 4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 <span class="key-move">7.Ne2!</span>
-  <span class="note"> — main Tarrasch tabiya. Ne2 supports Nf4 or Ng3 to attack the kingside.</span>
+  <span class="note"> — main Tarrasch tabiya. Ne2 is the g1 knight (UCI: g1e2), keeping it flexible for Nf4 or Ng3 to attack the kingside. <strong>Lichess Masters: 7.Ne2 is #1 at this position (2892 games, avg rating 2387).</strong></span>
 </div>
 
 <input class="acc-toggle" id="w1" type="checkbox" checked>
 <label class="acc-label" for="w1">Branch A — 3…Nf6 main Tarrasch (most likely — standard French player's response)</label>
 <div class="acc-content">
   <div class="move-line">
-    <span class="mv-a">Austin:</span> 3.Nd2 <span class="mv-z">Nf6</span> 4.e5 <span class="mv-z">Nfd7</span> 5.Bd3 <span class="mv-z">c5</span> 6.c3 <span class="mv-z">Nc6</span> <span class="key-move">7.Ne2!</span> <span class="mv-z">Qb6</span> <span class="key-move">8.Nf4</span> <span class="mv-z">cxd4</span> 9.cxd4 <span class="mv-z">f6</span> <span class="key-move">10.exf6!</span> <span class="mv-z">Nxf6</span> 11.O-O <span class="mv-z">Bd6</span> 12.Nf3
-    <span class="note"> — open f-file, active pieces, tactical middlegame. Austin's comfort zone.</span>
+    <span class="mv-a">Austin:</span> 3.Nd2 <span class="mv-z">Nf6</span> 4.e5 <span class="mv-z">Nfd7</span>
+    <span class="key-move">5.Bd3</span> <span class="mv-z">c5</span> 6.c3 <span class="mv-z">Nc6</span>
+    <span class="key-move">7.Ne2!</span> <span class="mv-z">Qb6</span> <span class="key-move">8.O-O!</span>
+    <span class="note"> — Austin castles first (Lichess: 17 master games). <strong>Key: 8.O-O maintains maximum flexibility — Nf4 or Ng3 follows depending on Fernando's response.</strong></span>
   </div>
-  <p style="margin-top:8px"><strong>Key plan:</strong> After 12.Nf3, White targets d5 with Bg5 and Nc3 (or Ne5), and can attack with Ng5 maneuver. The bishop on d3 remains pointing at h7 — any kingside piece activity is backed by this threat.</p>
-  <p style="margin-top:6px"><strong>Critical rule:</strong> When Fernando plays …f6, capture immediately: <code>exf6 Nxf6</code>. Do NOT try to hold the e5 pawn — open the f-file and activate your rooks.</p>
+  <p style="margin-top:8px"><strong>Why 8.O-O instead of 8.Nf3 or 8.Nf4?</strong> After 8.O-O, White is flexible. If Fernando plays 8...cxd4 9.cxd4 → IQP position with White's pieces active. If Fernando plays 8...f6 → 9.exf6! Nxf6 10.Nf4 → open f-file, attacking pressure. Castling first also avoids early piece commitments before Fernando shows his plan.</p>
+  <p style="margin-top:6px"><strong>Key GM idea — King Navigation Trigger:</strong> After 8.O-O, White keeps both knights flexible. The critical trigger: if Fernando delays castling (his documented pattern — Kf8?? in Olympia R4 instead of O-O), Austin should AVOID piece exchanges and maintain tension on BOTH sides. Fernando's king miscoordination is his #1 weakness — 9 instances including decisive blunders from winning positions.</p>
+  <p style="margin-top:6px"><strong>When Fernando plays …f6:</strong> Capture immediately: <code>exf6 Nxf6</code>. Do NOT hold the e5 pawn passively — open the f-file and activate the rook. Then 10.Nf4 targets d5 and g6 simultaneously.</p>
+  <div style="margin-top:8px">
+    <strong>Critical continuation after 8.O-O cxd4 9.cxd4:</strong>
+    <div class="move-line">
+      <span class="mv-a">9.cxd4</span> <span class="mv-z">(Black choices)</span> → 9...Bd7 <span class="key-move">10.Nf4</span> (attacks d5 and threatens Nf4-g6)
+      <span class="note"> — White's knight on f4 is a monster. Bd3 still pointing at h7. The game is very tactical — Austin's comfort zone.</span>
+    </div>
+  </div>
 </div>
 
 <input class="acc-toggle" id="w2" type="checkbox" checked>
-<label class="acc-label" for="w2">Branch B — 3…c5 counter-gambit / Chistyakov (dynamic — Austin's style)</label>
+<label class="acc-label" for="w2">Branch B — 3…c5 Chistyakov Defense (dynamic — Austin plays 4.Ngf3 directly)</label>
 <div class="acc-content">
   <div class="move-line">
-    <span class="mv-a">Austin:</span> 3.Nd2 <span class="mv-z">c5</span> 4.exd5 <span class="mv-z">Qxd5</span> <span class="key-move">5.Ngf3!</span> <span class="mv-z">cxd4</span> <span class="key-move">6.Bc4!</span> <span class="mv-z">Qd6</span> 7.O-O <span class="mv-z">Nf6</span> 8.Nb3
-    <span class="note"> — White castles quickly and targets f7. Bishop on c4 is actively placed.</span>
+    <span class="mv-a">Austin:</span> 3.Nd2 <span class="mv-z">c5</span> <span class="key-move">4.Ngf3!</span>
+    <span class="note"> — Austin's choice: develop the knight immediately (not 4.exd5 Qxd5 yet). ECO C07 Chistyakov Defense. <strong>Lichess Masters: after 3.Nd2 c5 4.Ngf3, Black most often plays 4...cxd4 (1173 white wins, 1892 draws).</strong></span>
   </div>
-  <p style="margin-top:8px">After 8.Nb3: White threatens Nbxd4 regaining the pawn with advantage. Austin's fast development and Bc4 pressure on f7 gives tactical opportunities. This is an unbalanced, open position — exactly Austin's style.</p>
-  <p style="margin-top:6px"><strong>Critical rule:</strong> After 4…Qxd5, play 5.Ngf3 then 6.Bc4 — do NOT block the bishop with 6.Nxd4 immediately. Bc4 first, then recapture the pawn.</p>
+  <p style="margin-top:8px"><strong>After 4...cxd4 (most common):</strong> 5.Nxd4 Nf6 6.Bd3 — White develops with pressure on the center. The Nf3 knight is well-placed, Bd3 targets h7, and White can follow with c3/O-O/Qe2 for a standard attacking setup.</p>
+  <p style="margin-top:6px"><strong>Alternate — if Fernando plays 4...Nc6 or 4...Nf6:</strong> Continue normally with 5.e5 (if 4...Nf6) or 5.c3 (if 4...Nc6) — standard Tarrasch plans apply.</p>
+  <p style="margin-top:6px"><strong>Alternative path to Chistyakov (also valid):</strong> 4.exd5 Qxd5 5.Ngf3! cxd4 6.Bc4! Qd6 7.O-O — fast development, Bc4 targets f7. Both move orders reach similar sharp positions; Austin's specific choice is 4.Ngf3 to stay in C07 territory where Fernando is less prepared.</p>
 </div>
 
-<input class="acc-toggle" id="w3" type="checkbox">
-<label class="acc-label" for="w3">Branch C — 3…Nc6 Guimard Defense (exf6! early, same attacking ideas)</label>
+<input class="acc-toggle" id="w3" type="checkbox" checked>
+<label class="acc-label" for="w3">Branch C — 3…Nc6 Guimard Defense (Austin plays 4.Ngf3 Nf6 5.e5 Nd7 6.Be2)</label>
 <div class="acc-content">
-  <p>If Fernando plays 3…Nc6 (Guimard Defense), continue: <strong>4.Ngf3 Nf6 5.e5 Nd7 6.c3 f6</strong> — when Black plays …f6, capture immediately: <span class="key-move">7.exf6!</span> Qxf6 (most common) and continue developing with 8.Bd3. Same attacking ideas as Branch A apply.</p>
+  <p>If Fernando plays 3…Nc6 (Guimard Defense — C04 Guimard Main Line):</p>
   <div class="move-line">
-    <span class="mv-a">Austin:</span> 3.Nd2 <span class="mv-z">Nc6</span> 4.Ngf3 <span class="mv-z">Nf6</span> 5.e5 <span class="mv-z">Nd7</span> 6.c3 <span class="mv-z">f6</span> <span class="key-move">7.exf6!</span> <span class="mv-z">Qxf6</span> 8.Bd3
-    <span class="note"> — Guimard Defense. f-file open, same kingside plan as Branch A applies.</span>
+    <span class="mv-a">Austin:</span> 3.Nd2 <span class="mv-z">Nc6</span> 4.Ngf3 <span class="mv-z">Nf6</span> 5.e5 <span class="mv-z">Nd7</span> <span class="key-move">6.Be2!</span>
+    <span class="note"> — C04 Guimard Main Line. <strong>Lichess Masters: 6.Be2 leads to 305 white wins / 221 draws. Black's #1 response is 6...f6 (208 games, avg 2379).</strong></span>
   </div>
+  <p style="margin-top:8px"><strong>After 6.Be2 f6 (Black's main challenge — 68% of games):</strong></p>
+  <div class="move-line">
+    <span class="mv-a">Austin:</span> 6.Be2 <span class="mv-z">f6</span> <span class="key-move">7.exf6!</span> <span class="mv-z">Qxf6</span> 8.O-O
+    <span class="note"> — Open the f-file immediately. Same attacking ideas as Branch A. White castles quickly, Nf3-g5 or Re1 activates.</span>
+  </div>
+  <p style="margin-top:8px"><strong>Why 6.Be2 instead of 6.c3?</strong> 6.Be2 develops a piece immediately (C04 main line), allows early castling, and keeps the tension. 6.c3 delays development and gives Black more time to organize. After 6.Be2 O-O 7.O-O, White is castled with pressure along the e-file and kingside.</p>
+  <p style="margin-top:6px"><strong>If Fernando plays 6...Be7 (40 master games):</strong> Continue 7.c3 O-O 8.O-O — standard setup, White is comfortable with the blocked center and can build kingside attack with Nf3-g5 or Ng3-h5.</p>
+  <p style="margin-top:6px"><strong>Key rule:</strong> When Fernando plays …f6 in Branch C, capture exf6 immediately — the open f-file is more valuable than the e5 pawn. Never hold e5 passively.</p>
 </div>
 
 <h3 style="margin-top:18px">Key tactical themes — Austin as White</h3>
 <table>
-  <thead><tr><th>Theme</th><th>How to create it</th><th>Evidence</th></tr></thead>
+  <thead><tr><th>Theme</th><th>How to create it</th><th>Evidence / Source</th></tr></thead>
   <tbody>
-  <tr><td><strong>Bd3 → h7 battery</strong></td><td>After 5.Bd3, bishop stays on d3 pointing at h7 throughout. Ng5 or Nf5 maneuvers activate the threat.</td><td>Core of Tarrasch White setup</td></tr>
-  <tr><td><strong>exf6 opening the f-file</strong></td><td>When Fernando plays …f6 (to challenge e5), capture exf6 immediately — open f-file for Re1-e5 and Rf1-f3 battery</td><td>Branch A line after 9...f6</td></tr>
-  <tr><td><strong>Bc4 targeting f7</strong></td><td>In counter-gambit (3...c5), 6.Bc4 targets f7 immediately — creates tactical threats before Fernando consolidates</td><td>Branch B</td></tr>
-  <tr><td><strong>Endgame conversion pressure</strong></td><td>Target Fernando's rook endings — he dropped +4.58 to 0 with Rd7?? (best: Nd5) in MEX Open G3</td><td>MEX Open G3</td></tr>
+  <tr><td><strong>Bd3 → h7 battery</strong></td><td>5.Bd3 bishop stays on d3 pointing at h7 throughout. Nf4 or Ng5 maneuvers activate the threat from multiple angles.</td><td>Core Tarrasch White setup (Branch A)</td></tr>
+  <tr><td><strong>7.Ne2! flexibility</strong></td><td>Ne2 (from g1) keeps the knight flexible — Nf4 targets d5/g6; Ng3 threatens h5 or f5. Never play 7.Ndf3 blocking this plan.</td><td>Lichess Masters #1 move (2892 games)</td></tr>
+  <tr><td><strong>exf6 opening the f-file</strong></td><td>When Fernando plays …f6 (Branches A and C), capture exf6 immediately — open f-file for Re1-e5 and Rf1-f3 battery.</td><td>Branches A and C confirmed</td></tr>
+  <tr><td><strong>King navigation trigger</strong></td><td>Avoid simplification. Keep pieces on board creating threats on both wings. Fernando's king blunders occur when he faces two threats simultaneously (Kf8?? in Olympia, Kb1?? in PAM R6).</td><td>Pattern E, score=212.8 (9 instances, Stockfish JSON)</td></tr>
+  <tr><td><strong>Won-position conversion</strong></td><td>Target rook endings — Fernando dropped +4.68 to 0 with Rd7?? (best Nd5) in MEX Open G3. In any rook ending ≥+2, maintain active rook pressure.</td><td>Pattern D, Rd7?? confirmed by Stockfish</td></tr>
   </tbody>
 </table>
 
@@ -212,55 +237,70 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <h2>Part 2 — Austin as Black vs Fernando</h2>
 
 <div class="callout callout-green">
-  <strong>Core fact:</strong> Fernando plays 1.e4 in 73% of White games with the English/Yugoslav Attack (f3/Be3/Qd2/O-O-O). But his 1.e4 White win rate is only <strong>25%</strong> (2W–4L–2D). He is a <em>stronger Black than White</em>. Austin plays <strong>Sicilian Taimanov</strong> to reach his familiar territory.
+  <strong>Core fact:</strong> Fernando plays 1.e4 in 73% of White games with the English/Yugoslav Attack (f3/Be3/Qd2/O-O-O). But his 1.e4 White win rate is only <strong>25%</strong> (2W–4L–2D). He is a <em>stronger Black than White</em>. Austin plays <strong>Sicilian Taimanov B47 Bastrikov</strong> to reach his familiar territory.
 </div>
 
 <h3>Fernando as White — confirmed systems</h3>
 <ul style="padding-left:20px; margin:8px 0 12px;">
   <li><strong>vs Sicilian</strong>: English/Yugoslav Attack — f3, Be3, Qd2, O-O-O, g4/h4 (standard)</li>
   <li><strong>vs 1…e5</strong>: Italian/Lopez — confirmed in PAM School games (Bc4/d3 setup)</li>
-  <li><strong>1.c4 English</strong> appears in 3 games — he has better results here (66% wins)</li>
-  <li>PAM School R6: King navigation disaster as White (Kf1?? Kb1?? → lost from equal)</li>
+  <li><strong>1.c4 English</strong> appears in 3 games — better results here (66% wins)</li>
+  <li>PAM School R6: King navigation disaster as White (Kf1?? then Kb1?? — lost from equal vs 1936-rated)</li>
+  <li>Olympia R4: Kf8?? (avoided castling O-O) — decisive: eval dropped from +3.49 to -0.12 in one move</li>
 </ul>
 
-<h3>Austin's weapon: Sicilian Taimanov (4…Nc6)</h3>
+<h3>Austin's weapon: Sicilian Taimanov B47 Bastrikov (5…Qc7)</h3>
 <div class="callout callout-blue">
-  Austin plays <strong>Sicilian Taimanov</strong>: 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6. This is Austin's confirmed NAYCC 2026 weapon (per naycc2026-gm-brief.html) — it keeps maximum piece flexibility and avoids early pawn commitments that give Fernando a clear target. Austin knows the English Attack from his own White repertoire — he should be MORE comfortable in these positions than Fernando.
+  Austin plays <strong>Sicilian Taimanov B47 Bastrikov</strong>: 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 <strong>Qc7!</strong> This is Austin's confirmed NAYCC 2026 weapon. The 5...Qc7 move order (Bastrikov variation) keeps the queen active and avoids early ...Nf6 Maróczy setups that Fernando might be familiar with. Austin knows the English Attack from his own White repertoire — he should be MORE comfortable in these positions than Fernando.
+</div>
+
+<div class="callout callout-danger" style="font-size:0.85em; margin:4px 0 8px;">
+  <strong>REPERTOIRE RULE:</strong> Austin plays <code>1...c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7</code> — the Bastrikov move order (5...Qc7, NOT 5...Nf6). Never deviate to 1...c6 (Caro-Kann) or 1...e5 vs Fernando's 1.e4.
 </div>
 
 <div class="move-line">
-  <span class="mv-z">Fernando:</span> 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 <span class="mv-a">Nc6!</span> (Taimanov)
-  5.Nc3 Nf6 6.Be3 (English Attack setup) <span class="mv-a">Bb4!</span> 7.f3 b5 8.g4 h6 9.Qd2 Bb7
-  <span class="note"> — Black has active counterplay on the queenside before White's kingside storm lands.</span>
+  <span class="mv-z">Fernando:</span> 1.e4 <span class="mv-a">c5</span> 2.Nf3 <span class="mv-a">e6</span> 3.d4 cxd4 4.Nxd4 <span class="mv-a">Nc6</span> 5.Nc3 <span class="mv-a">Qc7!</span> (B47 Bastrikov)
+  <span class="note"> — 5...Qc7 is the defining Bastrikov move. Black keeps the queen active and waits to see Fernando's setup before committing the kingside.</span>
 </div>
 
 <input class="acc-toggle" id="b1" type="checkbox" checked>
-<label class="acc-label" for="b1">Main English Attack — Fernando plays 6.Be3 f3 g4</label>
+<label class="acc-label" for="b1">Main English Attack — Fernando plays 6.Be3 → 7.f3 → 8.g4</label>
 <div class="acc-content">
   <div class="move-line">
-    <span class="mv-z">Fernando:</span> 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Nf6 6.Be3 Bb4 7.f3 b5 8.g4 h6 9.Qd2 Bb7 10.O-O-O Nd4
-    <span class="mv-a">11…Bxc3!</span> — Austin's key move: eliminates the Nc3 defender and creates queenside play.
+    <span class="mv-z">Fernando:</span> 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 <span class="mv-a">Qc7</span> 6.Be3 <span class="mv-a">a6!</span> 7.f3 <span class="mv-a">b5</span> 8.g4 <span class="mv-a">Bb7</span> 9.Qd2 <span class="mv-a">Nf6</span> 10.O-O-O <span class="mv-a">b4!</span>
+    <span class="note"> — 6...a6! is the standard Bastrikov preparation. Black signals queenside expansion immediately. 10...b4! starts the queenside race before Fernando's g5 arrives.</span>
   </div>
-  <p style="margin-top:8px"><strong>Plan:</strong> After 11…Bxc3 12.bxc3, play …Rc8, …d6, …Qa5 activating queenside pressure. Fernando's kingside storm takes 5–7 moves to arrive. Austin wins the queenside race.</p>
-  <p><strong>Critical rule:</strong> Do NOT play …d5?! (IQP) — Fernando's best results come when he can exploit a fixed central weakness. Keep the position dynamic with …b5/…b4 queenside play.</p>
+  <p style="margin-top:8px"><strong>Key plan after 10...b4:</strong> Black's attack on the queenside (b4-b3 or Nc6-b4-d3) races against Fernando's kingside storm. Austin should know: Fernando's king navigation is his #1 weakness — once Fernando castles queenside, his king on c1 or b1 is exposed to exactly the ...b4/...b3 counterplay Austin generates here.</p>
+  <p style="margin-top:6px"><strong>Alternative at move 6 — 6.Be3 Nf6:</strong> This is also valid (B47 standard). After 6...Nf6 7.f3 e5 (freeing the position), Black forces an IQP structure. But 6...a6! is cleaner for the queenside race plan.</p>
+  <p style="margin-top:6px"><strong>Critical rule:</strong> Do NOT play …d5?! (IQP) — Fernando's best positions come when he can exploit a fixed central weakness. Keep the position dynamic with …b5/…b4/…Rb8 queenside pressure.</p>
 </div>
 
 <input class="acc-toggle" id="b2" type="checkbox">
-<label class="acc-label" for="b2">If Fernando plays 1.c4 (English — better results for him)</label>
+<label class="acc-label" for="b2">If Fernando plays 6.Ndb5 (aggressive — B45 counter)</label>
 <div class="acc-content">
-  <p>Fernando wins 66% with 1.c4 (3 games). This is his more comfortable White.</p>
-  <div class="move-line">
-    <span class="mv-z">Fernando:</span> 1.c4 <span class="mv-a">Nf6!</span> (NOT 1...e5) 2.Nc3 <span class="mv-a">e6</span> 3.d4 <span class="mv-a">Bb4</span> [Nimzo transposition E40]
-    <span class="note"> — Austin plays 1...Nf6 aiming for Nimzo when Nc3 appears. NEVER 1...e5 (Reversed Sicilian) — Austin's 2026 repertoire is fixed. If no Nc3 (e.g. 2.Nf3): 1...Nf6 2...e6 3...b6 or 3...d5 (QI-adjacent).</span>
+  <div class="callout callout-danger">
+    <strong>CRITICAL RULE — 6.Ndb5 trap:</strong> After 5.Nc3 Qc7 6.Ndb5, White threatens Nd6+ forking king and rook. Austin plays:<br>
+    ✅ <strong>6...d6!</strong> — controlling the invasion squares. After 7.Bf4 Nf6 8.Bg5, Black has a normal B47 game.<br>
+    ❌ <strong>NEVER 6...Bc5?? → 7.Bf4! O-O 8.Bc7! Qe7 9.Bd6 Bxd6 10.Qxd6</strong> — bishop trap, game over at move 10.
   </div>
-  <p style="margin-top:8px">The Nimzo transposition (1...Nf6 → ...e6 → ...Bb4 when Nc3 appears) is Austin's documented Black weapon vs 1.d4/1.c4. Fernando has zero documented Nimzo games — no specific preparation to counter this. The ...Bxc3+ structural tension plays into Fernando's documented bishop/king coordination weaknesses.</p>
 </div>
 
 <input class="acc-toggle" id="b3" type="checkbox">
-<label class="acc-label" for="b3">If Fernando plays 1.e4 + Italian (vs 1…e5)</label>
+<label class="acc-label" for="b3">If Fernando plays 1.c4 (English — his better White color)</label>
+<div class="acc-content">
+  <p>Fernando wins 66% with 1.c4 (3 games). This is his more comfortable White.</p>
+  <div class="move-line">
+    <span class="mv-z">Fernando:</span> 1.c4 <span class="mv-a">Nf6!</span> (NOT 1...e5) 2.Nc3 <span class="mv-a">e6</span> 3.d4 <span class="mv-a">Bb4!</span> [Nimzo-Indian E40 transposition]
+    <span class="note"> — Austin plays 1...Nf6 aiming for Nimzo when Nc3 appears. NEVER 1...e5. If no Nc3 (e.g. 2.Nf3): 1...Nf6 2...e6 3...b6 or 3...d5 (QI-adjacent).</span>
+  </div>
+  <p style="margin-top:8px">The Nimzo transposition is Austin's fixed weapon vs 1.d4/1.c4. Fernando has zero documented Nimzo games — no specific preparation. The ...Bxc3+ structural tension plays into Fernando's documented bishop/king coordination weaknesses. After ...Bxc3+ bxc3, the doubled c-pawns + open b-file give Austin queenside counterplay.</p>
+</div>
+
+<input class="acc-toggle" id="b4" type="checkbox">
+<label class="acc-label" for="b4">DO NOT play — confirmation of what Austin avoids</label>
 <div class="acc-content">
   <div class="callout callout-danger">
-    <strong>DO NOT play 1…e5</strong> against Fernando. He plays Italian/Lopez as White with good results. Austin should answer 1.e4 with 1…c5 (Sicilian) every time.
+    <strong>DO NOT play 1…e5</strong> against Fernando. He plays Italian/Lopez as White with solid results. Austin should answer 1.e4 with 1…c5 (Sicilian) every time — mandatory.
   </div>
 </div>
 
@@ -268,10 +308,11 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <table>
   <thead><tr><th>Theme</th><th>Details</th></tr></thead>
   <tbody>
-  <tr><td><strong>…b4 queenside race</strong></td><td>In English Attack, launch …b5-b4 before Fernando's g5 arrives</td></tr>
-  <tr><td><strong>…Rc8 activation</strong></td><td>Rook belongs on c8 to support …b4 and …Nc5 pressure on c2/d3</td></tr>
-  <tr><td><strong>King safety after O-O-O</strong></td><td>After Fernando castles queenside, watch for …b4 prying open the a/b-file immediately</td></tr>
-  <tr><td><strong>Avoid …d5 IQP</strong></td><td>Fernando's best positions involve stable center + kingside attack; keep pawns dynamic</td></tr>
+  <tr><td><strong>5...Qc7 B47 Bastrikov</strong></td><td>The Qc7 move order avoids early pin issues and signals queenside expansion immediately. Never play 5...Nf6 as primary in this game.</td></tr>
+  <tr><td><strong>…a6 + …b5 → …b4 queenside race</strong></td><td>In English Attack, 6...a6! then …b5-b4 before Fernando's g5 arrives. Austin's queenside attack targets Fernando's king on c1 or b1.</td></tr>
+  <tr><td><strong>…Rc8 or …Rb8 activation</strong></td><td>Rook belongs on b8 or c8 to support …b4/…b3 and pressure on c-file against Fernando's O-O-O king.</td></tr>
+  <tr><td><strong>King safety trigger (Fernando's)</strong></td><td>Fernando's king navigation is catastrophic (#1 weakness). Once he castles queenside, the king on b1 or c1 is exposed. Drive …b3 aggressively — Fernando has Kb1?? and Qb3?? patterns in similar positions.</td></tr>
+  <tr><td><strong>Avoid …d5 IQP</strong></td><td>Fernando's best positions involve stable center + kingside attack. Keep pawns dynamic — the queenside race wins the game.</td></tr>
   </tbody>
 </table>
 
@@ -291,31 +332,102 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 </table>
 
 <div class="callout callout-gold" style="margin-top:12px">
-  <strong>Key insight:</strong> Austin (~1959) is at the boundary where Fernando's accuracy starts to slip. If Austin creates <em>unfamiliar, concrete positions</em> (6.a3 French, …b4/…Bxc3 Taimanov counterplay), Fernando may play at his 2100–2400 range (90–91%) rather than his comfortable 94–96% level against weaker opponents. That 3–4% drop is significant — it means 1–2 more mistakes per game.
+  <strong>Key insight:</strong> Austin (~1959) is at the boundary where Fernando's accuracy starts to slip. If Austin creates <em>unfamiliar, concrete positions</em> (3.Nd2 Tarrasch, ...b4/...Bxc3 Taimanov counterplay), Fernando may play at his 2100–2400 range (90–91%) rather than his comfortable 94–96% level against weaker opponents. That 3–4% drop means 1–2 more critical mistakes per game.
 </div>
 
-<h3 style="margin-top:14px">Fernando's known blunder patterns</h3>
+<h3 style="margin-top:14px">Fernando's known blunder patterns (ranked by Stockfish JSON)</h3>
 <table>
-  <thead><tr><th>Pattern</th><th>Example</th><th>Exploit</th></tr></thead>
+  <thead><tr><th>Rank</th><th>Pattern</th><th>Score</th><th>Instances</th><th>Exploit</th></tr></thead>
   <tbody>
-  <tr><td><strong>King navigation</strong></td><td>PAM R6: Kf1?? (1000 CPL, best Bxc3), Kb1?? (1000 CPL) — lost from equal position</td><td>Force king into open files; create back-rank threats</td></tr>
-  <tr><td><strong>Rook misplacement</strong></td><td>MEX G3: Rd7?? (best Nd5) — dropped +4.58 to 0 in one move</td><td>In rook endings, maintain pressure; Fernando misjudges rook activity</td></tr>
-  <tr><td><strong>Queen reactivation</strong></td><td>Queretaro R2: Qe6?? (best Qxf3) and Qg4?? (best Qe2) — multiple moves threw away +2</td><td>Don't allow queen exchanges prematurely; make him find the right square</td></tr>
-  <tr><td><strong>Mass blundering under pressure</strong></td><td>ED Nacional R1 vs Cori (2586): 6 blunders in one game</td><td>Maintain pressure without simplifying; cascading errors are possible</td></tr>
-  <tr><td><strong>Queretaro 1.e4 White collapse</strong></td><td>Queretaro R6 vs Ramos (2357): 86.8% White, Rh2?? (best Bd4)</td><td>As Austin Black, hold until Fernando's time trouble or endgame mistakes</td></tr>
+  <tr>
+    <td><strong>#1</strong></td>
+    <td><strong>King navigation</strong> (Pattern E)</td>
+    <td><strong>212.8</strong></td>
+    <td>9 (avg CPL 875)</td>
+    <td>Keep pieces on board, create two-sided threats, force Fernando to route his king under pressure. His king MOVES into danger — not just failure to castle.</td>
+  </tr>
+  <tr>
+    <td><strong>#2</strong></td>
+    <td><strong>Won-position collapse</strong> (Pattern D)</td>
+    <td><strong>113.9</strong></td>
+    <td>8 (avg CPL 527)</td>
+    <td>In rook endings, maintain active pressure without simplifying. Fernando drops +4-7 positions with single rook/queen misplacements.</td>
+  </tr>
+  <tr>
+    <td><strong>#3</strong></td>
+    <td><strong>R/Q errors in equal positions</strong> (Pattern G)</td>
+    <td><strong>34.1</strong></td>
+    <td>4 (avg CPL 316)</td>
+    <td>Play sharp positions past move 20 vs 2100+ strength. Fernando's rook activity consistently misjudged in these positions.</td>
+  </tr>
+  <tr>
+    <td><strong>#4</strong></td>
+    <td><strong>Missed forcing checks</strong> (Pattern B)</td>
+    <td><strong>31.4</strong></td>
+    <td>2 decisive</td>
+    <td>Qe6?? vs Rf7+ (Olympia R1). Create positions where multiple forcing lines exist — Fernando misses checks under time pressure.</td>
+  </tr>
   </tbody>
 </table>
 
 <h3 style="margin-top:14px">Psychological notes</h3>
 <ul style="padding-left:20px; margin-top:6px;">
-  <li>Fernando plays significantly <strong>better as Black (93.7%) than as White (91.9%)</strong> — opposite of most players at this level. This is unusual and suggests his White openings are less deeply prepared.</li>
+  <li>Fernando plays significantly <strong>better as Black (93.7%) than as White (91.9%)</strong> — unusual and suggests his White openings are less deeply prepared than his French Defense.</li>
   <li>His 1.e4 White record at Queretaro (1W–3L vs 2104–2357) shows he is <strong>not comfortable with 1.e4 against strong opposition.</strong></li>
-  <li>Against 2300+ opponents, his accuracy drops to 85–93% — wide variance, more blunders. <strong>Austin creates pressure; Fernando may do the rest.</strong></li>
+  <li>Against 2300+ opponents, accuracy drops to 85–93% with high variance — <strong>Austin creates pressure; Fernando's king navigation may do the rest.</strong></li>
+  <li>Fernando is a CM-level player — do not underestimate in "winning" positions. His 6-blunder game vs Cori (2586) was extreme, but the pattern of cascading errors under pressure is documented and real.</li>
 </ul>
 
 <hr class="section-divider">
 
-<h2>Part 4 — If / Then Quick Reference</h2>
+<h2>Part 4 — King Navigation Crisis (Fernando's #1 Weakness)</h2>
+
+<div class="callout callout-orange">
+  <strong>Pattern E — King Navigation: Score 212.8 / 9 instances / avg CPL 875</strong><br>
+  This is Fernando's most reliable failure mode. He does not merely fail to castle — he actively moves his king into danger. All 9 instances were critical-moment blunders (cpl ≥ 300). Two were decisive game-flipping moves. Source: scripts/fernando-analysis-results-deep.json [Stockfish movetime-3000].
+</div>
+
+<h3>Documented instances (all 9)</h3>
+
+<div class="weakness-row"><strong>PAM School R6 (White, vs Loayza Rivera 1936)</strong> — Kf1?? (cpl=512, eval: -0.64 → -5.76) <em>then</em> Kb1?? (cpl=1000). Lost from EQUAL position. Best move was Bxc3 — Fernando moved his king instead of taking the bishop. <span class="verified">[Stockfish JSON — confirmed]</span></div>
+
+<div class="weakness-row"><strong>Olympia R4 (Black, vs Martinez Flores 1904)</strong> — Kf8?? (cpl=361, eval: +3.49 → -0.12). <strong>DECISIVE: won→lost in one move.</strong> Best was O-O (normal castling). Fernando walked his king to f8 manually instead of castling, destroying a +3.49 winning advantage. <span class="verified">[Stockfish JSON — confirmed]</span></div>
+
+<div class="weakness-row"><strong>Queretaro R7 (Black, vs Angulo Perez 2104)</strong> — Kf6?? (cpl=1000, best Kh6). King moved to wrong square in endgame. <span class="verified">[Stockfish JSON — confirmed]</span></div>
+
+<div class="weakness-row"><strong>ED Nacional R1 (Black, vs Cori 2586)</strong> — Kf8?? (cpl=1000) then Ke8?? (cpl=1000). Two consecutive king blunders in same game against a GM. <span class="verified">[Stockfish JSON — confirmed]</span></div>
+
+<div class="weakness-row"><strong>World Schools R5 (White, vs Quiroz Tarazona 1478)</strong> — Kh6?? (cpl=1000, best Kf5). Even against a 1478-rated opponent, king navigation broke down in K+P endgame. <span class="verified">[Stockfish JSON — confirmed]</span></div>
+
+<div class="weakness-row"><strong>MEX-ch G4 (Black, vs Urbina Ballina 1585)</strong> — Ke7?? (cpl=1000, best Bd3). King moved when piece move was correct — wrong piece type activated. <span class="verified">[Stockfish JSON — confirmed]</span></div>
+
+<h3 style="margin-top:14px">How to trigger King Navigation Errors</h3>
+
+<table>
+  <thead><tr><th>Setup</th><th>Exploitation method</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><strong>Austin as White (Tarrasch)</strong></td>
+    <td>After 7.Ne2 Qb6 8.O-O, White is castled. Fernando may keep his king in center for several moves. Keep the queenside tension alive with 8...cxd4 9.cxd4 structures — Fernando's king on e8 is exposed to Nf4-d5 pressure. Do NOT exchange pieces early. The more piece complexity, the more routing decisions Fernando faces.</td>
+  </tr>
+  <tr>
+    <td><strong>Austin as Black vs English Attack</strong></td>
+    <td>Fernando castles queenside (O-O-O) — his king on c1 or b1. The ...b4/...b3 push targets this directly. Fernando's pattern: when queenside is under fire, he makes reactive king moves (Kb1?? instead of calculating Qc2 or Rfd1). Austin's queenside race should create this scenario by move 15–20.</td>
+  </tr>
+  <tr>
+    <td><strong>Rook / K+P endings</strong></td>
+    <td>Fernando's king misroutes in endgames (Kf6?? → Kh6; Ke7?? vs piece move). If the game reaches a rook ending ≥ +1.5, steer toward K+P structures where king routes matter. Fernando's king will find the wrong file.</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="callout callout-orange" style="margin-top:12px;">
+  <strong>Austin's rule:</strong> NEVER simplify into a drawish endgame when Fernando's king is in the center or uncastled. Every piece exchange reduces the chance Fernando makes a king navigation error. Maintain at least one attacking piece on the board (bishop, queen, or attacking knight) pointing at the opposing king.
+</div>
+
+<hr class="section-divider">
+
+<h2>Part 5 — If / Then Quick Reference</h2>
 
 <input class="acc-toggle" id="q1" type="checkbox" checked>
 <label class="acc-label" for="q1">Austin as White — opening decisions</label>
@@ -323,10 +435,11 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <table>
     <thead><tr><th>If Fernando plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
     <tbody>
-    <tr><td>1…e6 (French)</td><td>2.d4 d5 <strong>3.Nd2</strong> (Tarrasch — not 3.e5)</td><td>Fernando beat FM in the Advance; Tarrasch creates unfamiliar structures</td></tr>
-    <tr><td>3…Nf6 (main Tarrasch)</td><td>4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 <strong>7.Ne2!</strong> → 8.Nf4 then exf6 when ...f6 comes</td><td>Open f-file, Bd3→h7 battery, kingside attack</td></tr>
-    <tr><td>3…c5 (counter-gambit)</td><td>4.exd5 Qxd5 5.Ngf3 cxd4 <strong>6.Bc4!</strong> Qd6 7.O-O</td><td>Fast development, Bc4 targets f7 immediately</td></tr>
-    <tr><td>1…c5 or 1…d5 (tries to avoid French)</td><td>Standard Austin repertoire (Rossolimo vs Sicilian)</td><td>Unlikely — Fernando is a French specialist</td></tr>
+    <tr><td>1…e6 (French)</td><td>2.d4 d5 <strong>3.Nd2</strong> (Tarrasch — not 3.e5, not 3.exd5)</td><td>Fernando beat FM in the Advance; Exchange is his comfort zone. Tarrasch is unfamiliar territory.</td></tr>
+    <tr><td>3…Nf6 (main Tarrasch)</td><td>4.e5 Nfd7 5.Bd3 c5 6.c3 Nc6 <strong>7.Ne2!</strong> (g1→e2) → <strong>8.O-O!</strong> then Nf4 or Ng3 based on Fernando's response</td><td>8.O-O maintains flexibility, confirmed in 17 master games. King navigation trigger requires keeping pieces active.</td></tr>
+    <tr><td>3…c5 (counter-gambit)</td><td><strong>4.Ngf3!</strong> (Chistyakov) → 4...cxd4 likely → 5.Nxd4 Nf6 6.Bd3</td><td>C07 confirmed by Lichess Masters. Develop quickly, Bd3 targets h7.</td></tr>
+    <tr><td>3…Nc6 (Guimard)</td><td>4.Ngf3 Nf6 5.e5 Nd7 <strong>6.Be2!</strong> → if 6...f6: 7.exf6! Qxf6 8.O-O</td><td>C04 Main Line confirmed (305W/221D). Open f-file when Fernando plays ...f6.</td></tr>
+    <tr><td>1…c5 or 1…d5 (non-French)</td><td>Standard Austin repertoire (Rossolimo vs Sicilian 2...Nc6; Italian vs 1...e5)</td><td>Unlikely — Fernando is a 100% French specialist</td></tr>
     </tbody>
   </table>
 </div>
@@ -337,10 +450,11 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <table>
     <thead><tr><th>If Fernando plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
     <tbody>
-    <tr><td>1.e4</td><td>1…c5 (Sicilian, always)</td><td>Never 1…e5 — Fernando plays Italian/Lopez as White</td></tr>
-    <tr><td>2.Nf3 + 3.d4 (Open Sicilian)</td><td>2…e6 3.d4 cxd4 4.Nxd4 Nc6 (Taimanov)</td><td>Familiar English Attack territory for Austin</td></tr>
-    <tr><td>6.Be3 f3 (English Attack)</td><td>6…Nf6 7.f3 b5! 8.g4 h6 9.Qd2 Bb7</td><td>Launch queenside counterplay before g5</td></tr>
-    <tr><td>1.c4 (English)</td><td>1…Nf6 → Nimzo transposition (2…e6 3…Bb4 when Nc3) — NEVER 1…e5</td><td>Austin's fixed repertoire; Fernando has zero Nimzo games; his A16 English collapsed with Kf1?? + Bxd4??</td></tr>
+    <tr><td>1.e4</td><td>1…c5 (Sicilian, always)</td><td>Never 1…e5 — Fernando plays Italian/Lopez as White with solid results</td></tr>
+    <tr><td>2.Nf3 + 3.d4 (Open Sicilian)</td><td>2…e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 <strong>Qc7!</strong> (B47 Bastrikov)</td><td>5...Qc7 is the Bastrikov move order — active queen, queenside expansion signal</td></tr>
+    <tr><td>6.Be3 (English Attack setup)</td><td>6…<strong>a6!</strong> → 7.f3 b5 8.g4 Bb7 9.Qd2 Nf6 10.O-O-O <strong>b4!</strong></td><td>Queenside race; Fernando's O-O-O king is exposed to ...b4/...b3 — his #1 weakness trigger</td></tr>
+    <tr><td>6.Ndb5 (aggressive)</td><td>6…<strong>d6!</strong> (NOT 6...Bc5?? → bishop trap at move 10)</td><td>Critical rule from PAM 2026 R7 analysis — d6 is the only safe move</td></tr>
+    <tr><td>1.c4 (English)</td><td>1…Nf6 → Nimzo transposition (2…e6 3…Bb4 when Nc3) — NEVER 1…e5</td><td>Fernando has zero Nimzo games; fixed Austin repertoire</td></tr>
     </tbody>
   </table>
 </div>
@@ -349,11 +463,12 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <label class="acc-label" for="q3">Middlegame and endgame decisions</label>
 <div class="acc-content">
   <ul style="padding-left:18px;">
-    <li><strong>DO</strong> enter rook endings when Austin is slightly ahead — Fernando has a documented Rd7?? pattern (dropped +4.58 to 0 in one move)</li>
-    <li><strong>DO</strong> create positions where Fernando's king is exposed — he has Kb1?? and Kf1?? errors in king navigation</li>
-    <li><strong>DO NOT</strong> simplify into queen endings where both sides have roughly equal pawns — Fernando draws well in technical positions</li>
-    <li><strong>DO</strong> maintain queenside pressure as Black — Fernando's 1.e4 White record is 25% wins; the position usually favors Black if they survive the opening</li>
-    <li>If the game reaches a double-rook ending with an active queen still on — Fernando has misplaced queens (Qe6??, Qg4??) under time pressure</li>
+    <li><strong>DO</strong> enter rook endings when Austin is slightly ahead — Fernando has Rd7?? (dropped +4.68 to 0 in one move, MEX Open G3)</li>
+    <li><strong>DO</strong> create positions where Fernando's king has routing decisions — his king navigation is his #1 failure mode (9 instances, score=212.8)</li>
+    <li><strong>DO NOT</strong> exchange all attacking pieces — every simplification reduces king navigation pressure on Fernando</li>
+    <li><strong>DO</strong> maintain queenside pressure as Black — Fernando's 1.e4 White record is 25% wins; he usually loses the queenside battle vs well-prepared opponents</li>
+    <li>If the game reaches a rook ending with both queens gone — Fernando has rook misplacement patterns (Ra2??, Re2??, Raa8?? in Queretaro vs 2100–2463)</li>
+    <li><strong>DO NOT</strong> allow Fernando to reach symmetrical endgames with no pawn breaks — he draws well in pure technical positions (his French Exchange game PAM School R3)</li>
   </ul>
 </div>
 
@@ -361,27 +476,27 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <label class="acc-label" for="q4">Warnings — traps to avoid</label>
 <div class="acc-content">
   <ul style="padding-left:18px;">
-    <li><strong>DO NOT</strong> play 3.e5 Advanced French vs Fernando — he beat FM Martinez (1904) in the Advance (Olympia R4). Stick with <strong>3.Nd2 Tarrasch</strong>.</li>
+    <li><strong>DO NOT</strong> play 3.e5 Advanced French vs Fernando — he beat FM Martinez (1904) in the Advance (Olympia R4). Stick with <strong>3.Nd2 Tarrasch</strong> always.</li>
     <li><strong>DO NOT</strong> play 3.exd5 Exchange French — Fernando played Exchange structure once (PAM School R3) and is comfortable in symmetrical, technical positions.</li>
-    <li><strong>DO NOT</strong> play 1…e5 vs Fernando's 1.e4 — Italian/Lopez is his most comfortable White</li>
-    <li>In Tarrasch after 4.e5, when Fernando plays …f6: <strong>always capture exf6 immediately</strong> — opens the f-file. Do NOT hold the e5 pawn passively.</li>
-    <li>Fernando is a CM at 2085 — do not underestimate even in "winning" positions; his 6-blunder game vs Cori was vs a 2586-rated GM, not a ~1959-rated player</li>
+    <li><strong>DO NOT</strong> play 1…e5 vs Fernando's 1.e4 — Italian/Lopez is his most comfortable White setup</li>
+    <li><strong>DO NOT</strong> play 7.Ndf3 instead of 7.Ne2 — 7.Ndf3 blocks the g1 knight's development and loses the Nf4/Ng3 attacking plan entirely</li>
+    <li>In Tarrasch after 4.e5, when Fernando plays …f6: <strong>always capture exf6 immediately</strong> — opens the f-file. Never hold the e5 pawn passively.</li>
+    <li>Fernando is a CM at 2085 — do not simplify prematurely after reaching +1.5. His won-position collapse pattern (Pattern D) means Austin's best practical chance is to keep the game complex.</li>
   </ul>
 </div>
 
 <hr class="section-divider">
 
-<h2>Part 5 — Tarrasch 3.Nd2 Opening Drill (Austin as White)</h2>
+<h2>Part 6 — Tarrasch 3.Nd2 Opening Drill (Austin as White)</h2>
 
-<h3>Main line — memorize to move 12 (vs 3…Nf6)</h3>
+<h3>Main line — memorize to move 10 (vs 3…Nf6, Austin's Branch A)</h3>
 <div class="move-line">
   <span class="mv-a">1.e4</span> <span class="mv-z">e6</span> <span class="mv-a">2.d4</span> <span class="mv-z">d5</span>
   <span class="key-move">3.Nd2</span> <span class="mv-z">Nf6</span> <span class="mv-a">4.e5</span> <span class="mv-z">Nfd7</span>
   <span class="key-move">5.Bd3</span> <span class="mv-z">c5</span> <span class="mv-a">6.c3</span> <span class="mv-z">Nc6</span>
-  <span class="key-move">7.Ne2!</span> <span class="mv-z">Qb6</span> <span class="key-move">8.Nf4</span> <span class="mv-z">cxd4</span>
-  <span class="mv-a">9.cxd4</span> <span class="mv-z">f6</span> <span class="key-move">10.exf6!</span> <span class="mv-z">Nxf6</span>
-  <span class="mv-a">11.O-O</span> <span class="mv-z">Bd6</span> <span class="key-move">12.Nf3</span>
-  <span class="note"> — open position, active pieces, Bd3 pointing at h7. Austin's tactical environment.</span>
+  <span class="key-move">7.Ne2!</span> <span class="mv-z">Qb6</span> <span class="key-move">8.O-O!</span> <span class="mv-z">cxd4</span>
+  <span class="mv-a">9.cxd4</span> <span class="mv-z">Bd7</span> <span class="key-move">10.Nf4</span>
+  <span class="note"> — 7.Ne2 is the g1 knight (not d2). After 8.O-O cxd4 9.cxd4, 10.Nf4 is the activating move: attacks d5 and threatens Nf4-g6 or Nf4-h5. Bd3 still pointing at h7.</span>
 </div>
 
 <table style="margin-top:12px">
@@ -389,55 +504,56 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <tbody>
   <tr><td>Always <strong>3.Nd2</strong> (not 3.e5, not 3.exd5)</td><td>Fernando beat FM in the Advance; Exchange is his comfort zone. Tarrasch is unfamiliar territory for him.</td></tr>
   <tr><td><strong>5.Bd3</strong> (not 5.f4 or 5.Ndf3)</td><td>Bishop belongs on d3 pointing at h7 — this is the entire point of the Tarrasch setup as White</td></tr>
-  <tr><td><strong>7.Ne2!</strong> (not 7.Ndf3)</td><td>Ne2 allows Nf4 or Ng3 — keeps knight flexible for kingside attack. 7.Ndf3 blocks this</td></tr>
-  <tr><td>When Fernando plays …f6: <strong>always exf6!</strong></td><td>Open the f-file immediately. Do NOT defend e5 passively — the open f-file is more valuable</td></tr>
-  <tr><td>After 10.exf6 Nxf6 11.0-0: <strong>target d5 and h7</strong></td><td>Ng5 or Ne5 maneuver comes next; Bd3 backs up h7 threat throughout</td></tr>
+  <tr><td><strong>7.Ne2!</strong> = g1 knight to e2 (UCI: g1e2)</td><td>Ne2 from g1 allows Nf4 or Ng3 — keeping knight flexible for kingside attack. 7.Ndf3 blocks this entirely. Lichess Masters #1 (2892 games).</td></tr>
+  <tr><td><strong>8.O-O!</strong> (not 8.Nf3 or 8.Nf4)</td><td>Austin's specific choice: castle first for flexibility. After 8.O-O, White can play Nf4 or Ng3 based on Fernando's response. Confirmed in 17 master games.</td></tr>
+  <tr><td>When Fernando plays …f6: <strong>always exf6!</strong></td><td>Open the f-file immediately. Do NOT defend e5 passively — the open f-file is more valuable for attacking play.</td></tr>
   </tbody>
 </table>
 
 <input class="acc-toggle" id="d1" type="checkbox">
-<label class="acc-label" for="d1">Drill 1 — Recite Austin's first 12 moves vs 3…Nf6 (reveal to check)</label>
+<label class="acc-label" for="d1">Drill 1 — Recite Austin's first 10 moves vs 3…Nf6 (reveal to check)</label>
 <div class="acc-content">
-  <p><em>Without looking at the moves above, say Austin's moves 1–12 aloud. Then reveal:</em></p>
+  <p><em>Without looking at the moves above, say Austin's moves 1–10 aloud. Then reveal:</em></p>
   <div class="move-line">
-    <strong>Answer:</strong> 1.e4, 2.d4, <span class="key-move">3.Nd2</span>, 4.e5, <span class="key-move">5.Bd3</span>, 6.c3, <span class="key-move">7.Ne2!</span>, 8.Nf4, 9.cxd4, <span class="key-move">10.exf6!</span>, 11.O-O, <span class="key-move">12.Nf3</span>
+    <strong>Answer:</strong> 1.e4, 2.d4, <span class="key-move">3.Nd2</span>, 4.e5, <span class="key-move">5.Bd3</span>, 6.c3, <span class="key-move">7.Ne2!</span> (g1→e2), <span class="key-move">8.O-O!</span>, 9.cxd4, <span class="key-move">10.Nf4</span>
   </div>
-  <p style="margin-top:8px"><strong>Key checks:</strong> Did you play 3.Nd2 (NOT 3.e5)? Did you play 5.Bd3 (bishop must point at h7)? Did you play 7.Ne2 (NOT 7.Ndf3)? When …f6 came, did you capture exf6 immediately?</p>
+  <p style="margin-top:8px"><strong>Key checks:</strong> Did you play 3.Nd2 (NOT 3.e5)? Did you play 5.Bd3 (bishop must point at h7)? Did you play 7.Ne2 from g1 (NOT 7.Ndf3)? Did you castle at move 8 (NOT immediately play Nf4)?</p>
 </div>
 
 <input class="acc-toggle" id="d2" type="checkbox">
-<label class="acc-label" for="d2">Drill 2 — Fernando plays 3…c5 (counter-gambit). What does Austin do?</label>
+<label class="acc-label" for="d2">Drill 2 — Fernando plays 3…c5 (Chistyakov). What does Austin do?</label>
 <div class="acc-content">
   <div class="move-line">
-    <strong>Answer:</strong> 4.exd5 Qxd5 <span class="key-move">5.Ngf3!</span> cxd4 <span class="key-move">6.Bc4!</span> Qd6 7.O-O
-    <span class="note"> — fast development, Bc4 targets f7, castle immediately.</span>
+    <strong>Answer:</strong> <span class="key-move">4.Ngf3!</span> → after 4...cxd4: 5.Nxd4 Nf6 6.Bd3
+    <span class="note"> — develop the knight first, Lichess C07. After 4...cxd4 5.Nxd4, White has an active position with Bd3 pointing at h7.</span>
   </div>
-  <p style="margin-top:6px"><strong>Key sequence:</strong> 5.Ngf3 then 6.Bc4 — in that order. The bishop goes to c4 before recapturing the pawn. Then 7.O-O and 8.Nb3 to recapture d4 with advantage.</p>
+  <p style="margin-top:6px"><strong>Key sequence:</strong> 4.Ngf3 → 4...cxd4 → 5.Nxd4 → 6.Bd3. Develop pieces toward the kingside quickly. The bishop targets h7 as usual.</p>
 </div>
 
 <input class="acc-toggle" id="d3" type="checkbox">
-<label class="acc-label" for="d3">Drill 3 — Fernando plays 7…Qb6 8.Nf4 and does NOT take on d4. What is Austin's plan?</label>
+<label class="acc-label" for="d3">Drill 3 — Fernando plays 3…Nc6 (Guimard). What does Austin do?</label>
 <div class="acc-content">
   <div class="move-line">
-    <strong>Answer:</strong> 9.O-O! — castle and keep the tension. Plan: Ng3 maneuver targeting h5 or f5. White's center is stable; Fernando's position is cramped with the Nd7 misplaced.
+    <strong>Answer:</strong> 4.Ngf3 Nf6 5.e5 Nd7 <span class="key-move">6.Be2!</span> → after 6...f6: <span class="key-move">7.exf6!</span> Qxf6 8.O-O
+    <span class="note"> — Guimard Main Line (C04). 6.Be2 is the standard developing move (not 6.c3). After 6...f6, capture immediately — open the f-file.</span>
   </div>
-  <p style="margin-top:6px">If Fernando avoids …cxd4, White castles and prepares <strong>Ng3-h5 or Ng3-f5</strong>, targeting the weak f6 and h7 squares. The d4-c3 pawn chain gives White a strong center that is not under pressure.</p>
+  <p style="margin-top:6px"><strong>Key checks:</strong> Did you play 6.Be2 (NOT 6.c3)? Did you capture exf6 when Fernando played …f6? Same attacking ideas as Branch A apply after the f-file opens.</p>
 </div>
 
 <hr class="section-divider">
 
-<h2>Part 6 — Engine Accuracy Reference (37 Classical Games)</h2>
+<h2>Part 7 — Engine Accuracy Reference (37 Classical Games)</h2>
 
 <table>
   <thead><tr><th>Tournament</th><th>Games</th><th>Record</th><th>Avg Acc</th><th>Notes</th></tr></thead>
   <tbody>
   <tr><td>World Schools 2026</td><td>3</td><td>1W–0L–2D</td><td><strong>96.4%</strong></td><td>Best recent form; Aug 2026</td></tr>
   <tr><td>MEX-ch 16th</td><td>5</td><td>4W–1L–0D</td><td><strong>95.0%</strong></td><td>Mostly vs 1400–1800; not informative for Austin</td></tr>
-  <tr><td>PAM School 2026</td><td>9</td><td>5W–1L–3D</td><td><strong>94.7%</strong></td><td>R6 loss: Kb1?? Kf1?? (king navigation disaster)</td></tr>
-  <tr><td>Olympia Nacional 2026</td><td>6</td><td>3W–2L–1D</td><td><strong>91.9%</strong></td><td>Beat FM Martinez as Black (French Advance)</td></tr>
+  <tr><td>PAM School 2026</td><td>9</td><td>5W–1L–3D</td><td><strong>94.7%</strong></td><td>R6 loss: Kf1?? Kb1?? (king navigation — lost from equal)</td></tr>
+  <tr><td>Olympia Nacional 2026</td><td>6</td><td>3W–2L–1D</td><td><strong>91.9%</strong></td><td>Kf8?? (decisive: +3.49→-0.12) in R4; beat FM Martinez as Black</td></tr>
   <tr><td>Queretaro 2026</td><td>8</td><td>1W–4L–3D</td><td><strong>91.3%</strong></td><td>Faced 2104–2463; accuracy 86.8–95.7%; Oct 2026</td></tr>
-  <tr><td>MEX Open 71st</td><td>4</td><td>1W–2L–1D</td><td><strong>89.8%</strong></td><td>Rd7?? (+4.58→0) in G3; gxh4?? in G5</td></tr>
-  <tr><td>ED Nacional 2026</td><td>2</td><td>0W–2L–0D</td><td><strong>88.2%</strong></td><td>6 blunders vs Cori (2586) in R1</td></tr>
+  <tr><td>MEX Open 71st</td><td>4</td><td>1W–2L–1D</td><td><strong>89.8%</strong></td><td>Rd7?? (+4.68→0) in G3; multiple R/Q errors</td></tr>
+  <tr><td>ED Nacional 2026</td><td>2</td><td>0W–2L–0D</td><td><strong>88.2%</strong></td><td>Kf8?? Ke8?? (2 king blunders) vs Cori (2586)</td></tr>
   <tr style="background:#f5f0e8"><td><strong>Overall</strong></td><td><strong>37</strong></td><td><strong>15W–10L–12D</strong></td><td><strong>92.8%</strong></td><td>White 91.9% · Black 93.7%</td></tr>
   </tbody>
 </table>
@@ -466,7 +582,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <tr><td>Olympia Nacional 2026</td><td>R1</td><td>White</td><td>Silva Valdes, L.</td><td>1726</td><td>Win</td><td>90.1%</td><td>2/0</td></tr>
   <tr><td>Olympia Nacional 2026</td><td>R2</td><td>Black</td><td>Valdez Lomeli, N.</td><td>1684</td><td>Draw</td><td>94.5%</td><td>0/0</td></tr>
   <tr><td>Olympia Nacional 2026</td><td>R3</td><td>White</td><td>Roque Aranda, J.</td><td>1640</td><td>Win</td><td>90.1%</td><td>1/3</td></tr>
-  <tr><td>Olympia Nacional 2026</td><td>R4</td><td>Black</td><td>Martinez Flores, M.</td><td>1904</td><td>Win</td><td>90.3%</td><td>2/2</td></tr>
+  <tr style="background:#fff0f0"><td>Olympia Nacional 2026</td><td>R4</td><td>Black</td><td>Martinez Flores, M.</td><td>1904</td><td>Win</td><td>90.3%</td><td>2/2</td></tr>
   <tr><td>Olympia Nacional 2026</td><td>R5</td><td>White</td><td>Alba Ruiz, K.</td><td>1924</td><td>Loss</td><td>92.6%</td><td>13/2</td></tr>
   <tr><td>Olympia Nacional 2026</td><td>R6</td><td>Black</td><td>Leal Escamilla, D.</td><td>1765</td><td>Loss</td><td>93.7%</td><td>0/3</td></tr>
   <tr style="background:#fff0f0"><td>Queretaro 2026</td><td>R1</td><td>Black</td><td>Lopez Garcia, M.</td><td>2150</td><td>Draw</td><td>95.1%</td><td>0/0</td></tr>
@@ -485,7 +601,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <tr><td>ED Nacional 2026</td><td>R9</td><td>Black</td><td>Paredes Guzman, F.</td><td>2137</td><td>Loss</td><td>89.7%</td><td>1/2</td></tr>
   </tbody>
 </table>
-<p style="font-size:0.82em; color:#666; margin-top:6px">Queretaro 2026 rows highlighted — most recent and most relevant data (Oct 2026, avg opponent 2306).</p>
+<p style="font-size:0.82em; color:#666; margin-top:6px">Queretaro 2026 / Olympia R4 rows highlighted — most relevant data (Oct 2026 for Queretaro, avg opp 2306; Olympia R4 = key Kf8?? decisive blunder).</p>
 
 <p style="margin-top:20px; font-size:0.85em; color:#555; text-align:center">
   <a href="../austin-prep.html">← Back to Austin Lin Prep Index</a>
