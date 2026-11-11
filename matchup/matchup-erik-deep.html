@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deep Engine Analysis — Dominguez Alarcon, Erik Samuel (7 games)</title>
+<style>
+:root { --accent: #1a3a6b; --accent-bg: #eef2fb; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13.5px; color: #1a1a1a; max-width: 1000px;
+  margin: 0 auto; padding: 20px 24px; background: #f8f7f4;
+}
+.page-header { border-left: 6px solid var(--accent); background: var(--accent-bg);
+               padding: 14px 18px; margin-bottom: 20px; border-radius: 0 5px 5px 0; }
+.page-header h1 { font-size: 1.25em; margin-bottom: 3px; }
+.page-header .meta { font-size: 0.82em; color: #555; }
+.page-header .nav { margin-top: 8px; font-size: 0.82em; }
+.page-header .nav a { color: var(--accent); text-decoration: none; margin-right: 14px; }
+.page-header .nav a:hover { text-decoration: underline; }
+
+h2 { font-size: 1.05em; margin: 24px 0 8px; padding: 6px 12px;
+     border-left: 4px solid var(--accent); background: #f0f3fa; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 12px 0 20px; }
+.stat-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 10px 12px; text-align: center; }
+.stat-card .num { font-size: 1.6em; font-weight: 700; color: var(--accent); }
+.stat-card .lbl { font-size: 0.78em; color: #666; margin-top: 2px; }
+
+.callout { padding: 9px 13px; border-radius: 4px; margin: 8px 0; font-size: 0.88em; }
+.callout-gold  { background: #fffbe0; border-left: 4px solid #b8860b; }
+.callout-green { background: #efffef; border-left: 4px solid #2d7d46; }
+.callout-blue  { background: #eef2fb; border-left: 4px solid #1a3a6b; }
+.callout-red   { background: #fff0f0; border-left: 4px solid #8b1a1a; }
+
+table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 0.83em; }
+th { background: #1a3a6b; color: #fff; padding: 5px 8px; text-align: left; white-space: nowrap; }
+td { padding: 4px 8px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+.row-danger td { background: #fff2f2 !important; }
+.row-best td { background: #efffef !important; }
+
+.w-cell { color: #1a5276; font-weight: bold; }
+.b-cell { color: #8b1a1a; font-weight: bold; }
+.win-cell { color: #2d7d46; font-weight: bold; }
+.loss-cell { color: #8b1a1a; }
+.draw-cell { color: #666; }
+.acc-high { color: #2d7d46; font-weight: bold; }
+.acc-mid  { color: #b8860b; font-weight: bold; }
+.acc-low  { color: #8b1a1a; font-weight: bold; }
+
+.crit-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.82em; }
+.crit-table th { background: #2c3e50; color: #fff; padding: 4px 8px; }
+.crit-table td { padding: 4px 8px; border-bottom: 1px solid #ddd; }
+.crit-table tr:nth-child(even) td { background: #f5f5f0; }
+.blunder-row td { background: #fff0f0 !important; }
+.mistake-row td { background: #fff8e8 !important; }
+
+hr { border: none; border-top: 2px solid #ccc; margin: 22px 0; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Deep Engine Analysis — Dominguez Alarcon, Erik Samuel</h1>
+  <div class="meta">Stockfish movetime-3000 · 16 threads · 7 games analyzed · CONADE Veracruz Jan 2026 · Lichess win-probability accuracy formula</div>
+  <div class="nav">
+    <a href="../austin-prep.html">← Prep Index</a>
+    <a href="matchup-erik.html">Matchup Overview</a>
+  </div>
+</div>
+
+<h2>Overall Accuracy Summary</h2>
+
+<div class="stat-grid">
+  <div class="stat-card"><div class="num">80.9%</div><div class="lbl">Overall Avg (7 games)</div></div>
+  <div class="stat-card"><div class="num">77.7%</div><div class="lbl">As White (3 games)</div></div>
+  <div class="stat-card"><div class="num">83.3%</div><div class="lbl">As Black (4 games)</div></div>
+  <div class="stat-card"><div class="num">88.5%</div><div class="lbl">Best Single Game (G1)</div></div>
+</div>
+
+<div class="stat-grid">
+  <div class="stat-card"><div class="num">1W–1L–1D</div><div class="lbl">As White (50% score)</div></div>
+  <div class="stat-card"><div class="num">0W–3L–1D</div><div class="lbl">As Black (12.5% score)</div></div>
+  <div class="stat-card"><div class="num">70.1%</div><div class="lbl">Worst Game (G4 — a WIN)</div></div>
+  <div class="stat-card"><div class="num">17</div><div class="lbl">Total Blunders (7 games)</div></div>
+</div>
+
+<div class="callout callout-red">
+  <strong>Key finding:</strong> Erik averages 80.9% accuracy — roughly 10 percentage points below Austin's typical performance — with 17 blunders across just 7 games (2.4/game). His sole win (G4) came against an opponent who played at 58.7%; Erik himself committed 2 blunders including a missed Bxh7+ sacrifice. As Black he scores just 12.5% (0W–3L–1D). Austin has a substantial quality advantage and should maintain complications rather than simplify.
+</div>
+
+<h2>Critical Patterns — What Stockfish Revealed</h2>
+
+<div class="callout callout-red">
+  <strong>Pattern 1 — Won-position collapse (3 games):</strong> Erik blundered from clearly winning positions in three games. G2 mv18 f4 (+0.19→−3.16, cpl 335): gave away a drawn position with a loose pawn advance. G4 mv14 Qh5 (+6.52→−0.95, cpl 747): had a +6.52 advantage and missed the Greek Gift Bxh7+ — played Qh5?? instead, squandering a won game. G5 mv24 Be2 (+5.91→+0.50, cpl 541): completely threw away a +5.91 edge. This is his most dangerous pattern — he can play into large advantages and then immediately collapse.
+</div>
+
+<div class="callout callout-red">
+  <strong>Pattern 2 — Missed Bxh7+ (Greek Gift / forcing tactical vision):</strong> G4 move 14, with eval +6.52, the engine recommends Bxh7+! — a classic Greek Gift sacrifice. Erik played Qh5?? (cpl 747), going from a winning position to near-equal in one move. This is a major tactical blind spot: Erik does not calculate forcing attack sequences reliably. Austin's style (Bxh7+ Greek Gift executed Oct 2026) aligns perfectly with this weakness.
+</div>
+
+<div class="callout callout-red">
+  <strong>Pattern 3 — Black fragility (0W–3L–1D, 12.5%):</strong> Erik as Black: 0 wins, 3 losses, 1 draw across 4 games. All three losses featured multiple decisive blunders in the middlegame (G3: 4 blunders including a 586-cpl game-loser at mv16; G6: 3 blunders in 26 moves including 432-cpl Kh8?? at mv13). His Black average of 83.3% masks how quickly positions deteriorate — by move 16 in multiple games the position is already objectively lost.
+</div>
+
+<div class="callout callout-gold">
+  <strong>Pattern 4 — High inaccuracy density in long games:</strong> G5 (37 moves, White, Loss) has 12 inaccuracies in addition to 3 blunders — the highest inaccuracy count of any game. This suggests Erik drifts into small errors throughout the game when positions become complex, not just at turning-point moments. Longer, sharper games (25+ moves with many piece interactions) are where his accuracy degrades most.
+</div>
+
+<div class="callout callout-green">
+  <strong>Pattern 5 — Relatively solid as Black in short tactical fights:</strong> G1 (Black, Loss, 88.5%) and G7 (Black, Draw, 87.2%) are his cleanest performances, both as Black. Both were shorter positional games. His best mode is a relatively closed position where tactics are limited — Austin should avoid this by opening the game early (1.e4 c5 → Rossolimo 3.Bb5 exchange to open the c-file, or push for open-board tactics).
+</div>
+
+<h2>Austin — Exploitation Notes</h2>
+
+<div class="callout callout-blue">
+  <strong>Austin as White (1.e4):</strong> Erik plays Sicilian as Black (G1: Grand Prix Attack B23 structure). Use Rossolimo 3.Bb5 to steer into sharp piece-play. After 3...g6 4.Bxc6 dxc6, the half-open d-file and weak doubled c-pawns suit a kingside attack. Keep the bishop pair active on open diagonals — Erik's calculation of piece sacrifices (Bxh7+) is confirmed unreliable. If the position reaches a knight vs. bishop ending with passed pawns, push for complications; don't allow Erik to find the one correct defensive sequence (his clean defensive games are the exception, not the rule).
+</div>
+
+<div class="callout callout-blue">
+  <strong>Austin as Black (Taimanov Sicilian):</strong> Erik's White record is 1W–1L–1D with 77.7% average. His White losses include G5 (vs Reyes Molina) where he went from +5.91 to losing in 7 moves. As Austin, play the Taimanov B47 normally — establish a solid structure to reach move 20+. Erik's accuracy in long games degrades (G5: 12 inaccuracies). By the time pieces are fully developed, his error rate makes him vulnerable to any tactical shot Austin can generate.
+</div>
+
+<h2>Per-Game Summary</h2>
+
+<table>
+  <thead>
+    <tr><th>Game</th><th>Color</th><th>Result</th><th>Acc</th><th>Opp Acc</th><th>CPL</th><th>B</th><th>M</th><th>I</th><th>Opponent</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>G1</td><td class="b-cell">B</td><td class="loss-cell">L</td>
+    <td><span class="acc-high">88.5%</span></td><td>93.2%</td><td>45</td><td>1</td><td>2</td><td>4</td>
+    <td>Moreno Morales, N.F.</td><td>Best game; mv28 Nf5 (±0 → −2.88) decisive</td>
+  </tr>
+  <tr>
+    <td>G7</td><td class="b-cell">B</td><td class="draw-cell">D</td>
+    <td><span class="acc-high">87.2%</span></td><td>92.2%</td><td>38</td><td>1</td><td>1</td><td>4</td>
+    <td>Valencia Antonio, Iker</td><td>2nd cleanest; mv27 Kf6 blunder in endgame</td>
+  </tr>
+  <tr>
+    <td>G2</td><td class="w-cell">W</td><td class="draw-cell">D</td>
+    <td><span class="acc-mid">81.5%</span></td><td>80.9%</td><td>59</td><td>2</td><td>1</td><td>3</td>
+    <td>Ramirez Diaz, C.I.</td><td>mv18 f4 (±0.19 → −3.16) won position blown</td>
+  </tr>
+  <tr>
+    <td>G5</td><td class="w-cell">W</td><td class="loss-cell">L</td>
+    <td><span class="acc-mid">81.4%</span></td><td>86.5%</td><td>98</td><td>3</td><td>2</td><td>12</td>
+    <td>Reyes Molina, Elias</td><td>12 inaccuracies; mv24 Be2 (+5.91 → +0.50) collapse</td>
+  </tr>
+  <tr>
+    <td>G3</td><td class="b-cell">B</td><td class="loss-cell">L</td>
+    <td><span class="acc-mid">80.7%</span></td><td>86.1%</td><td>124</td><td>4</td><td>3</td><td>3</td>
+    <td>Villalobos Gonzalez, O.</td><td>mv16 Ne7 (±0.14 → −6.00, cpl 586) game-losing blunder</td>
+  </tr>
+  <tr class="row-danger">
+    <td>G6</td><td class="b-cell">B</td><td class="loss-cell">L</td>
+    <td><span class="acc-low">76.9%</span></td><td>82.7%</td><td>96</td><td>4</td><td>2</td><td>4</td>
+    <td>Martinez Hernandez, E.Y.</td><td>Sicilian Grand Prix B23; mv12 e5 &amp; mv13 Kh8 consecutive blunders</td>
+  </tr>
+  <tr class="row-danger">
+    <td>G4</td><td class="w-cell">W</td><td class="win-cell">W</td>
+    <td><span class="acc-low">70.1%</span></td><td>58.7%</td><td>104</td><td>2</td><td>1</td><td>1</td>
+    <td>Aguirre Cardona, Alfredo</td><td>Won only due to opp 58.7%; missed Bxh7+ (cpl 747) from +6.52</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Critical Moments — Top Blunders by CPL</h2>
+
+<table class="crit-table">
+  <thead>
+    <tr><th>Game</th><th>Mv#</th><th>Played</th><th>Best</th><th>CPL</th><th>Eval Before</th><th>Eval After</th><th>Class</th></tr>
+  </thead>
+  <tbody>
+  <tr class="blunder-row">
+    <td>G4 (White, Win)</td><td>14</td><td>Qh5</td><td>Bxh7+</td><td>747</td><td>+6.52</td><td>−0.95</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G5 (White, Loss)</td><td>37</td><td>Bb1</td><td>Ke1</td><td>1000</td><td>−7.16</td><td>−#</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G5 (White, Loss)</td><td>24</td><td>Be2</td><td>Qd6</td><td>541</td><td>+5.91</td><td>+0.50</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G3 (Black, Loss)</td><td>16</td><td>Ne7</td><td>f6</td><td>586</td><td>−0.14</td><td>−6.00</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G3 (Black, Loss)</td><td>32</td><td>Nd4</td><td>Ng7</td><td>1000</td><td>−7.18</td><td>−#</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G5 (White, Loss)</td><td>30</td><td>Bb7</td><td>Kf1</td><td>445</td><td>−1.55</td><td>−6.00</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G6 (Black, Loss)</td><td>13</td><td>Kh8</td><td>gxf5</td><td>432</td><td>−1.14</td><td>−5.46</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G6 (Black, Loss)</td><td>21</td><td>Re8</td><td>Rd6</td><td>354</td><td>−1.63</td><td>−5.17</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G7 (Black, Draw)</td><td>27</td><td>Kf6</td><td>Bf8</td><td>358</td><td>−0.60</td><td>−4.18</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G1 (Black, Loss)</td><td>29</td><td>Qe4</td><td>Qh5</td><td>371</td><td>−3.20</td><td>−6.91</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G2 (White, Draw)</td><td>18</td><td>f4</td><td>Qc2</td><td>335</td><td>+0.19</td><td>−3.16</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G2 (White, Draw)</td><td>25</td><td>Rxd8</td><td>Kf2</td><td>324</td><td>−0.26</td><td>−3.50</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G6 (Black, Loss)</td><td>12</td><td>e5</td><td>Nb4</td><td>396</td><td>−1.21</td><td>−5.17</td><td>Blunder</td>
+  </tr>
+  <tr class="blunder-row">
+    <td>G3 (Black, Loss)</td><td>28</td><td>Qf4</td><td>Qf6</td><td>425</td><td>−7.12</td><td>−11.37</td><td>Blunder</td>
+  </tr>
+  <tr class="mistake-row">
+    <td>G4 (White, Win)</td><td>13</td><td>Nfd2</td><td>Ne3</td><td>403</td><td>+4.03</td><td>+0.00</td><td>Blunder</td>
+  </tr>
+  <tr class="mistake-row">
+    <td>G1 (Black, Loss)</td><td>28</td><td>Nf5</td><td>Qf5</td><td>288</td><td>+0.00</td><td>−2.88</td><td>Mistake</td>
+  </tr>
+  <tr class="mistake-row">
+    <td>G7 (Black, Draw)</td><td>22</td><td>Bd5</td><td>Nd5</td><td>153</td><td>+0.05</td><td>−1.48</td><td>Mistake</td>
+  </tr>
+  </tbody>
+</table>
+
+<p style="margin-top:20px; font-size:0.83em; color:#666; text-align:center">
+  <a href="../austin-prep.html">← Back to Austin Lin Prep Index</a> ·
+  <a href="matchup-erik.html">Matchup Overview</a>
+</p>
+</body>
+</html>
