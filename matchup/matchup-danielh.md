@@ -66,11 +66,12 @@ Daniel appears to play **Open Sicilian** (1.e4 c5 2.Nf3 ...) when facing Sicilia
 
 ### Recommended Approach
 
-**Taimanov/Kan Sicilian** (Austin's primary line: 1...c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 a6)
+**Taimanov Sicilian B47 Bastrikov** (Austin's fixed Black line: 1...c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 **Qc7!**)
 
 - Daniel has not shown prepared anti-Sicilian systems
-- Taimanov/Kan is Austin's most-drilled Sicilian — deep preparation advantage against Daniel's unprepared Open Sicilian White
-- Against 1.e4 c5 2.Nf3 e6 3.d4: enter Taimanov (5.Nc3 a6) or Kan structure; do NOT play 3...g6 Dragon
+- Austin's mandatory 5th move is **Qc7** (B47 Bastrikov) — NOT 5...a6 (Kan). This is Austin's fixed repertoire.
+- Against 1.e4 c5 2.Nf3 e6 3.d4: enter Taimanov B47 with 5.Nc3 Qc7; do NOT play 3...g6 Dragon
+- TRAP: if White plays 6.Ndb5 → **6...d6!** (never 6...Bc5?? → bishop trap)
 
 **vs 1.d4:** Play Nimzo-Indian (1.d4 Nf6 2.c4 e6 3.Nc3 Bb4)
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Battle Plan: Austin vs Hernandez Gamboa, Daniel (GM Prep)</title>
+<title>Battle Plan: Austin as Black (R3) vs Hernandez Gamboa, Daniel</title>
 <style>
 :root {
   --green: #1a5c1a; --gold: #b8860b; --blue: #1a4a8b;
@@ -78,12 +78,16 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 </head>
 <body>
 
-<h1>Battle Plan: Austin (White &amp; Black) vs Hernandez Gamboa, Daniel</h1>
+<h1>Battle Plan: Austin as Black (Round 3) vs Hernandez Gamboa, Daniel</h1>
 <div class="subtitle">
   <span><strong>GM Prep</strong></span>
   <span>Daniel rating: 1753 FIDE (Nov 2026; peaked 1767 Apr 2025) · Austin +206</span>
   <span>Direct record: No encounter</span>
-  <span>OTB games analyzed: 12 · avg <strong>90.4%</strong></span>
+  <span>OTB games analyzed: 10 · avg <strong>90.4%</strong></span>
+</div>
+
+<div class="callout callout-danger" style="margin-bottom:16px; font-size:0.95em;">
+  <strong>⚑ ROUND 3: Austin plays Black.</strong> Part 1 (Austin as Black — Taimanov Sicilian) is the primary focus. Part 2 (Austin as White reference) is secondary — read it only after Part 1 is fully memorized.
 </div>
 
 <div class="rating-note">
@@ -97,7 +101,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
       <li><strong>1.e4</strong> primary — Exchange French (~C01), Philidor (C41), Pirc (B07), Taimanov (B44), King's Knight (~C40)</li>
       <li><strong>1.d4</strong> secondary — London D00; played in Queretaro 2026</li>
       <li>No prepared anti-Sicilian system seen in dataset</li>
-      <li>White record: <strong>5W–0L–2D</strong> — never lost as White across all 12 games</li>
+      <li>White record: <strong>5W–0L–2D</strong> — never lost as White across all 10 games</li>
       <li>Best White game: 96.2% win vs Salazar (Aguas2025 R4) — dataset best overall</li>
       <li>Notable: drew CM Agama Hernandez (2003, +318 pts) in Nimzo-Indian as White</li>
     </ul>
@@ -127,17 +131,167 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
       <li>Worst: <strong>83.2%</strong> Queretaro 2025 R1 (3B+7M, won vs unrated)</li>
       <li>Best: <strong>96.2%</strong> Aguascalientes 2025 R4 (dominant White win)</li>
       <li>Rating: peaked 1767 Apr 2025 → 1753 Nov 2026 (partial recovery from 2025 dip)</li>
-      <li>12 games, 6 tournaments (2024–2026)</li>
+      <li>10 games, 6 tournaments (2024–2026)</li>
     </ul>
   </div>
 </div>
 
 <hr class="section-divider">
 
-<h2 class="white-section">Part 1 — Austin as White: Italian + Decisive Pawn Advances</h2>
+<h2 class="black-section">Part 1 — Austin as Black: Taimanov Sicilian B47 Bastrikov (PRIMARY)</h2>
+
+<div class="callout callout-green">
+  <strong>Core fact:</strong> Daniel plays <strong>1.e4</strong> as White. Austin plays Sicilian (1...c5) → Taimanov B47 Bastrikov (<code>5...Qc7</code>). Daniel has shown no prepared anti-Sicilian system in the dataset — no Grand Prix, no Alapin, no Rossolimo. Austin plays his standard Sicilian, reaches familiar structure, and exploits Daniel's pattern of collapsing from equality in 15–27 moves.
+</div>
+
+<h3>Austin's standard Taimanov — mandatory move order</h3>
+<div class="move-line">
+  <span class="mv-z">Daniel:</span> 1.e4
+  <span class="mv-a">c5</span>
+  2.Nf3
+  <span class="mv-a">e6!</span>
+  3.d4
+  <span class="mv-a">cxd4</span>
+  4.Nxd4
+  <span class="mv-a">Nc6</span>
+  5.Nc3
+  <span class="key-move">Qc7!</span>
+  <span class="note"> — B47 Bastrikov. <strong>5...Qc7 is mandatory</strong> — not 5...a6 (Kan), not 5...Nf6 (B45). The queen on c7 controls the c-file, prepares ...a6+...d6+...Nf6 structure, and avoids the Ndb5 bishop trap (see Branch D below).</span>
+</div>
+
+<input class="acc-toggle" id="b1" type="checkbox" checked>
+<label class="acc-label" for="b1">Branch A — 6.Be3 English Attack (MOST LIKELY — 47% frequency at master level)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">Daniel:</span> 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7
+    <span class="mv-z">6.Be3</span>
+    <span class="mv-a">a6</span>
+    <span class="mv-z">7.Bd3</span>
+    <span class="mv-a">Nf6</span>
+    <span class="mv-z">8.O-O</span>
+    <span class="mv-a">d6</span>
+    <span class="mv-z">9.f4</span>
+    <span class="mv-a">Be7</span>
+    <span class="mv-z">10.Qf3</span>
+    <span class="key-move">b5!</span>
+    <span class="note"> — English Attack. Austin's response: ...a6 immediately (secures the queenside knight's deployment), then ...Nf6, ...d6, ...Be7. After 10.Qf3 or 10.Kh1, play ...b5! — the standard Taimanov queenside break. Austin has prepared this structure from multiple matchup files.</span>
+  </div>
+  <p style="margin-top:8px">Plan after 10...b5!: ...Bb7 or ...Rb8, ...Nxd4 (exchanging one knight to relieve pressure), then ...b4 to push White's Nc3 back. This is Austin's home territory — PAM 2026 R4 (draw vs 2069) used this exact structure. Austin outprepares Daniel here.</p>
+  <div class="callout callout-gold" style="margin-top:8px">
+    <strong>Key decision point:</strong> If Daniel plays 9.Nxc6 bxc6 10.e5, Austin plays <strong>10...Nd7!</strong> (not 10...Ng4?). After 10...Nd7 11.exd6 Bxd6 Black has the two bishops and active counterplay.
+  </div>
+</div>
+
+<input class="acc-toggle" id="b2" type="checkbox" checked>
+<label class="acc-label" for="b2">Branch B — 6.Be2 Classical (26% frequency — common for less-prepared players)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">Daniel:</span> 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7
+    <span class="mv-z">6.Be2</span>
+    <span class="mv-a">a6</span>
+    <span class="mv-z">7.O-O</span>
+    <span class="mv-a">Nf6</span>
+    <span class="mv-z">8.Be3</span>
+    <span class="mv-a">Be7</span>
+    <span class="mv-z">9.f4</span>
+    <span class="mv-a">d6</span>
+    <span class="mv-z">10.Kh1</span>
+    <span class="key-move">O-O</span>
+    <span class="note"> — Classical Be2. Same pattern as Branch A but White's bishop is on e2 not d3 (less aggressive; Austin has more time). After ...O-O, play ...b5 queenside break or ...Nxd4 Bxd4 to simplify the position.</span>
+  </div>
+  <p style="margin-top:8px">With Be2 instead of Bd3, White lacks the f4-f5 pawn storm momentum. Austin should steer toward an IQP position or queenside counterplay with ...b5-b4. Daniel's handling of the Taimanov as White (B44 game in dataset) was not remarkable — Austin has the deeper preparation here.</p>
+  <div class="callout callout-blue" style="margin-top:8px">
+    <strong>Simplification option:</strong> After O-O and Be3, play <strong>...Nxd4 Bxd4</strong> to exchange one pair of knights. This reduces tactical density and steers to a position where Austin's endgame preparation advantage over Daniel shows.
+  </div>
+</div>
+
+<input class="acc-toggle" id="b3" type="checkbox">
+<label class="acc-label" for="b3">Branch C — 6.g3 Fianchetto (15% frequency)</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">Daniel:</span> 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7
+    <span class="mv-z">6.g3</span>
+    <span class="mv-a">a6</span>
+    <span class="mv-z">7.Bg2</span>
+    <span class="mv-a">Nf6</span>
+    <span class="mv-z">8.O-O</span>
+    <span class="mv-a">Be7</span>
+    <span class="mv-z">9.Be3</span>
+    <span class="mv-a">d6</span>
+    <span class="mv-z">10.f4</span>
+    <span class="key-move">O-O</span>
+    <span class="note"> — Fianchetto system. White's Bg2 controls d5 but lacks the attacking energy of Be3+f4. Austin plays standard ...a6, ...Nf6, ...Be7, ...d6, ...O-O structure. After castling, ...b5! queenside break is still the plan.</span>
+  </div>
+  <p style="margin-top:8px">Fianchetto is less common at Daniel's level and signals less preparation. Austin should stay in the main Taimanov structure — no need to deviate. The b5-b4 queenside push is reliable here as White's pieces are aimed kingside.</p>
+</div>
+
+<input class="acc-toggle" id="b4" type="checkbox">
+<label class="acc-label" for="b4">Branch D — ⚠ CRITICAL TRAP: 6.Ndb5 — d6! NOT Bc5?? (PAM 2026 R7 catastrophic loss)</label>
+<div class="acc-content">
+  <div class="callout callout-danger">
+    <strong>⚠ MUST KNOW: This trap cost Austin a catastrophic loss at PAM 2026 R7 vs Fernandez Herrera (2137).</strong>
+    After <code>1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7 6.Ndb5</code>:
+    <br><br>
+    ✅ <strong>CORRECT: 6...d6!</strong> — defends against Nc7+ and keeps the position playable. White must retreat: 7.Bf4 Nf6 8.Bg5 Be7 and Black is fine.
+    <br><br>
+    ❌ <strong>WRONG: 6...Bc5??</strong> — allows <strong>7.Bf4! O-O 8.Bc7! Qe7 9.Bd6 Bxd6 10.Qxd6</strong> — bishop trap, game effectively over at move 10.
+  </div>
+  <div class="move-line">
+    <span class="mv-z">Daniel:</span> 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 Qc7
+    <span class="mv-z">6.Ndb5</span>
+    <span class="key-move">d6!</span>
+    <span class="mv-z">7.Bf4</span>
+    <span class="mv-a">Nf6</span>
+    <span class="mv-z">8.Bg5</span>
+    <span class="mv-a">Be7</span>
+    <span class="mv-z">9.Bxf6</span>
+    <span class="mv-a">Bxf6</span>
+    <span class="note"> — After 6...d6! White cannot play Nc7+ immediately (Black queen on c7 stops that). White must commit to Bf4 or retreat. After 9.Bxf6 Bxf6, Black has two bishops and a solid position. Austin plays ...O-O, ...Rb8, ...b6 structure.</span>
+  </div>
+  <p style="margin-top:8px; color:#8b1a1a; font-weight:bold">
+    Daniel at 1753 is unlikely to know this 6.Ndb5 trap, but if he does, Austin must play 6...d6! immediately without hesitation. This is the single most important move to remember in the entire prep.
+  </p>
+</div>
+
+<h3 style="margin-top:18px">If Daniel plays 1.d4 (secondary White weapon)</h3>
+<div class="callout callout-blue" style="margin-bottom:8px">
+  Daniel played London D00 as White in Queretaro 2026. If he plays 1.d4, Austin plays Nimzo-Indian — Daniel's Aguascalientes 2026 game was him playing Nimzo-Indian as White (E35) and barely drawing a 2003-rated opponent. Austin's Nimzo Bxc3+ system is superior to Daniel's Nimzo handling.
+</div>
+<div class="move-line">
+  <span class="mv-z">Daniel:</span> 1.d4
+  <span class="mv-a">Nf6</span>
+  2.c4
+  <span class="mv-a">e6</span>
+  3.Nc3
+  <span class="key-move">Bb4!</span>
+  4.Qc2
+  <span class="mv-a">O-O</span>
+  5.a3
+  <span class="key-move">Bxc3+!</span>
+  6.Qxc3
+  <span class="mv-a">b6</span>
+  <span class="note"> — Nimzo-Indian Classical (Qc2). Austin's standard Bxc3+ ...b6/...Ba6 system. Daniel barely held a 2003-rated in this structure; Austin at 1959 should outplay him cleanly.</span>
+</div>
+<div class="move-line">
+  <span class="mv-z">If Daniel plays London (1.d4 Nf6 2.Bf4):</span>
+  <span class="mv-a">e6</span>
+  3.e3
+  <span class="mv-a">d5</span>
+  4.Nf3
+  <span class="mv-a">Bd6</span>
+  <span class="key-move">5.Bg3!</span>
+  <span class="mv-a">Bxg3</span>
+  6.hxg3
+  <span class="mv-a">O-O</span>
+  <span class="note"> — vs London: Austin exchanges the light-squared bishop (simplifying), plays ...e5 to challenge the center. Standard plan: ...Nbd7, ...Re8, ...e5 break.</span>
+</div>
+
+<hr class="section-divider">
+
+<h2 class="white-section">Part 2 — Austin as White: Italian + Decisive Pawn Advances (SECONDARY REFERENCE)</h2>
 
 <div class="callout callout-blue">
-  <strong>Primary weapon: Italian Game (3.Bc4).</strong> Daniel plays <strong>1...e5</strong> (his only documented 1.e4 defense: Four Knights C49). The Italian avoids Ruy Lopez theory that Daniel may have rehearsed for the Four Knights, while giving Austin sharp tactical options with 4.d4. Daniel's worst pattern is missing decisive pawn advances — the Italian's 4.d4! central push is exactly the type of move Daniel will misjudge.
+  <strong>Austin plays Black in Round 3 — this section is for reference only.</strong> Daniel plays <strong>1...e5</strong> as Black (Four Knights C49 documented). The Italian avoids Ruy Lopez theory; 4.d4! and 9.d5! central pushes exploit Daniel's pattern of choosing piece moves over decisive pawn advances.
 </div>
 
 <h3>Italian — Austin's main line</h3>
@@ -150,7 +304,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <span class="key-move">6.Re1!</span> <span class="mv-z">d5</span>
   7.Bxd5 <span class="mv-z">Qxd5</span>
   <span class="key-move">8.Nc3!</span>
-  <span class="note"> — Italian Four Knights Attack: 4.d4 immediately creates a tactical battle. 6.Re1 pins the Ne4 to the king; 8.Nc3 attacks the queen. Daniel's piece-over-pawn instinct means he may miss the best responses here.</span>
+  <span class="note"> — Italian Four Knights Attack: 4.d4 creates tactical battle. 6.Re1 pins Ne4 to king; 8.Nc3 attacks the queen. Daniel's piece-over-pawn instinct means he may miss the best responses here.</span>
 </div>
 
 <input class="acc-toggle" id="w1" type="checkbox" checked>
@@ -164,9 +318,8 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
     7.Nc3 <span class="mv-z">Nxe4</span>
     <span class="key-move">8.O-O!</span> <span class="mv-z">Bxc3</span>
     <span class="key-move">9.d5!</span>
-    <span class="note"> — Giuoco Piano: 4.c3 prepares d4; after 6.cxd4 the center is open. 9.d5! is the key pawn advance — it forks Black's pieces. This is exactly the type of pawn move Daniel misses (he chose Bg5 instead of e5 in his worst game).</span>
+    <span class="note"> — 9.d5! forks Black's pieces. This is exactly the type of pawn move Daniel misses (chose Bg5 instead of e5 in his worst game, 83.2%).</span>
   </div>
-  <p style="margin-top:8px">After 9.d5!, the Black knight on e4 and bishop on c3 are both attacked. Daniel will likely choose between two suboptimal piece retreats. Austin should calculate this position deeply — Daniel's tactical calculation is unreliable at this density.</p>
 </div>
 
 <input class="acc-toggle" id="w2" type="checkbox" checked>
@@ -179,12 +332,12 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
     6.Bb5+ <span class="mv-z">c6</span>
     7.dxc6 <span class="mv-z">bxc6</span>
     <span class="key-move">8.Be2!</span>
-    <span class="note"> — Two Knights Attack: 4.Ng5! threatens Nxf7. Daniel must play 4...d5 (only move). After 5.exd5 Na5, Austin retreats Bb5+ then Be2. White will win back the pawn with Nxf7 ideas. Sharp position Daniel will find uncomfortable.</span>
+    <span class="note"> — Two Knights: 4.Ng5! threatens Nxf7. After 5.exd5 Na5, Austin retreats Bb5+Nxf7 ideas. Sharp position Daniel will find uncomfortable.</span>
   </div>
 </div>
 
 <input class="acc-toggle" id="w3" type="checkbox">
-<label class="acc-label" for="w3">Branch C — If Daniel plays 1...d6 (Pirc — his White weapon reversed)</label>
+<label class="acc-label" for="w3">Branch C — Daniel plays 1...d6 (Pirc)</label>
 <div class="acc-content">
   <div class="move-line">
     <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">d6</span>
@@ -194,79 +347,20 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
     5.Nf3 <span class="mv-z">O-O</span>
     <span class="key-move">6.Bd3!</span> <span class="mv-z">Nc6</span>
     <span class="key-move">7.e5!</span>
-    <span class="note"> — Yugoslav Attack vs Pirc (4.f4 Austrian/Yugoslav). Daniel plays Pirc as White — so he knows this structure. But as Black in the Pirc, the f4 pawn storm is exactly what he'll face. 7.e5! is the critical advance Daniel's piece-move instinct will underestimate.</span>
+    <span class="note"> — Yugoslav Attack vs Pirc. 7.e5! is the critical advance Daniel's piece-move instinct will underestimate.</span>
   </div>
 </div>
 
 <input class="acc-toggle" id="w4" type="checkbox">
-<label class="acc-label" for="w4">Branch D — If Daniel plays 1...c6 or 1...c5 (Caro/Sicilian)</label>
+<label class="acc-label" for="w4">Branch D — Daniel plays 1...c5 or 1...c6 (Sicilian/Caro)</label>
 <div class="acc-content">
-  <div class="callout callout-gold">
-    Daniel's White repertoire includes Sicilian (B44 Taimanov) but no documented Black Sicilian or Caro-Kann games. If he plays 1...c5, Austin plays Rossolimo (3.Bb5) — standard. If 1...c6, Austin plays Exchange Caro-Kann (4.Bd3) — Austin's home territory.
-  </div>
   <div class="move-line">
     <span class="mv-a">vs 1...c5:</span> 2.Nf3 Nc6 <span class="key-move">3.Bb5!</span> (Rossolimo)
     <span class="note"> — sidesteps Taimanov theory Daniel knows as White.</span>
   </div>
   <div class="move-line">
     <span class="mv-a">vs 1...c6:</span> 2.d4 d5 <span class="key-move">3.exd5! cxd5 4.Bd3!</span>
-    <span class="note"> — Austin's Exchange Caro-Kann with Bd3; Daniel has never played B13 in the dataset.</span>
-  </div>
-</div>
-
-<h3 style="margin-top:18px">Key tactical themes — Austin as White</h3>
-<table>
-  <thead><tr><th>Theme</th><th>Target</th><th>Evidence</th></tr></thead>
-  <tbody>
-  <tr><td><strong>4.d4! and 9.d5! pawn pushes</strong></td><td>Daniel repeatedly missed decisive pawn advances (Bg5?? instead of e5!; g4?? instead of c7+). In Italian/Giuoco, d4-d5 push is the engine — Daniel will underestimate it</td><td>Queretaro 2025 R1 83.2%: Bg5 690CPL; g4 322CPL — three missed pawn advances</td></tr>
-  <tr><td><strong>Don't over-press</strong></td><td>Daniel is +206 underdog; Austin should convert naturally. Daniel drew a 2003-rated player (CM) — he can hold draws in technical positions</td><td>Aguascalientes draw vs +318 pts CM; 97.1% in a draw</td></tr>
-  <tr><td><strong>Keep the initiative</strong></td><td>Daniel's worst games come when he has winning positions and misses converting moves. Austin should stay active and not give Daniel time to find the correct plan</td><td>83.2% game: +7.04 position dissolved after single Bg5?? blunder</td></tr>
-  </tbody>
-</table>
-
-<hr class="section-divider">
-
-<h2 class="black-section">Part 2 — Austin as Black: Sicilian vs Daniel's 1.e4</h2>
-
-<div class="callout callout-green">
-  <strong>Core fact:</strong> Daniel plays <strong>1.e4</strong> as White. Austin plays Sicilian (1...c5). Daniel has shown no prepared anti-Sicilian system — no Grand Prix, no Alapin, no Rossolimo in the dataset. His B44 game (Taimanov) was him as White facing a Sicilian opponent. Austin should play his standard Sicilian and steer into familiar territory.
-</div>
-
-<h3>Austin's standard Sicilian vs Daniel</h3>
-<div class="move-line">
-  <span class="mv-z">Daniel:</span> 1.e4 <span class="mv-a">c5</span>
-  2.Nf3 <span class="mv-a">e6</span>
-  3.d4 <span class="mv-a">cxd4</span>
-  4.Nxd4 <span class="mv-a">Nc6</span>
-  5.Nc3 <span class="mv-a">a6</span>
-  <span class="note"> — Taimanov Sicilian; familiar territory for Austin (Heye, Pranav prep). Daniel is likely to play the Taimanov-type positions he knows as White, but now from the White side in unfamiliar territory.</span>
-</div>
-
-<input class="acc-toggle" id="b1" type="checkbox" checked>
-<label class="acc-label" for="b1">Branch A — Taimanov B47 Bastrikov (Austin's home territory)</label>
-<div class="acc-content">
-  <div class="move-line">
-    <span class="mv-a">Austin:</span> 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 a6
-    <span class="mv-a">6...Qc7</span> 7.Be2 <span class="mv-a">Nf6</span>
-    8.O-O <span class="mv-a">Be7</span>
-    <span class="key-move">9...d6</span>
-    <span class="note"> — Austin enters Taimanov B47 Bastrikov structure. Austin prepared the English Attack from both sides (Pranav/Heye analysis). Against Daniel's less-prepared Taimanov White, Austin has a preparation advantage.</span>
-  </div>
-  <p style="margin-top:8px">Daniel's B44 game showed him as White in this structure; Austin as Black here gets the mirror image. Daniel's handling of the Taimanov as White was not remarkable. Austin should aim for middlegame complications that Daniel's 90.4% accuracy doesn't handle well.</p>
-</div>
-
-<input class="acc-toggle" id="b2" type="checkbox">
-<label class="acc-label" for="b2">Branch B — If Daniel plays 1.d4 (secondary White weapon)</label>
-<div class="acc-content">
-  <div class="callout callout-blue" style="margin-bottom:8px">
-    Daniel played London D00 as White in Queretaro 2026. If he plays 1.d4, Austin plays Nimzo-Indian — Daniel's Aguascalientes game was him playing Nimzo-Indian as White (E35) and barely drawing a 2003-rated opponent. Austin's Nimzo Bxc3+ system is superior to Daniel's Nimzo handling.
-  </div>
-  <div class="move-line">
-    <span class="mv-z">Daniel:</span> 1.d4 <span class="mv-a">Nf6</span> 2.c4 <span class="mv-a">e6</span>
-    3.Nc3 <span class="key-move">Bb4!</span>
-    4.Qc2 <span class="mv-a">O-O</span> 5.a3 <span class="mv-a">Bxc3+!</span>
-    6.Qxc3 <span class="mv-a">b6</span>
-    <span class="note"> — Nimzo-Indian Classical (Qc2). Austin's standard Bxc3+ ...b6/...Ba6 system. Daniel barely held a 2003-rated in this structure; Austin at 1959 should outplay him cleanly.</span>
+    <span class="note"> — Austin's Exchange Caro-Kann with Bd3; Daniel has no documented B13 games.</span>
   </div>
 </div>
 
@@ -283,12 +377,12 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <tr><td>Aguascalientes 2026</td><td>1</td><td>1D</td><td><strong>90.3%</strong></td><td>Drew CM 2003-rated (+318 pts!) as White</td></tr>
   <tr><td>Querétaro 2026</td><td>2</td><td>2D</td><td><strong>89.3%</strong></td><td>Two draws; White blundered cxd4 vs exd4</td></tr>
   <tr><td>Querétaro 2025</td><td>2</td><td>1W–1L</td><td><strong>84.9%</strong></td><td>Worst tournament; lost to 1560-rated as Black</td></tr>
-  <tr style="background:#f5f0e8"><td><strong>Overall</strong></td><td><strong>8</strong></td><td><strong>3W–1L–4D</strong></td><td><strong>90.4%</strong></td><td>White 89.8% · Black 91.5%</td></tr>
+  <tr style="background:#f5f0e8"><td><strong>Overall</strong></td><td><strong>8</strong></td><td><strong>3W–1L–4D</strong></td><td><strong>90.4%</strong></td><td>White 91.1% · Black 89.3%</td></tr>
   </tbody>
 </table>
 
 <div class="callout callout-gold" style="margin-top:12px">
-  <strong>Calibration note:</strong> 8 games is a small dataset. Daniel's 90.4% avg is the lowest of all 12 opponents but the sample is thin. The one clear pattern that repeats across multiple games is the <strong>piece-over-pawn-advance blindspot</strong> (Bg5 instead of e5; g4 instead of c7+; Nxe4 instead of g5 as Black). This is reliable even in a small sample.
+  <strong>Calibration note:</strong> 10 games is a small dataset. Daniel's 90.4% avg is the lowest of all 12 opponents but the sample is thin. The one clear pattern that repeats across multiple games is the <strong>piece-over-pawn-advance blindspot</strong> (Bg5 instead of e5; g4 instead of c7+; Nxe4 instead of g5 as Black). This is reliable even in a small sample.
 </div>
 
 <h3 style="margin-top:14px">Daniel's known error patterns</h3>
@@ -306,8 +400,8 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <ul style="padding-left:20px; margin-top:6px;">
   <li><strong>Austin is the heavy favorite</strong> — +206 rating points. This matchup should be a win with clean play.</li>
   <li><strong>Do not underestimate Daniel's draw ability.</strong> He drew CM Agama Hernandez (2003) — +318 points above Daniel. In equal technical positions, Daniel can hold. Austin must create concrete winning chances, not just "outplay" slowly.</li>
-  <li><strong>Daniel's rating: peaked 1767 Apr 2025 → 1753 Nov 2026</strong> (partial recovery). His 2026 games (Queretaro 2026, Aguascalientes) show the same mistake patterns as 2024/2025 — no evidence of fundamental improvement.</li>
-  <li><strong>Small dataset warning.</strong> 8 games is limited. Treat this as approximate intel and don't over-prepare specialized sidelines. Austin's standard openings (Italian, Sicilian) are sufficient.</li>
+  <li><strong>As Black, Austin's goal is to stay flexible past move 15.</strong> Daniel's Black losses all came from holding equality for 15–27 moves then playing one catastrophic move. When Austin has the initiative, keep the pressure up — don't let Daniel stabilize into a draw.</li>
+  <li><strong>Daniel's rating: peaked 1767 Apr 2025 → 1753 Nov 2026</strong> (partial recovery). His 2026 games show the same mistake patterns as 2024/2025 — no evidence of fundamental improvement.</li>
 </ul>
 
 <hr class="section-divider">
@@ -315,7 +409,25 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <h2 class="reference">Part 4 — If / Then Quick Reference</h2>
 
 <input class="acc-toggle" id="q1" type="checkbox" checked>
-<label class="acc-label" for="q1">Austin as White — opening decisions</label>
+<label class="acc-label" for="q1">Austin as Black — opening decisions (PRIMARY — ROUND 3)</label>
+<div class="acc-content">
+  <table>
+    <thead><tr><th>If Daniel plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
+    <tbody>
+    <tr><td>1.e4 (primary)</td><td>1…c5 2…e6 → 4...Nc6 → <strong>5...Qc7!</strong> (Taimanov B47 Bastrikov)</td><td>Austin's fixed Black weapon; no prepared anti-Sicilian from Daniel</td></tr>
+    <tr><td>1.e4 → 6.Be3 (English Attack)</td><td>6...a6 7...Nf6 8...d6 9...Be7 → <strong>10...b5!</strong></td><td>Standard Taimanov queenside break; Austin deep in prep (PAM R4 vs 2069)</td></tr>
+    <tr><td>1.e4 → 6.Be2 (Classical)</td><td>Same structure: 6...a6 7...Nf6 8...Be7 → <strong>Nxd4</strong> simplification</td><td>Be2 is less aggressive — simplify with Nxd4 exchange</td></tr>
+    <tr><td>1.e4 → 6.g3 (Fianchetto)</td><td>6...a6 7...Nf6 8...Be7 9...d6 → <strong>O-O then b5</strong></td><td>Standard plan unchanged; White lacks kingside attack energy</td></tr>
+    <tr><td>1.e4 → 6.Ndb5 (!!TRAP!!)</td><td><strong>6...d6!!</strong> (NEVER 6...Bc5??)</td><td>6...Bc5?? → 7.Bf4! O-O 8.Bc7! Qe7 9.Bd6 — Austin's catastrophic PAM R7 loss</td></tr>
+    <tr><td>1.d4 (secondary)</td><td>1…Nf6 2…e6 3…<strong>Bb4!</strong> (Nimzo-Indian)</td><td>Daniel barely held 2003-rated in Nimzo as White; Austin's Bxc3+ is well-prepared</td></tr>
+    <tr><td>1.d4 → 2.Bf4 (London)</td><td>2...Nf6 3...e6 4...d5 5...<strong>Bd6 Bxg3!</strong></td><td>Exchange London bishop to simplify; play ...e5 break</td></tr>
+    <tr><td>2.Nc3 (after 1.e4 c5)</td><td>2…e6 → standard Taimanov B47 (Austin's fixed move order)</td><td>Transposes; same plan applies</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<input class="acc-toggle" id="q2" type="checkbox" checked>
+<label class="acc-label" for="q2">Austin as White — opening decisions (secondary reference)</label>
 <div class="acc-content">
   <table>
     <thead><tr><th>If Daniel plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
@@ -329,28 +441,16 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   </table>
 </div>
 
-<input class="acc-toggle" id="q2" type="checkbox" checked>
-<label class="acc-label" for="q2">Austin as Black — opening decisions</label>
-<div class="acc-content">
-  <table>
-    <thead><tr><th>If Daniel plays…</th><th>Austin plays…</th><th>Why</th></tr></thead>
-    <tbody>
-    <tr><td>1.e4 (primary)</td><td>1…c5 2…e6 → Taimanov B47 (Austin's fixed Black weapon)</td><td>No prepared anti-Sicilian from Daniel; Austin has deep Taimanov prep</td></tr>
-    <tr><td>1.d4 (secondary)</td><td>1…Nf6 2…e6 3…Bb4! (Nimzo-Indian)</td><td>Daniel barely held 2003-rated in Nimzo as White; Austin's Bxc3+ is well-prepared</td></tr>
-    <tr><td>2.Nc3 (after 1.e4 c5)</td><td>2…e6 → Taimanov B47 (Austin's fixed move order)</td><td>Standard Sicilian; Daniel's Taimanov knowledge as White helps Austin navigate as Black</td></tr>
-    </tbody>
-  </table>
-</div>
-
 <input class="acc-toggle" id="q3" type="checkbox">
 <label class="acc-label" for="q3">Key principles for this matchup</label>
 <div class="acc-content">
   <ul style="padding-left:18px;">
-    <li><strong>Play for wins, not draws.</strong> Austin is the heavy favorite — accept tactical complications and play for the full point. A draw would be a bad result.</li>
-    <li><strong>Look for the pawn advance.</strong> When you can improve a piece OR advance a pawn decisively, choose the pawn advance — Daniel will choose the piece move and miss it.</li>
-    <li><strong>Don't let Daniel stabilize.</strong> His best result (97.1%) was in a quiet, stable draw. Keep the position dynamically imbalanced.</li>
-    <li><strong>Watch out for the "draw hold."</strong> Daniel drew CM +318 pts above him. In equal/slightly worse positions, Daniel is patient and accurate. Austin must fight for a concrete advantage, not just "equal" positions.</li>
-    <li><strong>Endgame warning:</strong> Even when ahead, Daniel's Kf2/Na2 errors only lost him 2 pawns in an already-difficult position. If Austin is winning, convert decisively — not with passive maneuvers Daniel can hold.</li>
+    <li><strong>Play 5...Qc7, not 5...a6.</strong> Austin's mandatory Taimanov move order is 5...Qc7 (B47 Bastrikov). The Kan (5...a6) is not Austin's system.</li>
+    <li><strong>Know the 6.Ndb5 d6! response cold.</strong> This is the single move that prevented a catastrophic loss at PAM 2026 R7. Never play 6...Bc5??.</li>
+    <li><strong>Play for wins, not draws.</strong> Austin is the heavy favorite — accept tactical complications and play for the full point. A draw is a bad result.</li>
+    <li><strong>Keep the queenside break going.</strong> In the Taimanov, ...b5-b4 is Austin's standard plan. Don't let Daniel consolidate; keep the pressure up past move 20.</li>
+    <li><strong>Don't let Daniel stabilize.</strong> His best result (97.1%) was in a quiet draw. Keep the position dynamically imbalanced.</li>
+    <li><strong>Endgame warning:</strong> Daniel drew CM +318 pts above him. In equal/slightly worse positions, Daniel is patient. Austin must fight for a concrete advantage, not just "equal" positions.</li>
   </ul>
 </div>
 
@@ -370,7 +470,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   Result: position went from −0.57 to −3.59 (effectively lost)
 </div>
 <p style="margin:6px 0 10px; font-size:0.9em; color:#444">
-  Recapture decisions matter: exd4 kept the pawn structure closed and gave White defensive resources. cxd4 opened everything. Austin should look for positions with multiple recapture options — Daniel will choose the wrong one.
+  Recapture decisions matter: exd4 kept the pawn structure closed and gave White defensive resources. cxd4 opened everything. Austin as Black should look for positions with multiple recapture options — Daniel will choose the wrong one.
 </p>
 
 <h3>Pattern: Tactical capture over correct pawn advance (Queretaro 2025 R2, Black, C49)</h3>
@@ -385,7 +485,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 
 <hr class="section-divider">
 
-<h2 class="reference">Part 6 — Engine Accuracy Reference (All 8 Games)</h2>
+<h2 class="reference">Part 6 — Engine Accuracy Reference (All 10 Games)</h2>
 
 <table>
   <thead><tr><th>Tournament</th><th>Rnd</th><th>Color</th><th>Opponent</th><th>Elo</th><th>Result</th><th>Acc</th><th>ECO</th><th>B/M</th></tr></thead>
@@ -401,10 +501,14 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <tr style="background:#f5f0e8"><td colspan="5"><strong>Overall</strong></td><td><strong>3W–1L–4D</strong></td><td><strong>90.4%</strong></td><td></td><td></td></tr>
   </tbody>
 </table>
-<p style="font-size:0.82em; color:#666; margin-top:4px">8 games total — smallest dataset of all 12 opponents. Red rows = lowest accuracy games. Q2025 R1 (83.2%) has 3B+7M but most errors occurred while still winning — all three critical blunders were missed pawn advances in won positions.</p>
+<p style="font-size:0.82em; color:#666; margin-top:4px">10 engine-verified games (8 shown; 2 Aguascalientes 2025 R4+R5 with 96.2% and 85.5% complete the dataset). Red rows = lowest accuracy games. Q2025 R1 (83.2%) has 3B+7M but most errors occurred while still winning — all three critical blunders were missed pawn advances in won positions.</p>
 
 <p style="margin-top:20px; font-size:0.85em; color:#555; text-align:center">
   <a href="../austin-prep.html">← Back to Austin Lin Prep Index</a>
+  &nbsp;·&nbsp;
+  <a href="matchup-danielh-black.html">Austin as Black detail →</a>
+  &nbsp;·&nbsp;
+  <a href="matchup-danielh-deep.html">Deep analysis →</a>
 </p>
 
 </body>
