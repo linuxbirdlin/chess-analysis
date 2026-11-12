@@ -137,10 +137,10 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 
 <hr class="section-divider">
 
-<h2 class="white-section">Part 1 — Austin as White: Rossolimo/Moscow vs Sicilian, Italian vs 1...e5</h2>
+<h2 class="white-section">Part 1 — Austin as White: Rossolimo (2...Nc6) · Adams Attack h3 (Najdorf) · Italian (1...e5)</h2>
 
 <div class="callout callout-blue">
-  <strong>The core challenge:</strong> Marco plays Sicilian 1...c5 2...Nc6 as Black — directly entering <strong>Austin's Rossolimo 3.Bb5</strong> weapon. His best games as Black (G9/G10, both 97%+) show he is fully comfortable in Sicilian counterplay, so Austin must not play for a closed positional squeeze. Instead: <strong>Exchange Rossolimo (4.Bxc6+ bxc6)</strong> to open the c-file, saddle Marco with doubled c-pawns, and generate a kingside attack. Marco won his two Exchange CK games as White, so he understands the structure — but as Black he has never faced it, and his conversion weakness emerges in complex piece activity games past move 25.
+  <strong>The core challenge:</strong> Marco plays Sicilian 1...c5 as Black. When he plays 2...Nc6 → <strong>Rossolimo 3.Bb5 (Branch A)</strong>; when he plays 2...d6 Najdorf structure → <strong>Adams Attack 6.h3 (Branch B)</strong>. His best games as Black (G9/G10, both 97%+) show he is comfortable in pure Sicilian counterplay, so Austin must generate kingside complexity rather than passive positional play. For Branch A: <strong>Exchange Rossolimo (4.Bxc6+ bxc6)</strong> saddles doubled c-pawns and forces a complex structure. For Branch B: <strong>6.h3! → 7.g4</strong> (vs 6...e6) or <strong>7.Nb3 Be3 f4</strong> (vs 6...e5) — both Najdorf losses in Marco's dataset came from sharp middlegames exactly like this.
 </div>
 
 <h3>Branch A — Rossolimo (1...c5 2...Nc6, most likely)</h3>
@@ -161,22 +161,46 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <p style="margin-top:8px; font-size:0.9em;">After 4.Bxc6+ bxc6, Marco has doubled c-pawns and a half-open d-file. Austin's plan: castle queenside or keep the king flexible, deploy Be3–Qd2, and launch h4-h5 on the kingside. Marco's G7 Kd3 endgame pattern shows he navigates king-side piece activity poorly once pieces become active. The position should not simplify to a pure K+R ending — keep at least one minor piece on the board to exploit his conversion weakness.</p>
 </div>
 
-<h3>Branch B — Moscow 3.Bb5+ (if Marco plays 2...d6 or 2...Nf6)</h3>
+<h3>Branch B — Adams Attack 6.h3 (if Marco plays 2...d6, Najdorf structure)</h3>
 <input type="checkbox" id="a2" class="acc-toggle" checked>
-<label for="a2" class="acc-label">Branch B: Moscow Variation 3.Bb5+ — position disruption</label>
+<label for="a2" class="acc-label">Branch B: Adams Attack 6.h3 — Najdorf B90, keeps Nb3 flexible</label>
 <div class="acc-content">
+<div class="callout callout-blue">
+  <strong>Why h3 and not 3.Bb5+ Moscow?</strong> Austin does not play the Moscow Variation. When Marco plays 2...d6 (without 2...Nc6), Austin enters the Open Sicilian and plays the <strong>Adams Attack (B90)</strong>: 1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 <strong>6.h3!</strong> — preventing ...Bg4 (which would pin Nf3 or give Black active play), keeping the full range of responses flexible. <strong>Lichess masters: 11,255 games at this tabiya, avg 2390 Elo — Caruana, Anand, Carlsen all use 6.h3.</strong>
+</div>
+<p style="font-weight:bold; margin: 8px 0 4px; font-size:0.9em;">Line A (most common — 6...e5, 6406 masters games)</p>
 <div class="move-line">
   <span class="mv-a">1.e4</span> <span class="mv-z">c5</span>
   <span class="mv-a">2.Nf3</span> <span class="mv-z">d6</span>
-  <span class="mv-a"><span class="key-move">3.Bb5+</span></span> <span class="mv-z">Bd7</span>
-  <span class="mv-a">4.Bxd7+</span> <span class="mv-z">Qxd7</span>
-  <span class="mv-a">5.c4</span> <span class="mv-z">Nc6</span>
-  <span class="mv-a">6.Nc3</span> <span class="mv-z">g6</span>
-  <span class="mv-a">7.d4</span> <span class="mv-z">cxd4</span>
-  <span class="mv-a">8.Nxd4</span>
-  <span class="note">— Maróczy Bind structure; Austin studied this vs Sean Liu (B41)</span>
+  <span class="mv-a">3.d4</span> <span class="mv-z">cxd4</span>
+  <span class="mv-a">4.Nxd4</span> <span class="mv-z">Nf6</span>
+  <span class="mv-a">5.Nc3</span> <span class="mv-z">a6</span>
+  <span class="mv-a"><span class="key-move">6.h3!</span></span> <span class="mv-z">e5</span>
+  <span class="mv-a">7.Nb3</span> <span class="mv-z">Be6</span>
+  <span class="mv-a">8.Be2</span> <span class="mv-z">Be7</span>
+  <span class="mv-a">9.Be3</span> <span class="mv-z">Nbd7</span>
+  <span class="mv-a">10.0-0</span>
+  <span class="note">— plan: f4 to challenge e5, or queenside castle for attacking play [Lichess masters verified]</span>
 </div>
-<p style="margin-top:8px; font-size:0.9em;">If Marco plays 2...d6 (his Najdorf structure from G4/G16 as Black), Austin plays Moscow 3.Bb5+ forcing the bishop trade. After 4.Bxd7+, Black's queen is displaced. The resulting Maróczy Bind (c4+d4) restricts Marco's fianchetto Bg7 and clamps the queenside. Marco lost G4 (Sicilian Najdorf, 81.7%) — this structure should feel uncomfortable. Austin's B41 study gives opening confidence here.</p>
+<p style="margin-top:6px; font-size:0.9em;">After 7.Nb3 the d4-knight retreats cleanly. Black plays ...Be6 (most common, 1209 masters games) or ...Be7 (700 games) — both give a rich positional middlegame. Austin's plan: 10.0-0 then Re1, f4 to challenge e5, keeping pieces on the board past move 25 where Marco's conversion breakdown activates. The h3 pawn serves as a kingside anchor — Black cannot play ...Ng4 or ...Bg4 at any point in the game.</p>
+<p style="font-weight:bold; margin: 10px 0 4px; font-size:0.9em;">Line B (Scheveningen tendency — 6...e6, 3691 masters games)</p>
+<div class="move-line">
+  <span class="mv-a">1.e4</span> <span class="mv-z">c5</span>
+  <span class="mv-a">2.Nf3</span> <span class="mv-z">d6</span>
+  <span class="mv-a">3.d4</span> <span class="mv-z">cxd4</span>
+  <span class="mv-a">4.Nxd4</span> <span class="mv-z">Nf6</span>
+  <span class="mv-a">5.Nc3</span> <span class="mv-z">a6</span>
+  <span class="mv-a"><span class="key-move">6.h3!</span></span> <span class="mv-z">e6</span>
+  <span class="mv-a"><span class="key-move">7.g4!</span></span>
+  <span class="note">— immediate kingside storm; Caruana vs Kasparov (2016) used this exact continuation [Lichess masters verified]</span>
+</div>
+<p style="margin-top:6px; font-size:0.9em;">If Marco plays 6...e6 (Scheveningen pawn structure), Austin immediately plays 7.g4! to storm the kingside. Black's standard responses: 7...h6 8.Bg2, 7...Be7 8.g5 Nfd7 9.Be3, 7...d5 8.exd5. This is aggressive and directly matches Marco's Najdorf weaknesses: <strong>both his Najdorf losses (G4 81.7%, G16 87.3%) show he cannot handle sharp Sicilian middlegames</strong> — G4 mv19 Bd6?? (+5.69→−15.73), G16 mv29 Qe5?? (−3.46→−8.05). The g4 attack puts Marco in exactly the type of complex tactical position where his conversion collapses.</p>
+<div class="callout callout-danger" style="margin-top:8px;">
+  <strong>Marco's Najdorf losses — exploitable patterns:</strong><br>
+  G4 (Black, 81.7%, Loss): mv19 <span class="bad-move">Bd6??</span> (best: Nh5) eval +5.69→−15.73 — bishop retreat in a sharp Najdorf middlegame; game decided in one move<br>
+  G16 (Black, 87.3%, Loss): mv29 <span class="bad-move">Qe5??</span> eval −3.46→−8.05 — queen misplacement in a complex Najdorf fight<br>
+  <em>Exploitation: 6.h3 g4 creates exactly the sharp type of middlegame where Marco's Najdorf calculation breaks down.</em>
+</div>
 </div>
 
 <h3>Branch C — Italian 3.Bc4 (if Marco plays 1...e5)</h3>
@@ -361,7 +385,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <thead><tr><th>If Marco plays...</th><th>Austin plays...</th><th>Why</th></tr></thead>
   <tbody>
     <tr><td>1...c5 2...Nc6</td><td>Rossolimo 3.Bb5 → 4.Bxc6+</td><td>Confirmed G9/G10; Marco plays 2...Nc6 → Exchange Rossolimo saddles doubled c-pawns</td></tr>
-    <tr><td>1...c5 2...d6 or 2...Nf6</td><td>Moscow 3.Bb5+</td><td>Marco played Najdorf structure (G4/G16) — Moscow disrupts his setup and forces Bd7 trade</td></tr>
+    <tr><td>1...c5 2...d6 → Najdorf structure</td><td>Open Sicilian → Adams Attack 6.h3</td><td>Marco lost both Najdorf games as Black (G4 81.7%, G16 87.3%) — 6.h3 → 6...e5 7.Nb3 or 6...e6 7.g4! puts him in sharp territory where he collapses (Bd6?? G4, Qe5?? G16)</td></tr>
     <tr><td>1...e5</td><td>Italian 3.Bc4</td><td>Confirmed G11; Italian Classical keeps piece complexity; Austin's standard vs 1...e5</td></tr>
     <tr><td>1...c6 (Caro-Kann)</td><td>Exchange CK 4.Bd3</td><td>Marco himself plays Exchange CK as White with great success (G2/G6 wins)</td></tr>
     <tr><td>1...g6 / 1...d6 (Modern/Pirc)</td><td>Austrian Attack: 1.e4 g6 2.d4 Bg7 3.Nc3 d6 4.f4</td><td>Force central tension before KID fianchetto stabilizes; Marco's KID record as Black is poor (1W–2L)</td></tr>
@@ -394,7 +418,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <li><strong>Know 5...d6! and 6...d6!</strong> Two separate anti-Sicilian traps involve the Nb5 knight — both require d6 as the immediate response. These are the two most dangerous opening moments in this matchup.</li>
   <li><strong>The winning positions Marco creates are real.</strong> G9/G10 both 97%+ — Marco can outplay Austin in a clean tactical game. Play the opening correctly and avoid giving him early initiative.</li>
   <li><strong>Rook endgames favor Austin.</strong> Marco's endgame king/rook blindspot (Kd3/Re6 instead of Rg1/Re1) is systematic (G7, G11, G20, G13 — 4 separate games). If the game reaches a K+R endgame, Austin should convert with normal technique and expect Marco's king to go to the wrong square.</li>
-  <li><strong>Exchange Rossolimo gives doubled c-pawns.</strong> This structural imbalance guarantees game complexity past move 20 without requiring Austin to know deep theory — the pawn structure does the work of maintaining winning chances.</li>
+  <li><strong>Know both weapons cold.</strong> Rossolimo 3.Bb5 → Exchange 4.Bxc6+ bxc6 (if 2...Nc6) gives structural complexity from doubled c-pawns. Adams Attack 6.h3 → 7.g4! or 7.Nb3 (if 2...d6 Najdorf) puts Marco in sharp territory where both his Najdorf games ended in blunders (G4 mv19 Bd6??, G16 mv29 Qe5??). Recognize 2...Nc6 vs 2...d6 at move 2 and play the correct weapon immediately.</li>
 </ul>
 </div>
 
