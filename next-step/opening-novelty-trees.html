@@ -160,6 +160,7 @@
       <li><a href="#sec-f">F. Dutch Leningrad — vs Zachary Liu (1.Nf3 f5 → Catalan)</a></li>
       <li><a href="#sec-g">G. Rossolimo 3.Bb5 — vs Zhuoyuan Wu (sidesteps Accelerated Dragon)</a></li>
       <li><a href="#sec-h">H. Rossolimo deep — vs Reyansh Paragiri (Anti-Rossolimo main: 5.c3 Nf6 6.Re1)</a></li>
+      <li><a href="#sec-i">I. Scandinavian 7…Be7 novelty — vs Mateo Ruiz Gastelum (Play-On section)</a></li>
     </ul>
   </div>
 
@@ -619,8 +620,42 @@
     <p><strong>One rule:</strong> Never simplify to a drawish rook ending before move 30. Reyansh's Mechanics Institute record (5W–0L–4D) shows he draws technical games easily — keep the position alive.</p>
   </div>
 
+  <h2 id="sec-i"><span class="sec-label">I</span> Scandinavian 7…Be7 novelty — vs Mateo Ruiz Gastelum (Play-On section)</h2>
+
+  <div class="callout info">
+    <p><strong>Context:</strong> Mateo Ruiz Gastelum (1765 FIDE, Mexico) — Austin plays White (confirmed). This section is for the Play-On tournament section, not NAYCC 2026 main event. Source: opening deviation script run Nov 12, 2026 against 21 Scandinavian games from pgnlib.</p>
+  </div>
+
+  <h3>Critical position: after 1.e4 d5 2.exd5 Qxd5 3.Nc3 Qa5 4.d4 c6 5.Nf3 Bf5 6.Bc4 e6 7.O-O</h3>
+
+  <div class="tree">
+    <div><span class="move">7…Nf6</span> <span class="pct" style="background:#1a5c1a;color:#fff;border-radius:3px;padding:1px 6px;font-size:0.85em;">78%</span> <span class="label">Master database main line (32 games total at this position)</span></div>
+    <div class="sub"><span class="move ann">8.Ne2!</span> <span class="label">Caruana–Nakamura 2015 weapon · Lichess masters 10W-5D-2B, avg 2496 Elo</span></div>
+    <div class="sub sub2"><span class="label">9.Ng3 → Bg6, then h4-h5 kingside push</span></div>
+    <hr>
+    <div><span class="move ann">7…Be7</span> <span class="pct" style="background:#622ab5;color:#fff;border-radius:3px;padding:1px 6px;font-size:0.85em;">NOVEL ★</span> <span class="label"><strong>Mateo's actual move</strong> — not in masters DB (0 of 32 games)</span></div>
+    <div class="sub"><span class="move ann">8.Ne2!</span> <span class="label">Same weapon — Ng3 targets Be7 diagonal and attacks Bf5 simultaneously</span></div>
+    <div class="sub sub2"><span class="move">8…Nf6</span> <span class="label">Mateo's most likely follow-up</span></div>
+    <div class="sub sub2"><span class="move ann">9.Ng3</span> <span class="label">Bg6 forced → then h4!</span></div>
+  </div>
+
+  <div class="callout good">
+    <p><strong>Why 8.Ne2! handles both moves:</strong> The knight on e2 goes to g3, attacking the Bf5 regardless of whether Black played 7...Be7 or 7...Nf6. After 9.Ng3 Bg6 10.h4 h6 11.Ne5, White has a classic Scandinavian kingside attack. The position structure after 7...Be7 8.Ne2 Nf6 9.Ng3 Bg6 is functionally identical to the 7...Nf6 master line continuation.</p>
+    <p><strong>OTB instruction for Austin:</strong> When you see 7...Be7 from Mateo, do NOT hesitate or second-guess — this is his prepared novelty, not a mistake or deviation from the plan. Play <strong>8.Ne2!</strong> immediately as prepared. Mateo will play quickly through his prepared line; Austin's weapon is verified regardless.</p>
+  </div>
+
+  <h4>Mateo's full Scandinavian move order (all 21 tracked games)</h4>
+  <div class="move-tree">
+    <div class="moves"><code>1.e4 d5 2.exd5 Qxd5 3.Nc3 Qa5 4.d4 c6 5.Nf3 Bf5 6.Bc4 e6 7.O-O <strong>Be7</strong> 8.Ne2!</code></div>
+    <p class="note">Deviation classification: 1...d5 (RARE, 2% masters), 3...Qa5 (BOOK, 52%), 4...c6 (GOOD, 24%), 5...Bf5 (GOOD, 28%), 6...e6 (BOOK, 55%), 7...Be7 (NOVEL — 0 master games). Source: mateo-deviation-results.json (Lichess masters API, Nov 12, 2026).</p>
+  </div>
+
+  <div class="callout alert">
+    <p><strong>Exploitation note:</strong> Mateo's Qa5 Scandinavian record is 2W-6L-4D — his worst result structure. G48 (75.6% acc, Loss): mv35 Qe4+?? (+7.34→−1.13). G34 (83.1% acc, Loss): mv34 Rhe8?? (+6.44→−1.91). Both decisive collapses happened in the Qa5 structure after move 25. Austin's mandate: reach the 8.Ne2! tabiya, keep complexity alive past move 25, and let Mateo's conversion wiring fail.</p>
+  </div>
+
   <footer>
-    Gap 1 implementation · NAYCC 2026 prep · Generated Oct 30, 2026 · Updated Nov 5, 2026 (Section F: Dutch Leningrad vs Zachary; Section G: Rossolimo + Taimanov vs Zhuoyuan; Section H: Rossolimo deep vs Reyansh)
+    Gap 1 implementation · NAYCC 2026 prep · Generated Oct 30, 2026 · Updated Nov 5, 2026 (Section F: Dutch Leningrad vs Zachary; Section G: Rossolimo + Taimanov vs Zhuoyuan; Section H: Rossolimo deep vs Reyansh) · Updated Nov 12, 2026 (Section I: Scandinavian 7…Be7 novelty vs Mateo Ruiz, Play-On)
   </footer>
 
 </div>
