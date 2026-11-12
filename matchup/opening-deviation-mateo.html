@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mateo Ruiz Gastelum — Opening Deviation Map</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2328;
+      background: #f6f8fa;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 680px) { .page { padding: 24px 20px 40px; } }
+
+    .doc-header {
+      border-bottom: 3px solid #2d7d46;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+    .doc-header h1 { margin: 0 0 8px; font-size: 1.85rem; }
+    .doc-header .meta {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      font-size: 0.9rem; color: #57606a;
+    }
+    .doc-header .meta span strong { color: #1f2328; }
+    .doc-header .back-link {
+      display: inline-block; margin-top: 14px;
+      font-size: 0.875rem; color: #2d7d46; text-decoration: none; font-weight: 500;
+    }
+    .doc-header .back-link:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.3rem; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #d0d7de; }
+    h3 { font-size: 1.05rem; color: #2d7d46; margin: 24px 0 6px; }
+
+    /* Legend */
+    .legend {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px;
+      padding: 14px 18px; margin-bottom: 32px; font-size: 0.85rem;
+    }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    /* Summary table */
+    table { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin: 0 0 24px; }
+    th { text-align: left; padding: 8px 12px; background: #f6f8fa; border-bottom: 2px solid #d0d7de; font-weight: 600; color: #1f2328; }
+    td { padding: 7px 12px; border-bottom: 1px solid #eaeef2; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    td.opening-name { font-weight: 600; }
+    td.color-cell { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+    .color-w { color: #9a6700; }
+    .color-b { color: #0969da; }
+
+    /* System cards */
+    .system-card {
+      border: 1px solid #d0d7de; border-radius: 8px;
+      margin-bottom: 28px; overflow: hidden;
+    }
+    .system-card-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      background: #f6f8fa; padding: 12px 18px; border-bottom: 1px solid #d0d7de;
+    }
+    .system-card-header h3 { margin: 0; font-size: 1rem; color: #1f2328; }
+    .system-card-header .game-count { font-size: 0.8rem; color: #57606a; }
+    .system-card-body { padding: 16px 18px; }
+
+    /* Move trail */
+    .trail-label { font-size: 0.75rem; font-weight: 600; color: #57606a; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .move-trail { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 16px; align-items: center; }
+    .move-sep { color: #d0d7de; font-size: 0.75rem; margin: 0 1px; user-select: none; }
+
+    .chip {
+      display: inline-flex; align-items: center;
+      padding: 3px 8px; border-radius: 4px;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.4;
+      cursor: default; position: relative;
+    }
+    .chip-opp   { background: #f0f0f0; color: #6e7781; border: 1px solid #d0d7de; }
+    .chip-book  { background: #dafbe1; color: #1a7f37; border: 1px solid #2d7d46; }
+    .chip-good  { background: #ddf4ff; color: #0550ae; border: 1px solid #0969da; }
+    .chip-side  { background: #fff3cd; color: #7d4e00; border: 1px solid #d4a017; }
+    .chip-rare  { background: #ffd8d3; color: #a4000f; border: 1px solid #cf222e; }
+    .chip-novel { background: #eee8ff; color: #5a1e96; border: 1px solid #8250df; }
+
+    .chip-flag { font-size: 0.65rem; margin-left: 4px; }
+
+    /* Deviation callouts */
+    .dev-list { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+    .dev-row {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 9px 12px; border-radius: 6px; font-size: 0.85rem; line-height: 1.5;
+    }
+    .dev-row.level-side  { background: #fff8e8; border-left: 3px solid #d4a017; }
+    .dev-row.level-rare  { background: #fff0ee; border-left: 3px solid #cf222e; }
+    .dev-row.level-novel { background: #f3ecff; border-left: 3px solid #8250df; }
+
+    .dev-row .dev-move { font-family: monospace; font-weight: 700; min-width: 90px; flex-shrink: 0; }
+    .dev-row .dev-detail { color: #57606a; }
+    .dev-row .dev-detail strong { color: #1f2328; }
+    .dev-row .dev-detail em { font-style: normal; color: #1f2328; font-weight: 600; }
+
+    /* Austin notes */
+    .austin-note {
+      background: #f0fff4; border: 1px solid #2d7d46; border-radius: 6px;
+      padding: 12px 16px; margin-top: 16px; font-size: 0.875rem;
+    }
+    .austin-note .note-label {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: #2d7d46; margin-bottom: 4px;
+    }
+
+    /* Austin as White highlight */
+    .primary-system-card {
+      border: 2px solid #0969da;
+    }
+    .primary-system-card .system-card-header {
+      background: #ddf4ff;
+      border-bottom-color: #0969da;
+    }
+    .primary-badge {
+      display: inline-block; background: #0969da; color: #fff;
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.05em; border-radius: 3px; padding: 1px 7px;
+      margin-left: 8px; vertical-align: middle;
+    }
+
+    /* Insight box */
+    .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+    @media (max-width: 580px) { .insight-grid { grid-template-columns: 1fr; } }
+    .insight-card {
+      border: 1px solid #d0d7de; border-radius: 6px;
+      padding: 14px 16px; font-size: 0.875rem;
+    }
+    .insight-card h4 { margin: 0 0 8px; font-size: 0.9rem; color: #2d7d46; }
+    .insight-card ul { margin: 0; padding-left: 18px; }
+    .insight-card li { margin-bottom: 5px; }
+
+    /* Key weapon callout */
+    .weapon-callout {
+      background: #0e1f38; color: #e6edf3; border-radius: 8px;
+      padding: 16px 20px; margin-bottom: 28px; font-size: 0.9rem;
+      border-left: 4px solid #58a6ff;
+    }
+    .weapon-callout strong { color: #79c0ff; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Header ───────────────────────────────────────────────────── -->
+  <div class="doc-header">
+    <h1>Ruiz Gastelum, Mateo — Opening Deviation Map</h1>
+    <div class="meta">
+      <span><strong>Player:</strong> Mateo Ruiz Gastelum · 1765 FIDE · Mexico</span>
+      <span><strong>Games analyzed:</strong> 64 (31 as White, 33 as Black)</span>
+      <span><strong>Database:</strong> Lichess Masters (FIDE 2300+)</span>
+      <span><strong>Generated:</strong> Nov 12, 2026</span>
+    </div>
+    <a href="../austin-prep.html" class="back-link">← Back to Prep Index</a>
+  </div>
+
+  <!-- ── Austin as White alert ──────────────────────────────────── -->
+  <div class="weapon-callout">
+    <strong>Austin plays White (confirmed — Play-On section).</strong> Focus: Mateo's Black systems — especially the Scandinavian. His White systems (Colle d4+c3) are shown for completeness but are not Austin's concern.
+    Austin's weapon: <strong>8.Ne2!</strong> after 1.e4 d5 2.exd5 Qxd5 3.Nc3 Qa5 4.d4 c6 5.Nf3 Bf5 6.Bc4 e6 7.O-O Be7 — Caruana–Nakamura 2015, Lichess masters 10W-5D-2L (avg 2496 Elo).
+  </div>
+
+  <!-- ── Legend ──────────────────────────────────────────────────── -->
+  <div class="legend">
+    <strong style="font-size:0.8rem;text-transform:uppercase;letter-spacing:.04em;color:#57606a;margin-right:4px;">Mateo's moves:</strong>
+    <span class="legend-item"><span class="chip chip-book" style="font-size:.75rem;padding:2px 7px;">e4</span> <span>Top masters move</span></span>
+    <span class="legend-item"><span class="chip chip-good" style="font-size:.75rem;padding:2px 7px;">Nc3</span> <span>2nd–3rd choice (≥20%)</span></span>
+    <span class="legend-item"><span class="chip chip-side" style="font-size:.75rem;padding:2px 7px;">b3</span> <span>Minor sideline (5–19%)</span></span>
+    <span class="legend-item"><span class="chip chip-rare" style="font-size:.75rem;padding:2px 7px;">a5</span> <span>Rare / personal prep (&lt;5%)</span></span>
+    <span class="legend-item"><span class="chip chip-novel" style="font-size:.75rem;padding:2px 7px;">Be7</span> <span>Novelty (not in master DB)</span></span>
+    <span class="legend-item"><span class="chip chip-opp" style="font-size:.75rem;padding:2px 7px;">Nf6</span> <span>Opponent move</span></span>
+  </div>
+
+  <!-- ── Summary table ───────────────────────────────────────────── -->
+  <h2>Deviation Summary</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Opening System</th>
+        <th>Color</th>
+        <th>Games</th>
+        <th>First Deviation</th>
+        <th>Mateo's Move vs Book</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="opening-name">Colle System (d4+c3) vs d5+Nf6</td>
+        <td class="color-cell color-w">White</td>
+        <td>6</td>
+        <td>Move 2 (system choice)</td>
+        <td><strong>2.c3</strong> (rank 8, 0%) vs 2.c4 (77%) — signature Colle deviation</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Colle System vs Nf6+e6</td>
+        <td class="color-cell color-w">White</td>
+        <td>4</td>
+        <td>Move 2</td>
+        <td><strong>2.c3</strong> (rank 7, 0%) vs 2.c4 (72%) — same Colle signature</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Colle System vs d5+e6</td>
+        <td class="color-cell color-w">White</td>
+        <td>3</td>
+        <td>Move 2</td>
+        <td><strong>2.c3</strong> (rank 8, 0%) vs 2.c4 (77%) — Colle again; 10.Re1 novel</td>
+      </tr>
+      <tr style="background:#f0f8ff;">
+        <td class="opening-name">★ Scandinavian — 3…Qa5 4…c6 5…Bf5 7…Be7</td>
+        <td class="color-cell color-b">Black</td>
+        <td>21</td>
+        <td>Move 7 (personal prep)</td>
+        <td><strong>7…Be7</strong> novelty ⭐ vs 7…Nf6 (78%, db=32) — out of master theory</td>
+      </tr>
+      <tr>
+        <td class="opening-name">Neo-Grünfeld vs d4+c4</td>
+        <td class="color-cell color-b">Black</td>
+        <td>2</td>
+        <td>Move 8</td>
+        <td><strong>8…b6</strong> (rank 7) vs 8…c5 (76%); 10…c5 novel</td>
+      </tr>
+      <tr>
+        <td class="opening-name">London vs g6-fianchetto</td>
+        <td class="color-cell color-b">Black</td>
+        <td>2</td>
+        <td>Move 6</td>
+        <td><strong>6…O-O</strong> novel vs 6…c5 (67%); multiple novelties follow</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       AS WHITE (Mateo) — not Austin's concern, shown for reference
+  ════════════════════════════════════════════════════════════════ -->
+  <h2>As White — Mateo's Colle System (reference only)</h2>
+  <p style="font-size:0.875rem;color:#57606a;margin-top:-8px;margin-bottom:16px;">Austin plays White in this matchup — these sections are for context only. The key takeaway: Mateo plays the same 1.d4 2.c3 Colle in all three White samples.</p>
+
+  <!-- White System 1 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Colle System — d4+c3 vs …d5 Nf6 &nbsp;<small style="color:#57606a;font-weight:400;">ECO D00</small></h3>
+      <span class="game-count">6 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-good" title="Mateo: 36% | Book: e4 (45%), d4 (36%)">1.d4</span>
+        <span class="chip chip-opp">1…d5</span>
+        <span class="chip chip-rare" title="Mateo: 0% | Book: c4 (77%), Nf3 (18%), Bf4 (3%)">2.c3 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">2…Nf6</span>
+        <span class="chip chip-good" title="Mateo: 20% | Book: Bg5 (41%)">3.Nf3</span>
+        <span class="chip chip-opp">3…e6</span>
+        <span class="chip chip-book" title="Mateo: 57% | Book: Bf4 (57%)">4.Bf4</span>
+        <span class="chip chip-opp">4…c5</span>
+        <span class="chip chip-book" title="Book: e3 (96%)">5.e3</span>
+        <span class="chip chip-opp">5…Nc6</span>
+        <span class="chip chip-book" title="Book: Nbd2 (91%)">6.Nbd2</span>
+        <span class="chip chip-opp">6…cxd4</span>
+        <span class="chip chip-book" title="Book: exd4 (95%)">7.exd4</span>
+        <span class="chip chip-opp">7…Bd6</span>
+        <span class="chip chip-side" title="Mateo: 16% | Book: Be3 (74%)">8.Bg5 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">8…h6</span>
+        <span class="chip chip-side" title="Mateo: 15% | Book: Be3 (79%)">9.Bh4 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">9…O-O</span>
+        <span class="chip chip-novel" title="Novel — Book: Ne5 (85%), db=13">10.Be2 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">10…Re8</span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-rare">
+          <span class="dev-move">2. c3</span>
+          <span class="dev-detail"><em>Colle signature.</em> Masters play <strong>2.c4</strong> (77%) or <strong>2.Nf3</strong> (18%). Mateo's <strong>2.c3</strong> (rank 8, nearly 0% at master level) defines the Colle System — supporting d4 with c3 instead of using c4 as the main pawn lever. This is a deliberate repertoire choice that keeps the game closed and maneuvering, avoiding all Queen's Gambit or Queen's Indian theory.</span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">8. Bg5 · 9. Bh4</span>
+          <span class="dev-detail">After capturing on d4, masters prefer <strong>8.Be3</strong> (74%) to protect d4. Mateo instead plays <strong>8.Bg5</strong> then <strong>9.Bh4</strong> — keeping the bishop active on the h4-e1 diagonal to pressure the f6 knight. These are principled moves but off the master consensus.</span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">10. Be2</span>
+          <span class="dev-detail"><em>Personal preparation.</em> Only 13 master games exist at this position. Book continues <strong>10.Ne5</strong> (85%) with active piece play. Mateo retreats the bishop to e2 — consolidating. No master games at this depth from this exact position; Mateo is in prepared territory past move 9.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Context note</div>
+        Not relevant (Austin plays White). Shown so Austin knows Mateo is a 1.d4 player as White and plays a consistent Colle — if roles were reversed, the c3 Colle would need preparation. In the actual game, Austin will face Mateo's Black Scandinavian.
+      </div>
+    </div>
+  </div>
+
+  <!-- White System 2 (collapsed to brief note) -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Colle System — d4+c3 vs …Nf6 e6 &nbsp;<small style="color:#57606a;font-weight:400;">ECO D00</small></h3>
+      <span class="game-count">4 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-good" title="Mateo: 36% | Book: e4 (45%)">1.d4</span>
+        <span class="chip chip-opp">1…Nf6</span>
+        <span class="chip chip-rare" title="Mateo: 0% | Book: c4 (72%)">2.c3 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">2…e6</span>
+        <span class="chip chip-side" title="Mateo: 20% | Book: Bg5 (68%)">3.Nf3</span>
+        <span class="chip chip-opp">3…d5</span>
+        <span class="chip chip-good" title="Mateo: 57% | Book: Bf4 (57%)">4.Bg5</span>
+        <span class="chip chip-opp">4…c5</span>
+        <span class="chip chip-book" title="Book: Bh4 (71%)">5.Bh4</span>
+        <span class="chip chip-opp">5…Be7</span>
+        <span class="chip chip-book" title="Book: e3 (75%)">6.e3</span>
+        <span class="chip chip-opp">6…O-O</span>
+        <span class="chip chip-book" title="Book: Nbd2 (88%)">7.Nbd2</span>
+        <span class="chip chip-opp">7…Nc6</span>
+        <span class="chip chip-side" title="Mateo: 16% | Book: Rb1 (68%)">8.Qc2 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">8…cxd4</span>
+        <span class="chip chip-novel" title="Novel — Book: empty after move 8 exchange">9.Bd3 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">9…Re8</span>
+        <span class="chip chip-novel" title="Novel">10.O-O <span class="chip-flag">★</span></span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-rare">
+          <span class="dev-move">2. c3</span>
+          <span class="dev-detail">Same Colle signature as System 1. Masters play <strong>2.c4</strong> (72%). Mateo's 2.c3 is consistent across all three White systems — this is his sole White repertoire.</span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">9. Bd3 · 10. O-O</span>
+          <span class="dev-detail"><em>Deep personal preparation.</em> No master games exist in this exact position after the cxd4 capture. Mateo is in territory he has worked out independently from move 9.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Context note</div>
+        Same conclusion as System 1 — Colle, not relevant for this game. No action needed.
+      </div>
+    </div>
+  </div>
+
+  <!-- White System 3 (brief) -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Colle System — d4+c3 vs …d5 e6 &nbsp;<small style="color:#57606a;font-weight:400;">ECO D00</small></h3>
+      <span class="game-count">3 games · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-good" title="Mateo: 36% | Book: e4 (45%)">1.d4</span>
+        <span class="chip chip-opp">1…d5</span>
+        <span class="chip chip-rare" title="Mateo: 0% | Book: c4 (77%)">2.c3 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">2…e6</span>
+        <span class="chip chip-book" title="Book: Bf4 (51%)">3.Bf4</span>
+        <span class="chip chip-opp">3…Nf6</span>
+        <span class="chip chip-side" title="Mateo: 20% | Book: e3 (70%)">4.Nf3</span>
+        <span class="chip chip-opp">4…c5</span>
+        <span class="chip chip-book" title="Book: e3 (96%)">5.e3</span>
+        <span class="chip chip-opp">5…Nc6</span>
+        <span class="chip chip-book" title="Book: Nbd2 (91%)">6.Nbd2</span>
+        <span class="chip chip-opp">6…cxd4</span>
+        <span class="chip chip-book" title="Book: Bg3 (88%)">7.Bg3</span>
+        <span class="chip chip-opp">7…Bd6</span>
+        <span class="chip chip-book" title="Book: Bd3 (79%)">8.Bd3</span>
+        <span class="chip chip-opp">8…O-O</span>
+        <span class="chip chip-side" title="Mateo: 15% | Book: Qe2 (38%)">9.O-O <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">9…e5</span>
+        <span class="chip chip-novel" title="Novel — Book: dxc5 (50%), db=2">10.Re1 <span class="chip-flag">★</span></span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-rare">
+          <span class="dev-move">2. c3</span>
+          <span class="dev-detail">Third consecutive Colle system from Mateo — <strong>2.c3</strong> is his universal White response to any 1.d4 …d5 setup. All three White systems confirm: Mateo plays only the Colle as White. The database position is very thin past move 9 (db=2 games), so both players are in unknown territory quickly.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Context note</div>
+        Not relevant. Austin plays 1.e4 as White.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       AS BLACK — MATEO'S SCANDINAVIAN (AUSTIN MUST PREPARE THIS)
+  ════════════════════════════════════════════════════════════════ -->
+  <h2>As Black — Mateo's Scandinavian (Austin's Primary Target)</h2>
+
+  <!-- System 4: Scandinavian Qa5 — PRIMARY -->
+  <div class="system-card primary-system-card">
+    <div class="system-card-header">
+      <h3>Scandinavian — 3…Qa5 4…c6 5…Bf5 · <span class="primary-badge">PRIMARY — 21 games</span> &nbsp;<small style="color:#57606a;font-weight:400;">ECO B01</small></h3>
+      <span class="game-count">21/33 Black games (64%) · trunk depth 10</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk — Mateo's signature system</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.e4</span>
+        <span class="chip chip-rare" title="Mateo: 2% | Book: c5 (46%), e5 (27%), e6 (10%)">1…d5 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">2.exd5</span>
+        <span class="chip chip-book" title="Book: Qxd5 (70%)">2…Qxd5</span>
+        <span class="chip chip-opp">3.Nc3</span>
+        <span class="chip chip-book" title="Book: Qa5 (52%)">3…Qa5</span>
+        <span class="chip chip-opp">4.d4</span>
+        <span class="chip chip-good" title="Mateo: 24% | Book: Nf6 (74%)">4…c6 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">5.Nf3</span>
+        <span class="chip chip-good" title="Mateo: 28% | Book: Nf6 (68%)">5…Bf5 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">6.Bc4</span>
+        <span class="chip chip-book" title="Book: e6 (55%)">6…e6</span>
+        <span class="chip chip-opp">7.O-O</span>
+        <span class="chip chip-novel" title="⭐ NOVELTY — Book: Nf6 (78%), db=32 games total">7…Be7 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">8.?</span>
+        <span class="chip chip-novel" title="Novel — no masters data">8…Nf6 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">9.?</span>
+        <span class="chip chip-novel" title="Novel">9…O-O <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">10.?</span>
+        <span class="chip chip-novel" title="Novel">10…Nbd7 <span class="chip-flag">★</span></span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-rare">
+          <span class="dev-move">1…d5</span>
+          <span class="dev-detail">Against 1.e4, masters play <strong>1…c5</strong> (46%), <strong>1…e5</strong> (27%), or <strong>1…e6</strong> (10%). Mateo's <strong>1…d5</strong> (Scandinavian, 2%) is a personal system choice — a deliberate gamble to avoid Austin's Sicilian-focused prep (Rossolimo, h4). Mateo plays this in 21 of his 33 Black games, making it by far his main defense.</span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">4…c6</span>
+          <span class="dev-detail">After 4.d4, masters overwhelmingly continue <strong>4…Nf6</strong> (74%), developing the knight immediately. Mateo plays <strong>4…c6</strong> (24%) — a move order that delays Nf6 and supports …Bf5 development first. This creates the specific 4…c6 5…Bf5 structure that is his personal trademark.</span>
+        </div>
+        <div class="dev-row level-side">
+          <span class="dev-move">5…Bf5</span>
+          <span class="dev-detail">At this position (after 1.e4 d5 2.exd5 Qxd5 3.Nc3 Qa5 4.d4 c6 5.Nf3), masters play <strong>5…Nf6</strong> (68%) as the standard. Mateo plays <strong>5…Bf5</strong> (28%) — developing the bishop before the knight. This is a principled choice: the bishop is naturally placed on f5 before e6 is played (which could block it). This move order is Mateo's personal preparation and accounts for all 21 of his Scandinavian games.</span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">7…Be7 ⭐</span>
+          <span class="dev-detail"><em>Critical personal novelty.</em> At the position after 1.e4 d5 2.exd5 Qxd5 3.Nc3 Qa5 4.d4 c6 5.Nf3 Bf5 6.Bc4 e6 7.O-O, only <strong>32 master games</strong> exist. Masters play <strong>7…Nf6</strong> (78%). Mateo instead plays <strong>7…Be7</strong> — completing bishop development before bringing out the knight. This move does not appear in the masters database: Mateo is in territory he has worked out entirely on his own. His preparation likely extends 5+ moves further from here. This is the decisive tell: past move 7, Mateo is running on individual preparation, not memorized theory.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — CRITICAL Prep note (Austin as White)</div>
+        <strong>Mateo will play the Scandinavian 1…d5.</strong> The critical moment is move 7: after Austin plays 7.O-O, Mateo plays <strong>7…Be7</strong> (not the master-endorsed 7…Nf6). Austin's weapon here is <strong>8.Ne2!</strong> — the Caruana–Nakamura 2015 line (Lichess masters: 10W-5D-2L at avg 2496 Elo). The idea: Ne2-g3 targets the Be7 bishop square and attacks the Bf5 at the same time. After 8.Ne2 Nf6 9.Ng3 Bg6 10.h4!, White launches a kingside initiative. Mateo's 7…Be7 instead of 7…Nf6 means he is NOT playing the main line — Austin should not get confused. The 8.Ne2! weapon is designed exactly for this structure (after 7.O-O) and handles both 7…Nf6 and 7…Be7.
+        <br><br>
+        See <a href="matchup-mateo-gm.html" style="color:#2d7d46;font-weight:600;">GM Battle Plan</a> for the full Scandinavian three-way breakdown: Qa5 → 8.Ne2!, Qd8 → 4.Bc4!, Qd6 → 6.Nb5!
+      </div>
+    </div>
+  </div>
+
+  <!-- System 5: Neo-Grünfeld -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>Neo-Grünfeld — g6 …d5 …Nxd5 …Nxc3 &nbsp;<small style="color:#57606a;font-weight:400;">ECO D70</small></h3>
+      <span class="game-count">2 games · small sample, treat cautiously</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.d4</span>
+        <span class="chip chip-book" title="Book: Nf6 (61%)">1…Nf6</span>
+        <span class="chip chip-opp">2.c4</span>
+        <span class="chip chip-good" title="Mateo: 33% | Book: e6 (54%)">2…g6</span>
+        <span class="chip chip-opp">3.Nc3</span>
+        <span class="chip chip-good" title="Book: Bg7 (65%)">3…d5</span>
+        <span class="chip chip-opp">4.cxd5</span>
+        <span class="chip chip-book" title="Book: Nxd5 (100%)">4…Nxd5</span>
+        <span class="chip chip-opp">5.e4</span>
+        <span class="chip chip-rare" title="Mateo: 10% | Book: Bg7 (74%)">5…Nxc3 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">6.bxc3</span>
+        <span class="chip chip-book" title="Book: Bg7 (80%)">6…Bg7</span>
+        <span class="chip chip-opp">7.Nf3</span>
+        <span class="chip chip-book" title="Book: O-O (82%)">7…O-O</span>
+        <span class="chip chip-opp">8.Be3</span>
+        <span class="chip chip-rare" title="Mateo: 8% | Book: c5 (76%)">8…b6 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">9.Qd2</span>
+        <span class="chip chip-book" title="Book: Bb7 (100%)">9…Bb7</span>
+        <span class="chip chip-opp">10.Rd1</span>
+        <span class="chip chip-novel" title="Novel — Book: Nd7 (50%), db=4">10…c5 <span class="chip-flag">★</span></span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-rare">
+          <span class="dev-move">5…Nxc3</span>
+          <span class="dev-detail">After White plays e4, masters prefer <strong>5…Bg7</strong> (74%) to maintain the knight. Mateo exchanges immediately with <strong>5…Nxc3</strong> (10%), simplifying the position and giving White the bishop pair but creating White's doubled c-pawns. This is a principled Neo-Grünfeld approach.</span>
+        </div>
+        <div class="dev-row level-rare">
+          <span class="dev-move">8…b6</span>
+          <span class="dev-detail">Masters overwhelmingly play <strong>8…c5</strong> (76%) here, challenging White's center. Mateo plays <strong>8…b6</strong> preparing queenside fianchetto (…Bb7) — a slower, more positional approach that avoids the main c5 break theory.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Context note</div>
+        Mateo plays this only 2 games (vs 1.d4 — not Austin's first move). Not relevant to this game unless the opening transposes, which it won't with Austin's 1.e4.
+      </div>
+    </div>
+  </div>
+
+  <!-- System 6: London vs g6 -->
+  <div class="system-card">
+    <div class="system-card-header">
+      <h3>London System vs g6-fianchetto &nbsp;<small style="color:#57606a;font-weight:400;">ECO A45</small></h3>
+      <span class="game-count">2 games · small sample</span>
+    </div>
+    <div class="system-card-body">
+      <div class="trail-label">Most-played trunk</div>
+      <div class="move-trail">
+        <span class="chip chip-opp">1.d4</span>
+        <span class="chip chip-book" title="Book: Nf6 (61%)">1…Nf6</span>
+        <span class="chip chip-opp">2.Bf4</span>
+        <span class="chip chip-good" title="Mateo: 33% | Book: d5 (32%)">2…g6</span>
+        <span class="chip chip-opp">3.Nf3</span>
+        <span class="chip chip-rare" title="Mateo: 5% | Book: Bg7 (95%)">3…d5 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">4.e3</span>
+        <span class="chip chip-book" title="Book: Bg7 (100%)">4…Bg7</span>
+        <span class="chip chip-opp">5.Nbd2</span>
+        <span class="chip chip-rare" title="Mateo: 15% | Book: O-O (61%)">5…Nbd7 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">6.Bd3</span>
+        <span class="chip chip-novel" title="Novel — Book: c5 (67%), db=3">6…O-O <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">7.h3</span>
+        <span class="chip chip-side" title="Book: Re8 (33%)">7…Nh5 <span class="chip-flag">⚑</span></span>
+        <span class="chip chip-opp">8.Bxg7</span>
+        <span class="chip chip-novel" title="Novel — Book: h6 (100%), db=1">8…Bf6 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">9.Bxf6</span>
+        <span class="chip chip-novel" title="Novel">9…exf6 <span class="chip-flag">★</span></span>
+        <span class="chip chip-opp">10.exd5</span>
+        <span class="chip chip-novel" title="Novel">10…dxc4 <span class="chip-flag">★</span></span>
+      </div>
+      <div class="dev-list">
+        <div class="dev-row level-rare">
+          <span class="dev-move">3…d5 · 5…Nbd7</span>
+          <span class="dev-detail">After 2.Bf4 (London), masters fianchetto with <strong>3…Bg7</strong> (95%). Mateo instead plays 3…d5 (5%) — keeping the pawn structure classical rather than immediately fianchettoing. Then 5…Nbd7 (not castling) is again off book. By move 6, Mateo is in personally prepared territory against the London.</span>
+        </div>
+        <div class="dev-row level-novel">
+          <span class="dev-move">6…O-O onwards</span>
+          <span class="dev-detail"><em>Deep personal preparation vs London.</em> From move 6 onward, no master games track this exact position. The subsequent 7…Nh5, 8…Bf6 (offering bishop trade), 9…exf6 (accepting doubled f-pawns) suggests Mateo has an unconventional approach against the London specifically. The position after 10…dxc4 leaves Mateo with doubled f-pawns, bishop pair gone, but active pawn structure — a speculative choice.</span>
+        </div>
+      </div>
+      <div class="austin-note">
+        <div class="note-label">Austin — Context note</div>
+        Not relevant (Austin plays 1.e4). Shown for completeness.
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Synthesis ─────────────────────────────────────────────── -->
+  <h2>What This Means for Austin (White vs Mateo)</h2>
+
+  <div class="insight-grid">
+    <div class="insight-card">
+      <h4>What to Expect from Mateo as Black</h4>
+      <ul>
+        <li><strong>21/33 Black games (64%) are Scandinavian 1…d5</strong> — this is not a surprise weapon; it is his primary system.</li>
+        <li>Mateo delays 7…Nf6 and plays <strong>7…Be7 first</strong> — a personal novelty off the masters database (only 32 master games total at that position). He has worked out this structure independently.</li>
+        <li>His exact move order: <strong>1…d5 2…Qxd5 3…Qa5 4…c6 5…Bf5 6…e6 7…Be7</strong> — consistent in all 21 games. This is a prepared line, not improvisation.</li>
+        <li>Past move 7, he is in personal preparation territory. Expect him to play relatively quickly through move 10–12.</li>
+      </ul>
+    </div>
+    <div class="insight-card">
+      <h4>Austin's Exploitation Plan</h4>
+      <ul>
+        <li><strong>8.Ne2!</strong> is the weapon of choice — specifically designed for the 7.O-O position and handles both 7…Be7 (Mateo's line) and 7…Nf6 (the master main line). See GM Battle Plan for full tree.</li>
+        <li>After 8.Ne2 Nf6 9.Ng3, the Bf5 is immediately under threat. If <strong>9…Bg6, 10.h4!</strong> starts a direct kingside attack (Ng3-h5 or h4-h5 follows).</li>
+        <li><strong>Decisive blunder alert:</strong> Mateo lost 4 games from winning positions (G50 Qc4, G1 Kg2, G48 Qe4+, G34 Rhe8). Keeping complications alive past move 20 gives Austin the best practical chances.</li>
+        <li>Mateo's avg accuracy is <strong>90.1%</strong> — a 1765-caliber player. Austin should not over-prepare for brilliancies; solid moves that keep winning positions won. <strong>Never resign — Mateo has collapsed from +10 positions.</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="margin-top:24px;font-size:0.8rem;color:#57606a;border-top:1px solid #d0d7de;padding-top:16px;">
+    Data: Lichess Masters database (FIDE 2300+ OTB games) via <code>explorer.lichess.ovh/masters</code> ·
+    Games parsed from <code>pgnlib/Ruiz Gastelum, Mateo.pgn</code> (64 games) ·
+    Trunk = plurality-voted most-played continuation · Generated Nov 12, 2026
+  </p>
+
+</div>
+</body>
+</html>
