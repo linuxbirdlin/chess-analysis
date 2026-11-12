@@ -78,10 +78,10 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 </head>
 <body>
 
-<h1>Battle Plan: Austin vs Ruiz Gastelum, Mateo</h1>
+<h1>Battle Plan: Austin (White) vs Ruiz Gastelum, Mateo</h1>
 <div class="subtitle">
-  <span><strong>Play-On Section</strong></span>
-  <span>Mateo rating: 1765 FIDE · Mexico · Play-On tournament</span>
+  <span><strong>Play-On Section · Austin plays White (confirmed)</strong></span>
+  <span>Mateo rating: 1765 FIDE · Mexico</span>
   <span>Direct record: No encounter</span>
   <span>Games analyzed: 64 (movetime-3000)</span>
 </div>
@@ -145,7 +145,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 
 <hr class="section-divider">
 
-<h2 class="white-section">Part 1 — Austin as White: Scandinavian Three-Way · Know Qa5, Qd8, Qd6</h2>
+<h2 class="white-section">Part 1 — Scandinavian Three-Way: Know Qa5 · Qd8 · Qd6</h2>
 
 <div class="callout callout-blue">
   <strong>The core challenge:</strong> Mateo plays Scandinavian 1...d5 in 22 of 23 games vs 1.e4 — after 2.exd5 Qxd5 3.Nc3, he chooses between three queen retreats. <strong>Qa5 (12 games)</strong> is his main line and worst result (2W-6L-4D) — target it with 4.d4 c6 5.Nf3 Bf5 <strong>6.Bc4 e6 7.O-O Nf6 8.Ne2!</strong> (Caruana-Nakamura 2015, Lichess masters 2496 avg, 10W-5D-2B). <strong>Qd8 (6 games)</strong> gets aggressive 4.Bc4 development. <strong>Qd6 (3 games)</strong> gets simple 4.d4 Nf6 5.Nf3 development with the queen uncomfortable on d6.
@@ -226,89 +226,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 
 <hr class="section-divider">
 
-<h2 class="black-section">Part 2 — Austin as Black: ...c5! Counter vs Colle (1.d4 2.c3) · Taimanov if 1.e4</h2>
-
-<div class="callout callout-green">
-  <strong>Key insight:</strong> Mateo plays 1.d4 Colle (2.c3 Nf3 Bf4/Bg5) in 26+ of 31 White games — his entire White repertoire is built on this solid system. Austin's weapon: <strong>1...Nf6 2.c3 e6 3.Nf3 c5!</strong> — hitting d4 immediately and creating an IQP structure that Austin excels in. Lichess masters (1374 games, avg 2360 Elo) confirms this is Black's best counter with a slight Black advantage (417 Black wins vs 370 White wins). Mateo's White record is 12W-10L-7D — his Colle has lost multiple games when Black disrupts the structure early. Austin's decisive blunder patterns don't apply to Mateo as White — but his long-game accuracy decline (G50 blunder at move 28) means complex positions are Austin's friend regardless of color.
-</div>
-
-<h3>Branch A — Colle counter with ...c5! (main line, most common)</h3>
-<input type="checkbox" id="b1" class="acc-toggle" checked>
-<label for="b1" class="acc-label">Branch A: 1.d4 Nf6 2.c3 e6 3.Nf3 c5! — IQP structure, Austin's strength</label>
-<div class="acc-content">
-<div class="move-line">
-  <span class="mv-z">1.d4</span> <span class="mv-a">Nf6</span>
-  <span class="mv-z">2.c3</span> <span class="mv-a">e6</span>
-  <span class="mv-z">3.Nf3</span> <span class="mv-a"><span class="key-move">c5!</span></span>
-  <span class="mv-z">4.Bf4</span> <span class="mv-a">Nc6</span>
-  <span class="mv-z">5.e3</span> <span class="mv-a">d5</span>
-  <span class="mv-z">6.Bd3</span> <span class="mv-a">Be7</span>
-  <span class="mv-z">7.Nbd2</span> <span class="mv-a">O-O</span>
-  <span class="note">— c5 disrupts the Colle structure; forces White to decide between cxd5 (IQP), dxc5 (IQP for Austin), or ignore (dynamic tension) [Lichess masters verified: 1374 games, Black edges +47 wins]</span>
-</div>
-<p style="margin-top:8px; font-size:0.9em;">3...c5! is the thematic counter to the Colle. Mateo's response:
-(a) If 4.dxc5 — Austin plays 4...Nc6 (attacks c5 with tempo), 5...Bxc5 — Black wins the pawn back with better development.
-(b) If 4.d5 — Black plays 4...b5 or 4...d6 — central tension, Black has counterplay.
-(c) If 4.Bf4 Nc6 5.e3 d5 — IQP position that Austin loves (strengths from CLAUDE.md). Austin's plan: develop solidly, play ...Ne4 to exchange knights, then push the IQP with ...e5 or use it as an outpost. Lichess masters top games: Kamsky-Ivanchuk (2012), Aronian-Svidler (2021) — confirm this is the right counter at GM level.</p>
-</div>
-
-<h3>Branch B — Colle with Bg5 (secondary system — G3, G6, G14, G28)</h3>
-<input type="checkbox" id="b2" class="acc-toggle" checked>
-<label for="b2" class="acc-label">Branch B: 2.c3 Nf3 Bg5 — same c5! disruption works</label>
-<div class="acc-content">
-<div class="move-line">
-  <span class="mv-z">1.d4</span> <span class="mv-a">Nf6</span>
-  <span class="mv-z">2.c3</span> <span class="mv-a">d5</span>
-  <span class="mv-z">3.Nf3</span> <span class="mv-a">e6</span>
-  <span class="mv-z">4.Bg5</span> <span class="mv-a">Be7</span>
-  <span class="mv-z">5.e3</span> <span class="mv-a"><span class="key-move">c5!</span></span>
-  <span class="mv-z">6.Bd3</span> <span class="mv-a">Nc6</span>
-  <span class="mv-z">7.Nbd2</span> <span class="mv-a">O-O</span>
-  <span class="note">— Bg5 pins Nf6 but c5 still disrupts the Colle center; Austin should not trade on d4 immediately</span>
-</div>
-<p style="margin-top:8px; font-size:0.9em;">Mateo uses Bg5 to pin the Nf6, trying to control e5. Austin's response is the same — ...c5! either immediately or after ...e6 ...Be7. After 5.e3 c5!, if 6.dxc5 Bxg5 7.Nxg5 Nc6 8.Nxh7!? — this knight sacrifice is not dangerous for Black if Austin sees it: ...Kxh7 9.Qh5+ Kg8 10.Qxg5 Qd6 and Black has two bishops compensation. The safe line is 5...c5 6.Bd3 Nc6 7.Nbd2 O-O 8.O-O — equal position with both sides developed. Austin's IQP strength applies here.</p>
-</div>
-
-<h3>Branch C — Taimanov Sicilian (if Mateo plays 1.e4)</h3>
-<input type="checkbox" id="b3" class="acc-toggle">
-<label for="b3" class="acc-label">Branch C: 1.e4 → Taimanov 1...c5 e6 Nc6 Qc7 — Austin's fixed Black weapon</label>
-<div class="acc-content">
-<div class="move-line">
-  <span class="mv-z">1.e4</span> <span class="mv-a"><span class="key-move">c5</span></span>
-  <span class="mv-z">2.Nf3</span> <span class="mv-a">e6</span>
-  <span class="mv-z">3.d4</span> <span class="mv-a">cxd4</span>
-  <span class="mv-z">4.Nxd4</span> <span class="mv-a">Nc6</span>
-  <span class="mv-z">5.Nc3</span> <span class="mv-a"><span class="key-move">Qc7</span></span>
-  <span class="note">— Taimanov B47 Bastrikov; Austin's established main line (PAM R4, R7)</span>
-</div>
-<p style="margin-top:8px; font-size:0.9em;">Mateo played 1.e4 as White in G27 and G32, but his primary weapon is 1.d4 Colle — this branch is a low-probability scenario. If it occurs, Austin plays Taimanov as normal. G27 shows Mateo plays 1.e4 c5 2.Bc4 — an unusual Anti-Sicilian. If 2.Bc4: Austin plays 2...e6 3.Nc3 Nc6 4.Nge2 (or 3...a6 4...b5) — Taimanov-adjacent structure. Austin must NEVER play 1...c6 (Caro-Kann) vs 1.e4 regardless of opponent.</p>
-<div class="callout callout-danger" style="margin-top:8px;">
-  <strong>⚠ Critical trap (from CLAUDE.md):</strong> After 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3, if Mateo plays <strong>6.Ndb5</strong>:
-  <br>✅ <strong>CORRECT: 6...d6!</strong> — blocks the fork, normal game
-  <br>❌ <strong>FATAL: 6...Bc5??</strong> → 7.Bf4 O-O 8.Bc7! Qe7 9.Bd6 Bxd6 10.Qxd6 — bishop trap, game over at move 10
-  <br><em>Source: Austin's PAM 2026 R7 catastrophic loss to Fernandez Herrera (2137)</em>
-</div>
-</div>
-
-<h3>Branch D — 1.d4 and Mateo plays c4 (Nimzo territory)</h3>
-<input type="checkbox" id="b4" class="acc-toggle">
-<label for="b4" class="acc-label">Branch D: 1.d4 Nf6 2.c4 — Nimzo-Indian 2...e6 3...Bb4 Bxc3+</label>
-<div class="acc-content">
-<div class="move-line">
-  <span class="mv-z">1.d4</span> <span class="mv-a">Nf6</span>
-  <span class="mv-z">2.c4</span> <span class="mv-a">e6</span>
-  <span class="mv-z">3.Nc3</span> <span class="mv-a"><span class="key-move">Bb4!</span></span>
-  <span class="mv-z">4.e3</span> <span class="mv-a">O-O</span>
-  <span class="mv-z">5.Bd3</span> <span class="mv-a">Bxc3+</span>
-  <span class="mv-z">6.bxc3</span> <span class="mv-a">b6</span>
-  <span class="note">— Nimzo-Indian Bxc3+ with ...b6/...Ba6; Austin's fixed 1.d4+c4+Nc3 weapon</span>
-</div>
-<p style="margin-top:8px; font-size:0.9em;">Mateo played c4 in one White game (G2 as Black he faced c4). If Mateo deviates from the Colle by playing 2.c4 instead of 2.c3, Austin plays the Nimzo-Indian — 1...Nf6 2...e6 3...Bb4 → 4...Bxc3+ ...b6/...Ba6. This is Austin's fixed 1.d4+c4+Nc3 weapon per CLAUDE.md. Mateo has no documented Nimzo games as White — if he enters this territory he will be unprepared.</p>
-</div>
-
-<hr class="section-divider">
-
-<h2 class="analysis">Part 3 — Accuracy Profile and Error Patterns</h2>
+<h2 class="analysis">Part 2 — Accuracy Profile and Error Patterns</h2>
 
 <h3>Key accuracy statistics (64 games, movetime-3000)</h3>
 <table>
@@ -366,10 +284,10 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 
 <hr class="section-divider">
 
-<h2 class="reference">Part 4 — If / Then Quick Reference</h2>
+<h2 class="reference">Part 3 — If / Then Quick Reference (Austin as White)</h2>
 
 <input type="checkbox" id="c1" class="acc-toggle" checked>
-<label for="c1" class="acc-label">Austin as White — if/then table</label>
+<label for="c1" class="acc-label">If Mateo plays... → Austin plays...</label>
 <div class="acc-content">
 <table>
   <thead><tr><th>If Mateo plays...</th><th>Austin plays...</th><th>Why</th></tr></thead>
@@ -384,37 +302,20 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 </div>
 
 <input type="checkbox" id="c2" class="acc-toggle" checked>
-<label for="c2" class="acc-label">Austin as Black — if/then table</label>
-<div class="acc-content">
-<table>
-  <thead><tr><th>If Mateo plays...</th><th>Austin plays...</th><th>Why</th></tr></thead>
-  <tbody>
-    <tr><td>1.d4 → 2.c3 Nf3 (Colle with Bf4)</td><td>1...Nf6 2...e6 3...c5!</td><td>Primary weapon vs Colle; Lichess masters (1374 games) confirms Black edges; disrupts Colle immediately</td></tr>
-    <tr><td>1.d4 → 2.c3 Nf3 Bg5 (Colle with Bg5)</td><td>Same 3...c5! or 2...d5 3...e6 4...c5!</td><td>Both Colle variants fall to c5 disruption; Austin should NOT trade on d4 immediately</td></tr>
-    <tr><td>1.d4 → 2.c4 Nc3 (enters Nimzo territory)</td><td>Nimzo-Indian: 2...e6 3...Bb4 Bxc3+</td><td>Austin's fixed vs 1.d4+c4+Nc3; Mateo has no documented Nimzo games as White</td></tr>
-    <tr><td>1.e4 (unusual for Mateo)</td><td>Taimanov 1...c5 2...e6 3...cxd4 4...Nc6 5...Qc7</td><td>Austin's fixed Black weapon vs 1.e4; Mateo played 1.e4 only twice (G27, G32)</td></tr>
-    <tr><td>1.e4 Taimanov 5.Nc3 6.Ndb5</td><td><strong>6...d6!</strong> immediately</td><td>Critical B45 trap — 6...Bc5?? allows 7.Bf4 O-O 8.Bc7! bishop trap (Austin's PAM R7 loss)</td></tr>
-    <tr><td>1.c4 / 1.Nf3</td><td>1...Nf6 2...e6; wait for Nc3 → Bb4 Nimzo</td><td>Austin's flexible QI-adjacent setup; never 1...e5 or 1...c6 as primary lines</td></tr>
-  </tbody>
-</table>
-</div>
-
-<input type="checkbox" id="c3" class="acc-toggle" checked>
-<label for="c3" class="acc-label">Key principles for this matchup</label>
+<label for="c2" class="acc-label">Key principles for this game (Austin as White)</label>
 <div class="acc-content">
 <ul style="padding-left: 18px; line-height: 1.9; font-size: 0.9em;">
-  <li><strong>Know all three Scandinavian queen retreats cold.</strong> Mateo plays Qa5 (12 games), Qd8 (6 games), Qd6 (3 games). The correct weapon differs for each — 8.Ne2! for Qa5, 4.Bc4! for Qd8, 6.Nb5! for Qd6. Misidentifying the variation at move 3 costs preparation time and leaves Austin in unfamiliar territory.</li>
-  <li><strong>Target the Qa5 variation aggressively.</strong> Mateo's 2W-6L-4D record in Qa5 Scandinavian is his worst result by any opening structure. The 6.Bc4 Ne2 line (Caruana-Nakamura 2015, 2496 avg Elo, 10W-5D-2B masters record) is Austin's main weapon and best scoring line.</li>
-  <li><strong>Play ...c5! against any Colle move order.</strong> Whether Mateo plays 2.c3 Nf3 Bf4 or 2.c3 Nf3 Bg5, the counter is 3...c5! Lichess confirmed: 1374 masters games, Black wins more than White. Austin's IQP strength (from CLAUDE.md) is fully applicable in the resulting positions.</li>
-  <li><strong>Never resign in a losing position.</strong> Mateo has collapsed from +11.63 (G50), +10.46 (G24), +7.34 (G48), and +6.44 (G34) in single moves. If Austin is down material or evaluation but still fighting, the data says Mateo may flip the position at any moment. Four documented instances of decisive collapse from winning positions.</li>
-  <li><strong>Keep the game complex past move 25.</strong> Mateo's decisive blunders cluster in moves 28–35 (G50 mv28, G34 mv34, G48 mv35). Every extra move of complexity past move 25 increases the probability of triggering his wiring problem. Do not simplify to a symmetrical endgame.</li>
-  <li><strong>Know 6...d6! in the B45 Ndb5 trap.</strong> If Mateo plays 1.e4, Austin must know 6...d6! automatically. This trap cost Austin a game against Fernandez Herrera in PAM 2026 (PAM R7, 2137-rated opponent). Don't let it happen again.</li>
+  <li><strong>Know all three Scandinavian queen retreats cold.</strong> Mateo plays Qa5 (12 games), Qd8 (6 games), Qd6 (3 games). The correct weapon differs for each — 8.Ne2! for Qa5, 4.Bc4! for Qd8, 6.Nb5! for Qd6. Identify the retreat at move 3 and play the correct weapon immediately.</li>
+  <li><strong>Target the Qa5 variation aggressively.</strong> Mateo's 2W-6L-4D record in Qa5 Scandinavian is his worst result by any structure. The 6.Bc4 e6 7.O-O Nf6 8.Ne2! line (Caruana-Nakamura 2015, 2496 avg Elo, 10W-5D-2B masters record) is Austin's primary weapon.</li>
+  <li><strong>Never resign in a losing position.</strong> Mateo has collapsed from +11.63 (G50), +10.46 (G24), +7.34 (G48), and +6.44 (G34) in single moves. Four documented decisive collapses — if Austin is down but still fighting, the data says Mateo will likely give it back.</li>
+  <li><strong>Keep the game complex past move 25.</strong> Mateo's decisive blunders cluster in moves 28–35 (G50 mv28, G34 mv34, G48 mv35). Every extra move of complexity past move 25 increases the probability of triggering his wiring problem. Do not trade into a symmetrical endgame early.</li>
+  <li><strong>Respect Mateo's ceiling.</strong> G44 and G54 both vs Fernando (2085 FIDE) — two draws at 93.4% and 97.7%. He can reach IM accuracy. Austin should not play imprecisely in the opening expecting easy wins from the rating gap.</li>
 </ul>
 </div>
 
 <hr class="section-divider">
 
-<h2 class="reference">Part 5 — Critical Moments Reference</h2>
+<h2 class="reference">Part 4 — Critical Moments Reference</h2>
 
 <h3>Pattern: Decisive position flip from +11 (G50 — White, 85.1%, Loss)</h3>
 <div class="callout callout-danger">
@@ -442,7 +343,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 
 <hr class="section-divider">
 
-<h2 class="reference">Part 6 — Engine Accuracy Reference (selected games, sorted by accuracy)</h2>
+<h2 class="reference">Part 5 — Engine Accuracy Reference (selected games, sorted by accuracy)</h2>
 
 <table>
   <thead>
