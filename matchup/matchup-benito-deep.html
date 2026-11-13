@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benito — Deep Analysis · Austin as White (Round 4)</title>
+<style>
+:root { --accent: #1a3a6b; --accent-bg: #eef2fb; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13.5px; color: #1a1a1a; max-width: 1000px;
+  margin: 0 auto; padding: 20px 24px; background: #f8f7f4;
+}
+.page-header { border-left: 6px solid var(--accent); background: var(--accent-bg);
+               padding: 14px 18px; margin-bottom: 20px; border-radius: 0 5px 5px 0; }
+.page-header h1 { font-size: 1.25em; margin-bottom: 3px; }
+.page-header .meta { font-size: 0.82em; color: #555; }
+.page-header .nav { margin-top: 8px; font-size: 0.82em; }
+.page-header .nav a { color: var(--accent); text-decoration: none; margin-right: 14px; }
+.page-header .nav a:hover { text-decoration: underline; }
+
+h2 { font-size: 1.05em; margin: 24px 0 8px; padding: 6px 12px;
+     border-left: 4px solid var(--accent); background: #f0f3fa; }
+h3 { font-size: 0.97em; margin: 16px 0 6px; color: #1a3a6b; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 12px 0 20px; }
+.stat-card { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 10px 12px; text-align: center; }
+.stat-card .num { font-size: 1.6em; font-weight: 700; color: var(--accent); }
+.stat-card .lbl { font-size: 0.78em; color: #666; margin-top: 2px; }
+
+.callout { padding: 9px 13px; border-radius: 4px; margin: 10px 0; font-size: 0.88em; line-height: 1.55; }
+.callout-gold    { background: #fffbe0; border-left: 4px solid #b8860b; }
+.callout-green   { background: #efffef; border-left: 4px solid #2d7d46; }
+.callout-blue    { background: #eef2fb; border-left: 4px solid #1a3a6b; }
+.callout-red     { background: #fff0f0; border-left: 4px solid #8b1a1a; }
+.callout-danger  { background: #fff3cd; border-left: 4px solid #d4820a; font-weight: 600; }
+.callout-orange  { background: #fff7ee; border-left: 4px solid #c0620a; }
+
+table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 0.83em; }
+th { background: #1a3a6b; color: #fff; padding: 5px 8px; text-align: left; white-space: nowrap; }
+td { padding: 4px 8px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f5f5f0; }
+.row-danger td { background: #fff2f2 !important; }
+.row-best   td { background: #efffef !important; }
+.row-warn   td { background: #fffbe0 !important; }
+
+.w-cell { color: #1a5276; font-weight: bold; }
+.b-cell { color: #8b1a1a; font-weight: bold; }
+.win-cell  { color: #2d7d46; font-weight: bold; }
+.loss-cell { color: #8b1a1a; }
+.draw-cell { color: #666; }
+.acc-high { color: #2d7d46; font-weight: bold; }
+.acc-mid  { color: #b8860b; font-weight: bold; }
+.acc-low  { color: #8b1a1a; font-weight: bold; }
+
+.move-line { background: #1a1a2e; color: #e0e0e0; padding: 10px 14px; border-radius: 5px;
+             font-family: 'Courier New', monospace; font-size: 0.88em; line-height: 1.8;
+             margin: 10px 0; }
+.mv-a { color: #64b5f6; font-weight: bold; }
+.mv-z { color: #ef9a9a; font-weight: bold; }
+.key-move { background: #1a3a6b; color: #fff; padding: 1px 5px; border-radius: 3px; }
+.note { font-style: italic; color: #aaa; font-size: 0.85em; }
+.bad-move { background: #5c0000; color: #ffcdd2; padding: 1px 5px; border-radius: 3px; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 10px 0; }
+.branch-card { background: #fff; border: 1px solid #ccc; border-radius: 5px; padding: 10px 12px; }
+.branch-card h4 { font-size: 0.9em; color: #1a3a6b; margin-bottom: 6px; border-bottom: 1px solid #e0e0e0; padding-bottom: 4px; }
+
+.lichess-data { background: #f9f9ff; border: 1px solid #c5cae9; border-radius: 4px;
+                padding: 8px 12px; margin: 8px 0; font-size: 0.82em; }
+.lichess-data .ld-row { display: flex; align-items: center; gap: 10px; margin: 3px 0; }
+.ld-move { font-weight: 700; min-width: 60px; font-family: monospace; }
+.ld-bar-wrap { flex: 1; background: #e8eaf6; border-radius: 3px; height: 12px; overflow: hidden; }
+.ld-bar { height: 12px; border-radius: 3px; }
+.ld-bar-top  { background: #3f51b5; }
+.ld-bar-good { background: #7986cb; }
+.ld-bar-side { background: #9fa8da; }
+.ld-pct { min-width: 38px; color: #555; }
+.ld-score { min-width: 50px; font-weight: bold; }
+.ld-score-good { color: #2d7d46; }
+.ld-score-bad  { color: #8b1a1a; }
+.ld-games { color: #888; font-size: 0.9em; }
+.ld-label { font-size: 0.8em; color: #555; margin: 6px 0 2px; font-weight: 600; }
+
+hr { border: none; border-top: 2px solid #ccc; margin: 22px 0; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Deep Engine Analysis — Salazar Rodriguez, Benito · Austin as White, Round 4</h1>
+  <div class="meta">Stockfish movetime-3000 · 16 threads · 20 games analyzed · Lichess win-probability accuracy formula · Lichess opening explorer 1800–2200</div>
+  <div class="nav">
+    <a href="../austin-prep.html">← Prep Index</a>
+    <a href="matchup-benito.html">Matchup Overview</a>
+    <a href="../play-on/benito/benito-analysis.md">Player Card (md)</a>
+  </div>
+</div>
+
+<div class="callout callout-danger">
+  ⚑ ROUND 4 — Austin plays <strong>White</strong>. This report covers Austin's Austrian Attack weapon and Benito's Black performance only. Benito's White games are excluded.
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>Opening Weapon — Austrian Attack 4.f4! vs Pirc Defense B00</h2>
+
+<div class="callout callout-blue">
+  <strong>Why Austrian Attack?</strong> Benito played the Pirc (1…d6 2…Nf6 3…g6 4…Bg7) as Black in both his PAM 2026 games against 1.e4 opposition (R6, R8). His PAM 2026 Pirc avg accuracy was <strong>85.0%</strong> — his weakest Black opening. He posted 2 blunders each game and lost outright in R8. The Austrian Attack (4.f4!) is Austin's standard weapon and the sharpest White reply, scoring 55.6% for White at Lichess 1800–2200.
+</div>
+
+<h3>Main Line — Austrian Attack with 7.e5!</h3>
+
+<div class="move-line">
+  <span class="mv-a">1.e4</span> <span class="mv-z">d6</span>
+  <span class="mv-a">2.d4</span> <span class="mv-z">Nf6</span>
+  <span class="mv-a">3.Nc3</span> <span class="mv-z">g6</span>
+  <span class="mv-a">4.f4!</span> <span class="mv-z">Bg7</span>
+  <span class="mv-a">5.Nf3</span> <span class="mv-z">O-O</span>
+  <span class="mv-a">6.Bd3</span> <span class="mv-z">Nc6</span>
+  <span class="key-move mv-a">7.e5!</span> <span class="mv-z">dxe5</span>
+  <span class="mv-a">8.fxe5</span> <span class="mv-z">Nd5</span>
+  <span class="mv-a">9.Nxd5</span> <span class="mv-z">Qxd5</span>
+  <span class="mv-a">10.c3</span> —
+  <span class="note">White controls e5-pawn, Ng5 or Qe2-Ng5 threats, kingside attack follows</span>
+</div>
+
+<div class="lichess-data">
+  <div class="ld-label">After 1.e4 d6 2.d4 Nf6 3.Nc3 g6 4.f4 Bg7 5.Nf3 O-O 6.Bd3 Nc6 — White's 7th move (Lichess 1800–2200, classical+rapid)</div>
+  <div class="ld-row">
+    <span class="ld-move">7.e5!</span>
+    <div class="ld-bar-wrap"><div class="ld-bar ld-bar-top" style="width:100%"></div></div>
+    <span class="ld-pct">2021 games</span>
+    <span class="ld-score ld-score-good">55.6% W</span>
+    <span class="ld-games">avg rating 2129</span>
+  </div>
+  <div class="ld-row">
+    <span class="ld-move">7.O-O</span>
+    <div class="ld-bar-wrap"><div class="ld-bar ld-bar-good" style="width:85%"></div></div>
+    <span class="ld-pct">5045 games</span>
+    <span class="ld-score ld-score-bad">47.4% W</span>
+    <span class="ld-games">avg rating 2057</span>
+  </div>
+  <div class="ld-row">
+    <span class="ld-move">7.Be3</span>
+    <div class="ld-bar-wrap"><div class="ld-bar ld-bar-side" style="width:62%"></div></div>
+    <span class="ld-pct">1727 games</span>
+    <span class="ld-score ld-score-bad">46.4% W</span>
+    <span class="ld-games">avg rating 2016</span>
+  </div>
+  <div style="margin-top:6px; color:#2d7d46; font-weight:600; font-size:0.85em;">
+    → 7.e5! scores +8 percentage points vs 7.O-O at a higher average rating. It is Austin's correct choice.
+  </div>
+</div>
+
+<div class="lichess-data">
+  <div class="ld-label">After 7.e5! dxe5 8.fxe5 — Black's responses (570 games at avg 2081)</div>
+  <div class="ld-row">
+    <span class="ld-move">8…Nd5</span>
+    <div class="ld-bar-wrap"><div class="ld-bar ld-bar-top" style="width:100%"></div></div>
+    <span class="ld-pct">570 games</span>
+    <span class="ld-score ld-score-good">60.5% W</span>
+    <span class="ld-games">main line — most solid try for Black</span>
+  </div>
+  <div class="ld-row">
+    <span class="ld-move">8…Nh5</span>
+    <div class="ld-bar-wrap"><div class="ld-bar ld-bar-good" style="width:43%"></div></div>
+    <span class="ld-pct">245 games</span>
+    <span class="ld-score">48.6% W</span>
+    <span class="ld-games">sideline — prevents Ng5 but weakens f6</span>
+  </div>
+  <div class="ld-row">
+    <span class="ld-move">8…Ng4</span>
+    <div class="ld-bar-wrap"><div class="ld-bar ld-bar-side" style="width:12%"></div></div>
+    <span class="ld-pct">71 games</span>
+    <span class="ld-score ld-score-good">58.5% W</span>
+    <span class="ld-games">greedy try — 9.Ng5! Nxe5 10.Nxh7 Nxd3+ 11.Qxd3 wins material</span>
+  </div>
+</div>
+
+<div class="two-col" style="margin-top:14px;">
+  <div class="branch-card">
+    <h4>Branch A — 8…Nd5 (most common)</h4>
+    <div class="move-line" style="font-size:0.82em;">
+      <span class="mv-z">8…Nd5</span>
+      <span class="mv-a">9.Nxd5</span> <span class="mv-z">Qxd5</span>
+      <span class="mv-a">10.c3</span> <span class="mv-z">Bg4</span>
+      <span class="mv-a">11.O-O</span> <span class="mv-z">c5</span>
+      <span class="mv-a">12.Be3!</span>
+      <span class="note">White plans Ng5, Qe2, kingside build-up. The e5-pawn is a space wedge — don't trade it prematurely.</span>
+    </div>
+    <p style="font-size:0.82em; margin-top:6px;">White's e5-pawn controls d6 and f6. Plan: Ng5 to target f7, Qe2 to pressurize e5, Rae1. If Black plays …c5 to undermine d4, respond Be3 holding the structure. <strong>Score for White: 60.5%</strong> in master games.</p>
+  </div>
+  <div class="branch-card">
+    <h4>Branch B — 8…Ng4 (pawn grab attempt)</h4>
+    <div class="move-line" style="font-size:0.82em;">
+      <span class="mv-z">8…Ng4</span>
+      <span class="key-move mv-a">9.Ng5!</span> <span class="mv-z">Nxe5</span>
+      <span class="mv-a">10.Nxh7!</span> <span class="mv-z">Nxd3+</span>
+      <span class="mv-a">11.Qxd3</span> <span class="mv-z">Kxh7</span>
+      <span class="mv-a">12.Qh3+</span>
+      <span class="note">Material + attack — Austin should know this 4-move sequence cold.</span>
+    </div>
+    <p style="font-size:0.82em; margin-top:6px;">If Benito tries to grab e5 with Ng4, the Ng5! Nxh7 sacrifice wins material immediately. 58.5% score for White. Benito's pattern of aggressive piece activation (see critical moments below) makes this branch plausible.</p>
+  </div>
+</div>
+
+<div class="two-col">
+  <div class="branch-card">
+    <h4>Branch C — 7…Nd7 (retreat instead of dxe5)</h4>
+    <div class="move-line" style="font-size:0.82em;">
+      <span class="mv-z">7…Nd7</span>
+      <span class="mv-a">8.O-O</span> <span class="mv-z">c5</span>
+      <span class="mv-a">9.Be3</span> <span class="mv-z">cxd4</span>
+      <span class="mv-a">10.Nxd4</span> <span class="mv-z">Nxe5</span>
+      <span class="mv-a">11.Ndb5!</span>
+      <span class="note">With Nd6 threatening — Black's king is in danger.</span>
+    </div>
+    <p style="font-size:0.82em; margin-top:6px;">186 games at avg 2108, White scores 60.6%. If Benito retreats instead of capturing, don't rush — O-O, Be3, and the Ndb5! fork threat gives White a strong initiative.</p>
+  </div>
+  <div class="branch-card">
+    <h4>Branch D — 6…c5 (before Nc6, challenge center)</h4>
+    <div class="move-line" style="font-size:0.82em;">
+      <span class="mv-z">6…c5</span>
+      <span class="mv-a">7.d5!</span> <span class="mv-z">b5</span>
+      <span class="mv-a">8.a4!</span> <span class="mv-z">b4</span>
+      <span class="mv-a">9.Nd1</span> <span class="mv-z">a5</span>
+      <span class="mv-a">10.c3</span>
+      <span class="note">Space advantage. White opens queenside after c3 and exploits the b4 pawn.</span>
+    </div>
+    <p style="font-size:0.82em; margin-top:6px;">If Benito plays 6…c5 instead of Nc6 (most popular Black 6th move in the data), reply 7.d5! — close the center and get a space advantage. Don't allow …cxd4 leveling the position.</p>
+  </div>
+</div>
+
+<div class="callout callout-orange">
+  <strong>Austin's pre-game drill:</strong> Know the Branch B sequence cold: <strong>8…Ng4 → 9.Ng5! Nxe5 10.Nxh7! Nxd3+ 11.Qxd3 Kxh7 12.Qh3+</strong>. Benito's pattern is aggressive piece activation that backfires (Nxe4 cpl:508 in R6, Rxe3 cpl:548 in R6). If he sees e5 as a free pawn, this sequence punishes it immediately.
+</div>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>Benito as Black — Accuracy Summary (6 games analyzed)</h2>
+
+<div class="stat-grid">
+  <div class="stat-card"><div class="num">87.8%</div><div class="lbl">Avg Accuracy as Black</div></div>
+  <div class="stat-card"><div class="num">85.0%</div><div class="lbl">Pirc-only avg (2 PAM games)</div></div>
+  <div class="stat-card"><div class="num">2W–3L–1D</div><div class="lbl">Black Record (6 games)</div></div>
+  <div class="stat-card"><div class="num">1D–1L</div><div class="lbl">Pirc Record (R6, R8)</div></div>
+</div>
+
+<div class="stat-grid">
+  <div class="stat-card"><div class="num">92.7%</div><div class="lbl">Best Black game (vs Uvalle, still lost)</div></div>
+  <div class="stat-card"><div class="num">80.7%</div><div class="lbl">Worst analyzed Black (vs Marin, won)</div></div>
+  <div class="stat-card"><div class="num">+8</div><div class="lbl">Blunders total as Black (6 games)</div></div>
+  <div class="stat-card"><div class="num">3</div><div class="lbl">Position-flipping blunders (from equal)</div></div>
+</div>
+
+<div class="callout callout-red">
+  <strong>Key finding:</strong> Benito's Black results are paradoxical — he won at 80.7% (vs Marin) and lost at 92.7% (vs Uvalle, opponent played 99.2%). His Pirc games show a recurring pattern: <strong>equal-position collapses</strong> where he makes aggressive tactical tries that immediately backfire (Nxe4 and Rxe3 in R6, both from even positions). Austin should keep the position complex and avoid early piece trades that simplify away these tactical blunder opportunities.
+</div>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>Pirc Defense Games (B00) — PAM 2026 Detail</h2>
+
+<h3>R8 · Jimenez Rios, Manuel David (1760) · Austin's model game: Pirc loss</h3>
+
+<table>
+  <thead><tr><th>Color</th><th>Result</th><th>Accuracy</th><th>Opp Acc</th><th>CPL</th><th>Blunders</th><th>Mistakes</th><th>Inaccuracies</th></tr></thead>
+  <tbody>
+  <tr class="row-danger">
+    <td class="b-cell">Black</td>
+    <td class="loss-cell">LOSS</td>
+    <td><span class="acc-low">85.5%</span></td>
+    <td>90.2%</td>
+    <td>89</td>
+    <td>1</td>
+    <td>3</td>
+    <td>10</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="callout callout-gold">
+  <strong>What happened:</strong> Benito played the Pirc as Black. His accuracy of 85.5% with 10 inaccuracies shows persistent positional uncertainty — he never found the right plan. The critical junction was move 18: Benito played the natural-looking <strong class="bad-move">18…f6?</strong> (cpl:211, should be 18…b4 — queenside counterplay) and then <strong class="bad-move">19…Nc7?</strong> (cpl:192, should be 19…Qb6 to activate the queen). After these two missteps White dominated.
+</div>
+
+<table>
+  <thead><tr><th>Move</th><th>Played</th><th>Best Move</th><th>CPL</th><th>Class</th><th>Before</th><th>After</th><th>Interpretation</th></tr></thead>
+  <tbody>
+  <tr class="row-warn">
+    <td>18</td><td>f6?</td><td>b4!</td><td>211</td><td class="acc-mid">mistake</td><td>−1.55</td><td>−3.66</td><td>Passive pawn push; b4 starts queenside counterplay — the Pirc's only counterchance</td>
+  </tr>
+  <tr class="row-warn">
+    <td>19</td><td>Nc7?</td><td>Qb6!</td><td>192</td><td class="acc-mid">mistake</td><td>−2.18</td><td>−4.10</td><td>Knight retreats passively; Qb6 threatens Qxb2 and activates the queen</td>
+  </tr>
+  <tr class="row-danger">
+    <td>33</td><td>Kd8??</td><td>R4xe6</td><td>1000</td><td class="acc-low">blunder</td><td>−8.27</td><td>−#</td><td>Position already lost; king walks into mate</td>
+  </tr>
+  </tbody>
+</table>
+
+<h3>R6 · Murillo Rodriguez, Javier Alejandro (1757) · Most instructive: 2 position-flipping blunders</h3>
+
+<table>
+  <thead><tr><th>Color</th><th>Result</th><th>Accuracy</th><th>Opp Acc</th><th>CPL</th><th>Blunders</th><th>Mistakes</th><th>Inaccuracies</th></tr></thead>
+  <tbody>
+  <tr class="row-danger">
+    <td class="b-cell">Black</td>
+    <td class="draw-cell">DRAW (should have lost)</td>
+    <td><span class="acc-low">84.5%</span></td>
+    <td>83.6%</td>
+    <td>50</td>
+    <td>2</td>
+    <td>1</td>
+    <td>4</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="callout callout-red">
+  <strong>The critical pattern:</strong> Benito blundered <em>twice</em> from equal positions — both times by making an aggressive piece activation that he miscalculated. At move 17, from a dead-equal position (+0.36), Benito played <strong class="bad-move">17…Nxe4?? (cpl:508)</strong> trying to win a pawn — immediately losing 5+ pawns of evaluation. At move 28, from another equal position (0.00), Benito played <strong class="bad-move">28…Rxe3?? (cpl:548)</strong> trying to win the e3 piece — again flipping from equal to −5.48. White missed both refutations and the game ended in a draw. <strong>Austin will not miss these refutations.</strong>
+</div>
+
+<table>
+  <thead><tr><th>Move</th><th>Played</th><th>Best Move</th><th>CPL</th><th>Class</th><th>Before</th><th>After</th><th>Interpretation</th></tr></thead>
+  <tbody>
+  <tr class="row-danger">
+    <td>17</td><td><strong>Nxe4??</strong></td><td>Nd7</td><td>508</td><td class="acc-low">blunder</td><td>+0.36</td><td>−4.72</td><td>Pawn grab that loses material — equal position flips to nearly −5</td>
+  </tr>
+  <tr class="row-warn">
+    <td>21</td><td>Rd3?</td><td>bxc4</td><td>191</td><td class="acc-mid">mistake</td><td>−1.29</td><td>−3.20</td><td>Passive rook placement; should capture on c4</td>
+  </tr>
+  <tr class="row-danger">
+    <td>28</td><td><strong>Rxe3??</strong></td><td>Kh7!</td><td>548</td><td class="acc-low">blunder</td><td>+0.00</td><td>−5.48</td><td>Attempts to win the e3 piece; misses White's Rd8+ tactical response — position flips again</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="callout callout-green">
+  <strong>Austin's exploit:</strong> Both R6 blunders were triggered by Benito seeing "free material" and grabbing without calculating the refutation. Austin should:
+  <ol style="margin: 6px 0 0 18px; line-height: 1.8;">
+    <li>Place pieces on squares where Benito might be tempted to capture (a "poisoned piece" setup)</li>
+    <li>Keep the position complex with material on the board — don't simplify into a drawish endgame</li>
+    <li>When Benito makes an aggressive piece move, calculate the refutation immediately: often there's a fork, pin, or tactical counter that punishes the overreach</li>
+  </ol>
+</div>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>Critical Patterns — Benito as Black (All 6 Games)</h2>
+
+<div class="callout callout-red">
+  <strong>Pattern 1 — Equal-position tactical collapse (3 instances, 2 games).</strong>
+  Three blunders occurred from positions between +0.36 and +0.00 (effectively equal): Nxe4 (R6, cpl:508), Rxe3 (R6, cpl:548), and Rg5 (R4-Marin, cpl:1000 from a mating sequence). Each time, Benito saw what appeared to be a free pawn or piece and took it without calculating the response. This is not an endgame weakness — it is a <em>middlegame tactical overconfidence</em> pattern. It appeared in 2 of his 2 Pirc games, and once in his Old Indian win.
+  <br><strong>Austin's exploit:</strong> Offer "free" material in the middlegame (a piece that appears to be hanging but has a tactical refutation). The Austrian Attack with Ng5 threats naturally creates these opportunities.
+</div>
+
+<div class="callout callout-gold">
+  <strong>Pattern 2 — Long-game accuracy collapse (134 ply vs Borjon: 86.4%, 5 blunders).</strong>
+  Benito's longest game (134 ply vs Borjon 1876) produced 5 blunders — his worst performance. This is not directly relevant to Austin's game but confirms: <strong>Benito does not convert well under prolonged pressure.</strong> If the Austrian Attack leads to a long, complex middlegame where Benito is under pressure, he will crack — particularly in time trouble or when asked to find precise defensive moves.
+</div>
+
+<div class="callout callout-blue">
+  <strong>Pattern 3 — Passive response under pressure.</strong>
+  In R8, moves 18–19 (f6 instead of b4; Nc7 instead of Qb6) show that when White has space and threats, Benito plays passive pawn/piece moves rather than finding active counterplay. The Pirc structure requires Black to generate counterplay with …c5, …b5, …f5. If Benito can't find the active plan, he drifts into a passive position and slowly loses.
+  <br><strong>Austin's exploit:</strong> After 7.e5! dxe5 8.fxe5, don't rush — develop calmly (O-O, Be3) and wait for Benito to play passively. Then activate with Ng5 or Qe2-Qh5.
+</div>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>If / Then Quick Reference — Austin as White</h2>
+
+<table>
+  <thead>
+    <tr><th>If Benito plays…</th><th>Austin plays…</th><th>Why</th></tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>1…d6 2…Nf6 3…g6 (Pirc)</td>
+    <td>4.f4! (Austrian Attack)</td>
+    <td>Benito's main Black defense; 55.6% for White at avg 2129</td>
+  </tr>
+  <tr class="row-best">
+    <td>5…O-O 6.Bd3 Nc6 → 7th move choice</td>
+    <td><strong>7.e5!</strong> (not 7.O-O)</td>
+    <td>7.e5! scores 55.6% vs 7.O-O's 47.4%; Benito's Pirc accuracy is only 85% avg</td>
+  </tr>
+  <tr>
+    <td>7…dxe5 8.fxe5 → 8…Nd5</td>
+    <td>9.Nxd5 Qxd5 10.c3 → Be3, O-O, Ng5 plan</td>
+    <td>60.5% score for White; e5-pawn is a space wedge — hold it, don't trade</td>
+  </tr>
+  <tr class="row-warn">
+    <td>7…dxe5 8.fxe5 → 8…Ng4 (pawn grab)</td>
+    <td><strong>9.Ng5! Nxe5 10.Nxh7! Nxd3+ 11.Qxd3 Kxh7 12.Qh3+</strong></td>
+    <td>Wins material immediately; Benito's pattern of aggressive overreach makes this plausible</td>
+  </tr>
+  <tr>
+    <td>7…Nd7 (instead of dxe5)</td>
+    <td>8.O-O c5 9.Be3 → Ndb5!</td>
+    <td>186 games, 60.6% for White; Ndb5! threatens Nd6 fork</td>
+  </tr>
+  <tr>
+    <td>5…O-O 6.Bd3 → 6…c5 (before Nc6)</td>
+    <td>7.d5! then 8.a4!</td>
+    <td>Close center, get space advantage; don't allow …cxd4 leveling</td>
+  </tr>
+  <tr>
+    <td>Benito "sees" a free piece in the middlegame</td>
+    <td>Calculate before moving; likely a tactical refutation exists</td>
+    <td>Both R6 blunders (Nxe4 cpl:508, Rxe3 cpl:548) followed this pattern from equal positions</td>
+  </tr>
+  <tr>
+    <td>Position simplifies into equal endgame</td>
+    <td>Avoid — keep complications on the board</td>
+    <td>Benito's wins came as Black in simplified positions (A41, A53); his Pirc disasters were in complex middlegames</td>
+  </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>Full Table — Benito as Black (6 games analyzed)</h2>
+
+<table>
+  <thead>
+    <tr><th>Event</th><th>Rnd</th><th>Color</th><th>Result</th><th>Acc</th><th>Opp Acc</th><th>Opponent</th><th>Elo</th><th>ECO</th><th>B/M/I</th></tr>
+  </thead>
+  <tbody>
+  <tr class="row-danger">
+    <td>PAM 2026</td><td>R8</td><td class="b-cell">B</td>
+    <td class="loss-cell">L</td>
+    <td><span class="acc-low">85.5%</span></td><td>90.2%</td>
+    <td>Jimenez Rios, Manuel David</td><td>1760</td><td>B00 Pirc</td><td>1/3/10</td>
+  </tr>
+  <tr class="row-danger">
+    <td>PAM 2026</td><td>R6</td><td class="b-cell">B</td>
+    <td class="draw-cell">D</td>
+    <td><span class="acc-low">84.5%</span></td><td>83.6%</td>
+    <td>Murillo Rodriguez, Javier A.</td><td>1757</td><td>B00 Pirc</td><td>2/1/4</td>
+  </tr>
+  <tr class="row-danger">
+    <td>PAM 2026</td><td>R4</td><td class="b-cell">B</td>
+    <td class="win-cell">W</td>
+    <td><span class="acc-low">80.7%</span></td><td>85.7%</td>
+    <td>Marin Marin, Cristobal</td><td>1694</td><td>A53 Old Indian</td><td>2/1/7</td>
+  </tr>
+  <tr class="row-best">
+    <td>PAM 2026</td><td>R2</td><td class="b-cell">B</td>
+    <td class="win-cell">W</td>
+    <td><span class="acc-high">91.4%</span></td><td>86.9%</td>
+    <td>Villada Londono, Thomas</td><td>1695</td><td>A41 QP d6</td><td>1/1/3</td>
+  </tr>
+  <tr>
+    <td>Earlier OTB</td><td>R4</td><td class="b-cell">B</td>
+    <td class="loss-cell">L</td>
+    <td><span class="acc-high">92.7%</span></td><td>99.2%</td>
+    <td>Uvalle Morales, Daniel Isaac</td><td>1711</td><td>C42 Petrov</td><td>1/1/1</td>
+  </tr>
+  <tr>
+    <td>Earlier OTB</td><td>R4</td><td class="b-cell">B</td>
+    <td class="loss-cell">L</td>
+    <td><span class="acc-high">92.2%</span></td><td>95.9%</td>
+    <td>Hernandez Gamboa, Daniel</td><td>1734</td><td>C40 Gunderam</td><td>1/0/12</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="callout callout-blue" style="margin-top:14px;">
+  <strong>Note on skipped games:</strong> Two additional Black games (R4 vs Hernandez Morales 1491 — C47; R2 vs Gonzalez Peiro 1699 — C42) were skipped due to PGN parse errors (Lichess study format with embedded annotations). Both are Petrov C42 games from 2024–2025, consistent with his abandoned Petrov repertoire (0W–4L overall in Petrov before switching to Pirc).
+</div>
+
+</body>
+</html>
