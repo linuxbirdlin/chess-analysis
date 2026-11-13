@@ -91,12 +91,16 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <span><strong>GM Prep</strong></span>
   <span>Fernando rating: CM · 2085 FIDE (Nov 2026; peaked 2133 at MEX-ch U17 Jul 2026)</span>
   <span>Direct record: no encounter</span>
-  <span>Classical games analyzed: 37 (movetime-3000)</span>
+  <span>Classical games analyzed: 39 (movetime-3000)</span>
+</div>
+
+<div class="callout callout-danger" style="margin-bottom:16px">
+  <strong>⚑ ROUND 5 PRIORITY — Austin likely plays Black vs Fernando.</strong> Jump to <a href="#black-prep" style="color:#8b1a1a;font-weight:bold">Part 2 (Austin as Black)</a> for the primary battle plan. Part 1 (Austin as White) is kept as reference only.
 </div>
 
 <div class="sources">
   <strong>Data sources</strong>
-  <span class="src-classical">Primary: 37 classical games across 7 tournaments (PAM School, Olympia Nacional, ED Nacional, MEX-ch 16th, MEX Open 71st, World Schools 2026, Queretaro 2026) — Stockfish movetime-3000 JSON. Opening positions verified via Lichess Masters explorer (FIDE 2300+).</span>
+  <span class="src-classical">Primary: 39 classical games across 8 tournaments (PAM School, Olympia Nacional, ED Nacional, MEX-ch 16th, MEX Open 71st, World Schools 2026, Queretaro 2026, NAYCC 2026) — Stockfish movetime-3000 JSON. Opening positions verified via Lichess Masters explorer (FIDE 2300+).</span>
   <span class="src-note">No Lichess account found — classical OTB data only. Weakness patterns sourced from scripts/fernando-analysis-results-deep.json.</span>
 </div>
 
@@ -133,9 +137,10 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <div class="intel-card">
     <h3>Key game facts</h3>
     <ul>
-      <li>Overall: 37 games — <strong>92.8%</strong> avg accuracy</li>
-      <li>As White: <strong>91.9%</strong> (17g) · As Black: <strong>93.7%</strong> (20g)</li>
-      <li>Best: 97.6% (World Schools R5, win vs 1478)</li>
+      <li>Overall: 39 games — <strong>93.1%</strong> avg accuracy</li>
+      <li>As White: <strong>92.2%</strong> (18g) · As Black: <strong>93.8%</strong> (21g)</li>
+      <li>NAYCC 2026 (peak form): <strong>98.0%</strong> avg — 2 wins, R3: 97.7% White WIN (B76 Dragon), R4: 98.3% Black WIN vs Aarush 1943</li>
+      <li>Best: 98.3% (NAYCC 2026 R4, Black WIN vs Aarush 1943)</li>
       <li>Worst: 85.4% (MEX Open G5, loss to 2395-rated)</li>
       <li>Queretaro 2026: 1W–4L–3D vs 2104–2463 (avg opp 2306)</li>
     </ul>
@@ -234,10 +239,14 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 
 <hr class="section-divider">
 
-<h2>Part 2 — Austin as Black vs Fernando</h2>
+<h2 id="black-prep">Part 2 — ROUND 5 PRIORITY: Austin as Black vs Fernando</h2>
+
+<div class="callout callout-danger">
+  <strong>⚑ NAYCC 2026 form warning:</strong> Fernando is at career-peak accuracy at this tournament — R3: 97.7% (White WIN, B76 Dragon), R4: 98.3% (Black WIN vs Aarush 1943). Average 98.0%. Do NOT rely on Fernando making natural errors. Austin's edge is <strong>opening preparation</strong> — Fernando has <strong>ZERO documented Taimanov games</strong> in 39 analyzed. He enters unknown territory from move 5.
+</div>
 
 <div class="callout callout-green">
-  <strong>Core fact:</strong> Fernando plays 1.e4 in 73% of White games with the English/Yugoslav Attack (f3/Be3/Qd2/O-O-O). But his 1.e4 White win rate is only <strong>25%</strong> (2W–4L–2D). He is a <em>stronger Black than White</em>. Austin plays <strong>Sicilian Taimanov B47 Bastrikov</strong> to reach his familiar territory.
+  <strong>Core fact:</strong> Fernando plays 1.e4 in 73% of White games with the English/Yugoslav Attack (f3/Be3/Qd2/O-O-O). But his 1.e4 White win rate is only <strong>25%</strong> (2W–4L–2D in 8 classical games). He is a <em>stronger Black than White</em>. Austin plays <strong>Sicilian Taimanov B47 Bastrikov</strong> — Fernando has <strong>zero documented Taimanov games</strong>; his Yugoslav Attack setup (f3/Be3/Qd2) cannot function normally vs Austin's ...e6 structure.
 </div>
 
 <h3>Fernando as White — confirmed systems</h3>
@@ -264,19 +273,38 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 </div>
 
 <input class="acc-toggle" id="b1" type="checkbox" checked>
-<label class="acc-label" for="b1">Main English Attack — Fernando plays 6.Be3 → 7.f3 → 8.g4</label>
+<label class="acc-label" for="b1">Main English Attack — 6.Be3 (42% of Lichess games) — Austin plays Nf6 first (White 43%)</label>
 <div class="acc-content">
   <div class="move-line">
-    <span class="mv-z">Fernando:</span> 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 <span class="mv-a">Qc7</span> 6.Be3 <span class="mv-a">a6!</span> 7.f3 <span class="mv-a">b5</span> 8.g4 <span class="mv-a">Bb7</span> 9.Qd2 <span class="mv-a">Nf6</span> 10.O-O-O <span class="mv-a">b4!</span>
-    <span class="note"> — 6...a6! is the standard Bastrikov preparation. Black signals queenside expansion immediately. 10...b4! starts the queenside race before Fernando's g5 arrives.</span>
+    <span class="mv-z">Fernando:</span> 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 <span class="mv-a">Qc7</span> 6.Be3 <span class="mv-a">a6!</span> 7.f3 <span class="key-move">Nf6!</span> (White 43%) → 8.g4 d6 9.Qd2 <span class="mv-a">b5!</span> 10.O-O-O <span class="mv-a">b4!</span>
+    <span class="note"> — 6...a6! is standard Bastrikov prep. After 7.f3 (Fernando's exact NAYCC R3 setup), <strong>Nf6 first!</strong> (Lichess: 6047 games, White 43%) is better than b5 immediately (1606 games, White 45%). Develop the knight, then launch ...b5-b4 queenside race.</span>
   </div>
-  <p style="margin-top:8px"><strong>Key plan after 10...b4:</strong> Black's attack on the queenside (b4-b3 or Nc6-b4-d3) races against Fernando's kingside storm. Austin should know: Fernando's king navigation is his #1 weakness — once Fernando castles queenside, his king on c1 or b1 is exposed to exactly the ...b4/...b3 counterplay Austin generates here.</p>
-  <p style="margin-top:6px"><strong>Alternative at move 6 — 6.Be3 Nf6:</strong> This is also valid (B47 standard). After 6...Nf6 7.f3 e5 (freeing the position), Black forces an IQP structure. But 6...a6! is cleaner for the queenside race plan.</p>
-  <p style="margin-top:6px"><strong>Critical rule:</strong> Do NOT play …d5?! (IQP) — Fernando's best positions come when he can exploit a fixed central weakness. Keep the position dynamic with …b5/…b4/…Rb8 queenside pressure.</p>
+  <div class="callout callout-gold" style="font-size:0.85em;margin:6px 0;">
+    <strong>Lichess data (1800–2200, classical+rapid):</strong> After 6.Be3 a6 7.f3: total 9,637 games, White 45%. Austin's best response: <strong>Nf6 (White 43%, 6,047 games)</strong> &gt; b5 (White 45%, 1,606 games) &gt; Bb4 (White 48%, 798 games). Nf6 first is Austin's comfortable variance — lower White score than b5 or Bb4.
+  </div>
+  <p style="margin-top:8px"><strong>Key plan after 10...b4:</strong> Black's queenside race (...b4-b3 or Nc6-b4-d3) aims at Fernando's king on c1/b1. Fernando's king navigation is his #1 weakness (Pattern E, score=212.8, 9 instances) — once Fernando castles queenside, ...b4/...b3 targets exactly this. His documented Kb1?? pattern (PAM R6, lost from equal position) is the exploit.</p>
+  <p style="margin-top:6px"><strong>Alternate at 7: 7...b5 (also playable)</strong>: 7...b5 8.Qd2 Bb7 9.0-0-0 → Lichess: 832 games after 8.Qd2 Bb7, White 49%. 7...Nf6 is superior by ~6% White score. Play Nf6 first unless you've prepared b5 deeply.</p>
+  <p style="margin-top:6px"><strong>Critical rule:</strong> Do NOT play …d5?! (IQP) — Fernando's best positions come when he exploits a fixed central weakness. Keep the position dynamic with …b5/…b4/…Rb8 queenside pressure.</p>
+</div>
+
+<input class="acc-toggle" id="b1b" type="checkbox" checked>
+<label class="acc-label" for="b1b">Fernando plays 6.f3 (his exact NAYCC R3 Dragon setup) — FAVORABLE for Austin</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">Fernando:</span> 1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 <span class="mv-a">Qc7</span> <span class="mv-z">6.f3</span> <span class="mv-a">Nf6!</span> (White 35%) or <span class="mv-a">a6</span> (White 38%)
+    <span class="note"> — Fernando's NAYCC R3 exact move order was 6.f3 (Dragon Yugoslav setup). Vs Taimanov, this is premature — Lichess: 961 games, White only <strong>38%</strong>. Best Black response: <strong>Nf6</strong> (210 games, White <strong>35%</strong>!) or a6 (671 games, White 38%).</span>
+  </div>
+  <div class="callout callout-green" style="font-size:0.85em;margin:6px 0;">
+    <strong>Key insight:</strong> Fernando's Dragon Yugoslav setup (6.f3 7.Be3 8.Qd2 9.O-O-O) CANNOT work vs Austin's Taimanov — Austin's ...e6 pawn prevents the Dragon-style g7-fianchetto that the Yugoslav Attack is designed to attack. If Fernando tries 6.f3, Austin gets the best theoretical score (White only 35% after 6...Nf6). This is Austin's most favorable scenario.
+  </div>
+  <p style="margin-top:6px"><strong>After 6.f3 Nf6 7.Be3 → Austin has two paths:</strong>
+  <br>• 7...d6 (most common, solid Scheveningen-type)
+  <br>• 7...b5! (immediate queenside expansion — the ...e6 structure makes this safe)
+  <br>Either way, Fernando's standard Dragon plan is neutralized.</p>
 </div>
 
 <input class="acc-toggle" id="b2" type="checkbox">
-<label class="acc-label" for="b2">If Fernando plays 6.Ndb5 (aggressive — B45 counter)</label>
+<label class="acc-label" for="b2">If Fernando plays 6.Ndb5 (aggressive — B47 counter)</label>
 <div class="acc-content">
   <div class="callout callout-danger">
     <strong>CRITICAL RULE — 6.Ndb5 trap:</strong> After 5.Nc3 Qc7 6.Ndb5, White threatens Nd6+ forking king and rook. Austin plays:<br>
@@ -452,8 +480,9 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
     <tbody>
     <tr><td>1.e4</td><td>1…c5 (Sicilian, always)</td><td>Never 1…e5 — Fernando plays Italian/Lopez as White with solid results</td></tr>
     <tr><td>2.Nf3 + 3.d4 (Open Sicilian)</td><td>2…e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 <strong>Qc7!</strong> (B47 Bastrikov)</td><td>5...Qc7 is the Bastrikov move order — active queen, queenside expansion signal</td></tr>
-    <tr><td>6.Be3 (English Attack setup)</td><td>6…<strong>a6!</strong> → 7.f3 b5 8.g4 Bb7 9.Qd2 Nf6 10.O-O-O <strong>b4!</strong></td><td>Queenside race; Fernando's O-O-O king is exposed to ...b4/...b3 — his #1 weakness trigger</td></tr>
-    <tr><td>6.Ndb5 (aggressive)</td><td>6…<strong>d6!</strong> (NOT 6...Bc5?? → bishop trap at move 10)</td><td>Critical rule from PAM 2026 R7 analysis — d6 is the only safe move</td></tr>
+    <tr><td>6.Be3 (English Attack, 42%)</td><td>6…<strong>a6!</strong> → 7.f3 <strong>Nf6!</strong> (White 43%) → 8.g4 d6 9.Qd2 b5! 10.O-O-O <strong>b4!</strong></td><td>Nf6 first (White 43%) beats b5 (White 45%) per Lichess 9,637 games. Queenside race targets Fernando's O-O-O king — his #1 weakness trigger</td></tr>
+    <tr><td>6.f3 (Fernando's NAYCC R3 Dragon setup)</td><td>6…<strong>Nf6!</strong> (White only 35%) or 6…a6 (White 38%)</td><td>Fernando's Dragon Yugoslav setup is premature vs Taimanov — Austin's ...e6 structure neutralizes the entire plan. FAVORABLE scenario.</td></tr>
+    <tr><td>6.Ndb5 (aggressive)</td><td>6…<strong>d6!</strong> (NOT 6...Bc5?? → 7.Nd6+!! Ke7 8.Nxf7!! wins rook)</td><td>d6 controls invasion squares. Bc5?? is the trap — bishop gets forked after Nd6+. Source: CLAUDE.md critical rule (B47 Bastrikov)</td></tr>
     <tr><td>1.c4 (English)</td><td>1…Nf6 → Nimzo transposition (2…e6 3…Bb4 when Nc3) — NEVER 1…e5</td><td>Fernando has zero Nimzo games; fixed Austin repertoire</td></tr>
     </tbody>
   </table>
@@ -542,23 +571,24 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 
 <hr class="section-divider">
 
-<h2>Part 7 — Engine Accuracy Reference (37 Classical Games)</h2>
+<h2>Part 7 — Engine Accuracy Reference (39 Classical Games)</h2>
 
 <table>
   <thead><tr><th>Tournament</th><th>Games</th><th>Record</th><th>Avg Acc</th><th>Notes</th></tr></thead>
   <tbody>
-  <tr><td>World Schools 2026</td><td>3</td><td>1W–0L–2D</td><td><strong>96.4%</strong></td><td>Best recent form; Aug 2026</td></tr>
-  <tr><td>MEX-ch 16th</td><td>5</td><td>4W–1L–0D</td><td><strong>95.0%</strong></td><td>Mostly vs 1400–1800; not informative for Austin</td></tr>
-  <tr><td>PAM School 2026</td><td>9</td><td>5W–1L–3D</td><td><strong>94.7%</strong></td><td>R6 loss: Kf1?? Kb1?? (king navigation — lost from equal)</td></tr>
+  <tr style="background:#e8f5e9"><td><strong>NAYCC 2026</strong></td><td>2</td><td>2W–0L–0D</td><td><strong>98.0%</strong></td><td><strong>PEAK FORM</strong> — R3: 97.7% White WIN (B76 Dragon vs 1742); R4: 98.3% Black WIN vs Aarush 1943 (Catalan Blunder Qxd1??). Nov 2026.</td></tr>
+  <tr><td>World Schools 2026</td><td>3</td><td>1W–0L–2D</td><td><strong>96.5%</strong></td><td>Best pre-NAYCC form; Aug 2026</td></tr>
+  <tr><td>MEX-ch 16th</td><td>5</td><td>4W–1L–0D</td><td><strong>94.9%</strong></td><td>Mostly vs 1400–1800; not informative for Austin</td></tr>
+  <tr><td>PAM School 2026</td><td>9</td><td>5W–1L–3D</td><td><strong>94.9%</strong></td><td>R6 loss: Kf1?? Kb1?? (king navigation — lost from equal)</td></tr>
   <tr><td>Olympia Nacional 2026</td><td>6</td><td>3W–2L–1D</td><td><strong>91.9%</strong></td><td>Kf8?? (decisive: +3.49→-0.12) in R4; beat FM Martinez as Black</td></tr>
-  <tr><td>Queretaro 2026</td><td>8</td><td>1W–4L–3D</td><td><strong>91.3%</strong></td><td>Faced 2104–2463; accuracy 86.8–95.7%; Oct 2026</td></tr>
-  <tr><td>MEX Open 71st</td><td>4</td><td>1W–2L–1D</td><td><strong>89.8%</strong></td><td>Rd7?? (+4.68→0) in G3; multiple R/Q errors</td></tr>
-  <tr><td>ED Nacional 2026</td><td>2</td><td>0W–2L–0D</td><td><strong>88.2%</strong></td><td>Kf8?? Ke8?? (2 king blunders) vs Cori (2586)</td></tr>
-  <tr style="background:#f5f0e8"><td><strong>Overall</strong></td><td><strong>37</strong></td><td><strong>15W–10L–12D</strong></td><td><strong>92.8%</strong></td><td>White 91.9% · Black 93.7%</td></tr>
+  <tr><td>Queretaro 2026</td><td>8</td><td>1W–4L–3D</td><td><strong>91.2%</strong></td><td>Faced 2104–2463; accuracy 86.8–95.7%; Oct 2026</td></tr>
+  <tr><td>MEX Open 71st</td><td>4</td><td>1W–2L–1D</td><td><strong>90.1%</strong></td><td>Rd7?? (+4.68→0) in G3; multiple R/Q errors</td></tr>
+  <tr><td>ED Nacional 2026</td><td>2</td><td>0W–2L–0D</td><td><strong>87.4%</strong></td><td>Kf8?? Ke8?? (2 king blunders) vs Cori (2586)</td></tr>
+  <tr style="background:#f5f0e8"><td><strong>Overall</strong></td><td><strong>39</strong></td><td><strong>17W–10L–12D</strong></td><td><strong>93.1%</strong></td><td>White 92.2% (18g) · Black 93.8% (21g)</td></tr>
   </tbody>
 </table>
 
-<h3 style="margin-top:16px">Per-game accuracy (all 37 games)</h3>
+<h3 style="margin-top:16px">Per-game accuracy (all 39 games)</h3>
 <table>
   <thead><tr><th>Tournament</th><th>Rnd</th><th>Color</th><th>Opponent</th><th>Elo</th><th>Result</th><th>Acc</th><th>B/M</th></tr></thead>
   <tbody>
@@ -599,9 +629,11 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <tr><td>MEX Open 71st</td><td>G5</td><td>White</td><td>Perez Rodriguez, C.</td><td>2395</td><td>Loss</td><td>85.4%</td><td>1/2</td></tr>
   <tr><td>ED Nacional 2026</td><td>R1</td><td>Black</td><td>Cori, Jorge</td><td>2586</td><td>Loss</td><td>86.6%</td><td>6/3</td></tr>
   <tr><td>ED Nacional 2026</td><td>R9</td><td>Black</td><td>Paredes Guzman, F.</td><td>2137</td><td>Loss</td><td>89.7%</td><td>1/2</td></tr>
+  <tr style="background:#e8f5e9"><td><strong>NAYCC 2026</strong></td><td>R3</td><td>White</td><td>Calzada Martinez, I.</td><td>1742</td><td><strong>Win</strong></td><td><strong>97.7%</strong></td><td>4/3</td></tr>
+  <tr style="background:#e8f5e9"><td><strong>NAYCC 2026</strong></td><td>R4</td><td>Black</td><td>Ajith, Aarush</td><td>1943</td><td><strong>Win</strong></td><td><strong>98.3%</strong></td><td>0/2</td></tr>
   </tbody>
 </table>
-<p style="font-size:0.82em; color:#666; margin-top:6px">Queretaro 2026 / Olympia R4 rows highlighted — most relevant data (Oct 2026 for Queretaro, avg opp 2306; Olympia R4 = key Kf8?? decisive blunder).</p>
+<p style="font-size:0.82em; color:#666; margin-top:6px">NAYCC 2026 rows highlighted green — Fernando at career-peak form (avg 98.0%). Queretaro 2026 / Olympia R4 rows also highlighted — most relevant data (Oct 2026 for Queretaro, avg opp 2306; Olympia R4 = key Kf8?? decisive blunder).</p>
 
 <p style="margin-top:20px; font-size:0.85em; color:#555; text-align:center">
   <a href="../austin-prep.html">← Back to Austin Lin Prep Index</a>
