@@ -28,6 +28,7 @@ const TOURNAMENTS = [
 const STANDALONE = [
   { file: 'mex-ch16th.pgn', name: 'MEX-ch 16th' },
   { file: 'mex-op71.pgn',   name: 'MEX Open 71st' },
+  { file: 'naycc2026.pgn',  name: 'NAYCC 2026' },
 ];
 
 function isFernando(name) { return /cortes\s*medina,?\s*fernando/i.test(name); }
