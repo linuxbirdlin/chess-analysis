@@ -282,9 +282,17 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <div class="callout callout-gold" style="font-size:0.85em;margin:6px 0;">
     <strong>Lichess data (1800–2200, classical+rapid):</strong> After 6.Be3 a6 7.f3: total 9,637 games, White 45%. Austin's best response: <strong>Nf6 (White 43%, 6,047 games)</strong> &gt; b5 (White 45%, 1,606 games) &gt; Bb4 (White 48%, 798 games). Nf6 first is Austin's comfortable variance — lower White score than b5 or Bb4.
   </div>
-  <p style="margin-top:8px"><strong>Key plan after 10...b4:</strong> Black's queenside race (...b4-b3 or Nc6-b4-d3) aims at Fernando's king on c1/b1. Fernando's king navigation is his #1 weakness (Pattern E, score=212.8, 9 instances) — once Fernando castles queenside, ...b4/...b3 targets exactly this. His documented Kb1?? pattern (PAM R6, lost from equal position) is the exploit.</p>
+  <p style="margin-top:8px"><strong>If Fernando plays 8.g4 immediately (before Qd2):</strong> Do NOT play 8...h5?! (weakens g5-entry). Play <strong>8...d6!</strong> → 9.Qd2 b5! — same queenside race, just one move earlier. The g4 advance gives Austin an extra tempo; if Fernando plays 10.g5 → 10...Nd7! (not Ne8 which is passive). After 10...Nd7 11.0-0-0 b4, Black's queenside attack races White's kingside storm on equal or better terms.</p>
+  <p style="margin-top:8px"><strong>Concrete plan after 10.O-O-O b4 (the queenside attack):</strong></p>
+  <div class="move-line" style="font-size:0.88em;">
+    After <span class="mv-a">10...b4</span> → White's most common replies:<br>
+    &nbsp;• <strong>11.Nd5!?</strong>: Austin plays <span class="key-move">11...exd5! 12.exd5 Ne5!</span> — knight dominates e5, Black is comfortable<br>
+    &nbsp;• <strong>11.Kb1</strong> (defensive): Austin plays <span class="mv-a">11...Bb7!</span> → 12...Ne5 (targeting f3/d3) → 13...Rb8 (rook to open b-file when b3) → ...Nc4 or ...b3 invasion<br>
+    &nbsp;• <strong>11.g5</strong> (kingside attack): Austin plays <span class="mv-a">11...Ne8!</span> → 12...Nd4! → 13...Nc2+! forking king and rook (Fernando's #1 weakness triggered)
+  </div>
+  <p style="margin-top:6px"><strong>Key maneuver:</strong> After ...b4, the <strong>Ne5 knight leap</strong> is Black's most powerful counter-weapon — from c6 it reaches d4, then e2 or c2+, forking Fernando's castled king. Keep this route open (don't exchange Nc6 for d4 too early).</p>
   <p style="margin-top:6px"><strong>Alternate at 7: 7...b5 (also playable)</strong>: 7...b5 8.Qd2 Bb7 9.0-0-0 → Lichess: 832 games after 8.Qd2 Bb7, White 49%. 7...Nf6 is superior by ~6% White score. Play Nf6 first unless you've prepared b5 deeply.</p>
-  <p style="margin-top:6px"><strong>Critical rule:</strong> Do NOT play …d5?! (IQP) — Fernando's best positions come when he exploits a fixed central weakness. Keep the position dynamic with …b5/…b4/…Rb8 queenside pressure.</p>
+  <p style="margin-top:6px"><strong>Critical rule:</strong> Do NOT play …d5?! (IQP) — Fernando's best positions come when he exploits a fixed central weakness. Keep the position dynamic with …b5/…b4/…Rb8 queenside pressure. Do NOT castle kingside before playing ...b4 — if Austin castles O-O too early, Fernando's g4-g5 attack arrives faster than the queenside race.</p>
 </div>
 
 <input class="acc-toggle" id="b1b" type="checkbox" checked>
@@ -301,6 +309,17 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <br>• 7...d6 (most common, solid Scheveningen-type)
   <br>• 7...b5! (immediate queenside expansion — the ...e6 structure makes this safe)
   <br>Either way, Fernando's standard Dragon plan is neutralized.</p>
+</div>
+
+<input class="acc-toggle" id="b1c" type="checkbox" checked>
+<label class="acc-label" for="b1c">6.Be2 (Classical approach, ~12%) — quieter, Fernando stays flexible</label>
+<div class="acc-content">
+  <div class="move-line">
+    <span class="mv-z">Fernando:</span> 6.Be2 <span class="mv-a">a6!</span> 7.O-O <span class="mv-a">Nf6</span> 8.Be3 <span class="mv-a">d6</span> 9.f4 <span class="mv-a">b5!</span> → queenside expansion
+    <span class="note"> — 6.Be2 avoids the sharp English Attack (no f3 pawn). Fernando castles kingside here (not queenside), which changes the dynamic: Austin cannot aim at Fernando's king with ...b4-b3 immediately. Instead: solid development, then push ...b5-b4 when White is committed.</span>
+  </div>
+  <p style="margin-top:6px"><strong>Key difference from 6.Be3:</strong> Fernando's king stays KINGSIDE (O-O, not O-O-O). Austin's queenside push (...b5-b4) is slower to become an attack but still creates queenside pressure. The critical plan: after 9.f4 b5, Austin plays ...Bb7, ...Nbd7-e5, and aims for central counterplay with ...d5 when the timing is right (unlike vs English Attack where ...d5 is bad, here it may be playable when White's f4-pawn overextends).</p>
+  <p style="margin-top:6px"><strong>Austin's strategic goal vs 6.Be2:</strong> Trade on d4 at the right moment → reach a position with active pieces and central tension. Fernando's king on g1 is SAFER than on c1, so Austin should not rush — play solid, improve all pieces before committing to any pawn break. If Fernando plays f4-f5 (kingside advance): respond with ...e5 counter-thrust or ...d5 central break.</p>
 </div>
 
 <input class="acc-toggle" id="b2" type="checkbox">
@@ -332,15 +351,53 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   </div>
 </div>
 
-<h3 style="margin-top:18px">Key themes as Austin Black</h3>
+<h3 style="margin-top:18px">Three Golden Rules — Austin as Black (pre-game mental frame)</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:10px 0 16px;">
+  <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;background:#fafbff;">
+    <div style="display:flex;gap:10px;align-items:flex-start;">
+      <div style="background:#1a5276;color:#fff;border-radius:50%;width:26px;height:26px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.88rem;">1</div>
+      <div>
+        <div style="font-weight:700;font-size:0.9rem;margin-bottom:3px;">TARGET — Taimanov: Fernando has zero prep</div>
+        <div style="font-size:0.85rem;color:#3a3a3a;">Play 1...c5 → 5...Qc7! (B47 Bastrikov). Fernando has zero Taimanov games in 39 analyzed. He enters unknown territory from move 5. This is Austin's opening edge — use it.</div>
+      </div>
+    </div>
+  </div>
+  <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;background:#fafbff;">
+    <div style="display:flex;gap:10px;align-items:flex-start;">
+      <div style="background:#1a5276;color:#fff;border-radius:50%;width:26px;height:26px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.88rem;">2</div>
+      <div>
+        <div style="font-weight:700;font-size:0.9rem;margin-bottom:3px;">PRESSURE — Attack the queenside king hard</div>
+        <div style="font-size:0.85rem;color:#3a3a3a;">After ...b4 is played, don't stop. Activate Bb7, Ne5, Rb8. Fernando's Kb1?? pattern fires when his king is under real queenside pressure — keep ALL attacking pieces on the board.</div>
+      </div>
+    </div>
+  </div>
+  <div style="border:1px solid #d0d7de;border-radius:6px;padding:12px 14px;background:#fafbff;">
+    <div style="display:flex;gap:10px;align-items:flex-start;">
+      <div style="background:#1a5276;color:#fff;border-radius:50%;width:26px;height:26px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.88rem;">3</div>
+      <div>
+        <div style="font-weight:700;font-size:0.9rem;margin-bottom:3px;">RESET — He's in peak form; win through prep</div>
+        <div style="font-size:0.85rem;color:#3a3a3a;">Fernando is at 98.0% NAYCC accuracy — do NOT wait for him to blunder. The only edge is the opening: he has no Taimanov preparation. Play precisely from move 1 and trust the prep.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="background:#1e2330;color:#c9d1d9;font-family:monospace;font-size:0.82rem;padding:12px 16px;border-radius:6px;margin:0 0 16px;line-height:1.9;">
+"Fernando beats FM-level players as Black with the French. As White he's weaker — 92.2% vs my 1959.
+ I play Taimanov (he has ZERO games in this). Reach the queenside race, push b4-b3, activate Ne5+Bb7+Rb8.
+ He's at 98.0% here — I win through preparation, not mistakes. Trust the opening. Trust the plan."
+</div>
+
+<h3 style="margin-top:4px">Key themes as Austin Black</h3>
 <table>
   <thead><tr><th>Theme</th><th>Details</th></tr></thead>
   <tbody>
   <tr><td><strong>5...Qc7 B47 Bastrikov</strong></td><td>The Qc7 move order avoids early pin issues and signals queenside expansion immediately. Never play 5...Nf6 as primary in this game.</td></tr>
-  <tr><td><strong>…a6 + …b5 → …b4 queenside race</strong></td><td>In English Attack, 6...a6! then …b5-b4 before Fernando's g5 arrives. Austin's queenside attack targets Fernando's king on c1 or b1.</td></tr>
-  <tr><td><strong>…Rc8 or …Rb8 activation</strong></td><td>Rook belongs on b8 or c8 to support …b4/…b3 and pressure on c-file against Fernando's O-O-O king.</td></tr>
-  <tr><td><strong>King safety trigger (Fernando's)</strong></td><td>Fernando's king navigation is catastrophic (#1 weakness). Once he castles queenside, the king on b1 or c1 is exposed. Drive …b3 aggressively — Fernando has Kb1?? and Qb3?? patterns in similar positions.</td></tr>
-  <tr><td><strong>Avoid …d5 IQP</strong></td><td>Fernando's best positions involve stable center + kingside attack. Keep pawns dynamic — the queenside race wins the game.</td></tr>
+  <tr><td><strong>…a6 → …Nf6 → …b5 → …b4 (the sequence)</strong></td><td>In English Attack: 6...a6!, 7...Nf6! first (White 43%), then ...b5, then ...b4 when White castles queenside. The order matters — Nf6 before b5.</td></tr>
+  <tr><td><strong>Ne5 knight leap (key maneuver)</strong></td><td>After ...b4, the Nc6–d4–e5 (or Nc6–e5 direct) route is Black's most powerful counter. Ne5 targets f3 and d3; from e5 it forks or invades. Keep this route open.</td></tr>
+  <tr><td><strong>…Bb7 + …Rb8 queenside battery</strong></td><td>Rook belongs on b8 to support ...b3 push. Bb7 pressures the long diagonal toward White's castled king. Activate both before b3.</td></tr>
+  <tr><td><strong>King navigation trigger (Fernando's)</strong></td><td>Fernando's king on b1/c1 is exposed to ...b3 and ...Nc2+ forks. His Kb1?? (PAM R6, lost from equal) fires under real queenside pressure. Keep ALL attacking pieces on the board — never simplify early.</td></tr>
+  <tr><td><strong>Avoid …d5 IQP (vs English Attack)</strong></td><td>Fernando's best positions involve fixed center + kingside attack. Keep the position dynamic. Exception: vs 6.Be2 (Classical), ...d5 may be playable as a central counter when White overextends with f4-f5.</td></tr>
   </tbody>
 </table>
 
@@ -480,7 +537,8 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
     <tbody>
     <tr><td>1.e4</td><td>1…c5 (Sicilian, always)</td><td>Never 1…e5 — Fernando plays Italian/Lopez as White with solid results</td></tr>
     <tr><td>2.Nf3 + 3.d4 (Open Sicilian)</td><td>2…e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nc3 <strong>Qc7!</strong> (B47 Bastrikov)</td><td>5...Qc7 is the Bastrikov move order — active queen, queenside expansion signal</td></tr>
-    <tr><td>6.Be3 (English Attack, 42%)</td><td>6…<strong>a6!</strong> → 7.f3 <strong>Nf6!</strong> (White 43%) → 8.g4 d6 9.Qd2 b5! 10.O-O-O <strong>b4!</strong></td><td>Nf6 first (White 43%) beats b5 (White 45%) per Lichess 9,637 games. Queenside race targets Fernando's O-O-O king — his #1 weakness trigger</td></tr>
+    <tr><td>6.Be3 (English Attack, 42%)</td><td>6…<strong>a6!</strong> → 7.f3 <strong>Nf6!</strong> (White 43%) → 8.g4 d6 9.Qd2 b5! 10.O-O-O <strong>b4!</strong> → 11.Kb1 <strong>Bb7!+Ne5</strong></td><td>Nf6 first (White 43%) beats b5 (White 45%) per Lichess 9,637 games. After b4: Bb7+Ne5+Rb8 — keep ALL pieces, trigger Kb1?? pattern</td></tr>
+    <tr><td>6.Be2 (Classical, ~12%)</td><td>6…<strong>a6!</strong> → 7.O-O Nf6 8.Be3 d6 → then …b5-b4 (slower pace)</td><td>Fernando castles KINGSIDE — no immediate b4 attack on king. Play solid, improve all pieces; central ...d5 break is playable here (unlike vs English Attack)</td></tr>
     <tr><td>6.f3 (Fernando's NAYCC R3 Dragon setup)</td><td>6…<strong>Nf6!</strong> (White only 35%) or 6…a6 (White 38%)</td><td>Fernando's Dragon Yugoslav setup is premature vs Taimanov — Austin's ...e6 structure neutralizes the entire plan. FAVORABLE scenario.</td></tr>
     <tr><td>6.Ndb5 (aggressive)</td><td>6…<strong>d6!</strong> (NOT 6...Bc5?? → 7.Nd6+!! Ke7 8.Nxf7!! wins rook)</td><td>d6 controls invasion squares. Bc5?? is the trap — bishop gets forked after Nd6+. Source: CLAUDE.md critical rule (B47 Bastrikov)</td></tr>
     <tr><td>1.c4 (English)</td><td>1…Nf6 → Nimzo transposition (2…e6 3…Bb4 when Nc3) — NEVER 1…e5</td><td>Fernando has zero Nimzo games; fixed Austin repertoire</td></tr>
