@@ -17,6 +17,7 @@ const PGN_FILES = [
   path.join(ROOT, 'opponents/tarun/grandcircuit.pgn'),
   path.join(ROOT, 'opponents/tarun/skyline2026.pgn'),
   path.join(ROOT, 'opponents/tarun/newgames.pgn'),
+  path.join(ROOT, 'opponents/tarun/naycc2026.pgn'),
 ];
 
 const SF_THREADS    = parseInt(process.env.SF_THREADS || '16', 10);

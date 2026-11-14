@@ -1146,5 +1146,87 @@
         }
       ]
     }
+  },
+  "Round 4: Ortega Jacinto, Miguel Adolfo - Sankar, Tarun": {
+    "R4_OrtegaJa": {
+      "prColor": "black",
+      "opponent": "Ortega Jacinto, Miguel Adolfo",
+      "oppElo": 1756,
+      "result": "0-1",
+      "prResult": "win",
+      "eco": "D23",
+      "event": "Round 4: Ortega Jacinto, Miguel Adolfo - Sankar, Tarun",
+      "tournKey": "Round 4: Ortega Jacinto, Miguel Adolfo - Sankar, Tarun",
+      "date": "2026.11.13",
+      "roundKey": "R4",
+      "prAccuracy": 97.3,
+      "oppAccuracy": 91.6,
+      "avgCPL": 18,
+      "blunders": 0,
+      "mistakes": 1,
+      "inaccuracies": 1,
+      "movesAnalyzed": 37,
+      "criticalMoments": [
+        {
+          "moveNum": 37,
+          "san": "Qf3",
+          "bestMove": "Qf5",
+          "cpl": 291,
+          "classification": "mistake",
+          "evalBefore": "+11.71",
+          "evalAfter": "+8.80"
+        },
+        {
+          "moveNum": 31,
+          "san": "c3",
+          "bestMove": "d4",
+          "cpl": 67,
+          "classification": "inaccuracy",
+          "evalBefore": "+9.01",
+          "evalAfter": "+8.34"
+        }
+      ]
+    }
+  },
+  "Round 5: Sankar, Tarun - Bates, Dallin": {
+    "R5_BatesDal": {
+      "prColor": "white",
+      "opponent": "Bates, Dallin",
+      "oppElo": 1558,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "A28",
+      "event": "Round 5: Sankar, Tarun - Bates, Dallin",
+      "tournKey": "Round 5: Sankar, Tarun - Bates, Dallin",
+      "date": "2026.11.13",
+      "roundKey": "R5",
+      "prAccuracy": 97.7,
+      "oppAccuracy": 92.7,
+      "avgCPL": 9,
+      "blunders": 0,
+      "mistakes": 0,
+      "inaccuracies": 2,
+      "movesAnalyzed": 33,
+      "criticalMoments": [
+        {
+          "moveNum": 32,
+          "san": "Bd6",
+          "bestMove": "Rd1",
+          "cpl": 57,
+          "classification": "inaccuracy",
+          "evalBefore": "+6.96",
+          "evalAfter": "+6.39"
+        },
+        {
+          "moveNum": 29,
+          "san": "Bxe6",
+          "bestMove": "Be3",
+          "cpl": 56,
+          "classification": "inaccuracy",
+          "evalBefore": "+7.03",
+          "evalAfter": "+6.47"
+        }
+      ]
+    }
   }
 }
