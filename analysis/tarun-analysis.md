@@ -15,7 +15,7 @@ Tarun Sankar is a fast-improving junior player based in the United States (Texas
 
 That is approximately **600 Elo points gained in 2.5 years** (Dec 2023 → Mar 2026). His current active FIDE rating is 1984 (Nov 2026), 18 points below his peak of 2002. He is clearly still in a strong growth phase.
 
-The PGN collection contains **23 unique games** across 7 tournaments. The sample is heavily biased toward strong opposition — his Dulles Skyline 2024 games include opponents rated 1829–2130, both Texas Grand Circuit games were against titled or near-titled players (IM Fus 2419, Pyrig 2395), and the 3-0 Thursday Club 2026 games include opponents rated 1943–2265. His record in the PGN looks weak (5W–15L–3D) precisely because these were "playing up" events; his actual rating rise proves he won many games not captured here.
+The PGN collection contains **26 unique games** across 8 tournaments (including NAYCC 2026 — Nov 2026, 2 games). The sample is heavily biased toward strong opposition — his Dulles Skyline 2024 games include opponents rated 1829–2130, both Texas Grand Circuit games were against titled or near-titled players (IM Fus 2419, Pyrig 2395), and the 3-0 Thursday Club 2026 games include opponents rated 1943–2265. His record in the PGN looks weak (7W–15L–3D) precisely because these were "playing up" events; his actual rating rise proves he won many games not captured here. NAYCC 2026 adds 2 wins at career-peak accuracy (97.3% and 97.7%).
 
 ---
 
@@ -23,6 +23,7 @@ The PGN collection contains **23 unique games** across 7 tournaments. The sample
 
 | Tournament | Date | Rating | Record | Score |
 |---|---|---|---|---|
+| NAYCC 2026 | Nov 2026, USA | 1984 | 2W–0L–0D | 2/2 |
 | 5th Skyline Open 2026 | Oct 2026, Dulles | 1965 | 0W–1L–1D | 0.5/2 |
 | 3-0 Thursday Club 2026 | Jul–Oct 2026, UK/intl | ~1965 | 1W–5L–1D | 1.5/7 |
 | Texas Grand Circuit 2026 | Mar 2026, Dallas | 2002 | 0W–2L–0D | 0/2 |
@@ -30,16 +31,16 @@ The PGN collection contains **23 unique games** across 7 tournaments. The sample
 | NA Championship 2024 | Dec 2024, Dulles | 1750 | 0W–1L–0D | 0/1 |
 | Dulles Skyline 2024 (3rd) | Oct 2024, Dulles | 1706 | 2W–4L–1D | 3/7 |
 | Madurai Athens 2023 | Dec 2023, Madurai | 1406 | 2W–1L–0D | 2/3 |
-| **Total (PGN sample)** | | | **5W–15L–3D** | 6.5/23 |
+| **Total (PGN sample)** | | | **7W–15L–3D** | 8.5/25 |
 
-*Note: PGN sample excludes the many games against similarly-rated opponents that fueled Tarun's 600-point rating gain. This is a "strong opponent sample" biased toward losses.*
+*Note: PGN sample excludes the many games against similarly-rated opponents that fueled Tarun's 600-point rating gain. This is a "strong opponent sample" biased toward losses. NAYCC 2026 (R4 Black 97.3%, R5 White 97.7%) added Nov 2026 — Tarun at career-peak form entering R6 vs Austin.*
 
 ### Results by Color
 
 | Color | W | L | D | Score% |
 |---|---|---|---|---|
-| White | 4 | 8 | 2 | 36% |
-| Black | 1 | 7 | 1 | 17% |
+| White | 5 | 8 | 2 | 40% |
+| Black | 2 | 7 | 1 | 25% |
 
 Black results are dragged down significantly by losses to Dilanian (2239) and Boutikos (2144) in the Thursday Club, Roman Pyrig (2395), Zachary Liu (2153), and multiple 1800–2100 players at Dulles Skyline when Tarun was rated only 1706. Thursday Club 2026 (1W–5L–1D, avg 86.1%) is the weakest tournament in the dataset — his worst accuracy average across any event.
 

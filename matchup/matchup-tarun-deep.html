@@ -115,7 +115,7 @@
   <div class="doc-header">
     <h1>Tarun Sankar — Engine Deep Analysis</h1>
     <div class="meta">
-      Stockfish analysis · movetime 3000ms · 16 threads · 24 games · Lichess accuracy formula<br>
+      Stockfish analysis · movetime 3000ms · 16 threads · 26 games · Lichess accuracy formula<br>
       Rating: 1984 FIDE (Nov 2026); peak 2002 (Mar 2026) · Fast improver (+600 Elo in 2.5 years)
     </div>
     <a class="back-link" href="../austin-prep.html">← Preparation Index</a>
@@ -186,24 +186,31 @@
         <td><span class="acc-lo">86.1%</span></td>
         <td>Worst tournament in dataset; g4?? blunder vs 1829; 76.1% (9 blunders) vs Boutikos 2144</td>
       </tr>
+      <tr style="background:#e8f4e8;">
+        <td><strong>NAYCC 2026</strong></td>
+        <td>2</td>
+        <td><strong>2W–0L–0D</strong></td>
+        <td><span class="acc-hi" style="color:#1a5c1a;font-weight:700;">97.5%</span></td>
+        <td>R4 Black 97.3% (QGA WIN vs 1756); R5 White 97.7% (English WIN vs 1558) — career-peak form</td>
+      </tr>
     </tbody>
     <tfoot>
       <tr>
         <td><strong>OVERALL</strong></td>
-        <td><strong>24</strong></td>
-        <td><strong>5W–15L–3D</strong></td>
-        <td><strong>88.9%</strong></td>
-        <td>Sample biased toward strong opponents</td>
+        <td><strong>26</strong></td>
+        <td><strong>7W–15L–3D</strong></td>
+        <td><strong>89.7%</strong></td>
+        <td>Sample biased toward strong opponents; NAYCC 2026 adds career-peak data</td>
       </tr>
     </tfoot>
   </table>
 
   <div class="info-box">
-    <strong>Context:</strong> The 5W–15L–3D record reflects a PGN collection dominated by games vs 1800–2400 opponents while Tarun was rated 1406–2002. His rating rise to 2002 proves he won many more games not captured here. The accuracy score of 88.9% is pulled down by the 3-0 Thursday Club 2026 (86.1%) and Madurai 2023 (86.6%) samples. His strongest tournament accuracy is Dulles Skyline 2024 at 91.8% despite playing mostly 1800–2130 opposition.
+    <strong>Context:</strong> The 7W–15L–3D record reflects a PGN collection dominated by games vs 1800–2400 opponents while Tarun was rated 1406–2002. His rating rise to 2002 proves he won many more games not captured here. The accuracy score of 89.7% is pulled up by NAYCC 2026 (97.5% avg) and Dulles Skyline 2024 (91.8%). Historical weak points: 3-0 Thursday Club 2026 (86.1%) and Madurai 2023 (86.0%). <strong>⚠ Current form warning: NAYCC 2026 R4 (97.3%) and R5 (97.7%) — Tarun is at career-peak accuracy entering Round 6.</strong>
   </div>
 
   <!-- ═══════════════════════════════════════════════════════ KEY GAMES -->
-  <h2>Key Game Analysis (8 Games)</h2>
+  <h2>Key Game Analysis (10 Games)</h2>
 
   <!-- GAME 1 -->
   <div class="game-block">
@@ -451,6 +458,52 @@
 
       <div class="info-box">
         <strong>Direct connection:</strong> Zachary Liu is also a potential Austin opponent. This game shows Liu (2153) outplaying Tarun (1750) in an English/reversed Sicilian via patient accumulation of small advantages over 83 moves. Liu's style of building quiet structural advantages was effective against Tarun's tactical tendencies.
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME 9 — NAYCC 2026 R4 -->
+  <div class="game-block" style="border-left:3px solid #1a5c1a;">
+    <div class="game-header">
+      <div class="gh-title">NAYCC 2026 R4 — Ortega Jacinto, Miguel (1756) vs Tarun Sankar (1984)</div>
+      <div class="gh-meta">Nov 13, 2026 · ECO D23 QGA · Black · movetime 3000</div>
+      <span class="badge-result-win">WIN</span>
+    </div>
+    <div class="game-body">
+      <div class="game-stats">
+        <div class="stat">Tarun accuracy: <strong class="acc-hi">97.3%</strong></div>
+        <div class="stat">Opponent accuracy: <strong>91.6%</strong></div>
+        <div class="stat">CPL: <strong>18</strong></div>
+        <div class="stat">Blunders: <strong>0</strong> · Mistakes: <strong>1</strong> · Inaccuracies: <strong>1</strong></div>
+      </div>
+      <div class="im-analysis">
+        <strong>Opening:</strong> QGA (D23) — Tarun played cleanly as Black, winning with 97.3% accuracy against a 1756-rated opponent. This is his second-highest single-game accuracy in the dataset. Near-flawless play: only 1 mistake and 1 inaccuracy across the entire game.
+      </div>
+      <div class="tip-box" style="background:#fff3cd; border-left:4px solid #c9a800;">
+        <strong>⚠ Form warning for Austin:</strong> This game was played the same day as NAYCC R6. Tarun is in peak form entering the Austin matchup — do not rely on opponent self-destruction as the primary plan. Austin's attack must work even if Tarun plays cleanly.
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME 10 — NAYCC 2026 R5 -->
+  <div class="game-block" style="border-left:3px solid #1a5c1a;">
+    <div class="game-header">
+      <div class="gh-title">NAYCC 2026 R5 — Sankar, Tarun (1984) vs Bates, Dallin (1558)</div>
+      <div class="gh-meta">Nov 13, 2026 · ECO A28 English · White · movetime 3000</div>
+      <span class="badge-result-win">WIN</span>
+    </div>
+    <div class="game-body">
+      <div class="game-stats">
+        <div class="stat">Tarun accuracy: <strong class="acc-hi">97.7%</strong></div>
+        <div class="stat">Opponent accuracy: <strong>92.7%</strong></div>
+        <div class="stat">CPL: <strong>9</strong></div>
+        <div class="stat">Blunders: <strong>0</strong> · Mistakes: <strong>0</strong> · Inaccuracies: <strong>2</strong></div>
+      </div>
+      <div class="im-analysis">
+        <strong>Opening:</strong> English (A28) — Tarun played as White with near-perfect 97.7% accuracy, his highest recorded single-game accuracy. Only 2 inaccuracies against a 1558-rated opponent. CPL of 9 is exceptionally low. This game establishes Tarun's ceiling — when focused and against a weaker opponent, he can sustain near-perfect play.
+      </div>
+      <div class="tip-box" style="background:#fff3cd; border-left:4px solid #c9a800;">
+        <strong>⚠ Prep implication:</strong> Both NAYCC games (97.3% Black, 97.7% White) were played Nov 13 — the day before Round 6. Tarun's current form is the best in this entire dataset. Austin must bring a sharp, prepared opening line and not simply wait for Tarun to blunder. The blunder pattern remains real but cannot be the primary plan against someone in this form.
       </div>
     </div>
   </div>

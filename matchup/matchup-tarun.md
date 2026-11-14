@@ -25,11 +25,15 @@ At Texas Grand Circuit R4 (vs Pyrig 2395): 1.e4 c5 2.Nf3 e6 3.b3 — White playe
 
 After 3...Nf6 (Tarun's observed response), Austin has two main choices:
 
-**Option A — 4.Bxc6 dxc6 (Exchange Rossolimo):**
-`1.e4 c5 2.Nf3 Nc6 3.Bb5 Nf6 4.Bxc6 dxc6 5.e5 Nd5 6.0-0 Nxc3 7.bxc3`
-After exchange, White gets a mobile pawn center (e5 pawn) and Black gets the bishop pair with structural damage (doubled c-pawns). This leads to rich tactical positions. Austin's combinational style is well-suited here — the position is unbalanced from move 4.
+**Option A — 4.e5! (primary weapon — 54%W Lichess 1800–2200, 13,724 games):**
+`1.e4 c5 2.Nf3 Nc6 3.Bb5 Nf6 4.e5! Nd5 5.Nc3! (56%W) → 5...Nxc3 6.dxc3! (62%W golden line)`
+After 4.e5 Nd5 5.Nc3!, the knight is challenged immediately. If Tarun plays 5...Nxc3, recapture 6.dxc3! opens the d-file — 62%W in 547 Lichess games. This is Austin's primary weapon. See `matchup-tarun-gm.html` for the full 4-branch tree.
 
-**Option B — 4.O-O (Rossolimo proper):**
+**Option B — 4.Bxc6 dxc6 (Exchange Rossolimo, backup):**
+`1.e4 c5 2.Nf3 Nc6 3.Bb5 Nf6 4.Bxc6 dxc6 5.d3 g6 6.Be3!`
+After exchange, White plays 6.Be3! (53%W, 150 master games) — not 6.h3 (48%W). Be3 develops immediately against ...Bg4 and prepares queenside castling. After 6.Be3 Bg7 7.Nc3 Nf6 8.Qd2 O-O 9.O-O-O, White launches the f4-f5 attack. The doubled c-pawns are a long-term endgame target.
+
+**Option C — 4.O-O (Rossolimo proper):**
 `1.e4 c5 2.Nf3 Nc6 3.Bb5 Nf6 4.O-O e5 5.Re1 Nd4`
 Keep the bishop for longer, play for e4-e5 space advantages. More positional but still creates imbalances.
 
