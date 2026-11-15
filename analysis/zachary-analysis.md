@@ -1,9 +1,9 @@
 # Zachary Liu — Chess Analysis Report
 
-**Tournaments analyzed:** BC Chess Cup 2026 · Greater Vancouver 2026 · Canada Closed 2026 · PAM 2026 · PAM School 2026 · Canada Open 2026  
+**Tournaments analyzed:** BC Chess Cup 2026 · Greater Vancouver 2026 · Canada Closed 2026 · PAM 2026 · PAM School 2026 · Canada Open 2026 · NAYCC 2026  
 **Title:** Candidate Master (CM)  
 **Rating:** 2185 FIDE (Nov 2026, CM)  
-**Total games reviewed:** 46 (43 fully analyzed, 3 skipped for technical reasons)
+**Total games reviewed:** 50 (47 fully analyzed, 3 skipped for technical reasons)
 
 ---
 
@@ -17,9 +17,10 @@
 | PAM 2026 | 2W–0L–1D (3 games, incl. 2 with * result) | 1W–0L–2D (3 games) | 3W–0L–3D |
 | PAM School 2026 | 3W–0L–2D (5 games, incl. 1 with * result) | 0W–0L–3D (3 games) | 3W–0L–5D |
 | Canada Open 2026 | 0W–2L–2D (4 games) | 3W–0L–2D (5 games) | 3W–2L–4D |
-| **Combined** | **13W–2L–10D** | **6W–2L–12D** | **19W–4L–22D** |
+| NAYCC 2026 | 1W–0L–1D (2 games) | 0W–0L–2D (2 games) | 1W–0L–3D |
+| **Combined** | **14W–2L–11D** | **6W–2L–14D** | **20W–4L–25D** |
 
-**Critical context:** Zachary's record remains resilient across 45 games — 4 total losses. His two original losses (Yang 2368 and Tseng 1907) both came in sharp Sicilian middlegames. In Canada Open 2026, he added two White losses: Reti/Catalan loss vs Marchand 2181 (R4) and Exchange Caro-Kann loss vs Jaferian 2249 (R2). Both White losses came against 2181+ opponents. As Black he continues to dominate (6W–2L–12D total). His 50%+ draw rate is intentional: he consistently finds "safe" continuations against lower-rated opponents rather than pushing for wins.
+**Critical context:** Zachary's record remains resilient across 49 games — 4 total losses. His two original losses (Yang 2368 and Tseng 1907) both came in sharp Sicilian middlegames. In Canada Open 2026, he added two White losses: Reti/Catalan loss vs Marchand 2181 (R4) and Exchange Caro-Kann loss vs Jaferian 2249 (R2). Both White losses came against 2181+ opponents. As Black he continues to dominate (6W–2L–12D total). His 50%+ draw rate is intentional: he consistently finds "safe" continuations against lower-rated opponents rather than pushing for wins.
 
 **Avg accuracy by tournament:**
 
@@ -31,7 +32,8 @@
 | PAM 2026 | 92.6% | 6 |
 | PAM School 2026 | 94.2% | 8 |
 | Canada Open 2026 | 94.3% | 9 |
-| **Overall** | **93.8%** | **43** |
+| NAYCC 2026 | 92.8% | 4 |
+| **Overall** | **93.7%** | **47** |
 
 ---
 
