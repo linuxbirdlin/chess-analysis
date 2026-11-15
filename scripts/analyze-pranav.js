@@ -22,6 +22,7 @@ const TOURNAMENTS = [
   { dir: 'worldyouth2026', name: 'World Youth 2026',  format: 'nonstandard' },
   { dir: 'blueridge2026',  name: 'Blue Ridge 2026',   format: 'pgn' },
   { dir: 'swopen2026',     name: 'SW Open 2026',      format: 'pgn' },
+  { dir: 'naycc2026',      name: 'NAYCC 2026',         format: 'pgn' },
 ];
 
 function isPranav(name) { return /santhosh|pranav/i.test(name); }
