@@ -588,6 +588,54 @@
       "inaccuracies": 0,
       "movesAnalyzed": 38,
       "criticalMoments": []
+    },
+    "R?_VishvaNa": {
+      "prColor": "black",
+      "opponent": "Vishva Nanugonda",
+      "oppElo": 0,
+      "result": "0-1",
+      "prResult": "win",
+      "eco": "?",
+      "event": "Online Broadcast",
+      "tournKey": "Online Broadcast",
+      "date": "2026.01.04",
+      "roundKey": "R?",
+      "prAccuracy": 95.9,
+      "oppAccuracy": 92,
+      "avgCPL": 36,
+      "blunders": 1,
+      "mistakes": 2,
+      "inaccuracies": 2,
+      "movesAnalyzed": 52,
+      "criticalMoments": [
+        {
+          "moveNum": 44,
+          "san": "Qd1",
+          "bestMove": "Bd4",
+          "cpl": 1000,
+          "classification": "blunder",
+          "evalBefore": "#",
+          "evalAfter": "+13.35"
+        },
+        {
+          "moveNum": 33,
+          "san": "h6",
+          "bestMove": "h5",
+          "cpl": 217,
+          "classification": "mistake",
+          "evalBefore": "+6.33",
+          "evalAfter": "+4.16"
+        },
+        {
+          "moveNum": 29,
+          "san": "Nxe3",
+          "bestMove": "Nf6",
+          "cpl": 199,
+          "classification": "mistake",
+          "evalBefore": "+4.68",
+          "evalAfter": "+2.69"
+        }
+      ]
     }
   },
   "Chess.com": {
@@ -2825,6 +2873,54 @@
           "evalAfter": "-3.87"
         }
       ]
+    },
+    "R?_Dzhangir": {
+      "prColor": "white",
+      "opponent": "Dzhangirov, Dmitry",
+      "oppElo": 0,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "event": "Chess.com",
+      "tournKey": "Chess.com",
+      "date": "2026.02.22",
+      "roundKey": "R?",
+      "prAccuracy": 83.9,
+      "oppAccuracy": 84.3,
+      "avgCPL": 48,
+      "blunders": 2,
+      "mistakes": 2,
+      "inaccuracies": 10,
+      "movesAnalyzed": 51,
+      "criticalMoments": [
+        {
+          "moveNum": 44,
+          "san": "Qf3+",
+          "bestMove": "Rbc2",
+          "cpl": 547,
+          "classification": "blunder",
+          "evalBefore": "+5.61",
+          "evalAfter": "+0.14"
+        },
+        {
+          "moveNum": 46,
+          "san": "Qxd7",
+          "bestMove": "Qe4",
+          "cpl": 336,
+          "classification": "blunder",
+          "evalBefore": "+3.36",
+          "evalAfter": "+0.00"
+        },
+        {
+          "moveNum": 28,
+          "san": "Qd3",
+          "bestMove": "Ng5",
+          "cpl": 236,
+          "classification": "mistake",
+          "evalBefore": "+1.45",
+          "evalAfter": "-0.91"
+        }
+      ]
     }
   },
   "Las Vegas 2026": {
@@ -3700,6 +3796,247 @@
           "classification": "inaccuracy",
           "evalBefore": "+1.96",
           "evalAfter": "+1.00"
+        }
+      ]
+    }
+  },
+  "Round 6: Johnson, Emerson Aurelius - Paragiri, Reyansh": {
+    "R6_JohnsonE": {
+      "prColor": "black",
+      "opponent": "Johnson, Emerson Aurelius",
+      "oppElo": 1909,
+      "result": "0-1",
+      "prResult": "win",
+      "eco": "B45",
+      "event": "Round 6: Johnson, Emerson Aurelius - Paragiri, Reyansh",
+      "tournKey": "Round 6: Johnson, Emerson Aurelius - Paragiri, Reyansh",
+      "date": "2026.11.14",
+      "roundKey": "R6",
+      "prAccuracy": 94.1,
+      "oppAccuracy": 87.4,
+      "avgCPL": 17,
+      "blunders": 0,
+      "mistakes": 1,
+      "inaccuracies": 1,
+      "movesAnalyzed": 28,
+      "criticalMoments": [
+        {
+          "moveNum": 17,
+          "san": "Qxh2",
+          "bestMove": "Qd5",
+          "cpl": 186,
+          "classification": "mistake",
+          "evalBefore": "+1.86",
+          "evalAfter": "+0.00"
+        },
+        {
+          "moveNum": 14,
+          "san": "Be7",
+          "bestMove": "f5",
+          "cpl": 112,
+          "classification": "inaccuracy",
+          "evalBefore": "-0.12",
+          "evalAfter": "-1.24"
+        }
+      ]
+    }
+  },
+  "Round 5: Paragiri, Reyansh - De Alba Boudreau, Pablo Elliott": {
+    "R5_DeAlbaBo": {
+      "prColor": "white",
+      "opponent": "De Alba Boudreau, Pablo Elliott",
+      "oppElo": 1873,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "B42",
+      "event": "Round 5: Paragiri, Reyansh - De Alba Boudreau, Pablo Elliott",
+      "tournKey": "Round 5: Paragiri, Reyansh - De Alba Boudreau, Pablo Elliott",
+      "date": "2026.11.13",
+      "roundKey": "R5",
+      "prAccuracy": 89,
+      "oppAccuracy": 89.6,
+      "avgCPL": 37,
+      "blunders": 2,
+      "mistakes": 3,
+      "inaccuracies": 2,
+      "movesAnalyzed": 42,
+      "criticalMoments": [
+        {
+          "moveNum": 23,
+          "san": "Nxe4",
+          "bestMove": "Bf3",
+          "cpl": 308,
+          "classification": "blunder",
+          "evalBefore": "+5.81",
+          "evalAfter": "+2.73"
+        },
+        {
+          "moveNum": 32,
+          "san": "Ra4",
+          "bestMove": "Rf5",
+          "cpl": 307,
+          "classification": "blunder",
+          "evalBefore": "+3.12",
+          "evalAfter": "+0.05"
+        },
+        {
+          "moveNum": 18,
+          "san": "Qxg5",
+          "bestMove": "fxg5",
+          "cpl": 240,
+          "classification": "mistake",
+          "evalBefore": "+5.47",
+          "evalAfter": "+3.07"
+        }
+      ]
+    }
+  },
+  "Round 4: Wu, Zhuoyuan - Paragiri, Reyansh": {
+    "R4_WuZhuoyu": {
+      "prColor": "black",
+      "opponent": "Wu, Zhuoyuan",
+      "oppElo": 1890,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "B40",
+      "event": "Round 4: Wu, Zhuoyuan - Paragiri, Reyansh",
+      "tournKey": "Round 4: Wu, Zhuoyuan - Paragiri, Reyansh",
+      "date": "2026.11.13",
+      "roundKey": "R4",
+      "prAccuracy": 94.1,
+      "oppAccuracy": 93.5,
+      "avgCPL": 17,
+      "blunders": 0,
+      "mistakes": 1,
+      "inaccuracies": 2,
+      "movesAnalyzed": 28,
+      "criticalMoments": [
+        {
+          "moveNum": 18,
+          "san": "Be6",
+          "bestMove": "Rb8",
+          "cpl": 164,
+          "classification": "mistake",
+          "evalBefore": "-0.92",
+          "evalAfter": "-2.56"
+        },
+        {
+          "moveNum": 19,
+          "san": "Nxd5",
+          "bestMove": "Qc5",
+          "cpl": 85,
+          "classification": "inaccuracy",
+          "evalBefore": "-2.82",
+          "evalAfter": "-3.67"
+        },
+        {
+          "moveNum": 13,
+          "san": "Nb4",
+          "bestMove": "Nf6",
+          "cpl": 57,
+          "classification": "inaccuracy",
+          "evalBefore": "+0.00",
+          "evalAfter": "-0.57"
+        }
+      ]
+    }
+  },
+  "Round 3: Paragiri, Reyansh - Sevilla Ramirez, Brandon Samuel": {
+    "R3_SevillaR": {
+      "prColor": "white",
+      "opponent": "Sevilla Ramirez, Brandon Samuel",
+      "oppElo": 1766,
+      "result": "1-0",
+      "prResult": "win",
+      "eco": "B28",
+      "event": "Round 3: Paragiri, Reyansh - Sevilla Ramirez, Brandon Samuel",
+      "tournKey": "Round 3: Paragiri, Reyansh - Sevilla Ramirez, Brandon Samuel",
+      "date": "2026.11.12",
+      "roundKey": "R3",
+      "prAccuracy": 94.5,
+      "oppAccuracy": 90.8,
+      "avgCPL": 21,
+      "blunders": 0,
+      "mistakes": 1,
+      "inaccuracies": 5,
+      "movesAnalyzed": 45,
+      "criticalMoments": [
+        {
+          "moveNum": 35,
+          "san": "Bxa7",
+          "bestMove": "Bd5",
+          "cpl": 227,
+          "classification": "mistake",
+          "evalBefore": "+9.17",
+          "evalAfter": "+6.90"
+        },
+        {
+          "moveNum": 26,
+          "san": "g4",
+          "bestMove": "Be2",
+          "cpl": 147,
+          "classification": "inaccuracy",
+          "evalBefore": "+1.96",
+          "evalAfter": "+0.49"
+        },
+        {
+          "moveNum": 37,
+          "san": "Rxd6",
+          "bestMove": "Rg1",
+          "cpl": 97,
+          "classification": "inaccuracy",
+          "evalBefore": "+8.49",
+          "evalAfter": "+7.52"
+        }
+      ]
+    }
+  },
+  "TWIC": {
+    "R?_VaheBagh": {
+      "prColor": "white",
+      "opponent": "Vahe Baghdasaryan",
+      "oppElo": 0,
+      "result": "1/2-1/2",
+      "prResult": "draw",
+      "eco": "?",
+      "event": "TWIC",
+      "tournKey": "TWIC",
+      "date": "2026.06.11",
+      "roundKey": "R?",
+      "prAccuracy": 89.5,
+      "oppAccuracy": 89,
+      "avgCPL": 35,
+      "blunders": 0,
+      "mistakes": 6,
+      "inaccuracies": 8,
+      "movesAnalyzed": 63,
+      "criticalMoments": [
+        {
+          "moveNum": 46,
+          "san": "Rd2",
+          "bestMove": "Rdb7",
+          "cpl": 263,
+          "classification": "mistake",
+          "evalBefore": "+5.08",
+          "evalAfter": "+2.45"
+        },
+        {
+          "moveNum": 22,
+          "san": "Rc5",
+          "bestMove": "a4",
+          "cpl": 234,
+          "classification": "mistake",
+          "evalBefore": "+3.75",
+          "evalAfter": "+1.41"
+        },
+        {
+          "moveNum": 47,
+          "san": "Ra3",
+          "bestMove": "Rdd7",
+          "cpl": 223,
+          "classification": "mistake",
+          "evalBefore": "+4.10",
+          "evalAfter": "+1.87"
         }
       ]
     }

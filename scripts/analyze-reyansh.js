@@ -10,7 +10,7 @@ const SF_MOVETIME = parseInt(process.env.SF_MOVETIME || '800', 10);
 const RESULTS_FILE = SF_MOVETIME > 800
   ? path.join(__dirname, 'reyansh-analysis-results-deep.json')
   : path.join(__dirname, 'reyansh-analysis-results.json');
-const PGN_FILE = path.join(ROOT, 'pgnlib/Paragiri, Reyansh.pgn');
+const PGN_FILE = path.join(ROOT, 'pgnlib/Paragiri Reyansh.pgn');
 
 const SF_THREADS = parseInt(process.env.SF_THREADS || '16', 10);
 const INACCURACY_CPL = 50, MISTAKE_CPL = 150, BLUNDER_CPL = 300;
@@ -26,6 +26,7 @@ function tournamentKey(eventName) {
   if (/Las Vegas National/i.test(eventName))        return 'Las Vegas 2026';
   if (/World Cup.*U10/i.test(eventName))            return 'World Cup U10 2025';
   if (/Lichess Studies/i.test(eventName))           return 'Lichess Studies';
+  if (/North American Youth|NAYCC/i.test(eventName)) return 'NAYCC 2026';
   return eventName.replace(/\s+/g, ' ').trim();
 }
 
@@ -272,10 +273,14 @@ async function main() {
   const rawPgn   = fs.readFileSync(PGN_FILE, 'utf8');
   const allGames = splitPgn(rawPgn).map(parseGame).filter(Boolean);
 
+  // Skip Chess.com and Lichess Studies — OTB classical only
+  const SKIP_TOURNAMENTS = new Set(['Chess.com', 'Lichess Studies']);
+
   // Deduplicate: same tournament + round + opponent prefix
   const seen = new Set();
   const games = [];
   for (const g of allGames) {
+    if (SKIP_TOURNAMENTS.has(g.tournKey)) continue;
     const dedupeKey = g.tournKey + '|' + g.roundKey + '|' + g.opponent.replace(/[^a-zA-Z]/g, '').slice(0, 8).toLowerCase();
     if (!seen.has(dedupeKey)) { seen.add(dedupeKey); games.push(g); }
     else console.log(`Skipping duplicate: ${g.tournKey} ${g.roundKey} vs ${g.opponent}`);
