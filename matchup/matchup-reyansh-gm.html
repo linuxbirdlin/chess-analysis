@@ -170,13 +170,14 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
     <span class="mv-z">Be7</span> <span class="mv-a">9.0-0-0</span>
     <span class="mv-z">0-0</span> <span class="key-move">10.g4</span>
   </div>
+  <p class="note">✅ Lichess cloud eval <strong>+0.63 depth 27</strong> — White has a real edge after 10.g4. Black's best: b5 or Nd4; Austin's g4-g5 storm keeps the initiative. FEN: <code>r1b2rk1/1pqpbppp/p1n1pn2/8/3NP1P1/2N1BP2/PPPQ3P/2KR1B1R b - - 0 10</code></p>
   <p><strong>Why 8.Qd2 not 8.g4 immediately:</strong> 8.g4 h5 9.g5 is sharp but Black scores well here — Austin knows this as Black himself (he plays 8…Be7 and handles g4-g5). Delay with 8.Qd2 first, then 9.0-0-0, then 10.g4 — same pawn storm but Black has fewer counters ready.</p>
   <p><strong>Austin's plan:</strong> Castle queenside, then g4-g5 pawn storm on the kingside. Austin knows Black wants …b5-b4 queenside counterplay. Race: Austin's g4-g5 must land before Black's …b5-b4. If Black plays 10…b5, Austin plays 11.g5 Nd7 12.f4 → strong kingside attack. The IQP position after …d6 gives Austin a strong center.</p>
   <p><strong>Critical warning:</strong> This is Austin's OWN Black setup. He knows 7…Be7 is Black's best defensive move here. As White, play 8.Qd2 (not the automatic 8.g4) to avoid known prepared lines Reyansh may have ready from the same tournament battleground (Austin plays this as Black too).</p>
 </div>
 
 <input type="checkbox" id="a2" class="acc-toggle" checked>
-<label for="a2" class="acc-label">Branch A2: 5…Nf6 — B45 (Reyansh's R6 move order vs Emerson)</label>
+<label for="a2" class="acc-label">Branch A2: 4…Nf6 — B45 (Reyansh's actual R6 move order vs Emerson)</label>
 <div class="acc-content">
   <div class="move-line">
     <span class="mv-a">Austin:</span> 1.e4 <span class="mv-z">c5</span> 2.Nf3 <span class="mv-z">e6</span>
@@ -218,13 +219,14 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
 <input type="checkbox" id="b1" class="acc-toggle" checked>
 <label for="b1" class="acc-label">Branch B1 (Main Rossolimo): 10.Nc3! — IQP / positional squeeze</label>
 <div class="acc-content">
+  <p class="note">✅ Lichess cloud eval <strong>+0.31 depth 32</strong> — 10.Nc3 is engine-backed. Best Black response: Bf5 (attacks the Bb5). Austin continues: 11.Bd3 Nxc3 12.bxc3 and the IQP plan proceeds as planned. FEN: <code>r1bq1rk1/pp2ppbp/2n3p1/1B1pP3/3Pn3/2N2N2/PP3PPP/R1BQR1K1 b - - 2 10</code></p>
   <p><strong>Why 10.Nc3 (Austin's choice, 54.4% at master level, 264 games):</strong> Attacks the Ne4 immediately and develops. Austin gets an IQP on d4 after 10…Nxc3 11.bxc3 — same structural territory as his Nimzo-Indian training.</p>
   <div class="move-line">
     <span class="mv-a">10.Nc3</span> <span class="mv-z">Nxc3</span> <span class="mv-a">11.bxc3</span>
     <span class="mv-z">Na5</span> <span class="mv-a">12.Bd3</span> <span class="mv-z">Nc4</span>
     <span class="mv-a">13.Bxc4</span> <span class="mv-z">dxc4</span> <span class="key-move">14.d5!</span>
   </div>
-  <p><strong>14.d5!</strong> — the passed d-pawn is Austin's winning idea. After exd5 15.exd6, the advanced pawn creates long-term pressure. Austin has the initiative and familiar IQP/space-advantage territory.</p>
+  <p><strong>14.d5!</strong> — the passed d-pawn is Austin's winning idea. If 14...Bxe5, White plays 15.Nxe5 — centralized knight dominates the board. If 14...Qxd5, White plays 15.Qxd5 trading queens; Black's c4-pawn becomes a long-term weakness. Austin has the initiative and familiar IQP/space-advantage territory.</p>
   <p><strong>Alternative 10.Nc3 continuation if 10…Nxc3 11.bxc3 Na5 12.Bd3 b5:</strong> Austin plays 13.Qe2 → pressure on e5-pawn and b5-pawn simultaneously. Black's queenside advance is a double-edged sword.</p>
 </div>
 
@@ -237,8 +239,9 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
     <span class="mv-z">dxc6</span> <span class="mv-a">5.d3</span> <span class="mv-z">Bg7</span>
     <span class="mv-a">6.h4!</span>
   </div>
-  <p><strong>6.h4!</strong> is Austin's known h4 system. After Black's fianchetto, the h4-h5 pawn storm creates immediate pressure. The doubled c-pawns give Black structural problems forever — c5 is weak, the dark-squared bishop is blocked by its own pawns. This is Austin's strongest "structural" Rossolimo path if he wants to avoid the complex 10.Nc3 endgame theory.</p>
-  <p><strong>Use this if:</strong> Austin wants to avoid deep Nc3 theory or if he feels Reyansh has prepared something specific against the 5.c3 main line. The Exchange Rossolimo leads to asymmetric positions where home preparation matters more than calculation depth.</p>
+  <p><strong>6.h4!</strong> is Austin's known h4 system. The h4-h5 pawn storm creates immediate kingside pressure. The doubled c-pawns give Black structural imbalances long-term — c5 is weak, the dark-squared bishop is blocked by its own pawns.</p>
+  <p class="note">✅ Lichess cloud eval <strong>−0.03 depth 26</strong> — objectively equal. The Exchange Rossolimo is not an advantage by force, but the asymmetric structure (Austin's h-side attack vs Black's c-pawn mass) means home preparation and tactical alertness determine the outcome. FEN: <code>r1bqk1nr/pp2ppbp/2p3p1/2p5/4P2P/3P1N2/PPP2PP1/RNBQK2R b KQkq - 0 6</code></p>
+  <p><strong>Use this if:</strong> Austin wants to sidestep the 5.c3 d5 theory or if Reyansh has prepared against the main Rossolimo. The asymmetric imbalance favors the better-prepared player — Austin should know the h4-h5 follow-up plans cold before choosing this line.</p>
 </div>
 
 <input type="checkbox" id="b3" class="acc-toggle">
@@ -283,7 +286,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
     <tr>
       <td><strong>R5 performance: 89.0%, 2 blunders vs De Alba (1873)</strong></td>
       <td>Reyansh just played a rough game — may be tired</td>
-      <td>NAYCC R5 — 2 blunders, mv15 Bf6?? (cpl: very high) dropped full piece advantage</td>
+      <td>NAYCC R5 (Reyansh White) — 2 blunders, 3 mistakes: 18.Qxg5?, 23.Nxe4?, 29.Qd5+?, 32.Ra4? — squandered winning advantage, settled for draw</td>
     </tr>
     <tr class="row-good">
       <td>High stamina in long games (&gt;100 moves)</td>
