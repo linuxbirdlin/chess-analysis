@@ -263,7 +263,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
     <span class="mv-z">6.c4</span> 6...Nf6
     <span class="mv-z">7.N1c3</span> 7...a6
     <span class="mv-z">8.Na3</span> 8...b5
-    <span class="note">5...d6! is AUTOMATIC. Never 5...Bc5?? (bishop trap at move 7: 6.Bf4 O-O 7.Bc7! loses the bishop). After 8.Na3 b5: Black has queenside counterplay.</span>
+    <span class="note">5...d6! is AUTOMATIC. Never 5...Bc5?? — after 6.Bf4, the f4-e5-d6-c7 diagonal is wide open; 7.Bxc7 wins the queen directly. Game over at move 7. After 8.Na3 b5: Black has queenside counterplay.</span>
   </div>
   <p style="margin-top:8px"><strong>Scenario 2 — 5.Nc3 Qc7 6.Ndb5:</strong></p>
   <div class="move-line">
@@ -273,10 +273,10 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
     <span class="mv-z">8.Be3</span> 8...Nf6
     <span class="mv-z">9.Nd5</span> 9...Nxd5
     <span class="mv-z">10.exd5</span> 10...Ne7
-    <span class="note">6...d6! AUTOMATIC — from deviation map. NEVER 6...Bc5?? → 7.Bf4 O-O 8.Bc7! Qe7 9.Bd6 Bxd6 10.Qxd6 — bishop trapped, game over at move 10. This is documented as a CATASTROPHIC Austin error pattern (PAM R7).</span>
+    <span class="note">6...d6! AUTOMATIC. NEVER 6...Bc5?? → 7.Bf4! — diagonal f4-e5-d6-c7 is wide open (d6 empty because ...d6! was not played). After 7...Nf6 8.Bxc7, White wins the queen directly. Game over at move 8. Black cannot even castle (Ng8 still on g8). PAM 2026 R7 catastrophe.</span>
   </div>
   <div class="callout callout-danger">
-    <strong>⚑ Absolutely automatic rule:</strong> After any Ndb5, Austin plays <strong>...d6!</strong> immediately. No exceptions. The 6...Bc5?? bishop trap was the catastrophic loss at PAM 2026 R7 (vs Fernandez Herrera 2137). Do not repeat.
+    <strong>⚑ Absolutely automatic rule:</strong> After any Ndb5, Austin plays <strong>...d6!</strong> immediately. No exceptions. 6...Bc5?? allows White to win the queen immediately: 7.Bf4 Nf6 8.Bxc7 — the f4-e5-d6-c7 diagonal is clear. This was the catastrophic loss at PAM 2026 R7 (vs Fernandez Herrera 2137). Do not repeat.
   </div>
 </div>
 
@@ -286,7 +286,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
   <p>Asher plays Open Sicilian (2.Nf3 3.d4) in all 14+ documented White Sicilian games. The following are precautionary only:</p>
   <ul style="padding-left: 18px; margin-top: 8px;">
     <li><strong>vs 2.c3 Alapin:</strong> Play 2...d5! (classical counter, equalize immediately)</li>
-    <li><strong>vs 3.Bb5+ (Rossolimo):</strong> 3...Bd7! 4.Bxd7+ Qxd7 → Taimanov structure anyway</li>
+    <li><strong>vs 3.Bb5 (Rossolimo):</strong> 3...Nc6 → Taimanov-adjacent structure (3.Bb5 is NOT a check in Austin's 2...e6 move order; d7 pawn is still on d7)</li>
     <li><strong>vs 2.Nc3 (Grand Prix):</strong> 2...e6 3...Nf6 → transposes to Sicilian Four Knights or Taimanov-adjacent</li>
   </ul>
   <p style="margin-top:8px"><em>Probability of anti-Sicilian from Asher: &lt;5%. He has only played Open Sicilian in all documented games.</em></p>
@@ -385,7 +385,7 @@ hr.section-divider { border: none; border-top: 2px solid #ccc; margin: 32px 0 20
       <tr><td>After 10.Qe2: any</td><td><strong>10...c5!</strong></td><td>Activate c-pawn, bishop pair pressure. Lichess +1.60 — manageable.</td></tr>
       <tr><td>After 11.e5: any</td><td><strong>11...Nd7, 12...Qb6!</strong></td><td>Improvement over Kaul's 12...Ba3?? — pressure on d4+b2 simultaneously.</td></tr>
       <tr class="row-good"><td>5.Nc3 → 6.Be3</td><td><strong>6...a6!</strong> (early!)</td><td>Engine-verified move 6 or 7. Reaches +0.08 (essentially equal). Asher's depth ends here.</td></tr>
-      <tr><td>5.Nc3 Qc7 → 6.Ndb5</td><td><strong>6...d6!</strong> AUTOMATIC</td><td>Never 6...Bc5?? — bishop trap, game over at move 10 (PAM 2026 R7 catastrophe).</td></tr>
+      <tr><td>5.Nc3 Qc7 → 6.Ndb5</td><td><strong>6...d6!</strong> AUTOMATIC</td><td>Never 6...Bc5?? → 7.Bf4 Nf6 8.Bxc7 wins the queen directly (PAM 2026 R7 catastrophe; game over at move 8).</td></tr>
       <tr><td>5.Ndb5</td><td><strong>5...d6!</strong> AUTOMATIC</td><td>Same rule — d6 always when knight goes to b5.</td></tr>
       <tr><td>2.c3 Alapin (unlikely)</td><td>2...d5!</td><td>Classical counter, Asher has no documented Alapin games.</td></tr>
     </tbody>
