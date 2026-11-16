@@ -4,7 +4,7 @@
 **Nationality:** American (Texas)  
 **Age category:** Middle School (U13/U14)  
 **Tournaments in dataset:** AGCA Summer 2025, SuperNationals 2025, TX Scholastic Super State 2026, TX State Amateur 2026 (81st), Natl MS K-8 2026, SW Open 2026 (92nd Southwest), TX Fall FIDE 2026  
-**Total games in dataset:** 34  
+**Total games in dataset:** 35  
 
 ---
 

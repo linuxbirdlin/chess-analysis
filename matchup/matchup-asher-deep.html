@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deep Engine Analysis — Chodniewicz, Asher (34 games)</title>
+<title>Deep Engine Analysis — Chodniewicz, Asher (35 games)</title>
 <style>
 :root { --accent: #1a3a6b; --accent-bg: #eef2fb; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -57,7 +57,7 @@ hr { border: none; border-top: 2px solid #ccc; margin: 22px 0; }
 
 <div class="page-header">
   <h1>Deep Engine Analysis — Chodniewicz, Asher</h1>
-  <div class="meta">Stockfish movetime-3000 · 16 threads · 34 games analyzed · Lichess win-probability accuracy formula</div>
+  <div class="meta">Stockfish movetime-3000 · 16 threads · 35 games analyzed · Lichess win-probability accuracy formula</div>
   <div class="nav">
     <a href="../austin-prep.html">← Prep Index</a>
     <a href="matchup-asher.html">Matchup Overview</a>
@@ -69,15 +69,15 @@ hr { border: none; border-top: 2px solid #ccc; margin: 22px 0; }
 <h2>Overall Accuracy Summary</h2>
 
 <div class="stat-grid">
-  <div class="stat-card"><div class="num">91.1%</div><div class="lbl">Overall Avg (34 games)</div></div>
+  <div class="stat-card"><div class="num">91.1%</div><div class="lbl">Overall Avg (35 games)</div></div>
   <div class="stat-card"><div class="num">91.7%</div><div class="lbl">As White (15 games)</div></div>
-  <div class="stat-card"><div class="num">90.7%</div><div class="lbl">As Black (19 games)</div></div>
+  <div class="stat-card"><div class="num">90.7%</div><div class="lbl">As Black (20 games)</div></div>
   <div class="stat-card"><div class="num">98.9%</div><div class="lbl">Best Single Game</div></div>
 </div>
 
 <div class="stat-grid">
   <div class="stat-card"><div class="num">9W–5L–1D</div><div class="lbl">As White (61% score)</div></div>
-  <div class="stat-card"><div class="num">5W–7L–6D</div><div class="lbl">As Black (43% score)</div></div>
+  <div class="stat-card"><div class="num">5W–8L–6D</div><div class="lbl">As Black (41% score)</div></div>
   <div class="stat-card"><div class="num">72.2%</div><div class="lbl">Worst Game (SW Open R3)</div></div>
   <div class="stat-card"><div class="num">0W–4L–0D</div><div class="lbl">vs 2000+ opponents</div></div>
 </div>
@@ -120,7 +120,7 @@ hr { border: none; border-top: 2px solid #ccc; margin: 22px 0; }
 <h2>Critical Patterns — What Stockfish Revealed</h2>
 
 <div class="callout callout-red">
-  <strong>Pattern 1 — French Defense breadth is genuine:</strong> Asher knows all three French systems as Black. Tarrasch Qxd5 (Chistyakov) documented in 3 games (SW Open R3, Natl K-8 R3, AGCA R1). Classical Rubinstein (dxe4) in 2 games. French Advance (...c5 Nc6) in 2 games. Classical C11 (Nc3 e5 Nfd7) in 1 game. Austin must NOT play Tarrasch 3.Nd2 — use Advanced French (3.e5) instead.
+  <strong>Pattern 1 — French Defense breadth is genuine:</strong> Asher knows all three French systems as Black. Tarrasch Qxd5 (Chistyakov) documented in 3 games (SW Open R3, Natl K-8 R3, AGCA R1). Classical Rubinstein (dxe4) in 2 games. French Advance (...c5 Nc6) in 2 games. Classical C11 (Nc3 e5 Nfd7) in 1 game. Austin plays Tarrasch 3.Nd2 always (fixed 2026 repertoire) — deeper Chistyakov prep (5.Ngf3! 6.Bc4 7.0-0 8.Nb3!, 96% of masters) is Austin's preparation edge. NEVER 3.e5 (Advance, abandoned after 2025).
 </div>
 
 <div class="callout callout-red">
@@ -215,13 +215,14 @@ hr { border: none; border-top: 2px solid #ccc; margin: 22px 0; }
   </tbody>
 </table>
 
-<h2>Full Game-by-Game Table (34 games, newest first)</h2>
+<h2>Full Game-by-Game Table (35 games, newest first)</h2>
 
 <table>
   <thead>
     <tr><th>Date</th><th>Tournament</th><th>Rnd</th><th>Color</th><th>Result</th><th>Acc</th><th>Opp Acc</th><th>Opponent</th><th>Elo</th><th>ECO</th></tr>
   </thead>
   <tbody>
+  <tr><td>2026-11-14</td><td>NAYCC 2026</td><td>R6</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">88.4%</span></td><td>90.6%</td><td>Santhosh, Pranav</td><td>1922</td><td>—</td></tr>
   <tr class="row-best"><td>2026-10-18</td><td>TX Fall FIDE 2026</td><td>R5</td><td class="w-cell">W</td><td class="win-cell">W</td><td><span class="acc-high">96.8%</span></td><td>91%</td><td>Sunagatullin, Mark</td><td>1708</td><td>E05</td></tr>
   <tr><td>2026-10-18</td><td>TX Fall FIDE 2026</td><td>R4</td><td class="b-cell">B</td><td class="loss-cell">L</td><td><span class="acc-mid">89.2%</span></td><td>87%</td><td>Reyes, Oshrie</td><td>1868</td><td>B20</td></tr>
   <tr><td>2026-10-18</td><td>TX Fall FIDE 2026</td><td>R3</td><td class="w-cell">W</td><td class="loss-cell">L</td><td><span class="acc-mid">93.5%</span></td><td>96%</td><td>Ruiz Castillo, Joshua (GM)</td><td>2526</td><td>B96</td></tr>

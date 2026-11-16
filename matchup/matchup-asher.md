@@ -3,7 +3,7 @@
 **Date:** November 2026 (NAYCC 2026)  
 **Rating gap:** Austin 1959 FIDE vs Asher 1884 FIDE (+75 in Austin's favor)  
 **Direct record:** No prior encounter  
-**Files:** `analysis/asher-analysis.md` · `pgnlib/Chodniewicz, Asher.pgn` (34 games)
+**Files:** `analysis/asher-analysis.md` · `pgnlib/Chodniewicz, Asher.pgn` (35 games)
 
 ---
 
