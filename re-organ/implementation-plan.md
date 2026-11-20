@@ -469,6 +469,7 @@ Keep `matchup/` as-is. The redirect cost (updating every link in every HTML) is 
       - 2027 future placeholder section added
       - Bug fixes: Paragiri Latest64 link removed, Xie Snoop2026 link removed, Leo PGN path space fixed, Reyansh count 114→118, Asher White "Advanced French 3.e5"→"Tarrasch 3.Nd2", Asher GM badge class fixed (deep→gm-plan)
 - [x] Add URL token auth to all HTML files (Phase 5) — `scripts/inject-auth.js` written and run; 176 files injected with chess-auth-v1 marker; revertible via `--revert` flag
-- [ ] Execute opponents/ country migration + script path rewrites (Phases 1 + 2b + 3) — in progress (big-migration agent)
-- [ ] Update `CLAUDE.md` with new folder structure — pending migration completion
-- [ ] Integrate `play-on/` and clean it up (Phase 6a) — pending migration completion
+- [x] Execute opponents/ country migration + script path rewrites (Phases 1 + 2b + 3) — complete; Tarun fix applied separately
+- [x] Update `CLAUDE.md` with new folder structure — updated by migration agent
+- [x] Integrate `play-on/` and clean it up (Phase 6a) — play-on/ dissolved; Mexico players → opponents/mexico/; tracker/roster → austin/naycc2026/
+- [ ] **Cloudflare Access setup** — plan at `re-organ/cloudflare-access-plan.md`; needs: (1) domain name filled in, (2) Phase A custom subdomain, (3) Phase B Zero Trust app + email policy, (4) Phase C revert chess-auth-v1 tokens
