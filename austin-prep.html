@@ -461,6 +461,61 @@
     .opp-btn.primary { color: #2d7d46; border-color: #c8e6d2; background: #f0faf4; }
     .opp-btn.primary:hover { background: #dafbe1; }
 
+    /* ── NAYCC Non-Canada Accordion ── */
+    .naycc-other-accordion {
+      border: 1.5px solid #c0cfe0;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 24px 0 28px;
+      background: #fff;
+    }
+    .naycc-other-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, #f4f7fb 0%, #eaf0f8 100%);
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      transition: background .15s;
+      flex-wrap: wrap;
+    }
+    .naycc-other-btn:hover { background: linear-gradient(135deg, #e8eff8 0%, #d8e8f5 100%); }
+    .naycc-btn-left { display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1; }
+    .naycc-btn-arrow {
+      font-size: 1.1rem; color: #4a7a9b; flex-shrink: 0;
+      transition: transform .22s; display: inline-block;
+    }
+    .naycc-other-accordion.open .naycc-btn-arrow { transform: rotate(90deg); }
+    .naycc-btn-title { font-size: 1rem; font-weight: 700; color: #1f2328; margin-bottom: 3px; }
+    .naycc-btn-sub { font-size: 0.79rem; color: #57606a; line-height: 1.45; }
+    .naycc-btn-tags { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; flex-shrink: 0; }
+    .naycc-ctag {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 3px 10px; border-radius: 20px;
+      font-size: 0.78rem; font-weight: 600; white-space: nowrap; border: 1px solid;
+    }
+    .naycc-ctag.usa { background: #f0f4ff; color: #0d47a1; border-color: #9bb0e8; }
+    .naycc-ctag.mex { background: #fff0eb; color: #7a2000; border-color: #e8b09b; }
+    .naycc-ctag.expand-tag { background: #2d7d46; color: #fff; border-color: #2d7d46; transition: background .12s; }
+    .naycc-other-accordion.open .naycc-ctag.expand-tag { background: #57606a; border-color: #57606a; }
+    .naycc-other-body {
+      padding: 4px 16px 16px;
+      border-top: 1.5px solid #c0cfe0;
+      display: none;
+    }
+    .naycc-other-accordion.open .naycc-other-body { display: block; }
+    .naycc-country-heading {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: #57606a;
+      margin: 24px 0 12px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .naycc-country-heading::after { content: ''; flex: 1; height: 1px; background: #d0d7de; }
+
     /* ── Future placeholder ── */
     .future-placeholder {
       background: #f6f8fa; border: 2px dashed #d0d7de; border-radius: 10px;
@@ -555,8 +610,8 @@
     </div>
   </div>
 
-  <!-- Opponent Prep — ordered by NAYCC 2026 seed (Nov 1 ratings) -->
-  <div class="section-heading">NAYCC 2026 Opponents <span style="font-size:0.8rem;font-weight:400;color:#57606a;">· ordered by seed (Nov 1 FIDE)</span></div>
+  <!-- NAYCC 2026 — Canadian opponents shown directly -->
+  <div class="section-heading" id="canada-opponents">🇨🇦 Canadian Opponents <span style="font-size:0.8rem;font-weight:400;color:#57606a;">· NAYCC 2026 · ordered by seed</span></div>
 
   <!-- #1 Zachary Liu — seed #1, 2185 -->
   <div class="opponent-block">
@@ -596,189 +651,7 @@
     <p class="opp-note">Record: <strong>19W–4L–22D</strong> overall · Canada Open: 2 White losses (vs 2181+) · Benko Gambit confirmed as Black · 93.6% avg accuracy (engine games) · Direct loss Sep 2026 (missed 14.Bxh7+!) · <strong>English Attack 6.Be3 7.f3 8.g4!</strong> targets Taimanov (B46: 86.6%). Dutch Leningrad 1...f5! as Black vs his Reti/English.</p>
   </div>
 
-  <!-- #2 Fernando Cortes Medina — seed #2, 2085 -->
-  <div class="opponent-block">
-    <div class="opponent-header">
-      <span class="opp-name">Fernando Cortes Medina</span>
-      <span class="opp-meta">CM · NAYCC seed #2 · Rating 2085 · 1.e4/1.c4 White · French Defense Black · 7 tournaments · 39 games · <span style="font-weight:600;color:#2d7d46">Latest: Oct 2026</span></span>
-      <span class="direct-record dr-none">No direct encounter</span>
-    </div>
-    <div class="opp-links">
-      <a class="opp-link matchup" href="matchup/matchup-fernando.html">
-        <span class="badge-tag">PLAN</span> Matchup Plan
-      </a>
-      <a class="opp-link deep" href="matchup/matchup-fernando-deep.html">
-        <span class="badge-tag" style="background:#1a5276;">DEEP</span> C01 French Exchange
-      </a>
-      <a class="opp-link white-plan" href="matchup/matchup-fernando-white.html">
-        <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White
-      </a>
-      <a class="opp-link black-plan" href="matchup/matchup-fernando-black.html">
-        <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black
-      </a>
-      <a class="opp-link gm-plan" href="matchup/matchup-fernando-gm.html">
-        <span class="badge-tag" style="background:#b8a000;">GM</span> Battle Plan (37 classical games)
-      </a>
-      <a class="opp-link night-before" href="matchup/matchup-fernando-nightbefore.html">
-        <span class="badge-tag">TONIGHT</span> Night-Before Prep — Pattern G rook errors (75% loss rate), Advanced French weapon, zero decisive blunders
-      </a>
-      <a class="opp-link pgn" href="pgnlib/mexico/Cortes Medina, Fernando.pgn" download="Cortes Medina, Fernando.pgn">&#8615; PGN Library (39 games)</a>
-      <a class="opp-link dev-map" href="matchup/opening-deviation-fernando.html">
-        <span class="badge-tag">DEV</span> Opening Deviation Map — 6.f3 English Attack · 6…Rc8 French Advance
-      </a>
-    </div>
-    <p class="opp-note">Overall 92.8% avg accuracy (White 91.8%, Black 93.6%) across 7 tournaments · Worst: <strong>85.4%</strong> vs Perez (2395); <strong>86.6%</strong> vs GM Cori (2586) with 6 blunders · Key patterns: king navigation errors (Kb1?? Kf1??), rook misplacement (Rd7?? dropped +4.58→0), queen reactivation failures under pressure · GM plan: <strong>Tarrasch 3.Nd2</strong> as White (0 Fernando games — prep gap); <strong>Sicilian Kan …b5/…Rc8</strong> as Black (Fernando's 1.e4 White win rate only 25%).</p>
-  </div>
-
-  <!-- #3 Leo Jackson — seed #3, 2081 -->
-  <div class="opponent-block">
-    <div class="opponent-header">
-      <span class="opp-name">Leo Daniel Olivera Jackson</span>
-      <span class="opp-meta">NAYCC seed #3 · Rating 2081 FIDE (Nov 2026; was 1886 Jun 2026) · 1.d4 Catalan (3.Nf3, no Nc3) · French Defense Black: Advance 3...c5 4.c3 Qa5 + Tarrasch Chistyakov · 10 tournaments · 60 games · <span style="font-weight:600;color:#2d7d46">Latest: Oct 2026</span></span>
-      <span class="direct-record dr-none">No direct encounter</span>
-    </div>
-    <div class="opp-links">
-      <a class="opp-link matchup" href="matchup/matchup-leo.html">
-        <span class="badge-tag">PLAN</span> Matchup Plan
-      </a>
-      <a class="opp-link deep" href="matchup/matchup-leo-deep.html">
-        <span class="badge-tag" style="background:#1a5276;">DEEP</span> Engine Analysis — 47 Games
-      </a>
-      <a class="opp-link white-plan" href="matchup/matchup-leo-white.html">
-        <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White
-      </a>
-      <a class="opp-link black-plan" href="matchup/matchup-leo-black.html">
-        <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black
-      </a>
-      <a class="opp-link gm-plan" href="matchup/matchup-leo-gm.html">
-        <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — Tarrasch (3.Nd2) + Queen's Indian
-      </a>
-      <a class="opp-link night-before" href="matchup/matchup-leo-nightbefore.html">
-        <span class="badge-tag">TONIGHT</span> Night-Before Prep Sheet
-      </a>
-      <a class="opp-link dev-map" href="matchup/opening-deviation-leo.html">
-        <span class="badge-tag">MAP</span> Opening Deviation Map
-      </a>
-
-      <a class="opp-link pgn" href="pgnlib/usa/Jackson, Leo Daniel Olivera.pgn" download="Jackson, Leo Daniel Olivera.pgn">&#8615; PGN Library (60 games)</a>
-      <a class="opp-link lichess" href="https://lichess.org/@/leodanieljackson" target="_blank" rel="noopener">
-        <span class="badge-tag">LICHESS</span> Lichess Profile — leodanieljackson (unconfirmed, 2154 rapid)
-      </a>
-    </div>
-    <p class="opp-note">Classical avg 92.4% · Best: <strong>98.9%</strong> (perfect 41-move Catalan win) · Worst: <strong>87.2%</strong> (upset loss to 1609 as White) · Key insight: draws vs 2000+ at 97%+ accuracy, but struggles to convert advantages — blew +5.34 with a single move (b5, CPL 509) vs 2062.</p>
-  </div>
-
-  <!-- #4 Reyansh Paragiri — seed #4, 2067 (added Nov 2026) -->
-  <div class="opponent-block">
-    <div class="opponent-header">
-      <span class="opp-name">Reyansh Paragiri</span>
-      <span class="opp-meta">NAYCC seed #4 · Rating 2067 FIDE (Nov 2026) · USA · 2015-born · 1.e4 Open Sicilian White · Accelerated Dragon B34/B35 + Rossolimo Fianchetto B31 Black · vs 1.d4: QGD 1...d5 · 104 classical games · 83 analyzed (movetime-3000) · <span style="font-weight:600;color:#856404">Latest: Oct 2026</span></span>
-      <span class="direct-record dr-none">No direct encounter</span>
-    </div>
-    <div class="opp-links">
-      <a class="opp-link matchup" href="matchup/matchup-reyansh.html">
-        <span class="badge-tag">PLAN</span> Matchup Plan
-      </a>
-      <a class="opp-link deep" href="matchup/matchup-reyansh-deep.html">
-        <span class="badge-tag" style="background:#1a5276;">DEEP</span> Deep Engine Analysis — 83 games · movetime-3000
-      </a>
-      <a class="opp-link white-plan" href="matchup/matchup-reyansh-white.html">
-        <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White — Rossolimo 3.Bb5
-      </a>
-      <a class="opp-link black-plan" href="matchup/matchup-reyansh-black.html">
-        <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black — Taimanov B47
-      </a>
-      <a class="opp-link gm-plan" href="matchup/matchup-reyansh-gm.html">
-        <span class="badge-tag" style="background:#b8a000;">GM</span> R8 GM Battle Plan — English Attack vs 2…e6 · Rossolimo kill shot · Lichess-verified
-      </a>
-      <a class="opp-link dev-map" href="matchup/opening-deviation-reyansh.html">
-        <span class="badge-tag">MAP</span> Opening Deviation Map — 6 systems · Lichess Masters
-      </a>
-      <a class="opp-link drill" href="austin/reyansh-drill.html">
-        <span class="badge-tag">DRILL</span> Weakness Drills &amp; Exploitation Plan — 3 verified patterns
-      </a>
-      <a class="opp-link pgn" href="pgnlib/usa/Paragiri, Reyansh.pgn" download="Paragiri, Reyansh.pgn">&#8615; PGN Library (118 games incl. NAYCC 2026)</a>
-      <a class="opp-link pgn" href="opponents/usa/reyansh/chess-com-rapid.pgn" download="chess-com-rapid.pgn">
-        <span class="badge-tag" style="background:#0969da;">CC</span> Chess.com Rapid (3 games — opening patterns)
-      </a>
-    </div>
-    <p class="opp-note">Full pipeline complete (Nov 2026) · 2015-born (youngest in section) · Deep analysis: 91.8% avg (83 games), White 92.8% / Black 90.7% · KEY EXPLOIT: Rossolimo 3.Bb5 — Reyansh 0-2 (Mulay 2025, Atkeson 2024); Atkeson game 141 avg CPL (worst in dataset) · KEY TRAP TO AVOID: never play 2...Nc6 + 4...g6 → Reyansh plays 5.c4 Maróczy Bind (8+ games, his best White system) · Austin plays Taimanov 2...e6 as Black · Unbeaten at Mechanics Institute OTB (5W-0L-4D) · Drew Pranav Santhosh 98.2%; lost to Zhuoyuan Wu 88.4% as Black</p>
-  </div>
-
-  <!-- #5 Inti Dario Flores Ojeda — seed #5, 2011 -->
-  <div class="opp-block" id="inti">
-    <div class="opp-header">
-      <span class="opp-name">Flores Ojeda, Inti Dario</span>
-      <span class="opp-rating">NAYCC seed #5 · 2011 FIDE (Nov 2026; +256 in 13 months) · <span style="font-weight:600;color:#b45309">Latest: Aug 2026 — seek newer games</span></span>
-    </div>
-    <div class="opp-links">
-      <a class="opp-link matchup" href="matchup/matchup-inti.html">
-        <span class="badge-tag">PLAN</span> Matchup Plan
-      </a>
-      <a class="opp-link white-plan" href="matchup/matchup-inti-white.html">
-        <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White — Italian Classical d4 Plan
-      </a>
-      <a class="opp-link black-plan" href="matchup/matchup-inti-black.html">
-        <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black — Taimanov vs f4 System
-      </a>
-      <a class="opp-link deep" href="matchup/matchup-inti-deep.html">
-        <span class="badge-tag" style="background:#1a5276;">DEEP</span> Engine Analysis — 36 games, 90.6% avg
-      </a>
-      <a class="opp-link gm-plan" href="matchup/matchup-inti-gm.html">
-        <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — Italian d4 squeeze (White) + Taimanov O-O kingside (Black)
-      </a>
-      <a class="opp-link dev-map" href="matchup/opening-deviation-inti.html">
-        <span class="badge-tag">MAP</span> Opening Map — Bc4 Dragon (White) + Morphy Bc5 (Black)
-      </a>
-      <a class="opp-link night-before" href="matchup/matchup-inti-nightbefore.html">
-        <span class="badge-tag">TONIGHT</span> Night-Before Prep — Pattern F 88% loss correlation · Ruy Lopez weapon
-      </a>
-      <a class="opp-link pgn" href="pgnlib/mexico/Flores Ojeda, Inti Dario.pgn" download="Flores Ojeda, Inti Dario.pgn">&#8615; PGN Library (38 games w/ moves)</a>
-      <a class="opp-link lichess" href="https://lichess.org/@/inti_flores" target="_blank" rel="noopener">
-        <span class="badge-tag">LICHESS</span> Lichess Profile — inti_flores
-      </a>
-    </div>
-    <p class="opp-note">38 games with moves in pgnlib (42 result-only entries removed · 36 with deep Stockfish analysis across 5 tournaments) · 90.6% overall accuracy (SF 3000ms) · Querétaro 2026: 5W-1L-2D, 92.5% — best recent form · White: 1.e4 Open Sicilian f4-e5 system (catastrophic B43 loss vs De Alba: 14B/7M); French Rubinstein LOSS 85.9% · Black: 1…e5 exclusively — Italian C54 (98.5%, 98.1% best games), Ruy Lopez C77/C78 · Sep–Nov 2026 OTB games still missing · GM Plan: Italian Classical d4 squeeze as White; Taimanov KINGSIDE castle + …b5-b4 break as Black · NEVER castle queenside vs Inti's f4 system.</p>
-  </div>
-
-  <!-- #6 Tarun Sankar — seed #6, 1984 -->
-  <div class="opponent-block">
-    <div class="opponent-header">
-      <span class="opp-name">Tarun Sankar</span>
-      <span class="opp-meta">NAYCC seed #6 · Rating 1984 FIDE (Nov 2026; peak 2002) · +600 Elo in 2.5 years · 1.c4 English White (Catalan/Mikenas) · Sicilian 1...c5 Black · 7 tournaments · 23 games · <span style="font-weight:600;color:#2d7d46">Latest: Oct 2026</span></span>
-      <span class="direct-record dr-none">No direct encounter</span>
-    </div>
-    <div class="opp-links">
-      <a class="opp-link matchup" href="matchup/matchup-tarun.html">
-        <span class="badge-tag">PLAN</span> Matchup Plan
-      </a>
-      <a class="opp-link deep" href="matchup/matchup-tarun-deep.html">
-        <span class="badge-tag" style="background:#1a5276;">DEEP</span> Engine Analysis — 23 Games
-      </a>
-      <a class="opp-link white-plan" href="matchup/matchup-tarun-white.html">
-        <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White
-      </a>
-      <a class="opp-link black-plan" href="matchup/matchup-tarun-black.html">
-        <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black
-      </a>
-      <a class="opp-link gm-plan" href="matchup/matchup-tarun-gm.html">
-        <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — Rossolimo 4.e5! (54%W) · NAYCC R6 · Austin as White
-      </a>
-      <a class="opp-link dev-map" href="matchup/opening-deviation-tarun.html">
-        <span class="badge-tag">MAP</span> Opening Map — Mikenas 5.Qg4! (White) + QGA a6/b5 (Black)
-      </a>
-      <a class="opp-link night-before" href="matchup/matchup-tarun-nightbefore.html">
-        <span class="badge-tag">TONIGHT</span> Night-Before Prep — 3 decisive Black collapses · Rossolimo weapon · upset-loss 6×
-      </a>
-      <a class="opp-link pgn" href="pgnlib/usa/Sankar, Tarun.pgn" download="Sankar, Tarun.pgn">&#8615; PGN Library (26 games)</a>
-      <a class="opp-link lichess" href="https://lichess.org/@/BrainDaze" target="_blank" rel="noopener">
-        <span class="badge-tag">LICHESS</span> Lichess Profile — BrainDaze
-      </a>
-    </div>
-    <p class="opp-note">Overall 88.9% avg accuracy · Best: <strong>95.1%</strong> (English Catalan draw vs 1845) · Worst: <strong>76.1%</strong> (9 blunders vs Boutikos 2144, Thursday Club) · Key insight: g4?? (0.00→−6.99) blunder pattern confirmed across 3 events; three 1000cpl king-walk blunders (Kf7/Kh4/Ke7); throws winning positions away with impulsive lunges (e4??, Bd3??). vs Rossolimo plays 3...Nf6 4.Bxc6 dxc6 + fianchetto.</p>
-  </div>
-
-  <!-- #6 Aarush Ajith — seed #7, 1943 -->
+  <!-- #7 Aarush Ajith — seed #7, 1943 -->
   <div class="opponent-block">
     <div class="opponent-header">
       <span class="opp-name">Aarush Ajith</span>
@@ -817,131 +690,7 @@
     <p class="opp-note">GM plan: White weapon choice — Option A (Moscow 3.Bb5+, 54.8% score, Rossolimo-consistent) or Option B (g4 Attack 6.g4!, targets Aarush's 0W–3L h4 record); Austin confirms night before. Nimzo Bxc3+ as Black (steer for endgame — Aarush has 3× CPL-1000 king blunders documented).</p>
   </div>
 
-  <!-- #7 Pranav Santhosh — seed #8, 1922 -->
-  <div class="opponent-block">
-    <div class="opponent-header">
-      <span class="opp-name">Pranav Santhosh</span>
-      <span class="opp-meta">NAYCC seed #8 · Rating 1922 FIDE (Nov 2026; peaked 2003 Blue Ridge Sep 2026) · 1.e4 English Attack/Maróczy White · Italian/Lopez Black · 10+ tournaments · 53 games · <span style="font-weight:600;color:#856404">Latest: Sep 2026</span></span>
-      <span class="direct-record dr-none">No direct encounter</span>
-    </div>
-    <div class="opp-links">
-      <a class="opp-link matchup" href="matchup/matchup-pranav.html">
-        <span class="badge-tag">PLAN</span> Matchup Plan
-      </a>
-      <a class="opp-link deep" href="matchup/matchup-pranav-deep.html">
-        <span class="badge-tag" style="background:#1a5276;">DEEP</span> Engine Analysis — 20 Classical Games
-      </a>
-      <a class="opp-link white-plan" href="matchup/matchup-pranav-white.html">
-        <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White
-      </a>
-      <a class="opp-link black-plan" href="matchup/matchup-pranav-black.html">
-        <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black
-      </a>
-      <a class="opp-link gm-plan" href="matchup/matchup-pranav-gm.html">
-        <span class="badge-tag" style="background:#b8a000;">GM</span> Battle Plan (16 reliable classical games)
-      </a>
-
-      <a class="opp-link dev-map" href="matchup/opening-deviation-pranav.html">
-        <span class="badge-tag">MAP</span> Opening Map — Maróczy Bind (White) + Italian Bc5 book-perfect (Black)
-      </a>
-      <a class="opp-link pgn" href="pgnlib/usa/Santhosh, Pranav.pgn" download="Santhosh, Pranav.pgn">&#8615; PGN Library (53 games)</a>
-    </div>
-    <p class="opp-note">53 games, 10+ tournaments (2023–2026) · Reliable classical avg: <strong>92.1%</strong> (World Youth 93.4%, Blue Ridge 91%, SW Open 90%) · Engine analysis covers <strong>25 games</strong> (AGCA Fall/Summer, World Youth, Blue Ridge, SW Open) · GM plan: <strong>Italian 4.c3! 5.d4!</strong> as White (Pranav 0W-2D-1L with Giuoco Piano as Black); <strong>Sicilian Kan</strong> as Black.</p>
-  </div>
-
-  <!-- #8 Emerson Johnson — seed #9, 1909 -->
-  <div class="opponent-block">
-    <div class="opponent-header">
-      <span class="opp-name">Emerson Aurelius Johnson</span>
-      <span class="opp-meta">NAYCC seed #9 · Rating 1909 FIDE / 2078 US Chess · 1.e4 Rossolimo/Exch CK White · Caro-Kann/QGA Black · 7 tournaments · 38 games · <span style="font-weight:600;color:#856404">Latest: Sep 2026</span></span>
-      <span class="direct-record dr-none">No direct encounter</span>
-    </div>
-    <div class="opp-links">
-      <a class="opp-link matchup" href="matchup/matchup-emerson.html">
-        <span class="badge-tag">PLAN</span> Matchup Plan
-      </a>
-      <a class="opp-link deep" href="matchup/matchup-emerson-deep.html">
-        <span class="badge-tag" style="background:#1a5276;">DEEP</span> Engine Analysis — 38 Games
-      </a>
-      <a class="opp-link white-plan" href="matchup/matchup-emerson-white.html">
-        <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White
-      </a>
-      <a class="opp-link black-plan" href="matchup/matchup-emerson-black.html">
-        <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black
-      </a>
-      <a class="opp-link gm-plan" href="matchup/matchup-emerson-gm.html">
-        <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — Exchange CK + Rossolimo Fix
-      </a>
-
-      <a class="opp-link dev-map" href="matchup/opening-deviation-emerson.html">
-        <span class="badge-tag">MAP</span> Opening Map — Rossolimo c3/Qe2 (White) + CK …a6/b5 chain (Black)
-      </a>
-
-      <a class="opp-link pgn" href="pgnlib/usa/Johnson, Emerson Aurelius.pgn" download="Johnson, Emerson Aurelius.pgn">&#8615; PGN Library (38 games)</a>
-    </div>
-    <p class="opp-note">Overall 92.2% avg accuracy · Best: <strong>98.3%</strong> (193-move endgame vs 2044) · Worst: <strong>83.8%</strong> vs WGM in sharp tactics · Key insight: endgame specialist who beat WIM in 127 moves, but blunders from equality under tactical pressure.</p>
-  </div>
-
-  <!-- #9 Wu, Zhuoyuan — seed #10, 1890 -->
-  <div class="opponent-block">
-    <div class="opponent-header">
-      <span class="opp-name">Wu, Zhuoyuan</span>
-      <span class="opp-meta">NAYCC seed #10 · Rating 1890 FIDE (Nov 2026) · USA · World Schools 2026 + 6 US tournaments (2024–2026) · 46 games analyzed · 91.9% avg · <span style="font-weight:600;color:#856404">0.63 blunders/game (high)</span> · Deep analysis complete</span>
-      <span class="direct-record dr-none">No direct encounter</span>
-    </div>
-    <div class="opp-links">
-      <a class="opp-link gm-plan" href="matchup/matchup-zhuoyuan-gm.html">
-        <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — Rossolimo 3.Bb5 sidesteps Dragon + Taimanov vs unknown Sicilian-White
-      </a>
-      <a class="opp-link white-plan" href="matchup/matchup-zhuoyuan-white.html">
-        <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White — Rossolimo 3.Bb5 Sidesteps Dragon
-      </a>
-      <a class="opp-link black-plan" href="matchup/matchup-zhuoyuan-black.html">
-        <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black — Taimanov vs Unknown Sicilian-White
-      </a>
-      <a class="opp-link deep" href="matchup/matchup-zhuoyuan-deep.html">
-        <span class="badge-tag" style="background:#1a5276;">DEEP</span> Deep Analysis — 46 games, 91.9% avg, 0.63 blunders/game
-      </a>
-      <a class="opp-link dev-map" href="matchup/opening-deviation-zhuoyuan.html">
-        <span class="badge-tag">MAP</span> Opening Map — Exchange CK 4.Bd3 (mirror) + Classical 5…Nc6 (Black)
-      </a>
-      <a class="opp-link pgn" href="pgnlib/usa/Wu, Zhuoyuan.pgn" download="Wu, Zhuoyuan.pgn">&#8615; PGN Library (41 games)</a>
-    </div>
-    <p class="opp-note">46 games · deep Stockfish (movetime-3000) · White: 7W–7L–7D (91.2%) · Black: 7W–9L–9D (92.5%) · Primary Black weapon: Sicilian Accelerated Dragon (B34/B73) — Rossolimo sidesteps from move 3 · Critical vulnerability: time-pressure blunder chain (WS R5 vs 1969: 5 blunders when clock hit 1 min) · 0W–4L vs 1969+ rated opponents</p>
-  </div>
-
-  <!-- #10 Asher Chodniewicz — seed TBD, 1884 (added Nov 2026) -->
-  <div class="opponent-block">
-    <div class="opponent-header">
-      <span class="opp-name">Chodniewicz, Asher</span>
-      <span class="opp-meta">NAYCC 2026 (added Nov 2026) · Rating 1884 FIDE (Nov 2026) · USA (Texas) · 1.e4 Open Sicilian White · French Defense (all systems) Black · 8 tournaments · 35 games · 91.1% avg · <span style="font-weight:600;color:#2d7d46">Added Nov 2026</span></span>
-      <span class="direct-record dr-none">No direct encounter</span>
-    </div>
-    <div class="opp-links">
-      <a class="opp-link matchup" href="matchup/matchup-asher.html">
-        <span class="badge-tag">PLAN</span> Matchup Plan
-      </a>
-      <a class="opp-link deep" href="matchup/matchup-asher-deep.html">
-        <span class="badge-tag" style="background:#1a5276;">DEEP</span> Engine Analysis — 34 Games · 91.1% avg
-      </a>
-      <a class="opp-link white-plan" href="matchup/matchup-asher-white.html">
-        <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White — Tarrasch French 3.Nd2
-      </a>
-      <a class="opp-link black-plan" href="matchup/matchup-asher-black.html">
-        <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black — Taimanov vs Open Sicilian
-      </a>
-      <a class="opp-link dev-map" href="matchup/opening-deviation-asher.html">
-        <span class="badge-tag" style="background:#9a6700;">MAP</span> Opening Deviation Map — 6 systems
-      </a>
-      <a class="opp-link gm-plan" href="matchup/matchup-asher-gm.html">
-        <span class="badge-tag" style="background:#b8a000;">GM</span> R9 GM Battle Plan — Taimanov vs 5.Nxc6/Be3+Bd3
-      </a>
-      <a class="opp-link pgn" href="pgnlib/usa/Chodniewicz, Asher.pgn" download="Chodniewicz, Asher.pgn">&#8615; PGN Library (35 games)</a>
-    </div>
-    <p class="opp-note">35 games, 8 tournaments incl. NAYCC 2026 · 91.1% avg (Stockfish 3000ms deep) · White 9W–5L–1D (91.7%) · Black 5W–8L–6D (90.6%) · R9 key intel: 5.Nxc6 exchange documented (AGCA R9 B44 93.8%); early ...a6 (move 6) in Be3+Bd3 Taimanov = +0.08 (Lichess verified) · TX State Amateur 1W–4L–1D vs adult 1800–2000 field · Worst game 72.2% (SW Open R3) · NAYCC R6 88.4% loss vs Pranav.</p>
-  </div>
-
-  <!-- #11 Pablo De Alba Boudreau — seed #12, 1873 -->
+  <!-- #12 Pablo De Alba Boudreau — seed #12, 1873 -->
   <div class="opponent-block">
     <div class="opponent-header">
       <span class="opp-name">De Alba Boudreau, Pablo Elliot</span>
@@ -972,38 +721,7 @@
     <p class="opp-note">60 games, 7 tournaments · 89.0% avg (Stockfish complete, 60 games) · White 9W–19L–3D — poor Ruy Lopez record (1W–6L+) · Black 15+ Kan/Taimanov games, drew FM 2241 with 96.4% accuracy (Copa 2026) · Copa Independencia 2026: beat 1990, drew FM 2241, lost to IM 2272 · Key: Austin's Rossolimo (3.Bb5) does NOT apply (Pablo plays 2…e6, not 2…Nc6) — must use English Attack 8.g4! · Austin has zero opponents with Pablo-style 2…e6 Kan in his practice games — this is the hardest matchup by opening preparation.</p>
   </div>
 
-  <!-- #11 Yaen Saenz Cabrera — seed #14, 1841 -->
-  <div class="opponent-block">
-    <div class="opponent-header">
-      <span class="opp-name">Yaen Saenz Cabrera</span>
-      <span class="opp-meta">NAYCC seed #14 · Rating ~1841 FIDE (peaked 1899) · 1.e4 Scotch C45 White · Sicilian Sveshnikov B32/B33 Black · 12 tournaments · 50 games · 90.9% avg · <span style="font-weight:600;color:#856404">Latest: Sep 2026</span></span>
-      <span class="direct-record dr-none">No direct encounter</span>
-    </div>
-    <div class="opp-links">
-      <a class="opp-link matchup" href="matchup/matchup-yaen.html">
-        <span class="badge-tag">PLAN</span> Matchup Plan
-      </a>
-      <a class="opp-link deep" href="matchup/matchup-yaen-deep.html">
-        <span class="badge-tag" style="background:#1a5276;">DEEP</span> Engine Analysis — 50 Games
-      </a>
-      <a class="opp-link white-plan" href="matchup/matchup-yaen-white.html">
-        <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White
-      </a>
-      <a class="opp-link black-plan" href="matchup/matchup-yaen-black.html">
-        <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black
-      </a>
-      <a class="opp-link gm-plan" href="matchup/matchup-yaen-gm.html">
-        <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — Rossolimo vs Sveshnikov; Taimanov/Kalashnikov Black
-      </a>
-      <a class="opp-link dev-map" href="matchup/opening-deviation-yaen.html">
-        <span class="badge-tag">MAP</span> Opening Map — Scotch Nb3/c4 system (White) + Löwenthal 4…e5 (Black)
-      </a>
-      <a class="opp-link pgn" href="pgnlib/mexico/Saenz Cabrera, Yaen.pgn" download="Saenz Cabrera, Yaen.pgn">&#8615; PGN Library (50 games)</a>
-    </div>
-    <p class="opp-note">50 games, 90.9% avg · White 91.2% (27g, 17W–8L–2D) · Black 90.6% (23g, 14W–3L–6D) · Scotch C45 specialist (collapses vs 1900+: 89.1% loss to Alba 1933 with 7B4M) · Sicilian Sveshnikov B32/B33 as Black · +118 Austin advantage (Austin 1959 vs Yaen 1841) · Worst section: Olimpiada Classical 83.8% · Rossolimo sidesteps Yaen's B32 preparation.</p>
-  </div>
-
-  <!-- #12 Joel Ethan Jeyaraj — seed #15, 1813 -->
+  <!-- #15 Joel Ethan Jeyaraj — seed #15, 1813 -->
   <div class="opp-block" id="joel">
     <div class="opp-header">
       <span class="opp-name">Jeyaraj, Joel Ethan</span>
@@ -1033,33 +751,391 @@
     <p class="opp-note">101 games (1 classical Carolinas Classic 2026, 100 Lichess blitz/bullet) · Lichess Blitz 2114 / Bullet 2505 vs FIDE 1813 (+301 online gap) · White 63% / Blitz Black 44% (notable weakness as Black in slower formats) · Key: Austin's Rossolimo does NOT apply (Joel plays 1...d5 Scandinavian, not 1...c5 Sicilian) — must use Bc4/Bb3 anti-Scandinavian · Joel's White = Nimzo-Larsen (1.Nf3 2.b3 Bb2, 53%) — Austin's QGD solid + ...c5 break is the antidote · Confirmed OTB weakness: Bxa2?? (CPL 317) at Carolinas Classic — greedy pawn under classical pressure.</p>
   </div>
 
-  <!-- #13 Daniel Hernandez Gamboa — seed #19, 1753 -->
-  <div class="opponent-block">
-    <div class="opponent-header">
-      <span class="opp-name">Daniel Hernandez Gamboa</span>
-      <span class="opp-meta">NAYCC seed #19 · Rating 1753 FIDE (Nov 2026; peaked 1767) · 1.e4 White (Exch French/Philidor/Pirc/Taimanov) · 1...e5 / Dutch Stonewall Black · 6 tournaments · 12 games · <span style="font-weight:600;color:#b45309">Latest: Aug 2026 — seek newer games</span></span>
-      <span class="direct-record dr-none">No direct encounter</span>
-    </div>
-    <div class="opp-links">
-      <a class="opp-link matchup" href="matchup/matchup-danielh.html">
-        <span class="badge-tag">PLAN</span> Matchup Plan
-      </a>
-      <a class="opp-link deep" href="matchup/matchup-danielh-deep.html">
-        <span class="badge-tag" style="background:#1a5276;">DEEP</span> Engine Analysis — 12 Games
-      </a>
-      <a class="opp-link white-plan" href="matchup/matchup-danielh-white.html">
-        <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White
-      </a>
-      <a class="opp-link black-plan" href="matchup/matchup-danielh-black.html">
-        <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black
-      </a>
-      <a class="opp-link gm-plan" href="matchup/matchup-danielh-gm.html">
-        <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — Italian 3.Bc4! vs Four Knights; Sicilian Black
-      </a>
-      <a class="opp-link pgn" href="pgnlib/mexico/Hernandez Gamboa, Daniel.pgn" download="Hernandez Gamboa, Daniel.pgn">&#8615; PGN Library (12 games)</a>
-    </div>
-    <p class="opp-note">Overall 90.4% avg · White 91.1% (7g) · Black 89.3% (5g) · Best: <strong>96.2%</strong> (Aguas2025 R4 dominant win) · Worst: <strong>83.2%</strong> (3B+7M in Taimanov win) · Key insight: all 3 Black losses via single catastrophic blunder from equality (Qd1?? CPL:827, Nxe4?? CPL:519, Re8?? CPL:647) — holds for 20+ moves then collapses in one move; 5W–0L–2D as White, never lost as White in 12-game dataset.</p>
-  </div>
+  <!-- NAYCC 2026 — USA & Mexico opponents collapsible accordion -->
+  <div class="naycc-other-accordion" id="naycc-usa-mex">
+    <button class="naycc-other-btn">
+      <div class="naycc-btn-left">
+        <span class="naycc-btn-arrow">▶</span>
+        <div>
+          <div class="naycc-btn-title">NAYCC 2026 — USA &amp; Mexico Opponents</div>
+          <div class="naycc-btn-sub">11 seeded opponents · #2 Fernando · #3 Leo · #4 Reyansh · #5 Inti · #6 Tarun · #8 Pranav · #9 Emerson · #10 Wu · #11 Asher · #14 Yaen · #19 Daniel</div>
+        </div>
+      </div>
+      <div class="naycc-btn-tags">
+        <span class="naycc-ctag usa">🇺🇸 7 USA</span>
+        <span class="naycc-ctag mex">🇲🇽 4 Mexico</span>
+        <span class="naycc-ctag expand-tag" id="naycc-expand-label">Expand ↓</span>
+      </div>
+    </button>
+    <div class="naycc-other-body">
+
+      <div class="naycc-country-heading">🇺🇸 USA Opponents · ordered by seed</div>
+
+      <!-- #3 Leo Jackson — seed #3, 2081 -->
+      <div class="opponent-block">
+        <div class="opponent-header">
+          <span class="opp-name">Leo Daniel Olivera Jackson</span>
+          <span class="opp-meta">NAYCC seed #3 · Rating 2081 FIDE (Nov 2026; was 1886 Jun 2026) · 1.d4 Catalan (3.Nf3, no Nc3) · French Defense Black: Advance 3...c5 4.c3 Qa5 + Tarrasch Chistyakov · 10 tournaments · 60 games · <span style="font-weight:600;color:#2d7d46">Latest: Oct 2026</span></span>
+          <span class="direct-record dr-none">No direct encounter</span>
+        </div>
+        <div class="opp-links">
+          <a class="opp-link matchup" href="matchup/matchup-leo.html">
+            <span class="badge-tag">PLAN</span> Matchup Plan
+          </a>
+          <a class="opp-link deep" href="matchup/matchup-leo-deep.html">
+            <span class="badge-tag" style="background:#1a5276;">DEEP</span> Engine Analysis — 47 Games
+          </a>
+          <a class="opp-link white-plan" href="matchup/matchup-leo-white.html">
+            <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White
+          </a>
+          <a class="opp-link black-plan" href="matchup/matchup-leo-black.html">
+            <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black
+          </a>
+          <a class="opp-link gm-plan" href="matchup/matchup-leo-gm.html">
+            <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — Tarrasch (3.Nd2) + Queen's Indian
+          </a>
+          <a class="opp-link night-before" href="matchup/matchup-leo-nightbefore.html">
+            <span class="badge-tag">TONIGHT</span> Night-Before Prep Sheet
+          </a>
+          <a class="opp-link dev-map" href="matchup/opening-deviation-leo.html">
+            <span class="badge-tag">MAP</span> Opening Deviation Map
+          </a>
+          <a class="opp-link pgn" href="pgnlib/usa/Jackson, Leo Daniel Olivera.pgn" download="Jackson, Leo Daniel Olivera.pgn">&#8615; PGN Library (60 games)</a>
+          <a class="opp-link lichess" href="https://lichess.org/@/leodanieljackson" target="_blank" rel="noopener">
+            <span class="badge-tag">LICHESS</span> Lichess Profile — leodanieljackson (unconfirmed, 2154 rapid)
+          </a>
+        </div>
+        <p class="opp-note">Classical avg 92.4% · Best: <strong>98.9%</strong> (perfect 41-move Catalan win) · Worst: <strong>87.2%</strong> (upset loss to 1609 as White) · Key insight: draws vs 2000+ at 97%+ accuracy, but struggles to convert advantages — blew +5.34 with a single move (b5, CPL 509) vs 2062.</p>
+      </div>
+
+      <!-- #4 Reyansh Paragiri — seed #4, 2067 -->
+      <div class="opponent-block">
+        <div class="opponent-header">
+          <span class="opp-name">Reyansh Paragiri</span>
+          <span class="opp-meta">NAYCC seed #4 · Rating 2067 FIDE (Nov 2026) · USA · 2015-born · 1.e4 Open Sicilian White · Accelerated Dragon B34/B35 + Rossolimo Fianchetto B31 Black · vs 1.d4: QGD 1...d5 · 104 classical games · 83 analyzed (movetime-3000) · <span style="font-weight:600;color:#856404">Latest: Oct 2026</span></span>
+          <span class="direct-record dr-none">No direct encounter</span>
+        </div>
+        <div class="opp-links">
+          <a class="opp-link matchup" href="matchup/matchup-reyansh.html">
+            <span class="badge-tag">PLAN</span> Matchup Plan
+          </a>
+          <a class="opp-link deep" href="matchup/matchup-reyansh-deep.html">
+            <span class="badge-tag" style="background:#1a5276;">DEEP</span> Deep Engine Analysis — 83 games · movetime-3000
+          </a>
+          <a class="opp-link white-plan" href="matchup/matchup-reyansh-white.html">
+            <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White — Rossolimo 3.Bb5
+          </a>
+          <a class="opp-link black-plan" href="matchup/matchup-reyansh-black.html">
+            <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black — Taimanov B47
+          </a>
+          <a class="opp-link gm-plan" href="matchup/matchup-reyansh-gm.html">
+            <span class="badge-tag" style="background:#b8a000;">GM</span> R8 GM Battle Plan — English Attack vs 2…e6 · Rossolimo kill shot · Lichess-verified
+          </a>
+          <a class="opp-link dev-map" href="matchup/opening-deviation-reyansh.html">
+            <span class="badge-tag">MAP</span> Opening Deviation Map — 6 systems · Lichess Masters
+          </a>
+          <a class="opp-link drill" href="austin/reyansh-drill.html">
+            <span class="badge-tag">DRILL</span> Weakness Drills &amp; Exploitation Plan — 3 verified patterns
+          </a>
+          <a class="opp-link pgn" href="pgnlib/usa/Paragiri, Reyansh.pgn" download="Paragiri, Reyansh.pgn">&#8615; PGN Library (118 games incl. NAYCC 2026)</a>
+          <a class="opp-link pgn" href="opponents/usa/reyansh/chess-com-rapid.pgn" download="chess-com-rapid.pgn">
+            <span class="badge-tag" style="background:#0969da;">CC</span> Chess.com Rapid (3 games — opening patterns)
+          </a>
+        </div>
+        <p class="opp-note">Full pipeline complete (Nov 2026) · 2015-born (youngest in section) · Deep analysis: 91.8% avg (83 games), White 92.8% / Black 90.7% · KEY EXPLOIT: Rossolimo 3.Bb5 — Reyansh 0-2 (Mulay 2025, Atkeson 2024); Atkeson game 141 avg CPL (worst in dataset) · KEY TRAP TO AVOID: never play 2...Nc6 + 4...g6 → Reyansh plays 5.c4 Maróczy Bind (8+ games, his best White system) · Austin plays Taimanov 2...e6 as Black · Unbeaten at Mechanics Institute OTB (5W-0L-4D) · Drew Pranav Santhosh 98.2%; lost to Zhuoyuan Wu 88.4% as Black</p>
+      </div>
+
+      <!-- #6 Tarun Sankar — seed #6, 1984 -->
+      <div class="opponent-block">
+        <div class="opponent-header">
+          <span class="opp-name">Tarun Sankar</span>
+          <span class="opp-meta">NAYCC seed #6 · Rating 1984 FIDE (Nov 2026; peak 2002) · +600 Elo in 2.5 years · 1.c4 English White (Catalan/Mikenas) · Sicilian 1...c5 Black · 7 tournaments · 23 games · <span style="font-weight:600;color:#2d7d46">Latest: Oct 2026</span></span>
+          <span class="direct-record dr-none">No direct encounter</span>
+        </div>
+        <div class="opp-links">
+          <a class="opp-link matchup" href="matchup/matchup-tarun.html">
+            <span class="badge-tag">PLAN</span> Matchup Plan
+          </a>
+          <a class="opp-link deep" href="matchup/matchup-tarun-deep.html">
+            <span class="badge-tag" style="background:#1a5276;">DEEP</span> Engine Analysis — 23 Games
+          </a>
+          <a class="opp-link white-plan" href="matchup/matchup-tarun-white.html">
+            <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White
+          </a>
+          <a class="opp-link black-plan" href="matchup/matchup-tarun-black.html">
+            <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black
+          </a>
+          <a class="opp-link gm-plan" href="matchup/matchup-tarun-gm.html">
+            <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — Rossolimo 4.e5! (54%W) · NAYCC R6 · Austin as White
+          </a>
+          <a class="opp-link dev-map" href="matchup/opening-deviation-tarun.html">
+            <span class="badge-tag">MAP</span> Opening Map — Mikenas 5.Qg4! (White) + QGA a6/b5 (Black)
+          </a>
+          <a class="opp-link night-before" href="matchup/matchup-tarun-nightbefore.html">
+            <span class="badge-tag">TONIGHT</span> Night-Before Prep — 3 decisive Black collapses · Rossolimo weapon · upset-loss 6×
+          </a>
+          <a class="opp-link pgn" href="pgnlib/usa/Sankar, Tarun.pgn" download="Sankar, Tarun.pgn">&#8615; PGN Library (26 games)</a>
+          <a class="opp-link lichess" href="https://lichess.org/@/BrainDaze" target="_blank" rel="noopener">
+            <span class="badge-tag">LICHESS</span> Lichess Profile — BrainDaze
+          </a>
+        </div>
+        <p class="opp-note">Overall 88.9% avg accuracy · Best: <strong>95.1%</strong> (English Catalan draw vs 1845) · Worst: <strong>76.1%</strong> (9 blunders vs Boutikos 2144, Thursday Club) · Key insight: g4?? (0.00→−6.99) blunder pattern confirmed across 3 events; three 1000cpl king-walk blunders (Kf7/Kh4/Ke7); throws winning positions away with impulsive lunges (e4??, Bd3??). vs Rossolimo plays 3...Nf6 4.Bxc6 dxc6 + fianchetto.</p>
+      </div>
+
+      <!-- #8 Pranav Santhosh — seed #8, 1922 -->
+      <div class="opponent-block">
+        <div class="opponent-header">
+          <span class="opp-name">Pranav Santhosh</span>
+          <span class="opp-meta">NAYCC seed #8 · Rating 1922 FIDE (Nov 2026; peaked 2003 Blue Ridge Sep 2026) · 1.e4 English Attack/Maróczy White · Italian/Lopez Black · 10+ tournaments · 53 games · <span style="font-weight:600;color:#856404">Latest: Sep 2026</span></span>
+          <span class="direct-record dr-none">No direct encounter</span>
+        </div>
+        <div class="opp-links">
+          <a class="opp-link matchup" href="matchup/matchup-pranav.html">
+            <span class="badge-tag">PLAN</span> Matchup Plan
+          </a>
+          <a class="opp-link deep" href="matchup/matchup-pranav-deep.html">
+            <span class="badge-tag" style="background:#1a5276;">DEEP</span> Engine Analysis — 20 Classical Games
+          </a>
+          <a class="opp-link white-plan" href="matchup/matchup-pranav-white.html">
+            <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White
+          </a>
+          <a class="opp-link black-plan" href="matchup/matchup-pranav-black.html">
+            <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black
+          </a>
+          <a class="opp-link gm-plan" href="matchup/matchup-pranav-gm.html">
+            <span class="badge-tag" style="background:#b8a000;">GM</span> Battle Plan (16 reliable classical games)
+          </a>
+          <a class="opp-link dev-map" href="matchup/opening-deviation-pranav.html">
+            <span class="badge-tag">MAP</span> Opening Map — Maróczy Bind (White) + Italian Bc5 book-perfect (Black)
+          </a>
+          <a class="opp-link pgn" href="pgnlib/usa/Santhosh, Pranav.pgn" download="Santhosh, Pranav.pgn">&#8615; PGN Library (53 games)</a>
+        </div>
+        <p class="opp-note">53 games, 10+ tournaments (2023–2026) · Reliable classical avg: <strong>92.1%</strong> (World Youth 93.4%, Blue Ridge 91%, SW Open 90%) · Engine analysis covers <strong>25 games</strong> (AGCA Fall/Summer, World Youth, Blue Ridge, SW Open) · GM plan: <strong>Italian 4.c3! 5.d4!</strong> as White (Pranav 0W-2D-1L with Giuoco Piano as Black); <strong>Sicilian Kan</strong> as Black.</p>
+      </div>
+
+      <!-- #9 Emerson Johnson — seed #9, 1909 -->
+      <div class="opponent-block">
+        <div class="opponent-header">
+          <span class="opp-name">Emerson Aurelius Johnson</span>
+          <span class="opp-meta">NAYCC seed #9 · Rating 1909 FIDE / 2078 US Chess · 1.e4 Rossolimo/Exch CK White · Caro-Kann/QGA Black · 7 tournaments · 38 games · <span style="font-weight:600;color:#856404">Latest: Sep 2026</span></span>
+          <span class="direct-record dr-none">No direct encounter</span>
+        </div>
+        <div class="opp-links">
+          <a class="opp-link matchup" href="matchup/matchup-emerson.html">
+            <span class="badge-tag">PLAN</span> Matchup Plan
+          </a>
+          <a class="opp-link deep" href="matchup/matchup-emerson-deep.html">
+            <span class="badge-tag" style="background:#1a5276;">DEEP</span> Engine Analysis — 38 Games
+          </a>
+          <a class="opp-link white-plan" href="matchup/matchup-emerson-white.html">
+            <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White
+          </a>
+          <a class="opp-link black-plan" href="matchup/matchup-emerson-black.html">
+            <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black
+          </a>
+          <a class="opp-link gm-plan" href="matchup/matchup-emerson-gm.html">
+            <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — Exchange CK + Rossolimo Fix
+          </a>
+          <a class="opp-link dev-map" href="matchup/opening-deviation-emerson.html">
+            <span class="badge-tag">MAP</span> Opening Map — Rossolimo c3/Qe2 (White) + CK …a6/b5 chain (Black)
+          </a>
+          <a class="opp-link pgn" href="pgnlib/usa/Johnson, Emerson Aurelius.pgn" download="Johnson, Emerson Aurelius.pgn">&#8615; PGN Library (38 games)</a>
+        </div>
+        <p class="opp-note">Overall 92.2% avg accuracy · Best: <strong>98.3%</strong> (193-move endgame vs 2044) · Worst: <strong>83.8%</strong> vs WGM in sharp tactics · Key insight: endgame specialist who beat WIM in 127 moves, but blunders from equality under tactical pressure.</p>
+      </div>
+
+      <!-- #10 Wu, Zhuoyuan — seed #10, 1890 -->
+      <div class="opponent-block">
+        <div class="opponent-header">
+          <span class="opp-name">Wu, Zhuoyuan</span>
+          <span class="opp-meta">NAYCC seed #10 · Rating 1890 FIDE (Nov 2026) · USA · World Schools 2026 + 6 US tournaments (2024–2026) · 46 games analyzed · 91.9% avg · <span style="font-weight:600;color:#856404">0.63 blunders/game (high)</span> · Deep analysis complete</span>
+          <span class="direct-record dr-none">No direct encounter</span>
+        </div>
+        <div class="opp-links">
+          <a class="opp-link gm-plan" href="matchup/matchup-zhuoyuan-gm.html">
+            <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — Rossolimo 3.Bb5 sidesteps Dragon + Taimanov vs unknown Sicilian-White
+          </a>
+          <a class="opp-link white-plan" href="matchup/matchup-zhuoyuan-white.html">
+            <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White — Rossolimo 3.Bb5 Sidesteps Dragon
+          </a>
+          <a class="opp-link black-plan" href="matchup/matchup-zhuoyuan-black.html">
+            <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black — Taimanov vs Unknown Sicilian-White
+          </a>
+          <a class="opp-link deep" href="matchup/matchup-zhuoyuan-deep.html">
+            <span class="badge-tag" style="background:#1a5276;">DEEP</span> Deep Analysis — 46 games, 91.9% avg, 0.63 blunders/game
+          </a>
+          <a class="opp-link dev-map" href="matchup/opening-deviation-zhuoyuan.html">
+            <span class="badge-tag">MAP</span> Opening Map — Exchange CK 4.Bd3 (mirror) + Classical 5…Nc6 (Black)
+          </a>
+          <a class="opp-link pgn" href="pgnlib/usa/Wu, Zhuoyuan.pgn" download="Wu, Zhuoyuan.pgn">&#8615; PGN Library (41 games)</a>
+        </div>
+        <p class="opp-note">46 games · deep Stockfish (movetime-3000) · White: 7W–7L–7D (91.2%) · Black: 7W–9L–9D (92.5%) · Primary Black weapon: Sicilian Accelerated Dragon (B34/B73) — Rossolimo sidesteps from move 3 · Critical vulnerability: time-pressure blunder chain (WS R5 vs 1969: 5 blunders when clock hit 1 min) · 0W–4L vs 1969+ rated opponents</p>
+      </div>
+
+      <!-- #11 Asher Chodniewicz — seed #11, 1884 -->
+      <div class="opponent-block">
+        <div class="opponent-header">
+          <span class="opp-name">Chodniewicz, Asher</span>
+          <span class="opp-meta">NAYCC 2026 (added Nov 2026) · Rating 1884 FIDE (Nov 2026) · USA (Texas) · 1.e4 Open Sicilian White · French Defense (all systems) Black · 8 tournaments · 35 games · 91.1% avg · <span style="font-weight:600;color:#2d7d46">Added Nov 2026</span></span>
+          <span class="direct-record dr-none">No direct encounter</span>
+        </div>
+        <div class="opp-links">
+          <a class="opp-link matchup" href="matchup/matchup-asher.html">
+            <span class="badge-tag">PLAN</span> Matchup Plan
+          </a>
+          <a class="opp-link deep" href="matchup/matchup-asher-deep.html">
+            <span class="badge-tag" style="background:#1a5276;">DEEP</span> Engine Analysis — 34 Games · 91.1% avg
+          </a>
+          <a class="opp-link white-plan" href="matchup/matchup-asher-white.html">
+            <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White — Tarrasch French 3.Nd2
+          </a>
+          <a class="opp-link black-plan" href="matchup/matchup-asher-black.html">
+            <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black — Taimanov vs Open Sicilian
+          </a>
+          <a class="opp-link dev-map" href="matchup/opening-deviation-asher.html">
+            <span class="badge-tag" style="background:#9a6700;">MAP</span> Opening Deviation Map — 6 systems
+          </a>
+          <a class="opp-link gm-plan" href="matchup/matchup-asher-gm.html">
+            <span class="badge-tag" style="background:#b8a000;">GM</span> R9 GM Battle Plan — Taimanov vs 5.Nxc6/Be3+Bd3
+          </a>
+          <a class="opp-link pgn" href="pgnlib/usa/Chodniewicz, Asher.pgn" download="Chodniewicz, Asher.pgn">&#8615; PGN Library (35 games)</a>
+        </div>
+        <p class="opp-note">35 games, 8 tournaments incl. NAYCC 2026 · 91.1% avg (Stockfish 3000ms deep) · White 9W–5L–1D (91.7%) · Black 5W–8L–6D (90.6%) · R9 key intel: 5.Nxc6 exchange documented (AGCA R9 B44 93.8%); early ...a6 (move 6) in Be3+Bd3 Taimanov = +0.08 (Lichess verified) · TX State Amateur 1W–4L–1D vs adult 1800–2000 field · Worst game 72.2% (SW Open R3) · NAYCC R6 88.4% loss vs Pranav.</p>
+      </div>
+
+      <div class="naycc-country-heading">🇲🇽 Mexico Opponents · ordered by seed</div>
+
+      <!-- #2 Fernando Cortes Medina — seed #2, 2085 -->
+      <div class="opponent-block">
+        <div class="opponent-header">
+          <span class="opp-name">Fernando Cortes Medina</span>
+          <span class="opp-meta">CM · NAYCC seed #2 · Rating 2085 · 1.e4/1.c4 White · French Defense Black · 7 tournaments · 39 games · <span style="font-weight:600;color:#2d7d46">Latest: Oct 2026</span></span>
+          <span class="direct-record dr-none">No direct encounter</span>
+        </div>
+        <div class="opp-links">
+          <a class="opp-link matchup" href="matchup/matchup-fernando.html">
+            <span class="badge-tag">PLAN</span> Matchup Plan
+          </a>
+          <a class="opp-link deep" href="matchup/matchup-fernando-deep.html">
+            <span class="badge-tag" style="background:#1a5276;">DEEP</span> C01 French Exchange
+          </a>
+          <a class="opp-link white-plan" href="matchup/matchup-fernando-white.html">
+            <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White
+          </a>
+          <a class="opp-link black-plan" href="matchup/matchup-fernando-black.html">
+            <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black
+          </a>
+          <a class="opp-link gm-plan" href="matchup/matchup-fernando-gm.html">
+            <span class="badge-tag" style="background:#b8a000;">GM</span> Battle Plan (37 classical games)
+          </a>
+          <a class="opp-link night-before" href="matchup/matchup-fernando-nightbefore.html">
+            <span class="badge-tag">TONIGHT</span> Night-Before Prep — Pattern G rook errors (75% loss rate), Advanced French weapon, zero decisive blunders
+          </a>
+          <a class="opp-link pgn" href="pgnlib/mexico/Cortes Medina, Fernando.pgn" download="Cortes Medina, Fernando.pgn">&#8615; PGN Library (39 games)</a>
+          <a class="opp-link dev-map" href="matchup/opening-deviation-fernando.html">
+            <span class="badge-tag">DEV</span> Opening Deviation Map — 6.f3 English Attack · 6…Rc8 French Advance
+          </a>
+        </div>
+        <p class="opp-note">Overall 92.8% avg accuracy (White 91.8%, Black 93.6%) across 7 tournaments · Worst: <strong>85.4%</strong> vs Perez (2395); <strong>86.6%</strong> vs GM Cori (2586) with 6 blunders · Key patterns: king navigation errors (Kb1?? Kf1??), rook misplacement (Rd7?? dropped +4.58→0), queen reactivation failures under pressure · GM plan: <strong>Tarrasch 3.Nd2</strong> as White (0 Fernando games — prep gap); <strong>Sicilian Kan …b5/…Rc8</strong> as Black (Fernando's 1.e4 White win rate only 25%).</p>
+      </div>
+
+      <!-- #5 Inti Dario Flores Ojeda — seed #5, 2011 -->
+      <div class="opp-block" id="inti">
+        <div class="opp-header">
+          <span class="opp-name">Flores Ojeda, Inti Dario</span>
+          <span class="opp-rating">NAYCC seed #5 · 2011 FIDE (Nov 2026; +256 in 13 months) · <span style="font-weight:600;color:#b45309">Latest: Aug 2026 — seek newer games</span></span>
+        </div>
+        <div class="opp-links">
+          <a class="opp-link matchup" href="matchup/matchup-inti.html">
+            <span class="badge-tag">PLAN</span> Matchup Plan
+          </a>
+          <a class="opp-link white-plan" href="matchup/matchup-inti-white.html">
+            <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White — Italian Classical d4 Plan
+          </a>
+          <a class="opp-link black-plan" href="matchup/matchup-inti-black.html">
+            <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black — Taimanov vs f4 System
+          </a>
+          <a class="opp-link deep" href="matchup/matchup-inti-deep.html">
+            <span class="badge-tag" style="background:#1a5276;">DEEP</span> Engine Analysis — 36 games, 90.6% avg
+          </a>
+          <a class="opp-link gm-plan" href="matchup/matchup-inti-gm.html">
+            <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — Italian d4 squeeze (White) + Taimanov O-O kingside (Black)
+          </a>
+          <a class="opp-link dev-map" href="matchup/opening-deviation-inti.html">
+            <span class="badge-tag">MAP</span> Opening Map — Bc4 Dragon (White) + Morphy Bc5 (Black)
+          </a>
+          <a class="opp-link night-before" href="matchup/matchup-inti-nightbefore.html">
+            <span class="badge-tag">TONIGHT</span> Night-Before Prep — Pattern F 88% loss correlation · Ruy Lopez weapon
+          </a>
+          <a class="opp-link pgn" href="pgnlib/mexico/Flores Ojeda, Inti Dario.pgn" download="Flores Ojeda, Inti Dario.pgn">&#8615; PGN Library (38 games w/ moves)</a>
+          <a class="opp-link lichess" href="https://lichess.org/@/inti_flores" target="_blank" rel="noopener">
+            <span class="badge-tag">LICHESS</span> Lichess Profile — inti_flores
+          </a>
+        </div>
+        <p class="opp-note">38 games with moves in pgnlib (42 result-only entries removed · 36 with deep Stockfish analysis across 5 tournaments) · 90.6% overall accuracy (SF 3000ms) · Querétaro 2026: 5W-1L-2D, 92.5% — best recent form · White: 1.e4 Open Sicilian f4-e5 system (catastrophic B43 loss vs De Alba: 14B/7M); French Rubinstein LOSS 85.9% · Black: 1…e5 exclusively — Italian C54 (98.5%, 98.1% best games), Ruy Lopez C77/C78 · Sep–Nov 2026 OTB games still missing · GM Plan: Italian Classical d4 squeeze as White; Taimanov KINGSIDE castle + …b5-b4 break as Black · NEVER castle queenside vs Inti's f4 system.</p>
+      </div>
+
+      <!-- #14 Yaen Saenz Cabrera — seed #14, 1841 -->
+      <div class="opponent-block">
+        <div class="opponent-header">
+          <span class="opp-name">Yaen Saenz Cabrera</span>
+          <span class="opp-meta">NAYCC seed #14 · Rating ~1841 FIDE (peaked 1899) · 1.e4 Scotch C45 White · Sicilian Sveshnikov B32/B33 Black · 12 tournaments · 50 games · 90.9% avg · <span style="font-weight:600;color:#856404">Latest: Sep 2026</span></span>
+          <span class="direct-record dr-none">No direct encounter</span>
+        </div>
+        <div class="opp-links">
+          <a class="opp-link matchup" href="matchup/matchup-yaen.html">
+            <span class="badge-tag">PLAN</span> Matchup Plan
+          </a>
+          <a class="opp-link deep" href="matchup/matchup-yaen-deep.html">
+            <span class="badge-tag" style="background:#1a5276;">DEEP</span> Engine Analysis — 50 Games
+          </a>
+          <a class="opp-link white-plan" href="matchup/matchup-yaen-white.html">
+            <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White
+          </a>
+          <a class="opp-link black-plan" href="matchup/matchup-yaen-black.html">
+            <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black
+          </a>
+          <a class="opp-link gm-plan" href="matchup/matchup-yaen-gm.html">
+            <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — Rossolimo vs Sveshnikov; Taimanov/Kalashnikov Black
+          </a>
+          <a class="opp-link dev-map" href="matchup/opening-deviation-yaen.html">
+            <span class="badge-tag">MAP</span> Opening Map — Scotch Nb3/c4 system (White) + Löwenthal 4…e5 (Black)
+          </a>
+          <a class="opp-link pgn" href="pgnlib/mexico/Saenz Cabrera, Yaen.pgn" download="Saenz Cabrera, Yaen.pgn">&#8615; PGN Library (50 games)</a>
+        </div>
+        <p class="opp-note">50 games, 90.9% avg · White 91.2% (27g, 17W–8L–2D) · Black 90.6% (23g, 14W–3L–6D) · Scotch C45 specialist (collapses vs 1900+: 89.1% loss to Alba 1933 with 7B4M) · Sicilian Sveshnikov B32/B33 as Black · +118 Austin advantage (Austin 1959 vs Yaen 1841) · Worst section: Olimpiada Classical 83.8% · Rossolimo sidesteps Yaen's B32 preparation.</p>
+      </div>
+
+      <!-- #19 Daniel Hernandez Gamboa — seed #19, 1753 -->
+      <div class="opponent-block">
+        <div class="opponent-header">
+          <span class="opp-name">Daniel Hernandez Gamboa</span>
+          <span class="opp-meta">NAYCC seed #19 · Rating 1753 FIDE (Nov 2026; peaked 1767) · 1.e4 White (Exch French/Philidor/Pirc/Taimanov) · 1...e5 / Dutch Stonewall Black · 6 tournaments · 12 games · <span style="font-weight:600;color:#b45309">Latest: Aug 2026 — seek newer games</span></span>
+          <span class="direct-record dr-none">No direct encounter</span>
+        </div>
+        <div class="opp-links">
+          <a class="opp-link matchup" href="matchup/matchup-danielh.html">
+            <span class="badge-tag">PLAN</span> Matchup Plan
+          </a>
+          <a class="opp-link deep" href="matchup/matchup-danielh-deep.html">
+            <span class="badge-tag" style="background:#1a5276;">DEEP</span> Engine Analysis — 12 Games
+          </a>
+          <a class="opp-link white-plan" href="matchup/matchup-danielh-white.html">
+            <span class="badge-tag" style="background:#2d7d46;">WHITE</span> Austin as White
+          </a>
+          <a class="opp-link black-plan" href="matchup/matchup-danielh-black.html">
+            <span class="badge-tag" style="background:#1a5276;">BLACK</span> Austin as Black
+          </a>
+          <a class="opp-link gm-plan" href="matchup/matchup-danielh-gm.html">
+            <span class="badge-tag" style="background:#b8a000;">GM</span> GM Battle Plan — Italian 3.Bc4! vs Four Knights; Sicilian Black
+          </a>
+          <a class="opp-link pgn" href="pgnlib/mexico/Hernandez Gamboa, Daniel.pgn" download="Hernandez Gamboa, Daniel.pgn">&#8615; PGN Library (12 games)</a>
+        </div>
+        <p class="opp-note">Overall 90.4% avg · White 91.1% (7g) · Black 89.3% (5g) · Best: <strong>96.2%</strong> (Aguas2025 R4 dominant win) · Worst: <strong>83.2%</strong> (3B+7M in Taimanov win) · Key insight: all 3 Black losses via single catastrophic blunder from equality (Qd1?? CPL:827, Nxe4?? CPL:519, Re8?? CPL:647) — holds for 20+ moves then collapses in one move; 5W–0L–2D as White, never lost as White in 12-game dataset.</p>
+      </div>
+
+    </div><!-- /naycc-other-body -->
+  </div><!-- /naycc-other-accordion -->
 
   <!-- Other Opponents — not on NAYCC 2026 Nov 1 roster -->
   <div class="section-heading" style="font-size:1rem;margin-top:40px;">Other Opponents <span style="font-size:0.8rem;font-weight:400;color:#57606a;">· moved sections or not competing at NAYCC 2026</span></div>
@@ -1615,6 +1691,30 @@ const ACCURACY_DATA = {
 </script>
 
 <script>
+/* ── NAYCC USA/Mexico Accordion ── */
+(function() {
+  var acc = document.getElementById('naycc-usa-mex');
+  if (!acc) return;
+  var btn = acc.querySelector('.naycc-other-btn');
+  var label = document.getElementById('naycc-expand-label');
+  btn.addEventListener('click', function() {
+    var opening = !acc.classList.contains('open');
+    acc.classList.toggle('open', opening);
+    if (label) label.textContent = opening ? 'Collapse ↑' : 'Expand ↓';
+  });
+  /* Opponents inside the accordion also need individual collapse support */
+  var innerBlocks = acc.querySelectorAll('.opponent-block, .opp-block');
+  innerBlocks.forEach(function(b) { b.classList.add('collapsed'); });
+  innerBlocks.forEach(function(b) {
+    var hdr = b.querySelector('.opponent-header, .opp-header');
+    if (!hdr) return;
+    hdr.addEventListener('click', function(e) {
+      if (e.target.closest('a')) return;
+      b.classList.toggle('collapsed');
+    });
+  });
+})();
+
 /* ── Collapsible index UI ───────────────────────────────────────────────── */
 (function() {
   'use strict';
@@ -1666,7 +1766,7 @@ const ACCURACY_DATA = {
   /* Sections to leave OPEN (match by prefix) */
   var OPEN_TEXTS = [
     "Austin's 2026 Game Reviews",
-    'NAYCC 2026 Opponents',
+    '🇨🇦 Canadian Opponents',
     'Training Plan',
   ];
 
