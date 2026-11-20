@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- chess-auth-v1 -->
+  <script>
+  (function() {
+    var KEY = 'chess2026';
+    var p = new URLSearchParams(location.search);
+    if (p.get('key') === KEY) { localStorage.setItem('chess-key', KEY); }
+    if (localStorage.getItem('chess-key') !== KEY) {
+      var input = prompt('Access code:');
+      if (input !== KEY) {
+        document.body.innerHTML = '<p style="font-family:sans-serif;padding:40px;color:#666">Access denied.</p>';
+        return;
+      }
+      localStorage.setItem('chess-key', KEY);
+    }
+  })();
+  </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Austin as White vs De Alba Boudreau, Pablo</title>

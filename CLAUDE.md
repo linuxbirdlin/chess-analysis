@@ -11,7 +11,7 @@ This project helps **Austin Lin** prepare for competitive chess tournaments by:
 2. Analyzing potential opponents' games
 3. Generating matchup-specific preparation plans
 
-Opponents analyzed to date: **Justin Huang, Aarush Ajith, Zachary Liu, Heye Gao, Fernando Cortes Medina, Pranav Santhosh, Emerson Johnson, Leo Jackson, Tarun Sankar, Daniel Hernandez Gamboa, Yaen Saenz Cabrera, Daniel Joshua Lee, Pablo Elliot De Alba Boudreau, Joel Ethan Jeyaraj, Inti Dario Flores Ojeda, Zhuoyuan Wu, Asher Chodniewicz** — full pipeline complete for all 17 opponents. Note: Heye Gao and Daniel Joshua Lee moved to other sections at NAYCC 2026 (Nov 1 roster); Inti Flores Ojeda added (seed #5 after Reyansh insertion, 2011 FIDE, MEX). Zhuoyuan Wu (seed #10, 1890 FIDE, USA). Asher Chodniewicz (1884 FIDE, USA/Texas) — NAYCC 2026 opponent added to roster Nov 2026. 34 games, deep analysis complete (movetime-3000), full pipeline including matchup-asher.html, deep, white, black HTMLs. **Reyansh Paragiri** (seed #4, 2067 FIDE, USA, 2015-born) — full pipeline complete (Nov 2026): 104-game pgnlib (deduped), 83-game deep analysis (movetime-3000, 91.8% avg), matchup.html + white.html + black.html + gm.html. KEY: Rossolimo 3.Bb5 weapon (Reyansh 0-2), Maróczy Bind 5.c4 trap to avoid as Black (8+ games). **Santino Valdez Alvarez** (1639 FIDE, MEX/Baja Cal. Sur) — minimal pipeline (Nov 2026): 2-game pgnlib (CONADE 2026, both White losses), analysis.md, matchup.html. Black repertoire unknown. Stored under opponents/lower-rates/santino/.
+Opponents analyzed to date: **Justin Huang, Aarush Ajith, Zachary Liu, Heye Gao, Fernando Cortes Medina, Pranav Santhosh, Emerson Johnson, Leo Jackson, Tarun Sankar, Daniel Hernandez Gamboa, Yaen Saenz Cabrera, Daniel Joshua Lee, Pablo Elliot De Alba Boudreau, Joel Ethan Jeyaraj, Inti Dario Flores Ojeda, Zhuoyuan Wu, Asher Chodniewicz** — full pipeline complete for all 17 opponents. Note: Heye Gao and Daniel Joshua Lee moved to other sections at NAYCC 2026 (Nov 1 roster); Inti Flores Ojeda added (seed #5 after Reyansh insertion, 2011 FIDE, MEX). Zhuoyuan Wu (seed #10, 1890 FIDE, USA). Asher Chodniewicz (1884 FIDE, USA/Texas) — NAYCC 2026 opponent added to roster Nov 2026. 34 games, deep analysis complete (movetime-3000), full pipeline including matchup-asher.html, deep, white, black HTMLs. **Reyansh Paragiri** (seed #4, 2067 FIDE, USA, 2015-born) — full pipeline complete (Nov 2026): 104-game pgnlib (deduped), 83-game deep analysis (movetime-3000, 91.8% avg), matchup.html + white.html + black.html + gm.html. KEY: Rossolimo 3.Bb5 weapon (Reyansh 0-2), Maróczy Bind 5.c4 trap to avoid as Black (8+ games). **Santino Valdez Alvarez** (1639 FIDE, MEX/Baja Cal. Sur) — minimal pipeline (Nov 2026): 2-game pgnlib (CONADE 2026, both White losses), analysis.md, matchup.html. Black repertoire unknown. Stored under opponents/mexico/santino/.
 
 ---
 
@@ -32,9 +32,17 @@ chess-analysis/
 │                               #   fernando, pranav, emerson, leo, tarun,
 │                               #   danielh, yaen, danielee, pablo, joel
 │
-├── pgnlib/                     # Combined PGN library (one file per opponent)
-│   └── {Legal Name}.pgn        # All games merged, sorted by date desc, deduplicated
-│                               #   e.g. "Huang, Justin.pgn", "Ajith, Aarush.pgn"
+├── pgnlib/                     # Combined PGN library — country-grouped subfolders
+│   ├── MANIFEST.md             # Naming convention, country assignments, game counts
+│   ├── canada/                 # 9 players: Ajith, De Alba Boudreau, Gao, Huang,
+│   │                           #   Jeyaraj, Lee, Liu, Szeto, Xie
+│   ├── usa/                    # 7 players: Chodniewicz, Jackson, Johnson, Paragiri,
+│   │                           #   Santhosh, Wu, Yadatore
+│   ├── mexico/                 # 8 players: Cortes Medina, Dominguez Alarcon,
+│   │                           #   Flores Ojeda, Hernandez Gamboa, Ruiz Gastelum,
+│   │                           #   Saenz Cabrera, Salazar Rodriguez, Valdez Alvarez
+│   └── others/                 # Sankar, Tarun (country unconfirmed)
+│       # Format: "{LastName}, {FirstName(s)}.pgn" — sorted date desc, deduplicated
 │
 ├── matchup/
 │   ├── matchup-{name}.md       # Matchup prep source (per opponent)
@@ -42,12 +50,15 @@ chess-analysis/
 │   ├── matchup-{name}-deep.html  # Engine-backed deep analysis HTML
 │   ├── matchup-{name}-white.html # Austin as White per-color prep
 │   └── matchup-{name}-black.html # Austin as Black per-color prep
-│       # Full pipeline (deep + white + black) for all 12 opponents
+│       # Full pipeline (deep + white + black) for all 17 opponents
 │
 ├── austin/
 │   ├── naycc2025/              # NAYCC 2025 games (9 games, PGN)
 │   │   ├── review.html         # Standard tournament review (shareable)
 │   │   └── review-deep.html    # Deep IM-level review (shareable)
+│   ├── naycc2026/              # NAYCC 2026 tracker + roster
+│   │   ├── naycc2026-tracker.html
+│   │   └── chess-roster-final.xlsx
 │   ├── pam2026/                # PAM 2026 games (7 games, non-standard format)
 │   │   ├── review.html
 │   │   └── review-deep.html
@@ -57,30 +68,63 @@ chess-analysis/
 │   └── copilot-review/         # Reference template (not Austin's games)
 │
 ├── scripts/
-│   ├── analyze-{opponent}.js   # Stockfish analysis scripts (one per opponent)
-│   ├── build-pgnlib.js         # Builds pgnlib/ from opponents/ (deduplicates, sorts)
-│   └── {opponent}-analysis-results.json  # Cached engine results
+│   ├── analyze/                # Stockfish analysis drivers (one per opponent, 29 files)
+│   │   └── analyze-{name}.js
+│   ├── deviation/              # Opening deviation analysis (14 files)
+│   │   └── {name}-opening-deviation.js
+│   ├── fw/                     # Find-weakness scripts (5 files)
+│   │   └── fw-{name}.js / find-weakness-{name}.js
+│   ├── utils/                  # Shared utilities
+│   │   ├── build-pgnlib.js
+│   │   ├── fetch-accuracy.js
+│   │   ├── query-openings.js
+│   │   ├── extract-reyansh-html.js
+│   │   └── archive/            # Superseded one-off scripts
+│   └── data/                   # Cached engine results (54 JSON files)
+│       └── {name}-analysis-results.json
 │
-├── training-coach/             # Training coach proposal docs
+├── training-coach/             # Python analysis pipeline (IM-level + GM-level)
+│   ├── README.md               # Setup and usage instructions
+│   └── gm-preparation/        # GM-level battle plan generator
 │
 └── opponents/
-    ├── justin/                 # canadaclosed2026, pam2026, pamschool2026, torontoopen2026
-    ├── aarush/                 # canadaclosed2026, pamschool2026, pam2026, torontoopen2026, canadaopen2026
-    ├── zachary/                # britishleague, bscup2026, canadaclose2026, pam2026, pamschool2026
-    ├── heye/                   # canadaclose2026, pam2026, pamschool2026, torontoopen2026
-    ├── fernando/               # ed-national, mex-ch16th, mex-op71, olypianational2026, pamschool2026
-    ├── pranav/                 # agcafall2026, agcasummer2026, worldyouth2026
-    ├── emerson/                # 7 tournaments, 40 games
-    ├── leo/                    # jackson,leo.pgn — 47 games
-    ├── tarun/                  # Tarun.pgn, grandcircuit.pgn, skyline2026.pgn, newgames.pgn — 26 games in pgnlib, 23 analyzed
-    ├── danielh/                # queretaro2024/2025/2026, anothergame — 8 games
-    ├── yaen/                   # saenz cabrera, yaen.pgn — 64 games
-    ├── danielee/               # canadaclose2026, pam2026, pamschool2026, torontoopen2026 — 24 games
-    ├── pablo/                  # PabliElliot-ChaseBase.pgn (57 games) + newgames.pgn (3 Copa 2026 games)
-    ├── joel/                   # Joel-Ethan-chessBase.pgn (1 classical) + lichess_JEJ13_2026-10-26.pgn (100 Lichess)
-    ├── inti/                   # copa2025.pgn (6 blitz 10+5), Queretaro2026.pgn (6 classical), agua2026.pgn (1 classical)
-    ├── zhuoyuan/               # schoolteam2026 (7 Lichess broadcast), capps2025 (4), stamer (2), addison2025 (2) — 15 games
-    └── asher/                  # asher.pgn (31 games from SnoopChess), texas-fall-2026.pgn (3 games) — 34 total
+    ├── canada/                 # 9 players
+    │   ├── justin/             # canadaclosed2026, pam2026, pamschool2026, torontoopen2026
+    │   ├── aarush/             # canadaclosed2026, pamschool2026, pam2026, torontoopen2026, canadaopen2026
+    │   ├── zachary/            # britishleague, bscup2026, canadaclose2026, pam2026, pamschool2026
+    │   ├── heye/               # canadaclose2026, pam2026, pamschool2026, torontoopen2026
+    │   ├── danielee/           # canadaclose2026, pam2026, pamschool2026, torontoopen2026 — 24 games
+    │   ├── joel/               # Joel-Ethan-chessBase.pgn + lichess_JEJ13_2026-10-26.pgn
+    │   ├── jordan/             # Jordan Szeto games
+    │   ├── pablo/              # PabloElliot-ChessBase.pgn (57 games) + newgames.pgn (3 Copa 2026)
+    │   └── irene/              # Irene Xie games
+    │
+    ├── usa/                    # 7 players
+    │   ├── emerson/            # 7 tournaments, 40 games
+    │   ├── leo/                # 47+ games
+    │   ├── reyansh/            # 100+ games; NAYCC 2026 R3–R6 included
+    │   ├── zhuoyuan/           # schoolteam2026, capps2025, stamer, addison2025 — 15 games
+    │   ├── asher/              # asher.pgn (31 games) + texas-fall-2026.pgn (3 games) — 34 total
+    │   ├── pranav/             # agcafall2026, agcasummer2026, worldyouth2026
+    │   └── neel/               # 15 games (NAYCC 2023 + 2026)
+    │
+    ├── mexico/                 # 12 players
+    │   ├── fernando/           # ed-national, mex-ch16th, mex-op71, olimpianational2026, pamschool2026
+    │   ├── danielh/            # queretaro2024/2025/2026, anothergame — 8 games
+    │   ├── inti/               # copa2025.pgn, Queretaro2026.pgn, agua2026.pgn — 13 classical
+    │   ├── santino/            # 2-game pgnlib (CONADE 2026, both White losses)
+    │   ├── yaen/               # 64+ games
+    │   ├── benito/             # PAM 2026 + 2025 Mexican tournaments — 21 games
+    │   ├── erik/               # 7 Lichess broadcast games
+    │   ├── mateo-ruiz/         # 64 games (2024–2026 Mexican tournaments)
+    │   ├── ian-axel/           # Ian Axel Calzada Martinez games
+    │   ├── ian-marco/          # 89 total (56 classical) — American Continental, NA Junior, Carlos Torre
+    │   ├── cristian/           # Cristian Jeron Lagunes Mendez games
+    │   └── marco/              # Marco Cristofer Olivo Diaz — 22 games
+    │
+    ├── tarun/                  # Tarun.pgn, grandcircuit.pgn, skyline2026.pgn, newgames.pgn — 28 games
+    │                           #   (at opponents/ root — country unconfirmed; will move to canada/ or usa/)
+    └── lichess-accounts.txt    # Lichess usernames for all opponents
 ```
 
 ---
