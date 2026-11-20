@@ -13,11 +13,11 @@ const RESULTS_FILE = SF_MOVETIME > 800
 
 // PGN source files — order matters for deduplication (first-seen wins)
 const PGN_FILES = [
-  path.join(ROOT, 'opponents/others/tarun/Tarun.pgn'),
-  path.join(ROOT, 'opponents/others/tarun/grandcircuit.pgn'),
-  path.join(ROOT, 'opponents/others/tarun/skyline2026.pgn'),
-  path.join(ROOT, 'opponents/others/tarun/newgames.pgn'),
-  path.join(ROOT, 'opponents/others/tarun/naycc2026.pgn'),
+  path.join(ROOT, 'opponents/usa/tarun/Tarun.pgn'),
+  path.join(ROOT, 'opponents/usa/tarun/grandcircuit.pgn'),
+  path.join(ROOT, 'opponents/usa/tarun/skyline2026.pgn'),
+  path.join(ROOT, 'opponents/usa/tarun/newgames.pgn'),
+  path.join(ROOT, 'opponents/usa/tarun/naycc2026.pgn'),
 ];
 
 const SF_THREADS    = parseInt(process.env.SF_THREADS || '16', 10);

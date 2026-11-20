@@ -141,7 +141,7 @@ function analyzeDeviation(trunkEntries, color, label, gameCount) {
 }
 
 // ── Main ────────────────────────────────────────────────────────────────────
-const pgnPath = path.resolve(__dirname, '../../pgnlib/others/Sankar, Tarun.pgn');
+const pgnPath = path.resolve(__dirname, '../../pgnlib/usa/Sankar, Tarun.pgn');
 const games = parsePgnFile(pgnPath);
 console.log(`Parsed ${games.length} Tarun games`);
 
