@@ -1693,17 +1693,7 @@ const ACCURACY_DATA = {
     acc.classList.toggle('open', opening);
     if (label) label.textContent = opening ? 'Collapse ↑' : 'Expand ↓';
   });
-  /* Opponents inside the accordion also need individual collapse support */
-  var innerBlocks = acc.querySelectorAll('.opponent-block, .opp-block');
-  innerBlocks.forEach(function(b) { b.classList.add('collapsed'); });
-  innerBlocks.forEach(function(b) {
-    var hdr = b.querySelector('.opponent-header, .opp-header');
-    if (!hdr) return;
-    hdr.addEventListener('click', function(e) {
-      if (e.target.closest('a')) return;
-      b.classList.toggle('collapsed');
-    });
-  });
+  /* Individual block collapse is handled by the global collapsible UI below */
 })();
 
 /* ── Training & Drills Accordion ── */
