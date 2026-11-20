@@ -413,6 +413,54 @@
     }
     .ach-badge.gold { background: #9a6700; }
 
+    /* ── Collapsible opponent blocks ── */
+    .opponent-block .opponent-header,
+    .opp-block .opp-header {
+      cursor: pointer;
+      user-select: none;
+      border-radius: 6px;
+      padding: 8px 10px;
+      margin: -4px -10px 10px;
+      transition: background .12s;
+    }
+    .opponent-block .opponent-header:hover,
+    .opp-block .opp-header:hover { background: #f0f3f7; }
+    .opponent-block .opponent-header::after,
+    .opp-block .opp-header::after {
+      content: '▾';
+      float: right;
+      font-size: 0.95rem;
+      color: #9ca3af;
+      transition: transform .15s;
+      line-height: 1.6;
+    }
+    .opponent-block.collapsed .opponent-header::after,
+    .opp-block.collapsed .opp-header::after { transform: rotate(-90deg); }
+    .opponent-block.collapsed .opp-links,
+    .opponent-block.collapsed .opp-note,
+    .opp-block.collapsed .opp-links,
+    .opp-block.collapsed .opp-note { display: none; }
+    .opponent-block { border-left: 3px solid transparent; padding-left: 8px; border-radius: 0 6px 6px 0; transition: border-color .12s; }
+    .opponent-block:not(.collapsed) { border-left-color: #d0d7de; }
+
+    /* ── Collapsible sections ── */
+    .section-collapsible { cursor: pointer; user-select: none; }
+    .section-collapsible::before { content: '▾ '; font-size: 0.85rem; display: inline-block; transition: transform .15s; }
+    .section-collapsible.sec-closed::before { transform: rotate(-90deg); }
+    .sec-hidden { display: none !important; }
+
+    /* ── Expand All / Collapse All ── */
+    .opp-controls { display: flex; justify-content: flex-end; gap: 8px; margin: -8px 0 14px; }
+    .opp-btn {
+      font-size: 0.78rem; font-weight: 600;
+      color: #57606a; border: 1px solid #d0d7de;
+      background: #f6f8fa; border-radius: 6px; padding: 4px 12px;
+      cursor: pointer; transition: all .12s;
+    }
+    .opp-btn:hover { border-color: #2d7d46; color: #2d7d46; background: #f0faf4; }
+    .opp-btn.primary { color: #2d7d46; border-color: #c8e6d2; background: #f0faf4; }
+    .opp-btn.primary:hover { background: #dafbe1; }
+
     /* ── Future placeholder ── */
     .future-placeholder {
       background: #f6f8fa; border: 2px dashed #d0d7de; border-radius: 10px;
@@ -1563,6 +1611,97 @@ const ACCURACY_DATA = {
       }
     }
   });
+})();
+</script>
+
+<script>
+/* ── Collapsible index UI ───────────────────────────────────────────────── */
+(function() {
+  'use strict';
+
+  /* 1. Collapse all opponent blocks by default */
+  var oppBlocks = document.querySelectorAll('.opponent-block, .opp-block');
+  oppBlocks.forEach(function(b) { b.classList.add('collapsed'); });
+
+  oppBlocks.forEach(function(b) {
+    var hdr = b.querySelector('.opponent-header, .opp-header');
+    if (!hdr) return;
+    hdr.addEventListener('click', function(e) {
+      if (e.target.closest('a')) return; // don't toggle when clicking a link
+      b.classList.toggle('collapsed');
+    });
+  });
+
+  /* 2. Expand All / Collapse All button — insert after the opponents hr */
+  var oppHr = document.getElementById('opponents');
+  if (oppHr) {
+    var ctrl = document.createElement('div');
+    ctrl.className = 'opp-controls';
+    var expandBtn = document.createElement('button');
+    expandBtn.className = 'opp-btn primary';
+    expandBtn.textContent = 'Expand All Opponents';
+    var allExpanded = false;
+    expandBtn.addEventListener('click', function() {
+      allExpanded = !allExpanded;
+      oppBlocks.forEach(function(b) { b.classList.toggle('collapsed', !allExpanded); });
+      expandBtn.textContent = allExpanded ? 'Collapse All Opponents' : 'Expand All Opponents';
+    });
+    ctrl.appendChild(expandBtn);
+    /* insert just before the achievement banner (which follows the hr) */
+    var banner = oppHr.nextElementSibling;
+    if (banner) oppHr.parentNode.insertBefore(ctrl, banner);
+    else oppHr.after(ctrl);
+  }
+
+  /* 3. Collapse secondary sections by default */
+  var COLLAPSE_TEXTS = [
+    'Accuracy Trend',
+    'Other Opponents',
+    'NAYCC 2026 — Round 1 Opponent',
+    'Sparring Partner',
+    'Play-On Section',
+    "Austin's 2025 Game Reviews",
+  ];
+
+  /* Sections to leave OPEN (match by prefix) */
+  var OPEN_TEXTS = [
+    "Austin's 2026 Game Reviews",
+    'NAYCC 2026 Opponents',
+    'Training Plan',
+  ];
+
+  document.querySelectorAll('.section-heading').forEach(function(heading) {
+    var text = heading.textContent.trim();
+
+    /* Check if this heading should be collapsible */
+    var startClosed = COLLAPSE_TEXTS.some(function(t) { return text.startsWith(t); });
+    var forceOpen   = OPEN_TEXTS.some(function(t) { return text.startsWith(t); });
+    if (forceOpen) return; /* don't touch these */
+
+    /* Gather sibling elements until the next section boundary */
+    var siblings = [];
+    var el = heading.nextElementSibling;
+    while (el) {
+      if (el.matches('.section-heading, .year-heading, hr, nav, .year-nav, .achievement-banner')) break;
+      siblings.push(el);
+      el = el.nextElementSibling;
+    }
+    if (!siblings.length) return;
+
+    heading.classList.add('section-collapsible');
+
+    if (startClosed) {
+      siblings.forEach(function(s) { s.classList.add('sec-hidden'); });
+      heading.classList.add('sec-closed');
+    }
+
+    heading.addEventListener('click', function() {
+      var closing = !heading.classList.contains('sec-closed');
+      heading.classList.toggle('sec-closed', closing);
+      siblings.forEach(function(s) { s.classList.toggle('sec-hidden', closing); });
+    });
+  });
+
 })();
 </script>
 </body>
