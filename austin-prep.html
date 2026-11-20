@@ -1373,9 +1373,23 @@
 
   <hr id="training" />
 
-  <!-- Training Plan -->
-  <div class="year-heading">Training &amp; Drills</div>
-  <div class="section-heading">Training Plan</div>
+  <!-- Training & Drills accordion -->
+  <div class="naycc-other-accordion" id="training-accordion">
+    <button class="naycc-other-btn" style="background: linear-gradient(135deg, #f0f8f4 0%, #e2f2ea 100%);">
+      <div class="naycc-btn-left">
+        <span class="naycc-btn-arrow" style="color:#2d7d46;">▶</span>
+        <div>
+          <div class="naycc-btn-title">Training &amp; Drills</div>
+          <div class="naycc-btn-sub">10 resources · Cheat sheet · GM brief · Tactics · Blunder tracker · Novelty trees · Coaching sessions · Audit plan</div>
+        </div>
+      </div>
+      <div class="naycc-btn-tags">
+        <span class="naycc-ctag" style="background:#e8f5ec;color:#1a5e30;border-color:#8ec9a0;">📋 10 Resources</span>
+        <span class="naycc-ctag expand-tag" id="training-expand-label" style="background:#2d7d46;border-color:#2d7d46;">Expand ↓</span>
+      </div>
+    </button>
+    <div class="naycc-other-body">
+      <div class="section-heading" style="margin-top:16px;">Training Plan</div>
 
   <a class="training-card" href="next-step/naycc2026-cheatsheet.html" style="border-color: #1a3a6e; background: #f0f4ff;">
     <div class="tc-label" style="color:#1a3a6e;">Game-Day Cheat Sheet — NAYCC 2026</div>
@@ -1520,6 +1534,9 @@
   </a>
 
   <p style="font-size:0.82rem;color:#57606a;margin:4px 0 0;">Older drill sets &amp; theory checks → <a href="austin-prep-archive.html" style="color:#2d7d46;font-weight:600;">Archive Reports</a></p>
+
+    </div><!-- /training accordion body -->
+  </div><!-- /training accordion -->
 
   <hr id="yfuture" />
 
@@ -1689,6 +1706,19 @@ const ACCURACY_DATA = {
   });
 })();
 
+/* ── Training & Drills Accordion ── */
+(function() {
+  var acc = document.getElementById('training-accordion');
+  if (!acc) return;
+  var btn = acc.querySelector('.naycc-other-btn');
+  var label = document.getElementById('training-expand-label');
+  btn.addEventListener('click', function() {
+    var opening = !acc.classList.contains('open');
+    acc.classList.toggle('open', opening);
+    if (label) label.textContent = opening ? 'Collapse ↑' : 'Expand ↓';
+  });
+})();
+
 /* ── Collapsible index UI ───────────────────────────────────────────────── */
 (function() {
   'use strict';
@@ -1739,7 +1769,6 @@ const ACCURACY_DATA = {
   var OPEN_TEXTS = [
     "Austin's 2026 Game Reviews",
     '🇨🇦 Canadian Opponents',
-    'Training Plan',
   ];
 
   document.querySelectorAll('.section-heading').forEach(function(heading) {
